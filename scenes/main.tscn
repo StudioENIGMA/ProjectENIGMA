@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://5lby0fhxei1c"]
+
+[node name="main" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="notification_popup" type="Window" parent="Control"]
+
+[node name="messages_app" type="Node2D" parent="Control"]
