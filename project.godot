@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="Project ENIGMA"
+run/main_scene="uid://5lby0fhxei1c"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=2400
+window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [rendering]
 

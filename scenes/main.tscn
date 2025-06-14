@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://5lby0fhxei1c"]
+[gd_scene load_steps=3 format=3 uid="uid://5lby0fhxei1c"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sgp6g"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o5qli"]
 
 [node name="main" type="Node2D"]
 
@@ -8,6 +12,26 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="notification_popup" type="Window" parent="Control"]
-
 [node name="messages_app" type="Node2D" parent="Control"]
+position = Vector2(0, 1)
+
+[node name="Background" type="Sprite2D" parent="Control/messages_app"]
+modulate = Color(0.945098, 1, 0.960784, 1)
+scale = Vector2(1080, 2400)
+texture = SubResource("CanvasTexture_sgp6g")
+
+[node name="home_page" type="Node2D" parent="Control/messages_app"]
+
+[node name="chat_page" type="Node2D" parent="Control/messages_app"]
+
+[node name="close_icon" type="Sprite2D" parent="Control/messages_app"]
+
+[node name="notification_pop_up" type="Node2D" parent="Control"]
+
+[node name="notification" type="Sprite2D" parent="Control/notification_pop_up"]
+modulate = Color(0.0980392, 0.380392, 0.32549, 1)
+position = Vector2(0, -1000)
+scale = Vector2(1000, 300)
+texture = SubResource("CanvasTexture_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="."]
