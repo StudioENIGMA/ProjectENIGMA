@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5qfjsihyrf6e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b5iey"]
+
+[node name="messages_app" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.960784, 1)
+scale = Vector2(1080, 2400)
+texture = SubResource("CanvasTexture_b5iey")
