@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://782uc7mdo00s"]
+
+[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="1_6euxv"]
+[ext_resource type="Script" uid="uid://u5sf0v35yk3l" path="res://scripts/notification_popup.gd" id="1_uiujy"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_y4pw6"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_uiujy"]
+
+[sub_resource type="Animation" id="Animation_os8hv"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("notification:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.196147, 3.36358),
+"update": 0,
+"values": [Vector2(0, -400), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4rfki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("notification:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlsx4"]
+_data = {
+&"RESET": SubResource("Animation_4rfki"),
+&"appear": SubResource("Animation_os8hv")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiujy"]
+bg_color = Color(0.0980392, 0.380392, 0.32549, 0.823529)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="notification_popup" type="Node2D"]
+script = ExtResource("1_uiujy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qlsx4")
+}
+autoplay = "appear"
+
+[node name="notification" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="notification"]
+offset_left = -500.0
+offset_top = -1150.0
+offset_right = 500.0
+offset_bottom = -900.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uiujy")
+
+[node name="content" type="Label" parent="notification"]
+offset_left = -249.0
+offset_top = -1034.0
+offset_right = 401.0
+offset_bottom = -951.0
+theme_override_fonts/font = ExtResource("1_y4pw6")
+theme_override_font_sizes/font_size = 28
+text = "Olá, seja bem vindo à Enigma, putinha!"
+
+[node name="title" type="Label" parent="notification"]
+offset_left = -249.0
+offset_top = -1081.0
+offset_right = -96.0
+offset_bottom = -1032.0
+theme_override_fonts/font = ExtResource("2_uiujy")
+theme_override_font_sizes/font_size = 35
+text = "Chefinho"
+
+[node name="Sprite2D" type="Sprite2D" parent="notification"]
+position = Vector2(-358, -1030)
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("1_6euxv")
