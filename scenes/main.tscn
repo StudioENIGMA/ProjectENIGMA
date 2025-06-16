@@ -11,3 +11,5 @@ offset_bottom = 40.0
 [node name="notification_popup" type="Window" parent="Control"]
 
 [node name="messages_app" type="Node2D" parent="Control"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
