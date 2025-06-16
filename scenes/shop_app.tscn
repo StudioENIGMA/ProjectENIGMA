@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://cil87xyo2ttrk"]
+
+[ext_resource type="Script" uid="uid://b8ct48pobygp8" path="res://scripts/both_shops/shop_app/shop_app.gd" id="1_uy6k6"]
+[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="2_fjihv"]
+
+[sub_resource type="GDScript" id="GDScript_ojwiw"]
+script/source = "extends Button
+
+func _ready():
+	pass
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.00185
+anchor_bottom = 0.0529167
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_uy6k6")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+texture = ExtResource("2_fjihv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button_Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 10
+
+[node name="Open" type="Button" parent="Button_Container"]
+visible = false
+layout_mode = 2
+text = "Abrir
+"
+script = SubResource("GDScript_ojwiw")
+
+[node name="Update" type="Button" parent="Button_Container"]
+visible = false
+layout_mode = 2
+text = "Update
+"
+
+[node name="Install" type="Button" parent="Button_Container"]
+layout_mode = 2
+text = "Install
+"
+
+[node name="Label_Margin_Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -20.0
+offset_right = 75.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 100
+
+[node name="Label" type="Label" parent="Label_Margin_Container"]
+layout_mode = 2
+text = "Nome do Aplicativo"
+
+[connection signal="pressed" from="Button_Container/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Button_Container/Update" to="." method="_on_update_pressed"]
+[connection signal="pressed" from="Button_Container/Install" to="." method="_on_install_pressed"]
