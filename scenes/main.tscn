@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://5lby0fhxei1c"]
+[gd_scene load_steps=4 format=3 uid="uid://5lby0fhxei1c"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_sgp6g"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_o5qli"]
+[ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="2_jyhfs"]
 
 [node name="main" type="Node2D"]
 
@@ -11,27 +11,26 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_sugp2")
 
-[node name="messages_app" type="Node2D" parent="Control"]
-position = Vector2(0, 1)
+[node name="messages_app" parent="Control" instance=ExtResource("1_0wfyh")]
 
-[node name="Background" type="Sprite2D" parent="Control/messages_app"]
-modulate = Color(0.945098, 1, 0.960784, 1)
-scale = Vector2(1080, 2400)
-texture = SubResource("CanvasTexture_sgp6g")
+[node name="notifications_control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_jyhfs")
 
-[node name="home_page" type="Node2D" parent="Control/messages_app"]
+[node name="Timer" type="Timer" parent="Control/notifications_control"]
+wait_time = 5.0
+autostart = true
 
-[node name="chat_page" type="Node2D" parent="Control/messages_app"]
-
-[node name="close_icon" type="Sprite2D" parent="Control/messages_app"]
-
-[node name="notification_pop_up" type="Node2D" parent="Control"]
-
-[node name="notification" type="Sprite2D" parent="Control/notification_pop_up"]
-modulate = Color(0.0980392, 0.380392, 0.32549, 1)
-position = Vector2(0, -1000)
-scale = Vector2(1000, 300)
-texture = SubResource("CanvasTexture_o5qli")
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 6.0
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="send_notification" from="Control" to="Control/notifications_control" method="_on_control_send_notification"]
+[connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
+[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
