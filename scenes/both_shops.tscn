@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://c2pee1p02e7tm"]
+[gd_scene load_steps=3 format=3 uid="uid://dx4q56044pwov"]
+
+[ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/both_shops/both_shops.gd" id="1_l4sgr"]
+[ext_resource type="PackedScene" uid="uid://cil87xyo2ttrk" path="res://scenes/shop_app.tscn" id="2_i2tc7"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_l4sgr")
+
+[node name="search_bar" type="LineEdit" parent="."]
+offset_left = 68.0
+offset_top = 162.0
+offset_right = 1019.0
+offset_bottom = 291.0
+
+[node name="Exit_shop" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 959.0
+offset_top = 33.0
+offset_right = 1045.0
+offset_bottom = 120.0
+text = "X"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 75.0
+offset_top = 342.0
+offset_right = 1014.0
+offset_bottom = 2304.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="Control/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Control2" parent="Control/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[connection signal="text_changed" from="search_bar" to="." method="_on_search_bar_text_changed"]
+[connection signal="pressed" from="Exit_shop" to="." method="_on_exit_shop_pressed"]
