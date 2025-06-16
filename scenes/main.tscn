@@ -33,12 +33,9 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("1_sugp2")
 
-<<<<<<< HEAD
 [node name="Apps" type="Node" parent="Control"]
-=======
 [node name="notification_popup" type="Window" parent="Control"]
 position = Vector2i(0, 36)
->>>>>>> 55f7b86 (feat: implement search bar script and exit app button)
 
 [node name="messages_app" parent="Control/Apps" instance=ExtResource("1_0wfyh")]
 visible = false
