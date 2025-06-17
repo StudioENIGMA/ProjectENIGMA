@@ -1,13 +1,16 @@
 extends Control
 class_name  both_shops
 
-var button : Button
+var exit_button : Button
 var matches = []
-
+@onready var uninstall : Button = $Panel/Uninstall
+@export var is_fake : bool = 0
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
-	button = get_node("%Exit_shop")
+	exit_button = get_node("%Exit_shop")
+	if !is_fake:
+		uninstall.hide()
 
 func _on_search_bar_text_changed(new_text:String) -> void:
 	new_text = new_text.to_lower()
