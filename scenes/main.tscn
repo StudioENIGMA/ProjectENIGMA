@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://5lby0fhxei1c"]
+[gd_scene load_steps=10 format=3 uid="uid://5lby0fhxei1c"]
 
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="7_choun"]
+[ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="10_choun"]
 
 [node name="main" type="Node2D"]
 
@@ -27,22 +31,51 @@ visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
-offset_left = -462.0
-offset_top = -686.0
-offset_right = -379.0
-offset_bottom = -392.0
-scale = Vector2(4.01429, 5.08659)
+offset_left = -465.0
+offset_top = -605.0
+offset_right = -381.0
+offset_bottom = -126.0
+scale = Vector2(3.63031, 3.63031)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Settings
+"
+icon = ExtResource("4_tipki")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
 text = "Messages"
 icon = ExtResource("4_tbgi4")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "App Store"
+icon = ExtResource("6_85g3d")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Browser
+"
+icon = ExtResource("7_choun")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -56,7 +89,24 @@ script = ExtResource("2_jyhfs")
 [node name="Timer" type="Timer" parent="Control/notifications_control"]
 autostart = true
 
+[node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -123.0
+offset_top = -920.0
+offset_right = 522.0
+offset_bottom = -672.0
+bbcode_enabled = true
+text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"40\\\"]PM
+Tue 17, April[/font]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("10_choun")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Button" to="Control/Apps/messages_app" method="show"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
