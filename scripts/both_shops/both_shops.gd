@@ -3,8 +3,10 @@ class_name  both_shops
 
 var exit_button : Button
 var matches = []
+
 @onready var uninstall : Button = $Panel/Uninstall
-@export var is_fake : bool = 0
+@export var is_fake : bool = 1
+@export var deleted : bool = 0
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
@@ -34,4 +36,15 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 
 
 func _on_exit_shop_pressed() -> void:
+	invisible()
+	
+func invisible() -> void:
 	visible = not visible
+
+
+func _on_uninstall_pressed() -> void:
+	uninstall.text = "正在卸載..."
+	deleted = 1
+	await get_tree().create_timer(3.0).timeout
+	invisible()
+	
