@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=3 uid="uid://5lby0fhxei1c"]
 =======
 [gd_scene load_steps=6 format=3 uid="uid://5lby0fhxei1c"]
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
+=======
+[gd_scene load_steps=10 format=3 uid="uid://5lby0fhxei1c"]
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="1_sugp2"]
@@ -14,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="7_choun"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="8_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="9_choun"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="9_eb6dy"]
@@ -21,6 +26,9 @@
 =======
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="4_tbgi4"]
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
+=======
+[ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="10_choun"]
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 
 [node name="main" type="Node2D"]
 
@@ -57,11 +65,15 @@ visible = false
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 offset_left = -465.0
 offset_top = -605.0
 offset_right = -381.0
 offset_bottom = -126.0
 scale = Vector2(3.63031, 3.63031)
+<<<<<<< HEAD
 =======
 offset_left = -462.0
 offset_top = -686.0
@@ -69,6 +81,8 @@ offset_right = -379.0
 offset_bottom = -392.0
 scale = Vector2(4.01429, 5.08659)
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
+=======
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -76,6 +90,9 @@ vertical_scroll_mode = 3
 layout_mode = 2
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 [node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -87,9 +104,12 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+<<<<<<< HEAD
 =======
 [node name="Button" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
+=======
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 layout_mode = 2
 action_mode = 0
 text = "Messages"
@@ -126,6 +146,25 @@ script = ExtResource("9_eb6dy")
 =======
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
 
+[node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "App Store"
+icon = ExtResource("6_85g3d")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Browser
+"
+icon = ExtResource("7_choun")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [node name="notifications_control" type="Control" parent="Control"]
 anchors_preset = 0
 offset_right = 40.0
@@ -136,10 +175,13 @@ script = ExtResource("2_jyhfs")
 wait_time = 2.0
 autostart = true
 
+<<<<<<< HEAD
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("9_choun")
 volume_db = -3.0
 
+=======
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
 offset_left = -123.0
@@ -159,9 +201,13 @@ script = ExtResource("10_choun")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+<<<<<<< HEAD
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
+=======
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
+>>>>>>> da05d6f (browser image + all app buttons + clock)
 [connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
