@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnk0fajss1ufl"]
+
+[ext_resource type="Script" uid="uid://ltdll0v45aen" path="res://scripts/messages_home.gd" id="1_x8unq"]
+
+[node name="messages_home" type="Node2D"]
+script = ExtResource("1_x8unq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1080, 0)
+offset_left = -539.0
+offset_top = -945.0
+offset_right = 541.0
+offset_bottom = 1201.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
