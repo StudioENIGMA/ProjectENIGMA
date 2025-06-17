@@ -104,3 +104,4 @@ text = "解除安裝"
 
 [connection signal="pressed" from="Panel/Exit_shop" to="." method="_on_exit_shop_pressed"]
 [connection signal="text_changed" from="Panel/search_bar" to="." method="_on_search_bar_text_changed"]
+[connection signal="pressed" from="Panel/Uninstall" to="." method="_on_uninstall_pressed"]
