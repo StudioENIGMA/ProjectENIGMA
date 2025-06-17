@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2pee1p02e7tm"]
+[gd_scene load_steps=8 format=3 uid="uid://c2pee1p02e7tm"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/both_shops/both_shops.gd" id="1_l4sgr"]
 [ext_resource type="PackedScene" uid="uid://cil87xyo2ttrk" path="res://scenes/shop_app.tscn" id="2_i2tc7"]
@@ -22,6 +22,9 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dtxp"]
 bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkt3l"]
+bg_color = Color(0.876126, 0, 0.0768186, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -84,6 +87,20 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.129412, 0.129412, 0.129412, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4dtxp")
 metadata/_edit_use_anchors_ = true
+
+[node name="Uninstall" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136
+anchor_top = 0.913
+anchor_right = 0.876
+anchor_bottom = 0.969
+offset_left = -3.88
+offset_top = 4.7998
+offset_right = -4.08008
+offset_bottom = 3.3999
+theme_override_styles/normal = SubResource("StyleBoxFlat_wkt3l")
+text = "解除安裝"
 
 [connection signal="pressed" from="Panel/Exit_shop" to="." method="_on_exit_shop_pressed"]
 [connection signal="text_changed" from="Panel/search_bar" to="." method="_on_search_bar_text_changed"]
