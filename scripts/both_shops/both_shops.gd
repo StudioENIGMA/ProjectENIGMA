@@ -1,20 +1,14 @@
-extends Node2D
+extends Control
 class_name  both_shops
 
 var button : Button
 var matches = []
 
 
-@onready var apps = $Control/VBoxContainer.get_children()
+@onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
 	button = get_node("%Exit_shop")
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_search_bar_text_changed(new_text:String) -> void:
 	new_text = new_text.to_lower()
@@ -26,7 +20,8 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 	matches.clear()	
 	
 	for i in apps:
-		if new_text in i.text.to_lower():
+		var scene_text = i.get_node("Label_Margin_Container/Label").text
+		if new_text in scene_text.to_lower():
 			matches.append(i)
 	
 	for i in apps:
