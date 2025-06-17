@@ -62,6 +62,12 @@ layout_mode = 2
 [node name="Control2" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
 layout_mode = 2
 
+[node name="Control3" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Control4" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
 [node name="Exit_shop" type="Button" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 2
