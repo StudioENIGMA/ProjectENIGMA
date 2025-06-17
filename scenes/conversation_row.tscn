@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://lssb6j0vp6qp"]
+
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_2huwx"]
+[ext_resource type="Script" uid="uid://brju2owfhsf7q" path="res://scripts/conversation_row.gd" id="1_2wsg6"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_746fn"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wsg6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.0885598, 0.0885599, 0.0885599, 1)
+
+[node name="conversation_row" type="PanelContainer"]
+custom_minimum_size = Vector2(1080, 270)
+offset_left = -540.0
+offset_top = -111.0
+offset_right = 540.0
+offset_bottom = 159.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wsg6")
+script = ExtResource("1_2wsg6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2huwx")
+expand_mode = 2
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_746fn")
+theme_override_font_sizes/font_size = 50
+text = "Chefinho"
+
+[node name="message" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2huwx")
+theme_override_font_sizes/font_size = 40
+text = "Bom dia, como vai seu trabalho?"
