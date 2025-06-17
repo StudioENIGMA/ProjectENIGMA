@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=3 uid="uid://5lby0fhxei1c"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://5lby0fhxei1c"]
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="2_jyhfs"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_trceg"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="4_tipki"]
@@ -13,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="9_choun"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="9_eb6dy"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="10_choun"]
+=======
+[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="4_tbgi4"]
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 
 [node name="main" type="Node2D"]
 
@@ -21,10 +29,13 @@ position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_tbgi4")
 
+<<<<<<< HEAD
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_trceg")
 autoplay = true
 
+=======
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -34,25 +45,37 @@ mouse_filter = 2
 script = ExtResource("1_sugp2")
 
 [node name="Apps" type="Node" parent="Control"]
+<<<<<<< HEAD
 [node name="notification_popup" type="Window" parent="Control"]
 position = Vector2i(0, 36)
+=======
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 
 [node name="messages_app" parent="Control/Apps" instance=ExtResource("1_0wfyh")]
 visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
+<<<<<<< HEAD
 offset_left = -465.0
 offset_top = -605.0
 offset_right = -381.0
 offset_bottom = -126.0
 scale = Vector2(3.63031, 3.63031)
+=======
+offset_left = -462.0
+offset_top = -686.0
+offset_right = -379.0
+offset_bottom = -392.0
+scale = Vector2(4.01429, 5.08659)
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
 
+<<<<<<< HEAD
 [node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -64,6 +87,9 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+=======
+[node name="Button" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 layout_mode = 2
 action_mode = 0
 text = "Messages"
@@ -71,6 +97,7 @@ icon = ExtResource("4_tbgi4")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
+<<<<<<< HEAD
 
 [node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -96,6 +123,8 @@ stream = ExtResource("8_ya4ey")
 volume_db = -5.0
 pitch_scale = 3.0
 script = ExtResource("9_eb6dy")
+=======
+>>>>>>> 224ae79 (Merge Main -> Home Screen)
 
 [node name="notifications_control" type="Control" parent="Control"]
 anchors_preset = 0
