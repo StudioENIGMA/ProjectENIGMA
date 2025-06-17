@@ -20,21 +20,21 @@ var operations = [
 	"阿布里爾" # abrir
 ]
 
-var exit_button : Button
 var matches = []
 
 @onready var uninstall : Button = $Panel/Uninstall
+@onready var exit_button : Button = $Exit_shop
 @export var is_fake : bool = 1
 @export var deleted : bool
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
-	exit_button = get_node("%Exit_shop")
-	load_fake_shop()
 	if !is_fake:
 		load_normal_shop()
 		uninstall.hide()
 		apps[3].hide()
+	else:
+		load_fake_shop()
 
 func load_fake_shop() -> void:
 	for i in range(apps.size()):
