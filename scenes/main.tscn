@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=3 uid="uid://5lby0fhxei1c"]
 =======
 [gd_scene load_steps=6 format=3 uid="uid://5lby0fhxei1c"]
@@ -7,18 +8,27 @@
 =======
 [gd_scene load_steps=10 format=3 uid="uid://5lby0fhxei1c"]
 >>>>>>> da05d6f (browser image + all app buttons + clock)
+=======
+[gd_scene load_steps=14 format=3 uid="uid://5lby0fhxei1c"]
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="2_jyhfs"]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_trceg"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="7_choun"]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="8_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="9_choun"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="9_eb6dy"]
@@ -38,12 +48,18 @@ scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_tbgi4")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_trceg")
 autoplay = true
 
+<<<<<<< HEAD
 =======
 >>>>>>> 224ae79 (Merge Main -> Home Screen)
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -165,6 +181,12 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="TouchSoundPlayer" type="AudioStreamPlayer2D" parent="Control/ScrollContainer"]
+stream = ExtResource("8_ya4ey")
+volume_db = -5.0
+pitch_scale = 3.0
+script = ExtResource("9_eb6dy")
+
 [node name="notifications_control" type="Control" parent="Control"]
 anchors_preset = 0
 offset_right = 40.0
@@ -176,12 +198,18 @@ wait_time = 2.0
 autostart = true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("9_choun")
 volume_db = -3.0
 
+<<<<<<< HEAD
 =======
 >>>>>>> da05d6f (browser image + all app buttons + clock)
+=======
+>>>>>>> aeb903f (Added notification & touch sound, added bg music, added logic to play sound on click and on notification)
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
 offset_left = -123.0
@@ -201,13 +229,10 @@ script = ExtResource("10_choun")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-<<<<<<< HEAD
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-=======
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
->>>>>>> da05d6f (browser image + all app buttons + clock)
 [connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
