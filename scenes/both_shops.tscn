@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2pee1p02e7tm"]
+
+[ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/both_shops/both_shops.gd" id="1_l4sgr"]
+[ext_resource type="PackedScene" uid="uid://cil87xyo2ttrk" path="res://scenes/shop_app.tscn" id="2_i2tc7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30qi"]
+bg_color = Color(0.964742, 0.964742, 0.964742, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g878"]
+bg_color = Color(0.886043, 0, 0.175524, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2tc7"]
+bg_color = Color(0.90708, 0, 0.179257, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dtxp"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkt3l"]
+bg_color = Color(0.876126, 0, 0.0768186, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_l4sgr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p30qi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.136667
+anchor_right = 1.0
+anchor_bottom = 1.00167
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Control2" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Control3" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Control4" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
+layout_mode = 2
+
+[node name="Exit_shop" type="Button" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.898148
+anchor_top = 0.00958333
+anchor_right = 0.985185
+anchor_bottom = 0.03625
+grow_horizontal = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_4g878")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i2tc7")
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="search_bar" type="LineEdit" parent="Panel"]
+layout_mode = 2
+anchor_left = 0.125
+anchor_top = 0.0616667
+anchor_right = 0.822222
+anchor_bottom = 0.109167
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.129412, 0.129412, 0.129412, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4dtxp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Uninstall" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136
+anchor_top = 0.913
+anchor_right = 0.876
+anchor_bottom = 0.969
+offset_left = -3.88
+offset_top = 4.7998
+offset_right = -4.08008
+offset_bottom = 3.3999
+theme_override_styles/normal = SubResource("StyleBoxFlat_wkt3l")
+text = "解除安裝"
+
+[connection signal="pressed" from="Panel/Exit_shop" to="." method="_on_exit_shop_pressed"]
+[connection signal="text_changed" from="Panel/search_bar" to="." method="_on_search_bar_text_changed"]
+[connection signal="pressed" from="Panel/Uninstall" to="." method="_on_uninstall_pressed"]
