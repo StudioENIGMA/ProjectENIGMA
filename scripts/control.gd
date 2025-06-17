@@ -12,6 +12,7 @@ func _ready() -> void:
 	await get_tree().create_timer(3).timeout
 	EventBus.send_message.emit("Chefinho", "testee", 2)
 	EventBus.send_notification.emit("testee", "Chefinho")
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

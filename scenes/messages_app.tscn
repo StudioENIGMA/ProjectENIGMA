@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene load_steps=5 format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="PackedScene" uid="uid://bnk0fajss1ufl" path="res://scenes/messages_home.tscn" id="1_804dm"]
+[ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/messages_app.gd" id="1_jwkj7"]
 [ext_resource type="PackedScene" uid="uid://b2nkg5lcmsjeu" path="res://scenes/messages_chat.tscn" id="2_jwkj7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b5iey"]
 
 [node name="messages_app" type="Node2D"]
+script = ExtResource("1_jwkj7")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.945098, 1, 0.960784, 1)
 scale = Vector2(1080, 2400)
 texture = SubResource("CanvasTexture_b5iey")
 
+[node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
+
 [node name="messages_home" parent="." instance=ExtResource("1_804dm")]
 position = Vector2(0, -2)
-
-[node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]

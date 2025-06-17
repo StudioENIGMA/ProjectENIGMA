@@ -26,11 +26,11 @@ func update_conversation_rows(index : int):
 	if index == -1:
 		var conversation_instance = CONVERSATION_ROW_SCENE.instantiate()
 		conversation_rows.add_child(conversation_instance)
-		conversation_instance.setup(conversation_data[0]["name"], conversation_data[0]["messages"].back()["message"], conversation_data[0]["photo"])
+		conversation_instance.setup(conversation_data[0])
 		conversation_rows.move_child(conversation_instance, 0)
 	else:
 		var conversation_instance = conversation_rows.get_child(index)
-		conversation_instance.setup(conversation_data[0]["name"], conversation_data[0]["messages"].back()["message"], conversation_data[0]["photo"])
+		conversation_instance.setup(conversation_data[0])
 		conversation_rows.move_child(conversation_instance, 0)
 
 	
