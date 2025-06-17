@@ -22,15 +22,8 @@ offset_bottom = 40.0
 script = ExtResource("2_jyhfs")
 
 [node name="Timer" type="Timer" parent="Control/notifications_control"]
-wait_time = 5.0
 autostart = true
-
-[node name="Timer" type="Timer" parent="Control"]
-wait_time = 6.0
-one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="send_notification" from="Control" to="Control/notifications_control" method="_on_control_send_notification"]
 [connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
-[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
