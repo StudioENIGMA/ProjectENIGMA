@@ -17,6 +17,7 @@ offset_top = -111.0
 offset_right = 540.0
 offset_bottom = 159.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wsg6")
 script = ExtResource("1_2wsg6")
 
@@ -46,3 +47,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2huwx")
 theme_override_font_sizes/font_size = 40
 text = "Bom dia, como vai seu trabalho?"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

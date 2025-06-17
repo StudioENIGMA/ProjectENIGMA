@@ -30,6 +30,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_sugp2")
 
 <<<<<<< HEAD
@@ -106,6 +107,7 @@ offset_bottom = 40.0
 script = ExtResource("2_jyhfs")
 
 [node name="Timer" type="Timer" parent="Control/notifications_control"]
+wait_time = 2.0
 autostart = true
 
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]

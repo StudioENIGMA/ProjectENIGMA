@@ -73,7 +73,7 @@ offset_right = 401.0
 offset_bottom = -951.0
 theme_override_fonts/font = ExtResource("1_y4pw6")
 theme_override_font_sizes/font_size = 28
-text = "Olá, seja bem vindo à Enigma, putinha!"
+text = "Olá, seja bem vindo à Enigma!"
 
 [node name="title" type="Label" parent="notification"]
 offset_left = -249.0
