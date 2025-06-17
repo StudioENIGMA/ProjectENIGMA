@@ -4,7 +4,6 @@ class_name  both_shops
 var button : Button
 var matches = []
 
-
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
@@ -32,4 +31,4 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 
 
 func _on_exit_shop_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	visible = not visible
