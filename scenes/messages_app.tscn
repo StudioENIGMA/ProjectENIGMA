@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene load_steps=6 format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="PackedScene" uid="uid://bnk0fajss1ufl" path="res://scenes/messages_home.tscn" id="1_804dm"]
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/messages_app.gd" id="1_jwkj7"]
 [ext_resource type="PackedScene" uid="uid://b2nkg5lcmsjeu" path="res://scenes/messages_chat.tscn" id="2_jwkj7"]
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_jwkj7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b5iey"]
 
@@ -16,5 +17,22 @@ texture = SubResource("CanvasTexture_b5iey")
 
 [node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
 
+position = Vector2(0, 3)
+
 [node name="messages_home" parent="." instance=ExtResource("1_804dm")]
 position = Vector2(0, -2)
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 394.0
+offset_top = -1145.0
+offset_right = 1202.0
+offset_bottom = -337.0
+grow_horizontal = 0
+scale = Vector2(0.153738, 0.153738)
+action_mode = 0
+icon = ExtResource("3_jwkj7")
+
+[connection signal="pressed" from="Button" to="." method="hide"]
