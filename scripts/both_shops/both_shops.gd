@@ -56,12 +56,10 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 			i.show()
 		return
 	matches.clear()
-
 	for i in apps:
 		var scene_text = i.get_node("Label_Margin_Container/Label").text
 		if new_text in scene_text.to_lower():
 			matches.append(i)
-
 	for i in apps:
 		if i in matches:
 			i.show()
@@ -70,7 +68,6 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 
 func _on_exit_shop_pressed() -> void:
 	invisible()
-
 func invisible() -> void:
 	visible = not visible
 

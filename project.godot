@@ -15,6 +15,7 @@ run/main_scene="uid://5lby0fhxei1c"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+
 [autoload]
 
 EventBus="*res://scripts/event_bus.gd"
@@ -26,6 +27,9 @@ window/size/viewport_width=1080
 window/size/viewport_height=2400
 window/size/initial_position=Vector2i(-540, 1200)
 window/stretch/mode="viewport"
+
+window/size/initial_position=Vector2i(-540, 1200)
+
 window/handheld/orientation=1
 
 [rendering]

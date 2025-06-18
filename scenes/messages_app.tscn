@@ -16,6 +16,7 @@ scale = Vector2(1080, 2400)
 texture = SubResource("CanvasTexture_b5iey")
 
 [node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
+
 position = Vector2(0, 3)
 
 [node name="messages_home" parent="." instance=ExtResource("1_804dm")]
