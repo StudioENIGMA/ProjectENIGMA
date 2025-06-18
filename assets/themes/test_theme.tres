@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dumg8l48etp41"]
+
+[ext_resource type="FontFile" uid="uid://famge14wt6yw" path="res://assets/fonts/IBMPlexSans-Light.ttf" id="1_vo7gu"]
+
+[resource]
+default_font = ExtResource("1_vo7gu")
+default_font_size = 18

@@ -11,7 +11,7 @@ var fake_apps_names = [
 	"訊息和對話", # mensagens
 	"電子郵件",	# email
 	"導航和搜尋", # navegador
-	"小老虎遊戲" # app de aposta 
+	"小老虎遊戲" # app de aposta
 ]
 
 var operations = [
@@ -24,8 +24,8 @@ var matches = []
 
 @onready var uninstall : Button = $Panel/Uninstall
 @onready var exit_button : Button = $Exit_shop
-@export var is_fake : bool = 1
-@export var deleted : bool
+@export var is_fake : bool = true
+@export var deleted : bool = false
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
@@ -39,7 +39,7 @@ func _ready() -> void:
 func load_fake_shop() -> void:
 	for i in range(apps.size()):
 		apps[i].get_node("Label_Margin_Container/Label").text = fake_apps_names[i]
-		
+
 		var operationals_buttons = apps[i].get_node("Button_Container").get_children()
 		for j in range(operationals_buttons.size()):
 			operationals_buttons[j].text = operations[j]
@@ -50,18 +50,18 @@ func load_normal_shop() -> void:
 
 func _on_search_bar_text_changed(new_text:String) -> void:
 	new_text = new_text.to_lower()
-	
+
 	if new_text == "":
 		for i in apps:
 			i.show()
 		return
-	matches.clear()	
-	
+	matches.clear()
+
 	for i in apps:
 		var scene_text = i.get_node("Label_Margin_Container/Label").text
 		if new_text in scene_text.to_lower():
 			matches.append(i)
-	
+
 	for i in apps:
 		if i in matches:
 			i.show()
@@ -70,13 +70,12 @@ func _on_search_bar_text_changed(new_text:String) -> void:
 
 func _on_exit_shop_pressed() -> void:
 	invisible()
-	
+
 func invisible() -> void:
 	visible = not visible
 
 func _on_uninstall_pressed() -> void:
 	uninstall.text = "正在卸載..."
-	deleted = 1
+	deleted = true
 	await get_tree().create_timer(3.0).timeout
 	invisible()
-	

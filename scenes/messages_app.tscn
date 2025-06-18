@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene load_steps=6 format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="PackedScene" uid="uid://bnk0fajss1ufl" path="res://scenes/messages_home.tscn" id="1_804dm"]
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/messages_app.gd" id="1_jwkj7"]
@@ -16,11 +16,10 @@ scale = Vector2(1080, 2400)
 texture = SubResource("CanvasTexture_b5iey")
 
 [node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
+position = Vector2(0, 3)
 
 [node name="messages_home" parent="." instance=ExtResource("1_804dm")]
 position = Vector2(0, -2)
-
-[node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 1
