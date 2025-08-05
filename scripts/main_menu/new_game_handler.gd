@@ -10,3 +10,5 @@ func _on_pressed() -> void:
 
 func change_scene() -> void:
 	new_game_scene.instantiate()
+	print(get_tree().root.name)
+	get_tree().change_scene_to_packed(new_game_scene)

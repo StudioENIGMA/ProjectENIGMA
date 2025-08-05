@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://shrnk03kvad8"]
+[gd_scene load_steps=7 format=3 uid="uid://bptyx461rdylc"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
@@ -19,28 +19,32 @@ position = Vector2(2, -804)
 scale = Vector2(2.50667, 2.50667)
 texture = ExtResource("1_wu84c")
 
-[node name="Actions" type="Node" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -496.0
+offset_right = 496.0
+offset_bottom = 1106.0
+grow_horizontal = 2
 
-[node name="New Game Button" type="Button" parent="Actions"]
-offset_left = -401.0
-offset_top = -257.0
-offset_right = 401.0
-offset_bottom = -88.0
+[node name="New Game Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "NEW GAME"
 script = ExtResource("3_rtw2f")
 
-[node name="Load Game Button" type="Button" parent="Actions"]
-offset_left = -401.0
-offset_top = -52.0
-offset_right = 401.0
-offset_bottom = 117.0
+[node name="Load Game Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "LOAD GAME"
 
-[node name="Settings Button" type="Button" parent="Actions"]
-offset_left = -401.0
-offset_top = 172.0
-offset_right = 401.0
-offset_bottom = 341.0
+[node name="Settings Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "SETTINGS"
 
 [node name="Music Handler" type="Node" parent="." node_paths=PackedStringArray("sfx_player", "music_player")]
@@ -60,4 +64,4 @@ scale = Vector2(1.54229, 1.87636)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="pressed" from="Actions/New Game Button" to="Actions/New Game Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game Button" to="VBoxContainer/New Game Button" method="_on_pressed"]
