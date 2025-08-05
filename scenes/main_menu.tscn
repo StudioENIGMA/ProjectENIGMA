@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://shrnk03kvad8"]
+
+[ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
+[ext_resource type="Script" uid="uid://dm0gsskdintec" path="res://scripts/main_menu/sound_handler.gd" id="2_wu84c"]
+[ext_resource type="AudioStream" uid="uid://b6v0lb1b78cfc" path="res://assets/sounds/sfx/enigma_startup_sfx_r1.ogg" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://d3kphgo4xvrud" path="res://assets/sounds/ost/main_theme_r1.ogg" id="4_rtw2f"]
+
+[node name="Main Menu" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2, 13)
+scale = Vector2(1.54229, 1.87636)
+texture = ExtResource("1_l6cm7")
+
+[node name="ProjetoEnigma" type="Sprite2D" parent="."]
+position = Vector2(2, -804)
+scale = Vector2(2.50667, 2.50667)
+texture = ExtResource("1_wu84c")
+
+[node name="Actions" type="Node" parent="."]
+
+[node name="New Game Button" type="Button" parent="Actions"]
+offset_left = -401.0
+offset_top = -257.0
+offset_right = 401.0
+offset_bottom = -88.0
+text = "NEW GAME"
+script = ExtResource("3_rtw2f")
+
+[node name="Load Game Button" type="Button" parent="Actions"]
+offset_left = -401.0
+offset_top = -52.0
+offset_right = 401.0
+offset_bottom = 117.0
+text = "LOAD GAME"
+
+[node name="Settings Button" type="Button" parent="Actions"]
+offset_left = -401.0
+offset_top = 172.0
+offset_right = 401.0
+offset_bottom = 341.0
+text = "SETTINGS"
+
+[node name="Music Handler" type="Node" parent="." node_paths=PackedStringArray("sfx_player", "music_player")]
+script = ExtResource("2_wu84c")
+sfx_player = NodePath("SFX Player")
+music_player = NodePath("Music Player")
+startup_sound = ExtResource("3_8ln24")
+main_theme = ExtResource("4_rtw2f")
+
+[node name="Music Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+position = Vector2(2, 13)
+scale = Vector2(1.54229, 1.87636)
+
+[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+position = Vector2(2, 13)
+scale = Vector2(1.54229, 1.87636)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Actions/New Game Button" to="Actions/New Game Button" method="_on_pressed"]
