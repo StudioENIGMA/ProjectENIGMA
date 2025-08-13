@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://db76w5p3v8r56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yto3l"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="browser_news" type="Panel"]
+custom_minimum_size = Vector2(1080, 280)
+offset_right = 1080.0
+offset_bottom = 282.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yto3l")
+
+[node name="news_title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 21.0
+offset_right = 1033.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est tincidunt fringilla lobortis. Ut quis purus eu purus rhoncus dictum ac eu velit
+"
+autowrap_mode = 3
+clip_text = true
+
+[node name="news_author_time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 204.0
+offset_right = 309.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.374139, 0.374139, 0.374139, 1)
+theme_override_font_sizes/font_size = 30
+text = "BBC  •  3 hours ago"
