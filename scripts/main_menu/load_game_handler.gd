@@ -6,6 +6,7 @@ func _ready() -> void:
 	new_game_scene = preload("res://scenes/game_screen.tscn")
 
 func _on_pressed() -> void:
+	GameData.load_game()
 	change_scene()
 
 func change_scene() -> void:

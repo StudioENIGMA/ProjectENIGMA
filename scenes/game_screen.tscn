@@ -27,6 +27,7 @@ texture = ExtResource("1_3a7ej")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
+bus = &"Music"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -43,18 +44,9 @@ visible = false
 
 [node name="shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
-is_fake = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
@@ -140,6 +132,7 @@ autostart = true
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
+bus = &"SFX"
 
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
