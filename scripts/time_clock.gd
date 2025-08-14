@@ -1,51 +1,37 @@
 extends RichTextLabel
 
-func _physics_process(_delta: float) -> void:
-	var datetime = Time.get_datetime_dict_from_system()
+func _process(_delta: float) -> void:
+	var timer = $"../../Timer"
+	
+	var current_day_minutes : float = -timer.get_time_left() + 1080
+	
+	var current_hour : int = int(current_day_minutes) / 60 
+	var current_minute : int = int(current_day_minutes) % 60 
+	
+	var day : String = str(11 + GameData.data.current_day)
+	
+	var weekday_int : int = 4 + GameData.data.current_day % 6
 	var weekday : String
-	match datetime["weekday"]:
+	match weekday_int:
 		1:
-			weekday = "Monday"
+			weekday = "Segunda"
 		2:
-			weekday = "Tuesday"
+			weekday = "Terça"
 		3:
-			weekday = "Wednesday"
+			weekday = "Quarta"
 		4:
-			weekday = "Thursday"
+			weekday = "Quinta"
 		5:
-			weekday = "Friday"
+			weekday = "Sexta"
 		6:
-			weekday = "Saturday"
+			weekday = "Sábado"
 		0:
-			weekday = "Sunday"
-	var month : String
-	match datetime["month"]:
-		1:
-			month = "January"
-		2:
-			month = "February"
-		3:
-			month = "March"
-		4:
-			month = "April"
-		5:
-			month = "May"
-		6:
-			month = "June"
-		7:
-			month = "July"
-		8:
-			month = "August"
-		9:
-			month = "September"
-		10:
-			month = "October"
-		11:
-			month = "November"
-		12:
-			month = "December"
-	var hours = datetime["hour"]
-	var minutes = str(datetime["minute"]) if datetime["minute"] >= 10 else "0" + str(datetime["minute"])
-	var ampm = "PM" if hours > 12 else "AM"
-	self.text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]" + str(hours % 12) + ":" + minutes + "[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]" + ampm +"\n"
-	self.text += weekday.left(3) + ", " + str(datetime["day"]) + " " + month + "[/font]"
+			weekday = "Domingo"
+			
+	var month : String = "Setembro"
+	
+	var hours : String = str(current_hour) if current_hour >= 10 else "0" + str(current_hour)
+	var minutes : String = str(current_minute) if current_minute >= 10 else "0" + str(current_minute)
+
+	self.text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]" + hours + ":" + minutes + "[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]\n"
+	self.text += weekday.left(3) + ", " + day + " " + month + "[/font]"

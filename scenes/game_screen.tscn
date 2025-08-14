@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://coh0t050hvq6x"]
+[gd_scene load_steps=17 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -43,18 +43,9 @@ visible = false
 
 [node name="shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
-is_fake = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
@@ -157,6 +148,10 @@ autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 600.0
+one_shot = true
 
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]

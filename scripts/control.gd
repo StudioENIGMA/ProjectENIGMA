@@ -1,7 +1,16 @@
 extends Control
 
+func day_zero() -> void:
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	var timer =	$"../Timer"
+	timer.start()
+	
+	print(timer.get_time_left())
+	
 	EventBus.send_message.emit("Chefinho", "seja bem vindo a empresa enigma, uau!", 0)
 	EventBus.send_notification.emit("seja bem vindo a empresa enigma, uau!", "Chefinho")
 	
