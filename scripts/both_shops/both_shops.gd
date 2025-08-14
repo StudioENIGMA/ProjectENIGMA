@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 class_name  both_shops
 
 var normal_apps_names = [
@@ -24,8 +24,8 @@ var matches = []
 
 @onready var uninstall : Button = $Panel/Uninstall
 @onready var exit_button : Button = $Exit_shop
-@export var is_fake : bool = true
-@export var deleted : bool = false
+@export var is_fake : bool = 0
+@export var deleted : bool
 @onready var apps = $Panel/VBoxContainer.get_children()
 
 func _ready() -> void:
