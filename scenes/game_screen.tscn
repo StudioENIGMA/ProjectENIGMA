@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
@@ -27,6 +27,7 @@ texture = ExtResource("1_3a7ej")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
+bus = &"Music"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -131,6 +132,7 @@ autostart = true
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
+bus = &"SFX"
 
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
