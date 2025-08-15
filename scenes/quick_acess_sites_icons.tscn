@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhmxsqe60mptf"]
 
-[ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scenes/quick_acess_icon.gd" id="1_h124j"]
+[ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/quick_acess_icon.gd" id="1_h124j"]
 [ext_resource type="Texture2D" uid="uid://dbf7l6gbaewgw" path="res://assets/projeto enigma.png" id="1_lv07k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv07k"]

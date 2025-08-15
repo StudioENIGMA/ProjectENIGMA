@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://6gxid20u3y1i"]
 
-[ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scenes/browser.gd" id="1_y4bje"]
+[ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/browser.gd" id="1_y4bje"]
 [ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/browser_news.tscn" id="2_1qmiu"]
 [ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/quick_acess_sites_icons.tscn" id="3_tcvq3"]
-[ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scenes/quick_acess_sites.gd" id="3_v7wwx"]
+[ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/quick_acess_sites.gd" id="3_v7wwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xkm1"]
 bg_color = Color(0.964706, 0.964706, 0.964706, 1)
