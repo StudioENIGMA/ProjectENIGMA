@@ -7,10 +7,10 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
 bg_color = Color(1, 0.0156863, 0.278431, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -19,13 +19,13 @@ corner_radius_bottom_right = 20
 [node name="MarginContainer" type="MarginContainer"]
 offset_left = -530.0
 offset_top = -858.0
-offset_right = -30.0
-offset_bottom = -708.0
+offset_right = 190.0
+offset_bottom = -584.0
 theme_override_constants/margin_left = 20
 script = ExtResource("1_kjful")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_l27n7")
@@ -34,8 +34,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l27n7")
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_57877")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_wq22m")
-text = "Laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+text = "Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem"
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
