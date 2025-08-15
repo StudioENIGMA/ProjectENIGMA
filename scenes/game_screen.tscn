@@ -141,7 +141,7 @@ offset_top = -920.0
 offset_right = 522.0
 offset_bottom = -672.0
 bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"40\\\"]PM
+text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
 Tue 17, April[/font]
 "
 fit_content = true
