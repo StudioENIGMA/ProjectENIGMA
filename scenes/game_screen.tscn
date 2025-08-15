@@ -65,8 +65,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
 action_mode = 0
-text = "Settings
-"
+text = "Settings"
 icon = ExtResource("7_87fqc")
 flat = true
 icon_alignment = 1
