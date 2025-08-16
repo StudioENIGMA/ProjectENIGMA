@@ -1,28 +1,45 @@
 extends Control
 
 const NOTIFICATION_POPUP = preload("res://scenes/notification_popup.tscn")
-@onready var timer = $Timer
+@onready var clock_timer = $"../../Timer"
+@onready var notification_timer = $Timer
 @onready var notification_array = []
 @onready var notification_instance = NOTIFICATION_POPUP.instantiate()
 @onready var audio_stream_player = $NotificationSoundPlayer
+@onready var animation_player
 
 func _ready() -> void:
 	EventBus.send_notification.connect(_on_send_notification)
 
-func _on_timer_timeout() -> void:
-	notification_instance.queue_free()
-
+func send_notification(notification : Dictionary):
+	if is_instance_valid(notification_instance):
+		notification_instance.queue_free()
+	
+	if notification == null:
+		return
+		
 	notification_instance = NOTIFICATION_POPUP.instantiate()
 
-	var notification_data = notification_array.pop_front()
-
-	if notification_data == null:
-		return
-
-	notification_instance.setup(notification_data.content, notification_data.title)
-
-	self.add_child(notification_instance)
+	notification_instance.setup(notification.app, notification.content, notification.title)
+	
+	self.add_child(notification_instance)	
 	audio_stream_player.play(1.0)
+	notification_timer.start()
+	
+func _on_send_notification(app: String, content: String, title: String, time: float) -> void:
+	notification_array.append({"app": app, "content" : content, "title" : title, "time" : time})
 
-func _on_send_notification(content: String, title: String) -> void:
-	notification_array.append({"content" : content, "title" : title})
+func _process(delta: float) -> void:
+		
+	for notification in notification_array:
+		print
+		if(notification.time <= clock_timer.get_wait_time() - clock_timer.get_time_left()):
+			send_notification(notification)
+			notification_array.erase(notification)
+	
+func _on_timer_timeout() -> void:
+	if is_instance_valid(notification_instance):
+		animation_player = notification_instance.get_child(0)
+		animation_player.play("disappear")
+		await animation_player.animation_finished
+		notification_instance.queue_free()
