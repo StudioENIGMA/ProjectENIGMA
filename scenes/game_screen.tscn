@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=19 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
+[ext_resource type="Resource" uid="uid://b0l2ori7kvj88" path="res://data/message.tres" id="4_oknyi"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
@@ -30,13 +31,15 @@ stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("3_oknyi")
+messages = Array[Resource]([ExtResource("4_oknyi")])
+message_holder = NodePath("MessageHolder")
 
 [node name="Apps" type="Node" parent="Control"]
 
@@ -160,6 +163,8 @@ autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
+
+[node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 600.0

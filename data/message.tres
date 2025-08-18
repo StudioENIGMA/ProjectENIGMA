@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://b0l2ori7kvj88"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_l2g4m"]
+
+[resource]
+script = ExtResource("1_l2g4m")
+day = 0
+priority = 0
+task_type = "daily"
+sender = "Chefinho"
+text = "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a [Corporação ENIGMA ltda.], você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!). Durante os próximos [nº_dias] dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+conditions = {}
