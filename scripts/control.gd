@@ -3,7 +3,10 @@ extends Control
 @export var messages : Array[Resource] = []
 @export var message_holder : Node
 
-var random_send_amplitude_max : int
+@export var settings_instance : Node
+@export var browser_instance : Node
+@export var mail_instance : Node
+@export var fake_store_instance : Node
 
 func day_zero() -> void:
 	pass
@@ -37,22 +40,20 @@ func _ready() -> void:
 	# var message_json = JSON.new()
 	# var data = message_json.parse(message)
 
-	random_send_amplitude_max = GameData.data.random_send_amplitude_max
-
-	print(GameData.data.current_day)
 	for message in messages:
 		if message.day == GameData.data.current_day:
 			var new_message_instance = load("res://scripts/control/message_instance.gd").new()
 			new_message_instance.message = message
+			new_message_instance.settings_instance = settings_instance
+			new_message_instance.browser_instance = browser_instance
+			new_message_instance.mail_instance = mail_instance
+			new_message_instance.fake_store_instance = fake_store_instance
 			message_holder.add_child(new_message_instance)
 		pass
-
-	print(message_holder.get_child_count())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# random_send_amplitude_max -=
 	pass
 
 func send_test_message(sender : String, message : String, notification : String, time : int, timer_time : int):

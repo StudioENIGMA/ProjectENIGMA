@@ -31,7 +31,7 @@ stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "settings_instance", "browser_instance", "mail_instance", "fake_store_instance")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -40,6 +40,12 @@ mouse_filter = 2
 script = ExtResource("3_oknyi")
 messages = Array[Resource]([ExtResource("4_oknyi")])
 message_holder = NodePath("MessageHolder")
+settings_instance = NodePath("ScrollContainer/VBoxContainer/SettingsButton")
+browser_instance = NodePath("ScrollContainer/VBoxContainer/BrowserButton")
+mail_instance = NodePath("ScrollContainer/VBoxContainer/AppStoreButton")
+fake_store_instance = NodePath("ScrollContainer/VBoxContainer/FakeAppStoreButton")
+
+[node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Apps" type="Node" parent="Control"]
 
@@ -163,8 +169,6 @@ autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
-
-[node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 600.0

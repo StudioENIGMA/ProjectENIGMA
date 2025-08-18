@@ -5,8 +5,11 @@
 [resource]
 script = ExtResource("1_l2g4m")
 day = 0
-priority = 0
+priority = -1
 task_type = "daily"
 sender = "Chefinho"
 text = "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a [Corporação ENIGMA ltda.], você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!). Durante os próximos [nº_dias] dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
-conditions = {}
+conditions = {
+"browser": true,
+"settings": true
+}
