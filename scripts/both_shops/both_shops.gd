@@ -15,7 +15,7 @@ var apps_data = [
 		"chinese_name": "電子郵件",
 		"description": "Receba e envie emails aqui!",
 		"description_in_chinese": "Chinese",
-		"icon_path": "res://assets/icons/app-store.png",
+		"icon_path": "res://assets/icons/email.png",
 	},
 	
 	{
