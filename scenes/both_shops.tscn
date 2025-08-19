@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2pee1p02e7tm"]
+[gd_scene load_steps=10 format=3 uid="uid://c2pee1p02e7tm"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/both_shops/both_shops.gd" id="1_l4sgr"]
 [ext_resource type="PackedScene" uid="uid://cil87xyo2ttrk" path="res://scenes/shop_app.tscn" id="2_i2tc7"]
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_p30qi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_4dtxp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30qi"]
-bg_color = Color(0.964742, 0.964742, 0.964742, 1)
+bg_color = Color(0.952941, 0.992157, 0.937255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g878"]
 bg_color = Color(0.886043, 0, 0.175524, 1)
@@ -21,7 +23,15 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dtxp"]
-bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+bg_color = Color(0.806775, 0.969841, 0.738838, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_top = 30.0
+expand_margin_right = 30.0
+expand_margin_bottom = 30.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkt3l"]
 bg_color = Color(0.876126, 0, 0.0768186, 1)
@@ -52,8 +62,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -840.0
-offset_bottom = 955.0
+offset_left = 83.0
+offset_top = -784.0
+offset_right = -69.0
+offset_bottom = 1011.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
@@ -73,16 +85,20 @@ layout_mode = 2
 [node name="Exit_shop" type="Button" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 2
-anchor_left = 0.898148
-anchor_top = 0.00958333
-anchor_right = 0.985185
-anchor_bottom = 0.03625
+anchor_left = 1.0
+anchor_top = 0.0245833
+anchor_right = 1.43981
+anchor_bottom = 0.2225
+offset_left = -133.0
+offset_right = -133.0
 grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.154, 0.154)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_4g878")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i2tc7")
-text = "X"
-metadata/_edit_use_anchors_ = true
+icon = ExtResource("3_p30qi")
+flat = true
 
 [node name="search_bar" type="LineEdit" parent="Panel"]
 layout_mode = 2
@@ -90,14 +106,15 @@ anchor_left = 0.503
 anchor_top = 0.109167
 anchor_right = 0.503
 anchor_bottom = 0.109167
-offset_left = -376.24
-offset_top = -103.001
-offset_right = 376.76
-offset_bottom = -0.000671387
+offset_left = -432.24
+offset_top = -53.0008
+offset_right = 432.76
+offset_bottom = 46.9992
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.129412, 0.129412, 0.129412, 1)
+theme_override_fonts/font = ExtResource("4_4dtxp")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_4dtxp")
 
