@@ -2,6 +2,7 @@ extends RichTextLabel
 
 func _process(_delta: float) -> void:
 	var timer = $"../../Timer"
+	GameData.game_timer = timer
 	
 	var current_day_minutes : float = -timer.get_time_left() + 1080
 	
@@ -32,6 +33,8 @@ func _process(_delta: float) -> void:
 	
 	var hours : String = str(current_hour) if current_hour >= 10 else "0" + str(current_hour)
 	var minutes : String = str(current_minute) if current_minute >= 10 else "0" + str(current_minute)
+	
+	GameData.hours_minutes = hours + ":" + minutes
+	self.text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]" + GameData.hours_minutes + "[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]\n"
 
-	self.text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\"150\"]" + hours + ":" + minutes + "[/font][font n=res://assets/fonts/IBMPlexSans-Regular.ttf size=\"40\"]\n"
 	self.text += weekday.left(3) + ", " + day + " " + month + "[/font]"

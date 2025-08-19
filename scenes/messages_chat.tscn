@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2nkg5lcmsjeu"]
+[gd_scene load_steps=4 format=3 uid="uid://b2nkg5lcmsjeu"]
 
+[ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/messages/answers_control.gd" id="1_s3mx7"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_s3mx7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu0a"]
@@ -11,7 +12,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 offset_left = -540.0
 offset_top = -926.0
 offset_right = 539.0
-offset_bottom = 910.0
+offset_bottom = 863.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1080, 0)
@@ -21,13 +22,23 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 18
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -535.0
+offset_top = 894.0
+offset_right = 534.0
+offset_bottom = 1165.0
+theme_override_constants/separation = 10
+script = ExtResource("1_s3mx7")
+
 [node name="Button" type="Button" parent="."]
-offset_left = -507.0
-offset_top = -1163.0
-offset_right = -350.0
-offset_bottom = -1060.0
+offset_left = -474.0
+offset_top = -1117.0
+offset_right = -213.0
+offset_bottom = -642.0
+scale = Vector2(0.154, 0.154)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s3mx7")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_qqu0a")
-text = "< --"
+icon = ExtResource("2_ipib6")
+flat = true

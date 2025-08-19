@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcgdl11goxbn0"]
+
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_krejh"]
+[ext_resource type="Script" uid="uid://c2cfv7dhhry1k" path="res://scripts/messages/answer_option.gd" id="1_yd6bq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krejh"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.189702, 0.611906, 0.524131, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 7
+script = ExtResource("1_yd6bq")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_krejh")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_krejh")
+theme_override_font_sizes/font_size = 50
+text = "Teste de Resposta"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
