@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=20 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -12,12 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
+[ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="12_51grn"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="13_yc1wb"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" uid="uid://cwrjovp260ukt" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 
 [node name="GameScreen" type="Node2D"]
 
@@ -111,6 +112,19 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="Email" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Email
+"
+icon = ExtResource("12_7em7s")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
@@ -178,6 +192,7 @@ one_shot = true
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/Apps/shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Email" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/Apps/fake_shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]
