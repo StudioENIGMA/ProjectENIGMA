@@ -26,7 +26,7 @@ func send_notification(notification : Dictionary):
 	audio_stream_player.play(1.0)
 	notification_timer.start()
 	
-func _on_send_notification(app: String, content: String, title: String, time: float) -> void:
+func _on_send_notification(app: EventBus.App, content: String, title: String, time: float) -> void:
 	notification_array.append({"app": app, "content" : content, "title" : title, "time" : time})
 
 func _process(delta: float) -> void:

@@ -30,7 +30,7 @@ func _on_open_chat(conversation_data : Dictionary):
 	EventBus.clean_answers.emit()
 		
 	for message in conversation_data["messages"]:
-		var message_instance = MY_MESSAGE.instantiate() if message.sender == EventBus.Sender.Me else OTHERS_MESSAGE.instantiate()
+		var message_instance = MY_MESSAGE.instantiate() if message.sender == EventBus.Sender.ME else OTHERS_MESSAGE.instantiate()
 
 		chat_box.add_child(message_instance)
 		message_instance.setup(message.message)
@@ -54,7 +54,7 @@ func _on_create_message(name : String, message : String, sender : EventBus.Sende
 	if name != current_contact:
 		return
 	
-	var message_instance = MY_MESSAGE.instantiate() if sender == EventBus.Sender.Me else OTHERS_MESSAGE.instantiate()
+	var message_instance = MY_MESSAGE.instantiate() if sender == EventBus.Sender.ME else OTHERS_MESSAGE.instantiate()
 	chat_box.add_child(message_instance)
 	message_instance.setup(message)
 	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value

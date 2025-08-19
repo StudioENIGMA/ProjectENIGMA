@@ -1,13 +1,15 @@
 extends Node
 
 # External use (control.gd, etc)
-signal send_notification(app: String, content: String, title: String, time: float)
+enum App {STORE = 0, BROWSER = 1, FAKE_SHOP = 2, MESSAGES = 3, SETTINGS = 4, EMAIL = 5}
+
+signal send_notification(app: App, content: String, title: String, time: float)
 signal receive_message(name : String, message : String, time : int)
 signal answer_option(name : String, message : String, title : String, reputation_points : int, time : int, answer_id : int)
 signal message_answered(answer_id : int)
 
 # Internal use (Message App Internal Logic)
-enum Sender {Me = 0, Other = 1}
+enum Sender {ME = 0, OTHER = 1}
 
 signal create_message(name : String, message : String, sender : Sender, time : String)
 

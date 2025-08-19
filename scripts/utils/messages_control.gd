@@ -17,5 +17,5 @@ func on_receive_message(name : String, message : String, time : int) -> void:
 func _process(delta: float) -> void:
 	for message in messages_to_deliver:
 		if message.time <= timer.wait_time - timer.time_left:
-			EventBus.create_message.emit(message.name, message.message, EventBus.Sender.Other, GameData.hours_minutes)
+			EventBus.create_message.emit(message.name, message.message, EventBus.Sender.OTHER, GameData.hours_minutes)
 			messages_to_deliver.erase(message)
