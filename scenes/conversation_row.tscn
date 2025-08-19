@@ -52,5 +52,6 @@ text = "Bom dia, como vai seu trabalho?"
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

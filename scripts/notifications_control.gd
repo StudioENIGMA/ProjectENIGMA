@@ -2,7 +2,7 @@ extends Control
 
 const NOTIFICATION_POPUP = preload("res://scenes/notification_popup.tscn")
 @onready var clock_timer = $"../../Timer"
-@onready var notification_timer = $Timer
+@onready var notification_timer = $NotificationTimer
 @onready var notification_array = []
 @onready var notification_instance = NOTIFICATION_POPUP.instantiate()
 @onready var audio_stream_player = $NotificationSoundPlayer
@@ -30,7 +30,6 @@ func _on_send_notification(app: String, content: String, title: String, time: fl
 	notification_array.append({"app": app, "content" : content, "title" : title, "time" : time})
 
 func _process(delta: float) -> void:
-		
 	for notification in notification_array:
 		print
 		if(notification.time <= clock_timer.get_wait_time() - clock_timer.get_time_left()):
