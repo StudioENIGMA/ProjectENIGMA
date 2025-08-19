@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2nkg5lcmsjeu"]
+[gd_scene load_steps=5 format=3 uid="uid://b2nkg5lcmsjeu"]
 
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/messages/answers_control.gd" id="1_s3mx7"]
+[ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="2_ipib6"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_s3mx7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu0a"]

@@ -15,7 +15,7 @@ func on_answer_option(name : String, message : String, title : String, reputatio
 
 func _process(delta: float) -> void:
 	for answer_option in answer_options:
-		if answer_option.time <= GameData.game_timer.wait_time - GameData.game_timer.time_left:
+		if answer_option.time <= GameData.now():
 			EventBus.create_answer.emit(answer_option.name, answer_option.title, answer_option.message, answer_option.answer_id)
 			answer_options.erase(answer_option)
 			if answer_option.time >= -1:

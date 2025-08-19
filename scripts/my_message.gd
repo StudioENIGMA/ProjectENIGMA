@@ -13,6 +13,7 @@ func setup(message : String):
 	
 	# 2. Wait for the next frame so the container resizes
 	await get_tree().process_frame
+	await get_tree().process_frame
 	
 	# 3. Now check the new size and apply constraints if needed
 	if panel_container.size.x > MAX_WIDTH:

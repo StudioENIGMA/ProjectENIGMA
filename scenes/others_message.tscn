@@ -19,12 +19,10 @@ offset_top = 12.0
 offset_right = 126.0
 offset_bottom = 109.0
 size_flags_horizontal = 0
-
 theme_override_constants/margin_left = 20
 script = ExtResource("1_kjful")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wq22m")
