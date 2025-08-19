@@ -1,12 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="7_bd51b"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
@@ -28,6 +29,7 @@ texture = ExtResource("1_3a7ej")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
+bus = &"Music"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -52,9 +54,8 @@ visible = false
 layout_mode = 0
 offset_left = -465.0
 offset_top = -605.0
-offset_right = -381.0
-offset_bottom = -126.0
-scale = Vector2(3.63031, 3.63031)
+offset_right = -201.0
+offset_bottom = 1128.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -63,10 +64,13 @@ layout_mode = 2
 
 [node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
-text = "Settings
-"
+text = "Settings"
 icon = ExtResource("7_87fqc")
 flat = true
 icon_alignment = 1
@@ -74,7 +78,8 @@ vertical_icon_alignment = 0
 
 [node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_font_sizes/font_size = 40
 text = "Messages"
 icon = ExtResource("8_4u5i3")
 flat = true
@@ -84,6 +89,8 @@ vertical_icon_alignment = 0
 [node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"
 icon = ExtResource("9_f2213")
@@ -94,6 +101,8 @@ vertical_icon_alignment = 0
 [node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Browser
 "
@@ -105,6 +114,8 @@ vertical_icon_alignment = 0
 [node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"
 icon = ExtResource("11_8e4ax")
@@ -128,6 +139,7 @@ script = ExtResource("14_5o8nl")
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
+bus = &"SFX"
 
 [node name="NotificationTimer" type="Timer" parent="Control/notifications_control"]
 wait_time = 2.5
@@ -140,7 +152,7 @@ offset_top = -920.0
 offset_right = 522.0
 offset_bottom = -672.0
 bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"40\\\"]PM
+text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
 Tue 17, April[/font]
 "
 fit_content = true

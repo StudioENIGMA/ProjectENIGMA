@@ -36,4 +36,5 @@ func _process(_delta: float) -> void:
 	
 	GameData.hours_minutes = hours + ":" + minutes
 	self.text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]" + GameData.hours_minutes + "[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]\n"
+
 	self.text += weekday.left(3) + ", " + day + " " + month + "[/font]"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://5lby0fhxei1c"]
 
-[ext_resource type="PackedScene" uid="uid://coh0t050hvq6x" path="res://scenes/game_screen.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bl30assw3y4mn" path="res://scenes/main_menu.tscn" id="1_o5qli"]
 
 [node name="main" type="Node2D"]
 
-[node name="GameScreen" parent="." instance=ExtResource("1_o5qli")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Main Menu" parent="." instance=ExtResource("1_o5qli")]

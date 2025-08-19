@@ -102,6 +102,7 @@ offset_right = 465.0
 offset_bottom = -951.0
 theme_override_fonts/font = ExtResource("1_y4pw6")
 theme_override_font_sizes/font_size = 35
+
 text = "Olá, seja bem vindo à Enigma!"
 clip_text = true
 text_overrun_behavior = 3

@@ -31,12 +31,14 @@ theme_override_constants/separation = 10
 script = ExtResource("1_s3mx7")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -507.0
-offset_top = -1163.0
-offset_right = -350.0
-offset_bottom = -1060.0
+offset_left = -474.0
+offset_top = -1117.0
+offset_right = -213.0
+offset_bottom = -642.0
+scale = Vector2(0.154, 0.154)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_s3mx7")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_qqu0a")
-text = "< --"
+icon = ExtResource("2_ipib6")
+flat = true
