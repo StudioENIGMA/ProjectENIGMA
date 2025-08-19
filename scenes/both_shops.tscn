@@ -9,6 +9,10 @@ bg_color = Color(0.952941, 0.992157, 0.937255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkt3l"]
 bg_color = Color(0.876126, 0, 0.0768186, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g878"]
 bg_color = Color(0.886043, 0, 0.175524, 1)
@@ -44,6 +48,7 @@ offset_bottom = 1192.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p30qi")
 
 [node name="ColorRect2" type="ColorRect" parent="Panel"]
+layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 222.0
 color = Color(0.27451, 0.709804, 0.690196, 1)
