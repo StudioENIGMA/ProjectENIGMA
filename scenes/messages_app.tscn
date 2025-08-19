@@ -21,18 +21,26 @@ position = Vector2(0, 3)
 [node name="messages_home" parent="." instance=ExtResource("1_804dm")]
 position = Vector2(0, -2)
 
-[node name="Button" type="Button" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -540.0
+offset_top = -1202.0
+offset_right = 540.0
+offset_bottom = -980.0
+color = Color(0.27451, 0.709804, 0.690196, 1)
+
+[node name="s" type="Button" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 394.0
-offset_top = -1145.0
-offset_right = 1202.0
-offset_bottom = -337.0
+offset_left = 380.0
+offset_top = -1134.0
+offset_right = 863.0
+offset_bottom = -651.0
 grow_horizontal = 0
-scale = Vector2(0.153738, 0.153738)
+scale = Vector2(0.15, 0.15)
 action_mode = 0
 icon = ExtResource("3_jwkj7")
 flat = true
+icon_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="hide"]
+[connection signal="pressed" from="s" to="." method="hide"]
