@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="Script" uid="uid://cwrjovp260ukt" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 
 [node name="GameScreen" type="Node2D"]
 
@@ -135,14 +136,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_5o8nl")
 
-[node name="Timer" type="Timer" parent="Control/notifications_control"]
-wait_time = 2.0
-autostart = true
-
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
 bus = &"SFX"
+
+[node name="NotificationTimer" type="Timer" parent="Control/notifications_control"]
+wait_time = 2.5
+one_shot = true
 
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -161,6 +162,12 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
 
+[node name="MessagesControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_bd51b")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 600.0
 one_shot = true
@@ -173,4 +180,4 @@ one_shot = true
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/Apps/fake_shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
+[connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]

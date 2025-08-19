@@ -1,5 +1,9 @@
 extends Node
 
+var game_timer : Timer
+var hours_minutes : String
+var daily_reputation_points : int = 0
+
 var data = {
 	"current_day": 0,
   	"reputation_points": 0,
