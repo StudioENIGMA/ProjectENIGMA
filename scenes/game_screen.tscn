@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
-[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="7_bd51b"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
@@ -67,7 +67,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Settings"
@@ -78,7 +78,7 @@ vertical_icon_alignment = 0
 
 [node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 text = "Messages"
 icon = ExtResource("8_4u5i3")
@@ -89,7 +89,7 @@ vertical_icon_alignment = 0
 [node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"
@@ -101,7 +101,7 @@ vertical_icon_alignment = 0
 [node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Browser
@@ -114,7 +114,7 @@ vertical_icon_alignment = 0
 [node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_bd51b")
+theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"

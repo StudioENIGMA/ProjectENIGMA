@@ -1,23 +1,30 @@
-[gd_scene load_steps=13 format=3 uid="uid://cil87xyo2ttrk"]
+[gd_scene load_steps=15 format=3 uid="uid://cil87xyo2ttrk"]
 
 [ext_resource type="Script" uid="uid://b8ct48pobygp8" path="res://scripts/both_shops/shop_app/shop_app.gd" id="1_uy6k6"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_bi414"]
 [ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="2_fjihv"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_o1p0b"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1p0b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04xty"]
+bg_color = Color(0.384314, 0.0705882, 0.192157, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1p0b"]
-bg_color = Color(0.376471, 0.341176, 0.968627, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.568627, 0.101961, 0.219608, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjihv"]
-bg_color = Color(0.423529, 0.388235, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.921569, 0.0392157, 0.270588, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="GDScript" id="GDScript_ojwiw"]
 script/source = "extends Button
@@ -26,45 +33,56 @@ func _ready():
 	pass
 "
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v20xg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0kwy"]
+bg_color = Color(0.133333, 0.282353, 0.384314, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v20xg"]
-bg_color = Color(0.121569, 0.584314, 0.94902, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.117647, 0.188235, 0.278431, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi414"]
-bg_color = Color(0.129412, 0.588235, 0.952941, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.101961, 0.12549, 0.2, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5osn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn7ip"]
+bg_color = Color(0.27451, 0.709804, 0.690196, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5osn"]
-bg_color = Color(0.258824, 0.701961, 0.278431, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.639216, 0.92549, 0.760784, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4cyp"]
-bg_color = Color(0.298039, 0.686275, 0.313726, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.309804, 0.796078, 0.682353, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 3
-anchor_right = 1.00185
-anchor_bottom = 0.100417
-offset_right = -1.99805
-offset_bottom = 2.99992
+anchor_top = -0.055
+anchor_right = 1.90741
+anchor_bottom = 0.113416
+offset_right = -0.999023
+offset_bottom = -6.09969
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -72,26 +90,20 @@ script = ExtResource("1_uy6k6")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_Container" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -293.0
-offset_top = -39.5
-offset_bottom = 39.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_right = 10
+layout_mode = 0
+offset_left = 700.0
+offset_top = 50.0
+offset_right = 925.0
+offset_bottom = 130.0
+pivot_offset = Vector2(143, 39.5)
 
 [node name="Open" type="Button" parent="Button_Container"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_o1p0b")
+theme_override_fonts/font = ExtResource("3_o1p0b")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_04xty")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjihv")
 text = "Abrir
@@ -102,53 +114,59 @@ script = SubResource("GDScript_ojwiw")
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v20xg")
+theme_override_fonts/font = ExtResource("3_o1p0b")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_q0kwy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v20xg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bi414")
-text = "Atualizar
-"
+text = "Atualizar"
 
 [node name="Install" type="Button" parent="Button_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c5osn")
+theme_override_fonts/font = ExtResource("3_o1p0b")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_bn7ip")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c5osn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_x4cyp")
-text = "Instalar
-"
+text = "Obter"
 
 [node name="Label_Margin_Container" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -198.0
-offset_top = -39.5
-offset_right = 198.0
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 200.0
+offset_top = 25.0
+offset_right = 649.0
+offset_bottom = 104.0
 theme_override_constants/margin_right = 100
 
 [node name="Label" type="Label" parent="Label_Margin_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o1p0b")
 theme_override_font_sizes/font_size = 40
 text = "Nome do Aplicativo"
 
+[node name="Description_Container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 70.0
+offset_right = 722.0
+offset_bottom = 149.0
+theme_override_constants/margin_right = 100
+
+[node name="Description" type="Label" parent="Description_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bi414")
+theme_override_font_sizes/font_size = 34
+text = "Descrição Do Aplicativo"
+
 [node name="Icon_Margin_Container" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -67.5
-offset_right = 169.0
-offset_bottom = 67.5
-grow_vertical = 2
+layout_mode = 0
+offset_left = -30.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 186.0
 theme_override_constants/margin_left = 10
 
 [node name="TextureRect" type="TextureRect" parent="Icon_Margin_Container"]

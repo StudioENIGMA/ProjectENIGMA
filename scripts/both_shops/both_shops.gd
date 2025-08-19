@@ -1,28 +1,39 @@
 extends Node2D
-class_name  both_shops
+class_name both_shops
 
-var normal_apps_names = [
-	"Mensagens",
-	"Email",
-	"Navegador"
+var apps_data = [
+	{
+		"name": "Mensagens",
+		"chinese_name": "訊息和對話",
+		"description": "Receba e Envie Mensagens!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/messages.png",
+	},
+	
+	{
+		"name": "Email", 
+		"chinese_name": "電子郵件",
+		"description": "Receba e envie emails aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/app-store.png",
+	},
+	
+	{
+		"name": "Navegador",
+		"chinese_name": "導航和搜尋",
+		"description": "Acesse seus sites favoritos!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/browser.png",
+	},
+	
+	{
+		"name": "Gambling",
+		"chinese_name": "小老虎遊戲",
+		"description": "!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/app-store.png",
+	}
 ]
-
-var fake_apps_names = [
-	"訊息和對話", # mensagens
-	"電子郵件",	# email
-	"導航和搜尋", # navegador
-	"小老虎遊戲" # app de aposta
-]
-
-var app_icons = {
-	"Mensagens": "res://assets/icons/messages.png",
-	"訊息和對話": "res://assets/icons/messages.png",
-	"Email": "res://assets/icons/app-store.png",
-	"電子郵件": "res://assets/icons/app-store.png",
-	"Navegador": "res://assets/icons/browser.png",
-	"導航和搜尋": "res://assets/icons/browser.png",
-	"小老虎遊戲": "res://assets/icons/app-store.png"
-}
 
 var operations = [
 	"開始安裝", # instalar
@@ -48,9 +59,11 @@ func _ready() -> void:
 
 func load_fake_shop() -> void:
 	for i in range(apps.size()):
-		apps[i].get_node("Label_Margin_Container/Label").text = fake_apps_names[i]
+		apps[i].get_node("Label_Margin_Container/Label").text = apps_data[i]["chinese_name"]
+
+		apps[i].get_node("Description_Container/Description").text = apps_data[i]["description_in_chinese"]
 		
-		var new_texture = load(app_icons[fake_apps_names[i]])
+		var new_texture = load(apps_data[i]["icon_path"])
 		apps[i].get_node("Icon_Margin_Container/TextureRect").texture = new_texture
 
 		var operationals_buttons = apps[i].get_node("Button_Container").get_children()
@@ -59,9 +72,11 @@ func load_fake_shop() -> void:
 
 func load_normal_shop() -> void:
 	for i in range(apps.size() - 1):
-		apps[i].get_node("Label_Margin_Container/Label").text = normal_apps_names[i]
+		apps[i].get_node("Label_Margin_Container/Label").text = apps_data[i]["name"]
 		
-		var new_texture = load(app_icons[normal_apps_names[i]])
+		apps[i].get_node("Description_Container/Description").text = apps_data[i]["description"]
+		
+		var new_texture = load(apps_data[i]["icon_path"])
 		apps[i].get_node("Icon_Margin_Container/TextureRect").texture = new_texture
 
 func _on_search_bar_text_changed(new_text:String) -> void:
