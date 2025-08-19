@@ -45,7 +45,7 @@ var matches = []
 
 @onready var uninstall : Button = $Panel/Uninstall
 @onready var exit_button : Button = $Exit_shop
-@export var is_fake : bool = 0
+@export var is_fake : bool = false
 @export var deleted : bool
 @onready var apps = $Panel/VBoxContainer.get_children()
 
