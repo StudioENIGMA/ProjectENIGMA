@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2nkg5lcmsjeu"]
+[gd_scene load_steps=7 format=3 uid="uid://b2nkg5lcmsjeu"]
 
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/messages/answers_control.gd" id="1_s3mx7"]
+[ext_resource type="Script" uid="uid://chp1ww0dwvteo" path="res://scenes/scroll_container.gd" id="1_th5w6"]
 [ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="2_ipib6"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_s3mx7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th5w6"]
+content_margin_bottom = 25.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 6
+border_color = Color(0.505882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu0a"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -14,6 +21,10 @@ offset_left = -540.0
 offset_top = -926.0
 offset_right = 539.0
 offset_bottom = 863.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_th5w6")
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("1_th5w6")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1080, 0)
