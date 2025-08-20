@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 
 
 func send_message(time : int = -1):
-	print(message.text)
 	if message.is_answer:
 		# print(message.text, " ", message.sender, " ", message.id)
 		EventBus.answer_option.emit(message.sender, message.text, message.text, 1000, time, message.id)

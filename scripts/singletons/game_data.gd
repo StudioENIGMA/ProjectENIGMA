@@ -14,7 +14,7 @@ var data = {
 	"current_day": 0,
   	"reputation_points": 0,
    	"random_send_amplitude_max" : 480,
-    "max_game_time" : 600,
+    "max_game_time" : 5,
   	"virus_info": {
 	"has_virus": false,
 	"viruses_quantity" : 0,
