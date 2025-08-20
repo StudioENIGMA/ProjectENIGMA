@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cou0tkf8oqsjs"]
+
+[ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/update_os.gd" id="1_hn00k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwg05"]
+bg_color = Color(0.420288, 0.642982, 0.681732, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hn00k"]
+font_size = 60
+
+[node name="UpdateOs" type="Node2D"]
+script = ExtResource("1_hn00k")
+
+[node name="background" type="Panel" parent="."]
+offset_right = 1080.0
+offset_bottom = 2400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mwg05")
+
+[node name="title" type="Label" parent="background"]
+offset_left = 40.0
+offset_top = 300.0
+offset_right = 1040.0
+offset_bottom = 400.0
+text = "Atualizar Sistema Operacional"
+label_settings = SubResource("LabelSettings_hn00k")
+vertical_alignment = 1
+
+[node name="close" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 935.0
+offset_top = 27.0
+offset_right = 1046.0
+offset_bottom = 107.0
+text = "X"

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmft24jq1687n"]
+
+[ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/phone_settings/feature_gui.tscn" id="1_6xyrj"]
+[ext_resource type="Script" path="res://scripts/phone_settings.gd" id="1_p6c7r"]
+[ext_resource type="PackedScene" uid="uid://bmgq037yoa1w2" path="res://scenes/phone_settings/passwords_manager.tscn" id="3_xhc3m"]
+[ext_resource type="PackedScene" uid="uid://cou0tkf8oqsjs" path="res://scenes/phone_settings/update_os.tscn" id="4_l8d72"]
+
+[node name="phone_settings" type="Node2D"]
+script = ExtResource("1_p6c7r")
+
+[node name="passwords" parent="." instance=ExtResource("1_6xyrj")]
+offset_top = 100.0
+offset_bottom = 100.0
+
+[node name="update_OS" parent="." instance=ExtResource("1_6xyrj")]
+offset_top = 800.0
+offset_bottom = 800.0
+
+[node name="scanner" parent="." instance=ExtResource("1_6xyrj")]
+offset_top = 1500.0
+offset_bottom = 1500.0
+
+[node name="Button_password" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.231373)
+offset_left = 39.0
+offset_top = 182.0
+offset_right = 1039.0
+offset_bottom = 782.0
+
+[node name="Button_OS" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.231373)
+offset_left = 39.0
+offset_top = 882.0
+offset_right = 1039.0
+offset_bottom = 1482.0
+
+[node name="Button_scanner" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.231373)
+offset_left = 39.0
+offset_top = 1582.0
+offset_right = 1039.0
+offset_bottom = 2182.0
+
+[node name="close" type="Button" parent="."]
+offset_left = 952.0
+offset_top = 25.0
+offset_right = 1052.0
+offset_bottom = 93.0
+text = "X"
+
+[node name="passwords_manager" parent="." instance=ExtResource("3_xhc3m")]
+visible = false
+
+[node name="os_updater" parent="." instance=ExtResource("4_l8d72")]
+visible = false
+
+[connection signal="pressed" from="Button_password" to="." method="_on_button_password_pressed"]
+[connection signal="pressed" from="Button_OS" to="." method="_on_button_os_pressed"]
