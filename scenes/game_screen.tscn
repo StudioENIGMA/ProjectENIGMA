@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=21 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
+[ext_resource type="Resource" uid="uid://b0l2ori7kvj88" path="res://data/messages/message.tres" id="4_oknyi"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_x5x4e"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
@@ -18,7 +20,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 
 [node name="GameScreen" type="Node2D"]
 
@@ -32,13 +34,21 @@ stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "settings_instance", "browser_instance", "mail_instance", "fake_store_instance")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("3_oknyi")
+messages = Array[ExtResource("4_x5x4e")]([ExtResource("4_oknyi")])
+message_holder = NodePath("MessageHolder")
+settings_instance = NodePath("ScrollContainer/VBoxContainer/SettingsButton")
+browser_instance = NodePath("ScrollContainer/VBoxContainer/BrowserButton")
+mail_instance = NodePath("ScrollContainer/VBoxContainer/AppStoreButton")
+fake_store_instance = NodePath("ScrollContainer/VBoxContainer/FakeAppStoreButton")
+
+[node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Apps" type="Node" parent="Control"]
 
@@ -50,6 +60,7 @@ visible = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
+is_fake = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0

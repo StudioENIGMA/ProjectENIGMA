@@ -1,0 +1,29 @@
+{
+	"messages": {
+		"id": "00",
+		"day": "1",
+		"task_type": "msg",
+		"sender": "chefe",
+		"text": "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a [Corporação ENIGMA ltda.], você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!). Durante os próximos [nº_dias] dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens.",
+		"answer1": {
+			"text": "",
+			"next_msg_id": "01"
+		},
+		"answer2": {
+			"text": "",
+			"next_msg_id": ""
+		},
+		"conditions": {
+			"apps": {
+				"settings": {
+					"name": "settings",
+					"value": "true"
+				},
+				"browser": {
+					"name": "browser",
+					"value": "true"
+				}
+			}
+		}
+	}
+}
