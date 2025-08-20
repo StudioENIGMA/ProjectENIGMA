@@ -42,11 +42,13 @@ theme_override_font_sizes/font_size = 50
 text = "Chefinho"
 
 [node name="message" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2huwx")
 theme_override_font_sizes/font_size = 40
 text = "Bom dia, como vai seu trabalho?"
+text_overrun_behavior = 3
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

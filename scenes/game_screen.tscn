@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=24 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
