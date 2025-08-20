@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=21 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
+[ext_resource type="Script" uid="uid://cai54p1y8cl12" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
@@ -59,6 +60,7 @@ offset_right = -201.0
 offset_bottom = 1128.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
+script = ExtResource("6_x5x4e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2

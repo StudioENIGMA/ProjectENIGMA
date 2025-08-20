@@ -14,12 +14,13 @@ var data = {
 	"current_day": 0,
   	"reputation_points": 0,
   	"virus_info": {
-	"has_virus": false,
-	"viruses_quantity" : 0,
-	"virus_time": 0
+		"has_virus": false,
+		"viruses_quantity" : 0,
+		"virus_time": 0
   	},
   	"OS_version": "0",
-  	"passwords": {}
+  	"passwords": {},
+	"downloaded_apps": ["mensagens", "settings"]
 }
 
 func load_game() -> void:
