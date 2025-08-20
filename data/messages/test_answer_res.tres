@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://tfir2xgrws4s"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_vno6r"]
+
+[resource]
+script = ExtResource("1_vno6r")
+day = 0
+id = 0
+priority = -1
+is_answer = true
+is_next = false
+task_type = "daily"
+sender = "Chefinho"
+text = "Test Answer"
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})

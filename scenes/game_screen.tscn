@@ -1,25 +1,33 @@
-[gd_scene load_steps=17 format=3 uid="uid://coh0t050hvq6x"]
+[gd_scene load_steps=24 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/sfx/enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
+[ext_resource type="Resource" uid="uid://b0l2ori7kvj88" path="res://data/messages/message.tres" id="4_oknyi"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_x5x4e"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
+[ext_resource type="Script" uid="uid://cai54p1y8cl12" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
+[ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="12_51grn"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="13_yc1wb"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -100
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_3a7ej")
@@ -27,14 +35,23 @@ texture = ExtResource("1_3a7ej")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
+bus = &"Music"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "apps_holder", "next_day_button", "day_over_overlay")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+offset_left = -815.0
+offset_top = -1784.0
+offset_right = 825.0
+offset_bottom = 1806.0
 script = ExtResource("3_oknyi")
+messages = Array[ExtResource("4_x5x4e")]([ExtResource("4_oknyi")])
+message_holder = NodePath("MessageHolder")
+apps_holder = NodePath("Apps")
+next_day_button = NodePath("../DayOver/Button")
+day_over_overlay = NodePath("../DayOver")
+
+[node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Apps" type="Node" parent="Control"]
 
@@ -43,38 +60,41 @@ visible = false
 
 [node name="shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
-is_fake = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-offset_left = -540.0
-offset_top = -1205.0
-offset_right = -540.0
-offset_bottom = -1205.0
+is_fake = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
-layout_mode = 0
-offset_left = -465.0
-offset_top = -605.0
-offset_right = -381.0
-offset_bottom = -126.0
-scale = Vector2(3.63031, 3.63031)
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.0
+offset_top = -613.0
+offset_right = -207.0
+offset_bottom = 1120.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
+script = ExtResource("6_x5x4e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
 
 [node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
-text = "Settings
-"
+text = "Settings"
 icon = ExtResource("7_87fqc")
 flat = true
 icon_alignment = 1
@@ -82,7 +102,8 @@ vertical_icon_alignment = 0
 
 [node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
 text = "Messages"
 icon = ExtResource("8_4u5i3")
 flat = true
@@ -90,8 +111,11 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+z_index = -1
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"
 icon = ExtResource("9_f2213")
@@ -102,6 +126,8 @@ vertical_icon_alignment = 0
 [node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Browser
 "
@@ -110,9 +136,24 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="Email" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Email
+"
+icon = ExtResource("12_7em7s")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "App Store"
 icon = ExtResource("11_8e4ax")
@@ -128,27 +169,44 @@ script = ExtResource("13_yc1wb")
 
 [node name="notifications_control" type="Control" parent="Control"]
 z_index = 50
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("14_5o8nl")
-
-[node name="Timer" type="Timer" parent="Control/notifications_control"]
-wait_time = 2.0
-autostart = true
 
 [node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
+bus = &"SFX"
+
+[node name="NotificationTimer" type="Timer" parent="Control/notifications_control"]
+wait_time = 2.5
+one_shot = true
 
 [node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = -123.0
-offset_top = -920.0
-offset_right = 522.0
-offset_bottom = -672.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -885.0
+offset_right = 485.0
+offset_bottom = -637.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\\\"40\\\"]PM
+text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
 Tue 17, April[/font]
 "
 fit_content = true
@@ -158,12 +216,65 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
 
+[node name="MessagesControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_bd51b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 600.0
+one_shot = true
+
+[node name="DayOver" type="Node2D" parent="."]
+
+[node name="DayOverBackground" type="Sprite2D" parent="DayOver"]
+modulate = Color(1, 1, 1, 0.835294)
+position = Vector2(7.00003, 15.9999)
+scale = Vector2(5.7, 9.235)
+texture = ExtResource("22_87fqc")
+
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="DayOver"]
+offset_left = -511.0
+offset_top = -572.0
+offset_right = 512.0
+offset_bottom = -318.0
+theme = ExtResource("6_h0j4g")
+theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 180
+bbcode_enabled = true
+text = "FIM DO DIA"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="DayOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -104.0
+offset_right = 120.5
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_font_sizes/font_size = 146
+text = "Dia"
+icon_alignment = 1
+
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/Apps/shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Email" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/Apps/fake_shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="timeout" from="Control/notifications_control/Timer" to="Control/notifications_control" method="_on_timer_timeout"]
+[connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]
+[connection signal="pressed" from="DayOver/Button" to="Control" method="_on_next_day_button_pressed"]
