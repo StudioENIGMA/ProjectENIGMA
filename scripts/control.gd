@@ -1,6 +1,8 @@
 extends Control
 
-@export var messages : Array[Resource] = []
+class_name Controller
+
+@export var messages : Array[Message] = []
 @export var message_holder : Node
 
 @export var settings_instance : Node
@@ -8,55 +10,85 @@ extends Control
 @export var mail_instance : Node
 @export var fake_store_instance : Node
 
+var messages_to_instance : Array[Message] = []
+var answers_to_instance : Array[Message] = []
+var messages_waiting_answers : Dictionary[Message, Array] = {}
+
+var message_delay_timer : Timer
+
 func day_zero() -> void:
 	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	EventBus.message_answered.connect(process_waiting_messages)
 
 	var timer =	$"../Timer"
+	timer.wait_time = GameData.data.max_game_time
 	timer.start()
+
+	message_delay_timer = Timer.new()
+	message_delay_timer.one_shot = false
+	message_delay_timer.wait_time = 1.0
+	self.add_child(message_delay_timer)
+	message_delay_timer.timeout.connect(process_messages)
+	message_delay_timer.start()
 
 	print(timer.get_time_left())
 
-	# EventBus.send_message.emit("Chefinho", "seja bem vindo a empresa enigma, uau!", 0)
-	# EventBus.send_notification.emit("seja bem vindo a empresa enigma, uau!", "Chefinho")
-
-	# await get_tree().create_timer(3).timeout
-	# EventBus.send_message.emit("Jorge", "olá, baixa esse loja de vagabundo ai!", 1)
-	# EventBus.send_notification.emit("olá, baixa esse loja de vagabundo ai!", "Jorge")
-	# send_test_message("Jorge", "olá, baixa esse loja de vagabundo ai!", "olá, baixa esse loja de vagabundo ai!", 1, 3)
-
-
-	# await get_tree().create_timer(3).timeout
-	# EventBus.send_message.emit("Chefinho", "testee", 2)
-	# EventBus.send_notification.emit("testee", "Chefinho")
-	# send_test_message("Chefino", "testee", "testee", 2, 3)
-
-	# var message_file = FileAccess.open("res://data/messages.json", FileAccess.READ)
-	# var message = message_file.get_as_text()
-	# message_file.close()
-
-	# var message_json = JSON.new()
-	# var data = message_json.parse(message)
-
 	for message in messages:
-		if message.day == GameData.data.current_day:
-			var new_message_instance = load("res://scripts/control/message_instance.gd").new()
-			new_message_instance.message = message
-			new_message_instance.settings_instance = settings_instance
-			new_message_instance.browser_instance = browser_instance
-			new_message_instance.mail_instance = mail_instance
-			new_message_instance.fake_store_instance = fake_store_instance
-			message_holder.add_child(new_message_instance)
+		if message.day == GameData.data.current_day and not message.is_answer and not message.is_next:
+			messages_to_instance.append(message)
 		pass
+
+	messages_to_instance.sort_custom(custom_sort_messages)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if answers_to_instance.size() == 0:
+		return
+
+	var new_answer_instance = load("res://scripts/control/message_instance.gd").new()
+	new_answer_instance.control_instance = self
+	new_answer_instance.message = answers_to_instance.pop_front()
+	message_holder.add_child(new_answer_instance)
+	# process_messages()
+
+
+func process_messages():
+	# await get_tree().create_timer(1.0).timeout
+	if messages_to_instance.size() == 0:
+		return
+
+	var new_message_instance = load("res://scripts/control/message_instance.gd").new()
+	new_message_instance.control_instance = self
+	new_message_instance.message = messages_to_instance.pop_front()
+	message_holder.add_child(new_message_instance)
+
+
+func process_waiting_messages(id : int):
+	for message in messages_waiting_answers.keys():
+		if messages_waiting_answers[message].has(id):
+			add_message_to_send(message)
+
 	pass
 
-func send_test_message(sender : String, message : String, notification : String, time : int, timer_time : int):
-	await get_tree().create_timer(timer_time).timeout
-	EventBus.send_message.emit(sender, message, time)
-	EventBus.send_notification.emit(notification, sender)
+
+func add_message_to_send(message: Message) -> void:
+	messages_to_instance.append(message)
+	messages_to_instance.sort_custom(custom_sort_messages)
+
+func add_answers_to_send(message: Message) -> void:
+	answers_to_instance.append(message)
+	# answers_to_instance.sort_custom(custom_sort_messages)
+
+
+func add_message_to_waiting(message: Message, ids: Array[int]) -> void:
+	messages_waiting_answers[message] = ids
+
+
+func custom_sort_messages(a, b) -> bool:
+	if a.priority < b.priority:
+		return true
+	return false

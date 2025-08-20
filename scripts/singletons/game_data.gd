@@ -8,13 +8,19 @@ var data = {
 	"current_day": 0,
   	"reputation_points": 0,
    	"random_send_amplitude_max" : 480,
+    "max_game_time" : 600,
   	"virus_info": {
 	"has_virus": false,
 	"viruses_quantity" : 0,
 	"virus_time": 0
   	},
   	"OS_version": "0",
-  	"passwords": {}
+  	"passwords": {},
+  	"has_store": true,
+   	"has_fake_store": true,
+    "has_browser": true,
+    "has_mail": true,
+    "has_settings": true
 }
 
 func load_game() -> void:
