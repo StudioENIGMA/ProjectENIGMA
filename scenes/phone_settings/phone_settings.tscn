@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmft24jq1687n"]
 
 [ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/phone_settings/feature_gui.tscn" id="1_6xyrj"]
-[ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/phone_settings.gd" id="1_p6c7r"]
+[ext_resource type="Script" path="res://scripts/phone_settings.gd" id="1_p6c7r"]
 [ext_resource type="PackedScene" uid="uid://bmgq037yoa1w2" path="res://scenes/phone_settings/passwords_manager.tscn" id="3_xhc3m"]
 [ext_resource type="PackedScene" uid="uid://cou0tkf8oqsjs" path="res://scenes/phone_settings/update_os.tscn" id="4_l8d72"]
 

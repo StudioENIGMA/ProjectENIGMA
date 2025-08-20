@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://lssb6j0vp6qp"]
 
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_2huwx"]
-[ext_resource type="Script" path="res://scripts/conversation_row.gd" id="1_2wsg6"]
+[ext_resource type="Script" uid="uid://brju2owfhsf7q" path="res://scripts/conversation_row.gd" id="1_2wsg6"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_746fn"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
 

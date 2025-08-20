@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnk0fajss1ufl"]
 
-[ext_resource type="Script" path="res://scripts/messages_home.gd" id="1_x8unq"]
+[ext_resource type="Script" uid="uid://ltdll0v45aen" path="res://scripts/messages_home.gd" id="1_x8unq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ls8ag"]
 
