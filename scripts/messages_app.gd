@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _on_return_button_pressed():
 	home.visible = true
+	return_button.z_index = 0
 
 func _on_open_chat(conversation_data : Dictionary):
 	current_contact = conversation_data["name"]
@@ -28,6 +29,7 @@ func _on_open_chat(conversation_data : Dictionary):
 		node.queue_free()
 	
 	EventBus.clean_answers.emit()
+	return_button.z_index = 2
 		
 	for message in conversation_data["messages"]:
 		var message_instance = MY_MESSAGE.instantiate() if message.sender == EventBus.Sender.ME else OTHERS_MESSAGE.instantiate()

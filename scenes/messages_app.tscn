@@ -26,6 +26,7 @@ offset_left = -540.0
 offset_top = -1202.0
 offset_right = 540.0
 offset_bottom = -980.0
+mouse_filter = 2
 color = Color(0.27451, 0.709804, 0.690196, 1)
 
 [node name="s" type="Button" parent="."]
