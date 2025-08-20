@@ -8,10 +8,17 @@ extends Node2D
 @onready var passwords_manager = $passwords_manager
 @onready var os_updater = $os_updater
 @onready var close_button = $close
-
-@onready var day : int = 3
+@onready var password_label = $passwords/header/app_name_margin/app_name
+@onready var update_OS_label = $update_OS/header/app_name_margin/app_name
+@onready var scanner_label = $scanner/header/app_name_margin/app_name
+@onready var day : int = 2
 
 func _ready() -> void:
+	day = GameData.data.current_day
+	password_label.text = "Gerenciador de Senhas"
+	update_OS_label.text = "Autualização de Software"
+	scanner_label.text = "Verificar Presença de Vírus"
+	
 	button_os.hide()
 	button_scanner.hide()
 		

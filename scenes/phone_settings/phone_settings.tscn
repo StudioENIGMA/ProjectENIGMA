@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmft24jq1687n"]
+[gd_scene load_steps=6 format=3 uid="uid://cmft24jq1687n"]
 
 [ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/phone_settings/feature_gui.tscn" id="1_6xyrj"]
 [ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/phone_settings.gd" id="1_p6c7r"]
 [ext_resource type="PackedScene" uid="uid://bmgq037yoa1w2" path="res://scenes/phone_settings/passwords_manager.tscn" id="3_xhc3m"]
 [ext_resource type="PackedScene" uid="uid://cou0tkf8oqsjs" path="res://scenes/phone_settings/update_os.tscn" id="4_l8d72"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l8d72"]
 
 [node name="phone_settings" type="Node2D"]
 script = ExtResource("1_p6c7r")
@@ -53,6 +55,13 @@ visible = false
 
 [node name="os_updater" parent="." instance=ExtResource("4_l8d72")]
 visible = false
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.960784, 1)
+z_index = -1
+position = Vector2(540, 1200)
+scale = Vector2(1080, 2400)
+texture = SubResource("CanvasTexture_l8d72")
 
 [connection signal="pressed" from="Button_password" to="." method="_on_button_password_pressed"]
 [connection signal="pressed" from="Button_OS" to="." method="_on_button_os_pressed"]

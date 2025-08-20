@@ -17,3 +17,5 @@ signal create_answer(name : String, title : String, message : String, answer_id 
 signal storage_answer(name : String, message : String, title : String, reputation_points : int, answer_id : int)
 signal delete_answers(name : String)
 signal clean_answers()
+
+signal 	first_correct_password(new_password : String, app_name : String)

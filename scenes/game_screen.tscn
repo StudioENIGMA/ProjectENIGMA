@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=25 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_x5x4e"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
-[ext_resource type="Script" uid="uid://cai54p1y8cl12" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
+[ext_resource type="Script" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
+[ext_resource type="PackedScene" uid="uid://cmft24jq1687n" path="res://scenes/phone_settings/phone_settings.tscn" id="8_f2213"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
@@ -21,7 +22,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Script" uid="uid://dfgthvmxvvc3u" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
@@ -64,6 +65,10 @@ visible = false
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
 is_fake = true
+
+[node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
+visible = false
+position = Vector2(-540, -1200)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 z_index = -1
@@ -267,6 +272,7 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/Apps/phone_settings" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
