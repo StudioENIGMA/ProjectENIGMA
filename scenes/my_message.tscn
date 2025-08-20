@@ -20,7 +20,7 @@ offset_top = 12.0
 offset_right = 310.0
 offset_bottom = 106.0
 size_flags_horizontal = 8
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 40
 script = ExtResource("1_430fi")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
