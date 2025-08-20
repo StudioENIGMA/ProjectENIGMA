@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://c740lpt8b7kob"]
+
+[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="1_edc1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohjip"]
+bg_color = Color(0, 0.705721, 0.525907, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xpt1"]
+bg_color = Color(0, 0.347294, 0.262336, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2so6"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wbu1"]
+font_size = 40
+
+[node name="SettingsBoxes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="header" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 82.0
+offset_right = 1039.0
+offset_bottom = 322.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohjip")
+
+[node name="magin_app_icon" type="MarginContainer" parent="header"]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="app_icon" type="TextureRect" parent="header/magin_app_icon"]
+layout_mode = 2
+texture = ExtResource("1_edc1l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="description_panel" type="Panel" parent="header"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xpt1")
+
+[node name="description" type="Label" parent="header/description_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_k2so6")
+
+[node name="app_name_margin" type="MarginContainer" parent="header"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 100.0
+offset_right = 290.0
+offset_bottom = 150.0
+
+[node name="app_name" type="Label" parent="header/app_name_margin"]
+layout_mode = 2
+text = "Nome Funcionalidade"
+label_settings = SubResource("LabelSettings_7wbu1")
+
+[node name="lock_icon_margin" type="MarginContainer" parent="header"]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 90.0
+offset_right = 950.0
+offset_bottom = 160.0
+
+[node name="lock_icon" type="TextureRect" parent="header/lock_icon_margin"]
+layout_mode = 2
