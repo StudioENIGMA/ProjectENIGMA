@@ -8,6 +8,7 @@ day = 0
 id = 0
 priority = -1
 is_answer = true
+is_next = false
 task_type = "daily"
 sender = "Chefinho"
 text = "Test Answer"

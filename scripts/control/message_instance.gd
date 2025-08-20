@@ -46,7 +46,7 @@ func send_message(time : int = -1):
 		EventBus.answer_option.emit(message.sender, message.text, message.text, 1000, time, message.id)
 	else:
 		EventBus.receive_message.emit(message.sender, message.text, time)
-		EventBus.send_notification.emit("messages", message.text, message.sender, time)
+		EventBus.send_notification.emit(EventBus.App.MESSAGES, message.text, message.sender, time)
 
 	await get_tree().create_timer(0.1).timeout
 
