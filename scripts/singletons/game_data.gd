@@ -14,7 +14,7 @@ var data = {
 	"current_day": 0,
   	"reputation_points": 0,
    	"random_send_amplitude_max" : 480,
-    "max_game_time" : 600,
+	"max_game_time" : 600,
   	"virus_info": {
 		"has_virus": false,
 		"viruses_quantity" : 0,
@@ -22,12 +22,12 @@ var data = {
   	},
   	"OS_version": "0",
   	"passwords": {},
-	"downloaded_apps": ["mensagens", "settings"]
+	"downloaded_apps": ["mensagens", "settings"],
   	"has_store": true,
    	"has_fake_store": true,
-    "has_browser": true,
-    "has_mail": true,
-    "has_settings": true
+	"has_browser": true,
+	"has_mail": true,
+	"has_settings": true
 }
 
 func load_game() -> void:
