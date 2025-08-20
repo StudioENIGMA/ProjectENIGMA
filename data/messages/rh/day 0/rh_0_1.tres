@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://cdwsjysxctndl"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_v1oov"]
+
+[resource]
+script = ExtResource("1_v1oov")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = true
+task_type = "daily"
+sender = "RH"
+text = "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias eu vou te passando mais tarefas da minha área pra você poder se integrar melhor com a equipe! (o˘◡˘o)"
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

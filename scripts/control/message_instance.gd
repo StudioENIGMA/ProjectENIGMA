@@ -43,6 +43,7 @@ func send_message(time : int = -1):
 	if message.is_answer:
 		# print(message.text, " ", message.sender, " ", message.id)
 		EventBus.answer_option.emit(message.sender, message.text, message.text, 1000, time, message.id)
+		control_instance.add_answers_to_waiting(message, message.id)
 	else:
 		EventBus.receive_message.emit(message.sender, message.text, time)
 		EventBus.send_notification.emit(EventBus.App.MESSAGES, message.text, message.sender, time)
@@ -59,8 +60,7 @@ func add_depedencies_to_queue():
 
 	if has_answerables:
 		for answer in message.answers:
-			var uid = ResourceUID.create_id()
-			ResourceUID.add_id(uid, answer.resource_path)
+			var uid = answer.generate_scene_unique_id().to_int()
 			answer.id = uid
 			message.answers[answer] = uid
 			answer_ids.push_back(uid)

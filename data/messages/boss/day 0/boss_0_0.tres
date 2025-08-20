@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://c1vwy80t150ty"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_ey0gf"]
+[ext_resource type="Resource" uid="uid://dsd1tk2vujgh8" path="res://data/messages/boss/day 0/boss_0_1.tres" id="1_kylde"]
+
+[resource]
+script = ExtResource("1_ey0gf")
+day = 0
+id = 0
+priority = -100
+is_answer = false
+is_next = false
+task_type = "daily"
+sender = "Chefinho"
+text = "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!)."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_kylde")

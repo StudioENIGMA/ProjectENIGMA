@@ -6,6 +6,9 @@ class_name Message
 # The control script reads all messages from the current day and creates invisible nodes for each.
 # Each message is then instantiated and added to the scene tree, where they will constantly check if they should be sent.
 
+enum TaskType {DAILY, INSTALL}
+# enum InstallCandidate {NONE, STORE, FAKE_STORE, VIRUS}
+
 @export var day : int
 @export var id : int
 ## Priority of the message.
@@ -15,7 +18,8 @@ class_name Message
 @export var priority     : int
 @export var is_answer    : bool
 @export var is_next      : bool
-@export var task_type    : String
+@export var task_type    : TaskType
+@export var installer    : AppControl.App
 @export var sender       : String
 @export var text         : String
 @export var conditions   : Dictionary[String, bool] = {}
