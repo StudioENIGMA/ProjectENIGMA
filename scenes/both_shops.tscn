@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2pee1p02e7tm"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/both_shops/both_shops.gd" id="1_l4sgr"]
-[ext_resource type="PackedScene" uid="uid://cil87xyo2ttrk" path="res://scenes/shop_app.tscn" id="2_i2tc7"]
+[ext_resource type="Script" uid="uid://df5ygasnu3tcv" path="res://scripts/spawn_app_on_store.gd" id="2_4dtxp"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_p30qi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30qi"]
@@ -67,18 +67,7 @@ offset_bottom = 881.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
-
-[node name="Control" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
-layout_mode = 2
-
-[node name="Control2" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
-layout_mode = 2
-
-[node name="Control3" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
-layout_mode = 2
-
-[node name="Control4" parent="Panel/VBoxContainer" instance=ExtResource("2_i2tc7")]
-layout_mode = 2
+script = ExtResource("2_4dtxp")
 
 [node name="Uninstall" type="Button" parent="Panel"]
 layout_mode = 1
