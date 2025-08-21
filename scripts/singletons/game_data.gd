@@ -21,7 +21,14 @@ var data = {
 		"virus_time": 0
   	},
   	"OS_version": "0",
-  	"passwords": {},
+  	"passwords": {
+		"Ajustes" : "",
+		"Mensagens" : "",
+		"Loja" : "",
+		"Navegador" : "",
+		"Email" : "",
+		"Loja Alternativa" : "",
+	},
 	"downloaded_apps": ["mensagens", "settings"],
   	"has_store": true,
    	"has_fake_store": true,
