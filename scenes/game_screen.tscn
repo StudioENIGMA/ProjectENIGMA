@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
+
 [node name="GameScreen" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]

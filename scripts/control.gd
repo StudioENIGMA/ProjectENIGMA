@@ -92,7 +92,6 @@ func process_waiting_messages(id : int):
 	for message in messages_waiting_answers.keys():
 		if messages_waiting_answers[message].has(id):
 			add_message_to_send(message)
-
 	pass
 
 
