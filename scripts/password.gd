@@ -40,10 +40,6 @@ func set_icon_texture(app_name : String) -> void:
 			icon_path = icon_path % "email"
 	
 	icon.texture = load(icon_path)
-
-func _process(delta: float) -> void:
-	await get_tree().create_timer(2).timeout
-	print(GameData.data.passwords)
 	
 func _on_correct_password_emitted(new_password: String) -> void:
 	password_label.text = new_password
