@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://ulxoabk2xr6m"]
+
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://scenes/paper-clip-14011.svg" id="1_ucbxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocu06"]
+bg_color = Color(0.284043, 0.750092, 0.641747, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucbxv"]
+bg_color = Color(0.309804, 0.796078, 0.682353, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="email_container" type="Control"]
+custom_minimum_size = Vector2(0, 330)
+layout_mode = 3
+anchor_top = -0.055
+anchor_right = 1.907
+anchor_bottom = 0.113
+offset_left = 1.0
+offset_right = 0.219971
+offset_bottom = 91.4
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="Label_container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 25.0
+offset_right = 483.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="Label_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Site.com"
+
+[node name="Description_Container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 104.0
+offset_right = 765.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="Description_Container"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi..."
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="container_email_date" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 25.0
+offset_right = 1002.0
+offset_bottom = 89.0
+
+[node name="Label" type="Label" parent="container_email_date"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "aug 18 10:59"
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 210.0
+offset_right = 1876.0
+offset_bottom = 560.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 250
+theme_override_styles/normal = SubResource("StyleBoxFlat_ocu06")
+text = "curriculo.apk"
+icon = ExtResource("1_ucbxv")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 208.0
+offset_right = 1011.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucbxv")
+text = "Leia mais"
