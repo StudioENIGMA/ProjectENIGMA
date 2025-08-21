@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://dai3sfp4eq1fl"]
+
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_jgjyt"]
+[ext_resource type="Script" uid="uid://pw3r6ayi8a6f" path="res://scenes/exit_email.gd" id="2_piqa7"]
+[ext_resource type="PackedScene" uid="uid://ulxoabk2xr6m" path="res://scenes/email_container.tscn" id="3_umt64"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wrqkr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd1t5"]
+bg_color = Color(0.952941, 0.992157, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwfkx"]
+bg_color = Color(0.886043, 0, 0.175524, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85euw"]
+bg_color = Color(0.90708, 0, 0.179257, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Email" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_wrqkr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2400.0
+size_flags_horizontal = 6
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1080.0
+offset_bottom = 2400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bd1t5")
+
+[node name="Exit_email" type="Button" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.0245833
+anchor_right = 1.43981
+anchor_bottom = 0.2225
+offset_left = -133.0
+offset_right = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.154, 0.154)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_dwfkx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_85euw")
+icon = ExtResource("1_jgjyt")
+flat = true
+script = ExtResource("2_piqa7")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 211.0
+offset_right = 1079.0
+offset_bottom = 2396.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="email_container" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_umt64")]
+layout_direction = 1
+layout_mode = 2
+
+[node name="email_container2" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_umt64")]
+layout_mode = 2
+
+[node name="email_container3" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_umt64")]
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/Exit_email" to="Panel/Exit_email" method="_on_pressed"]
