@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" uid="uid://b56iuxfnvtsy6" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
+[ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
