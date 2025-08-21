@@ -44,3 +44,18 @@ func add_update_for(app: App) -> void:
 
 func update_app(app: App) -> void:
 	available_updates.erase(app)
+
+func open_app(app: App, app_enabler_instance: AppEnabler):
+	match app:
+		App.Email:
+			app_enabler_instance.open_mail.emit()
+		App.Store:
+			app_enabler_instance.open_store.emit()
+		App.Browser:
+			app_enabler_instance.open_browser.emit()
+		App.Settings:
+			app_enabler_instance.open_settings.emit()
+		App.Messages:
+			app_enabler_instance.open_messages.emit()
+		App.FakeStore:
+			app_enabler_instance.open_store.emit()

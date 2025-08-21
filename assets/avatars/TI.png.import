@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s5mc6yl2rd5p"
-path="res://.godot/imported/Financial_Manager.png-c07d81b2715a13591fc5f1fcbf7cba09.ctex"
+uid="uid://cv7a7u8q2buxt"
+path="res://.godot/imported/TI.png-a485e3c43fc513f7b0a8d9ce5009caef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/avatars/Financial_Manager.png"
-dest_files=["res://.godot/imported/Financial_Manager.png-c07d81b2715a13591fc5f1fcbf7cba09.ctex"]
+source_file="res://assets/avatars/TI.png"
+dest_files=["res://.godot/imported/TI.png-a485e3c43fc513f7b0a8d9ce5009caef.ctex"]
 
 [params]
 

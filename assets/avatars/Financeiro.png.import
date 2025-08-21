@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv7a7u8q2buxt"
-path="res://.godot/imported/TI_Manager.png-0a9b45af4e0f237cfcbcd81938704472.ctex"
+uid="uid://s5mc6yl2rd5p"
+path="res://.godot/imported/Financeiro.png-5a38f91e4ba63a96af6a7e38ada8ecb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/avatars/TI_Manager.png"
-dest_files=["res://.godot/imported/TI_Manager.png-0a9b45af4e0f237cfcbcd81938704472.ctex"]
+source_file="res://assets/avatars/Financeiro.png"
+dest_files=["res://.godot/imported/Financeiro.png-5a38f91e4ba63a96af6a7e38ada8ecb2.ctex"]
 
 [params]
 

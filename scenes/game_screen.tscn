@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=33 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -22,12 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
 [ext_resource type="Resource" uid="uid://do7egvk1h6pr6" path="res://data/messages/boss/day 1/b_1_2.tres" id="11_q7j5u"]
+[ext_resource type="Script" uid="uid://cxp6xj8ao6cwx" path="res://scripts/app_enabler.gd" id="12_1vcyb"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="12_51grn"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="13_yc1wb"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="PackedScene" path="res://scenes/browser.tscn" id="16_21xuv"]
 [ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/utils/messages_control.gd" id="17_bd51b"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
@@ -61,6 +63,7 @@ day_over_overlay = NodePath("../DayOver")
 [node name="MessageHolder" type="Node" parent="Control"]
 
 [node name="Apps" type="Node" parent="Control"]
+script = ExtResource("12_1vcyb")
 
 [node name="messages_app" parent="Control/Apps" instance=ExtResource("4_7em7s")]
 visible = false
@@ -75,6 +78,9 @@ is_fake = true
 [node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
 visible = false
 position = Vector2(-540, -1200)
+
+[node name="browser" parent="Control/Apps" instance=ExtResource("16_21xuv")]
+visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 z_index = -1
@@ -279,6 +285,11 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
+[connection signal="open_browser" from="Control/Apps" to="Control/Apps/browser" method="show"]
+[connection signal="open_fake_store" from="Control/Apps" to="Control/Apps/fake_shop_app" method="show"]
+[connection signal="open_messages" from="Control/Apps" to="Control/Apps/messages_app" method="show"]
+[connection signal="open_settings" from="Control/Apps" to="Control/Apps/phone_settings" method="show"]
+[connection signal="open_store" from="Control/Apps" to="Control/Apps/shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/Apps/phone_settings" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
@@ -286,6 +297,7 @@ icon_alignment = 1
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/Apps/shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/Apps/browser" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Email" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/Apps/fake_shop_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]

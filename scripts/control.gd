@@ -111,7 +111,6 @@ func process_answers(id: int):
 func add_message_to_send(message: Message) -> void:
 	messages_to_instance.append(message)
 	messages_to_instance.sort_custom(custom_sort_messages)
-	print(messages_to_instance)
 
 
 func add_answers_to_send(message: Message) -> void:
