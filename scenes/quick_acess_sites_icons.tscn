@@ -9,14 +9,14 @@ bg_color = Color(0.964706, 0.964706, 0.964706, 1)
 [node name="quick_acess_sites_icons" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_h124j")
 
 [node name="quick_acess_icon" type="Panel" parent="."]
-custom_minimum_size = Vector2(250, 209)
+custom_minimum_size = Vector2(250, 236)
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 235.0
+offset_right = 256.0
+offset_bottom = 236.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lv07k")
-script = ExtResource("1_h124j")
 
 [node name="site_icon" type="TextureRect" parent="quick_acess_icon"]
 layout_mode = 1
@@ -51,4 +51,4 @@ text = "Nome do site"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="gui_input" from="quick_acess_icon" to="quick_acess_icon" method="_on_panel_gui_input"]
+[connection signal="gui_input" from="quick_acess_icon" to="." method="_on_gui_input"]

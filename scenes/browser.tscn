@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6gxid20u3y1i"]
+[gd_scene load_steps=6 format=3 uid="uid://6gxid20u3y1i"]
 
 [ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/browser.gd" id="1_y4bje"]
 [ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/browser_news.tscn" id="2_1qmiu"]
-[ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/quick_acess_sites_icons.tscn" id="3_tcvq3"]
 [ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/quick_acess_sites.gd" id="3_v7wwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xkm1"]
@@ -40,9 +39,9 @@ text = "X
 [node name="Browser_title_label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 128.0
+offset_top = 80.0
 offset_right = 968.0
-offset_bottom = 257.0
+offset_bottom = 209.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "Navegador"
@@ -51,9 +50,9 @@ horizontal_alignment = 1
 [node name="Quick_acess_label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 463.0
+offset_top = 274.0
 offset_right = 300.0
-offset_bottom = 510.0
+offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.501407, 0.501406, 0.501406, 1)
 theme_override_font_sizes/font_size = 40
 text = "Acesso rápido"
@@ -91,23 +90,21 @@ layout_mode = 2
 [node name="browser_news3" parent="Panel/News" instance=ExtResource("2_1qmiu")]
 layout_mode = 2
 
+[node name="browser_news4" parent="Panel/News" instance=ExtResource("2_1qmiu")]
+layout_mode = 2
+
 [node name="Quick_acess_sites" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_top = 558.0
+offset_top = 357.0
 offset_right = 1080.0
-offset_bottom = 1053.0
+offset_bottom = 1095.0
+theme_override_constants/separation = 250
 script = ExtResource("3_v7wwx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Quick_acess_sites"]
 layout_direction = 2
 layout_mode = 2
-theme_override_constants/separation = 300
-
-[node name="quick_acess_sites_icons" parent="Panel/Quick_acess_sites/HBoxContainer" instance=ExtResource("3_tcvq3")]
-layout_mode = 2
-
-[node name="quick_acess_sites_icons2" parent="Panel/Quick_acess_sites/HBoxContainer" instance=ExtResource("3_tcvq3")]
-layout_mode = 2
+theme_override_constants/separation = 270
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

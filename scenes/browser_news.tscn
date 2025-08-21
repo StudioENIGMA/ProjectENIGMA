@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://db76w5p3v8r56"]
+[gd_scene load_steps=3 format=3 uid="uid://db76w5p3v8r56"]
+
+[ext_resource type="Script" uid="uid://2stig22w2rit" path="res://scripts/browser_news.gd" id="1_gvno7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yto3l"]
 bg_color = Color(1, 1, 1, 1)
@@ -8,6 +10,7 @@ custom_minimum_size = Vector2(1080, 280)
 offset_right = 1080.0
 offset_bottom = 282.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yto3l")
+script = ExtResource("1_gvno7")
 
 [node name="news_title" type="Label" parent="."]
 layout_mode = 0
@@ -31,3 +34,5 @@ offset_bottom = 246.0
 theme_override_colors/font_color = Color(0.374139, 0.374139, 0.374139, 1)
 theme_override_font_sizes/font_size = 30
 text = "BBC  •  3 horas atrás"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
