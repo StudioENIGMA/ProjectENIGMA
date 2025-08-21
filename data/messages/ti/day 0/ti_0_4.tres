@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://duc2sf4jsb2m7"]
+[gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://duc2sf4jsb2m7"]
 
-[ext_resource type="Resource" uid="uid://b50dmogt6ol6s" path="res://data/messages/ti/day 0/ti_0_5.tres" id="1_1i4bo"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_727qx"]
+[ext_resource type="Resource" uid="uid://drh4yonur06o" path="res://data/messages/ti/day 0/ti_0_4a_0.tres" id="1_tina8"]
+[ext_resource type="Resource" uid="uid://bv7qpjkr6q8mt" path="res://data/messages/ti/day 0/ti_0_4a_1.tres" id="2_bxlno"]
 
 [resource]
 script = ExtResource("1_727qx")
@@ -10,10 +11,13 @@ id = 0
 priority = 0
 is_answer = false
 is_next = true
-task_type = "daily"
+task_type = 0
+installer = 0
 sender = "TI"
 text = "mas n agora aproveita o banana kkkk"
 conditions = Dictionary[String, bool]({})
-answers = Dictionary[Resource, int]({})
-next_message = ExtResource("1_1i4bo")
+answers = Dictionary[Resource, int]({
+ExtResource("1_tina8"): 0,
+ExtResource("2_bxlno"): 0
+})
 metadata/_custom_type_script = "uid://yb7fi4umfvih"

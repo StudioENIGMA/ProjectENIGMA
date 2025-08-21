@@ -85,6 +85,8 @@ func process_messages():
 	new_message_instance.message = messages_to_instance.pop_front()
 	message_holder.add_child(new_message_instance)
 
+	message_delay_timer.wait_time = randf_range(1.8, 3.2)
+
 
 func process_waiting_messages(id : int):
 	for message in messages_waiting_answers.keys():
@@ -100,6 +102,8 @@ func process_answers(id: int):
 		match answers_waiting_response[id].installer:
 			AppControl.App.Store:
 				AppsControll.download_app(AppsControll.App.Store)
+			AppControl.App.FakeStore:
+				AppsControll.download_app(AppsControll.App.FakeStore)
 
 	pass
 
