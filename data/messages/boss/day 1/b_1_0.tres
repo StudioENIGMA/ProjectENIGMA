@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://ynrkx7jk04j7"]
+
+[ext_resource type="Resource" uid="uid://bfw20iwjkjkuo" path="res://data/messages/boss/day 1/b_1_1.tres" id="1_fy160"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_stn3k"]
+
+[resource]
+script = ExtResource("1_stn3k")
+day = 1
+id = 0
+priority = -100
+is_answer = false
+is_next = false
+task_type = 0
+installer = 0
+sender = "Chefinho"
+text = "Bom dia. Espero que você tenha tido tempo de se familiarizar com seu novo dispositivo. A partir de hoje seu trabalho começa pra valer."
+conditions = Dictionary[String, bool]({
+"fake_store": false
+})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_fy160")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

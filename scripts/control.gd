@@ -12,6 +12,7 @@ class_name Controller
 var messages_to_instance : Array[Message] = []
 var answers_to_instance : Array[Message] = []
 var messages_waiting_answers : Dictionary[Message, Array] = {}
+var answers_waiting_response : Dictionary[int, Message] = {}
 
 var message_delay_timer : Timer
 
@@ -48,6 +49,7 @@ func setup_control():
 	self.visible = true
 
 	EventBus.message_answered.connect(process_waiting_messages)
+	EventBus.message_answered.connect(process_answers)
 
 	var timer =	$"../Timer"
 	timer.wait_time = GameData.data.max_game_time
@@ -56,7 +58,7 @@ func setup_control():
 
 	message_delay_timer = Timer.new()
 	message_delay_timer.one_shot = false
-	message_delay_timer.wait_time = 1.0
+	message_delay_timer.wait_time = 2.0
 	self.add_child(message_delay_timer)
 	message_delay_timer.timeout.connect(process_messages)
 	message_delay_timer.start()
@@ -83,6 +85,8 @@ func process_messages():
 	new_message_instance.message = messages_to_instance.pop_front()
 	message_holder.add_child(new_message_instance)
 
+	message_delay_timer.wait_time = randf_range(1.8, 3.2)
+
 
 func process_waiting_messages(id : int):
 	for message in messages_waiting_answers.keys():
@@ -92,13 +96,30 @@ func process_waiting_messages(id : int):
 	pass
 
 
+func process_answers(id: int):
+	var task_type = answers_waiting_response[id].task_type
+	if task_type == Message.TaskType.INSTALL:
+		match answers_waiting_response[id].installer:
+			AppControl.App.Store:
+				AppsControll.download_app(AppsControll.App.Store)
+			AppControl.App.FakeStore:
+				AppsControll.download_app(AppsControll.App.FakeStore)
+
+	pass
+
+
 func add_message_to_send(message: Message) -> void:
 	messages_to_instance.append(message)
 	messages_to_instance.sort_custom(custom_sort_messages)
+	print(messages_to_instance)
+
 
 func add_answers_to_send(message: Message) -> void:
 	answers_to_instance.append(message)
 	# answers_to_instance.sort_custom(custom_sort_messages)
+
+func add_answers_to_waiting(answer: Message, id: int) -> void:
+	answers_waiting_response[id] = answer
 
 
 func add_message_to_waiting(message: Message, ids: Array[int]) -> void:

@@ -9,30 +9,29 @@ extends CanvasLayer
 @onready var app_node = $".."
 @onready var app_label1 = $Panel/Label
 @onready var app_label2 = $Panel/Label2
-@onready var app_text = "Nova senha para App %s:" 
+@onready var app_text = "Criar senha para App %s:" 
 @onready var app_confirm_text = "Confirmar Senha para App %s:"
 
 var new_password : String
 var confirm_password : String
 
+var first_password : bool = false
 var app_name : String
 
-signal correct_password(new_password: String)
+signal first_correct_password(new_password: String, app_name: String)	
 
 func _ready() -> void:
 	confirm_button.pressed.connect(_on_confirm_button_pressed)
-	close_button.pressed.connect(_on_close_button_pressed)
 	
-	await get_tree().create_timer(0.01).timeout
-	var app_name = app_node.app_name
-	
+	await get_tree().create_timer(0.01).timeout	
 	app_text = app_text % app_name
 	app_label1.text = app_text
 	
 	app_confirm_text = app_confirm_text % app_name
 	app_label2.text = app_confirm_text
-	
 
+func setup(_app_name : String) -> void:
+	self.app_name = _app_name
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,8 +45,7 @@ func _on_confirm_button_pressed() -> void:
 	if new_password != confirm_password or new_password == "":
 		return
 		
-	correct_password.emit(new_password)
-	self.hide()
+	EventBus.first_correct_password.emit(new_password, app_name)
+	first_password = false
 	
-func _on_close_button_pressed() -> void:
 	self.hide()

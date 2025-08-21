@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://dty2vdii4ix0c"]
+
+[ext_resource type="Resource" uid="uid://bkha2riwd2d2w" path="res://data/messages/boss/day 1/b_1_4.tres" id="1_m2bro"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="2_ljv6g"]
+
+[resource]
+script = ExtResource("2_ljv6g")
+day = 1
+id = 0
+priority = -100
+is_answer = false
+is_next = true
+task_type = 0
+installer = 0
+sender = "Chefinho"
+text = "Vejo aqui que o TI já liberou o seu acesso pros aplicativos da nossa loja."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_m2bro")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

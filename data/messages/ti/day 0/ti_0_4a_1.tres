@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://bv7qpjkr6q8mt"]
+
+[ext_resource type="Resource" uid="uid://csu3yvnsxet2a" path="res://data/messages/ti/day 0/ti_0_6.tres" id="1_h5dt0"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="2_y6jhi"]
+
+[resource]
+script = ExtResource("2_y6jhi")
+day = 0
+id = 0
+priority = 0
+is_answer = true
+is_next = false
+task_type = 0
+installer = 0
+sender = "TI"
+text = "Tudo certo, prazer te conhecer!"
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_h5dt0")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

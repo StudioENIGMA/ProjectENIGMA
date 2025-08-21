@@ -1,20 +1,27 @@
-[gd_scene load_steps=24 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=31 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
-[ext_resource type="Resource" uid="uid://b0l2ori7kvj88" path="res://data/messages/message.tres" id="4_oknyi"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_x5x4e"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_8e4ax"]
+[ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" uid="uid://cai54p1y8cl12" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
+[ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="6_yc1wb"]
+[ext_resource type="Resource" uid="uid://cg565thny8nn7" path="res://data/messages/ti/day 0/ti_0_0.tres" id="7_5o8nl"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
+[ext_resource type="Resource" uid="uid://d0wvqlf6rjdby" path="res://data/messages/fake_store/day 0/fs_0_0.tres" id="8_51grn"]
+[ext_resource type="PackedScene" uid="uid://cmft24jq1687n" path="res://scenes/phone_settings/phone_settings.tscn" id="8_f2213"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
+[ext_resource type="Resource" uid="uid://pw4qar0o173l" path="res://data/messages/finances/day 0/f_0_0.tres" id="9_yc1wb"]
+[ext_resource type="Resource" uid="uid://ynrkx7jk04j7" path="res://data/messages/boss/day 1/b_1_0.tres" id="10_5o8nl"]
 [ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
+[ext_resource type="Resource" uid="uid://do7egvk1h6pr6" path="res://data/messages/boss/day 1/b_1_2.tres" id="11_q7j5u"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="12_51grn"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/play_touch_sound.gd" id="13_yc1wb"]
@@ -45,7 +52,7 @@ offset_top = -1784.0
 offset_right = 825.0
 offset_bottom = 1806.0
 script = ExtResource("3_oknyi")
-messages = Array[ExtResource("4_x5x4e")]([ExtResource("4_oknyi")])
+messages = Array[ExtResource("4_8e4ax")]([ExtResource("5_51grn"), ExtResource("6_yc1wb"), ExtResource("7_5o8nl"), ExtResource("8_51grn"), ExtResource("9_yc1wb"), ExtResource("10_5o8nl"), ExtResource("11_q7j5u")])
 message_holder = NodePath("MessageHolder")
 apps_holder = NodePath("Apps")
 next_day_button = NodePath("../DayOver/Button")
@@ -64,6 +71,10 @@ visible = false
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
 is_fake = true
+
+[node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
+visible = false
+position = Vector2(-540, -1200)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 z_index = -1
@@ -227,6 +238,7 @@ wait_time = 600.0
 one_shot = true
 
 [node name="DayOver" type="Node2D" parent="."]
+visible = false
 
 [node name="DayOverBackground" type="Sprite2D" parent="DayOver"]
 modulate = Color(1, 1, 1, 0.835294)
@@ -267,6 +279,7 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/Apps/phone_settings" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]

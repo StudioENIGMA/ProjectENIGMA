@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://dx8054jmvf2ri"]
+
+[ext_resource type="Resource" uid="uid://c0mf4o3p4sqnc" path="res://data/messages/fake_store/day 0/fs_0_2a_0.tres" id="1_4b4lj"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_pkrfl"]
+[ext_resource type="Resource" uid="uid://hd0y2n2kuptq" path="res://data/messages/fake_store/day 0/fs_0_2a_1.tres" id="2_ff31t"]
+
+[resource]
+script = ExtResource("1_pkrfl")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = true
+task_type = 0
+installer = 0
+sender = "<número desconhecido>"
+text = "Essa é livre. Divirta-se."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({
+ExtResource("1_4b4lj"): 0,
+ExtResource("2_ff31t"): 0
+})
+metadata/_custom_type_script = "uid://yb7fi4umfvih"
