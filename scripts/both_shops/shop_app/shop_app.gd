@@ -43,7 +43,7 @@ func _on_open_pressed() -> void:
 
 func _on_update_pressed() -> void:
 	buttons[1].text = "Atualizando..."
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	AppsControll.update_app(current_app)
 	buttons[1].text = "Atualizar"
 	buttons[0].visible = true
@@ -52,7 +52,7 @@ func _on_update_pressed() -> void:
 
 func _on_install_pressed() -> void:
 	buttons[2].text = "Instalando..."
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	AppsControll.download_app(current_app)
 	buttons[2].text = "Instalar"
 	buttons[0].visible = true

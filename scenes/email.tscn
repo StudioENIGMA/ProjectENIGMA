@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8q6fsmpgy31h"]
+[gd_scene load_steps=8 format=3 uid="uid://bcf1ro7bwyle6"]
 
-[ext_resource type="PackedScene" uid="uid://ulxoabk2xr6m" path="res://scenes/email_container.tscn" id="1_85euw"]
+[ext_resource type="PackedScene" path="res://scenes/email_container.tscn" id="1_85euw"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_dwfkx"]
-[ext_resource type="Script" uid="uid://pw3r6ayi8a6f" path="res://scenes/exit_email.gd" id="2_bd1t5"]
+[ext_resource type="Script" path="res://scenes/exit_email.gd" id="2_bd1t5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrqkr"]
 
@@ -81,4 +81,5 @@ layout_mode = 2
 [node name="email_container3" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("1_85euw")]
 layout_mode = 2
 
+[connection signal="pressed" from="Panel/Exit_email" to="." method="hide"]
 [connection signal="pressed" from="Panel/Exit_email" to="Panel/Exit_email" method="_on_pressed"]
