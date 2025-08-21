@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://dsd1tk2vujgh8"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_ae6s4"]
+[ext_resource type="Resource" uid="uid://c6cajs2cmoxc0" path="res://data/messages/boss/day 0/boss_0_2.tres" id="1_eeo64"]
+
+[resource]
+script = ExtResource("1_ae6s4")
+day = 0
+id = 0
+priority = -100
+is_answer = false
+is_next = true
+task_type = "daily"
+sender = "Chefinho"
+text = "Durante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_eeo64")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

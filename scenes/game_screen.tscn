@@ -4,9 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/control.gd" id="3_oknyi"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/messages_app.tscn" id="4_7em7s"]
-[ext_resource type="Resource" uid="uid://b0l2ori7kvj88" path="res://data/messages/message.tres" id="4_oknyi"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="4_x5x4e"]
+[ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_4u5i3"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/both_shops.tscn" id="5_x5x4e"]
+[ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="6_f2213"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" path="res://scripts/apps_game_screen.gd" id="6_x5x4e"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
@@ -46,7 +47,7 @@ offset_top = -1784.0
 offset_right = 825.0
 offset_bottom = 1806.0
 script = ExtResource("3_oknyi")
-messages = Array[ExtResource("4_x5x4e")]([ExtResource("4_oknyi")])
+messages = Array[ExtResource("4_x5x4e")]([ExtResource("5_4u5i3"), ExtResource("6_f2213"), ExtResource("7_8imdr")])
 message_holder = NodePath("MessageHolder")
 apps_holder = NodePath("Apps")
 next_day_button = NodePath("../DayOver/Button")
@@ -116,6 +117,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+visible = false
 z_index = -1
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
@@ -232,6 +234,7 @@ wait_time = 600.0
 one_shot = true
 
 [node name="DayOver" type="Node2D" parent="."]
+visible = false
 
 [node name="DayOverBackground" type="Sprite2D" parent="DayOver"]
 modulate = Color(1, 1, 1, 0.835294)

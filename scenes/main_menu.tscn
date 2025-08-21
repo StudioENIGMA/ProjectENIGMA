@@ -39,6 +39,7 @@ text = "NEW GAME"
 script = ExtResource("3_rtw2f")
 
 [node name="Load Game Button" type="Button" parent="MainVBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
