@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://bxbu6pgbo1as7"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_b0p1b"]
+[ext_resource type="Resource" uid="uid://cdwsjysxctndl" path="res://data/messages/rh/day 0/rh_0_1.tres" id="1_j112b"]
+
+[resource]
+script = ExtResource("1_b0p1b")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = false
+task_type = "daily"
+sender = "RH"
+text = "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ "
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_j112b")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _on_return_button_pressed():
 	home.visible = true
+	return_button.z_index = 0
 
 func _on_open_chat(conversation_data : Dictionary):
 	current_contact = conversation_data["name"]
@@ -28,17 +29,19 @@ func _on_open_chat(conversation_data : Dictionary):
 		node.queue_free()
 	
 	EventBus.clean_answers.emit()
+	return_button.z_index = 2
 		
 	for message in conversation_data["messages"]:
 		var message_instance = MY_MESSAGE.instantiate() if message.sender == EventBus.Sender.ME else OTHERS_MESSAGE.instantiate()
 
 		chat_box.add_child(message_instance)
 		message_instance.setup(message.message)
-		scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value		
 	
 	for option in conversation_data["options"]:
 		EventBus.answer_option.emit(conversation_data.name, option.message, option.title, option.reputation_points, -2, option.answer_id)
-	
+	#
+	await get_tree().create_timer(0.04).timeout
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value		
 	# Hide Home
 	home.visible = false
 
@@ -57,6 +60,7 @@ func _on_create_message(name : String, message : String, sender : EventBus.Sende
 	var message_instance = MY_MESSAGE.instantiate() if sender == EventBus.Sender.ME else OTHERS_MESSAGE.instantiate()
 	chat_box.add_child(message_instance)
 	message_instance.setup(message)
-	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	
+	scroll_container.scroll_to_bottom()
 
 	

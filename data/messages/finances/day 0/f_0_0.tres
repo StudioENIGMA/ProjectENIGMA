@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://pw4qar0o173l"]
+
+[ext_resource type="Resource" uid="uid://bd7gax8e8g617" path="res://data/messages/finances/day 0/f_0_0a_0.tres" id="1_120iv"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_g1si6"]
+[ext_resource type="Resource" uid="uid://dnygomt75k8c5" path="res://data/messages/finances/day 0/f_0_0a_1.tres" id="2_m07l5"]
+
+[resource]
+script = ExtResource("1_g1si6")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = false
+task_type = 0
+installer = 0
+sender = "Financeiro "
+text = "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá me ajudar em algumas tarefas."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({
+ExtResource("1_120iv"): 0,
+ExtResource("2_m07l5"): 0
+})
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

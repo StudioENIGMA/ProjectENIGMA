@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EventBus="*res://scripts/event_bus.gd"
 OpenChatSingleton="*res://scripts/open_chat_singleton.gd"
 GameData="*res://scripts/singletons/game_data.gd"
+AppsControll="*res://scripts/singletons/apps_controll.gd"
 
 [display]
 
