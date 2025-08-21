@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://dfgni3xd1mbl1"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_d2koj"]
+[ext_resource type="Resource" uid="uid://duc2sf4jsb2m7" path="res://data/messages/ti/day 0/ti_0_4.tres" id="1_f4dkr"]
+
+[resource]
+script = ExtResource("1_d2koj")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = true
+task_type = "daily"
+sender = "TI"
+text = "vou ta te passando umas paradas aqui do ti pra vc resolver"
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_f4dkr")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

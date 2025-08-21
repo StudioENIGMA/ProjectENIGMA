@@ -20,13 +20,15 @@ config/icon="res://icon.svg"
 EventBus="*res://scripts/event_bus.gd"
 OpenChatSingleton="*res://scripts/open_chat_singleton.gd"
 GameData="*res://scripts/singletons/game_data.gd"
+AppsControll="*res://scripts/singletons/apps_controll.gd"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=2400
+window/size/viewport_width=540
+window/size/viewport_height=1200
 window/size/initial_position=Vector2i(-540, 1200)
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/scale=0.5
 window/handheld/orientation=1
 
 [rendering]
