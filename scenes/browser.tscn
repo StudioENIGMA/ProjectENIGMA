@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://6gxid20u3y1i"]
+[gd_scene load_steps=5 format=3 uid="uid://6gxid20u3y1i"]
 
 [ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/browser.gd" id="1_y4bje"]
-[ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/browser_news.tscn" id="2_1qmiu"]
 [ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/quick_acess_sites.gd" id="3_v7wwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xkm1"]
@@ -80,18 +79,6 @@ layout_mode = 0
 offset_top = 1201.0
 offset_right = 1080.0
 offset_bottom = 2397.0
-
-[node name="browser_news" parent="Panel/News" instance=ExtResource("2_1qmiu")]
-layout_mode = 2
-
-[node name="browser_news2" parent="Panel/News" instance=ExtResource("2_1qmiu")]
-layout_mode = 2
-
-[node name="browser_news3" parent="Panel/News" instance=ExtResource("2_1qmiu")]
-layout_mode = 2
-
-[node name="browser_news4" parent="Panel/News" instance=ExtResource("2_1qmiu")]
-layout_mode = 2
 
 [node name="Quick_acess_sites" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
