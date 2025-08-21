@@ -1,5 +1,7 @@
 extends Node
 
+class_name SpawnAppOnStore
+
 const AppItemScene = preload("res://scenes/shop_app.tscn")
 
 @onready var app_list_container = $"."
@@ -47,6 +49,10 @@ var operations = [
 ]
 
 func _ready() -> void:
+	# spawn_apps()
+	pass
+
+func spawn_apps():
 	var apps_in_store = AppsControll.get_apps_in_store()
 
 	for child in app_list_container.get_children():
@@ -67,6 +73,10 @@ func _ready() -> void:
 		new_app_item.get_node("Icon_Margin_Container/TextureRect").texture = new_texture
 
 		app_list_container.add_child(new_app_item)
+
+func remove_apps_from_list():
+	for app in app_list_container.get_children():
+		app.queue_free()
 
 func get_app_data(app: AppsControll.App) -> Dictionary:
 	for app_data in apps_data:

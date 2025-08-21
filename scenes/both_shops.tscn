@@ -38,8 +38,9 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="both_shops" type="Node2D"]
+[node name="both_shops" type="Node2D" node_paths=PackedStringArray("spawn_apps_instance")]
 script = ExtResource("1_l4sgr")
+spawn_apps_instance = NodePath("Panel/VBoxContainer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -138,5 +139,6 @@ offset_right = 369.0
 offset_bottom = -1050.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_khsr7")
 
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="Panel/Uninstall" to="." method="_on_uninstall_pressed"]
 [connection signal="pressed" from="Exit_shop" to="." method="_on_exit_shop_pressed"]

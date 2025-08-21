@@ -9,6 +9,8 @@ var matches = []
 @export var deleted : bool
 @onready var apps = $Panel/VBoxContainer.get_children()
 
+@export var spawn_apps_instance : SpawnAppOnStore
+
 func _ready() -> void:
 	if !is_fake:
 		uninstall.hide()
@@ -24,3 +26,9 @@ func _on_uninstall_pressed() -> void:
 	deleted = true
 	await get_tree().create_timer(3.0).timeout
 	invisible()
+
+
+func _on_draw() -> void:
+	spawn_apps_instance.remove_apps_from_list()
+	spawn_apps_instance.spawn_apps()
+	pass # Replace with function body.
