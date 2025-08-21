@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://b50dmogt6ol6s"]
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://b50dmogt6ol6s"]
 
-[ext_resource type="Resource" uid="uid://csu3yvnsxet2a" path="res://data/messages/ti/day 0/ti_0_6.tres" id="1_hufj0"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_jmsmn"]
 
 [resource]
@@ -10,10 +9,10 @@ id = 0
 priority = 0
 is_answer = false
 is_next = true
-task_type = "daily"
+task_type = 0
+installer = 0
 sender = "TI"
 text = "👍"
 conditions = Dictionary[String, bool]({})
 answers = Dictionary[Resource, int]({})
-next_message = ExtResource("1_hufj0")
 metadata/_custom_type_script = "uid://yb7fi4umfvih"
