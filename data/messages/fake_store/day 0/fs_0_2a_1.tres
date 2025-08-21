@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://hd0y2n2kuptq"]
 
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_vdtlk"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_vdtlk"]
 
 [resource]
 script = ExtResource("1_vdtlk")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://dx8054jmvf2ri"]
 
 [ext_resource type="Resource" uid="uid://c0mf4o3p4sqnc" path="res://data/messages/fake_store/day 0/fs_0_2a_0.tres" id="1_4b4lj"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_pkrfl"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_pkrfl"]
 [ext_resource type="Resource" uid="uid://hd0y2n2kuptq" path="res://data/messages/fake_store/day 0/fs_0_2a_1.tres" id="2_ff31t"]
 
 [resource]

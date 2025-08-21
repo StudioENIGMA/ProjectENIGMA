@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://duc2sf4jsb2m7"]
 
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_727qx"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_727qx"]
 [ext_resource type="Resource" uid="uid://drh4yonur06o" path="res://data/messages/ti/day 0/ti_0_4a_0.tres" id="1_tina8"]
 [ext_resource type="Resource" uid="uid://bv7qpjkr6q8mt" path="res://data/messages/ti/day 0/ti_0_4a_1.tres" id="2_bxlno"]
 

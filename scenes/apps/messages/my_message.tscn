@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpbe3r4honjav"]
+
+[ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/my_message.gd" id="1_430fi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_yluvu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.266667, 0.811765, 0.698039, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MarginContainer" type="MarginContainer"]
+layout_direction = 3
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 310.0
+offset_bottom = 106.0
+size_flags_horizontal = 8
+theme_override_constants/margin_right = 40
+script = ExtResource("1_430fi")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wq22m")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yluvu")
+theme_override_font_sizes/font_size = 50
+text = "Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem"
+vertical_alignment = 1

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Message" load_steps=4 format=3 uid="uid://pw4qar0o173l"]
 
 [ext_resource type="Resource" uid="uid://bd7gax8e8g617" path="res://data/messages/finances/day 0/f_0_0a_0.tres" id="1_120iv"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_g1si6"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_g1si6"]
 [ext_resource type="Resource" uid="uid://dnygomt75k8c5" path="res://data/messages/finances/day 0/f_0_0a_1.tres" id="2_m07l5"]
 
 [resource]

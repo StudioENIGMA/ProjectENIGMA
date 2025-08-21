@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://dcqqh0ki8gkmf"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_kdotj"]
+
+[resource]
+script = ExtResource("1_kdotj")
+day = 0
+id = 0
+priority = 0
+is_answer = false
+is_next = false
+task_type = 0
+installer = 0
+sender = ""
+text = ""
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

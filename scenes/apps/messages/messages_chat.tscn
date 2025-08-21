@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2nkg5lcmsjeu"]
+
+[ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="1_s3mx7"]
+[ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="1_th5w6"]
+[ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="2_ipib6"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_s3mx7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th5w6"]
+content_margin_bottom = 25.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 6
+border_color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu0a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="messages_chat" type="Node2D"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = -540.0
+offset_top = -980.0
+offset_right = 540.0
+offset_bottom = 863.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_th5w6")
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("1_th5w6")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -535.0
+offset_top = 894.0
+offset_right = 534.0
+offset_bottom = 1165.0
+theme_override_constants/separation = 10
+script = ExtResource("1_s3mx7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -474.0
+offset_top = -1142.0
+offset_right = -213.0
+offset_bottom = -667.0
+scale = Vector2(0.154, 0.154)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s3mx7")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqu0a")
+icon = ExtResource("2_ipib6")
+flat = true

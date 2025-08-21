@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://bx3ckksa6jlx3" path="res://data/messages/boss/day 1/b_1_4a_0.tres" id="1_fcqe4"]
 [ext_resource type="Resource" uid="uid://c3swxetabnudb" path="res://data/messages/boss/day 1/b_1_4a_1.tres" id="2_0la55"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="2_fcqe4"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="2_fcqe4"]
 
 [resource]
 script = ExtResource("2_fcqe4")

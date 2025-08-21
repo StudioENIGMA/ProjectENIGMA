@@ -12,7 +12,7 @@ enum App {
 }
 
 var apps_name: Dictionary = {}
-var apps_in_store: Array[App] = [App.Messages, App.Browser, App.Email]
+var apps_in_store: Array[App] = [App.Messages, App.Email]
 var downloaded_apps: Array[App] = [App.Messages, App.Settings]
 var available_updates: Array[App] = []
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://c3swxetabnudb"]
 
 [ext_resource type="Resource" uid="uid://dgybq7x8pijyv" path="res://data/messages/boss/day 1/b_1_5.tres" id="1_lycfu"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_nouum"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_nouum"]
 
 [resource]
 script = ExtResource("1_nouum")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cou0tkf8oqsjs"]
 
-[ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/update_os.gd" id="1_hn00k"]
+[ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/apps/settings/update_os.gd" id="1_hn00k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwg05"]
 bg_color = Color(0.420288, 0.642982, 0.681732, 1)

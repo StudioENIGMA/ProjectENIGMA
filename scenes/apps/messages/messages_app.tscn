@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://5qfjsihyrf6e"]
+
+[ext_resource type="PackedScene" uid="uid://bnk0fajss1ufl" path="res://scenes/apps/messages/messages_home.tscn" id="1_804dm"]
+[ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app.gd" id="1_jwkj7"]
+[ext_resource type="PackedScene" uid="uid://b2nkg5lcmsjeu" path="res://scenes/apps/messages/messages_chat.tscn" id="2_jwkj7"]
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_jwkj7"]
+[ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="5_iafpg"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_i8gl0"]
+[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="6_s1xfr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b5iey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8gl0"]
+bg_color = Color(0.101961, 0.12549, 0.2, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="messages_app" type="Node2D"]
+script = ExtResource("1_jwkj7")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.960784, 1)
+scale = Vector2(1080, 2400)
+texture = SubResource("CanvasTexture_b5iey")
+
+[node name="messages_chat" parent="." instance=ExtResource("2_jwkj7")]
+position = Vector2(0, 3)
+
+[node name="messages_home" parent="." instance=ExtResource("1_804dm")]
+position = Vector2(0, -2)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -540.0
+offset_top = -1202.0
+offset_right = 540.0
+offset_bottom = -980.0
+mouse_filter = 2
+color = Color(0.27451, 0.709804, 0.690196, 1)
+
+[node name="s" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 394.0
+offset_top = -1129.0
+offset_right = 809.0
+offset_bottom = -714.0
+grow_horizontal = 0
+scale = Vector2(0.15, 0.15)
+action_mode = 0
+icon = ExtResource("3_jwkj7")
+flat = true
+icon_alignment = 1
+
+[node name="Battery100" type="Sprite2D" parent="."]
+position = Vector2(324, -1098)
+rotation = -1.57079
+scale = Vector2(0.158035, 0.158035)
+texture = ExtResource("5_iafpg")
+
+[node name="clock" type="Label" parent="."]
+offset_left = 248.0
+offset_top = -1146.0
+offset_right = 298.0
+offset_bottom = -1050.0
+theme_override_constants/line_spacing = -16
+theme_override_fonts/font = ExtResource("6_i8gl0")
+theme_override_font_sizes/font_size = 42
+text = "08
+00"
+script = ExtResource("6_s1xfr")
+
+[node name="line" type="Panel" parent="."]
+offset_left = 365.0
+offset_top = -1147.0
+offset_right = 369.0
+offset_bottom = -1050.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i8gl0")
+
+[connection signal="pressed" from="s" to="." method="hide"]

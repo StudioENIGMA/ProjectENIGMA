@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cub8cp50gdyyn"]
+
+[ext_resource type="Script" uid="uid://bvvt0mbcqhnf7" path="res://scripts/apps/browser/news/news_page.gd" id="1_kom6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcohq"]
+bg_color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="news_page" type="Node2D"]
+script = ExtResource("1_kom6y")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -540.0
+offset_top = -1200.0
+offset_right = 540.0
+offset_bottom = 1200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kcohq")
+
+[node name="go_back" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 125.0
+offset_bottom = 113.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "<-
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 102.0
+offset_right = 1080.0
+offset_bottom = 2400.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="news_title" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Título da notícia"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="news_text" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "A bateria do celular descarrega rápido por uma combinação de fatores, que vão desde o desgaste natural das células de íon-lítio até hábitos de uso que aceleram sua degradação, como manter a tela com brilho alto, múltiplas conexões ativas, uso intenso de aplicativos e exposição ao calor. Mesmo com avanços tecnológicos, ainda não existe uma “superbateria” capaz de durar dias sem recarga. Nesse sentido, entender como o componente funciona, por que perde eficiência com o tempo e quais práticas ajudam a preservá-lo é essencial para manter a autonomia e prolongar sua vida útil.
+
+Nesta matéria, o TechTudo reuniu informações de especialistas, fabricantes e pesquisas para responder às dúvidas mais comuns sobre o desgaste das baterias, desde a sua composição até práticas corretas de carregamento. Confira nas linhas a seguir e saiba como prolongar a vida útil do seu celular.
+
+Por que a bateria do celular descarrega rápido? Especialistas respondem
+O TechTudo mergulhou a fundo no universo das baterias para entender como elas funcionam e quais os principais motivos que fazem os celulares descarregarem rápido. A seguir, confira os tópicos que serão abordados neste guia.
+
+Do que as baterias são feitas e como geram energia para os celulares?
+Como as baterias dos celulares perdem eficiência com o passar do tempo?
+Sinais de que a bateria está próxima do fim
+O que faz a bateria do celular descarregar rápido?
+Deixar o celular carregando a noite inteira faz mal? E usar o celular enquanto carrega?
+Boas práticas para preservar a saúde da bateria
+1. Do que as baterias são feitas e como geram energia para os celulares?
+A maioria dos celulares modernos utiliza baterias de íon de lítio (Li-ion) ou polímero de lítio (Li-Po). Elas funcionam por meio de reações químicas que movimentam íons entre dois polos — o ânodo e o cátodo —, gerando energia elétrica para alimentar o aparelho. Essas tecnologias são leves, recarregáveis e capazes de armazenar grande quantidade de energia em pouco espaço.
+
+Diferente das baterias antigas de níquel, que podiam viciar e perder capacidade se não fossem totalmente descarregadas antes da recarga, as de lítio não sofrem desse efeito. No entanto, elas têm um número limitado de ciclos completos de carga e descarga — geralmente entre 300 e 500 — antes que sua capacidade caia para menos de 80%, marcando o início do fim de sua vida útil.
+
+Para o engenheiro mecânico e de controle e automação Rodrigo Rodrigues, as baterias de íons de lítio têm vida útil limitada e sofrem desgaste químico natural. Fatores como calor excessivo, ciclos extremos de carga, deixar o celular descarregar completamente com frequência ou até mesmo o carregamento rápido constante podem acelerar essa degradação.
+
+Além disso, outro fator que deve ser levado em consideração é o fenômeno SEI (Solid Electrolyte Interphase). Trata-se de uma camada que se forma no ânodo durante os ciclos e aumenta a resistência interna, reduzindo a eficiência da bateria.
+2. Como as baterias dos celulares perdem eficiência com o passar do tempo
+O envelhecimento da bateria é inevitável. Desde o dia em que sai da fábrica, ela começa a sofrer um processo natural chamado oxidação celular, que reduz sua capacidade de reter energia. Isso acontece independentemente do uso, mas é acelerado por fatores como temperaturas extremas, descargas profundas e sobrecargas constantes. É o que afirma o especialista em reparos de dispositivos eletrônicos na iDeupane, Lucas Pereira.
+
+\"A cada ciclo de carga, a bateria passa a armazenar um pouco menos de energia. Calor, uso intenso e recargas frequentes aceleram esse desgaste\", explica.
+Com o tempo, a camada interna conhecida como “conteúdo inerte” ou “rock content” aumenta, ocupando espaço antes dedicado à energia utilizável. Isso faz com que a recarga seja mais rápida, mas não porque a bateria está “melhor”, e sim porque há menos espaço para carregar. O resultado é uma autonomia cada vez menor entre uma carga e outra.
+
+
+"
+autowrap_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Panel/go_back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Panel/go_back" to="Panel/go_back" method="_on_pressed"]

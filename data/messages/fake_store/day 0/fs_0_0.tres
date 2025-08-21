@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://d0wvqlf6rjdby"]
 
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_7vv57"]
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="1_7vv57"]
 [ext_resource type="Resource" uid="uid://p2675wsvw4o6" path="res://data/messages/fake_store/day 0/fs_0_1.tres" id="1_oky0e"]
 
 [resource]
