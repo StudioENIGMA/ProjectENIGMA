@@ -17,6 +17,7 @@ offset_bottom = 2400.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mwg05")
 
 [node name="title" type="Label" parent="background"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 300.0
 offset_right = 1040.0
