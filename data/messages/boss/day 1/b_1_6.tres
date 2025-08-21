@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Message" load_steps=2 format=3 uid="uid://patuoap6qtmk"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_18y2k"]
+
+[resource]
+script = ExtResource("1_18y2k")
+day = 1
+id = 0
+priority = -100
+is_answer = false
+is_next = true
+task_type = 0
+installer = 0
+sender = "Chefinho"
+text = "Muito bem. Agora que você tem acesso ao navegador, me traga, por favor, um resumo das notícias do dia."
+conditions = Dictionary[String, bool]({
+"browser": true
+})
+answers = Dictionary[Resource, int]({})
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

@@ -13,7 +13,7 @@ enum App {
 
 var apps_name: Dictionary = {}
 var apps_in_store: Array[App] = [App.Messages, App.Browser, App.Email]
-var downloaded_apps: Array[App] = [App.Messages, App.Settings, App.Browser]
+var downloaded_apps: Array[App] = [App.Messages, App.Settings, App.Store]
 var available_updates: Array[App] = []
 
 func _ready() -> void:

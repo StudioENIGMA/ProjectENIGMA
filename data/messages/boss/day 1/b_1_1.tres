@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Message" load_steps=3 format=3 uid="uid://bfw20iwjkjkuo"]
+
+[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/control/message.gd" id="1_f7umi"]
+[ext_resource type="Resource" uid="uid://patuoap6qtmk" path="res://data/messages/boss/day 1/b_1_6.tres" id="1_gmm5p"]
+
+[resource]
+script = ExtResource("1_f7umi")
+day = 1
+id = 0
+priority = -100
+is_answer = false
+is_next = true
+task_type = 0
+installer = 0
+sender = "Chefinho"
+text = "Eu pedi para o TI liberar a instalação do Navegador na sua loja de aplicativos."
+conditions = Dictionary[String, bool]({})
+answers = Dictionary[Resource, int]({})
+next_message = ExtResource("1_gmm5p")
+metadata/_custom_type_script = "uid://yb7fi4umfvih"

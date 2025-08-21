@@ -11,7 +11,7 @@ func now() -> float:
 		return 0
 
 var data = {
-	"current_day": 0,
+	"current_day": 1,
   	"reputation_points": 0,
    	"random_send_amplitude_max" : 480,
 	"max_game_time" : 600,
