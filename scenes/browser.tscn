@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gxid20u3y1i"]
+
+[ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/browser.gd" id="1_y4bje"]
+[ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/quick_acess_sites.gd" id="3_v7wwx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xkm1"]
+bg_color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4bje"]
+bg_color = Color(0.905882, 0, 0.180392, 1)
+
+[node name="browser" type="Node2D"]
+script = ExtResource("1_y4bje")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -540.0
+offset_top = -1200.0
+offset_right = 540.0
+offset_bottom = 1200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8xkm1")
+
+[node name="Exit_browser" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = 81.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4bje")
+text = "X
+"
+
+[node name="Browser_title_label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 968.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Navegador"
+horizontal_alignment = 1
+
+[node name="Quick_acess_label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 274.0
+offset_right = 300.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.501407, 0.501406, 0.501406, 1)
+theme_override_font_sizes/font_size = 40
+text = "Acesso rápido"
+
+[node name="news_label_separator" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_top = 1171.0
+offset_right = 733.0
+offset_bottom = 1179.0
+color = Color(0, 0, 0, 1)
+
+[node name="News_label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1104.0
+offset_right = 228.0
+offset_bottom = 1173.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Notícias"
+vertical_alignment = 2
+
+[node name="News" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 1201.0
+offset_right = 1080.0
+offset_bottom = 2397.0
+
+[node name="Quick_acess_sites" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 357.0
+offset_right = 1080.0
+offset_bottom = 1095.0
+theme_override_constants/separation = 250
+script = ExtResource("3_v7wwx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Quick_acess_sites"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 270
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Panel/Exit_browser" to="." method="_on_exit_browser_pressed"]
