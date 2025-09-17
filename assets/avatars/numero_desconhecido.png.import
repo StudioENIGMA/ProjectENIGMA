@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dton2n5wdtcl4"
-path="res://.godot/imported/<número desconhecido>.png-c1e27c466d506992e45dcf208d39a602.ctex"
+path="res://.godot/imported/numero_desconhecido.png-c1e27c466d506992e45dcf208d39a602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/avatars/<número desconhecido>.png"
-dest_files=["res://.godot/imported/<número desconhecido>.png-c1e27c466d506992e45dcf208d39a602.ctex"]
+source_file="res://assets/avatars/numero_desconhecido.png"
+dest_files=["res://.godot/imported/numero_desconhecido.png-c1e27c466d506992e45dcf208d39a602.ctex"]
 
 [params]
 
