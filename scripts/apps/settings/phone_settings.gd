@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var passwords_gui = $passwordspass
+@onready var passwords_gui = $passwords
 @onready var os_scanner_guis = [$update_OS, $scanner]
 @onready var button_password = $Button_password
 @onready var button_os = $Button_OS

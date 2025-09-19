@@ -1,8 +1,8 @@
 extends Node2D
 
-const ANSWER_OPTION = preload("res://scenes/answer_option.tscn")
-const MY_MESSAGE = preload("res://scenes/my_message.tscn")
-const OTHERS_MESSAGE = preload("res://scenes/others_message.tscn")
+const ANSWER_OPTION = preload("res://scenes/apps/messages/answer_option.tscn")
+const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
+const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 @onready var home = $messages_home
 @onready var chat = $messages_chat
 @onready var chat_box = $messages_chat/ScrollContainer/VBoxContainer2

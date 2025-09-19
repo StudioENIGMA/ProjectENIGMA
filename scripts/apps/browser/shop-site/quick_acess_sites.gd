@@ -25,5 +25,5 @@ func add_item(new_item: Control) -> void:
 
 
 func _on_button_pressed() -> void:
-	var new_scene = preload("res://scenes/quick_acess_sites_icons.tscn").instantiate()
+	var new_scene = preload("res://scenes/apps/browser/quick_acess_sites_icons.tscn").instantiate()
 	add_item(new_scene)

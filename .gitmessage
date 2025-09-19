@@ -1,27 +1,9 @@
-[<version>] <TYPE> :: <scope>
-# version: X.Y.Z
-#	X : major version/revision
-#	Y : major features/bug fixes
-#	Z : minor changes/bug fixes
-# TYPE follows git conventions types (CAPITALIZED) [CHORE, FIX, FEAT, etc.]
-#	https://www.conventionalcommits.org/en/v1.0.0/
-# scope is a short discriptive title of your changes (CAPITALIZED, no period)
-# No more than 50 chars. #### 50 chars is here:  #
+[0.4.2] FIX :: CHANGE ALL OLD PATHS LOADED TO THE REFECTORED PATHS
 
-# A more detailed discription of the commit (with period.)
-# Wrap at 75 chars. ################################## which is here:  #
+Fix the game by replacing all the old loaded directory paths with the new ones after refactoring.
 
 Body:
-# Full description of each individual change, using the bellow structure (list-like, with period.)
-# Wrap at 75 chars. ##################################### which is here:  #
-# <structure:>
-# (+) <addition>
-# (*) <change/refactoring>
-# (-) <removal>
 
 Footer:
-# further thoughts, explanations, commentaries that may be pertinent to fully understanding the commit and related decisions
-# Here breaking changes should be warned as <<<BREAKING CHANGES>>> at the first line of the Footer
 
-from: [<old-version>]
-# to keep track of the progression
+from: [4.0.1]
