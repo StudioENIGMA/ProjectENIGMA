@@ -2,7 +2,7 @@ extends Node
 
 class_name SpawnAppOnStore
 
-const AppItemScene = preload("res://scenes/shop_app.tscn")
+const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 
 @onready var app_list_container = $"."
 

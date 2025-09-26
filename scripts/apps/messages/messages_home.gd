@@ -1,6 +1,6 @@
 extends Node2D
 
-const CONVERSATION_ROW_SCENE = preload("res://scenes/conversation_row.tscn")
+const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
 
 @onready var conversation_rows: VBoxContainer = $ScrollContainer/VBoxContainer
 @onready var conversations_data : Array[Dictionary]
