@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 	if answers_to_instance.size() == 0:
 		return
 
-	var new_answer_instance = load("res://scripts/control/message_instance.gd").new()
+	var new_answer_instance = load("res://scripts/apps/messages/message_instance.gd").new()
 	new_answer_instance.control_instance = self
 	new_answer_instance.message = answers_to_instance.pop_front()
 	message_holder.add_child(new_answer_instance)
@@ -83,7 +83,7 @@ func process_messages():
 	if messages_to_instance.size() == 0:
 		return
 
-	var new_message_instance = load("res://scripts/control/message_instance.gd").new()
+	var new_message_instance = load("res://scripts/apps/messages/message_instance.gd").new()
 	new_message_instance.control_instance = self
 	new_message_instance.message = messages_to_instance.pop_front()
 	message_holder.add_child(new_message_instance)

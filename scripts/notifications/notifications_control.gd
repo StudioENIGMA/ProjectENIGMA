@@ -1,6 +1,6 @@
 extends Control
 
-const NOTIFICATION_POPUP = preload("res://scenes/notification_popup.tscn")
+const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
 @onready var clock_timer = $"../../Timer"
 @onready var notification_timer = $NotificationTimer
 @onready var notification_array = []
