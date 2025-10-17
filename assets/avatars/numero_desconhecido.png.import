@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dton2n5wdtcl4"
-path="res://.godot/imported/numero_desconhecido.png-c1e27c466d506992e45dcf208d39a602.ctex"
+path="res://.godot/imported/numero_desconhecido.png-accfb0c0dc569a0e3f0be0d1cac56958.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,13 +11,15 @@ metadata={
 [deps]
 
 source_file="res://assets/avatars/numero_desconhecido.png"
-dest_files=["res://.godot/imported/numero_desconhecido.png-c1e27c466d506992e45dcf208d39a602.ctex"]
+dest_files=["res://.godot/imported/numero_desconhecido.png-accfb0c0dc569a0e3f0be0d1cac56958.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
