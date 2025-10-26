@@ -22,4 +22,4 @@ Include specific tasks in the order they need to be done in. Include links to sp
 - [ ] Task 2
 - [ ] Task 3
 
-Remember to use helpful labels and milestones. If you use the "help wanted" label, Code for America will [promote it widely](http://www.codeforamerica.org/geeks/civicissues).
+Remember to use helpful labels and milestones.
