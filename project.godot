@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Project ENIGMA"
 run/main_scene="uid://5lby0fhxei1c"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
