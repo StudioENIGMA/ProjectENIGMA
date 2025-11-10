@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cub8cp50gdyyn"]
 
-[ext_resource type="Script" uid="uid://bvvt0mbcqhnf7" path="res://scripts/news_page.gd" id="1_kom6y"]
+[ext_resource type="Script" uid="uid://bvvt0mbcqhnf7" path="res://scripts/browser/news_page.gd" id="1_kom6y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcohq"]
 bg_color = Color(0.964706, 0.964706, 0.964706, 1)
@@ -16,7 +16,7 @@ offset_bottom = 1200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kcohq")
 
 [node name="go_back" type="Button" parent="Panel"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 12.0
 offset_top = 16.0
 offset_right = 125.0
@@ -27,18 +27,26 @@ text = "<-
 "
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-layout_mode = 0
-offset_top = 102.0
-offset_right = 1080.0
-offset_bottom = 2400.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 213.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = -20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 90
 
-[node name="news_title" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="news_title" type="Label" parent="Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -48,11 +56,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="news_text" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="news_text" type="Label" parent="Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_constants/line_spacing = 10
+theme_override_font_sizes/font_size = 50
 text = "A bateria do celular descarrega rápido por uma combinação de fatores, que vão desde o desgaste natural das células de íon-lítio até hábitos de uso que aceleram sua degradação, como manter a tela com brilho alto, múltiplas conexões ativas, uso intenso de aplicativos e exposição ao calor. Mesmo com avanços tecnológicos, ainda não existe uma “superbateria” capaz de durar dias sem recarga. Nesse sentido, entender como o componente funciona, por que perde eficiência com o tempo e quais práticas ajudam a preservá-lo é essencial para manter a autonomia e prolongar sua vida útil.
 
 Nesta matéria, o TechTudo reuniu informações de especialistas, fabricantes e pesquisas para responder às dúvidas mais comuns sobre o desgaste das baterias, desde a sua composição até práticas corretas de carregamento. Confira nas linhas a seguir e saiba como prolongar a vida útil do seu celular.
