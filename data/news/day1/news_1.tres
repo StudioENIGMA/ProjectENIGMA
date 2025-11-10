@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpb6i3ixeeeuy"]
+
+[ext_resource type="Script" uid="uid://c011iuxwwolsr" path="res://scripts/browser/news.gd" id="1_c1vjs"]
+
+[resource]
+script = ExtResource("1_c1vjs")
+title = "Maior vazamento de senhas da história"
+text = "As maiores empresas do mundo e as principais redes sociais tiveram suas senhas expostas. Segundo os pesquisadores Cybermeaning foram vazadas cerca de bilhões de senhas coletadas por malwares (vírus) especializados em roubo de dados."
+author = "BCC"
+published_hour = "3 horas atrás"

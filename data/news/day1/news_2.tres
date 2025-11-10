@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dwk8mu1prgehr"]
+
+[ext_resource type="Script" uid="uid://c011iuxwwolsr" path="res://scripts/browser/news.gd" id="1_8t4ex"]
+
+[resource]
+script = ExtResource("1_8t4ex")
+title = "São Saulo vence Bot’água e avança para semifinal"
+text = "Nesta última quarta-feira (10/09/2025) São Saulo venceu por 4x1 o Bot’água no agregado e avançou para semifinal da Copa Vibertadores."
+author = "BCC"
+published_hour = "1 hora atrás"

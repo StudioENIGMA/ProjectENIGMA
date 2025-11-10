@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bk2ka10uxmlr6"]
+
+[ext_resource type="Script" uid="uid://c011iuxwwolsr" path="res://scripts/browser/news.gd" id="1_v0puf"]
+
+[resource]
+script = ExtResource("1_v0puf")
+title = "IA vai substituir os programadores?"
+text = "As dúvidas sobre o futuro de diversas profissões só aumentam com o avanço da inteligência artificial. Porém, para o CEO e engenheiro Jeff Doors, a profissão de programador continuará sendo 100% gerenciada por seres humanos. Para ele, a IA será uma ferramenta para aumentar a produtividade, mas não irá roubar as capacidades humanas de criação, julgamento e raciocínio lógico."
+author = "BCC"
+published_hour = "5 horas atrás"
