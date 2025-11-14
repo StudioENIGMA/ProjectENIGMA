@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cou0tkf8oqsjs"]
+[gd_scene load_steps=5 format=3 uid="uid://cou0tkf8oqsjs"]
 
 [ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/apps/settings/update_os.gd" id="1_hn00k"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_vut7l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwg05"]
 bg_color = Color(0.420288, 0.642982, 0.681732, 1)
@@ -8,8 +9,13 @@ bg_color = Color(0.420288, 0.642982, 0.681732, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_hn00k"]
 font_size = 60
 
-[node name="UpdateOs" type="Node2D"]
+[node name="UpdateOs" type="Node2D" node_paths=PackedStringArray("background", "title", "close_button", "text_body", "update_button")]
 script = ExtResource("1_hn00k")
+background = NodePath("background")
+title = NodePath("background/title")
+close_button = NodePath("background/close")
+text_body = NodePath("background/text_body")
+update_button = NodePath("background/update")
 
 [node name="background" type="Panel" parent="."]
 offset_right = 1080.0
@@ -33,3 +39,19 @@ offset_top = 27.0
 offset_right = 1046.0
 offset_bottom = 107.0
 text = "X"
+
+[node name="update" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 718.0
+offset_right = 1036.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("2_vut7l")
+
+[node name="text_body" type="Label" parent="background"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 421.0
+offset_right = 910.0
+offset_bottom = 645.0
+theme_override_fonts/font = ExtResource("2_vut7l")
