@@ -7,7 +7,6 @@ const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 @export var app_list_container : VBoxContainer
 
 @export var store_instance : Node2D
-var app_enabler_instance : Node
 
 var apps_data := {
 	"Mensagens": {
@@ -62,7 +61,7 @@ func spawn_apps():
 	for app in apps_in_store:
 		var new_app_item = AppItemScene.instantiate()
 		new_app_item.store_instance = self.store_instance
-		new_app_item.app_enabler_instance = app_enabler_instance
+		new_app_item.app_enabler_instance = self.get_parent().get_parent().get_parent()
 
 		var app_data = get_app_data(app)
 

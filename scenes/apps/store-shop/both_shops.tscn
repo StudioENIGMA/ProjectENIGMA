@@ -38,8 +38,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="both_shops" type="Node2D" node_paths=PackedStringArray("spawn_apps_instance")]
+[node name="both_shops" type="Node2D" node_paths=PackedStringArray("uninstall", "exit_button", "vbox_apps", "spawn_apps_instance")]
 script = ExtResource("1_l4sgr")
+uninstall = NodePath("Panel/Uninstall")
+exit_button = NodePath("Exit_shop")
+vbox_apps = NodePath("Panel/VBoxContainer")
 spawn_apps_instance = NodePath("Panel/VBoxContainer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
