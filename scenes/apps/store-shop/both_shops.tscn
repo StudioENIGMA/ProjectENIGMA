@@ -17,15 +17,15 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g878"]
-bg_color = Color(0.886043, 0, 0.175524, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2tc7"]
+bg_color = Color(0.90708, 0, 0.179257, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2tc7"]
-bg_color = Color(0.90708, 0, 0.179257, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g878"]
+bg_color = Color(0.886043, 0, 0.175524, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -64,7 +64,7 @@ offset_right = 1080.0
 offset_bottom = 222.0
 color = Color(0.27451, 0.709804, 0.690196, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" node_paths=PackedStringArray("store_instance")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" node_paths=PackedStringArray("app_list_container", "store_instance")]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 1
 anchors_preset = 14
@@ -79,6 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
 script = ExtResource("2_4dtxp")
+app_list_container = NodePath(".")
 store_instance = NodePath("../..")
 
 [node name="Uninstall" type="Button" parent="Panel"]
@@ -109,8 +110,8 @@ offset_right = 809.0
 offset_bottom = -714.0
 scale = Vector2(0.15, 0.15)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_4g878")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i2tc7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4g878")
 icon = ExtResource("3_p30qi")
 flat = true
 
