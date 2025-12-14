@@ -2,20 +2,18 @@ extends Node2D
 class_name both_shops
 
 var matches = []
-var apps
 
-@export var uninstall : Button
-@export var exit_button : Button
+@onready var uninstall : Button = $Panel/Uninstall
+@onready var exit_button : Button = $Exit_shop
 @export var is_fake : bool = false
 @export var deleted : bool
-@export var vbox_apps :VBoxContainer
+@onready var apps = $Panel/VBoxContainer.get_children()
 
 @export var spawn_apps_instance : SpawnAppOnStore
 
 func _ready() -> void:
 	if !is_fake:
 		uninstall.hide()
-	apps = vbox_apps.get_children()
 
 func _on_exit_shop_pressed() -> void:
 	invisible()
