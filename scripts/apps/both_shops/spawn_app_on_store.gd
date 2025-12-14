@@ -4,43 +4,43 @@ class_name SpawnAppOnStore
 
 const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 
-@onready var app_list_container = $"."
+@export var app_list_container : VBoxContainer
 
 @export var store_instance : Node2D
 
-var apps_data: Array[Dictionary] = [
-	{
-		"name": AppsControll.apps_name[AppsControll.App.Messages],
+var apps_data := {
+	"Mensagens": {
+		"name": "Mensagens",
 		"chinese_name": "訊息和對話",
 		"description": "Receba e Envie Mensagens!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
-	{
-		"name": AppsControll.apps_name[AppsControll.App.Email],
+	"Email": {
+		"name": "Email",
 		"chinese_name": "電子郵件",
 		"description": "Receba e envie emails aqui!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/email.png",
 	},
 
-	{
-		"name": AppsControll.apps_name[AppsControll.App.Browser],
+	"Navegador": {
+		"name": "Navegador",
 		"chinese_name": "導航和搜尋",
 		"description": "Acesse seus sites favoritos!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/browser.png",
 	},
 
-	{
+	"Gambling": {
 		"name": "Gambling",
 		"chinese_name": "小老虎遊戲",
 		"description": "!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/app-store.png",
 	}
-]
+}
 
 var operations = [
 	"開始安裝", # instalar
@@ -79,8 +79,4 @@ func remove_apps_from_list():
 		app.queue_free()
 
 func get_app_data(app: AppsControll.App) -> Dictionary:
-	for app_data in apps_data:
-		if app_data["name"] == AppsControll.apps_name[app]:
-			return app_data
-
-	return {}
+	return apps_data.get(AppsControll.apps_name[app], {}) #if value doesn't exists returns the default value
