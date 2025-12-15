@@ -3,13 +3,12 @@ class_name both_shops
 
 var matches = []
 var apps
+var is_fake : bool = false
+var deleted : bool
 
 @export var uninstall : Button
 @export var exit_button : Button
-@export var is_fake : bool = false
-@export var deleted : bool
 @export var vbox_apps :VBoxContainer
-
 @export var spawn_apps_instance : SpawnAppOnStore
 
 func _ready() -> void:
