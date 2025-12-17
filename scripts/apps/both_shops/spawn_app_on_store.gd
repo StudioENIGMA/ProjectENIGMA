@@ -4,49 +4,48 @@ extends Node
 
 const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 
-@export var store_instance:Node2D
+@export var app_list_container : VBoxContainer
+@export var store_instance : Node2D
 
-var apps_data: Array[Dictionary] = [
-	{
-		"name": AppsControl.apps_name[AppsControl.App.MESSAGES],
+var apps_data := {
+	"Mensagens": {
+		"name": "Mensagens",
 		"chinese_name": "訊息和對話",
 		"description": "Receba e Envie Mensagens!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
-	{
-		"name": AppsControl.apps_name[AppsControl.App.EMAIL],
+	"Email": {
+		"name": "Email",
 		"chinese_name": "電子郵件",
 		"description": "Receba e envie emails aqui!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/email.png",
 	},
 
-	{
-		"name": AppsControl.apps_name[AppsControl.App.BROWSER],
+	"Navegador": {
+		"name": "Navegador",
 		"chinese_name": "導航和搜尋",
 		"description": "Acesse seus sites favoritos!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/browser.png",
 	},
 
-	{
+	"Gambling": {
 		"name": "Gambling",
 		"chinese_name": "小老虎遊戲",
 		"description": "!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/app-store.png",
 	}
-]
+}
 
 var operations = [
 	"開始安裝", # instalar
 	"應用程式更新", # atualizar
 	"阿布里爾" # abrir
 ]
-
-@onready var app_list_container = $"."
 
 func _ready() -> void:
 	# spawn_apps()
@@ -79,8 +78,5 @@ func remove_apps_from_list():
 		app.queue_free()
 
 func get_app_data(app: AppsControl.App) -> Dictionary:
-	for app_data in apps_data:
-		if app_data["name"] == AppsControl.apps_name[app]:
-			return app_data
-
-	return {}
+	#if value doesn't exists returns the default value
+	return apps_data.get(AppsControl.apps_name[app], {})

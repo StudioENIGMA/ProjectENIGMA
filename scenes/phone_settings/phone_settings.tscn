@@ -18,8 +18,17 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="phone_settings" type="Node2D"]
+[node name="phone_settings" type="Node2D" node_paths=PackedStringArray("passwords_gui", "os_gui", "scanner_gui", "button_password", "button_os", "button_scanner", "close_button", "passwords_manager", "os_updater")]
 script = ExtResource("1_p6c7r")
+passwords_gui = NodePath("passwords")
+os_gui = NodePath("update_OS")
+scanner_gui = NodePath("scanner")
+button_password = NodePath("Button_password")
+button_os = NodePath("Button_OS")
+button_scanner = NodePath("Button_scanner")
+close_button = NodePath("close")
+passwords_manager = NodePath("passwords_manager")
+os_updater = NodePath("os_updater")
 
 [node name="passwords" parent="." instance=ExtResource("1_6xyrj")]
 offset_top = 187.0

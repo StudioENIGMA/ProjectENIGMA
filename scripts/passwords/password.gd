@@ -2,14 +2,13 @@ extends Control
 
 signal change_button_has_been_pressed()
 
-@onready var password_changer = $password_changer
-@onready var password_label = $password
-@onready var change_button = $change_button
-@onready var app_name:String
-@onready var title = $title
-@onready var icon = $MarginContainer/icon
+@export var password_changer: CanvasLayer
+@export var password_label: Label
+@export var change_button: Button
+@export var title: Label
+@export var icon: Sprite2D
 
-@onready var App: String = "Mensagens"
+@onready var app_name : String
 
 func _ready() -> void:
 	password_changer.hide()
