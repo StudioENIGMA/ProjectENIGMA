@@ -1,41 +1,42 @@
 extends Node
 
-var game_timer : Timer
-var hours_minutes : String
-var daily_reputation_points : int = 0
-
-func now() -> float:
-	if is_instance_valid(game_timer):
-		return game_timer.wait_time - game_timer.time_left
-	else:
-		return 0
+var game_timer:Timer
+var hours_minutes:String
+var daily_reputation_points:int = 0
 
 var data = {
 	"current_day": 0,
-  	"reputation_points": 0,
-   	"random_send_amplitude_max" : 480,
-	"max_game_time" : 600,
-  	"virus_info": {
+	"reputation_points": 0,
+	"random_send_amplitude_max":480,
+	"max_game_time":600,
+	"virus_info": {
 		"has_virus": false,
-		"viruses_quantity" : 0,
+		"viruses_quantity":0,
 		"virus_time": 0
-  	},
-  	"OS_version": "0",
-  	"passwords": {
-		"Ajustes" : "",
-		"Mensagens" : "",
-		"Loja" : "",
-		"Navegador" : "",
-		"Email" : "",
-		"Loja Alternativa" : "",
+	},
+	"OS_version": "0",
+	"passwords": {
+		"Ajustes":"",
+		"Mensagens":"",
+		"Loja":"",
+		"Navegador":"",
+		"Email":"",
+		"Loja Alternativa":"",
 	},
 	"downloaded_apps": ["mensagens", "settings"],
-  	"has_store": true,
-   	"has_fake_store": true,
+	"has_store": true,
+	"has_fake_store": true,
 	"has_browser": true,
 	"has_mail": true,
 	"has_settings": true
 }
+
+func now() -> float:
+	if is_instance_valid(game_timer):
+		return game_timer.wait_time - game_timer.time_left
+	return 0
+
+
 
 func load_game() -> void:
 	var file_path = "res://data/save.json"

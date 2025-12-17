@@ -1,11 +1,10 @@
-extends Node
-
 class_name SpawnAppOnStore
+
+extends Node
 
 const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 
 @export var app_list_container : VBoxContainer
-
 @export var store_instance : Node2D
 
 var apps_data := {
@@ -53,7 +52,7 @@ func _ready() -> void:
 	pass
 
 func spawn_apps():
-	var apps_in_store = AppsControll.get_apps_in_store()
+	var apps_in_store = AppsControl.get_apps_in_store()
 
 	for child in app_list_container.get_children():
 		child.queue_free()
@@ -78,5 +77,6 @@ func remove_apps_from_list():
 	for app in app_list_container.get_children():
 		app.queue_free()
 
-func get_app_data(app: AppsControll.App) -> Dictionary:
-	return apps_data.get(AppsControll.apps_name[app], {}) #if value doesn't exists returns the default value
+func get_app_data(app: AppsControl.App) -> Dictionary:
+	#if value doesn't exists returns the default value
+	return apps_data.get(AppsControl.apps_name[app], {})

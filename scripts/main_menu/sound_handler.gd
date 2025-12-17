@@ -1,10 +1,10 @@
 extends Node
 
-@export var sfx_player   : AudioStreamPlayer2D
-@export var music_player : AudioStreamPlayer2D
+@export var sfx_player  :AudioStreamPlayer2D
+@export var music_player:AudioStreamPlayer2D
 
-@export var startup_sound : AudioStream
-@export var main_theme    : AudioStream
+@export var startup_sound:AudioStream
+@export var main_theme   :AudioStream
 
 func _ready() -> void:
 	music_player.stream = startup_sound
@@ -40,7 +40,7 @@ func _on_master_volume_h_slider_value_changed(value:float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), convert_float_to_db(value))
 
 func convert_float_to_db(value:float) -> float:
-	var ret : float
+	var ret:float
 	if value <= 0.1:
 		ret = -100.0
 	else:

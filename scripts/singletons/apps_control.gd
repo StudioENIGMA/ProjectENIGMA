@@ -1,28 +1,28 @@
-extends Node
-
 class_name AppControl
 
+extends Node
+
 enum App {
-	Email,
-	Store,
-	Browser,
-	Settings,
-	Messages,
-	FakeStore,
+	EMAIL,
+	STORE,
+	BROWSER,
+	SETTINGS,
+	MESSAGES,
+	FAKESTORE,
 }
 
 var apps_name: Dictionary = {}
-var apps_in_store: Array[App] = [App.Messages, App.Email]
-var downloaded_apps: Array[App] = [App.Messages, App.Settings]
+var apps_in_store: Array[App] = [App.MESSAGES, App.EMAIL]
+var downloaded_apps: Array[App] = [App.MESSAGES, App.SETTINGS]
 var available_updates: Array[App] = []
 
 func _ready() -> void:
-	apps_name[App.Store] = "Loja"
-	apps_name[App.Email] = "Email"
-	apps_name[App.Browser] = "Navegador"
-	apps_name[App.Messages] = "Mensagens"
-	apps_name[App.Settings] = "Ajustes"
-	apps_name[App.FakeStore] = "Loja"
+	apps_name[App.STORE] = "Loja"
+	apps_name[App.EMAIL] = "Email"
+	apps_name[App.BROWSER] = "Navegador"
+	apps_name[App.MESSAGES] = "Mensagens"
+	apps_name[App.SETTINGS] = "Ajustes"
+	apps_name[App.FAKESTORE] = "Loja"
 
 func get_available_updates() -> Array[App]:
 	return available_updates
@@ -47,15 +47,15 @@ func update_app(app: App) -> void:
 
 func open_app(app: App, app_enabler_instance: AppEnabler):
 	match app:
-		App.Email:
+		App.EMAIL:
 			app_enabler_instance.open_mail.emit()
-		App.Store:
+		App.STORE:
 			app_enabler_instance.open_store.emit()
-		App.Browser:
+		App.BROWSER:
 			app_enabler_instance.open_browser.emit()
-		App.Settings:
+		App.SETTINGS:
 			app_enabler_instance.open_settings.emit()
-		App.Messages:
+		App.MESSAGES:
 			app_enabler_instance.open_messages.emit()
-		App.FakeStore:
+		App.FAKESTORE:
 			app_enabler_instance.open_store.emit()

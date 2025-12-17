@@ -19,41 +19,41 @@ func _ready() -> void:
 	email_button.pressed.connect(_on_email_pressed)
 
 #func _on_settings_pressed() -> void: 
-	#var app_name = AppsControll.apps_name[AppsControll.App.Settings]
+	#var app_name = AppsControl.apps_name[AppsControl.App.SETTINGS]
 	#if not GameData.data.passwords[app_name] == "":
 		#return
 		#
 	#create_password(app_name)
 
 func _on_messages_pressed() -> void: 
-	var app_name = AppsControll.apps_name[AppsControll.App.Messages]
+	var app_name = AppsControl.apps_name[AppsControl.App.MESSAGES]
 	if not GameData.data.passwords[app_name] == "":
 		return
 		
 	create_password(app_name)
 	
 func _on_store_pressed() -> void: 
-	var app_name = AppsControll.apps_name[AppsControll.App.Store]
+	var app_name = AppsControl.apps_name[AppsControl.App.STORE]
 	if not GameData.data.passwords[app_name] == "":
 		return
 		
 	create_password(app_name)
 	
 func _on_browser_pressed() -> void: 
-	var app_name = AppsControll.apps_name[AppsControll.App.Browser]
+	var app_name = AppsControl.apps_name[AppsControl.App.BROWSER]
 	if not GameData.data.passwords[app_name] == "":
 		return
 		
 	create_password(app_name)
 	
 func _on_email_pressed() -> void: 
-	var app_name = AppsControll.apps_name[AppsControll.App.Email]
+	var app_name = AppsControl.apps_name[AppsControl.App.EMAIL]
 	if not GameData.data.passwords[app_name] == "":
 		return
 		
 	create_password(app_name)
 		
-func create_password(app_name : String) -> void:
+func create_password(app_name:String) -> void:
 	var new_password_instance = NEW_PASSWORD.instantiate()
 	node.add_child(new_password_instance)
 	new_password_instance.setup(app_name)

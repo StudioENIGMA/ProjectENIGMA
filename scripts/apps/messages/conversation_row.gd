@@ -1,12 +1,12 @@
 extends PanelContainer
 
-@onready var contact_label : Label = $HBoxContainer/VBoxContainer/name
-@onready var message_label : Label = $HBoxContainer/VBoxContainer/message
-@onready var avatar_texture : TextureRect = $HBoxContainer/TextureRect
-@onready var conversation_data : Dictionary
+@onready var contact_label:Label = $HBoxContainer/VBoxContainer/name
+@onready var message_label:Label = $HBoxContainer/VBoxContainer/message
+@onready var avatar_texture:TextureRect = $HBoxContainer/TextureRect
+@onready var conversation_data:Dictionary
 
-func setup(conversation_data : Dictionary):
-	self.conversation_data = conversation_data
+func setup(p_conversation_data:Dictionary):
+	self.conversation_data = p_conversation_data
 
 	contact_label.text = conversation_data["name"]
 	message_label.text = conversation_data["messages"].back()["message"]

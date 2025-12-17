@@ -1,5 +1,7 @@
 extends Control
 
+signal change_button_has_been_pressed()
+
 @export var password_changer: CanvasLayer
 @export var password_label: Label
 @export var change_button: Button
@@ -8,26 +10,22 @@ extends Control
 
 @onready var app_name : String
 
-signal change_button_has_been_pressed()
-
-func _ready() -> void: 
+func _ready() -> void:
 	password_changer.hide()
-	
+
 	password_changer.correct_password.connect(_on_correct_password_emitted)
 	change_button.pressed.connect(_on_change_button_pressed)
 
-func setup(new_password : String, new_title : String) -> void:
+func setup(new_password:String, new_title:String) -> void:
 	password_label.text = new_password
 	title.text = "Senha de " + new_title + ":"
-	
-	app_name = new_title
-	
-	set_icon_texture(app_name)
-	
-func set_icon_texture(app_name : String) -> void:
-	var icon_path : String = "res://assets/icons/%s.png"
-	
-	match app_name:
+
+	set_icon_texture(new_title)
+
+func set_icon_texture(app_name_param:String) -> void:
+	var icon_path:String = "res://assets/icons/%s.png"
+
+	match app_name_param:
 		"Mensagens":
 			icon_path = icon_path % "messages"
 		"Loja":
@@ -38,13 +36,13 @@ func set_icon_texture(app_name : String) -> void:
 			icon_path = icon_path % "browser"
 		"Email":
 			icon_path = icon_path % "email"
-	
+
 	icon.texture = load(icon_path)
-	
+
 func _on_correct_password_emitted(new_password: String) -> void:
 	password_label.text = new_password
 	GameData.data.passwords[app_name] = new_password
-	
+
 func _on_change_button_pressed() -> void:
 	change_button_has_been_pressed.emit()
 	password_changer.show()

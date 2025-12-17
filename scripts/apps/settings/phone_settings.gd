@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	close_button.pressed.connect(_on_close_button_pressed)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if day == 2:
 		enable_feature(os_gui, button_os)
 	if day >= 3:
@@ -43,7 +43,7 @@ func change_gui_color(gui : Control, color1 : Color, color2 : Color) -> void:
 	var style_box_flat = StyleBoxFlat.new()
 	style_box_flat.bg_color = color1
 	gui.get_child(0).add_theme_stylebox_override("panel", style_box_flat)
-	
+
 	var style_box_flat2 = StyleBoxFlat.new()
 	style_box_flat2.bg_color = color2
 	gui.get_child(0).get_child(1).add_theme_stylebox_override("panel", style_box_flat2)
@@ -53,6 +53,6 @@ func _on_button_password_pressed() -> void:
 
 func _on_button_os_pressed() -> void:
 	os_updater.show()
-	
+
 func _on_close_button_pressed() -> void:
 	self.hide()

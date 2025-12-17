@@ -1,8 +1,8 @@
 [<version>] <TYPE> :: <scope>
 # version: X.Y.Z
-#	X : major version/revision
-#	Y : major features/bug fixes
-#	Z : minor changes/bug fixes
+#	X:major version/revision
+#	Y:major features/bug fixes
+#	Z:minor changes/bug fixes
 # TYPE follows git conventions types (CAPITALIZED) [CHORE, FIX, FEAT, etc.]
 #	https://www.conventionalcommits.org/en/v1.0.0/
 # scope is a short discriptive title of your changes (CAPITALIZED, no period)

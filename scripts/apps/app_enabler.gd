@@ -1,6 +1,6 @@
-extends Node
-
 class_name AppEnabler
+
+extends Node
 
 signal open_store
 signal open_fake_store

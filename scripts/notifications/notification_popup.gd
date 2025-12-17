@@ -1,19 +1,19 @@
 extends Node2D
 
-@onready var content = $notification/content
-@onready var title = $notification/title
+var initial_content:String
+var initial_title:String
+var initial_icon:String = "res://assets/icons/%s.png"
+
+@onready var content_node = $notification/content
+@onready var title_node = $notification/title
 @onready var icon = $notification/icon
 
-var initial_content : String
-var initial_title : String
-var initial_icon : String = "res://assets/icons/%s.png"
+func setup(app_enum:EventBus.App, content:String, title:String):
+	self.initial_content = content
+	self.initial_title = title
 
-func setup(app_ : EventBus.App, content_ : String, title_ : String):
-	self.initial_content = content_
-	self.initial_title = title_
-	
 	var app_icon_path = ""
-	match app_:
+	match app_enum:
 		0:
 			app_icon_path = "app-store"
 		1:
@@ -26,15 +26,15 @@ func setup(app_ : EventBus.App, content_ : String, title_ : String):
 			app_icon_path = "settings"
 		5:
 			app_icon_path = "email"
-	
-	self.initial_icon = initial_icon % app_icon_path	
+
+	self.initial_icon = initial_icon % app_icon_path
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	content.text = initial_content
-	title.text = initial_title
+	content_node.text = initial_content
+	title_node.text = initial_title
 	icon.texture = load(initial_icon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

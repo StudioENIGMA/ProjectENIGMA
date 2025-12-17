@@ -1,10 +1,10 @@
 extends Node
 
-var message : Message
-var control_instance : Controller
+var message:Message
+var control_instance:Controller
 
-var random_send_amplitude_max : float = 10.0
-var block_process : bool = false
+var random_send_amplitude_max:float = 10.0
+var block_process:bool = false
 
 func _ready():
 	random_send_amplitude_max = GameData.data.random_send_amplitude_max
@@ -15,7 +15,10 @@ func _ready():
 		send_message()
 		block_process = true
 	else:
-		var message_time = randf_range(control_instance.timer.wait_time - control_instance.timer.time_left, random_send_amplitude_max)
+		var message_time = randf_range(
+			control_instance.timer.wait_time - control_instance.timer.time_left,
+			random_send_amplitude_max
+		)
 		send_message(message_time)
 		block_process = true
 
@@ -34,12 +37,15 @@ func _process(delta: float) -> void:
 		send_message()
 		block_process = true
 	else:
-		var message_time = randf_range(control_instance.timer.wait_time - control_instance.timer.time_left, random_send_amplitude_max)
+		var message_time = randf_range(
+			control_instance.timer.wait_time - control_instance.timer.time_left,
+			random_send_amplitude_max
+		)
 		send_message(message_time)
 		block_process = true
 
 
-func send_message(time : int = -1):
+func send_message(time:int = -1):
 	if message.is_answer:
 		# print(message.text, " ", message.sender, " ", message.id)
 		EventBus.answer_option.emit(message.sender, message.text, message.text, 1000, time, message.id)
@@ -55,12 +61,12 @@ func send_message(time : int = -1):
 	# self.queue_free()
 
 func add_depedencies_to_queue():
-	var has_answerables : bool = not message.answers.is_empty()
-	var answer_ids : Array[int] = []
+	var has_answerables:bool = not message.answers.is_empty()
+	var answer_ids:Array[int] = []
 
 	if has_answerables:
 		for answer in message.answers:
-			var uid = answer.generate_scene_unique_id().to_int()
+			var uid = Resource.generate_scene_unique_id().to_int()
 			answer.id = uid
 			message.answers[answer] = uid
 			answer_ids.push_back(uid)
@@ -80,21 +86,37 @@ func add_depedencies_to_queue():
 
 
 func check_conditions() -> bool:
-	var result : int = 0
+	var result:int = 0
 
-	if message.conditions.has("settings") and AppsControll.get_downloaded_apps().has(AppControl.App.Settings) == message.conditions["settings"]:
+	var downloaded_apps = AppsControl.get_downloaded_apps()
+	if (
+		message.conditions.has("settings")
+		and downloaded_apps.has(AppControl.App.SETTINGS) == message.conditions["settings"]
+	):
 		result += 1
 
-	if message.conditions.has("browser") and AppsControll.get_downloaded_apps().has(AppControl.App.Browser) == message.conditions["browser"]:
+	if (
+		message.conditions.has("browser")
+		and downloaded_apps.has(AppControl.App.BROWSER) == message.conditions["browser"]
+	):
 		result += 1
 
-	if message.conditions.has("mail") and AppsControll.get_downloaded_apps().has(AppControl.App.Email) == message.conditions["mail"]:
+	if (
+		message.conditions.has("mail")
+		and downloaded_apps.has(AppControl.App.EMAIL) == message.conditions["mail"]
+	):
 		result += 1
 
-	if message.conditions.has("fake_store") and AppsControll.get_downloaded_apps().has(AppControl.App.FakeStore) == message.conditions["fake_store"]:
+	if (
+		message.conditions.has("fake_store")
+		and downloaded_apps.has(AppControl.App.FAKESTORE) == message.conditions["fake_store"]
+	):
 		result += 1
 
-	if message.conditions.has("store") and AppsControll.get_downloaded_apps().has(AppControl.App.Store) == message.conditions["store"]:
+	if (
+		message.conditions.has("store")
+		and downloaded_apps.has(AppControl.App.STORE) == message.conditions["store"]
+	):
 		result += 1
 
 	return result == message.conditions.size()
