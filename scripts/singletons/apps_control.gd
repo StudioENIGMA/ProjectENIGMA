@@ -1,6 +1,6 @@
-extends Node
-
 class_name AppControl
+
+extends Node
 
 enum App {
 	EMAIL,
