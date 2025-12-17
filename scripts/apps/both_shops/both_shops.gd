@@ -1,15 +1,17 @@
+class_name BothShops
+
 extends Node2D
-class_name both_shops
+
+@export var is_fake:bool = false
+@export var deleted:bool = false
+@export var spawn_apps_instance:SpawnAppOnStore
 
 var matches = []
 
-@onready var uninstall : Button = $Panel/Uninstall
-@onready var exit_button : Button = $Exit_shop
-@export var is_fake : bool = false
-@export var deleted : bool
+@onready var uninstall:Button = $Panel/Uninstall
+@onready var exit_button:Button = $Exit_shop
 @onready var apps = $Panel/VBoxContainer.get_children()
 
-@export var spawn_apps_instance : SpawnAppOnStore
 
 func _ready() -> void:
 	if !is_fake:
@@ -31,4 +33,3 @@ func _on_uninstall_pressed() -> void:
 func _on_draw() -> void:
 	spawn_apps_instance.remove_apps_from_list()
 	spawn_apps_instance.spawn_apps()
-	pass # Replace with function body.

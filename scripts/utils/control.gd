@@ -1,22 +1,24 @@
-extends Control
-
 class_name Controller
 
-@export var messages : Array[Message] = []
-@export var message_holder : Node
-@export var apps_holder : Node
-@export var next_day_button : Button
+extends Control
 
-@export var day_over_overlay : Node2D
+@export var messages:Array[Message] = []
+@export var message_holder:Node
+@export var apps_holder:Node
+@export var next_day_button:Button
 
-var messages_to_instance : Array[Message] = []
-var answers_to_instance : Array[Message] = []
-var messages_waiting_answers : Dictionary[Message, Array] = {}
-var answers_waiting_response : Dictionary[int, Message] = {}
+@export var day_over_overlay:Node2D
 
-var message_delay_timer : Timer
+var messages_to_instance:Array[Message] = []
+var answers_to_instance:Array[Message] = []
+var messages_waiting_answers:Dictionary[Message, Array] = {}
+var answers_waiting_response:Dictionary[int, Message] = {}
 
-var day_over : bool = false
+var message_delay_timer:Timer
+
+var day_over:bool = false
+
+@onready var loaded_message_script = load("res://scripts/apps/messages/message_instance.gd")
 
 func day_zero() -> void:
 	pass
@@ -34,7 +36,7 @@ func _process(_delta: float) -> void:
 	if answers_to_instance.size() == 0:
 		return
 
-	var new_answer_instance = load("res://scripts/apps/messages/message_instance.gd").new()
+	var new_answer_instance = loaded_message_script.new()
 	new_answer_instance.control_instance = self
 	new_answer_instance.message = answers_to_instance.pop_front()
 	message_holder.add_child(new_answer_instance)
@@ -43,7 +45,7 @@ func _process(_delta: float) -> void:
 
 func setup_control():
 	if GameData.data.current_day >= 1:
-		AppsControll.apps_in_store.append(AppsControll.App.Browser)
+		AppsControl.apps_in_store.append(AppsControl.App.BROWSER)
 
 	print("current day: ", GameData.data.current_day)
 
@@ -73,7 +75,6 @@ func setup_control():
 	for message in messages:
 		if message.day == GameData.data.current_day and not message.is_answer and not message.is_next:
 			messages_to_instance.append(message)
-		pass
 
 	messages_to_instance.sort_custom(custom_sort_messages)
 
@@ -83,7 +84,7 @@ func process_messages():
 	if messages_to_instance.size() == 0:
 		return
 
-	var new_message_instance = load("res://scripts/apps/messages/message_instance.gd").new()
+	var new_message_instance = loaded_message_script.new()
 	new_message_instance.control_instance = self
 	new_message_instance.message = messages_to_instance.pop_front()
 	message_holder.add_child(new_message_instance)
@@ -91,23 +92,19 @@ func process_messages():
 	message_delay_timer.wait_time = randf_range(1.8, 3.2)
 
 
-func process_waiting_messages(id : int):
+func process_waiting_messages(id:int):
 	for message in messages_waiting_answers.keys():
 		if messages_waiting_answers[message].has(id):
 			add_message_to_send(message)
-	pass
-
 
 func process_answers(id: int):
 	var task_type = answers_waiting_response[id].task_type
 	if task_type == Message.TaskType.INSTALL:
 		match answers_waiting_response[id].installer:
-			AppControl.App.Store:
-				AppsControll.download_app(AppsControll.App.Store)
-			AppControl.App.FakeStore:
-				AppsControll.download_app(AppsControll.App.FakeStore)
-
-	pass
+			AppControl.App.STORE:
+				AppsControl.download_app(AppsControl.App.STORE)
+			AppControl.App.FAKESTORE:
+				AppsControl.download_app(AppsControl.App.FAKESTORE)
 
 
 func add_message_to_send(message: Message) -> void:

@@ -1,16 +1,14 @@
-extends Node
-
 class_name SpawnAppOnStore
+
+extends Node
 
 const AppItemScene = preload("res://scenes/apps/store-shop/shop_app.tscn")
 
-@onready var app_list_container = $"."
-
-@export var store_instance : Node2D
+@export var store_instance:Node2D
 
 var apps_data: Array[Dictionary] = [
 	{
-		"name": AppsControll.apps_name[AppsControll.App.Messages],
+		"name": AppsControl.apps_name[AppsControl.App.MESSAGES],
 		"chinese_name": "訊息和對話",
 		"description": "Receba e Envie Mensagens!",
 		"description_in_chinese": "Chinese",
@@ -18,7 +16,7 @@ var apps_data: Array[Dictionary] = [
 	},
 
 	{
-		"name": AppsControll.apps_name[AppsControll.App.Email],
+		"name": AppsControl.apps_name[AppsControl.App.EMAIL],
 		"chinese_name": "電子郵件",
 		"description": "Receba e envie emails aqui!",
 		"description_in_chinese": "Chinese",
@@ -26,7 +24,7 @@ var apps_data: Array[Dictionary] = [
 	},
 
 	{
-		"name": AppsControll.apps_name[AppsControll.App.Browser],
+		"name": AppsControl.apps_name[AppsControl.App.BROWSER],
 		"chinese_name": "導航和搜尋",
 		"description": "Acesse seus sites favoritos!",
 		"description_in_chinese": "Chinese",
@@ -48,12 +46,14 @@ var operations = [
 	"阿布里爾" # abrir
 ]
 
+@onready var app_list_container = $"."
+
 func _ready() -> void:
 	# spawn_apps()
 	pass
 
 func spawn_apps():
-	var apps_in_store = AppsControll.get_apps_in_store()
+	var apps_in_store = AppsControl.get_apps_in_store()
 
 	for child in app_list_container.get_children():
 		child.queue_free()
@@ -78,9 +78,9 @@ func remove_apps_from_list():
 	for app in app_list_container.get_children():
 		app.queue_free()
 
-func get_app_data(app: AppsControll.App) -> Dictionary:
+func get_app_data(app: AppsControl.App) -> Dictionary:
 	for app_data in apps_data:
-		if app_data["name"] == AppsControll.apps_name[app]:
+		if app_data["name"] == AppsControl.apps_name[app]:
 			return app_data
 
 	return {}

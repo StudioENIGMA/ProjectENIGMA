@@ -2,13 +2,13 @@ extends MarginContainer
 
 @onready var button = $Button
 @onready var label = $PanelContainer/Label
-@onready var _name : String
-@onready var _message : String
-@onready var _answer_id : int
+@onready var _name:String
+@onready var _message:String
+@onready var _answer_id:int
 
-func setup(name : String, title : String, message : String, answer_id : int) -> void:
+func setup(sender_name:String, title:String, message:String, answer_id:int) -> void:
 	label.text = title
-	_name = name
+	_name = sender_name
 	_message = message
 	_answer_id = answer_id
 

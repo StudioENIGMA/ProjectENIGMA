@@ -1,8 +1,8 @@
 extends Button
 
-@export var settings_menu : Control
-@export var settings_back_button : Control
-@export var main_menu : Control
+@export var settings_menu:Control
+@export var settings_back_button:Control
+@export var main_menu:Control
 
 func _on_pressed() -> void:
 	settings_menu.visible = true
