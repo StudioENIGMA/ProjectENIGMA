@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://l78p0gti208j"]
+
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_4lwl2"]
+[ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="2_5ew7b"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_lwdnf"]
+[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="4_trl7q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i238g"]
+bg_color = Color(0.101961, 0.12549, 0.2, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="email_header" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 221.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1081.0
+offset_bottom = 222.0
+color = Color(0.27451, 0.709804, 0.690196, 1)
+
+[node name="close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 80.0
+offset_right = 1351.0
+offset_bottom = 495.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("1_4lwl2")
+flat = true
+
+[node name="Battery100" type="Sprite2D" parent="."]
+position = Vector2(866, 111)
+rotation = -1.57079
+scale = Vector2(0.158035, 0.158035)
+texture = ExtResource("2_5ew7b")
+
+[node name="clock" type="Label" parent="."]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 63.0
+offset_right = 840.0
+offset_bottom = 159.0
+theme_override_constants/line_spacing = -16
+theme_override_fonts/font = ExtResource("3_lwdnf")
+theme_override_font_sizes/font_size = 42
+text = "08
+00"
+script = ExtResource("4_trl7q")
+
+[node name="line" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 62.0
+offset_right = 911.0
+offset_bottom = 159.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i238g")

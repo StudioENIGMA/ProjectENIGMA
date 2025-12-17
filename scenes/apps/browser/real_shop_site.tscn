@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0xpj0mg2nn3r"]
+[gd_scene load_steps=6 format=3 uid="uid://d0xpj0mg2nn3r"]
 
 [ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/real_shop_site.gd" id="1_3x70g"]
 [ext_resource type="PackedScene" uid="uid://bcq5gqpyjjaem" path="res://scenes/apps/store-shop/shop_item.tscn" id="1_h8nqv"]
 [ext_resource type="Script" uid="uid://08u2ew24lupc" path="res://scripts/apps/browser/shop-site/real_shop_vbox.gd" id="2_bhe1q"]
+[ext_resource type="PackedScene" uid="uid://l78p0gti208j" path="res://scenes/apps/email/header.tscn" id="4_at0kb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w0vv"]
 bg_color = Color(0.964706, 0.964706, 0.964706, 1)
@@ -18,10 +19,10 @@ offset_bottom = 1200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3w0vv")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-layout_mode = 2
-offset_left = 15.0
-offset_top = 57.0
-offset_right = 1065.0
+layout_mode = 0
+offset_left = 6.0
+offset_top = 223.0
+offset_right = 1071.0
 offset_bottom = 2399.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
@@ -55,13 +56,16 @@ layout_mode = 2
 [node name="shop_item2" parent="Panel/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_h8nqv")]
 layout_mode = 2
 
+[node name="email_header" parent="Panel" instance=ExtResource("4_at0kb")]
+layout_mode = 0
+
 [node name="go_back" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 27.0
-offset_top = 21.0
+offset_top = 71.0
 offset_right = 112.0
-offset_bottom = 106.0
+offset_bottom = 156.0
 theme_override_font_sizes/font_size = 50
 text = "<-
 "

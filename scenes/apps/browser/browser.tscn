@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://6gxid20u3y1i"]
+[gd_scene load_steps=6 format=3 uid="uid://6gxid20u3y1i"]
 
 [ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
+[ext_resource type="PackedScene" uid="uid://l78p0gti208j" path="res://scenes/apps/email/header.tscn" id="2_h4mx2"]
 [ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/apps/browser/shop-site/quick_acess_sites.gd" id="3_v7wwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xkm1"]
@@ -35,12 +36,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_y4bje")
 text = "X
 "
 
+[node name="email_header" parent="Panel/Exit_browser" instance=ExtResource("2_h4mx2")]
+layout_mode = 0
+offset_left = -970.0
+offset_top = -10.0
+offset_right = 110.0
+offset_bottom = 211.0
+
 [node name="Browser_title_label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 80.0
-offset_right = 968.0
-offset_bottom = 209.0
+offset_left = 119.0
+offset_top = 228.0
+offset_right = 967.0
+offset_bottom = 357.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "Navegador"
@@ -49,9 +57,9 @@ horizontal_alignment = 1
 [node name="Quick_acess_label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 274.0
+offset_top = 366.0
 offset_right = 300.0
-offset_bottom = 329.0
+offset_bottom = 421.0
 theme_override_colors/font_color = Color(0.501407, 0.501406, 0.501406, 1)
 theme_override_font_sizes/font_size = 40
 text = "Acesso rápido"
