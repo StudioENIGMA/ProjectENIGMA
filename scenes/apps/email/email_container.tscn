@@ -89,7 +89,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ocu06")
 text = "curriculo.apk"
 icon = ExtResource("1_ucbxv")
 
-[node name="Button2" type="Button" parent="."]
+[node name="leia_mais_btn" type="Button" parent="."]
 layout_mode = 0
 offset_left = 728.0
 offset_top = 208.0

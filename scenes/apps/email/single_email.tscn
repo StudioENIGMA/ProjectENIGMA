@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=3 uid="uid://wvoe5rav4gi2"]
+
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_t2onr"]
+[ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="4_87kcm"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="5_5ocq5"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_dch5y"]
+[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="6_v2bs1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wrqkr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd1t5"]
+bg_color = Color(0.952941, 0.992157, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i238g"]
+bg_color = Color(0.101961, 0.12549, 0.2, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="Theme" id="Theme_palhq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ocq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2onr"]
+bg_color = Color(0.284043, 0.750092, 0.641747, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[node name="Email" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_wrqkr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2400.0
+size_flags_horizontal = 6
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1080.0
+offset_bottom = 2400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bd1t5")
+
+[node name="email_header" type="Control" parent="Panel"]
+z_index = 999
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 221.0
+
+[node name="ColorRect2" type="ColorRect" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1081.0
+offset_bottom = 222.0
+color = Color(0.27451, 0.709804, 0.690196, 1)
+
+[node name="close" type="Button" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 80.0
+offset_right = 1351.0
+offset_bottom = 495.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("1_t2onr")
+flat = true
+
+[node name="Battery100" type="Sprite2D" parent="Panel/email_header"]
+position = Vector2(866, 111)
+rotation = -1.57079
+scale = Vector2(0.158035, 0.158035)
+texture = ExtResource("4_87kcm")
+
+[node name="clock" type="Label" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 63.0
+offset_right = 840.0
+offset_bottom = 159.0
+theme_override_constants/line_spacing = -16
+theme_override_fonts/font = ExtResource("5_dch5y")
+theme_override_font_sizes/font_size = 42
+text = "08
+00"
+script = ExtResource("6_v2bs1")
+
+[node name="back_btn" type="Panel" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 55.0
+offset_right = 135.0
+offset_bottom = 159.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i238g")
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 219.0
+offset_right = 1081.0
+offset_bottom = 2406.0
+theme = SubResource("Theme_palhq")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5ocq5")
+
+[node name="Container" type="Control" parent="Panel/PanelContainer"]
+layout_mode = 2
+
+[node name="title_email_container" type="Control" parent="Panel/PanelContainer/Container"]
+anchors_preset = 0
+offset_right = 772.0
+offset_bottom = 151.0
+
+[node name="Label" type="Label" parent="Panel/PanelContainer/Container/title_email_container"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 740.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Site.com"
+vertical_alignment = 1
+
+[node name="email_container" type="Control" parent="Panel/PanelContainer/Container"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 179.0
+offset_right = 1096.0
+offset_bottom = 1989.0
+
+[node name="Label" type="Label" parent="Panel/PanelContainer/Container/email_container"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 0
+offset_left = 57.0
+offset_top = 13.0
+offset_right = 1033.0
+offset_bottom = 1788.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. 
+Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. 
+
+Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi...Et iure fugit id delectus consequatur ut accusantium repellendus est  iusto iste. Ut veniam unde et voluptatem obcaecati sit totam voluptatem  et quasi..."
+autowrap_mode = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="container_email_date" type="MarginContainer" parent="Panel/PanelContainer/Container"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 25.0
+offset_right = 1057.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="Panel/PanelContainer/Container/container_email_date"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+theme_override_font_sizes/font_size = 36
+text = "aug 18 10:59"
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 68.0
+offset_top = 2217.0
+offset_right = 1921.0
+offset_bottom = 2567.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 250
+theme_override_styles/normal = SubResource("StyleBoxFlat_t2onr")
+text = "curriculo.apk"
+icon = ExtResource("5_5ocq5")

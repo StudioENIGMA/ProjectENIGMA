@@ -1,13 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcf1ro7bwyle6"]
+[gd_scene load_steps=12 format=3 uid="uid://bcf1ro7bwyle6"]
 
 [ext_resource type="PackedScene" uid="uid://ulxoabk2xr6m" path="res://scenes/apps/email/email_container.tscn" id="1_85euw"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_dwfkx"]
 [ext_resource type="Script" uid="uid://pw3r6ayi8a6f" path="res://scripts/apps/email/exit_email.gd" id="2_bd1t5"]
+[ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="4_leigm"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_maaxb"]
+[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="6_c2fh2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrqkr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd1t5"]
 bg_color = Color(0.952941, 0.992157, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85euw"]
+bg_color = Color(0.90708, 0, 0.179257, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwfkx"]
 bg_color = Color(0.886043, 0, 0.175524, 1)
@@ -16,12 +26,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85euw"]
-bg_color = Color(0.90708, 0, 0.179257, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i238g"]
+bg_color = Color(0.101961, 0.12549, 0.2, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="Email" type="Node2D"]
 
@@ -48,14 +58,16 @@ anchor_left = 1.0
 anchor_top = 0.0245833
 anchor_right = 1.43981
 anchor_bottom = 0.2225
-offset_left = -133.0
-offset_right = -133.0
+offset_left = 20.0
+offset_top = 8.010864e-05
+offset_right = 20.0
+offset_bottom = 0.00012207031
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.154, 0.154)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_dwfkx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_85euw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dwfkx")
 icon = ExtResource("1_dwfkx")
 flat = true
 script = ExtResource("2_bd1t5")
@@ -80,6 +92,55 @@ layout_mode = 2
 
 [node name="email_container3" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("1_85euw")]
 layout_mode = 2
+
+[node name="email_header" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 221.0
+
+[node name="ColorRect2" type="ColorRect" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1081.0
+offset_bottom = 222.0
+color = Color(0.27451, 0.709804, 0.690196, 1)
+
+[node name="close" type="Button" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 80.0
+offset_right = 1351.0
+offset_bottom = 495.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("1_dwfkx")
+flat = true
+
+[node name="Battery100" type="Sprite2D" parent="Panel/email_header"]
+position = Vector2(866, 111)
+rotation = -1.57079
+scale = Vector2(0.158035, 0.158035)
+texture = ExtResource("4_leigm")
+
+[node name="clock" type="Label" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 63.0
+offset_right = 840.0
+offset_bottom = 159.0
+theme_override_constants/line_spacing = -16
+theme_override_fonts/font = ExtResource("5_maaxb")
+theme_override_font_sizes/font_size = 42
+text = "08
+00"
+script = ExtResource("6_c2fh2")
+
+[node name="line" type="Panel" parent="Panel/email_header"]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 62.0
+offset_right = 911.0
+offset_bottom = 159.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i238g")
 
 [connection signal="pressed" from="Panel/Exit_email" to="." method="hide"]
 [connection signal="pressed" from="Panel/Exit_email" to="Panel/Exit_email" method="_on_pressed"]
