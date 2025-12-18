@@ -67,8 +67,17 @@ func _on_confirm_pressed() -> void:
 		return
 
 	password_confirmed.emit(typed_password, app_name)
+
+	# Delete any typed passwords
+	new_password_line.text = ""
+	confirm_password_line.text = ""
+
 	hide()
 
 ## Handles the close button press
 func _on_close_pressed() -> void:
+	# Delete any typed passwords
+	new_password_line.text = ""
+	confirm_password_line.text = ""
+
 	hide()
