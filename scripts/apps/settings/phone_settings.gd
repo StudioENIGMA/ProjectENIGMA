@@ -17,15 +17,15 @@ extends Node2D
 func _ready() -> void:
 	day = GameData.data.current_day
 	passwords_gui.get_child(0).get_child(2).get_child(0).text = "Gerenciador de Senhas"
-	os_gui.get_child(0).get_child(2).get_child(0).text = "Autualização de Software"
+	os_gui.get_child(0).get_child(2).get_child(0).text = "Atualização de Software"
 	scanner_gui.get_child(0).get_child(2).get_child(0).text = "Verificar Presença de Vírus"
-	
+
 	button_os.hide()
 	button_scanner.hide()
-		
+
 	change_gui_color(os_gui, Color(0.72, 0.72, 0.72), Color(0.36, 0.36, 0.36))
 	change_gui_color(scanner_gui, Color(0.72, 0.72, 0.72), Color(0.36, 0.36, 0.36))
-	
+
 	close_button.pressed.connect(_on_close_button_pressed)
 
 func _process(_delta: float) -> void:

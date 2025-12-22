@@ -1,49 +1,83 @@
+class_name ChangePassword
+
 extends CanvasLayer
 
-signal correct_password(new_password: String)
+signal password_confirmed(new_password: String, app_name: String)
 
-var new_password:String
-var confirm_password:String
+enum Mode { CREATE, CHANGE }
 
-@onready var new_password_line = $Panel/new_password_line
-@onready var confirm_password_line = $Panel/confirm_password_line
+var is_change_mode: bool
+var app_name: String = ""
 
-@onready var confirm_button = $Panel/confirm_button
-@onready var close_button = $Panel/close
+@onready var new_password_line: LineEdit = $Panel/NewPasswordLine
+@onready var confirm_password_line: LineEdit = $Panel/ConfirmPasswordLine
 
-@onready var app_node = $".."
-@onready var app_label1 = $Panel/Label
-@onready var app_label2 = $Panel/Label2
-@onready var app_text = "Nova senha para App %s:"
-@onready var app_confirm_text = "Confirmar Senha para App %s:"
+@onready var title_label: Label = $Panel/TitleLabel
+@onready var confirm_label: Label = $Panel/ConfirmLabel
 
+@onready var confirm_button: BaseButton = $Panel/ConfirmButton
+@onready var close_button: BaseButton = $Panel/CloseButton
+
+## Sets up the ChangePassword UI
+##
+## app_name_parameter: The name of the app for which the password is being created or changed
+## mode: The mode of the password change (CREATE or CHANGE)
+func setup(
+	app_name_parameter: String,
+	mode: Mode,
+) -> void:
+	app_name = app_name_parameter
+	is_change_mode = mode == Mode.CHANGE
+	_refresh_ui()
+
+## Connects button signals and refreshes the UI
 func _ready() -> void:
-	confirm_button.pressed.connect(_on_confirm_button_pressed)
-	close_button.pressed.connect(_on_close_button_pressed)
+	confirm_button.pressed.connect(_on_confirm_pressed)
+	close_button.pressed.connect(_on_close_pressed)
 
-	await get_tree().create_timer(0.01).timeout
-	var app_name = app_node.app_name
+	_refresh_ui()
 
-	app_text = app_text % app_name
-	app_label1.text = app_text
+## Refreshes the UI elements based on the current mode and app name
+func _refresh_ui() -> void:
+	var title_template := ""
+	match is_change_mode:
+		false:
+			title_template = "Criar senha para App %s:"
+		true:
+			title_template = "Nova senha para App %s:"
 
-	app_confirm_text = app_confirm_text % app_name
-	app_label2.text = app_confirm_text
+	var confirm_template := "Confirmar Senha para App %s:"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if not new_password_line.text == null:
-		new_password = new_password_line.text
+	title_label.text = title_template % app_name
+	confirm_label.text = confirm_template % app_name
 
-	if not confirm_password_line.text == null:
-		confirm_password = confirm_password_line.text
+	close_button.visible = is_change_mode
+	close_button.disabled = not is_change_mode
 
-func _on_confirm_button_pressed() -> void:
-	if new_password != confirm_password or new_password == "":
+## Handles the confirm button press
+##
+## Emits the password_confirmed signal if the passwords match and are not empty
+func _on_confirm_pressed() -> void:
+	var typed_password := new_password_line.text.strip_edges()
+	var typed_confirmation := confirm_password_line.text.strip_edges()
+
+	if typed_password.is_empty():
+		return
+	if typed_password != typed_confirmation:
 		return
 
-	correct_password.emit(new_password)
-	self.hide()
+	password_confirmed.emit(typed_password, app_name)
 
-func _on_close_button_pressed() -> void:
-	self.hide()
+	# Delete any typed passwords
+	new_password_line.text = ""
+	confirm_password_line.text = ""
+
+	hide()
+
+## Handles the close button press
+func _on_close_pressed() -> void:
+	# Delete any typed passwords
+	new_password_line.text = ""
+	confirm_password_line.text = ""
+
+	hide()
