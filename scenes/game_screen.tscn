@@ -31,7 +31,7 @@
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
 [ext_resource type="PackedScene" uid="uid://6gxid20u3y1i" path="res://scenes/apps/browser/browser.tscn" id="16_21xuv"]
 [ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/apps/messages/messages_control.gd" id="17_bd51b"]
-[ext_resource type="PackedScene" uid="uid://bcf1ro7bwyle6" path="res://scenes/apps/email/email.tscn" id="17_lctrs"]
+[ext_resource type="PackedScene" uid="uid://bcf1ro7bwyle6" path="res://scenes/apps/email/email_app.tscn" id="17_lctrs"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
@@ -74,7 +74,6 @@ visible = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-is_fake = true
 
 [node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
 visible = false

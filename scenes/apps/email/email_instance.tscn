@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ulxoabk2xr6m"]
+[gd_scene load_steps=5 format=3 uid="uid://ulxoabk2xr6m"]
 
-[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="1_ucbxv"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="1_5dh0m"]
+[ext_resource type="Script" uid="uid://cyvu3ewh11cmt" path="res://scripts/apps/email/email_instance.gd" id="1_6w8lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocu06"]
 bg_color = Color(0.284043, 0.750092, 0.641747, 1)
@@ -21,8 +22,8 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="email_container" type="Control"]
-custom_minimum_size = Vector2(0, 330)
+[node name="email_instance" type="Control" node_paths=PackedStringArray("sender_label", "content_label", "attachments_button")]
+custom_minimum_size = Vector2(1080, 330)
 layout_mode = 3
 anchor_top = -0.055
 anchor_right = 1.907
@@ -32,28 +33,39 @@ offset_right = 0.219971
 offset_bottom = 91.4
 grow_horizontal = 2
 size_flags_horizontal = 3
+script = ExtResource("1_6w8lk")
+sender_label = NodePath("SenderContainer/SenderLabel")
+content_label = NodePath("ContentContainer/ContentLabel")
+attachments_button = NodePath("AttachmentsButton")
 
-[node name="Label_container" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1080, 330)
+layout_mode = 0
+offset_right = 1041.0
+offset_bottom = 310.0
+color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+
+[node name="SenderContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 25.0
 offset_right = 483.0
 offset_bottom = 121.0
 
-[node name="Label" type="Label" parent="Label_container"]
+[node name="SenderLabel" type="Label" parent="SenderContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "Site.com"
 
-[node name="Description_Container" type="MarginContainer" parent="."]
+[node name="ContentContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 104.0
 offset_right = 765.0
 offset_bottom = 205.0
 
-[node name="Label" type="Label" parent="Description_Container"]
+[node name="ContentLabel" type="Label" parent="ContentContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -62,39 +74,40 @@ text = "Et iure fugit id delectus consequatur ut accusantium repellendus est  iu
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="container_email_date" type="MarginContainer" parent="."]
+[node name="DateContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 811.0
 offset_top = 25.0
 offset_right = 1002.0
 offset_bottom = 89.0
 
-[node name="Label" type="Label" parent="container_email_date"]
+[node name="DateLabel" type="Label" parent="DateContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "aug 18 10:59"
 uppercase = true
 
-[node name="Button" type="Button" parent="."]
+[node name="AttachmentsButton" type="Button" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 23.0
-offset_top = 210.0
-offset_right = 1876.0
-offset_bottom = 560.0
+offset_left = 23.5
+offset_top = 205.0
+offset_right = 1876.5
+offset_bottom = 555.0
 scale = Vector2(0.2, 0.2)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 250
 theme_override_styles/normal = SubResource("StyleBoxFlat_ocu06")
 text = "curriculo.apk"
-icon = ExtResource("1_ucbxv")
+icon = ExtResource("1_5dh0m")
 
-[node name="Button2" type="Button" parent="."]
+[node name="ExpandButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 728.0
-offset_top = 208.0
-offset_right = 1011.0
-offset_bottom = 269.0
+offset_left = 765.5
+offset_top = 205.0
+offset_right = 1048.5
+offset_bottom = 266.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ucbxv")

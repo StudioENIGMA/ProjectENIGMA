@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcf1ro7bwyle6"]
+
+[ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="1_5o73h"]
+[ext_resource type="Script" uid="uid://ch46twuc0cjrw" path="res://scripts/apps/email/email_app.gd" id="1_yip1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd1t5"]
+bg_color = Color(0.952941, 0.992157, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85euw"]
+bg_color = Color(0.90708, 0, 0.179257, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwfkx"]
+bg_color = Color(0.886043, 0, 0.175524, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Email" type="Node2D" node_paths=PackedStringArray("email_container")]
+script = ExtResource("1_yip1q")
+email_container = NodePath("Panel/ScrollContainer/EmailContainer")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1080.0
+offset_bottom = 2400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bd1t5")
+
+[node name="CloseAppButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.0245833
+anchor_right = 1.43981
+anchor_bottom = 0.2225
+offset_left = -133.0
+offset_right = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.154, 0.154)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_85euw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dwfkx")
+icon = ExtResource("1_5o73h")
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 210.0
+offset_right = 1080.0
+offset_bottom = 2395.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="EmailContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/CloseAppButton" to="." method="hide"]
