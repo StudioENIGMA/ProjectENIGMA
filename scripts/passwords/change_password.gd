@@ -6,17 +6,17 @@ signal password_confirmed(new_password: String, app_name: String)
 
 enum Mode { CREATE, CHANGE }
 
+@export var new_password_line: LineEdit
+@export var confirm_password_line: LineEdit
+
+@export var title_label: Label
+@export var confirm_label: Label
+
+@export var confirm_button: BaseButton
+@export var close_button: BaseButton
+
 var is_change_mode: bool
 var app_name: String = ""
-
-@onready var new_password_line: LineEdit = $Panel/NewPasswordLine
-@onready var confirm_password_line: LineEdit = $Panel/ConfirmPasswordLine
-
-@onready var title_label: Label = $Panel/TitleLabel
-@onready var confirm_label: Label = $Panel/ConfirmLabel
-
-@onready var confirm_button: BaseButton = $Panel/ConfirmButton
-@onready var close_button: BaseButton = $Panel/CloseButton
 
 ## Sets up the ChangePassword UI
 ##

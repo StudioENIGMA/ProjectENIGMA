@@ -5,13 +5,13 @@ extends Node2D
 const STORED_PASSWORD_SCENE := preload("res://scenes/phone_settings/password.tscn")
 const CHANGE_PASSWORD_SCENE := preload("res://scenes/phone_settings/change_password.tscn")
 
+@export var none_passwords_label: Label
+@export var vbox: VBoxContainer
+@export var close_button: BaseButton
+@export var password_controller:Controller
+
 var change_password_ui: ChangePassword
 var stored_by_app: Dictionary = {} # app_name -> StoredPassword
-
-@onready var none_passwords_label: Label = $Control/Panel/NonePasswordsLabel
-@onready var vbox: VBoxContainer = $Control/Panel/VBoxContainer
-@onready var close_button: BaseButton = $Control/Panel/CloseButton
-@onready var password_controller:Controller = $PasswordController
 
 ## Initializes the PasswordsManager UI and connects the close button
 func _ready() -> void:
