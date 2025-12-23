@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=36 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
@@ -33,6 +33,10 @@
 [ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/apps/messages/messages_control.gd" id="17_bd51b"]
 [ext_resource type="PackedScene" uid="uid://bcf1ro7bwyle6" path="res://scenes/apps/email/email_app.tscn" id="17_lctrs"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
+[ext_resource type="Texture2D" uid="uid://b8gpy8d5x5isu" path="res://assets/NotificationBubble.png" id="26_lhiww"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gopqt"]
+font_size = 40
 
 [node name="GameScreen" type="Node2D"]
 
@@ -169,6 +173,36 @@ icon = ExtResource("12_7em7s")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/Email"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_bottom = 85.0
+grow_horizontal = 0
+texture = ExtResource("26_lhiww")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Email/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "12"
+label_settings = SubResource("LabelSettings_gopqt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2

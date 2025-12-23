@@ -19,6 +19,14 @@ func _ready() -> void:
 	var email_data = EmailData.new(test_email.sender, test_email.content, test_email.attachments)
 
 	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
+	_receive_email(email_data)
 
 func _receive_email(email_content: EmailData) -> void:
 	unread_email_count += 1
