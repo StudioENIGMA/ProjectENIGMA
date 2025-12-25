@@ -7,7 +7,7 @@ signal npc_message_created(npc_name:String, message:String, sender:EventBus.Send
 
 var messages_to_deliver:Array[Dictionary] = []
 
-@onready var clock_time = $"../ClockRichTextLabel"
+@onready var clock_time = $"../Clock"
 
 ## Initializes the event handler by connecting timers to their respective functions
 func _ready() -> void:

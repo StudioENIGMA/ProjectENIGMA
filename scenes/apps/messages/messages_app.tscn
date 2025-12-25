@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app.gd" id="1_jwkj7"]
 
-[node name="MessagesApp" type="Node2D" node_paths=PackedStringArray("list_of_chats")]
+[node name="MessagesApp" type="Control" node_paths=PackedStringArray("list_of_chats")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_jwkj7")
 list_of_chats = NodePath("MessagesScrollContainer/ListOfChats")
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 2160.0
 mouse_filter = 0

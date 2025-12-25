@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://daxppxx0j7mp6"]
+[gd_scene load_steps=6 format=3 uid="uid://clmq5ocg6g06r"]
 
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_3xwap"]
+[ext_resource type="Script" uid="uid://h6v46v800kee" path="res://scenes/apps/base_app.gd" id="1_8sayc"]
 [ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="1_53k8s"]
 [ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="2_53k8s"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_8sayc"]
 
-[node name="BaseApp" type="Node2D"]
+[node name="BaseApp" type="Control" node_paths=PackedStringArray("close_app_button", "back_button")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8sayc")
+close_app_button = NodePath("TopBar/TopBarIcons/CloseAppContainer/CloseAppButton")
+back_button = NodePath("TopBar/TopBarIcons/BackButtonContainer/BackButton")
 
 [node name="BaseBackgroundColor" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 2400)
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -16,6 +23,7 @@ color = Color(1, 1, 0.972549, 1)
 
 [node name="TopBar" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 240)
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -131,7 +139,6 @@ layout_mode = 2
 
 [node name="AppSpecificScreen" type="Control" parent="."]
 custom_minimum_size = Vector2(1080, 2160)
-layout_mode = 3
 anchors_preset = 0
 offset_left = -540.0
 offset_top = 240.0

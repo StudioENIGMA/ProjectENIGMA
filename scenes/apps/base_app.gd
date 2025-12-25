@@ -1,33 +1,51 @@
 ## Base application script that handles common functionality for all apps
-## This script should redirect all events received to the respective app scripts
-## Also, buttons from the top bar should be handled here
+## Buttons from the top bar should be handled here
 
 extends Node2D
 
-## Reference to the event handler node (emits events to be propagated to each app)
-@export var event_handler:Node2D
+## Reference to the close app button in the top bar
+@export var close_app_button:TextureButton
+## Reference to the return app button in the top bar
+@export var back_button:TextureButton
 
-## Reference to the messaging app node (propagates message creation events)
-@export var messages_app:Node2D
+## Reference to the desktop UI node (to manage app opening/closing)
+@export var desktop_ui:Control
 
-## Setup signal connections to redirect events to each app
+## Reference to the messaging app node
+@export var messages_app:Control
+
+var open_apps_count:int = 0
+
 func _ready() -> void:
-  _connect_event_handler()
+  desktop_ui.app_opened.connect(_on_app_opened)
+  desktop_ui.app_closed.connect(_on_app_closed)
 
-## Connects the event handler signals to the respective app functions
-func _connect_event_handler() -> void:
-  event_handler.npc_message_created.connect(_on_create_message)
+func _on_app_opened(app_name:String) -> void:
+  # Show top bar when an app is opened
+  self.visible = true
+  open_apps_count += 1
 
-## When a new message is created by the event handler redirect it to the messaging app
-##
-## npc_name: The name of the NPC which the conversation is with
-## message: The content of the message
-## sender: Enum indicating who sent the message (ME or OTHER)
-## time: The time the message was sent
-func _on_create_message(
-  npc_name:String,
-  message:String,
-  sender:EventBus.Sender,
-  time:String
-) -> void:
-  messages_app.on_create_message(npc_name, message, sender, time)
+  # Get specific app that should be opened
+  var specific_app:Control
+  match app_name:
+    "Messages":
+      specific_app = messages_app
+    _:
+      pass
+
+  # Pull specific app to front and make it visible
+  specific_app.visible = true
+  self.move_child(specific_app, self.get_child_count() - 1)
+
+func _on_app_closed(app_name:String) -> void:
+  # Hide top bar when no apps are open
+  open_apps_count -= 1
+  if open_apps_count <= 0:
+    self.visible = false
+
+  # Get specific app that should be closed
+  match app_name:
+    "Messages":
+      messages_app.visible = false
+    _:
+      pass

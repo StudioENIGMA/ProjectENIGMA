@@ -1,19 +1,20 @@
-[gd_scene load_steps=28 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=29 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/utils/control.gd" id="3_oknyi"]
-[ext_resource type="PackedScene" uid="uid://daxppxx0j7mp6" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/apps/messages/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="4_8e4ax"]
-[ext_resource type="Script" uid="uid://h6v46v800kee" path="res://scenes/apps/base_app.gd" id="4_omb3v"]
+[ext_resource type="Script" path="res://scenes/apps/base_app.gd" id="4_omb3v"]
 [ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/apps/store-shop/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="6_yc1wb"]
 [ext_resource type="Resource" uid="uid://cg565thny8nn7" path="res://data/messages/ti/day 0/ti_0_0.tres" id="7_5o8nl"]
-[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
+[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Resource" uid="uid://d0wvqlf6rjdby" path="res://data/messages/fake_store/day 0/fs_0_0.tres" id="8_51grn"]
 [ext_resource type="PackedScene" uid="uid://cmft24jq1687n" path="res://scenes/phone_settings/phone_settings.tscn" id="8_f2213"]
 [ext_resource type="Resource" uid="uid://pw4qar0o173l" path="res://data/messages/finances/day 0/f_0_0.tres" id="9_yc1wb"]
@@ -36,8 +37,7 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -540.0
-offset_right = 540.0
+offset_right = 1080.0
 offset_bottom = 2400.0
 grow_horizontal = 2
 
@@ -53,18 +53,99 @@ stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="AppsContainer" type="GridContainer" parent="UI"]
+[node name="AppsUI" type="GridContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -184.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" type="Button" parent="UI/AppsUI"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("6_h0j4g")
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Settings"
+icon = ExtResource("7_87fqc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="DayOverUI" type="Control" parent="UI"]
+visible = false
+anchors_preset = 0
+
+[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI"]
+modulate = Color(1, 1, 1, 0.835294)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 2400.0
+texture = ExtResource("22_87fqc")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI"]
+custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MessagesApp" type="TextureButton" parent="UI/AppsContainer"]
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer"]
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
-texture_normal = ExtResource("8_4u5i3")
-texture_pressed = ExtResource("8_4u5i3")
-texture_hover = ExtResource("8_4u5i3")
-texture_disabled = ExtResource("8_4u5i3")
-texture_focused = ExtResource("8_4u5i3")
+
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+layout_mode = 2
+theme = ExtResource("6_h0j4g")
+theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 180
+bbcode_enabled = true
+text = "FIM DO DIA"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_font_sizes/font_size = 146
+text = "Dia"
+icon_alignment = 1
+
+[node name="Clock" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -960.0
+offset_right = 512.0
+offset_bottom = -712.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
+Tue 17, April[/font]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("16_1vcyb")
 
 [node name="BaseApp" parent="." node_paths=PackedStringArray("event_handler", "messages_app") instance=ExtResource("3_qca60")]
 visible = false
@@ -73,6 +154,7 @@ event_handler = NodePath("../EventHandler")
 messages_app = NodePath("MessagesApp")
 
 [node name="MessagesApp" parent="BaseApp" instance=ExtResource("4_7em7s")]
+layout_mode = 0
 
 [node name="EventHandler" type="Node2D" parent="."]
 script = ExtResource("6_pur81")
@@ -84,7 +166,7 @@ one_shot = true
 [node name="ClockTimer" type="Timer" parent="EventHandler"]
 autostart = true
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "apps_holder", "next_day_button", "day_over_overlay")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "apps_holder")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -96,8 +178,6 @@ script = ExtResource("3_oknyi")
 messages = Array[ExtResource("4_8e4ax")]([ExtResource("5_51grn"), ExtResource("6_yc1wb"), ExtResource("7_5o8nl"), ExtResource("8_51grn"), ExtResource("10_5o8nl"), ExtResource("11_q7j5u"), ExtResource("9_yc1wb")])
 message_holder = NodePath("MessageHolder")
 apps_holder = NodePath("Apps")
-next_day_button = NodePath("../DayOver/Button")
-day_over_overlay = NodePath("../DayOver")
 
 [node name="MessageHolder" type="Node" parent="Control"]
 
@@ -149,30 +229,6 @@ bus = &"SFX"
 wait_time = 2.5
 one_shot = true
 
-[node name="ClockRichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -885.0
-offset_right = 485.0
-offset_bottom = -637.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
-Tue 17, April[/font]
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_1vcyb")
-
 [node name="MessagesControl" type="Control" parent="Control"]
 anchors_preset = 0
 offset_right = 40.0
@@ -183,48 +239,6 @@ script = ExtResource("17_bd51b")
 wait_time = 600.0
 one_shot = true
 
-[node name="DayOver" type="Node2D" parent="."]
-visible = false
-
-[node name="DayOverBackground" type="Sprite2D" parent="DayOver"]
-modulate = Color(1, 1, 1, 0.835294)
-position = Vector2(7.00003, 15.9999)
-scale = Vector2(5.7, 9.235)
-texture = ExtResource("22_87fqc")
-
-[node name="DayOverRichTextLabel" type="RichTextLabel" parent="DayOver"]
-offset_left = -511.0
-offset_top = -572.0
-offset_right = 512.0
-offset_bottom = -318.0
-theme = ExtResource("6_h0j4g")
-theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 180
-bbcode_enabled = true
-text = "FIM DO DIA"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="DayOver"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.5
-offset_top = -104.0
-offset_right = 120.5
-offset_bottom = 104.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
-theme_override_font_sizes/font_size = 146
-text = "Dia"
-icon_alignment = 1
-
 [connection signal="open_browser" from="Control/Apps" to="Control/Apps/browser" method="show"]
 [connection signal="open_fake_store" from="Control/Apps" to="Control/Apps/fake_shop_app" method="show"]
 [connection signal="open_mail" from="Control/Apps" to="Control/Apps/Email_app" method="show"]
@@ -232,4 +246,3 @@ icon_alignment = 1
 [connection signal="open_settings" from="Control/Apps" to="Control/Apps/phone_settings" method="show"]
 [connection signal="open_store" from="Control/Apps" to="Control/Apps/shop_app" method="show"]
 [connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]
-[connection signal="pressed" from="DayOver/Button" to="Control" method="_on_next_day_button_pressed"]

@@ -2,7 +2,7 @@ extends Control
 
 @onready var messages_to_deliver:Array[Dictionary] = []
 @onready var timer = $"../../Timer"
-@onready var clock_time = $"../ClockRichTextLabel"
+
 func _ready() -> void:
 	EventBus.receive_message.connect(on_receive_message)
 	#EventBus.answer_option.connect(on_answer_option)
