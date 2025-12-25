@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3k5q4c8q531"]
-
-[ext_resource type="Script" uid="uid://ltdll0v45aen" path="res://scripts/apps/messages/messages_home.gd" id="1_x8unq"]
-
-[node name="messages_home" type="Node2D"]
-script = ExtResource("1_x8unq")

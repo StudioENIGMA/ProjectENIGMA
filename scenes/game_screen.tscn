@@ -1,31 +1,25 @@
-[gd_scene load_steps=34 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=28 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/utils/control.gd" id="3_oknyi"]
+[ext_resource type="PackedScene" uid="uid://daxppxx0j7mp6" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/apps/messages/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="4_8e4ax"]
+[ext_resource type="Script" uid="uid://h6v46v800kee" path="res://scenes/apps/base_app.gd" id="4_omb3v"]
 [ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
 [ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/apps/store-shop/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
-[ext_resource type="Script" uid="uid://cai54p1y8cl12" path="res://scripts/apps/apps_game_screen.gd" id="6_x5x4e"]
+[ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="6_yc1wb"]
 [ext_resource type="Resource" uid="uid://cg565thny8nn7" path="res://data/messages/ti/day 0/ti_0_0.tres" id="7_5o8nl"]
-[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Resource" uid="uid://d0wvqlf6rjdby" path="res://data/messages/fake_store/day 0/fs_0_0.tres" id="8_51grn"]
 [ext_resource type="PackedScene" uid="uid://cmft24jq1687n" path="res://scenes/phone_settings/phone_settings.tscn" id="8_f2213"]
-[ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Resource" uid="uid://pw4qar0o173l" path="res://data/messages/finances/day 0/f_0_0.tres" id="9_yc1wb"]
 [ext_resource type="Resource" uid="uid://ynrkx7jk04j7" path="res://data/messages/boss/day 1/b_1_0.tres" id="10_5o8nl"]
-[ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="10_8imdr"]
-[ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8e4ax"]
 [ext_resource type="Resource" uid="uid://do7egvk1h6pr6" path="res://data/messages/boss/day 1/b_1_2.tres" id="11_q7j5u"]
 [ext_resource type="Script" uid="uid://cxp6xj8ao6cwx" path="res://scripts/apps/app_enabler.gd" id="12_1vcyb"]
-[ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
-[ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="12_51grn"]
-[ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/sounds/play_touch_sound.gd" id="13_yc1wb"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
@@ -36,18 +30,62 @@
 
 [node name="GameScreen" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(2, 13)
-scale = Vector2(1.54229, 1.87636)
-texture = ExtResource("1_3a7ej")
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(1080, 2400)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 2400.0
+grow_horizontal = 2
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="Background"]
+[node name="Background" type="TextureRect" parent="UI"]
+z_index = -100
+custom_minimum_size = Vector2(1080, 2400)
+layout_mode = 0
+texture = ExtResource("1_3a7ej")
+stretch_mode = 6
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
+[node name="AppsContainer" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MessagesApp" type="TextureButton" parent="UI/AppsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_4u5i3")
+texture_pressed = ExtResource("8_4u5i3")
+texture_hover = ExtResource("8_4u5i3")
+texture_disabled = ExtResource("8_4u5i3")
+texture_focused = ExtResource("8_4u5i3")
+
+[node name="BaseApp" parent="." node_paths=PackedStringArray("event_handler", "messages_app") instance=ExtResource("3_qca60")]
+visible = false
+script = ExtResource("4_omb3v")
+event_handler = NodePath("../EventHandler")
+messages_app = NodePath("MessagesApp")
+
+[node name="MessagesApp" parent="BaseApp" instance=ExtResource("4_7em7s")]
+
+[node name="EventHandler" type="Node2D" parent="."]
+script = ExtResource("6_pur81")
+
+[node name="DayOverTimer" type="Timer" parent="EventHandler"]
+wait_time = 600.0
+one_shot = true
+
+[node name="ClockTimer" type="Timer" parent="EventHandler"]
+autostart = true
+
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "apps_holder", "next_day_button", "day_over_overlay")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -815.0
@@ -74,7 +112,6 @@ visible = false
 
 [node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
 visible = false
-is_fake = true
 
 [node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
 visible = false
@@ -86,108 +123,6 @@ visible = false
 [node name="Email_app" parent="Control/Apps" instance=ExtResource("17_lctrs")]
 visible = false
 position = Vector2(-540, -1200)
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -471.0
-offset_top = -613.0
-offset_right = -207.0
-offset_bottom = 1120.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-script = ExtResource("6_x5x4e")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
-layout_mode = 2
-
-[node name="SettingsButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Settings"
-icon = ExtResource("7_87fqc")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="MessagesButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-text = "Messages"
-icon = ExtResource("8_4u5i3")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="AppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-z_index = -1
-layout_mode = 2
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "App Store"
-icon = ExtResource("9_f2213")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="BrowserButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Browser
-"
-icon = ExtResource("10_8imdr")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="Email" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Email
-"
-icon = ExtResource("12_7em7s")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="FakeAppStoreButton" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "App Store"
-icon = ExtResource("11_8e4ax")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="TouchSoundPlayer" type="AudioStreamPlayer2D" parent="Control/ScrollContainer"]
-stream = ExtResource("12_51grn")
-volume_db = -5.0
-pitch_scale = 3.0
-script = ExtResource("13_yc1wb")
 
 [node name="notifications_control" type="Control" parent="Control"]
 z_index = 50
@@ -296,17 +231,5 @@ icon_alignment = 1
 [connection signal="open_messages" from="Control/Apps" to="Control/Apps/messages_app" method="show"]
 [connection signal="open_settings" from="Control/Apps" to="Control/Apps/phone_settings" method="show"]
 [connection signal="open_store" from="Control/Apps" to="Control/Apps/shop_app" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/Apps/phone_settings" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SettingsButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/Apps/messages_app" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/MessagesButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/Apps/shop_app" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/Apps/browser" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BrowserButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Email" to="Control/Apps/Email_app" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Email" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/Apps/fake_shop_app" method="show"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/FakeAppStoreButton" to="Control/ScrollContainer/TouchSoundPlayer" method="play_touch_sound"]
 [connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]
 [connection signal="pressed" from="DayOver/Button" to="Control" method="_on_next_day_button_pressed"]

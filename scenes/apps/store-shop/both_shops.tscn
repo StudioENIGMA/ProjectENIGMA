@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2pee1p02e7tm"]
+[gd_scene load_steps=11 format=3 uid="uid://c2pee1p02e7tm"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/apps/both_shops/both_shops.gd" id="1_l4sgr"]
 [ext_resource type="Script" uid="uid://df5ygasnu3tcv" path="res://scripts/apps/both_shops/spawn_app_on_store.gd" id="2_4dtxp"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_p30qi"]
 [ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="4_wkt3l"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_3l31c"]
-[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="6_20pcf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30qi"]
 bg_color = Color(0.952941, 0.992157, 0.937255, 1)
@@ -134,7 +133,6 @@ theme_override_fonts/font = ExtResource("5_3l31c")
 theme_override_font_sizes/font_size = 42
 text = "08
 00"
-script = ExtResource("6_20pcf")
 
 [node name="line" type="Panel" parent="."]
 offset_left = 365.0

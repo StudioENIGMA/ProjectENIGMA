@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmft24jq1687n"]
+[gd_scene load_steps=10 format=3 uid="uid://cmft24jq1687n"]
 
 [ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/phone_settings/feature_gui.tscn" id="1_6xyrj"]
 [ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/apps/settings/phone_settings.gd" id="1_p6c7r"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="5_akkwd"]
 [ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="6_ff73n"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_iweop"]
-[ext_resource type="Script" uid="uid://bktewxne1v856" path="res://scripts/top_bar/hour.gd" id="8_lwoob"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_l8d72"]
 
@@ -107,7 +106,6 @@ theme_override_fonts/font = ExtResource("7_iweop")
 theme_override_font_sizes/font_size = 42
 text = "08
 00"
-script = ExtResource("8_lwoob")
 
 [node name="line" type="Panel" parent="."]
 offset_left = 907.0
