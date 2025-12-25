@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_8sayc"]
 [ext_resource type="Script" uid="uid://dm05wp1j0pade" path="res://scenes/apps/top_bar_clock_label.gd" id="4_04ele"]
 
-[node name="BaseApp" type="Control" node_paths=PackedStringArray("close_app_button", "back_button")]
+[node name="BaseApp" type="Control" node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8sayc")
 close_app_button = NodePath("TopBar/TopBarIcons/CloseAppContainer/CloseAppButton")
 back_button = NodePath("TopBar/TopBarIcons/BackButtonContainer/BackButton")
+app_specific_screen = NodePath("AppSpecificScreen")
 
 [node name="BaseBackgroundColor" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 2400)
@@ -147,5 +148,3 @@ offset_top = 240.0
 offset_right = 540.0
 offset_bottom = 2400.0
 size_flags_horizontal = 8
-
-[connection signal="pressed" from="TopBar/TopBarIcons/CloseAppContainer/CloseAppButton" to="." method="_on_close_app_button_pressed"]

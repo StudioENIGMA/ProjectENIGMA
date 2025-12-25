@@ -3,8 +3,8 @@ extends Control
 ## Reference to the event handler node (emits events to be propagated to each app)
 @export var event_handler:Node2D
 
-## Reference to the messaging app node (propagates message creation events)
-@export var messages_app:Control
+## Reference to the base app node (propagates app management signals)
+@export var base_app:Control
 
 ## Reference to the notifications node
 @export var notifications_control:Control
@@ -22,7 +22,7 @@ func _connect_event_handler() -> void:
 ## Connects each app to the notifications control signals
 func _connect_notifications() -> void:
   # Messages app
-  messages_app.request_message_notification.connect(_on_notification_request)
+  base_app.messages_app.request_message_notification.connect(_on_notification_request)
 
 ## When a new message is created by the event handler redirect it to the messaging app
 ##
@@ -36,7 +36,7 @@ func _on_create_message(
   sender:EventBus.Sender,
   time:String
 ) -> void:
-  messages_app.on_create_message(npc_name, message, sender, time)
+  base_app.messages_app.on_create_message(npc_name, message, sender, time)
 
 ## When a notification is to be sent, redirect it to the notifications control
 ##

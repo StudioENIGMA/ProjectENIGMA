@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=14 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
-[ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/apps/messages/messages_app.tscn" id="4_7em7s"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
@@ -17,7 +16,7 @@
 
 [node name="GameScreen" type="Node2D"]
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "messages_app", "notifications_control")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "base_app", "notifications_control")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 5
@@ -28,7 +27,7 @@ offset_bottom = 2400.0
 grow_horizontal = 2
 script = ExtResource("1_5o8nl")
 event_handler = NodePath("../EventHandler")
-messages_app = NodePath("BaseApp/MessagesApp")
+base_app = NodePath("BaseApp")
 notifications_control = NodePath("NotificationUI")
 
 [node name="DesktopUI" type="Control" parent="UI"]
@@ -102,14 +101,13 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="BaseApp" parent="UI" node_paths=PackedStringArray("desktop_ui", "messages_app") instance=ExtResource("3_qca60")]
+[node name="BaseApp" parent="UI" node_paths=PackedStringArray("desktop_ui") instance=ExtResource("3_qca60")]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 desktop_ui = NodePath("../DesktopUI")
-messages_app = NodePath("MessagesApp")
-
-[node name="MessagesApp" parent="UI/BaseApp" instance=ExtResource("4_7em7s")]
-layout_mode = 0
 
 [node name="DayOverUI" type="Control" parent="UI"]
 visible = false
@@ -157,6 +155,7 @@ text = "Dia"
 icon_alignment = 1
 
 [node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
+visible = false
 z_index = 50
 layout_mode = 1
 anchors_preset = 8
@@ -184,6 +183,7 @@ wait_time = 2.5
 one_shot = true
 
 [node name="EventHandler" type="Node2D" parent="." node_paths=PackedStringArray("day_over_timer", "clock_timer")]
+visible = false
 script = ExtResource("6_pur81")
 day_over_timer = NodePath("DayOverTimer")
 clock_timer = NodePath("ClockTimer")

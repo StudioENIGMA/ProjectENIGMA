@@ -11,14 +11,26 @@ extends Control
 ## Reference to the desktop UI node (to manage app opening/closing)
 @export var desktop_ui:Control
 
+## Reference to the controller that holds specific app controls
+@export var app_specific_screen:Control
+
 ## Reference to the messaging app node
-@export var messages_app:Control
+var messages_app:Control
 
 var open_apps:Array[String] = []
 
 ## Setup signal connections for app management
 func _ready() -> void:
+	# Connect close app button signal
+	close_app_button.pressed.connect(_on_close_app_button_pressed)
+
+	# Connect to desktop UI app opened signal
 	desktop_ui.app_opened.connect(_on_app_opened)
+
+	# Create messages app as a child of the specific app control
+	messages_app = preload("res://scenes/apps/messages/messages_app.tscn").instantiate()
+	messages_app.visible = false
+	app_specific_screen.add_child(messages_app)
 
 ## Handles the app opened event from the desktop UI
 ##
