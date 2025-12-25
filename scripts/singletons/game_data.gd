@@ -1,7 +1,7 @@
 extends Node
 
 var game_timer:Timer
-var hours_minutes:String
+var hours_minutes:int = 1080 # Start at 18:00
 var daily_reputation_points:int = 0
 
 var data = {

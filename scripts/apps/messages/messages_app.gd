@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 ## Request the UI main node to send a notification
 ##

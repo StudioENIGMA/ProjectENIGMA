@@ -9,6 +9,9 @@ var notification_array = []
 var notification_instance = NOTIFICATION_POPUP.instantiate()
 var animation_player
 
+## Adds a notification to the queue and sends it if it's the only one
+##
+## notification_parameter: Dictionary containing the notification parameters
 func add_notification_to_queue(notification_parameter:Dictionary) -> void:
 	# Append the notification to the queue
 	notification_array.append(notification_parameter)
@@ -17,6 +20,9 @@ func add_notification_to_queue(notification_parameter:Dictionary) -> void:
 	if notification_array.size() == 1:
 		send_notification(notification_parameter)
 
+## Sends a notification popup based on the provided parameters
+##
+## notification_parameter: Dictionary containing the notification parameters
 func send_notification(notification_parameter:Dictionary) -> void:
 	# Setup the notification popup scene
 	notification_instance = NOTIFICATION_POPUP.instantiate()
@@ -35,6 +41,10 @@ func send_notification(notification_parameter:Dictionary) -> void:
 	# Start the timer for notification duration
 	notification_timer.start()
 
+## Handles the timeout of the notification timer
+##
+## Plays the disappear animation and removes the notification from the queue
+## Also, sends the next notification if available
 func _on_notification_timer_timeout() -> void:
 	# Play disappear animation and remove the notification from the queue
 	animation_player = notification_instance.get_child(0)

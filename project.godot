@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 window/stretch/scale=0.5
 window/handheld/orientation=1
 
+[global_group]
+
+clock_display="Nodes related to displaying time"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

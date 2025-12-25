@@ -7,12 +7,13 @@ signal npc_message_created(npc_name:String, message:String, sender:EventBus.Send
 
 var messages_to_deliver:Array[Dictionary] = []
 
-@onready var clock_time = $"../Clock"
-
 ## Initializes the event handler by connecting timers to their respective functions
 func _ready() -> void:
 	day_over_timer.timeout.connect(_on_day_over_timeout)
 	clock_timer.timeout.connect(_on_clock_timer_timeout)
+
+	# Update the in-game time display at start
+	_update_in_game_time()
 
 ## Handles receiving a scheduled message to be delivered later
 ##
@@ -36,9 +37,18 @@ func _on_clock_timer_timeout() -> void:
 
 ## Updates the in-game clock display
 func _update_in_game_time() -> void:
-	var hours_minutes = GameData.hours_minutes
-	var parsed_time = "\n".join(hours_minutes.split(':'))
-	clock_time.text = parsed_time
+	# Calculate current hour and minute from total minutes
+	var current_day_minutes:float = GameData.hours_minutes
+	var current_hour:int = int(current_day_minutes / 60)
+	var current_minute:int = int(current_day_minutes) % 60
+
+	# Update all nodes that display the clock
+	var clock_nodes = get_tree().get_nodes_in_group("clock_display")
+	for clock_node in clock_nodes:
+		clock_node.update_clock_display(current_hour, current_minute)
+
+	# Increment in-game time by 1 minute
+	GameData.hours_minutes = GameData.hours_minutes + 1
 
 ## Delivers any scheduled messages whose time has come
 ##

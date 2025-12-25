@@ -1,42 +1,47 @@
 extends RichTextLabel
 
-func _process(_delta: float) -> void:
-	var timer = $"../../Timer"
-	GameData.game_timer = timer
+var current_weekday_int:int = 4
+var current_weekday_string:String = "Quinta"
+var current_month_string:String = "Setembro" # Hardcoded for now, probably won't change in-game
+var current_day:int = 11 + GameData.data.current_day # Start at 11th
 
-	var current_day_minutes:float = -timer.get_time_left() + 1080
+func update_weekday(day_increment:int) -> void:
+	# Update the current_day
+	current_day = current_day + day_increment
 
-	var current_hour:int = int(current_day_minutes / 60)
-	var current_minute:int = int(current_day_minutes) % 60
-
-	var day:String = str(11 + GameData.data.current_day)
-
-	var weekday_int:int = 4 + GameData.data.current_day % 6
-	var weekday:String
-	match weekday_int:
+	# Update the current_weekday_string
+	current_weekday_int = (current_weekday_int + day_increment) % 7
+	match current_weekday_int:
 		1:
-			weekday = "Segunda"
+			current_weekday_string = "Segunda"
 		2:
-			weekday = "Terça"
+			current_weekday_string = "Terça"
 		3:
-			weekday = "Quarta"
+			current_weekday_string = "Quarta"
 		4:
-			weekday = "Quinta"
+			current_weekday_string = "Quinta"
 		5:
-			weekday = "Sexta"
+			current_weekday_string = "Sexta"
 		6:
-			weekday = "Sábado"
+			current_weekday_string = "Sábado"
 		0:
-			weekday = "Domingo"
+			current_weekday_string = "Domingo"
 
-	var month:String = "Setembro"
-
+func update_clock_display(current_hour:int, current_minute:int) -> void:
+	# Format time with leading zeros
 	var hours:String = str(current_hour) if current_hour >= 10 else "0" + str(current_hour)
+
+	# Format minutes with leading zeros
 	var minutes:String = str(current_minute) if current_minute >= 10 else "0" + str(current_minute)
 
-	GameData.hours_minutes = hours + ":" + minutes
+	# Combine hours and minutes
+	var hour_string  = hours + ":" + minutes
+
+	# Set font sizes
 	var font_large = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]"
 	var font_small = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]"
-	self.text = font_large + GameData.hours_minutes + "[/font]" + font_small + "\n"
 
-	self.text += weekday.left(3) + ", " + day + " " + month + "[/font]"
+	# Update the RichTextLabel content
+	self.text = font_large + hour_string + "[/font]" + font_small + "\n"
+	self.text += current_weekday_string.left(3) + ", " + str(current_day) + " " + current_month_string
+	self.text += "[/font]"

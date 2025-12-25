@@ -1,37 +1,23 @@
-[gd_scene load_steps=29 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=15 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
+[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
-[ext_resource type="Script" uid="uid://c1phcbtnjj5tm" path="res://scripts/utils/control.gd" id="3_oknyi"]
+[ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="PackedScene" uid="uid://5qfjsihyrf6e" path="res://scenes/apps/messages/messages_app.tscn" id="4_7em7s"]
-[ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="4_8e4ax"]
-[ext_resource type="Script" path="res://scenes/apps/base_app.gd" id="4_omb3v"]
-[ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
-[ext_resource type="PackedScene" uid="uid://c2pee1p02e7tm" path="res://scenes/apps/store-shop/both_shops.tscn" id="5_x5x4e"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
-[ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="6_yc1wb"]
-[ext_resource type="Resource" uid="uid://cg565thny8nn7" path="res://data/messages/ti/day 0/ti_0_0.tres" id="7_5o8nl"]
-[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
-[ext_resource type="Resource" uid="uid://d0wvqlf6rjdby" path="res://data/messages/fake_store/day 0/fs_0_0.tres" id="8_51grn"]
-[ext_resource type="PackedScene" uid="uid://cmft24jq1687n" path="res://scenes/phone_settings/phone_settings.tscn" id="8_f2213"]
-[ext_resource type="Resource" uid="uid://pw4qar0o173l" path="res://data/messages/finances/day 0/f_0_0.tres" id="9_yc1wb"]
-[ext_resource type="Resource" uid="uid://ynrkx7jk04j7" path="res://data/messages/boss/day 1/b_1_0.tres" id="10_5o8nl"]
-[ext_resource type="Resource" uid="uid://do7egvk1h6pr6" path="res://data/messages/boss/day 1/b_1_2.tres" id="11_q7j5u"]
-[ext_resource type="Script" uid="uid://cxp6xj8ao6cwx" path="res://scripts/apps/app_enabler.gd" id="12_1vcyb"]
+[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="PackedScene" uid="uid://6gxid20u3y1i" path="res://scenes/apps/browser/browser.tscn" id="16_21xuv"]
-[ext_resource type="Script" uid="uid://dxojsgnbsa8i4" path="res://scripts/apps/messages/messages_control.gd" id="17_bd51b"]
-[ext_resource type="PackedScene" uid="uid://bcf1ro7bwyle6" path="res://scenes/apps/email/email.tscn" id="17_lctrs"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "messages_app", "notifications_control")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 5
@@ -40,31 +26,68 @@ anchor_right = 0.5
 offset_right = 1080.0
 offset_bottom = 2400.0
 grow_horizontal = 2
+script = ExtResource("1_5o8nl")
+event_handler = NodePath("../EventHandler")
+messages_app = NodePath("BaseApp/MessagesApp")
+notifications_control = NodePath("NotificationUI")
 
-[node name="Background" type="TextureRect" parent="UI"]
+[node name="DesktopUI" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_q7j5u")
+
+[node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" groups=["clock_display"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 387.0
+offset_top = 220.0
+offset_right = 1032.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
+Tue 17, April[/font]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("16_1vcyb")
+
+[node name="Background" type="TextureRect" parent="UI/DesktopUI"]
 z_index = -100
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 2400.0
 texture = ExtResource("1_3a7ej")
 stretch_mode = 6
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/Background"]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background"]
 stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="AppsUI" type="GridContainer" parent="UI"]
+[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -184.0
-offset_bottom = 184.0
+offset_top = 996.0
+offset_right = 224.0
+offset_bottom = 1364.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsButton" type="Button" parent="UI/AppsUI"]
+[node name="MessagesButton" type="Button" parent="UI/DesktopUI/AppsUI"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -72,11 +95,21 @@ theme = ExtResource("6_h0j4g")
 theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
-text = "Settings"
-icon = ExtResource("7_87fqc")
+text = "Messages
+"
+icon = ExtResource("8_4u5i3")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
+
+[node name="BaseApp" parent="UI" node_paths=PackedStringArray("desktop_ui", "messages_app") instance=ExtResource("3_qca60")]
+visible = false
+layout_mode = 0
+desktop_ui = NodePath("../DesktopUI")
+messages_app = NodePath("MessagesApp")
+
+[node name="MessagesApp" parent="UI/BaseApp" instance=ExtResource("4_7em7s")]
+layout_mode = 0
 
 [node name="DayOverUI" type="Control" parent="UI"]
 visible = false
@@ -123,88 +156,7 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
-[node name="Clock" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -133.0
-offset_top = -960.0
-offset_right = 512.0
-offset_bottom = -712.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
-Tue 17, April[/font]
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_1vcyb")
-
-[node name="BaseApp" parent="." node_paths=PackedStringArray("event_handler", "messages_app") instance=ExtResource("3_qca60")]
-visible = false
-script = ExtResource("4_omb3v")
-event_handler = NodePath("../EventHandler")
-messages_app = NodePath("MessagesApp")
-
-[node name="MessagesApp" parent="BaseApp" instance=ExtResource("4_7em7s")]
-layout_mode = 0
-
-[node name="EventHandler" type="Node2D" parent="."]
-script = ExtResource("6_pur81")
-
-[node name="DayOverTimer" type="Timer" parent="EventHandler"]
-wait_time = 600.0
-one_shot = true
-
-[node name="ClockTimer" type="Timer" parent="EventHandler"]
-autostart = true
-
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("message_holder", "apps_holder")]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = -815.0
-offset_top = -1784.0
-offset_right = 825.0
-offset_bottom = 1806.0
-script = ExtResource("3_oknyi")
-messages = Array[ExtResource("4_8e4ax")]([ExtResource("5_51grn"), ExtResource("6_yc1wb"), ExtResource("7_5o8nl"), ExtResource("8_51grn"), ExtResource("10_5o8nl"), ExtResource("11_q7j5u"), ExtResource("9_yc1wb")])
-message_holder = NodePath("MessageHolder")
-apps_holder = NodePath("Apps")
-
-[node name="MessageHolder" type="Node" parent="Control"]
-
-[node name="Apps" type="Node" parent="Control"]
-script = ExtResource("12_1vcyb")
-
-[node name="messages_app" parent="Control/Apps" instance=ExtResource("4_7em7s")]
-visible = false
-
-[node name="shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
-visible = false
-
-[node name="fake_shop_app" parent="Control/Apps" instance=ExtResource("5_x5x4e")]
-visible = false
-
-[node name="phone_settings" parent="Control/Apps" instance=ExtResource("8_f2213")]
-visible = false
-position = Vector2(-540, -1200)
-
-[node name="browser" parent="Control/Apps" instance=ExtResource("16_21xuv")]
-visible = false
-
-[node name="Email_app" parent="Control/Apps" instance=ExtResource("17_lctrs")]
-visible = false
-position = Vector2(-540, -1200)
-
-[node name="notifications_control" type="Control" parent="Control"]
+[node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50
 layout_mode = 1
 anchors_preset = 8
@@ -219,30 +171,29 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_5o8nl")
+notification_timer = NodePath("NotificationTimer")
+audio_stream_player = NodePath("NotificationSoundPlayer")
 
-[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="Control/notifications_control"]
+[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI"]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="NotificationTimer" type="Timer" parent="Control/notifications_control"]
+[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI"]
 wait_time = 2.5
 one_shot = true
 
-[node name="MessagesControl" type="Control" parent="Control"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("17_bd51b")
+[node name="EventHandler" type="Node2D" parent="." node_paths=PackedStringArray("day_over_timer", "clock_timer")]
+script = ExtResource("6_pur81")
+day_over_timer = NodePath("DayOverTimer")
+clock_timer = NodePath("ClockTimer")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DayOverTimer" type="Timer" parent="EventHandler"]
 wait_time = 600.0
 one_shot = true
 
-[connection signal="open_browser" from="Control/Apps" to="Control/Apps/browser" method="show"]
-[connection signal="open_fake_store" from="Control/Apps" to="Control/Apps/fake_shop_app" method="show"]
-[connection signal="open_mail" from="Control/Apps" to="Control/Apps/Email_app" method="show"]
-[connection signal="open_messages" from="Control/Apps" to="Control/Apps/messages_app" method="show"]
-[connection signal="open_settings" from="Control/Apps" to="Control/Apps/phone_settings" method="show"]
-[connection signal="open_store" from="Control/Apps" to="Control/Apps/shop_app" method="show"]
-[connection signal="timeout" from="Control/notifications_control/NotificationTimer" to="Control/notifications_control" method="_on_timer_timeout"]
+[node name="ClockTimer" type="Timer" parent="EventHandler"]
+autostart = true
+
+[connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
+[connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

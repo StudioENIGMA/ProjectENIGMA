@@ -16,11 +16,13 @@ func _ready() -> void:
 
 ## Connects the event handler signals to the respective app functions
 func _connect_event_handler() -> void:
+  # Messages app
   event_handler.npc_message_created.connect(_on_create_message)
 
 ## Connects each app to the notifications control signals
 func _connect_notifications() -> void:
-  messages_app.request_notification.connect(_on_notification_request)
+  # Messages app
+  messages_app.request_message_notification.connect(_on_notification_request)
 
 ## When a new message is created by the event handler redirect it to the messaging app
 ##
@@ -49,8 +51,8 @@ func _on_notification_request(
   time:float
 ) -> void:
   notifications_control.add_notification_to_queue({
-    "app": app,
-    "content": content,
-    "title": title,
-    "time": time
+	"app": app,
+	"content": content,
+	"title": title,
+	"time": time
   })
