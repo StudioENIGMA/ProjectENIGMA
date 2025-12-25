@@ -4,11 +4,6 @@ var answer_options:Array[Dictionary] = []
 
 func _ready() -> void:
 	EventBus.answer_option.connect(on_answer_option)
-	EventBus.clean_answers.connect(on_answers_cleaned)
-
-func on_answers_cleaned() -> void:
-	for node in self.get_children():
-			node.queue_free()
 
 func on_answer_option(
 	npc_name:String,

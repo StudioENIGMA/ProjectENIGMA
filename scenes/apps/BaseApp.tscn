@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://daxppxx0j7mp6"]
+[gd_scene load_steps=5 format=3 uid="uid://daxppxx0j7mp6"]
 
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_3xwap"]
+[ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="1_53k8s"]
 [ext_resource type="Texture2D" uid="uid://ball67u5pvpse" path="res://assets/icons/battery_100.svg" id="2_53k8s"]
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_8sayc"]
 
 [node name="BaseApp" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BaseBackgroundColor" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 10
 anchor_right = 1.0
@@ -22,20 +23,46 @@ mouse_filter = 2
 color = Color(0.27451, 0.709804, 0.690196, 1)
 
 [node name="TopBarIcons" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(1080, 0)
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -240.0
+offset_left = -570.0
 offset_top = -50.0
+offset_right = 570.0
 offset_bottom = 50.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="MarginLeft" type="MarginContainer" parent="TopBar/TopBarIcons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="BackButtonContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="TopBar/TopBarIcons/BackButtonContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("1_53k8s")
+texture_pressed = ExtResource("1_53k8s")
+texture_hover = ExtResource("1_53k8s")
+texture_disabled = ExtResource("1_53k8s")
+texture_focused = ExtResource("1_53k8s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CenterMargin" type="MarginContainer" parent="TopBar/TopBarIcons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ClockContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="ClockLabel" type="Label" parent="TopBar/TopBarIcons/ClockContainer"]
@@ -71,6 +98,7 @@ custom_minimum_size = Vector2(20, 80)
 layout_mode = 2
 
 [node name="VerticalLineContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="VerticalLineIcon" type="ColorRect" parent="TopBar/TopBarIcons/VerticalLineContainer"]
@@ -83,6 +111,7 @@ custom_minimum_size = Vector2(20, 80)
 layout_mode = 2
 
 [node name="CloseAppContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
 [node name="CloseAppButton" type="TextureButton" parent="TopBar/TopBarIcons/CloseAppContainer"]

@@ -4,23 +4,10 @@ const ANSWER_OPTION = preload("res://scenes/apps/messages/answer_option.tscn")
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 
-@onready var home = $messages_home
-@onready var chat = $messages_chat
-@onready var chat_box = $messages_chat/ScrollContainer/VBoxContainer2
-@onready var options_container = $messages_chat/HBoxContainer
-@onready var scroll_container = $messages_chat/ScrollContainer
-@onready var return_button:Button = $messages_chat/Button
-@onready var current_contact:String
+@export var list_of_chats:VBoxContainer
 
 func _ready() -> void:
-	OpenChatSingleton.open_chat.connect(_on_open_chat)
-	EventBus.create_message.connect(_on_create_message)
-	return_button.pressed.connect(_on_return_button_pressed)
-	EventBus.create_answer.connect(_on_create_answer_option)
-
-func _on_return_button_pressed():
-	home.visible = true
-	return_button.z_index = 0
+	
 
 func _on_open_chat(conversation_data:Dictionary):
 	current_contact = conversation_data["name"]
@@ -28,9 +15,6 @@ func _on_open_chat(conversation_data:Dictionary):
 	# update chat data
 	for node in chat_box.get_children():
 		node.queue_free()
-
-	EventBus.clean_answers.emit()
-	return_button.z_index = 2
 
 	for message in conversation_data["messages"]:
 		var message_instance:MarginContainer;
