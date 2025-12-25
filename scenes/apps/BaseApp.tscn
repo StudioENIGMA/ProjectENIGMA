@@ -101,7 +101,11 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
 [node name="AppSpecificScreen" type="Control" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -540.0
+offset_top = 240.0
+offset_right = 540.0
+offset_bottom = 2400.0
+size_flags_horizontal = 8
