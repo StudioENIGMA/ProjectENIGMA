@@ -2,8 +2,8 @@ extends MarginContainer
 
 const MAX_WIDTH = 650
 
-@onready var label = $PanelContainer/Label
-@onready var panel_container = $PanelContainer
+@export var label:Label
+@export var panel_container:PanelContainer
 
 func setup(message:String):
 	# 1. Reset properties to measure the "natural" width of the new text

@@ -10,7 +10,7 @@ signal request_message_notification(
 	app:EventBus.App,
   content:String,
   title:String,
-  time:float
+  time:String
 )
 
 const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
