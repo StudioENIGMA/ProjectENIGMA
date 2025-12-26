@@ -11,12 +11,9 @@ border_width_bottom = 2
 border_color = Color(0.0885598, 0.0885599, 0.0885599, 1)
 
 [node name="conversation_row" type="PanelContainer" node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture")]
-custom_minimum_size = Vector2(1080, 270)
-offset_left = -540.0
-offset_top = -111.0
-offset_right = 540.0
-offset_bottom = 159.0
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(1080, 240)
+offset_right = 1080.0
+offset_bottom = 240.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wsg6")
 script = ExtResource("1_kc2jj")
@@ -58,5 +55,3 @@ modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

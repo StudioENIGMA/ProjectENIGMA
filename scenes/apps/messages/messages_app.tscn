@@ -3,21 +3,21 @@
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app.gd" id="1_jwkj7"]
 
 [node name="MessagesApp" type="Control" node_paths=PackedStringArray("list_of_chats")]
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2160.0
 script = ExtResource("1_jwkj7")
 list_of_chats = NodePath("MessagesScrollContainer/ListOfChats")
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="."]
-visible = false
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 2160.0
-mouse_filter = 0
 
 [node name="ListOfChats" type="VBoxContainer" parent="MessagesScrollContainer"]
-visible = false
-custom_minimum_size = Vector2(1080, 0)
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 2
-size_flags_vertical = 3
 mouse_filter = 2

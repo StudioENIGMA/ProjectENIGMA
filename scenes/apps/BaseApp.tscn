@@ -20,15 +20,16 @@ custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 1080.0
+offset_bottom = 2400.0
 grow_horizontal = 2
 color = Color(1, 1, 0.972549, 1)
 
 [node name="TopBar" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 240)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 240.0
 mouse_filter = 2
 color = Color(0.27451, 0.709804, 0.690196, 1)
 
@@ -143,8 +144,7 @@ layout_mode = 2
 [node name="AppSpecificScreen" type="Control" parent="."]
 custom_minimum_size = Vector2(1080, 2160)
 anchors_preset = 0
-offset_left = -540.0
 offset_top = 240.0
-offset_right = 540.0
+offset_right = 1080.0
 offset_bottom = 2400.0
 size_flags_horizontal = 8

@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=25 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
-[ext_resource type="Script" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
+[ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="4_8e4ax"]
 [ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
@@ -14,12 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
-[ext_resource type="Script" path="res://scenes/day_over_ui.gd" id="13_bd51b"]
+[ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scenes/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
-[ext_resource type="Script" path="res://scenes/story_director.gd" id="18_oknyi"]
+[ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scenes/story_director.gd" id="18_oknyi"]
+[ext_resource type="Resource" uid="uid://d0wvqlf6rjdby" path="res://data/messages/fake_store/day 0/fs_0_0.tres" id="21_f2213"]
+[ext_resource type="Resource" uid="uid://pw4qar0o173l" path="res://data/messages/finances/day 0/f_0_0.tres" id="22_8imdr"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
+[ext_resource type="Resource" uid="uid://bxbu6pgbo1as7" path="res://data/messages/rh/day 0/rh_0_0.tres" id="23_8e4ax"]
+[ext_resource type="Resource" uid="uid://cg565thny8nn7" path="res://data/messages/ti/day 0/ti_0_0.tres" id="24_51grn"]
 
 [node name="GameScreen" type="Node2D"]
 
@@ -249,7 +253,7 @@ autostart = true
 
 [node name="StoryDirector" type="Node2D" parent="." node_paths=PackedStringArray("event_handler")]
 script = ExtResource("18_oknyi")
-all_messages = Array[ExtResource("4_8e4ax")]([ExtResource("5_51grn")])
+all_messages = Array[ExtResource("4_8e4ax")]([ExtResource("5_51grn"), ExtResource("21_f2213"), ExtResource("22_8imdr"), ExtResource("23_8e4ax"), ExtResource("24_51grn")])
 event_handler = NodePath("../EventHandler")
 
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
