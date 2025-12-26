@@ -30,5 +30,5 @@ func _connect_event_handler() -> void:
 func _connect_notifications() -> void:
   # Messages app
   base_app.messages_app.request_message_notification.connect(
-	  notifications_control.add_notification_to_queue
+		notifications_control.add_notification_to_queue
   )

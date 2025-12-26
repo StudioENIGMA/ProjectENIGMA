@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_2huwx"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_746fn"]
+[ext_resource type="Script" uid="uid://djn3wgjm3cki7" path="res://scenes/apps/messages/conversation_row.gd" id="1_kc2jj"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wsg6"]
@@ -9,26 +10,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 border_color = Color(0.0885598, 0.0885599, 0.0885599, 1)
 
-[sub_resource type="GDScript" id="GDScript_0svt1"]
-script/source = "extends PanelContainer
-
-@onready var contact_label:Label = $HBoxContainer/VBoxContainer/name
-@onready var message_label:Label = $HBoxContainer/VBoxContainer/message
-@onready var avatar_texture:TextureRect = $HBoxContainer/TextureRect
-@onready var conversation_data:Dictionary
-
-func setup(p_conversation_data:Dictionary):
-	self.conversation_data = p_conversation_data
-
-	contact_label.text = conversation_data[\"name\"]
-	message_label.text = conversation_data[\"messages\"].back()[\"message\"]
-	avatar_texture.texture = load(conversation_data[\"photo\"])
-
-func _on_button_pressed() -> void:
-	OpenChatSingleton.open_chat.emit(conversation_data)
-"
-
-[node name="conversation_row" type="PanelContainer"]
+[node name="conversation_row" type="PanelContainer" node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture")]
 custom_minimum_size = Vector2(1080, 270)
 offset_left = -540.0
 offset_top = -111.0
@@ -37,7 +19,10 @@ offset_bottom = 159.0
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wsg6")
-script = SubResource("GDScript_0svt1")
+script = ExtResource("1_kc2jj")
+contact_label = NodePath("HBoxContainer/VBoxContainer/name")
+message_label = NodePath("HBoxContainer/VBoxContainer/message")
+avatar_texture = NodePath("HBoxContainer/TextureRect")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

@@ -1,14 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_5o8nl"]
+[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
-[ext_resource type="PackedScene" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Script" uid="uid://yb7fi4umfvih" path="res://scripts/apps/messages/message.gd" id="4_8e4ax"]
 [ext_resource type="Resource" uid="uid://c1vwy80t150ty" path="res://data/messages/boss/day 0/boss_0_0.tres" id="5_51grn"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
-[ext_resource type="Script" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
@@ -158,7 +158,6 @@ anchor_bottom = 1.0
 desktop_ui = NodePath("../DesktopUI")
 
 [node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
-visible = false
 z_index = 50
 layout_mode = 1
 anchors_preset = 8

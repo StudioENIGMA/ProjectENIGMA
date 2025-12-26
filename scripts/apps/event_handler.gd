@@ -30,7 +30,6 @@ func on_receive_message(npc_name:String, message:String, time:int) -> void:
 
 ## Handles the end of the day event
 func _on_day_over_timeout() -> void:
-	print("Day over!")
 	# Emit the day ended signal to notify other systems
 	day_ended.emit()
 
@@ -81,8 +80,6 @@ func _update_in_game_time() -> void:
 ##
 func _deliver_scheduled_messages() -> void:
 	for message in messages_to_deliver:
-		print(message.time)
-		print(GameData.hours_minutes)
 		if message.time <= GameData.hours_minutes:
 			npc_message_created.emit(
 				message.name,
