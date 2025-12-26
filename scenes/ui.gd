@@ -20,6 +20,7 @@ func _ready() -> void:
 func _connect_event_handler() -> void:
   # Messages app
   event_handler.npc_message_created.connect(base_app.messages_app.on_create_message)
+  EventBus.create_message.connect(base_app.messages_app.on_create_message)
 
   # End day event
   event_handler.day_ended.connect(day_over_ui.show_day_over)

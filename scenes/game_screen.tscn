@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=19 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scenes/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 
 [node name="GameScreen" type="Node2D"]
@@ -242,6 +243,10 @@ autostart = true
 
 [node name="ClockTimer" type="Timer" parent="EventHandler"]
 autostart = true
+
+[node name="StoryDirector" type="Node2D" parent="." node_paths=PackedStringArray("event_handler")]
+script = ExtResource("18_oknyi")
+event_handler = NodePath("../EventHandler")
 
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/SettingsButton" to="UI/DesktopUI" method="_on_settings_button_pressed"]
