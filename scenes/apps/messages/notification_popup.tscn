@@ -10,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("notification:position")
+tracks/0/path = NodePath("NotificationVisuals:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +37,7 @@ resource_name = "appear"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("notification:position")
+tracks/0/path = NodePath("NotificationVisuals:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,46 +77,95 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="notification_popup" type="Node2D"]
+[node name="NotificationVisuals" type="Control" node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon")]
+custom_minimum_size = Vector2(1080, 250)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 250.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("1_uiujy")
+notification_content_label = NodePath("HBoxContainer/VBoxContainer/NotificationContentLabel")
+notification_title_label = NodePath("HBoxContainer/VBoxContainer/NotificationTitleLabel")
+app_icon = NodePath("HBoxContainer/AppIcon")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_qlsx4")
 }
 autoplay = "appear"
 
-[node name="notification" type="Node2D" parent="."]
-
-[node name="Panel" type="Panel" parent="notification"]
+[node name="NotificationBackground" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -500.0
-offset_top = -1150.0
+offset_top = -125.0
 offset_right = 500.0
-offset_bottom = -900.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uiujy")
 
-[node name="content" type="Label" parent="notification"]
-offset_left = -249.0
-offset_top = -1034.0
-offset_right = 465.0
-offset_bottom = -951.0
-theme_override_fonts/font = ExtResource("1_y4pw6")
-theme_override_font_sizes/font_size = 35
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -125.0
+offset_right = 500.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
 
-text = "Olá, seja bem vindo à Enigma!"
-clip_text = true
-text_overrun_behavior = 3
+[node name="MarginLeft" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
 
-[node name="title" type="Label" parent="notification"]
-offset_left = -249.0
-offset_top = -1102.0
-offset_right = -38.0
-offset_bottom = -1035.33
+[node name="AppIcon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_6euxv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginCenter" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 9
+
+[node name="MarginUp" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="NotificationTitleLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_uiujy")
 theme_override_font_sizes/font_size = 50
 text = "Chefinho"
 
-[node name="icon" type="Sprite2D" parent="notification"]
-position = Vector2(-375, -1029)
-scale = Vector2(0.771484, 0.771484)
-texture = ExtResource("1_6euxv")
+[node name="NotificationContentLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y4pw6")
+theme_override_font_sizes/font_size = 35
+text = "Olá, seja bem vindo à Enigma!"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="right" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2

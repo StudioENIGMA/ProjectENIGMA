@@ -159,18 +159,20 @@ desktop_ui = NodePath("../DesktopUI")
 
 [node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50
+custom_minimum_size = Vector2(1080, 250)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -540.0
+offset_top = -1200.0
+offset_right = 540.0
+offset_bottom = -950.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("14_5o8nl")
 notification_timer = NodePath("NotificationTimer")
 audio_stream_player = NodePath("NotificationSoundPlayer")

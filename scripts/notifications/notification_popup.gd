@@ -1,12 +1,12 @@
-extends Node2D
+extends Control
+
+@export var notification_content_label: Label
+@export var notification_title_label: Label
+@export var app_icon: TextureRect
 
 var initial_content:String
 var initial_title:String
 var initial_icon:String = "res://assets/icons/%s.png"
-
-@onready var content_node = $notification/content
-@onready var title_node = $notification/title
-@onready var icon = $notification/icon
 
 func setup(app_enum:EventBus.App, content:String, title:String):
 	self.initial_content = content
@@ -31,9 +31,9 @@ func setup(app_enum:EventBus.App, content:String, title:String):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	content_node.text = initial_content
-	title_node.text = initial_title
-	icon.texture = load(initial_icon)
+	notification_content_label.text = initial_content
+	notification_title_label.text = initial_title
+	app_icon.texture = load(initial_icon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
