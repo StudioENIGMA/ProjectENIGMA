@@ -45,7 +45,7 @@ func _on_app_opened(app_name:String) -> void:
 
 	# Pull specific app to front and make it visible
 	specific_app.visible = true
-	self.move_child(specific_app, self.get_child_count() - 1)
+	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 ## Handles the close app button press event
 ##

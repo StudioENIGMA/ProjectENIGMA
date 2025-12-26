@@ -1,14 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=17 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
-[ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="PackedScene" uid="uid://dywrxdivs4bbp" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
-[ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Script" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
+[ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
+[ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
@@ -31,6 +34,7 @@ base_app = NodePath("BaseApp")
 notifications_control = NodePath("NotificationUI")
 
 [node name="DesktopUI" type="Control" parent="UI"]
+custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -43,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 387.0
-offset_top = 220.0
-offset_right = 1032.0
-offset_bottom = 468.0
+offset_left = -208.0
+offset_top = -887.0
+offset_right = 437.0
+offset_bottom = -639.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
@@ -76,27 +80,66 @@ bus = &"Music"
 
 [node name="AppsUI" type="GridContainer" parent="UI/DesktopUI"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 996.0
-offset_right = 224.0
-offset_bottom = 1364.0
+offset_left = -464.5
+offset_top = -550.0
+offset_right = 464.5
+offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 64
+columns = 3
 
 [node name="MessagesButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
 theme = ExtResource("6_h0j4g")
 theme_override_fonts/font = ExtResource("7_oknyi")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
-text = "Messages
-"
+text = "Mensagens"
 icon = ExtResource("8_4u5i3")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Configurações"
+icon = ExtResource("7_87fqc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="EmailButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Email"
+icon = ExtResource("12_7em7s")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Loja"
+icon = ExtResource("9_f2213")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -196,4 +239,7 @@ one_shot = true
 autostart = true
 
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
+[connection signal="pressed" from="UI/DesktopUI/AppsUI/SettingsButton" to="UI/DesktopUI" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/DesktopUI/AppsUI/EmailButton" to="UI/DesktopUI" method="_on_email_button_pressed"]
+[connection signal="pressed" from="UI/DesktopUI/AppsUI/ShopButton" to="UI/DesktopUI" method="_on_shop_button_pressed"]
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
