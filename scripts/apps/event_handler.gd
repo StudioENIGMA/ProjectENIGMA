@@ -33,7 +33,7 @@ func _on_day_over_timeout() -> void:
 ## Updates the clock display and checks for scheduled message deliveries
 func _on_clock_timer_timeout() -> void:
 	_update_in_game_time()
-	_deliver_scheduled_messages(clock_timer)
+	_deliver_scheduled_messages()
 
 ## Updates the in-game clock display
 func _update_in_game_time() -> void:
@@ -52,11 +52,11 @@ func _update_in_game_time() -> void:
 
 ## Delivers any scheduled messages whose time has come
 ##
-## timer: The Timer node used to track in-game time
-func _deliver_scheduled_messages(timer:Timer) -> void:
+func _deliver_scheduled_messages() -> void:
 	for message in messages_to_deliver:
-		# TODO: wait time should not be used here, should be GameData.hours_minutes
-		if message.time <= timer.wait_time - timer.time_left:
+		print(message.time)
+		print(GameData.hours_minutes)
+		if message.time <= GameData.hours_minutes:
 			npc_message_created.emit(
 				message.name,
 				message.message,
