@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh0fnhpmm6ao7"]
+
+[ext_resource type="Script" uid="uid://bhabn2lfvwif8" path="res://scenes/apps/messages/messages_app_chat.gd" id="1_qunmr"]
+
+[node name="MessagesAppChat" type="Control" node_paths=PackedStringArray("messages_list")]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2160.0
+script = ExtResource("1_qunmr")
+messages_list = NodePath("MessagesScrollContainer/MessagesList")
+
+[node name="MessagesScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 2160.0
+
+[node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer"]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 2
+mouse_filter = 2

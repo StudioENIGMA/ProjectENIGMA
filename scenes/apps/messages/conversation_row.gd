@@ -1,5 +1,10 @@
 extends Control
 
+signal open_chat_requested(conversation_data:Dictionary)
+
+const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
+const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
+
 @export var contact_label:Label
 @export var message_label:Label
 @export var avatar_texture:TextureRect
@@ -17,4 +22,4 @@ func setup(p_conversation_data:Dictionary):
 	avatar_texture.texture = load(conversation_data["photo"])
 
 func _on_button_pressed() -> void:
-	OpenChatSingleton.open_chat.emit(conversation_data)
+	open_chat_requested.emit(conversation_data)

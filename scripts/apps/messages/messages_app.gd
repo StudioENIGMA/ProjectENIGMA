@@ -13,6 +13,8 @@ signal request_message_notification(
   time:String
 )
 
+signal subscreen_open_requested(subscreen_name:String, conversation_data:Dictionary)
+
 const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
 
 @export var list_of_chats:VBoxContainer
@@ -120,9 +122,16 @@ func _update_list_of_chats(index:int) -> void:
 	if index == -1:
 		conversation_row = CONVERSATION_ROW_SCENE.instantiate()
 		conversation_row.setup(conversations_data[0])
+		conversation_row.open_chat_requested.connect(_on_open_chat)
 		list_of_chats.add_child(conversation_row)
 	else:
 		conversation_row = list_of_chats.get_child(index)
 		conversation_row.setup(conversations_data[0])
 
 	list_of_chats.move_child(conversation_row, 0)
+
+## Handles the request to open a chat conversation
+##
+## conversation_data: The data of the conversation to be opened
+func _on_open_chat(conversation_data:Dictionary) -> void:
+	subscreen_open_requested.emit("Messages_chat", conversation_data)

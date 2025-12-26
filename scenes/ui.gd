@@ -19,8 +19,8 @@ func _ready() -> void:
 ## Connects the event handler signals to the respective app functions
 func _connect_event_handler() -> void:
   # Messages app
-  event_handler.npc_message_created.connect(base_app.messages_app.on_create_message)
-  EventBus.create_message.connect(base_app.messages_app.on_create_message)
+  event_handler.npc_message_created.connect(base_app.messages_app_home.on_create_message)
+  EventBus.create_message.connect(base_app.messages_app_home.on_create_message)
 
   # End day event
   event_handler.day_ended.connect(day_over_ui.show_day_over)
@@ -29,6 +29,6 @@ func _connect_event_handler() -> void:
 ## Connects each app to the notifications control signals
 func _connect_notifications() -> void:
   # Messages app
-  base_app.messages_app.request_message_notification.connect(
+  base_app.messages_app_home.request_message_notification.connect(
 		notifications_control.add_notification_to_queue
   )

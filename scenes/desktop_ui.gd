@@ -3,7 +3,7 @@ extends Control
 signal app_opened(app_name:String)
 
 func _on_messages_button_pressed() -> void:
-	emit_signal("app_opened", "Messages")
+	emit_signal("app_opened", "Messages_home")
 
 func _on_settings_button_pressed() -> void:
 	emit_signal("app_opened", "Settings")
