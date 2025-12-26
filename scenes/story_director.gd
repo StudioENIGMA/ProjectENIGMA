@@ -3,60 +3,95 @@ extends Node2D
 @export var all_messages:Array[Message] = []
 @export var event_handler:Node2D
 
-var pending_messages:Array[Message] = []
-var next_message_due_at:int = -1
+## Queue of messages to be delivered, sorted by due time
+var message_queue:Array[Dictionary] = []
 
-var messages_waiting_answers:Dictionary = {}      # Message -> Array[int]
-var answers_waiting_response:Dictionary = {}      # int -> Message
+## Mapping of answer IDs to their corresponding Message instances
+var answers_by_id:Dictionary = {}
 
+## Mapping of answer IDs to lists of Message instances to unlock upon answering
+var unlock_on_answer:Dictionary = {}
+
+## Initializes the story director by connecting to necessary signals and queuing today's messages
 func _ready() -> void:
 	EventBus.message_answered.connect(_on_message_answered)
 	event_handler.clock_tick.connect(_on_clock_tick)
 
-	_build_today_queue()
-	_schedule_next_message()
+	_queue_today_messages()
 
-func _build_today_queue() -> void:
-	pending_messages.clear()
+## Queues messages that are scheduled for the current day
+func _queue_today_messages() -> void:
+	message_queue.clear()
+
 	for message in all_messages:
-		if message.day == GameData.data.current_day and not message.is_answer and not message.is_next:
-			pending_messages.append(message)
+		if message.day != GameData.data.current_day:
+			continue
+		if message.is_answer or message.is_next:
+			continue
 
-	pending_messages.sort_custom(_sort_by_priority)
+		_queue_message(message, _delay_for_priority(message.priority))
 
-func _schedule_next_message() -> void:
-	if pending_messages.is_empty():
-		next_message_due_at = 999999999
-		return
+## Determines a delay based on message priority
+##
+## priority: The priority level of the message
+func _delay_for_priority(priority:int) -> int:
+	if priority <= 0:
+		return 0
+	return randi_range(2, 4)
 
-	var next_message:Message = pending_messages[0]
-	if next_message.priority <= 0:
-		next_message_due_at = GameData.hours_minutes
-	else:
-		# rough equivalent of your old random delay timer
-		next_message_due_at = GameData.hours_minutes + randi_range(2, 4)
+## Queues a message to be delivered after a specified delay
+##
+## message: The Message instance to be queued
+## delay_minutes: The delay in in-game minutes before delivery
+func _queue_message(message:Message, delay_minutes:int) -> void:
+	var due_at_minutes:int = GameData.hours_minutes + max(delay_minutes, 0)
+	var queue_entry := { "message": message, "due_at": due_at_minutes }
 
+	_insert_sorted_by_due(queue_entry)
+
+## Inserts a message into the queue sorted by its due time
+##
+## queue_entry: Dictionary containing the message and its due time
+func _insert_sorted_by_due(queue_entry:Dictionary) -> void:
+	var index := 0
+
+	# Insert in sorted order
+	while index < message_queue.size() and message_queue[index].due_at <= queue_entry.due_at:
+		index += 1
+	message_queue.insert(index, queue_entry)
+
+## Handles the clock tick event to deliver due messages
+##
+## Called every in-game 'minute' (1 second real time)
+## It will always attempt to deliver messages that are due
+## starting from the head of the queue
+##
+## current_minutes: The current in-game time in minutes
 func _on_clock_tick(current_minutes:int) -> void:
-	if pending_messages.is_empty():
-		return
-	if current_minutes < next_message_due_at:
+	if message_queue.is_empty():
 		return
 
-	var next_message:Message = pending_messages[0]
-
-	# keep waiting until conditions become true
-	if not _conditions_met(next_message):
+	var head := message_queue[0]
+	if current_minutes < head.due_at:
 		return
 
-	# consume + deliver
-	pending_messages.pop_front()
-	_deliver_message(next_message)
+	var message:Message = head.message
 
-	# schedule the next one
-	_schedule_next_message()
+	# If conditions not met, postpone instead of blocking everything forever
+	if not _conditions_met(message):
+		message_queue.pop_front()
+		# small backoff (1 minute) so we don't spin every tick
+		_insert_sorted_by_due({ "message": message, "due_at": current_minutes + 1 })
+		return
 
+	# send it
+	message_queue.pop_front()
+	_deliver_message(message)
+
+## Delivers a message by emitting the appropriate event and enqueuing follow-ups
+##
+## message: The Message instance to be delivered
 func _deliver_message(message:Message) -> void:
-	# NPC message -> go through EventHandler signal path you already have wired to MessagesApp
 	event_handler.npc_message_created.emit(
 		message.sender,
 		message.text,
@@ -64,81 +99,90 @@ func _deliver_message(message:Message) -> void:
 		str(GameData.hours_minutes)
 	)
 
-	# After delivering, unlock answers / next messages (this is your old add_depedencies_to_queue)
 	_enqueue_followups(message)
 
+## Enqueues follow-up messages based on the provided message's answers and next message
+##
+## message: The Message instance whose follow-ups are to be enqueued
 func _enqueue_followups(message:Message) -> void:
-	var answer_ids:Array[int] = []
-	var has_answers:bool = not message.answers.is_empty()
+	var has_answers := not message.answers.is_empty()
 
 	if has_answers:
 		for answer_resource in message.answers.keys():
-			var answer:Message = answer_resource
-			var generated_id:int = Resource.generate_scene_unique_id().to_int()
-			answer.id = generated_id
-			answer.priority = message.priority
-			answer_ids.append(generated_id)
+			# Safer than mutating a shared Resource:
+			var answer:Message = (answer_resource.duplicate(true) as Message)
 
-			answers_waiting_response[generated_id] = answer
+			var answer_id := Resource.generate_scene_unique_id().to_int()
+			answers_by_id[answer_id] = answer
 
-			# Show as an answer option (this is what your old message_instance did via EventBus.answer_option)
+			# show option
 			EventBus.answer_option.emit(
 				answer.sender,
 				answer.text,
 				answer.text,
 				1000,
 				GameData.hours_minutes,
-				generated_id
+				answer_id
 			)
 
-	if message.next_message == null:
-		return
+			# If there is a next message, unlock it when ANY answer is clicked
+			if message.next_message != null:
+				if not unlock_on_answer.has(answer_id):
+					unlock_on_answer[answer_id] = []
+				unlock_on_answer[answer_id].append(message.next_message)
 
-	message.next_message.priority = message.priority
-
-	if has_answers:
-		messages_waiting_answers[message.next_message] = answer_ids
 	else:
-		_add_message_to_pending(message.next_message)
+		# If no answers we can queue next immediately (if any)
+		if message.next_message != null:
+			_queue_message(message.next_message, _delay_for_priority(message.priority))
 
+## Handles the event when a message answer is selected by the player
+##
+## answer_id: The unique identifier for the answer option chosen
 func _on_message_answered(answer_id:int) -> void:
-	# 1) Unlock waiting messages
-	for waiting_message in messages_waiting_answers.keys():
-		var ids:Array = messages_waiting_answers[waiting_message]
-		if ids.has(answer_id):
-			_add_message_to_pending(waiting_message)
+	# 1) unlock next messages tied to this answer
+	if unlock_on_answer.has(answer_id):
+		for next_message:Message in unlock_on_answer[answer_id]:
+			_queue_message(next_message, 0)
+		unlock_on_answer.erase(answer_id)
 
-	# 2) Process answer side-effects (your old process_answers)
-	if answers_waiting_response.has(answer_id):
-		var answered_message:Message = answers_waiting_response[answer_id]
-		_process_answer_task(answered_message)
+	# 2) process answer side-effects
+	if answers_by_id.has(answer_id):
+		_process_answer_task(answers_by_id[answer_id])
+		answers_by_id.erase(answer_id)
 
+## Processes any tasks associated with the player's answer
+##
+## answer_message: The Message instance representing the player's answer
 func _process_answer_task(answer_message:Message) -> void:
 	if answer_message.task_type == Message.TaskType.INSTALL:
 		AppsControl.download_app(answer_message.installer)
 
-func _add_message_to_pending(message:Message) -> void:
-	pending_messages.append(message)
-	pending_messages.sort_custom(_sort_by_priority)
-	# if we were idle / waiting far in the future, reschedule sooner
-	_schedule_next_message()
-
-func _sort_by_priority(a:Message, b:Message) -> bool:
-	return a.priority < b.priority
-
+## Checks if the conditions for delivering a message are met
+##
+## message: The Message instance to check conditions for
 func _conditions_met(message:Message) -> bool:
 	var downloaded_apps = AppsControl.get_downloaded_apps()
 
-	# same keys you used in message_instance.gd
-	if message.conditions.has("settings") and (downloaded_apps.has(AppControl.App.SETTINGS) != message.conditions["settings"]):
-		return false
-	if message.conditions.has("browser") and (downloaded_apps.has(AppControl.App.BROWSER) != message.conditions["browser"]):
-		return false
-	if message.conditions.has("mail") and (downloaded_apps.has(AppControl.App.EMAIL) != message.conditions["mail"]):
-		return false
-	if message.conditions.has("fake_store") and (downloaded_apps.has(AppControl.App.FAKESTORE) != message.conditions["fake_store"]):
-		return false
-	if message.conditions.has("store") and (downloaded_apps.has(AppControl.App.STORE) != message.conditions["store"]):
-		return false
+	if message.conditions.has("settings"):
+		var has_app = downloaded_apps.has(AppControl.App.SETTINGS)
+		if has_app != message.conditions["settings"]:
+			return false
+	if message.conditions.has("browser"):
+		var has_app = downloaded_apps.has(AppControl.App.BROWSER)
+		if has_app != message.conditions["browser"]:
+			return false
+	if message.conditions.has("mail"):
+		var has_app = downloaded_apps.has(AppControl.App.EMAIL)
+		if has_app != message.conditions["mail"]:
+			return false
+	if message.conditions.has("fake_store"):
+		var has_app = downloaded_apps.has(AppControl.App.FAKESTORE)
+		if has_app != message.conditions["fake_store"]:
+			return false
+	if message.conditions.has("store"):
+		var has_app = downloaded_apps.has(AppControl.App.STORE)
+		if has_app != message.conditions["store"]:
+			return false
 
 	return true
