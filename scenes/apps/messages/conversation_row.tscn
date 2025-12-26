@@ -5,16 +5,17 @@
 [ext_resource type="Script" uid="uid://djn3wgjm3cki7" path="res://scenes/apps/messages/conversation_row.gd" id="1_kc2jj"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
 
-[node name="conversation_row" type="Control" node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture")]
+[node name="ConversationRow" type="Control" node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture", "open_chat_button")]
 custom_minimum_size = Vector2(1080, 240)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 238.0
 script = ExtResource("1_kc2jj")
-contact_label = NodePath("HBoxContainer/VBoxContainer/name")
-message_label = NodePath("HBoxContainer/VBoxContainer/message")
+contact_label = NodePath("HBoxContainer/VBoxContainer/ContactNameLabel")
+message_label = NodePath("HBoxContainer/VBoxContainer/ContactLastMessageLabel")
 avatar_texture = NodePath("HBoxContainer/TextureRect")
+open_chat_button = NodePath("OpenChatButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -31,14 +32,14 @@ stretch_mode = 3
 layout_mode = 2
 alignment = 1
 
-[node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="ContactNameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_746fn")
 theme_override_font_sizes/font_size = 50
 text = "Chefinho"
 
-[node name="message" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="ContactLastMessageLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -47,7 +48,7 @@ theme_override_font_sizes/font_size = 40
 text = "Bom dia, como vai seu trabalho?"
 text_overrun_behavior = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="OpenChatButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0

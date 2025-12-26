@@ -4,6 +4,10 @@ extends Control
 @export var message_label:Label
 @export var avatar_texture:TextureRect
 @export var conversation_data:Dictionary
+@export var open_chat_button:Button
+
+func _ready() -> void:
+	open_chat_button.pressed.connect(_on_button_pressed)
 
 func setup(p_conversation_data:Dictionary):
 	self.conversation_data = p_conversation_data
