@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 
 @export var contact_label:Label
 @export var message_label:Label
