@@ -2,6 +2,9 @@ extends Node2D
 
 signal npc_message_created(npc_name:String, message:String, sender:EventBus.Sender, time:String)
 
+signal start_new_day()
+signal day_ended()
+
 @export var day_over_timer:Timer
 @export var clock_timer:Timer
 
@@ -25,8 +28,29 @@ func on_receive_message(npc_name:String, message:String, time:int) -> void:
 
 ## Handles the end of the day event
 func _on_day_over_timeout() -> void:
-	# Show results screen or any end-of-day logic here
-	pass
+	print("Day over!")
+	# Emit the day ended signal to notify other systems
+	day_ended.emit()
+
+	# Stop the timers
+	clock_timer.stop()
+
+func reset_data_for_new_day() -> void:
+	start_new_day.emit()
+	GameData.data.current_day += 1
+
+	if GameData.data.current_day == 1:
+		AppsControl.apps_in_store.append(AppsControl.App.BROWSER)
+
+	print("current day: ", GameData.data.current_day)
+
+	# Reset in-game time
+	GameData.hours_minutes = 1080
+
+	# Restart timers
+	clock_timer.start()
+	day_over_timer.wait_time = GameData.data.max_game_time
+	day_over_timer.start()
 
 ## Runs every in-game 'minute' (1 second real time)
 ##

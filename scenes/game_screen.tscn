@@ -1,17 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=18 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_5o8nl"]
+[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
-[ext_resource type="PackedScene" uid="uid://dywrxdivs4bbp" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
-[ext_resource type="Script" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
 [ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
+[ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scenes/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
@@ -19,7 +20,7 @@
 
 [node name="GameScreen" type="Node2D"]
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "base_app", "notifications_control")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "base_app", "day_over_ui", "notifications_control")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 5
@@ -31,6 +32,7 @@ grow_horizontal = 2
 script = ExtResource("1_5o8nl")
 event_handler = NodePath("../EventHandler")
 base_app = NodePath("BaseApp")
+day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 
 [node name="DesktopUI" type="Control" parent="UI"]
@@ -152,9 +154,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 desktop_ui = NodePath("../DesktopUI")
 
-[node name="DayOverUI" type="Control" parent="UI"]
+[node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_5o8nl")
+notification_timer = NodePath("NotificationTimer")
+audio_stream_player = NodePath("NotificationSoundPlayer")
+
+[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI"]
+stream = ExtResource("15_q7j5u")
+volume_db = -3.0
+bus = &"SFX"
+
+[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI"]
+wait_time = 2.5
+one_shot = true
+
+[node name="DayOverUI" type="Control" parent="UI" node_paths=PackedStringArray("next_day_button")]
 visible = false
 anchors_preset = 0
+script = ExtResource("13_bd51b")
+next_day_button = NodePath("CenterContainer/TextDayOverContainer/NextDayButton")
 
 [node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI"]
 modulate = Color(1, 1, 1, 0.835294)
@@ -197,34 +229,6 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
-[node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
-visible = false
-z_index = 50
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("14_5o8nl")
-notification_timer = NodePath("NotificationTimer")
-audio_stream_player = NodePath("NotificationSoundPlayer")
-
-[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI"]
-stream = ExtResource("15_q7j5u")
-volume_db = -3.0
-bus = &"SFX"
-
-[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI"]
-wait_time = 2.5
-one_shot = true
-
 [node name="EventHandler" type="Node2D" parent="." node_paths=PackedStringArray("day_over_timer", "clock_timer")]
 visible = false
 script = ExtResource("6_pur81")
@@ -234,6 +238,7 @@ clock_timer = NodePath("ClockTimer")
 [node name="DayOverTimer" type="Timer" parent="EventHandler"]
 wait_time = 600.0
 one_shot = true
+autostart = true
 
 [node name="ClockTimer" type="Timer" parent="EventHandler"]
 autostart = true

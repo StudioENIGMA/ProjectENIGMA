@@ -12,13 +12,23 @@ var animation_player
 ## Adds a notification to the queue and sends it if it's the only one
 ##
 ## notification_parameter: Dictionary containing the notification parameters
-func add_notification_to_queue(notification_parameter:Dictionary) -> void:
+func add_notification_to_queue(
+	app:EventBus.App,
+  content:String,
+  title:String,
+  time:float
+) -> void:
 	# Append the notification to the queue
-	notification_array.append(notification_parameter)
+	notification_array.append({
+		"app": app,
+		"content": content,
+		"title": title,
+		"time": time
+	})
 
 	# If it's the only notification in the queue, send it immediately
 	if notification_array.size() == 1:
-		send_notification(notification_parameter)
+		send_notification(notification_array[0])
 
 ## Sends a notification popup based on the provided parameters
 ##

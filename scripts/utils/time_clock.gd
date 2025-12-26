@@ -29,7 +29,7 @@ func update_weekday(day_increment:int) -> void:
 
 func update_clock_display(current_hour:int, current_minute:int) -> void:
 	# Format time with leading zeros
-	var hours:String = str(current_hour) if current_hour >= 10 else "0" + str(current_hour)
+	var hours:String = str(current_hour % 24) if current_hour >= 10 else "0" + str(current_hour)
 
 	# Format minutes with leading zeros
 	var minutes:String = str(current_minute) if current_minute >= 10 else "0" + str(current_minute)

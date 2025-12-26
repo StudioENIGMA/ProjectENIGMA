@@ -7,16 +7,12 @@ extends Control
 @export var apps_holder:Node
 @export var next_day_button:Button
 
-@export var day_over_overlay:Node2D
-
 var messages_to_instance:Array[Message] = []
 var answers_to_instance:Array[Message] = []
 var messages_waiting_answers:Dictionary[Message, Array] = {}
 var answers_waiting_response:Dictionary[int, Message] = {}
 
 var message_delay_timer:Timer
-
-var day_over:bool = false
 
 @onready var loaded_message_script = load("res://scripts/apps/messages/message_instance.gd")
 
@@ -30,9 +26,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if day_over:
-		return
-
 	if answers_to_instance.size() == 0:
 		return
 
@@ -44,22 +37,8 @@ func _process(_delta: float) -> void:
 
 
 func setup_control():
-	if GameData.data.current_day >= 1:
-		AppsControl.apps_in_store.append(AppsControl.App.BROWSER)
-
-	print("current day: ", GameData.data.current_day)
-
-	day_over_overlay.visible = false
-	day_over = false
-	self.visible = true
-
 	EventBus.message_answered.connect(process_waiting_messages)
 	EventBus.message_answered.connect(process_answers)
-
-	var timer =	$"../Timer"
-	timer.wait_time = GameData.data.max_game_time
-	timer.start()
-	timer.timeout.connect(end_day)
 
 	message_delay_timer = Timer.new()
 	message_delay_timer.one_shot = false
@@ -128,18 +107,3 @@ func custom_sort_messages(a, b) -> bool:
 	if a.priority < b.priority:
 		return true
 	return false
-
-
-func end_day():
-	next_day_button.text = "Iniciar Dia " + str(GameData.data.current_day + 1)
-	day_over_overlay.visible = true
-	day_over = true
-	message_delay_timer.stop()
-	self.visible = false
-	for app in apps_holder.get_children():
-		app.visible = false
-
-
-func _on_next_day_button_pressed() -> void:
-	GameData.data.current_day += 1
-	setup_control()
