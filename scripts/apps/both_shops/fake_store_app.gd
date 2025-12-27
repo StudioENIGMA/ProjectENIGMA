@@ -4,15 +4,9 @@ signal app_uninstalled(app_name:String)
 
 @export var uninstall_button: Button
 
-func _ready():
+func _ready() -> void:
 	uninstall_button.pressed.connect(_on_uninstall_pressed)
 
-func _on_uninstall_pressed() -> void:
-	uninstall_button.text = "正在卸載..."
-	await get_tree().create_timer(3.0).timeout
-	emit_signal("app_uninstalled", "FakeStore")
-
-func setup() -> void:
 	# Get available and downloaded apps from GameData
 	var available_apps = GameData.apps_in_store
 	var downloaded_apps = GameData.downloaded_apps
@@ -27,3 +21,8 @@ func setup() -> void:
 		var app_item = APPLICATION_INSTANCE_SCENE.instantiate()
 		app_item.setup(app, downloaded_apps.has(app), true)
 		available_apps_container.add_child(app_item)
+
+func _on_uninstall_pressed() -> void:
+	uninstall_button.text = "正在卸載..."
+	await get_tree().create_timer(3.0).timeout
+	emit_signal("app_uninstalled", "FakeStore")
