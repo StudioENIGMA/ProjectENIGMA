@@ -26,7 +26,7 @@ var passwords_manager_app:Control
 var store_app:Control
 var fake_store_app:Control
 
-var open_apps:Array[String] = []
+var open_apps:Array[GameData.App] = []
 
 ## Setup signal connections for app management
 func _ready() -> void:
@@ -67,19 +67,20 @@ func _ready() -> void:
 	fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 	fake_store_app.visible = false
 	app_specific_screen.add_child(fake_store_app)
-	fake_store_app.app_uninstalled.connect(_on_app_uninstalled)
+	fake_store_app.app_uninstalled.connect(desktop_ui._on_app_uninstalled) # Remove from home screen
+	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 
 ## Handles the app opened event from the desktop UI
 ##
 ## app_name: The name of the application being opened
 ## optional_data: Additional data that might be passed when opening the app
-func _on_app_opened(app_name:String, optional_data = null) -> void:
+func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
 	self.visible = true
-	open_apps.append(app_name)
+	open_apps.append(app)
 
 	# Get specific app that should be opened
-	var specific_app = get_app_by_name(app_name)
+	var specific_app = get_app_by_enum(app)
 
 	if optional_data != null:
 		specific_app.setup(optional_data)
@@ -91,8 +92,8 @@ func _on_app_opened(app_name:String, optional_data = null) -> void:
 	# Show back button if more than one app is open and hide previous app
 	if open_apps.size() > 1:
 		back_button.visible = true
-		var previous_app_name:String = open_apps[open_apps.size() - 2]
-		var previous_app = get_app_by_name(previous_app_name)
+		var previous_app_enum:GameData.App = open_apps[open_apps.size() - 2]
+		var previous_app = get_app_by_enum(previous_app_enum)
 		previous_app.visible = false
 	else:
 		back_button.visible = false
@@ -102,12 +103,12 @@ func _on_app_opened(app_name:String, optional_data = null) -> void:
 ## Hides the currently open app and updates the top bar visibility accordingly
 func _on_close_app_button_pressed() -> void:
 	# Get the currently open app (topmost)
-	var current_app_name:String = open_apps[open_apps.size() - 1]
-	var current_app = get_app_by_name(current_app_name)
+	var current_app_enum:GameData.App = open_apps[open_apps.size() - 1]
+	var current_app = get_app_by_enum(current_app_enum)
 
 	# Hide the current app
 	current_app.visible = false
-	open_apps.erase(current_app_name)
+	open_apps.erase(current_app_enum)
 
 	var number_of_open_apps:int = open_apps.size()
 
@@ -123,33 +124,32 @@ func _on_close_app_button_pressed() -> void:
 
 	# Show previous app if any
 	if number_of_open_apps > 0:
-		var previous_app_name:String = open_apps[number_of_open_apps - 1]
-		var previous_app = get_app_by_name(previous_app_name)
+		var previous_app_enum:GameData.App = open_apps[number_of_open_apps - 1]
+		var previous_app = get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
 
 ## Handles the app uninstalled event from the store app
 ##
 ## app_name: The name of the application being uninstalled
-func _on_app_uninstalled(app_name:String) -> void:
+func _on_app_uninstalled(app:GameData.App) -> void:
 	# If the uninstalled app is currently open, close it
-	if open_apps.has(app_name):
+	if open_apps.has(app):
 		# Close the app
 		_on_close_app_button_pressed()
-		# TODO: Remove app from installed apps list
 
 ## Returns the app node by its name
 ##
 ## app_name: The name of the application
-func get_app_by_name(app_name:String) -> Control:
+func get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
 		# Messages app
-		"MessagesHome": messages_app_home,
-		"MessagesChat": messages_app_chat,
+		GameData.App.MESSAGESHOME: messages_app_home,
+		GameData.App.MESSAGESCHAT: messages_app_chat,
 		# Settings app
-		"Settings": settings_app,
-		"PasswordManager": passwords_manager_app,
+		GameData.App.SETTINGS: settings_app,
+		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		# Store app
-		"Store": store_app,
-		"FakeStore": fake_store_app
+		GameData.App.STORE: store_app,
+		GameData.App.FAKESTORE: fake_store_app
 	}
-	return app_map.get(app_name, null)
+	return app_map.get(app_enum, null)
