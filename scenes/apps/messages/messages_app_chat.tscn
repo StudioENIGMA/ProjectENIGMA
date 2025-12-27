@@ -23,7 +23,7 @@ offset_bottom = 1920.0
 script = ExtResource("2_ir5vx")
 
 [node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer"]
-custom_minimum_size = Vector2(1080, 2160)
+custom_minimum_size = Vector2(1080, 1920)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 32

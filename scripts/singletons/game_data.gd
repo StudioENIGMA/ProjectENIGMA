@@ -31,13 +31,6 @@ var data = {
 	"has_settings": true
 }
 
-func now() -> float:
-	if is_instance_valid(game_timer):
-		return game_timer.wait_time - game_timer.time_left
-	return 0
-
-
-
 func load_game() -> void:
 	var file_path = "res://data/save.json"
 

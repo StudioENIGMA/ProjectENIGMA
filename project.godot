@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://scripts/utils/event_bus.gd"
-OpenChatSingleton="*res://scripts/apps/messages/open_chat_singleton.gd"
 GameData="*res://scripts/singletons/game_data.gd"
 AppsControl="*res://scripts/singletons/apps_control.gd"
 
