@@ -1,5 +1,6 @@
-extends Node2D
+extends Control
 
+"""
 @export var passwords_gui: Control
 @export var os_gui: Control
 @export var scanner_gui: Control
@@ -56,3 +57,4 @@ func _on_button_os_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	self.hide()
+"""

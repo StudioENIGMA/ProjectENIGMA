@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://c740lpt8b7kob"]
+
+[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="1_edc1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohjip"]
+bg_color = Color(0, 0.705721, 0.525907, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wbu1"]
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xpt1"]
+bg_color = Color(0, 0.347294, 0.262336, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2so6"]
+font_size = 40
+
+[node name="SettingsUIButton" type="Control"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1000.0
+offset_bottom = 600.0
+
+[node name="VBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 600.0
+theme_override_constants/separation = 0
+
+[node name="HeaderPanel" type="Panel" parent="VBox"]
+custom_minimum_size = Vector2(1000, 240)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohjip")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox/HeaderPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_vertical = 2
+
+[node name="LeftMargin" type="MarginContainer" parent="VBox/HeaderPanel/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="AppIcon" type="TextureRect" parent="VBox/HeaderPanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_edc1l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterMargin" type="MarginContainer" parent="VBox/HeaderPanel/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="AppNameLabel" type="Label" parent="VBox/HeaderPanel/HBoxContainer"]
+layout_mode = 2
+text = "Nome Funcionalidade"
+label_settings = SubResource("LabelSettings_7wbu1")
+
+[node name="DescriptionPanel" type="Panel" parent="VBox"]
+custom_minimum_size = Vector2(1000, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xpt1")
+
+[node name="DescriptionLabel" type="Label" parent="VBox/DescriptionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_k2so6")
+
+[node name="Button" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 1
+offset_right = 1000.0
+offset_bottom = 600.0

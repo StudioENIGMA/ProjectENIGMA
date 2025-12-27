@@ -18,6 +18,8 @@ extends Control
 var messages_app_home:Control
 var messages_app_chat:Control
 
+var settings_app:Control
+
 var open_apps:Array[String] = []
 
 ## Setup signal connections for app management
@@ -37,6 +39,11 @@ func _ready() -> void:
 	messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
 	messages_app_chat.visible = false
 	app_specific_screen.add_child(messages_app_chat)
+
+	# Settings app
+	settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
+	settings_app.visible = false
+	app_specific_screen.add_child(settings_app)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -105,5 +112,7 @@ func get_app_by_name(app_name:String) -> Control:
 			return messages_app_home
 		"Messages_chat":
 			return messages_app_chat
+		"Settings":
+			return settings_app
 		_:
 			return null # Will break if app not found, should not happen
