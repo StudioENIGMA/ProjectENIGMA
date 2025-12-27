@@ -1,6 +1,6 @@
 extends "res://scripts/apps/both_shops/generic_store_app.gd"
 
-func setup() -> void:
+func _ready() -> void:
 	# Get available and downloaded apps from GameData
 	var available_apps = GameData.apps_in_store
 	var downloaded_apps = GameData.downloaded_apps

@@ -9,12 +9,13 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="FakeStoreApp" type="Control" node_paths=PackedStringArray("uninstall_button")]
+[node name="FakeStoreApp" type="Control" node_paths=PackedStringArray("uninstall_button", "available_apps_container")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_42ygq")
 uninstall_button = NodePath("Uninstall")
+available_apps_container = NodePath("AvailableApps")
 
 [node name="AvailableApps" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(1080, 1920)
@@ -35,5 +36,3 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_wkt3l")
 text = "解除安裝"
-
-[connection signal="draw" from="." to="." method="_on_draw"]

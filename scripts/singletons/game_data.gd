@@ -31,7 +31,7 @@ var apps_name: Dictionary = {
 }
 
 var apps_data = {
-	"Mensagens": {
+	App.MESSAGESHOME: {
 		"name": "Mensagens",
 		"chinese_name": "訊息和對話",
 		"description": "Receba e Envie Mensagens!",
@@ -39,7 +39,7 @@ var apps_data = {
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
-	"Email": {
+	App.EMAIL: {
 		"name": "Email",
 		"chinese_name": "電子郵件",
 		"description": "Receba e envie emails aqui!",
@@ -47,21 +47,13 @@ var apps_data = {
 		"icon_path": "res://assets/icons/email.png",
 	},
 
-	"Navegador": {
+	App.BROWSER: {
 		"name": "Navegador",
 		"chinese_name": "導航和搜尋",
 		"description": "Acesse seus sites favoritos!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/browser.png",
 	},
-
-	"Gambling": {
-		"name": "Gambling",
-		"chinese_name": "小老虎遊戲",
-		"description": "!",
-		"description_in_chinese": "Chinese",
-		"icon_path": "res://assets/icons/app-store.png",
-	}
 }
 
 var apps_chinese_operations = {
@@ -70,7 +62,7 @@ var apps_chinese_operations = {
 	"open": "阿布里爾"
 }
 
-var apps_in_store: Array[App]
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL]
 var downloaded_apps: Array[App]
 var available_updates: Array[App] = []
 
