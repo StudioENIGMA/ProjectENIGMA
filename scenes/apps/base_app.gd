@@ -18,8 +18,13 @@ extends Control
 var messages_app_home:Control
 var messages_app_chat:Control
 
+## Reference to the settings app node
 var settings_app:Control
 var passwords_manager_app:Control
+
+## Reference to the store app node
+var store_app:Control
+var fake_store_app:Control
 
 var open_apps:Array[String] = []
 
@@ -52,6 +57,17 @@ func _ready() -> void:
 	passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 	passwords_manager_app.visible = false
 	app_specific_screen.add_child(passwords_manager_app)
+
+	# Store app (Store app)
+	store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
+	store_app.visible = false
+	app_specific_screen.add_child(store_app)
+
+	# Fake Store app (Fake Store app)
+	fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
+	fake_store_app.visible = false
+	app_specific_screen.add_child(fake_store_app)
+	fake_store_app.app_uninstalled.connect(_on_app_uninstalled)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -111,18 +127,29 @@ func _on_close_app_button_pressed() -> void:
 		var previous_app = get_app_by_name(previous_app_name)
 		previous_app.visible = true
 
+## Handles the app uninstalled event from the store app
+##
+## app_name: The name of the application being uninstalled
+func _on_app_uninstalled(app_name:String) -> void:
+	# If the uninstalled app is currently open, close it
+	if open_apps.has(app_name):
+		# Close the app
+		_on_close_app_button_pressed()
+		# TODO: Remove app from installed apps list
+
 ## Returns the app node by its name
 ##
 ## app_name: The name of the application
 func get_app_by_name(app_name:String) -> Control:
-	match app_name:
-		"Messages_home":
-			return messages_app_home
-		"Messages_chat":
-			return messages_app_chat
-		"Settings":
-			return settings_app
-		"PasswordManager":
-			return passwords_manager_app
-		_:
-			return null # Will break if app not found, should not happen
+	var app_map = {
+		# Messages app
+		"Messages_home": messages_app_home,
+		"Messages_chat": messages_app_chat,
+		# Settings app
+		"Settings": settings_app,
+		"PasswordManager": passwords_manager_app,
+		# Store app
+		"Store": store_app,
+		"FakeStore": fake_store_app
+	}
+	return app_map.get(app_name, null)
