@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://5qfjsihyrf6e"]
 
-[ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app.gd" id="1_jwkj7"]
+[ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app_home.gd" id="1_jwkj7"]
 
-[node name="MessagesApp" type="Control" node_paths=PackedStringArray("list_of_chats")]
+[node name="MessagesAppHome" type="Control" node_paths=PackedStringArray("list_of_chats")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0

@@ -27,7 +27,7 @@
 
 [node name="GameScreen" type="Node2D"]
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "base_app", "day_over_ui", "notifications_control")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("event_handler", "story_director", "base_app", "day_over_ui", "notifications_control")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 5
@@ -38,6 +38,7 @@ offset_bottom = 2400.0
 grow_horizontal = 2
 script = ExtResource("1_5o8nl")
 event_handler = NodePath("../EventHandler")
+story_director = NodePath("../StoryDirector")
 base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")

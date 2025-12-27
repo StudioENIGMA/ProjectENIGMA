@@ -1,5 +1,12 @@
 extends Node2D
 
+signal npc_message_created(
+	npc_name:String,
+	message:String,
+	sender:EventBus.Sender,
+	time:String
+)
+
 @export var all_messages:Array[Message] = []
 @export var event_handler:Node2D
 
@@ -92,7 +99,7 @@ func _on_clock_tick(current_minutes:int) -> void:
 ##
 ## message: The Message instance to be delivered
 func _deliver_message(message:Message) -> void:
-	event_handler.npc_message_created.emit(
+	npc_message_created.emit(
 		message.sender,
 		message.text,
 		EventBus.Sender.OTHER,

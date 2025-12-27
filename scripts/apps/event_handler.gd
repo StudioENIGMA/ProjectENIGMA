@@ -2,8 +2,6 @@ extends Node2D
 
 signal clock_tick(current_minutes:int)
 
-signal npc_message_created(npc_name:String, message:String, sender:EventBus.Sender, time:String)
-
 signal start_new_day()
 signal day_ended()
 
@@ -58,7 +56,6 @@ func reset_data_for_new_day() -> void:
 ## Updates the clock display and checks for scheduled message deliveries
 func _on_clock_timer_timeout() -> void:
 	_update_in_game_time()
-	_deliver_scheduled_messages()
 	clock_tick.emit(GameData.hours_minutes)
 
 ## Updates the in-game clock display
@@ -75,16 +72,3 @@ func _update_in_game_time() -> void:
 
 	# Increment in-game time by 1 minute
 	GameData.hours_minutes = GameData.hours_minutes + 1
-
-## Delivers any scheduled messages whose time has come
-##
-func _deliver_scheduled_messages() -> void:
-	for message in messages_to_deliver:
-		if message.time <= GameData.hours_minutes:
-			npc_message_created.emit(
-				message.name,
-				message.message,
-				EventBus.Sender.OTHER,
-				GameData.hours_minutes
-			)
-			messages_to_deliver.erase(message)

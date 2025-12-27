@@ -2,6 +2,7 @@ extends Control
 
 ## Reference to the event handler node (emits events to be propagated to each app)
 @export var event_handler:Node2D
+@export var story_director:Node2D
 
 ## Reference to the base app node (propagates app management signals)
 @export var base_app:Control
@@ -19,7 +20,8 @@ func _ready() -> void:
 ## Connects the event handler signals to the respective app functions
 func _connect_event_handler() -> void:
   # Messages app
-  event_handler.npc_message_created.connect(base_app.messages_app_home.on_create_message)
+  story_director.npc_message_created.connect(base_app.messages_app_home.on_create_message)
+  story_director.npc_message_created.connect(base_app.messages_app_chat.on_create_message)
   EventBus.create_message.connect(base_app.messages_app_home.on_create_message)
 
   # End day event
