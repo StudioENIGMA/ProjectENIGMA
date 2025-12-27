@@ -52,7 +52,7 @@ func send_message(time:int = -1):
 		control_instance.add_answers_to_waiting(message, message.id)
 	else:
 		EventBus.receive_message.emit(message.sender, message.text, time)
-		EventBus.send_notification.emit(EventBus.App.MESSAGES, message.text, message.sender, time)
+		EventBus.send_notification.emit(GameData.App.MESSAGESHOME, message.text, message.sender, time)
 
 	await get_tree().create_timer(0.1).timeout
 

@@ -13,7 +13,7 @@ var animation_player
 ##
 ## notification_parameter: Dictionary containing the notification parameters
 func add_notification_to_queue(
-	app:EventBus.App,
+	app:GameData.App,
   content:String,
   title:String,
   time:int

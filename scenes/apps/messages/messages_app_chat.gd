@@ -7,7 +7,7 @@ extends Control
 ## title: The title of the notification
 ## time: Duration the notification should be displayed
 signal request_message_notification(
-	app:EventBus.App,
+	app:GameData.App,
   content:String,
   title:String,
   time:int
@@ -34,7 +34,7 @@ func setup(conversation_data:Dictionary) -> void:
 
 	for message in conversation_data["messages"]:
 		var message_instance:MarginContainer;
-		if message.sender == EventBus.Sender.ME:
+		if message.sender == GameData.Sender.PLAYER:
 			message_instance = MY_MESSAGE.instantiate()
 		else:
 			message_instance = OTHERS_MESSAGE.instantiate()
@@ -57,15 +57,15 @@ func setup(conversation_data:Dictionary) -> void:
 func on_create_message(
 	npc_name:String,
 	message:String,
-	sender:EventBus.Sender,
+	sender:GameData.Sender,
 	time:int
 ) -> void:
 	# Check if the message belongs to the currently open conversation
 	if npc_name != conversation_name:
 		# Notify new message received
-		if sender == EventBus.Sender.OTHER:
+		if sender == GameData.Sender.NPC:
 			request_message_notification.emit(
-				EventBus.App.MESSAGES,
+				GameData.App.MESSAGESHOME,
 				message,
 				npc_name,
 				time
@@ -74,7 +74,7 @@ func on_create_message(
 
 	# Add the new message to the messages list
 	var message_instance:MarginContainer;
-	if sender == EventBus.Sender.ME:
+	if sender == GameData.Sender.PLAYER:
 		message_instance = MY_MESSAGE.instantiate()
 	else:
 		message_instance = OTHERS_MESSAGE.instantiate()

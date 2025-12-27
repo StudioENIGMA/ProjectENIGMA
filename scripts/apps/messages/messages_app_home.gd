@@ -48,7 +48,7 @@ func on_player_answer(
 func on_create_message(
 	npc_name:String,
 	message:String,
-	sender:EventBus.Sender,
+	sender:GameData.Sender,
 	time:int
 ):
 	var conversation_index = conversations_data.find_custom(

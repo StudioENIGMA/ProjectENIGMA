@@ -13,6 +13,6 @@ func setup(sender_name:String, title:String, message:String, answer_id:int) -> v
 	_answer_id = answer_id
 
 func _on_button_pressed() -> void:
-	EventBus.create_message.emit(_name, _message, EventBus.Sender.ME, GameData.hours_minutes)
+	EventBus.create_message.emit(_name, _message, GameData.Sender.PLAYER, GameData.hours_minutes)
 	EventBus.delete_answers.emit(_name)
 	EventBus.message_answered.emit(_answer_id)

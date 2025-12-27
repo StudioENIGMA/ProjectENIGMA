@@ -3,7 +3,7 @@ extends Node2D
 signal npc_message_created(
 	npc_name:String,
 	message:String,
-	sender:EventBus.Sender,
+	sender:GameData.Sender,
 	time:int
 )
 
@@ -102,7 +102,7 @@ func _deliver_message(message:Message) -> void:
 	npc_message_created.emit(
 		message.sender,
 		message.text,
-		EventBus.Sender.OTHER,
+		GameData.Sender.NPC,
 		GameData.hours_minutes
 	)
 

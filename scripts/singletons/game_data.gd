@@ -16,6 +16,11 @@ enum App {
 	EMAIL,
 }
 
+enum Sender {
+	PLAYER,
+	NPC,
+}
+
 var hours_minutes:int = 1080 # Start at 18:00
 
 var apps_name: Dictionary = {
