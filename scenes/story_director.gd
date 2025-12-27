@@ -163,32 +163,32 @@ func _on_message_answered(answer_id:int) -> void:
 ## answer_message: The Message instance representing the player's answer
 func _process_answer_task(answer_message:Message) -> void:
 	if answer_message.task_type == Message.TaskType.INSTALL:
-		AppsControl.download_app(answer_message.installer)
+		pass
 
 ## Checks if the conditions for delivering a message are met
 ##
 ## message: The Message instance to check conditions for
 func _conditions_met(message:Message) -> bool:
-	var downloaded_apps = AppsControl.get_downloaded_apps()
+	var downloaded_apps = GameData.downloaded_apps
 
 	if message.conditions.has("settings"):
-		var has_app = downloaded_apps.has(AppControl.App.SETTINGS)
+		var has_app = downloaded_apps.has(GameData.App.SETTINGS)
 		if has_app != message.conditions["settings"]:
 			return false
 	if message.conditions.has("browser"):
-		var has_app = downloaded_apps.has(AppControl.App.BROWSER)
+		var has_app = downloaded_apps.has(GameData.App.BROWSER)
 		if has_app != message.conditions["browser"]:
 			return false
 	if message.conditions.has("mail"):
-		var has_app = downloaded_apps.has(AppControl.App.EMAIL)
+		var has_app = downloaded_apps.has(GameData.App.EMAIL)
 		if has_app != message.conditions["mail"]:
 			return false
 	if message.conditions.has("fake_store"):
-		var has_app = downloaded_apps.has(AppControl.App.FAKESTORE)
+		var has_app = downloaded_apps.has(GameData.App.FAKESTORE)
 		if has_app != message.conditions["fake_store"]:
 			return false
 	if message.conditions.has("store"):
-		var has_app = downloaded_apps.has(AppControl.App.STORE)
+		var has_app = downloaded_apps.has(GameData.App.STORE)
 		if has_app != message.conditions["store"]:
 			return false
 

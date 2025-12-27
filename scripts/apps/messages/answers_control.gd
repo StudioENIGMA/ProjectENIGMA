@@ -26,7 +26,7 @@ func _on_answer_option(
 	answer_id:int
 ) -> void:
 	# Interpret `time` as "due minute". Negative values = immediate.
-	var due_at := GameData.hours_minutes if time < 0 else time
+	var due_at = GameData.hours_minutes if time < 0 else time
 
 	pending.append({
 		"name": npc_name,
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 	if pending.is_empty():
 		return
 
-	var now_minutes := GameData.hours_minutes
+	var now_minutes = GameData.hours_minutes
 
 	# iterate backwards so removal is safe
 	for i in range(pending.size() - 1, -1, -1):

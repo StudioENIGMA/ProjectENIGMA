@@ -39,7 +39,7 @@ func reset_data_for_new_day() -> void:
 	GameData.data.current_day += 1
 
 	if GameData.data.current_day == 1:
-		AppsControl.apps_in_store.append(AppsControl.App.BROWSER)
+		GameData.apps_in_store.append(GameData.App.BROWSER)
 
 	print("current day: ", GameData.data.current_day)
 

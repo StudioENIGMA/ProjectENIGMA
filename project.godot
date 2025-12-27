@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 EventBus="*res://scripts/utils/event_bus.gd"
 GameData="*res://scripts/singletons/game_data.gd"
-AppsControl="*res://scripts/singletons/apps_control.gd"
 
 [display]
 

@@ -1,8 +1,78 @@
 extends Node
 
-var game_timer:Timer
+enum App {
+	# Messages app
+	MESSAGESHOME,
+	MESSAGESCHAT,
+	# Settings app
+	SETTINGS,
+	PASSWORDMANAGER,
+	# Store app
+	STORE,
+	FAKESTORE,
+	# Browser app
+	BROWSER,
+	# Email app
+	EMAIL,
+}
+
 var hours_minutes:int = 1080 # Start at 18:00
-var daily_reputation_points:int = 0
+
+var apps_name: Dictionary = {
+	# Messages app
+	App.MESSAGESHOME: "MessagesHome",
+	App.MESSAGESCHAT: "MessagesChat",
+	# Settings app
+	App.SETTINGS: "Settings",
+	App.PASSWORDMANAGER: "PasswordManager",
+	# Store apps
+	App.STORE: "Store",
+	App.FAKESTORE: "FakeStore",
+}
+
+var apps_data = {
+	"Mensagens": {
+		"name": "Mensagens",
+		"chinese_name": "訊息和對話",
+		"description": "Receba e Envie Mensagens!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/messages.png",
+	},
+
+	"Email": {
+		"name": "Email",
+		"chinese_name": "電子郵件",
+		"description": "Receba e envie emails aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/email.png",
+	},
+
+	"Navegador": {
+		"name": "Navegador",
+		"chinese_name": "導航和搜尋",
+		"description": "Acesse seus sites favoritos!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/browser.png",
+	},
+
+	"Gambling": {
+		"name": "Gambling",
+		"chinese_name": "小老虎遊戲",
+		"description": "!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/app-store.png",
+	}
+}
+
+var apps_chinese_operations = {
+	"install": "開始安裝",
+	"update": "應用程式更新",
+	"open": "阿布里爾"
+}
+
+var apps_in_store: Array[App]
+var downloaded_apps: Array[App]
+var available_updates: Array[App] = []
 
 var data = {
 	"current_day": 0,

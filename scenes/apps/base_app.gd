@@ -143,8 +143,8 @@ func _on_app_uninstalled(app_name:String) -> void:
 func get_app_by_name(app_name:String) -> Control:
 	var app_map = {
 		# Messages app
-		"Messages_home": messages_app_home,
-		"Messages_chat": messages_app_chat,
+		"MessagesHome": messages_app_home,
+		"MessagesChat": messages_app_chat,
 		# Settings app
 		"Settings": settings_app,
 		"PasswordManager": passwords_manager_app,

@@ -88,34 +88,34 @@ func add_depedencies_to_queue():
 func check_conditions() -> bool:
 	var result:int = 0
 
-	var downloaded_apps = AppsControl.get_downloaded_apps()
+	var downloaded_apps = GameData.downloaded_apps
 	if (
 		message.conditions.has("settings")
-		and downloaded_apps.has(AppControl.App.SETTINGS) == message.conditions["settings"]
+		and downloaded_apps.has(GameData.App.SETTINGS) == message.conditions["settings"]
 	):
 		result += 1
 
 	if (
 		message.conditions.has("browser")
-		and downloaded_apps.has(AppControl.App.BROWSER) == message.conditions["browser"]
+		and downloaded_apps.has(GameData.App.BROWSER) == message.conditions["browser"]
 	):
 		result += 1
 
 	if (
 		message.conditions.has("mail")
-		and downloaded_apps.has(AppControl.App.EMAIL) == message.conditions["mail"]
+		and downloaded_apps.has(GameData.App.EMAIL) == message.conditions["mail"]
 	):
 		result += 1
 
 	if (
 		message.conditions.has("fake_store")
-		and downloaded_apps.has(AppControl.App.FAKESTORE) == message.conditions["fake_store"]
+		and downloaded_apps.has(GameData.App.FAKESTORE) == message.conditions["fake_store"]
 	):
 		result += 1
 
 	if (
 		message.conditions.has("store")
-		and downloaded_apps.has(AppControl.App.STORE) == message.conditions["store"]
+		and downloaded_apps.has(GameData.App.STORE) == message.conditions["store"]
 	):
 		result += 1
 

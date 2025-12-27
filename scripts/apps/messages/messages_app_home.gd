@@ -111,7 +111,7 @@ func _update_list_of_chats(index:int) -> void:
 ##
 ## conversation_data: The data of the conversation to be opened
 func _on_open_chat(conversation_data:Dictionary) -> void:
-	subscreen_open_requested.emit("Messages_chat", conversation_data)
+	subscreen_open_requested.emit("MessagesChat", conversation_data)
 
 func on_delete_answers(npc_name:String) -> void:
 	var idx = conversations_data.find_custom(func(c): return c["name"] == npc_name)

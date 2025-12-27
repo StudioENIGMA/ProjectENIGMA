@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cil87xyo2ttrk"]
+[gd_scene load_steps=8 format=3 uid="uid://1qfm0rk4ahe5"]
 
+[ext_resource type="Script" uid="uid://dgjx6w2dl8b6y" path="res://scenes/apps/store-shop/application_instance.gd" id="1_c7dlv"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_5uj2r"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_ygwm0"]
 [ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="4_1a3t7"]
@@ -25,75 +26,67 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="GDScript" id="GDScript_ojwiw"]
-script/source = "extends Button
-
-func _ready():
-	pass
-"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi414"]
-bg_color = Color(0.101961, 0.12549, 0.2, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v20xg"]
-bg_color = Color(0.117647, 0.188235, 0.278431, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0kwy"]
-bg_color = Color(0.133333, 0.282353, 0.384314, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4cyp"]
-bg_color = Color(0.309804, 0.796078, 0.682353, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5osn"]
-bg_color = Color(0.639216, 0.92549, 0.760784, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn7ip"]
-bg_color = Color(0.27451, 0.709804, 0.690196, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[node name="ApplicationInstance" type="Control"]
-custom_minimum_size = Vector2(0, 130)
+[node name="ApplicationInstance" type="Control" node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button")]
+custom_minimum_size = Vector2(1000, 200)
 layout_mode = 3
 anchors_preset = 0
 offset_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
+script = ExtResource("1_c7dlv")
+app_icon = NodePath("HBoxContainer/AppIcon")
+app_name_label = NodePath("HBoxContainer/TextDescription/AppNameLabel")
+app_description_label = NodePath("HBoxContainer/TextDescription/AppDescriptionLabel")
+interact_button = NodePath("HBoxContainer/AppButton")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button_Container" type="MarginContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 200)
 layout_mode = 0
-offset_left = 700.0
-offset_top = 50.0
-offset_right = 925.0
-offset_bottom = 130.0
-pivot_offset = Vector2(143, 39.5)
+offset_right = 1000.0
+offset_bottom = 200.0
 
-[node name="Open" type="Button" parent="Button_Container"]
-visible = false
+[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+
+[node name="AppIcon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("4_1a3t7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterMargin" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TextDescription" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AppNameLabel" type="Label" parent="HBoxContainer/TextDescription"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5uj2r")
+theme_override_font_sizes/font_size = 40
+text = "Nome do Aplicativo"
+
+[node name="AppDescriptionLabel" type="Label" parent="HBoxContainer/TextDescription"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ygwm0")
+theme_override_font_sizes/font_size = 34
+text = "Descrição Do Aplicativo"
+
+[node name="CenterMargin2" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="AppButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 120)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5uj2r")
 theme_override_font_sizes/font_size = 32
@@ -102,73 +95,3 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/focus = SubResource("StyleBoxFlat_04xty")
 text = "Abrir
 "
-script = SubResource("GDScript_ojwiw")
-
-[node name="Update" type="Button" parent="Button_Container"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_bi414")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v20xg")
-theme_override_styles/focus = SubResource("StyleBoxFlat_q0kwy")
-text = "Atualizar"
-
-[node name="Install" type="Button" parent="Button_Container"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_x4cyp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_c5osn")
-theme_override_styles/focus = SubResource("StyleBoxFlat_bn7ip")
-text = "Obter"
-
-[node name="Label_Margin_Container" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 25.0
-offset_right = 649.0
-offset_bottom = 104.0
-theme_override_constants/margin_right = 100
-
-[node name="Label" type="Label" parent="Label_Margin_Container"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 40
-text = "Nome do Aplicativo"
-
-[node name="Description_Container" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 70.0
-offset_right = 722.0
-offset_bottom = 149.0
-theme_override_constants/margin_right = 100
-
-[node name="Description" type="Label" parent="Description_Container"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ygwm0")
-theme_override_font_sizes/font_size = 34
-text = "Descrição Do Aplicativo"
-
-[node name="Icon_Margin_Container" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -30.0
-offset_top = 10.0
-offset_right = 190.0
-offset_bottom = 186.0
-theme_override_constants/margin_left = 10
-
-[node name="TextureRect" type="TextureRect" parent="Icon_Margin_Container"]
-layout_mode = 2
-texture = ExtResource("4_1a3t7")
-expand_mode = 1
-stretch_mode = 5
-
-[connection signal="pressed" from="Button_Container/Open" to="." method="_on_open_pressed"]
-[connection signal="pressed" from="Button_Container/Update" to="." method="_on_update_pressed"]
-[connection signal="pressed" from="Button_Container/Install" to="." method="_on_install_pressed"]
