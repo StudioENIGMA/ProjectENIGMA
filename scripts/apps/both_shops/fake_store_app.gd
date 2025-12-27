@@ -1,5 +1,6 @@
 extends "res://scripts/apps/both_shops/generic_store_app.gd"
 
+signal subscreen_open_requested(subscreen_name:GameData.App)
 signal app_uninstalled(app_name:String)
 
 @export var uninstall_button: Button
@@ -21,9 +22,13 @@ func setup(apps_data) -> void:
 	for app in available_apps:
 		var app_item = APPLICATION_INSTANCE_SCENE.instantiate()
 		app_item.setup(app, downloaded_apps.has(app), true)
+		app_item.subscreen_open_requested.connect(_on_subscreen_open_requested)
 		available_apps_container.add_child(app_item)
 
 func _on_uninstall_pressed() -> void:
 	uninstall_button.text = "正在卸載..."
 	await get_tree().create_timer(3.0).timeout
 	emit_signal("app_uninstalled", GameData.App.FAKESTORE)
+
+func _on_subscreen_open_requested(subscreen_name:GameData.App) -> void:
+	subscreen_open_requested.emit(subscreen_name) # Propagate signal

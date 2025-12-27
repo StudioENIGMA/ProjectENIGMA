@@ -61,14 +61,16 @@ func _ready() -> void:
 	# Store app (Store app)
 	store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 	store_app.visible = false
+	store_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(store_app)
 
 	# Fake Store app (Fake Store app)
 	fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 	fake_store_app.visible = false
-	app_specific_screen.add_child(fake_store_app)
+	fake_store_app.subscreen_open_requested.connect(_on_app_opened)
 	fake_store_app.app_uninstalled.connect(desktop_ui._on_app_uninstalled) # Remove from home screen
 	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
+	app_specific_screen.add_child(fake_store_app)
 
 ## Handles the app opened event from the desktop UI
 ##

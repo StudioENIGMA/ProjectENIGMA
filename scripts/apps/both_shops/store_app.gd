@@ -1,5 +1,7 @@
 extends "res://scripts/apps/both_shops/generic_store_app.gd"
 
+signal subscreen_open_requested(subscreen_name:GameData.App)
+
 func setup(apps_data) -> void:
 	var available_apps = apps_data.available_apps
 	var downloaded_apps = apps_data.downloaded_apps
@@ -13,4 +15,8 @@ func setup(apps_data) -> void:
 	for app in available_apps:
 		var app_item = APPLICATION_INSTANCE_SCENE.instantiate()
 		app_item.setup(app, downloaded_apps.has(app), false)
+		app_item.subscreen_open_requested.connect(_on_subscreen_open_requested)
 		available_apps_container.add_child(app_item)
+
+func _on_subscreen_open_requested(subscreen_name:GameData.App) -> void:
+	subscreen_open_requested.emit(subscreen_name) # Propagate signal

@@ -1,6 +1,6 @@
 extends Control
 
-signal subscreen_open_requested(subscreen_name:String)
+signal subscreen_open_requested(subscreen_name:GameData.App)
 
 @export var app_icon: TextureRect
 @export var app_name_label: Label
