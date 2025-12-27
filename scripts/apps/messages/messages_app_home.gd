@@ -1,18 +1,5 @@
 extends Control
 
-## Request the UI main node to send a notification
-##
-## app: The application the notification is related to (Messages)
-## content: The content of the notification
-## title: The title of the notification
-## time: Duration the notification should be displayed
-signal request_message_notification(
-	app:EventBus.App,
-  content:String,
-  title:String,
-  time:String
-)
-
 signal subscreen_open_requested(subscreen_name:String, conversation_data:Dictionary)
 
 const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
@@ -95,16 +82,6 @@ func on_create_message(
 
 		# Move conversation to the top of the list
 		conversations_data.push_front(conversations_data.pop_at(conversation_index))
-
-	# Notify new message received if sender is OTHER and app is not open
-	if sender == EventBus.Sender.OTHER && !is_visible_in_tree():
-		emit_signal(
-			"request_message_notification",
-			EventBus.App.MESSAGES,
-			message,
-			npc_name,
-			time
-		)
 
 	# Update the conversation in the UI
 	_update_list_of_chats(conversation_index)

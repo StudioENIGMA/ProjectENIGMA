@@ -31,6 +31,6 @@ func _connect_event_handler() -> void:
 ## Connects each app to the notifications control signals
 func _connect_notifications() -> void:
   # Messages app
-  base_app.messages_app_home.request_message_notification.connect(
+  base_app.messages_app_chat.request_message_notification.connect(
 		notifications_control.add_notification_to_queue
   )

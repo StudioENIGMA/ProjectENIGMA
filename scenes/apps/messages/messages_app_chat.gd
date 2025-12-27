@@ -1,5 +1,18 @@
 extends Control
 
+## Request the UI main node to send a notification
+##
+## app: The application the notification is related to (Messages)
+## content: The content of the notification
+## title: The title of the notification
+## time: Duration the notification should be displayed
+signal request_message_notification(
+	app:EventBus.App,
+  content:String,
+  title:String,
+  time:String
+)
+
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 
@@ -40,14 +53,18 @@ func on_create_message(
 	npc_name:String,
 	message:String,
 	sender:EventBus.Sender,
-	_time:String
+	time:String
 ) -> void:
 	# Check if the message belongs to the currently open conversation
 	if npc_name != conversation_name:
-		return
-
-	# Check if the conversation of this screen is visible
-	if self.is_visible_in_tree() == false:
+		# Notify new message received
+		if sender == EventBus.Sender.OTHER:
+			request_message_notification.emit(
+				EventBus.App.MESSAGES,
+				message,
+				npc_name,
+				time
+			)
 		return
 
 	# Add the new message to the messages list
