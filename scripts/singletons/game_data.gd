@@ -63,7 +63,7 @@ var apps_chinese_operations = {
 }
 
 var apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL]
-var downloaded_apps: Array[App]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.EMAIL]
 var available_updates: Array[App] = []
 
 var data = {
