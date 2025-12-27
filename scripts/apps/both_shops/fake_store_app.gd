@@ -26,4 +26,4 @@ func setup(apps_data) -> void:
 func _on_uninstall_pressed() -> void:
 	uninstall_button.text = "正在卸載..."
 	await get_tree().create_timer(3.0).timeout
-	emit_signal("app_uninstalled", "FakeStore")
+	emit_signal("app_uninstalled", GameData.App.FAKESTORE)
