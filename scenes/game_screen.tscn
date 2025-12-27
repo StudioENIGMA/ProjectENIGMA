@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_5o8nl"]
+[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scenes/ui.gd" id="1_5o8nl"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scenes/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
@@ -149,6 +149,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="FakeShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+visible = false
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")

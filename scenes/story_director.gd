@@ -19,6 +19,8 @@ var answers_by_id:Dictionary = {}
 ## Mapping of answer IDs to lists of Message instances to unlock upon answering
 var unlock_on_answer:Dictionary = {}
 
+var _answer_id_counter := 1
+
 ## Initializes the story director by connecting to necessary signals and queuing today's messages
 func _ready() -> void:
 	EventBus.message_answered.connect(_on_message_answered)
@@ -116,44 +118,52 @@ func _enqueue_followups(message:Message) -> void:
 
 	if has_answers:
 		for answer_resource in message.answers.keys():
-			# Safer than mutating a shared Resource:
 			var answer:Message = (answer_resource.duplicate(true) as Message)
+			answer.priority = message.priority
 
-			var answer_id := Resource.generate_scene_unique_id().to_int()
+			var answer_id := _new_answer_id()
 			answers_by_id[answer_id] = answer
 
 			# show option
 			EventBus.answer_option.emit(
-				answer.sender,
+				message.sender,
 				answer.text,
 				answer.text,
-				1000,
+				message.answers[answer_resource],
 				GameData.hours_minutes,
 				answer_id
 			)
 
-			# If there is a next message, unlock it when ANY answer is clicked
+			# Track follow-ups for this answer
+			if not unlock_on_answer.has(answer_id):
+				unlock_on_answer[answer_id] = []
+
+			# Follow-up that depends on THIS answer
+			if answer.next_message != null:
+				unlock_on_answer[answer_id].append(answer.next_message)
+
+			# Follow-up that happens after ANY answer
 			if message.next_message != null:
-				if not unlock_on_answer.has(answer_id):
-					unlock_on_answer[answer_id] = []
 				unlock_on_answer[answer_id].append(message.next_message)
 
 	else:
-		# If no answers we can queue next immediately (if any)
 		if message.next_message != null:
 			_queue_message(message.next_message, _delay_for_priority(message.priority))
+
+func _new_answer_id() -> int:
+	_answer_id_counter += 1
+	return _answer_id_counter
 
 ## Handles the event when a message answer is selected by the player
 ##
 ## answer_id: The unique identifier for the answer option chosen
 func _on_message_answered(answer_id:int) -> void:
-	# 1) unlock next messages tied to this answer
 	if unlock_on_answer.has(answer_id):
 		for next_message:Message in unlock_on_answer[answer_id]:
 			_queue_message(next_message, 0)
 		unlock_on_answer.erase(answer_id)
 
-	# 2) process answer side-effects
+	# ignore tasks for now
 	if answers_by_id.has(answer_id):
 		_process_answer_task(answers_by_id[answer_id])
 		answers_by_id.erase(answer_id)
@@ -161,9 +171,8 @@ func _on_message_answered(answer_id:int) -> void:
 ## Processes any tasks associated with the player's answer
 ##
 ## answer_message: The Message instance representing the player's answer
-func _process_answer_task(answer_message:Message) -> void:
-	if answer_message.task_type == Message.TaskType.INSTALL:
-		pass
+func _process_answer_task(_answer_message:Message) -> void:
+	pass
 
 ## Checks if the conditions for delivering a message are met
 ##
