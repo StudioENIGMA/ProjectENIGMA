@@ -14,6 +14,7 @@ func setup(app_name: GameData.App, is_installed: bool, is_fake: bool) -> void:
 	var app_info = GameData.apps_data[app_name]
 
 	current_app_name = app_name
+	is_fake_app = is_fake
 
 	app_icon.texture = load(app_info.icon_path)
 
@@ -43,4 +44,7 @@ func _on_app_button_pressed() -> void:
 			interact_button.text = "Instalando..."
 		await get_tree().create_timer(3.0).timeout
 		GameData.downloaded_apps.append(current_app_name)
-		interact_button.text = "Abrir"
+		if is_fake_app:
+			interact_button.text = GameData.apps_chinese_operations["open"]
+		else:
+			interact_button.text = "Abrir"

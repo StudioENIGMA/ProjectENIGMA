@@ -58,6 +58,7 @@ var apps_data = {
 
 var apps_chinese_operations = {
 	"install": "開始安裝",
+	"installing": "正在安裝...",
 	"update": "應用程式更新",
 	"open": "阿布里爾"
 }
