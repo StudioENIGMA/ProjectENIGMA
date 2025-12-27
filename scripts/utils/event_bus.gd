@@ -11,7 +11,7 @@ signal message_answered(answer_id:int)
 # Internal use (Message App Internal Logic)
 enum Sender {ME = 0, OTHER = 1}
 
-signal create_message(name:String, message:String, sender:Sender, time:String)
+signal create_message(name:String, message:String, sender:Sender, time:int)
 
 signal create_answer(name:String, title:String, message:String, answer_id:int)
 signal storage_answer(name:String, message:String, title:String, reputation_points:int, answer_id:int)

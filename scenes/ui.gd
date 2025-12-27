@@ -23,6 +23,9 @@ func _connect_event_handler() -> void:
   story_director.npc_message_created.connect(base_app.messages_app_home.on_create_message)
   story_director.npc_message_created.connect(base_app.messages_app_chat.on_create_message)
   EventBus.create_message.connect(base_app.messages_app_home.on_create_message)
+  EventBus.create_message.connect(base_app.messages_app_chat.on_create_message)
+  EventBus.storage_answer.connect(base_app.messages_app_home.on_player_answer)
+  EventBus.delete_answers.connect(base_app.messages_app_home.on_delete_answers)
 
   # End day event
   event_handler.day_ended.connect(day_over_ui.show_day_over)

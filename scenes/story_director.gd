@@ -4,7 +4,7 @@ signal npc_message_created(
 	npc_name:String,
 	message:String,
 	sender:EventBus.Sender,
-	time:String
+	time:int
 )
 
 @export var all_messages:Array[Message] = []
@@ -103,7 +103,7 @@ func _deliver_message(message:Message) -> void:
 		message.sender,
 		message.text,
 		EventBus.Sender.OTHER,
-		str(GameData.hours_minutes)
+		GameData.hours_minutes
 	)
 
 	_enqueue_followups(message)

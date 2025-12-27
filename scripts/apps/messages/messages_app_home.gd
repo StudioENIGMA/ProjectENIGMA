@@ -49,7 +49,7 @@ func on_create_message(
 	npc_name:String,
 	message:String,
 	sender:EventBus.Sender,
-	time:String
+	time:int
 ):
 	var conversation_index = conversations_data.find_custom(
 		func(conversation:Dictionary):return conversation["name"] == npc_name
@@ -112,3 +112,10 @@ func _update_list_of_chats(index:int) -> void:
 ## conversation_data: The data of the conversation to be opened
 func _on_open_chat(conversation_data:Dictionary) -> void:
 	subscreen_open_requested.emit("Messages_chat", conversation_data)
+
+func on_delete_answers(npc_name:String) -> void:
+	var idx = conversations_data.find_custom(func(c): return c["name"] == npc_name)
+	if idx == -1:
+		return
+	conversations_data[idx]["options"].clear()
+	_update_list_of_chats(idx)

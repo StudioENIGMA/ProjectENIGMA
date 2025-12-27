@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh0fnhpmm6ao7"]
+[gd_scene load_steps=4 format=3 uid="uid://dh0fnhpmm6ao7"]
 
 [ext_resource type="Script" uid="uid://bhabn2lfvwif8" path="res://scenes/apps/messages/messages_app_chat.gd" id="1_qunmr"]
+[ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_ir5vx"]
+[ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="2_wcops"]
 
-[node name="MessagesAppChat" type="Control" node_paths=PackedStringArray("messages_list")]
+[node name="MessagesAppChat" type="Control" node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
@@ -10,15 +12,33 @@ offset_right = 1080.0
 offset_bottom = 2160.0
 script = ExtResource("1_qunmr")
 messages_list = NodePath("MessagesScrollContainer/MessagesList")
+answers_bar = NodePath("AnswersBar")
+scroll_container = NodePath("MessagesScrollContainer")
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 2160.0
+script = ExtResource("2_ir5vx")
 
 [node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer"]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 32
+
+[node name="AnswersBar" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 240)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -240.0
+offset_right = 540.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_wcops")

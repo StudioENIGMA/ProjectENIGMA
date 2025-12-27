@@ -16,7 +16,7 @@ func add_notification_to_queue(
 	app:EventBus.App,
   content:String,
   title:String,
-  time:String
+  time:int
 ) -> void:
 	# Append the notification to the queue
 	notification_array.append({

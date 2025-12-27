@@ -10,18 +10,23 @@ signal request_message_notification(
 	app:EventBus.App,
   content:String,
   title:String,
-  time:String
+  time:int
 )
 
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 
 @export var messages_list:VBoxContainer
+@export var answers_bar:HBoxContainer
+@export var scroll_container:ScrollContainer
 
 var conversation_name:String = ""
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
+
+	answers_bar.set_active_conversation(conversation_name)
+	answers_bar.clear_ui()
 
 	for child_node in messages_list.get_children():
 		messages_list.remove_child(child_node)
@@ -39,21 +44,21 @@ func setup(conversation_data:Dictionary) -> void:
 
 	for option in conversation_data["options"]:
 		EventBus.answer_option.emit(
-			conversation_data.name,
-			option.message,
-			option.title,
-			option.reputation_points,
+			conversation_data["name"],
+			option["message"],
+			option["title"],
+			option["reputation_points"],
 			-2,
-			option.answer_id
+			option["answer_id"]
 		)
 
-	#scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
 
 func on_create_message(
 	npc_name:String,
 	message:String,
 	sender:EventBus.Sender,
-	time:String
+	time:int
 ) -> void:
 	# Check if the message belongs to the currently open conversation
 	if npc_name != conversation_name:
