@@ -52,7 +52,7 @@ func setup(conversation_data:Dictionary) -> void:
 			option["answer_id"]
 		)
 
-	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	scroll_container.scroll_vertical = int(scroll_container.get_v_scroll_bar().max_value)
 
 func on_create_message(
 	npc_name:String,
