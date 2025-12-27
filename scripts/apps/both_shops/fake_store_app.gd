@@ -4,9 +4,10 @@ signal app_uninstalled(app_name:String)
 
 @export var uninstall_button: Button
 
-func setup(apps_data) -> void:
+func _ready() -> void:
 	uninstall_button.pressed.connect(_on_uninstall_pressed)
 
+func setup(apps_data) -> void:
 	# Get available and downloaded apps from GameData
 	var available_apps = apps_data.available_apps
 	var downloaded_apps = apps_data.downloaded_apps
