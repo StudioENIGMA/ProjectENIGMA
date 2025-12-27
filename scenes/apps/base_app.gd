@@ -19,6 +19,7 @@ var messages_app_home:Control
 var messages_app_chat:Control
 
 var settings_app:Control
+var passwords_manager_app:Control
 
 var open_apps:Array[String] = []
 
@@ -30,20 +31,27 @@ func _ready() -> void:
 	# Connect to desktop UI app opened signal
 	desktop_ui.app_opened.connect(_on_app_opened)
 
-	# Messages app
+	# Messages app home (Messages app)
 	messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 	messages_app_home.visible = false
 	messages_app_home.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(messages_app_home)
 
+	# Messages app chat (Messages app)
 	messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
 	messages_app_chat.visible = false
 	app_specific_screen.add_child(messages_app_chat)
 
-	# Settings app
+	# Settings app home (Settings app)
 	settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
 	settings_app.visible = false
 	app_specific_screen.add_child(settings_app)
+	settings_app.subscreen_open_requested.connect(_on_app_opened)
+
+	# Passwords Manager app (Settings app)
+	passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
+	passwords_manager_app.visible = false
+	app_specific_screen.add_child(passwords_manager_app)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -114,5 +122,7 @@ func get_app_by_name(app_name:String) -> Control:
 			return messages_app_chat
 		"Settings":
 			return settings_app
+		"PasswordManager":
+			return passwords_manager_app
 		_:
 			return null # Will break if app not found, should not happen

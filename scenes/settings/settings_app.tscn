@@ -3,13 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/settings/SettingsButton.tscn" id="1_6xyrj"]
 [ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/apps/settings/settings_app.gd" id="1_hcydt"]
 
-[node name="SettingsApp" type="Control"]
+[node name="SettingsApp" type="Control" node_paths=PackedStringArray("passwords_manager_gui", "update_os_gui", "virus_scanner_gui")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_hcydt")
+passwords_manager_gui = NodePath("CenterContainer/VBoxContainer/PasswordsManagerGUI")
+update_os_gui = NodePath("CenterContainer/VBoxContainer/UpdateOSGUI")
+virus_scanner_gui = NodePath("CenterContainer/VBoxContainer/ScannerGUI")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1080, 2160)
@@ -25,7 +28,7 @@ custom_minimum_size = Vector2(1000, 2056)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="passwords" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+[node name="PasswordsManagerGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -33,7 +36,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="update_OS" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+[node name="UpdateOSGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -41,6 +44,6 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="scanner" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+[node name="ScannerGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
 layout_mode = 2
 size_flags_vertical = 3

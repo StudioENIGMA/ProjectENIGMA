@@ -130,6 +130,18 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(264, 358)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Loja"
+icon = ExtResource("9_f2213")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [node name="EmailButton" type="Button" parent="UI/DesktopUI/AppsUI"]
 visible = false
 custom_minimum_size = Vector2(264, 358)
@@ -139,19 +151,6 @@ theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Email"
 icon = ExtResource("12_7em7s")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
-visible = false
-custom_minimum_size = Vector2(264, 358)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Loja"
-icon = ExtResource("9_f2213")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -261,6 +260,6 @@ event_handler = NodePath("../EventHandler")
 
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/SettingsButton" to="UI/DesktopUI" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/EmailButton" to="UI/DesktopUI" method="_on_email_button_pressed"]
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/ShopButton" to="UI/DesktopUI" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="UI/DesktopUI/AppsUI/EmailButton" to="UI/DesktopUI" method="_on_email_button_pressed"]
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

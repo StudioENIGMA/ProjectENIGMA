@@ -2,7 +2,7 @@ extends Controller
 
 signal new_password_created()
 
-const NEW_PASSWORD = preload("res://scenes/phone_settings/change_password.tscn")
+const NEW_PASSWORD = preload("res://scenes/settings/change_password.tscn")
 
 @onready var settings_button = get_tree().root.find_child("SettingsButton", true, false)
 @onready var messages_button = get_tree().root.find_child("MessagesButton", true, false)
@@ -11,16 +11,6 @@ const NEW_PASSWORD = preload("res://scenes/phone_settings/change_password.tscn")
 @onready var email_button = get_tree().root.find_child("Email", true, false)
 
 @onready var node = get_tree().root.find_child("notifications_control", true, false)
-
-## Initializes the Password Controller and connects app buttons
-func _ready() -> void:
-	var apps_names = AppsControl.apps_name
-	var names_enum = AppsControl.App
-
-	messages_button.pressed.connect(_app_pressed.bindv([apps_names[names_enum.MESSAGES]]))
-	store_button.pressed.connect(_app_pressed.bindv([apps_names[names_enum.STORE]]))
-	browser_button.pressed.connect(_app_pressed.bindv([apps_names[names_enum.BROWSER]]))
-	email_button.pressed.connect(_app_pressed.bindv([apps_names[names_enum.EMAIL]]))
 
 ## Handles app button presses
 ##
