@@ -98,3 +98,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/focus = SubResource("StyleBoxFlat_04xty")
 text = "Abrir
 "
+
+[connection signal="pressed" from="HBoxContainer/AppButton" to="." method="_on_app_button_pressed"]
