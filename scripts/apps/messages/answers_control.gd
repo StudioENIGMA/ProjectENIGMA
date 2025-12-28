@@ -9,13 +9,20 @@ signal request_message_creation_on_answer(
 	time:int
 )
 
+signal storage_answer(
+	name:String,
+	message:String,
+	title:String,
+	reputation_points:int,
+	answer_id:int
+)
+
+signal delete_answers(npc_name:String)
+
 const ANSWER_OPTION_SCENE := preload("res://scenes/apps/messages/answer_option.tscn")
 
 var pending:Array[Dictionary] = []
 var active_conversation_name:String = ""
-
-func _ready() -> void:
-	EventBus.delete_answers.connect(_on_delete_answers)
 
 func set_active_conversation(npc_name:String) -> void:
 	active_conversation_name = npc_name
@@ -61,7 +68,7 @@ func _process(_delta: float) -> void:
 		# Store option into conversation data only if it is "new"
 		# (your convention: -2 means “already stored, just render it”)
 		if opt["time"] >= -1:
-			EventBus.storage_answer.emit(
+			storage_answer.emit(
 				opt["name"],
 				opt["message"],
 				opt["title"],
@@ -76,6 +83,8 @@ func _process(_delta: float) -> void:
 			node.request_message_creation_on_answer.connect(
 				request_message_creation_on_answer.emit # Propagate signal to chat app
 			)
+			node.delete_answers.connect(_on_delete_answers)
+			node.delete_answers.connect(delete_answers.emit) # Propagate signal to app chat
 			add_child(node)
 			node.setup(opt["name"], opt["title"], opt["message"], opt["answer_id"])
 

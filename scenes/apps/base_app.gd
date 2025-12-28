@@ -51,6 +51,12 @@ func _ready() -> void:
 	messages_app_chat.request_message_creation_on_answer.connect(
 		messages_app_home.on_create_message # Propagate signal to app home
 	)
+	messages_app_chat.storage_answer.connect(
+		messages_app_home.on_player_answer # Propagate signal to app home
+	)
+	messages_app_chat.delete_answers.connect(
+		messages_app_home.on_delete_answers # Propagate signal to app home
+	)
 	app_specific_screen.add_child(messages_app_chat)
 
 	# Settings app home (Settings app)

@@ -26,9 +26,6 @@ func _connect_siblings_to_children() -> void:
   story_director.npc_message_created.connect(base_app.messages_app_chat.on_create_message)
   story_director.request_answer_option.connect(base_app.messages_app_chat.on_request_answer_option)
 
-  EventBus.storage_answer.connect(base_app.messages_app_home.on_player_answer)
-  EventBus.delete_answers.connect(base_app.messages_app_home.on_delete_answers)
-
   # End day event
   event_handler.day_ended.connect(day_over_ui.show_day_over)
   event_handler.start_new_day.connect(day_over_ui.hide_day_over)

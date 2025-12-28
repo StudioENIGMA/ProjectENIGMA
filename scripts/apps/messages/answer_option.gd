@@ -9,6 +9,8 @@ signal request_message_creation_on_answer(
 	time:int
 )
 
+signal delete_answers(npc_name:String)
+
 @onready var button = $Button
 @onready var label = $PanelContainer/Label
 @onready var _name:String
@@ -28,5 +30,5 @@ func _on_button_pressed() -> void:
 		GameData.Sender.PLAYER,
 		GameData.hours_minutes
 	)
-	EventBus.delete_answers.emit(_name)
 	message_answered.emit(_answer_id)
+	delete_answers.emit(_name)

@@ -22,6 +22,16 @@ signal request_message_creation_on_answer(
 	time:int
 )
 
+signal storage_answer(
+	name:String,
+	message:String,
+	title:String,
+	reputation_points:int,
+	answer_id:int
+)
+
+signal delete_answers(npc_name:String)
+
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 
@@ -37,8 +47,12 @@ func _ready() -> void:
 		request_message_creation_on_answer.emit # Propagate signal to base app
 	)
 	answers_bar.request_message_creation_on_answer.connect(
-		on_create_message
+		on_create_message # Handle message creation in current chat
 	)
+	answers_bar.storage_answer.connect(
+		storage_answer.emit # Propagate signal to base app
+	)
+	answers_bar.delete_answers.connect(delete_answers.emit) # Propagate signal to base app
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
