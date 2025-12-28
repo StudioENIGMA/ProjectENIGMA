@@ -28,11 +28,12 @@ var passwords_manager_app:Control
 var store_app:Control
 var fake_store_app:Control
 
-var open_apps:Array[GameData.App] = []
+var open_apps:Array = []
 
 ## Setup signal connections for app management
 func _ready() -> void:
 	# Connect close app button signal
+	back_button.pressed.connect(_on_back_button_pressed)
 	close_app_button.pressed.connect(_on_close_app_button_pressed)
 
 	# Connect to desktop UI app opened signal
@@ -91,10 +92,14 @@ func _ready() -> void:
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
 	self.visible = true
-	open_apps.append(app)
+
+	var main_app:GameData.App = _get_main_app_enum(app)
+
+	# Add app to open apps list
+	open_apps.append({"MainApp": main_app, "SubScreen": app})
 
 	# Get specific app that should be opened
-	var specific_app = get_app_by_enum(app)
+	var specific_app = _get_app_by_enum(app)
 
 	if optional_data != null:
 		specific_app.setup(optional_data)
@@ -106,8 +111,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show back button if more than one app is open and hide previous app
 	if open_apps.size() > 1:
 		back_button.visible = true
-		var previous_app_enum:GameData.App = open_apps[open_apps.size() - 2]
-		var previous_app = get_app_by_enum(previous_app_enum)
+		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
+		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
+		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = false
 	else:
 		back_button.visible = false
@@ -115,14 +121,15 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 ## Handles the close app button press event
 ##
 ## Hides the currently open app and updates the top bar visibility accordingly
-func _on_close_app_button_pressed() -> void:
+func _on_back_button_pressed() -> void:
 	# Get the currently open app (topmost)
-	var current_app_enum:GameData.App = open_apps[open_apps.size() - 1]
-	var current_app = get_app_by_enum(current_app_enum)
+	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
+	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
+	var current_app = _get_app_by_enum(current_app_enum)
 
 	# Hide the current app
 	current_app.visible = false
-	open_apps.erase(current_app_enum)
+	open_apps.erase(current_app_dict)
 
 	var number_of_open_apps:int = open_apps.size()
 
@@ -138,8 +145,34 @@ func _on_close_app_button_pressed() -> void:
 
 	# Show previous app if any
 	if number_of_open_apps > 0:
-		var previous_app_enum:GameData.App = open_apps[number_of_open_apps - 1]
-		var previous_app = get_app_by_enum(previous_app_enum)
+		var previous_app_dict:Dictionary = open_apps[number_of_open_apps - 1]
+		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
+		var previous_app = _get_app_by_enum(previous_app_enum)
+		previous_app.visible = true
+
+func _on_close_app_button_pressed() -> void:
+	# Close all open apps with same main_app as the topmost app
+	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
+	var main_app_enum:GameData.App = current_app_dict["MainApp"]
+
+	# Create a copy of open_apps to avoid modifying the array while iterating
+	var open_apps_copy = open_apps.duplicate()
+
+	for app_dict in open_apps_copy:
+		if app_dict["MainApp"] == main_app_enum:
+			var app_enum:GameData.App = app_dict["SubScreen"]
+			var app = _get_app_by_enum(app_enum)
+			app.visible = false
+			open_apps.erase(app_dict)
+
+	# Update top bar visibility
+	if open_apps.size() == 0:
+		self.visible = false
+	else:
+		# Show previous app if any
+		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 1]
+		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
+		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
 
 ## Handles the app uninstalled event from the store app
@@ -154,7 +187,7 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 ## Returns the app node by its name
 ##
 ## app_name: The name of the application
-func get_app_by_enum(app_enum:GameData.App) -> Control:
+func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
 		# Messages app
 		GameData.App.MESSAGESHOME: messages_app_home,
@@ -167,3 +200,17 @@ func get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.FAKESTORE: fake_store_app
 	}
 	return app_map.get(app_enum, null)
+
+func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
+	var main_app_map = {
+		# Messages app
+		GameData.App.MESSAGESHOME: GameData.App.MESSAGESHOME,
+		GameData.App.MESSAGESCHAT: GameData.App.MESSAGESHOME,
+		# Settings app
+		GameData.App.SETTINGS: GameData.App.SETTINGS,
+		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
+		# Store app
+		GameData.App.STORE: GameData.App.STORE,
+		GameData.App.FAKESTORE: GameData.App.STORE
+	}
+	return main_app_map.get(subscreen_enum, null)
