@@ -8,26 +8,33 @@ signal app_opened(app_name:String, optional_data:Dictionary)
 @export var shop_button:Button
 @export var fake_shop_button:Button
 
+@export var touch_sound_player:AudioStreamPlayer2D
+
 func _on_messages_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.MESSAGESHOME, null)
+	touch_sound_player.play_touch_sound()
 
 func _on_settings_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.SETTINGS, null)
+	touch_sound_player.play_touch_sound()
 
 func _on_email_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.EMAIL, null)
+	touch_sound_player.play_touch_sound()
 
 func _on_shop_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.STORE, {
 		"available_apps": GameData.apps_in_store,
 		"downloaded_apps": GameData.downloaded_apps
 	})
+	touch_sound_player.play_touch_sound()
 
 func _on_fake_shop_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.FAKESTORE, {
 		"available_apps": GameData.apps_in_store,
 		"downloaded_apps": GameData.downloaded_apps
 	})
+	touch_sound_player.play_touch_sound()
 
 ## Handles the app uninstalled event from the store app
 ##
