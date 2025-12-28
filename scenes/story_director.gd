@@ -7,6 +7,17 @@ signal npc_message_created(
 	time:int
 )
 
+signal request_answer_option(
+	npc_name:String,
+	message:String,
+	title:String,
+	reputation_points:int,
+	time:int,
+	answer_id:int
+)
+
+@export var ui:Control
+
 @export var all_messages:Array[Message] = []
 @export var event_handler:Node2D
 
@@ -23,7 +34,7 @@ var _answer_id_counter := 1
 
 ## Initializes the story director by connecting to necessary signals and queuing today's messages
 func _ready() -> void:
-	EventBus.message_answered.connect(_on_message_answered)
+	ui.message_answered.connect(_on_message_answered)
 	event_handler.clock_tick.connect(_on_clock_tick)
 
 	_queue_today_messages()
@@ -124,8 +135,8 @@ func _enqueue_followups(message:Message) -> void:
 			var answer_id := _new_answer_id()
 			answers_by_id[answer_id] = answer
 
-			# show option
-			EventBus.answer_option.emit(
+			# Show answer option
+			request_answer_option.emit(
 				message.sender,
 				answer.text,
 				answer.text,

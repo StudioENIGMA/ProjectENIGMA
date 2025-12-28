@@ -1,12 +1,20 @@
 extends HBoxContainer
 
+signal message_answered(answer_id:int)
+
+signal request_message_creation_on_answer(
+	name:String,
+	message:String,
+	sender:GameData.Sender,
+	time:int
+)
+
 const ANSWER_OPTION_SCENE := preload("res://scenes/apps/messages/answer_option.tscn")
 
 var pending:Array[Dictionary] = []
 var active_conversation_name:String = ""
 
 func _ready() -> void:
-	EventBus.answer_option.connect(_on_answer_option)
 	EventBus.delete_answers.connect(_on_delete_answers)
 
 func set_active_conversation(npc_name:String) -> void:
@@ -17,7 +25,7 @@ func clear_ui() -> void:
 		remove_child(child)
 		child.queue_free()
 
-func _on_answer_option(
+func create_answer_option(
 	npc_name:String,
 	message:String,
 	title:String,
@@ -64,6 +72,10 @@ func _process(_delta: float) -> void:
 		# Only render if this chat is currently open
 		if opt["name"] == active_conversation_name:
 			var node := ANSWER_OPTION_SCENE.instantiate()
+			node.message_answered.connect(message_answered.emit) # Propagate signal to chat app
+			node.request_message_creation_on_answer.connect(
+				request_message_creation_on_answer.emit # Propagate signal to chat app
+			)
 			add_child(node)
 			node.setup(opt["name"], opt["title"], opt["message"], opt["answer_id"])
 

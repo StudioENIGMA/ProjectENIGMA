@@ -3,6 +3,8 @@
 
 extends Control
 
+signal message_answered(answer_id:int)
+
 ## Reference to the close app button in the top bar
 @export var close_app_button:TextureButton
 ## Reference to the return app button in the top bar
@@ -45,6 +47,10 @@ func _ready() -> void:
 	# Messages app chat (Messages app)
 	messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
 	messages_app_chat.visible = false
+	messages_app_chat.message_answered.connect(message_answered.emit) # Propagate signal to UI
+	messages_app_chat.request_message_creation_on_answer.connect(
+		messages_app_home.on_create_message # Propagate signal to app home
+	)
 	app_specific_screen.add_child(messages_app_chat)
 
 	# Settings app home (Settings app)

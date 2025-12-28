@@ -13,6 +13,15 @@ signal request_message_notification(
   time:int
 )
 
+signal message_answered(answer_id:int)
+
+signal request_message_creation_on_answer(
+	name:String,
+	message:String,
+	sender:GameData.Sender,
+	time:int
+)
+
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 
@@ -21,6 +30,15 @@ const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 @export var scroll_container:ScrollContainer
 
 var conversation_name:String = ""
+
+func _ready() -> void:
+	answers_bar.message_answered.connect(message_answered.emit) # Propagate signal to base app
+	answers_bar.request_message_creation_on_answer.connect(
+		request_message_creation_on_answer.emit # Propagate signal to base app
+	)
+	answers_bar.request_message_creation_on_answer.connect(
+		on_create_message
+	)
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
@@ -43,7 +61,7 @@ func setup(conversation_data:Dictionary) -> void:
 		message_instance.setup(message.message)
 
 	for option in conversation_data["options"]:
-		EventBus.answer_option.emit(
+		answers_bar.create_answer_option(
 			conversation_data["name"],
 			option["message"],
 			option["title"],
@@ -81,3 +99,20 @@ func on_create_message(
 
 	messages_list.add_child(message_instance)
 	message_instance.setup(message)
+
+func on_request_answer_option(
+	npc_name:String,
+	message:String,
+	title:String,
+	reputation_points:int,
+	time:int,
+	answer_id:int
+) -> void:
+	answers_bar.create_answer_option(
+		npc_name,
+		message,
+		title,
+		reputation_points,
+		time,
+		answer_id
+	)

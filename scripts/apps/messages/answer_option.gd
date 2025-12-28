@@ -1,5 +1,14 @@
 extends MarginContainer
 
+signal message_answered(answer_id:int)
+
+signal request_message_creation_on_answer(
+	name:String,
+	message:String,
+	sender:GameData.Sender,
+	time:int
+)
+
 @onready var button = $Button
 @onready var label = $PanelContainer/Label
 @onready var _name:String
@@ -13,6 +22,11 @@ func setup(sender_name:String, title:String, message:String, answer_id:int) -> v
 	_answer_id = answer_id
 
 func _on_button_pressed() -> void:
-	EventBus.create_message.emit(_name, _message, GameData.Sender.PLAYER, GameData.hours_minutes)
+	request_message_creation_on_answer.emit(
+		_name,
+		_message,
+		GameData.Sender.PLAYER,
+		GameData.hours_minutes
+	)
 	EventBus.delete_answers.emit(_name)
-	EventBus.message_answered.emit(_answer_id)
+	message_answered.emit(_answer_id)
