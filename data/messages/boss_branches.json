@@ -1,0 +1,138 @@
+{
+  "thread_id": "boss",
+  "entry_points": [
+    {
+      "day": 0,
+      "branch": "d0_start_1",
+      "priority": -100
+    },
+    {
+      "day": 1,
+      "branch": "d1_start_1",
+      "priority": -100,
+      "requires": [
+        {
+          "flag": "fake_store",
+          "is": false
+        }
+      ]
+    },
+    {
+      "day": 1,
+      "branch": "d1_start_2",
+      "priority": -100,
+      "requires": [
+        {
+          "flag": "fake_store",
+          "is": true
+        }
+      ]
+    }
+  ],
+  "branches": {
+    "d0_start_1": [
+      {
+        "id": "boss_0_0",
+        "sender": "Chefinho",
+        "text": "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!)."
+      },
+      {
+        "id": "boss_0_1",
+        "sender": "Chefinho",
+        "text": "Durante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+      },
+      {
+        "id": "boss_0_2",
+        "sender": "Chefinho",
+        "text": "Para facilitar a realização das tarefas, por favor, instale a nossa loja de aplicativos.",
+        "choices": [
+          {
+            "id": "boss_0_2a_0",
+            "player_text": "Instalar Loja",
+            "effects": [
+              {
+                "installer": 1
+              },
+              {
+                "task_type": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "d1_start_1": [
+      {
+        "id": "b_1_0",
+        "sender": "Chefinho",
+        "text": "Bom dia. Espero que você tenha tido tempo de se familiarizar com seu novo dispositivo. A partir de hoje seu trabalho começa pra valer.",
+        "requires": [
+          {
+            "flag": "fake_store",
+            "is": false
+          }
+        ]
+      },
+      {
+        "id": "b_1_1",
+        "sender": "Chefinho",
+        "text": "Eu pedi para o TI liberar a instalação do Navegador na sua loja de aplicativos."
+      },
+      {
+        "id": "b_1_6",
+        "sender": "Chefinho",
+        "text": "Muito bem. Agora que você tem acesso ao navegador, me traga, por favor, um resumo das notícias do dia.",
+        "requires": [
+          {
+            "flag": "browser",
+            "is": true
+          }
+        ]
+      }
+    ],
+    "d1_start_2": [
+      {
+        "id": "b_1_2",
+        "sender": "Chefinho",
+        "text": "Bom dia. Espero que você tenha tido tempo de se familiarizar com seu novo dispositivo. A partir de hoje seu trabalho começa pra valer.",
+        "requires": [
+          {
+            "flag": "fake_store",
+            "is": true
+          }
+        ]
+      },
+      {
+        "id": "b_1_3",
+        "sender": "Chefinho",
+        "text": "Vejo aqui que o TI já liberou o seu acesso pros aplicativos da nossa loja."
+      },
+      {
+        "id": "b_1_4",
+        "sender": "Chefinho",
+        "text": "Vou avisar aos outros departamentos. Se eles já liberaram a loja, então você já possui boa experiência prévia. Espero que você consiga lidar com tarefas mais complicadas. ",
+        "choices": [
+          {
+            "id": "b_1_4a_0",
+            "player_text": "Consigo sim! Estou aqui para dar meu melhor!"
+          },
+          {
+            "id": "b_1_4a_1",
+            "player_text": "Vamos ver…",
+            "npc_reply": {
+              "goto_branch": "from_b_1_5",
+              "delay_ticks": 2
+            }
+          }
+        ]
+      }
+    ],
+    "from_b_1_5": [
+      {
+        "id": "b_1_5",
+        "sender": "Chefinho",
+        "text": "A chave do sucesso é confiança e dedicação. Agora ao trabalho."
+      }
+    ]
+  }
+}

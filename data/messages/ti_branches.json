@@ -1,0 +1,70 @@
+{
+  "thread_id": "ti",
+  "entry_points": [
+    {
+      "day": 0,
+      "branch": "d0_start"
+    }
+  ],
+  "branches": {
+    "d0_start": [
+      {
+        "id": "ti_0_0",
+        "sender": "TI",
+        "text": "fala estagio"
+      },
+      {
+        "id": "ti_0_1",
+        "sender": "TI",
+        "text": "eh o Lorenz do ti"
+      },
+      {
+        "id": "ti_0_2",
+        "sender": "TI",
+        "text": "trnql camarada?"
+      },
+      {
+        "id": "ti_0_3",
+        "sender": "TI",
+        "text": "vou ta te passando umas paradas aqui do ti pra vc resolver"
+      },
+      {
+        "id": "ti_0_4",
+        "sender": "TI",
+        "text": "mas n agora aproveita o banana kkkk",
+        "choices": [
+          {
+            "id": "ti_0_4a_0",
+            "player_text": "suave",
+            "npc_reply": {
+              "goto_branch": "from_ti_0_5",
+              "delay_ticks": 2
+            }
+          },
+          {
+            "id": "ti_0_4a_1",
+            "player_text": "Tudo certo, prazer te conhecer!",
+            "npc_reply": {
+              "goto_branch": "from_ti_0_6",
+              "delay_ticks": 2
+            }
+          }
+        ]
+      }
+    ],
+    "from_ti_0_5": [
+      {
+        "id": "ti_0_5",
+        "sender": "TI",
+        "text": "👍"
+      }
+    ],
+    "from_ti_0_6": [
+      {
+        "id": "ti_0_6",
+        "sender": "TI",
+        "text": "kkkkkkk tamo junto"
+      }
+    ]
+  }
+}

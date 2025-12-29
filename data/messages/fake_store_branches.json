@@ -1,0 +1,57 @@
+{
+  "thread_id": "fake_store",
+  "entry_points": [
+    {
+      "day": 0,
+      "branch": "d0_start"
+    }
+  ],
+  "branches": {
+    "d0_start": [
+      {
+        "id": "fs_0_0",
+        "sender": "numero_desconhecido",
+        "text": "Bom dia, estagiário. Eu tenho uma proposta que você vai achar interessante."
+      },
+      {
+        "id": "fs_0_1",
+        "sender": "numero_desconhecido",
+        "text": "A loja que seu chefe te passou é toda bloqueada, e eles controlam tudo que você faz nela."
+      },
+      {
+        "id": "fs_0_2",
+        "sender": "numero_desconhecido",
+        "text": "Essa é livre. Divirta-se.",
+        "choices": [
+          {
+            "id": "fs_0_2a_0",
+            "player_text": "Instalar",
+            "effects": [
+              {
+                "installer": 5
+              },
+              {
+                "task_type": 1
+              }
+            ],
+            "npc_reply": {
+              "goto_branch": "from_fs_0_3",
+              "delay_ticks": 2
+            }
+          },
+          {
+            "id": "fs_0_2a_1",
+            "player_text": "Bloquear e Denunciar"
+          }
+        ]
+      }
+    ],
+    "from_fs_0_3": [
+      {
+        "id": "fs_0_3",
+        "sender": "numero_desconhecido",
+        "text": "Você não vai se arrepender."
+      }
+    ]
+  }
+}
