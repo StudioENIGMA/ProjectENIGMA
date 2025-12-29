@@ -5,6 +5,7 @@ signal message_answered(answer_id:int)
 signal request_message_creation_on_answer(
 	name:String,
 	message:String,
+	annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 )
@@ -27,6 +28,7 @@ func _on_button_pressed() -> void:
 	request_message_creation_on_answer.emit(
 		_name,
 		_message,
+		{},
 		GameData.Sender.PLAYER,
 		GameData.hours_minutes
 	)

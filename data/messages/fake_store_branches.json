@@ -22,18 +22,16 @@
         "id": "fs_0_2",
         "sender": "numero_desconhecido",
         "text": "Essa é livre. Divirta-se.",
+        "annex":
+        {
+          "type": "apk",
+          "image": "res://assets/icons/fake-app-store.png",
+          "caption": "Loja de Aplicativos Corporativa.apk"
+        },
         "choices": [
           {
             "id": "fs_0_2a_0",
-            "player_text": "Instalar",
-            "effects": [
-              {
-                "installer": 5
-              },
-              {
-                "task_type": 1
-              }
-            ],
+            "player_text": "Obrigado, vou instalar agora.",
             "npc_reply": {
               "goto_branch": "from_fs_0_3",
               "delay_ticks": 2

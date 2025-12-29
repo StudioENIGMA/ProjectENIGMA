@@ -18,6 +18,7 @@ signal message_answered(answer_id:int)
 signal request_message_creation_on_answer(
 	name:String,
 	message:String,
+	annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 )
@@ -65,14 +66,14 @@ func setup(conversation_data:Dictionary) -> void:
 		child_node.queue_free()
 
 	for message in conversation_data["messages"]:
-		var message_instance:MarginContainer;
+		var message_instance:HBoxContainer;
 		if message.sender == GameData.Sender.PLAYER:
 			message_instance = MY_MESSAGE.instantiate()
 		else:
 			message_instance = OTHERS_MESSAGE.instantiate()
 
 		messages_list.add_child(message_instance)
-		message_instance.setup(message.message)
+		message_instance.setup(message.message, message.get("annex", {}))
 
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
@@ -90,6 +91,7 @@ func setup(conversation_data:Dictionary) -> void:
 func on_create_message(
 	npc_name:String,
 	message:String,
+	annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 ) -> void:
@@ -106,14 +108,14 @@ func on_create_message(
 		return
 
 	# Add the new message to the messages list
-	var message_instance:MarginContainer;
+	var message_instance:HBoxContainer;
 	if sender == GameData.Sender.PLAYER:
 		message_instance = MY_MESSAGE.instantiate()
 	else:
 		message_instance = OTHERS_MESSAGE.instantiate()
 
+	message_instance.setup(message, annex)
 	messages_list.add_child(message_instance)
-	message_instance.setup(message)
 
 	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom
 	if sender == GameData.Sender.PLAYER or scroll_container.call_deferred("check_scroll_to_bottom"):

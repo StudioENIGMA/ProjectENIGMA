@@ -48,6 +48,7 @@ func on_player_answer(
 func on_create_message(
 	npc_name:String,
 	message:String,
+	_annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 ):
