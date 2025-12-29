@@ -85,6 +85,7 @@ func setup(conversation_data:Dictionary) -> void:
 		)
 
 	scroll_container.scroll_vertical = int(scroll_container.get_v_scroll_bar().max_value)
+	scroll_container.call_deferred("scroll_to_bottom")
 
 func on_create_message(
 	npc_name:String,
@@ -113,6 +114,10 @@ func on_create_message(
 
 	messages_list.add_child(message_instance)
 	message_instance.setup(message)
+
+	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom
+	if sender == GameData.Sender.PLAYER or scroll_container.call_deferred("check_scroll_to_bottom"):
+		scroll_container.call_deferred("scroll_to_bottom")
 
 func on_request_answer_option(
 	npc_name:String,

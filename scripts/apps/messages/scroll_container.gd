@@ -29,3 +29,12 @@ func scroll_to_bottom() -> void:
 	).set_trans(transition_type).set_ease(ease_type)
 
 	# The tween will start automatically and free itself when finished.
+
+func check_scroll_to_bottom(threshold: float = 10.0) -> void:
+	var v_scroll_bar = get_v_scroll_bar()
+	if not v_scroll_bar:
+		return
+
+	var distance_to_bottom = v_scroll_bar.max_value - v_scroll_bar.value
+	if distance_to_bottom <= threshold:
+		scroll_to_bottom()
