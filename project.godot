@@ -22,6 +22,11 @@ OpenChatSingleton="*res://scripts/apps/messages/open_chat_singleton.gd"
 GameData="*res://scripts/singletons/game_data.gd"
 AppsControl="*res://scripts/singletons/apps_control.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/max_log_files=15
+
 [display]
 
 window/size/viewport_width=540
