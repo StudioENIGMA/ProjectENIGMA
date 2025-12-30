@@ -21,10 +21,11 @@
       {
         "id": "fs_0_2",
         "sender": "numero_desconhecido",
-        "text": "Essa é livre. Divirta-se.",
+        "text": "Essa é livre, pra instalar é só clicar. Divirta-se.",
         "annex":
         {
           "type": "apk",
+          "app_name": "FakeStore",
           "image": "res://assets/icons/fake-app-store.png",
           "caption": "Loja de Aplicativos Corporativa.apk"
         },

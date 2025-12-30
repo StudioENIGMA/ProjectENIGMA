@@ -25,14 +25,14 @@ var hours_minutes:int = 600 # Start at 18:00
 
 var apps_name: Dictionary = {
 	# Messages app
-	App.MESSAGESHOME: "MessagesHome",
-	App.MESSAGESCHAT: "MessagesChat",
+	"MessagesHome": App.MESSAGESHOME,
+	"MessagesChat": App.MESSAGESCHAT,
 	# Settings app
-	App.SETTINGS: "Settings",
-	App.PASSWORDMANAGER: "PasswordManager",
+	"Settings": App.SETTINGS,
+	"PasswordManager": App.PASSWORDMANAGER,
 	# Store apps
-	App.STORE: "Store",
-	App.FAKESTORE: "FakeStore",
+	"Store": App.STORE,
+	"FakeStore": App.FAKESTORE,
 }
 
 var apps_data = {

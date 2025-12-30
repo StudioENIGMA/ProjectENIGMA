@@ -5,6 +5,8 @@ extends Control
 
 signal message_answered(answer_id:int)
 
+signal apk_installation_requested(app: GameData.App)
+
 ## Reference to the close app button in the top bar
 @export var close_app_button:TextureButton
 ## Reference to the return app button in the top bar
@@ -57,6 +59,9 @@ func _ready() -> void:
 	)
 	messages_app_chat.delete_answers.connect(
 		messages_app_home.on_delete_answers # Propagate signal to app home
+	)
+	messages_app_chat.apk_installation_requested.connect(
+		apk_installation_requested.emit # Propagate signal to desktop UI
 	)
 	app_specific_screen.add_child(messages_app_chat)
 
@@ -151,38 +156,58 @@ func _on_back_button_pressed() -> void:
 		previous_app.visible = true
 
 func _on_close_app_button_pressed() -> void:
-	# Close all open apps with same main_app as the topmost app
-	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
-	var main_app_enum:GameData.App = current_app_dict["MainApp"]
+	if open_apps.is_empty():
+		return
 
-	# Create a copy of open_apps to avoid modifying the array while iterating
-	var open_apps_copy = open_apps.duplicate()
+	var current_app_dict: Dictionary = open_apps[open_apps.size() - 1]
+	var main_app_enum: GameData.App = current_app_dict["MainApp"]
 
-	for app_dict in open_apps_copy:
-		if app_dict["MainApp"] == main_app_enum:
-			var app_enum:GameData.App = app_dict["SubScreen"]
-			var app = _get_app_by_enum(app_enum)
-			app.visible = false
-			open_apps.erase(app_dict)
-
-	# Update top bar visibility
-	if open_apps.size() == 0:
-		self.visible = false
-	else:
-		# Show previous app if any
-		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 1]
-		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
-		var previous_app = _get_app_by_enum(previous_app_enum)
-		previous_app.visible = true
+	_close_main_app(main_app_enum)
 
 ## Handles the app uninstalled event from the store app
 ##
 ## app_name: The name of the application being uninstalled
 func _on_app_uninstalled(app:GameData.App) -> void:
 	# If the uninstalled app is currently open, close it
-	if open_apps.has(app):
-		# Close the app
-		_on_close_app_button_pressed()
+	var main_app := _get_main_app_enum(app)
+
+	if _has_open_main_app(main_app):
+		_close_main_app(main_app)
+
+func _has_open_main_app(main_app: GameData.App) -> bool:
+	for app_dict in open_apps:
+		if app_dict.get("MainApp") == main_app:
+			return true
+	return false
+
+func _close_main_app(main_app_enum: GameData.App) -> void:
+	# Close all open apps with same main_app
+	for i in range(open_apps.size() - 1, -1, -1):
+		var app_dict: Dictionary = open_apps[i]
+		if app_dict.get("MainApp") != main_app_enum:
+			continue
+
+		var subscreen_enum: GameData.App = app_dict["SubScreen"]
+		var subscreen_node := _get_app_by_enum(subscreen_enum)
+		if subscreen_node:
+			subscreen_node.visible = false
+
+		open_apps.remove_at(i)
+
+	# Update top bar + show previous if any
+	if open_apps.is_empty():
+		self.visible = false
+		back_button.visible = false
+		return
+
+	self.visible = true
+	back_button.visible = open_apps.size() > 1
+
+	var previous_app_dict: Dictionary = open_apps[open_apps.size() - 1]
+	var previous_enum: GameData.App = previous_app_dict["SubScreen"]
+	var previous_node := _get_app_by_enum(previous_enum)
+	if previous_node:
+		previous_node.visible = true
 
 ## Returns the app node by its name
 ##

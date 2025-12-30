@@ -31,6 +31,8 @@ signal storage_answer(
 	answer_id:int
 )
 
+signal apk_installation_requested(app: GameData.App)
+
 signal delete_answers(npc_name:String)
 
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
@@ -72,8 +74,11 @@ func setup(conversation_data:Dictionary) -> void:
 		else:
 			message_instance = OTHERS_MESSAGE.instantiate()
 
-		messages_list.add_child(message_instance)
 		message_instance.setup(message.message, message.get("annex", {}))
+		message_instance.apk_installation_requested.connect(
+			apk_installation_requested.emit # Propagate signal to base app
+		)
+		messages_list.add_child(message_instance)
 
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
@@ -115,6 +120,9 @@ func on_create_message(
 		message_instance = OTHERS_MESSAGE.instantiate()
 
 	message_instance.setup(message, annex)
+	message_instance.apk_installation_requested.connect(
+		apk_installation_requested.emit # Propagate signal to base app
+	)
 	messages_list.add_child(message_instance)
 
 	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom

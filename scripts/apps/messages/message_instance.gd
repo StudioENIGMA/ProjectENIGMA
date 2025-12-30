@@ -1,6 +1,8 @@
 # res://scripts/apps/messages/message_instance.gd
 extends HBoxContainer
 
+signal apk_installation_requested(app: GameData.App)
+
 enum Align { LEFT, RIGHT }
 
 const MAX_BUBBLE_WIDTH := 650.0
@@ -13,7 +15,8 @@ const MAX_BUBBLE_WIDTH := 650.0
 # Optional: allow the same script to support both scenes cleanly
 @export var left_margin: MarginContainer
 @export var right_margin: MarginContainer
-@export var annex_container: CenterContainer
+@export var annex_container: VBoxContainer
+@export var annex_button: Button
 
 var _is_reflowing := false
 
@@ -34,8 +37,23 @@ func setup(message: String, annex: Dictionary) -> void:
 
 
 func _apply_annex(annex: Dictionary) -> void:
-	if annex_container:
-		annex_container.visible = not annex.is_empty()
+	annex_container.visible = not annex.is_empty()
+	if annex.has("image"):
+		annex_button.icon = load(annex["image"])
+	if annex.has("caption"):
+		annex_button.text = annex["caption"]
+
+	# If annex type is apk, connect download action
+	if annex.get("type", "") == "apk":
+		# Check if already installed
+		var app_key := str(annex.get("app_name", ""))
+		var app: GameData.App = GameData.apps_name.get(app_key, GameData.App.MESSAGESHOME)
+		if GameData.downloaded_apps.has(app):
+			annex_button.disabled = true
+			annex_button.text = "Instalado"
+		else:
+			annex_button.pressed.connect(_on_apk_annex_pressed.bind(annex))
+	# TODO: deal with images, may be used to payments
 
 
 func _reflow() -> void:
@@ -117,3 +135,18 @@ func _measure_text_width(text: String) -> float:
 		var sz := font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 		max_line = max(max_line, sz.x)
 	return max_line
+
+func _on_apk_annex_pressed(annex: Dictionary) -> void:
+	# Emit a signal to request APK installation
+	var app_key := str(annex.get("app_name", ""))
+	var app: GameData.App = GameData.apps_name.get(app_key, GameData.App.MESSAGESHOME)
+
+	apk_installation_requested.emit(app) # Warn desktop UI to add icon in game screen
+
+	# Disable the button to prevent multiple clicks
+	annex_button.disabled = true
+	annex_button.text = "Baixando..."
+
+	# Simulate download time
+	await get_tree().create_timer(2.0).timeout
+	annex_button.text = "Instalado"

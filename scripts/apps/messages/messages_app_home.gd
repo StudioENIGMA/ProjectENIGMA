@@ -48,7 +48,7 @@ func on_player_answer(
 func on_create_message(
 	npc_name:String,
 	message:String,
-	_annex:Dictionary,
+	annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 ):
@@ -66,6 +66,7 @@ func on_create_message(
 			"photo":photo_path,
 			"messages":[{
 				"message":message,
+				"annex":annex,
 				"sender":sender,
 				"time":time,
 				"visualized":false
@@ -76,6 +77,7 @@ func on_create_message(
 		# Append message to existing conversation
 		conversations_data[conversation_index]["messages"].append({
 			"message":message,
+			"annex":annex,
 			"sender":sender,
 			"time":time,
 			"visualized":false

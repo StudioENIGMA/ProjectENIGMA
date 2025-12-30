@@ -2,13 +2,20 @@ extends Control
 
 signal app_opened(app_name:String, optional_data:Dictionary)
 
-@export var messages_button:Button
-@export var settings_button:Button
-@export var email_button:Button
-@export var shop_button:Button
-@export var fake_shop_button:Button
+@export var messages_button: Button
+@export var settings_button: Button
+@export var email_button: Button
+@export var shop_button: Button
+@export var fake_shop_button: Button
+
+@export var base_app: Control
 
 @export var touch_sound_player:AudioStreamPlayer2D
+
+func _ready() -> void:
+	base_app.apk_installation_requested.connect(
+		_on_app_installed
+	)
 
 func _on_messages_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.MESSAGESHOME, null)
@@ -48,6 +55,16 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 	var app_button:Button = _get_app_button(app)
 	if app_button:
 		app_button.visible = false
+
+func _on_app_installed(app:GameData.App) -> void:
+	# Add the app to downloaded apps
+	if not GameData.downloaded_apps.has(app):
+		GameData.downloaded_apps.append(app)
+
+	# Show the icon on the home screen
+	var app_button:Button = _get_app_button(app)
+	if app_button:
+		app_button.visible = true
 
 func _get_app_button(app:GameData.App) -> Button:
 	var app_buttons = {

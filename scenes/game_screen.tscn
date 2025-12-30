@@ -40,7 +40,7 @@ base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "base_app", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -51,6 +51,7 @@ settings_button = NodePath("AppsUI/SettingsButton")
 email_button = NodePath("AppsUI/EmailButton")
 shop_button = NodePath("AppsUI/ShopButton")
 fake_shop_button = NodePath("AppsUI/FakeShopButton")
+base_app = NodePath("../BaseApp")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" groups=["clock_display"]]
@@ -278,7 +279,6 @@ autostart = true
 script = ExtResource("18_oknyi")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
-threads_json_path = null
 
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
 [connection signal="pressed" from="UI/DesktopUI/AppsUI/SettingsButton" to="UI/DesktopUI" method="_on_settings_button_pressed"]

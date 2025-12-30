@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpbe3r4honjav"]
+[gd_scene load_steps=5 format=3 uid="uid://bpbe3r4honjav"]
 
 [ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/message_instance.gd" id="1_2u343"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_yluvu"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_e64tx"]
-[ext_resource type="Texture2D" uid="uid://ducv1b0dl1fg2" path="res://assets/icons/clip-icon.png" id="3_wwk2x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
 content_margin_left = 50.0
@@ -15,15 +14,17 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_left = 20
 
-[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container")]
+[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container", "annex_button")]
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_2u343")
+align = null
 label = NodePath("VBoxContainer/MessageBackground/MessageContent")
 panel_container = NodePath("VBoxContainer/MessageBackground")
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
-annex_container = NodePath("VBoxContainer/CenterContainer")
+annex_container = NodePath("VBoxContainer/AnnexContainer")
+annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
 
 [node name="MarginLeft" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -50,21 +51,18 @@ text = "Lorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ip
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="AnnexContainer" type="VBoxContainer" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 0
 
-[node name="AnnexIcon" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer"]
 layout_mode = 2
-texture = ExtResource("3_e64tx")
-
-[node name="ClipIcon" type="TextureRect" parent="VBoxContainer/CenterContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("3_wwk2x")
-expand_mode = 1
+theme_override_font_sizes/font_size = 64
+text = "Fake App.apk"
+icon = ExtResource("3_e64tx")
+autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="MarginRight" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(32, 0)
