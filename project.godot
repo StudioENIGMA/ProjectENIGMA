@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameData="*res://scripts/singletons/game_data.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/max_log_files=15
+
 [display]
 
 window/size/viewport_width=540
