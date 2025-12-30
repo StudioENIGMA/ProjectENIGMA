@@ -36,6 +36,12 @@ func setup(message: String, annex: Dictionary) -> void:
 	_reflow()
 
 
+## Applies the annex data to the message instance
+##
+## Checks the annex dictionary and sets up the annex button accordingly
+## If the annex type is "apk", connects the button to handle APK installation
+##
+## annex: The annex dictionary containing annex data
 func _apply_annex(annex: Dictionary) -> void:
 	annex_container.visible = not annex.is_empty()
 	if annex.has("image"):

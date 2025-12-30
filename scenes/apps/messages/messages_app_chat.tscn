@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dh0fnhpmm6ao7"]
 
-[ext_resource type="Script" uid="uid://bhabn2lfvwif8" path="res://scenes/apps/messages/messages_app_chat.gd" id="1_qunmr"]
+[ext_resource type="Script" uid="uid://bhabn2lfvwif8" path="res://scripts/apps/messages/messages_app_chat.gd" id="1_qunmr"]
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_ir5vx"]
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="2_wcops"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_2huwx"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_746fn"]
-[ext_resource type="Script" uid="uid://djn3wgjm3cki7" path="res://scenes/apps/messages/conversation_row.gd" id="1_kc2jj"]
+[ext_resource type="Script" uid="uid://djn3wgjm3cki7" path="res://scripts/apps/messages/conversation_row.gd" id="1_kc2jj"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
 
 [node name="ConversationRow" type="Control" node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture", "open_chat_button")]

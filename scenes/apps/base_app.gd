@@ -1,6 +1,3 @@
-## Base application script that handles common functionality for all apps
-## Buttons from the top bar should be handled here
-
 extends Control
 
 signal message_answered(answer_id:int)
@@ -30,9 +27,21 @@ var passwords_manager_app:Control
 var store_app:Control
 var fake_store_app:Control
 
+## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
 
-## Setup signal connections for app management
+## Called when the node enters the scene tree for the first time.
+##
+## Initializes the app top bar and connects necessary signals
+## Sets up instances of various apps and adds them to the app specific screen
+## Hides all apps initially
+## Connects to the desktop UI to handle app opening events
+## Sets up signals for app uninstallation from the fake store app
+## Preloads and instantiates app scenes
+## Connects signals for subscreen opening requests from apps
+## Sets up messaging app to propagate signals for message answering and creation
+## Sets up settings app and passwords manager app
+## Sets up store app and fake store app
 func _ready() -> void:
 	# Connect close app button signal
 	back_button.pressed.connect(_on_back_button_pressed)
@@ -155,6 +164,9 @@ func _on_back_button_pressed() -> void:
 		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
 
+## Handles the close app button press event
+##
+## Closes the current main app and all its subscreens
 func _on_close_app_button_pressed() -> void:
 	if open_apps.is_empty():
 		return
@@ -174,12 +186,18 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 	if _has_open_main_app(main_app):
 		_close_main_app(main_app)
 
+## Checks if there is any open app with the specified main app enum
+##
+## main_app: The main app enum to check
 func _has_open_main_app(main_app: GameData.App) -> bool:
 	for app_dict in open_apps:
 		if app_dict.get("MainApp") == main_app:
 			return true
 	return false
 
+## Closes all open apps with the specified main app enum
+##
+## main_app_enum: The main app enum to close
 func _close_main_app(main_app_enum: GameData.App) -> void:
 	# Close all open apps with same main_app
 	for i in range(open_apps.size() - 1, -1, -1):
@@ -226,6 +244,9 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	}
 	return app_map.get(app_enum, null)
 
+## Returns the main app enum for a given subscreen enum
+##
+## subscreen_enum: The subscreen enum
 func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 	var main_app_map = {
 		# Messages app
