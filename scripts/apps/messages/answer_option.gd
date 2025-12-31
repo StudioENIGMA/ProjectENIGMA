@@ -12,14 +12,15 @@ signal request_message_creation_on_answer(
 
 signal delete_answers(npc_name:String)
 
-@onready var button = $Button
-@onready var label = $PanelContainer/Label
-@onready var _name:String
-@onready var _message:String
-@onready var _answer_id:int
+@export var option_button:Button
+@export var option_label:Label
+
+var _name:String
+var _message:String
+var _answer_id:int
 
 func setup(sender_name:String, title:String, message:String, answer_id:int) -> void:
-	label.text = title
+	option_label.text = title
 	_name = sender_name
 	_message = message
 	_answer_id = answer_id

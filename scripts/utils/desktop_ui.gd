@@ -17,6 +17,12 @@ func _ready() -> void:
 		_on_app_installed
 	)
 
+	messages_button.pressed.connect(_on_messages_button_pressed)
+	settings_button.pressed.connect(_on_settings_button_pressed)
+	email_button.pressed.connect(_on_email_button_pressed)
+	shop_button.pressed.connect(_on_shop_button_pressed)
+	fake_shop_button.pressed.connect(_on_fake_shop_button_pressed)
+
 func _on_messages_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.MESSAGESHOME, null)
 	touch_sound_player.play_touch_sound()

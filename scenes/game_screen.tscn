@@ -280,9 +280,4 @@ script = ExtResource("18_oknyi")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/MessagesButton" to="UI/DesktopUI" method="_on_messages_button_pressed"]
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/SettingsButton" to="UI/DesktopUI" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/ShopButton" to="UI/DesktopUI" method="_on_shop_button_pressed"]
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/FakeShopButton" to="UI/DesktopUI" method="_on_fake_shop_button_pressed"]
-[connection signal="pressed" from="UI/DesktopUI/AppsUI/EmailButton" to="UI/DesktopUI" method="_on_email_button_pressed"]
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

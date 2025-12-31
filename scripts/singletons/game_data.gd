@@ -68,8 +68,8 @@ var apps_chinese_operations = {
 	"open": "阿布里爾"
 }
 
-var apps_in_store: Array[App] = [App.MESSAGESHOME]
-var downloaded_apps: Array[App] = [App.MESSAGESHOME]
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL, App.BROWSER]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
 var available_updates: Array[App] = []
 
 var data = {

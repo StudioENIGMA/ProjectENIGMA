@@ -15,17 +15,12 @@ signal apk_installation_requested(app: GameData.App)
 ## Reference to the controller that holds specific app controls
 @export var app_specific_screen:Control
 
-## Reference to the messaging app node
-var messages_app_home:Control
-var messages_app_chat:Control
-
-## Reference to the settings app node
-var settings_app:Control
-var passwords_manager_app:Control
-
-## Reference to the store app node
-var store_app:Control
-var fake_store_app:Control
+var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
+var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
+var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
+var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
+var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
+var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -51,13 +46,11 @@ func _ready() -> void:
 	desktop_ui.app_opened.connect(_on_app_opened)
 
 	# Messages app home (Messages app)
-	messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 	messages_app_home.visible = false
 	messages_app_home.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(messages_app_home)
 
 	# Messages app chat (Messages app)
-	messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
 	messages_app_chat.visible = false
 	messages_app_chat.message_answered.connect(message_answered.emit) # Propagate signal to UI
 	messages_app_chat.request_message_creation_on_answer.connect(
@@ -75,24 +68,20 @@ func _ready() -> void:
 	app_specific_screen.add_child(messages_app_chat)
 
 	# Settings app home (Settings app)
-	settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
 	settings_app.visible = false
 	app_specific_screen.add_child(settings_app)
 	settings_app.subscreen_open_requested.connect(_on_app_opened)
 
 	# Passwords Manager app (Settings app)
-	passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 	passwords_manager_app.visible = false
 	app_specific_screen.add_child(passwords_manager_app)
 
 	# Store app (Store app)
-	store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 	store_app.visible = false
 	store_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(store_app)
 
 	# Fake Store app (Fake Store app)
-	fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 	fake_store_app.visible = false
 	fake_store_app.subscreen_open_requested.connect(_on_app_opened)
 	fake_store_app.app_uninstalled.connect(desktop_ui._on_app_uninstalled) # Remove from home screen
