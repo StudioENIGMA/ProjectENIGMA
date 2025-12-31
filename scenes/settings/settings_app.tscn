@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmft24jq1687n"]
+
+[ext_resource type="PackedScene" uid="uid://c740lpt8b7kob" path="res://scenes/settings/SettingsButton.tscn" id="1_6xyrj"]
+[ext_resource type="Script" path="res://scripts/apps/settings/settings_app.gd" id="1_i6x2j"]
+
+[node name="SettingsApp" type="Control" node_paths=PackedStringArray("passwords_manager_gui", "update_os_gui", "virus_scanner_gui")]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_i6x2j")
+passwords_manager_gui = NodePath("CenterContainer/VBoxContainer/PasswordsManagerGUI")
+update_os_gui = NodePath("CenterContainer/VBoxContainer/UpdateOSGUI")
+virus_scanner_gui = NodePath("CenterContainer/VBoxContainer/ScannerGUI")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1000, 2056)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PasswordsManagerGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="UpdateOSGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="ScannerGUI" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_6xyrj")]
+layout_mode = 2
+size_flags_vertical = 3

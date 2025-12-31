@@ -1,8 +1,76 @@
 extends Node
 
-var game_timer:Timer
-var hours_minutes:String
-var daily_reputation_points:int = 0
+enum App {
+	# Messages app
+	MESSAGESHOME,
+	MESSAGESCHAT,
+	# Settings app
+	SETTINGS,
+	PASSWORDMANAGER,
+	# Store app
+	STORE,
+	FAKESTORE,
+	# Browser app
+	BROWSER,
+	# Email app
+	EMAIL,
+}
+
+enum Sender {
+	PLAYER,
+	NPC,
+}
+
+var hours_minutes:int = 600 # Start at 18:00
+
+var apps_name: Dictionary = {
+	# Messages app
+	"MessagesHome": App.MESSAGESHOME,
+	"MessagesChat": App.MESSAGESCHAT,
+	# Settings app
+	"Settings": App.SETTINGS,
+	"PasswordManager": App.PASSWORDMANAGER,
+	# Store apps
+	"Store": App.STORE,
+	"FakeStore": App.FAKESTORE,
+}
+
+var apps_data = {
+	App.MESSAGESHOME: {
+		"name": "Mensagens",
+		"chinese_name": "訊息和對話",
+		"description": "Receba e Envie Mensagens!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/messages.png",
+	},
+
+	App.EMAIL: {
+		"name": "Email",
+		"chinese_name": "電子郵件",
+		"description": "Receba e envie emails aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/email.png",
+	},
+
+	App.BROWSER: {
+		"name": "Navegador",
+		"chinese_name": "導航和搜尋",
+		"description": "Acesse seus sites favoritos!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/browser.png",
+	},
+}
+
+var apps_chinese_operations = {
+	"install": "開始安裝",
+	"installing": "正在安裝...",
+	"update": "應用程式更新",
+	"open": "阿布里爾"
+}
+
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL, App.BROWSER]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
+var available_updates: Array[App] = []
 
 var data = {
 	"current_day": 0,
@@ -30,13 +98,6 @@ var data = {
 	"has_mail": true,
 	"has_settings": true
 }
-
-func now() -> float:
-	if is_instance_valid(game_timer):
-		return game_timer.wait_time - game_timer.time_left
-	return 0
-
-
 
 func load_game() -> void:
 	var file_path = "res://data/save.json"

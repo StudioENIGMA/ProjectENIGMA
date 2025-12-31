@@ -1,9 +1,7 @@
-class_name PasswordsManager
-
-extends Node2D
-
-const STORED_PASSWORD_SCENE := preload("res://scenes/phone_settings/password.tscn")
-const CHANGE_PASSWORD_SCENE := preload("res://scenes/phone_settings/change_password.tscn")
+extends Control
+"""
+const STORED_PASSWORD_SCENE := preload("res://scenes/settings/password.tscn")
+const CHANGE_PASSWORD_SCENE := preload("res://scenes/settings/change_password.tscn")
 
 @export var none_passwords_label: Label
 @export var vbox: VBoxContainer
@@ -101,3 +99,4 @@ func _on_change_requested(app_name: String) -> void:
 func _on_password_confirmed(new_password: String, app_name: String) -> void:
 	GameData.data.passwords[app_name] = new_password
 	_rebuild_list()
+"""

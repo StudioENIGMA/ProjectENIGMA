@@ -25,7 +25,7 @@ enum TaskType {DAILY, INSTALL}
 @export var is_answer   :bool
 @export var is_next     :bool
 @export var task_type   :TaskType
-@export var installer   :AppControl.App
+@export var installer   :GameData.App
 @export var sender      :String
 @export var text        :String
 @export var conditions  :Dictionary[String, bool] = {}

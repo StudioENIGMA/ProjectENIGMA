@@ -14,13 +14,15 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("option_button", "option_label")]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 7
 script = ExtResource("1_yd6bq")
+option_button = NodePath("Button")
+option_label = NodePath("PanelContainer/Label")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
