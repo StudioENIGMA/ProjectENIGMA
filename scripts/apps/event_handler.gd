@@ -8,8 +8,6 @@ signal day_ended()
 @export var day_over_timer:Timer
 @export var clock_timer:Timer
 
-var messages_to_deliver:Array[Dictionary] = []
-
 ## Initializes the event handler by connecting timers to their respective functions
 func _ready() -> void:
 	day_over_timer.timeout.connect(_on_day_over_timeout)
@@ -17,14 +15,6 @@ func _ready() -> void:
 
 	# Update the in-game time display at start
 	_update_in_game_time()
-
-## Handles receiving a scheduled message to be delivered later
-##
-## npc_name: The name of the NPC which the conversation is with
-## message: The content of the message
-## time: The in-game time (in minutes) when the message should be delivered
-func on_receive_message(npc_name:String, message:String, time:int) -> void:
-	messages_to_deliver.push_front({"name":npc_name, "message":message, "time":time})
 
 ## Handles the end of the day event
 func _on_day_over_timeout() -> void:
