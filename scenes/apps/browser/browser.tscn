@@ -1,13 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://6gxid20u3y1i"]
 
-[ext_resource type="Script" uid="uid://bq6omkrrn36q4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
+[ext_resource type="Script" uid="uid://ceyd6unkld2n4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
 [ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/apps/browser/shop-site/quick_acess_sites.gd" id="3_v7wwx"]
 
-[node name="browser" type="Control"]
+[node name="Browser" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
 script = ExtResource("1_y4bje")
 
 [node name="Browser_title_label" type="Label" parent="."]

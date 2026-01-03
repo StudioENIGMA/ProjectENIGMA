@@ -1,6 +1,8 @@
 extends Control
 
-func _on_exit_browser_pressed() -> void:
-	invisible()
-func invisible() -> void:
-	visible = not visible
+signal subscreen_open_requested(subscreen_name:GameData.App)
+
+func _on_open_browser(subscreen_name:GameData.App) -> void:
+	subscreen_open_requested.emit(subscreen_name)
+
+

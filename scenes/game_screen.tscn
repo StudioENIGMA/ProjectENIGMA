@@ -41,7 +41,7 @@ base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "base_app", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "browser_button", "base_app", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -52,6 +52,7 @@ settings_button = NodePath("AppsUI/SettingsButton")
 email_button = NodePath("AppsUI/EmailButton")
 shop_button = NodePath("AppsUI/ShopButton")
 fake_shop_button = NodePath("AppsUI/FakeShopButton")
+browser_button = NodePath("AppsUI/BrowserButton")
 base_app = NodePath("../BaseApp")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 

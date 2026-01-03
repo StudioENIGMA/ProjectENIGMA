@@ -92,10 +92,11 @@ func _ready() -> void:
 
 	#Browser App (Browser App)
 	browser_app.visible = false
-	browser_app.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app)
 
 	#Broser News (Browser App)
 	browser_news_app.visible = false
+	app_specific_screen.add_child(browser_news_app)
 
 ## Handles the app opened event from the desktop UI
 ##
