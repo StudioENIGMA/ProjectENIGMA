@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gxid20u3y1i"]
+[gd_scene load_steps=5 format=3 uid="uid://6gxid20u3y1i"]
 
 [ext_resource type="Script" uid="uid://ceyd6unkld2n4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
+[ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/apps/browser/browser_news.tscn" id="2_h4mx2"]
 [ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/apps/browser/shop-site/quick_acess_sites.gd" id="3_v7wwx"]
+[ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="4_k30y1"]
 
 [node name="Browser" type="Control"]
 layout_mode = 3
@@ -53,6 +55,9 @@ offset_top = 1201.0
 offset_right = 1080.0
 offset_bottom = 2397.0
 
+[node name="browser_news" parent="News" instance=ExtResource("2_h4mx2")]
+layout_mode = 2
+
 [node name="Quick_acess_sites" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_top = 357.0
@@ -65,3 +70,6 @@ script = ExtResource("3_v7wwx")
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/separation = 270
+
+[node name="quick_acess_sites_icons" parent="Quick_acess_sites/HBoxContainer" instance=ExtResource("4_k30y1")]
+layout_mode = 2

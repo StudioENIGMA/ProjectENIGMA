@@ -1,0 +1,21 @@
+{
+  "day_1": {
+    "news": [
+      {
+        "id": "d1n1", 
+        "title": "Maior vazamento de senhas da história",
+        "content": "As maiores empresas do mundo e as principais redes sociais tiveram suas senhas expostas. Segundo os pesquisadores Cybermeaning, foram vazadas bilhões de senhas coletadas por malwares especializados em roubo de dados."
+      },
+      {
+        "id": "d1n2",
+        "title": "São Saulo vence Bot’água e avança para semifinal",
+        "content": "Nesta última quarta-feira (10/09/2025), São Saulo venceu por 4x1 o Bot’água no agregado e avançou para a semifinal da Copa Vibertadores."
+      },
+      {
+        "id": "d1n3",
+        "title": "IA vai substituir os programadores?",
+        "content": "As dúvidas sobre o futuro de diversas profissões só aumentam com o avanço da inteligência artificial. Porém, para o CEO e engenheiro Jeff Doors, a profissão de programador continuará sendo 100% gerenciada por seres humanos. Para ele, a IA será uma ferramenta para aumentar a produtividade, mas não irá roubar as capacidades humanas de criação, julgamento e raciocínio lógico."
+      }
+    ]
+  }
+}
