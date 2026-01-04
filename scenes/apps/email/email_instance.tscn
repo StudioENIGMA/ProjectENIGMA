@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ulxoabk2xr6m"]
+[gd_scene load_steps=7 format=3 uid="uid://ulxoabk2xr6m"]
 
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_6w8lk"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="1_ucbxv"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_17hbx"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_spvvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="Theme" id="Theme_hpj05"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
 [node name="EmailInstance" type="Control"]
 layout_mode = 3
@@ -10,31 +20,34 @@ anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 240.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(1080, 240)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 238.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="SenderIcon" type="TextureRect" parent="HBoxContainer"]
+[node name="EmailContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 240)
+layout_mode = 2
+
+[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2
 texture = ExtResource("1_6w8lk")
 expand_mode = 2
 stretch_mode = 3
 
-[node name="EmailContentContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="EmailContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="SenderNameLabel" type="Label" parent="HBoxContainer/EmailContentContainer"]
+[node name="SenderNameLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_17hbx")
 theme_override_font_sizes/font_size = 50
 text = "Chefinho"
 
-[node name="EmailSubjectLabel" type="Label" parent="HBoxContainer/EmailContentContainer"]
+[node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spvvf")
@@ -42,7 +55,7 @@ theme_override_font_sizes/font_size = 40
 text = "Reunião importante"
 text_overrun_behavior = 3
 
-[node name="EmailContentLabel" type="Label" parent="HBoxContainer/EmailContentContainer"]
+[node name="EmailContentLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spvvf")
@@ -50,7 +63,7 @@ theme_override_font_sizes/font_size = 40
 text = "Hoje, às 8h, precisaremos fazer uma reuni"
 text_overrun_behavior = 3
 
-[node name="EmailDateLabel" type="Label" parent="HBoxContainer"]
+[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spvvf")
@@ -59,9 +72,49 @@ text = "04/01/2026"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginRight" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginRight" type="MarginContainer" parent="VBoxContainer/EmailContainer"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="AnnexPanel" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_hpj05")
+
+[node name="AnnexContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/AnnexPanel"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/HBoxContainer/AnnexPanel/AnnexContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/AnnexPanel/AnnexContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ucbxv")
+expand_mode = 1
+
+[node name="MarginCenter" type="MarginContainer" parent="VBoxContainer/HBoxContainer/AnnexPanel/AnnexContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="AnnexNameLabel" type="Label" parent="VBoxContainer/HBoxContainer/AnnexPanel/AnnexContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_spvvf")
+theme_override_font_sizes/font_size = 40
+text = "ItinerárioReunião"
+text_overrun_behavior = 3
 
 [node name="OpenEmailButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
