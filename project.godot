@@ -28,7 +28,6 @@ file_logging/max_log_files=15
 
 window/size/viewport_width=540
 window/size/viewport_height=1200
-window/size/initial_position=Vector2i(-540, 1200)
 window/stretch/mode="canvas_items"
 window/stretch/scale=0.5
 window/handheld/orientation=1
