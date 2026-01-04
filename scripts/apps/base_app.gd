@@ -21,6 +21,7 @@ var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiat
 var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
+var email_app_home = preload("res://scenes/apps/email/email.tscn").instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -87,6 +88,10 @@ func _ready() -> void:
 	fake_store_app.app_uninstalled.connect(desktop_ui._on_app_uninstalled) # Remove from home screen
 	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(fake_store_app)
+
+	# Email app home (Email app)
+	email_app_home.visible = false
+	app_specific_screen.add_child(email_app_home)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -229,7 +234,9 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		# Store app
 		GameData.App.STORE: store_app,
-		GameData.App.FAKESTORE: fake_store_app
+		GameData.App.FAKESTORE: fake_store_app,
+		# Email app
+		GameData.App.EMAIL: email_app_home
 	}
 	return app_map.get(app_enum, null)
 
@@ -246,6 +253,8 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
-		GameData.App.FAKESTORE: GameData.App.STORE
+		GameData.App.FAKESTORE: GameData.App.STORE,
+		# Email app
+		GameData.App.EMAIL: GameData.App.EMAIL
 	}
 	return main_app_map.get(subscreen_enum, null)
