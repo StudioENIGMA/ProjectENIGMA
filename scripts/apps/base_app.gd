@@ -21,7 +21,7 @@ var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiat
 var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
-var email_app_home = preload("res://scenes/apps/email/email.tscn").instantiate()
+var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []

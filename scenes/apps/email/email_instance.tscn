@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://ulxoabk2xr6m"]
+
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_6w8lk"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="1_ucbxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocu06"]
+bg_color = Color(0.284043, 0.750092, 0.641747, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 75
+corner_radius_top_right = 75
+corner_radius_bottom_right = 75
+corner_radius_bottom_left = 75
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[node name="EmailInstance" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 240.0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 240)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 240.0
+
+[node name="EmailContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IconContainer" type="CenterContainer" parent="VBoxContainer/EmailContainer"]
+custom_minimum_size = Vector2(256, 240)
+layout_mode = 2
+
+[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer/IconContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1_6w8lk")
+expand_mode = 1
+
+[node name="MainContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SenderLabel" type="Label" parent="VBoxContainer/EmailContainer/MainContentContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Cléver"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/MainContentContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Precisamos do jogo pronto"
+clip_text = true
+
+[node name="EmailContentLabel" type="Label" parent="VBoxContainer/EmailContainer/MainContentContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Caros alunos do projeto Enigma, precisamos concluir o jogo em janeiro.
+
+Att. Professor Dr. Cléver
+
+
+
+Teste clip vertical"
+clip_text = true
+text_overrun_behavior = 3
+max_lines_visible = 1
+
+[node name="ClockContainer" type="CenterContainer" parent="VBoxContainer/EmailContainer"]
+custom_minimum_size = Vector2(256, 240)
+layout_mode = 2
+
+[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer/ClockContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "aug 18
+10:59"
+uppercase = true
+
+[node name="AnnexButton" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 250
+theme_override_styles/normal = SubResource("StyleBoxFlat_ocu06")
+text = "curriculo.apk"
+icon = ExtResource("1_ucbxv")
