@@ -20,7 +20,7 @@ open_chat_button = NodePath("OpenChatButton")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 1080.0
-offset_bottom = 238.0
+offset_bottom = 240.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
