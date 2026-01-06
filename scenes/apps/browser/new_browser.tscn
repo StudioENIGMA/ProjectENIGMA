@@ -34,14 +34,27 @@ text = "Navegador"
 label_settings = SubResource("LabelSettings_ww8iv")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1080, 1260)
+custom_minimum_size = Vector2(1080, 1380)
 layout_mode = 2
-columns = 3
+columns = 2
 
 [node name="quick_acess_sites_icons" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 470)
 layout_mode = 2
 
 [node name="quick_acess_sites_icons2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 470)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+layout_mode = 2
+
+[node name="quick_acess_sites_icons5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 470)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
@@ -59,4 +72,7 @@ size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
 
 [node name="browser_news" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_x0uf5")]
+layout_mode = 2
+
+[node name="browser_news2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_x0uf5")]
 layout_mode = 2
