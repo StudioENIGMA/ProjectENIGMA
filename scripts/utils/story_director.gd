@@ -17,9 +17,12 @@ signal request_answer_option(
 	answer_id: int
 )
 
+signal news_ready(day_news_data: Dictionary)
+
 @export var ui: Control
 @export var event_handler: Node2D
 @export var messages_dir_path: String = "res://data/messages"
+@export var news_dir_path: String = "res://data/news.json"
 
 # thread_id -> {"thread_id":..., "entry_points":[...], "branches":{ branch_name: [node,...] } }
 var threads_by_id: Dictionary = {}
@@ -418,3 +421,32 @@ func _read_flag(flag: String) -> bool:
 		return bool(GameData.data[key])
 
 	return false
+
+func _on_browser_request_news() -> void:
+	var day_news := _load_news_data()
+	if typeof(day_news) != TYPE_DICTIONARY:
+		day_news = {}
+	news_ready.emit(day_news)
+
+# get the news of the current day
+func _load_news_data() -> Dictionary:
+	var current_day = _get_current_day()
+	print(current_day)
+	var file = FileAccess.open(news_dir_path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	file.close()
+
+	var data = JSON.parse_string(json_text)
+	var day_key = "day_%d" % current_day
+	return data[day_key]
+
+#get the current day
+func _get_current_day():
+	var file = FileAccess.open("res://data/save.json", FileAccess.READ)
+	var json_text = file.get_as_text()
+	file.close()
+
+	var data = JSON.parse_string(json_text)
+	var current_day = data["current_day"]
+	return current_day
+
