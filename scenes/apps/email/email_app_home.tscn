@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcf1ro7bwyle6"]
+[gd_scene load_steps=3 format=3 uid="uid://bcf1ro7bwyle6"]
 
 [ext_resource type="PackedScene" uid="uid://ulxoabk2xr6m" path="res://scenes/apps/email/email_instance.tscn" id="1_nc25m"]
+[ext_resource type="Script" uid="uid://bj6y8i3k683iu" path="res://scripts/apps/email/email_app_home.gd" id="1_v74p8"]
 
-[node name="EmailAppHome" type="Control"]
+[node name="EmailAppHome" type="Control" node_paths=PackedStringArray("list_of_emails")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_v74p8")
+list_of_emails = NodePath("EmailsScroll/EmailsList")
 
 [node name="EmailsScroll" type="ScrollContainer" parent="."]
 layout_mode = 0
