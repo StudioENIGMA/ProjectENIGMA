@@ -25,7 +25,7 @@ offset_right = 1080.0
 offset_bottom = 2160.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1080, 320)
+custom_minimum_size = Vector2(1080, 240)
 layout_mode = 2
 
 [node name="BrowserName" type="Label" parent="VBoxContainer/CenterContainer"]
@@ -34,12 +34,14 @@ text = "Navegador"
 label_settings = SubResource("LabelSettings_ww8iv")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1080, 1380)
+custom_minimum_size = Vector2(1080, 1160)
 layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 2
 
 [node name="quick_acess_sites_icons" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
-custom_minimum_size = Vector2(540, 470)
+custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 
 [node name="quick_acess_sites_icons2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
@@ -47,14 +49,14 @@ custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 
 [node name="quick_acess_sites_icons3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
-custom_minimum_size = Vector2(540, 470)
+custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 
 [node name="quick_acess_sites_icons4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
 layout_mode = 2
 
 [node name="quick_acess_sites_icons5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
-custom_minimum_size = Vector2(540, 470)
+custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]

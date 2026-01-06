@@ -8,7 +8,7 @@ bg_color = Color(1, 1, 1, 1)
 [node name="browser_news" type="Panel"]
 custom_minimum_size = Vector2(1080, 280)
 offset_right = 1080.0
-offset_bottom = 282.0
+offset_bottom = 280.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yto3l")
 script = ExtResource("1_gvno7")
 
