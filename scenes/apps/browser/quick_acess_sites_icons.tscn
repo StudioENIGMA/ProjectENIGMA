@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhmxsqe60mptf"]
+[gd_scene load_steps=4 format=3 uid="uid://bhmxsqe60mptf"]
 
 [ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/apps/browser/shop-site/quick_acess_icon.gd" id="1_h124j"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_lv07k"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_v1pv2"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
 [node name="quick_acess_sites_icons" type="Control"]
+custom_minimum_size = Vector2(540, 300)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 497.0
+offset_bottom = 427.0
 script = ExtResource("1_h124j")
 
 [node name="site_icon" type="TextureRect" parent="."]
@@ -13,10 +20,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 48.0
-offset_top = 8.0
-offset_right = 208.0
-offset_bottom = 168.0
+offset_left = -174.0
+offset_top = 1.0
+offset_right = 171.5
+offset_bottom = 343.0
 grow_horizontal = 2
 texture = ExtResource("1_lv07k")
 expand_mode = 1
@@ -29,14 +36,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = 179.5
-offset_right = 240.0
-offset_bottom = 228.5
+offset_left = -206.0
+offset_top = 110.5
+offset_right = 201.0
+offset_bottom = 206.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Nome do site"
+label_settings = SubResource("LabelSettings_v1pv2")
 horizontal_alignment = 1
 vertical_alignment = 1

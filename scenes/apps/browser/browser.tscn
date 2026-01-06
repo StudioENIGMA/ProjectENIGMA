@@ -6,16 +6,40 @@
 [ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="4_k30y1"]
 
 [node name="Browser" type="Control"]
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y4bje")
 
-[node name="Browser_title_label" type="Label" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 80.0
-offset_right = 968.0
-offset_bottom = 209.0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="News" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/News"]
+custom_minimum_size = Vector2(0, 1120)
+layout_mode = 2
+
+[node name="News_label" type="Label" parent="CenterContainer/News"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Notícias"
+vertical_alignment = 2
+
+[node name="browser_news" parent="CenterContainer/News" instance=ExtResource("2_h4mx2")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(120, 240)
+layout_mode = 2
+
+[node name="Browser_title_label" type="Label" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "Navegador"
@@ -37,26 +61,6 @@ offset_top = 1171.0
 offset_right = 733.0
 offset_bottom = 1179.0
 color = Color(0, 0, 0, 1)
-
-[node name="News_label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 1104.0
-offset_right = 228.0
-offset_bottom = 1173.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Notícias"
-vertical_alignment = 2
-
-[node name="News" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 1201.0
-offset_right = 1080.0
-offset_bottom = 2397.0
-
-[node name="browser_news" parent="News" instance=ExtResource("2_h4mx2")]
-layout_mode = 2
 
 [node name="Quick_acess_sites" type="VBoxContainer" parent="."]
 layout_mode = 0
