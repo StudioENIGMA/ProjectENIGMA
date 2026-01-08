@@ -16,12 +16,10 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Dictio
 
 var email_data: Dictionary = {}
 
-#region INITIALIZATION
-func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
-#endregion INITIALIZATION
-
 #region SETUP
+## Sets up the email instance with the provided email data
+##
+## p_email_data: The data of the email to be displayed
 func setup(p_email_data: Dictionary) -> void:
 	email_data = p_email_data
 
@@ -43,6 +41,9 @@ func setup(p_email_data: Dictionary) -> void:
 #endregion SETUP
 
 #region INPUT
+## Handles GUI input events for the email instance
+##
+## event: The input event to be processed
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		subscreen_open_requested.emit(GameData.App.EMAILREAD, email_data)

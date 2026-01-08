@@ -15,10 +15,10 @@ corner_radius_bottom_left = 25
 [sub_resource type="Theme" id="Theme_hpj05"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
-[node name="EmailInstance" type="MarginContainer" node_paths=PackedStringArray("open_email_button", "email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
+[node name="EmailInstance" type="MarginContainer" node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
 size_flags_horizontal = 3
+mouse_filter = 0
 script = ExtResource("1_hpj05")
-open_email_button = NodePath("")
 email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
 email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
 email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")

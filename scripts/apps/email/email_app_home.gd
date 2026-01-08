@@ -1,11 +1,17 @@
 extends Control
 
+#region SIGNALS
 signal subscreen_open_requested(subscreen_name:String, email_data:Dictionary)
+#endregion SIGNALS
 
 const EMAIL_INSTANCE_SCENE = preload("res://scenes/apps/email/email_instance.tscn")
 
+#region CHILDREN NODES REFERENCES
 @export var list_of_emails: VBoxContainer
+#endregion CHILDREN NODES REFERENCES
 
+#region INITIALIZATION
+## Instantiates test emails in the email list for demonstration purposes
 func _ready() -> void:
 	var test_mail_1 = {
 		"sender_name": "Chefinho",
@@ -33,9 +39,12 @@ func _ready() -> void:
 	email_instance.setup(test_mail_2)
 	email_instance.subscreen_open_requested.connect(_on_open_email)
 	list_of_emails.add_child(email_instance)
+#endregion INITIALIZATION
 
+#region SIGNALS HANDLERS
 ## Handles the request to open a specific email
 ##
 ## email_data: The data of the email to be opened
-func _on_open_email(email_data:Dictionary) -> void:
-	subscreen_open_requested.emit(GameData.App.EMAILREAD, email_data)
+func _on_open_email(app: GameData.App, email_data:Dictionary,) -> void:
+	subscreen_open_requested.emit(app, email_data)
+#endregion SIGNALS HANDLERS
