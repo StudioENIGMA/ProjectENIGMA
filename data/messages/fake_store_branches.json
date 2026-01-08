@@ -3,7 +3,8 @@
   "entry_points": [
     {
       "day": 0,
-      "branch": "d0_start"
+      "branch": "d0_start",
+      "relative_due_time": 15
     }
   ],
   "branches": {
@@ -34,8 +35,7 @@
             "id": "fs_0_2a_0",
             "player_text": "Obrigado, vou instalar agora.",
             "npc_reply": {
-              "goto_branch": "from_fs_0_3",
-              "delay_ticks": 2
+              "goto_branch": "from_fs_0_3"
             }
           },
           {

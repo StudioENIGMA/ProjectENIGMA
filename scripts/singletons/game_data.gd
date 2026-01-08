@@ -22,7 +22,8 @@ enum Sender {
 	NPC,
 }
 
-var hours_minutes:int = 600 # Start at 18:00
+var starting_hours_minutes:int = 600	# Start at 6:00
+var hours_minutes:int = 600 # This one will increase with time
 
 var apps_name: Dictionary = {
 	# Messages app
