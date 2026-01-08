@@ -4,12 +4,11 @@
     {
       "day": 0,
       "branch": "d0_start_1",
-      "priority": -100
+      "relative_due_time": 0
     },
     {
       "day": 1,
       "branch": "d1_start_1",
-      "priority": -100,
       "requires": [
         {
           "flag": "fake_store",
@@ -20,7 +19,6 @@
     {
       "day": 1,
       "branch": "d1_start_2",
-      "priority": -100,
       "requires": [
         {
           "flag": "fake_store",
