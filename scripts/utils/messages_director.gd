@@ -31,7 +31,6 @@ func reload_and_queue_today() -> void:
 	_queue_today_entry_points()
 #endregion INITIALIZATION
 
-
 #region LOADING MESSAGES
 ## Loads all message threads from JSON files in the messages directory
 func _load_threads_from_directory() -> void:
@@ -297,7 +296,6 @@ func _deliver_queue_entry(queue_entry: Dictionary, current_minutes: int) -> void
 			[]
 		)
 #endregion DELIVERY OF MESSAGES
-
 
 #region REQUIREMENTS
 ## Checks if all requirements in the array are met
