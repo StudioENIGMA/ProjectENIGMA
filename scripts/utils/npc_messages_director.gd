@@ -1,4 +1,3 @@
-# res://scripts/story/messages/npc_messages_director.gd
 extends Node
 
 signal npc_message_created(

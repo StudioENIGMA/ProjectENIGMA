@@ -3,22 +3,25 @@ extends Node
 
 #region CHILDREN NODES REFERENCES
 @export var messages_dir_path: String = "res://data/messages"
-@export var npc_messages_director:Node2D
-@export var answers_director:Node2D
+@export var npc_messages_director: Node2D
+@export var answers_director: Node2D
 #endregion CHILDREN NODES REFERENCES
 
 # thread_id -> thread_dict
 var threads_by_id: Dictionary = {}
 
 # Queue entries:
-# {"thread_id":String, "branch":String, "index":int, "priority":int, "due_at":int, "seq":int}
+# {"thread_id":String, "branch":String, "index":int, "due_at":int, "seq":int, "requires":Array}
 var message_queue: Array[Dictionary] = []
 var enqueue_seq: int = 0
 
 #region INITIALIZATION
 ## Connects signals and loads today's messages
 func _ready() -> void:
-	answers_director.answer_committed.connect(_on_answer_committed)
+	if answers_director != null and answers_director.has_signal("answer_committed"):
+		answers_director.answer_committed.connect(_on_answer_committed)
+	else:
+		push_warning("MessagesDirector: answers_director missing or has no signal 'answer_committed'.")
 
 	reload_and_queue_today()
 
@@ -134,50 +137,67 @@ func _queue_today_entry_points() -> void:
 			if int(entry.get("day", -999)) != int(GameData.data.current_day):
 				continue
 
-			var requires: Array = entry.get("requires", [])
-			if not check_requirements_met_for_entry(requires):
-				continue
-
-			# Get messages (branch) for this entry, skip if missing
 			var branch := str(entry.get("branch", ""))
 			if branch == "":
 				continue
 
-			# Send message at due time, else don't send
-			var relative_due_time = entry.get("relative_due_time", INF)
+			# Use float for INF comparison
+			var relative_due_time: float = float(entry.get("relative_due_time", INF))
+			if relative_due_time == INF:
+				# No due time => don't schedule.
+				continue
 
-			# enqueue branch start
-			_enqueue_queue_entry(
-				thread_id,
-				branch,
-				relative_due_time + GameData.starting_hours_minutes # Enqueue from day start
-			)
+			# Get absolute due time (Back as int)
+			var absolute_due_time := int(relative_due_time) + int(GameData.starting_hours_minutes)
 
-## This function will insert a branch start into the message queue
-##
-## The message queue is sorted by due time, if it collides its a queue
-##
-## @param thread_id The thread ID
-## @param branch The branch name
-## @param absolute_due_time The due time in minutes
-func _enqueue_queue_entry(thread_id: String, branch: String, absolute_due_time: int) -> void:
-	# Create the queue entry
+			# Keep requires on the queue entry so it can become valid later in the same day.
+			var requires: Array = entry.get("requires", [])
+
+			_enqueue_queue_entry(thread_id, branch, absolute_due_time, 0, requires)
+
+## Enqueue a branch/node into the message queue (sorted by due_at, then seq)
+func _enqueue_queue_entry(
+	thread_id: String,
+	branch: String,
+	absolute_due_time: int,
+	index: int = 0,
+	requires: Array = []
+) -> void:
 	var queue_entry: Dictionary = {
 		"thread_id": thread_id,
 		"branch": branch,
+		"index": index,
 		"due_at": absolute_due_time,
+		"seq": enqueue_seq,
+		"requires": requires,
 	}
+	enqueue_seq += 1 # Global sequence to preserve order of insertion
 
-	# Since the queue is ordered by due time, we need to insert it in the right place
-	# Binary search insertion is possible, but overkill, we have dozens of messages at most
-	for index in range(message_queue.size()):
-		var existing_entry: Dictionary = message_queue[index]
-		if int(existing_entry["due_at"]) > absolute_due_time:
-			message_queue.insert(index, queue_entry)
+	_insert_sorted_by_due(queue_entry)
+
+## Inserts an entry preserving ordering by due_at then seq
+func _insert_sorted_by_due(queue_entry: Dictionary) -> void:
+	var due_at := int(queue_entry.get("due_at", 0))
+	var seq := int(queue_entry.get("seq", 0))
+
+	# Find insertion point (binary search is overkill)
+	for i in range(message_queue.size()):
+		var existing := message_queue[i]
+		var existing_due := int(existing.get("due_at", 0))
+		if existing_due > due_at:
+			message_queue.insert(i, queue_entry)
 			return
 
-	# Append at the end if no earlier due time found
+		if existing_due == due_at and int(existing.get("seq", 0)) > seq:
+			message_queue.insert(i, queue_entry)
+			return
+
+	# Append at end if no earlier point found
 	message_queue.append(queue_entry)
+
+## Enqueues the start of a branch at an absolute due time for convenience
+func _enqueue_branch_start(thread_id: String, branch: String, absolute_due_time: int) -> void:
+	_enqueue_queue_entry(thread_id, branch, absolute_due_time, 0, [])
 #endregion QUEUING ENTRY POINTS
 
 #region DELIVERY OF MESSAGES
@@ -190,10 +210,10 @@ func on_clock_tick(current_minutes: int) -> void:
 		return
 
 	# Peek at head of queue, is is ordered by due time
-	# If head is not due yet, nothing to do
+	# If head is not due yet, nothing to do (as it is ordered)
 	# Else, try to deliver the first message that can be delivered
 	var head: Dictionary = message_queue[0]
-	if current_minutes < int(head["due_at"]):
+	if current_minutes < int(head.get("due_at", 0)):
 		return
 
 	# Check if head has requirements met, if not check rest of queue
@@ -202,27 +222,32 @@ func on_clock_tick(current_minutes: int) -> void:
 		# Get entry
 		var entry: Dictionary = message_queue[index]
 
-		# As soon as we find an entry not due, stop checking
-		if current_minutes < int(entry["due_at"]):
+		if current_minutes < int(entry.get("due_at", 0)):
 			break
 
-		# Check requirements
-		if check_requirements_met_for_entry(entry.get("requires", [])):
-			# Deliver this entry and remove from queue
-			_deliver_queue_entry(entry, current_minutes)
+		# Entry-point requirements (allows “become true later” behavior)
+		if not _requirements_met(entry.get("requires", [])):
+			entry["due_at"] = current_minutes + 1
 			message_queue.remove_at(index)
-			return # Only deliver one per tick
+			_insert_sorted_by_due(entry)
+			return
 
-		# Move to next entry if requirements not met
-		index += 1
+		_deliver_queue_entry(entry, current_minutes)
+		message_queue.remove_at(index)
+		return # Only deliver one per tick
 
-
+## Delivers one queue entry (assumes requirements are met)
+##
+## @param queue_entry The queue entry to deliver
+## @param current_minutes The current time in minutes
 func _deliver_queue_entry(queue_entry: Dictionary, current_minutes: int) -> void:
+	# Thread is the conversation (such as boss messages)
 	var thread_id := str(queue_entry.get("thread_id", ""))
 	var thread: Dictionary = threads_by_id.get(thread_id, {})
 	if thread.is_empty():
 		return
 
+	# Branch is a sequence of nodes within the conversation
 	var branches: Dictionary = thread.get("branches", {})
 	var branch_name := str(queue_entry.get("branch", ""))
 	var branch_nodes: Array = branches.get(branch_name, [])
@@ -233,63 +258,60 @@ func _deliver_queue_entry(queue_entry: Dictionary, current_minutes: int) -> void
 
 	var node: Dictionary = branch_nodes[node_index]
 
+	# Each node (message) may have its own requirements, if not met, requeue
+	# The requeue is done from the current index
 	if not _requirements_met(node.get("requires", [])):
 		queue_entry["due_at"] = current_minutes + 1
 		_insert_sorted_by_due(queue_entry)
 		return
 
-	# 1) Emit NPC message (call down into child director)
+	# Emit NPC message (call down into child director)
 	npc_messages_director.send_npc_message(
-		str(node.get("sender", thread_id)),
-		str(node.get("text", "")),
-		node.get("annex", {}),
-		GameData.hours_minutes
+		str(node.get("sender", thread_id)), # Npc name
+		str(node.get("text", "")), # Message text
+		node.get("annex", {}), # Annex if any
+		GameData.hours_minutes # Time
 	)
 
-	# 2) If node has choices, delegate to AnswersDirector and STOP branch progression here.
+	# If node has choices, delegate to AnswersDirector and STOP branch progression here
+	# We stop until an answer is committed
 	var choices: Array = node.get("choices", [])
 	if not choices.is_empty():
 		answers_director.present_choices(
 			thread_id,
-			branch_name,
-			node_index,
-			int(queue_entry.get("priority", 0)),
 			node,
 			choices,
 			GameData.hours_minutes
 		)
 		return
 
-	# 3) Otherwise continue to next node
+	# Otherwise continue to next node (optional delay, util for answers replies)
 	var next_index := node_index + 1
 	if next_index < branch_nodes.size():
-		var next_priority := int(node.get("priority", queue_entry.get("priority", 0)))
-		_enqueue_queue_entry({
-			"thread_id": thread_id,
-			"branch": branch_name,
-			"index": next_index,
-			"priority": next_priority,
-		}, _delay_for_priority(next_priority))
+		var delay_minutes := int(node.get("delay_minutes", 2)) # Default delay
+		_enqueue_queue_entry(
+			thread_id,
+			branch_name,
+			current_minutes + delay_minutes,
+			next_index,
+			[]
+		)
 #endregion DELIVERY OF MESSAGES
 
+
 #region REQUIREMENTS
-## Checks if an entry can be enqueued based on its requirements
+## Checks if all requirements in the array are met
 ##
-## @param requires The array of requirement dictionaries
-func check_requirements_met_for_entry(requirements: Array) -> bool:
+## @param requirements An array of requirement dictionaries
+func _requirements_met(requirements: Array) -> bool:
 	if requirements.is_empty():
 		return true
 
 	for requirement in requirements:
-		if typeof(requirement) != TYPE_DICTIONARY:
-			continue
-
-		# Requirement is a "flag" equals "expected"
 		var flag := str(requirement.get("flag", ""))
 		var expected := bool(requirement.get("is", true))
 		var evaluation := _evaluate_flag(flag)
 
-		# Check if matches expected
 		if evaluation != expected:
 			return false
 
@@ -297,7 +319,7 @@ func check_requirements_met_for_entry(requirements: Array) -> bool:
 
 ## Evaluates a flag string into a boolean
 ##
-## @param flag The flag string
+## @param flag The flag string to evaluate
 func _evaluate_flag(flag: String) -> bool:
 	# Check if flag is an app name, if so check if app is downloaded
 	if flag in GameData.apps_name.keys():
@@ -307,33 +329,28 @@ func _evaluate_flag(flag: String) -> bool:
 #endregion REQUIREMENTS
 
 #region ANSWERS
+## Handles an answer being committed
+##
+## @param thread_id The thread ID
+## @param choice The choice dictionary
 func _on_answer_committed(
 	thread_id: String,
 	choice: Dictionary,
-	origin_branch: String,
-	origin_index: int,
-	priority: int
 ) -> void:
-	# Preferred path: npc_reply -> goto_branch after delay
+	var delay_ticks:int
+
 	if choice.has("npc_reply"):
 		var reply: Dictionary = choice.get("npc_reply", {})
-		var delay_ticks := int(reply.get("delay_ticks", 0))
+		delay_ticks = int(reply.get("delay_ticks", 2)) # Default delay
 
+		# Send NPC reply message if any
 		if reply.has("goto_branch"):
-			_enqueue_branch_start(thread_id, str(reply["goto_branch"]), priority, delay_ticks)
-			return
-
-	# Fallback: continue current branch after the choice node
-	var thread: Dictionary = threads_by_id.get(thread_id, {})
-	var branches: Dictionary = thread.get("branches", {})
-	var origin_nodes: Array = branches.get(origin_branch, [])
-	var next_index := origin_index + 1
-
-	if next_index >= 0 and next_index < origin_nodes.size():
-		_enqueue_queue_entry({
-			"thread_id": thread_id,
-			"branch": origin_branch,
-			"index": next_index,
-			"priority": priority,
-		}, 0)
+			var goto_branch := str(reply.get("goto_branch", ""))
+			if goto_branch != "":
+				_enqueue_branch_start(
+					thread_id,
+					goto_branch,
+					int(GameData.hours_minutes) + delay_ticks
+				)
+				return
 #endregion ANSWERS

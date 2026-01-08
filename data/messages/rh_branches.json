@@ -3,7 +3,8 @@
   "entry_points": [
     {
       "day": 0,
-      "branch": "d0_start"
+      "branch": "d0_start",
+      "relative_due_time": 45
     }
   ],
   "branches": {
