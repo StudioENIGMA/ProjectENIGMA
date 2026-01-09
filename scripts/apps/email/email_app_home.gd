@@ -4,7 +4,7 @@ extends Control
 signal subscreen_open_requested(subscreen_name:String, email_data:Dictionary)
 #endregion SIGNALS
 
-const EMAIL_INSTANCE_SCENE = preload("res://scenes/apps/email/email_instance.tscn")
+const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
 
 #region CHILDREN NODES REFERENCES
 @export var list_of_emails: VBoxContainer
@@ -30,15 +30,15 @@ func _ready() -> void:
 		}
 	}
 
-	var email_instance: Control = EMAIL_INSTANCE_SCENE.instantiate()
-	email_instance.setup(test_mail_1)
-	email_instance.subscreen_open_requested.connect(_on_open_email)
-	list_of_emails.add_child(email_instance)
+	var email_row: Control = EMAIL_ROW_SCENE.instantiate()
+	email_row.setup(test_mail_1)
+	email_row.subscreen_open_requested.connect(_on_open_email)
+	list_of_emails.add_child(email_row)
 
-	email_instance = EMAIL_INSTANCE_SCENE.instantiate()
-	email_instance.setup(test_mail_2)
-	email_instance.subscreen_open_requested.connect(_on_open_email)
-	list_of_emails.add_child(email_instance)
+	email_row = EMAIL_ROW_SCENE.instantiate()
+	email_row.setup(test_mail_2)
+	email_row.subscreen_open_requested.connect(_on_open_email)
+	list_of_emails.add_child(email_row)
 #endregion INITIALIZATION
 
 #region SIGNALS HANDLERS

@@ -1,8 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy23ci0xfts4j"]
+[gd_scene load_steps=3 format=3 uid="uid://dy23ci0xfts4j"]
 
 [ext_resource type="Script" uid="uid://cshfukqkunwsp" path="res://scripts/apps/email/email_app_viewer.gd" id="1_xxlyd"]
+[ext_resource type="PackedScene" uid="uid://cdtap844fc2jo" path="res://scenes/apps/email/email_message_instance.tscn" id="2_654my"]
 
-[node name="EmailAppViewer" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="EmailAppViewer" type="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 2165)
 script = ExtResource("1_xxlyd")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubjectMarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+
+[node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/VBoxContainer/SubjectMarginContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 64
+text = "Reunião Emergencial"
+vertical_alignment = 1
+
+[node name="EmailMessageInstance" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_654my")]
+layout_mode = 2
