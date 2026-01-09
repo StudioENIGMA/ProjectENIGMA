@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy23ci0xfts4j"]
+
+[ext_resource type="Script" uid="uid://cshfukqkunwsp" path="res://scripts/apps/email/email_app_viewer.gd" id="1_xxlyd"]
+
+[node name="EmailAppViewer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xxlyd")

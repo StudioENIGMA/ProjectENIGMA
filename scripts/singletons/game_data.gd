@@ -14,6 +14,7 @@ enum App {
 	BROWSER,
 	# Email app
 	EMAIL,
+	EMAILREAD,
 }
 
 enum Sender {
@@ -34,8 +35,14 @@ var apps_name: Dictionary = {
 	# Store apps
 	"Store": App.STORE,
 	"FakeStore": App.FAKESTORE,
+	# Browser app
+	"Browser": App.BROWSER,
+	# Email app
+	"Email": App.EMAIL,
+	"EmailRead": App.EMAILREAD,
 }
 
+# WARNING: Only Main Apps should be here, not subscreens
 var apps_data = {
 	App.MESSAGESHOME: {
 		"name": "Mensagens",
@@ -45,20 +52,20 @@ var apps_data = {
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
-	App.EMAIL: {
-		"name": "Email",
-		"chinese_name": "電子郵件",
-		"description": "Receba e envie emails aqui!",
-		"description_in_chinese": "Chinese",
-		"icon_path": "res://assets/icons/email.png",
-	},
-
 	App.BROWSER: {
 		"name": "Navegador",
 		"chinese_name": "導航和搜尋",
 		"description": "Acesse seus sites favoritos!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/browser.png",
+	},
+
+	App.EMAIL: {
+		"name": "Email",
+		"chinese_name": "電子郵件",
+		"description": "Receba e envie emails aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/email.png",
 	},
 }
 
