@@ -22,7 +22,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 64
 
 [node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/VBoxContainer/SubjectMarginContainer"]
-custom_minimum_size = Vector2(0, 240)
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
