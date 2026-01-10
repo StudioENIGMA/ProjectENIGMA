@@ -85,6 +85,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(256, 120)
 layout_mode = 2
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5uj2r")
 theme_override_font_sizes/font_size = 32
