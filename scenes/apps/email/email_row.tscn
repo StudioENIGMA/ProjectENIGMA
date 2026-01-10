@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ulxoabk2xr6m"]
 
-[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_6w8lk"]
-[ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_instance.gd" id="1_hpj05"]
-[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="1_ucbxv"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_17hbx"]
-[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_spvvf"]
+[ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_row.gd" id="1_tb307"]
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_tb307"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_duhoi"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="4_vmk7o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
 corner_radius_top_left = 25
@@ -15,10 +15,10 @@ corner_radius_bottom_left = 25
 [sub_resource type="Theme" id="Theme_hpj05"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
-[node name="EmailInstance" type="MarginContainer" node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
+[node name="EmailRow" type="MarginContainer" node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
 size_flags_horizontal = 3
 mouse_filter = 0
-script = ExtResource("1_hpj05")
+script = ExtResource("1_tb307")
 email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
 email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
 email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")
@@ -37,7 +37,7 @@ layout_mode = 2
 
 [node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2
-texture = ExtResource("1_6w8lk")
+texture = ExtResource("1_vh7fo")
 expand_mode = 2
 stretch_mode = 3
 
@@ -49,14 +49,14 @@ alignment = 1
 [node name="SenderNameLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_17hbx")
+theme_override_fonts/font = ExtResource("2_tb307")
 theme_override_font_sizes/font_size = 50
 text = "Chefinho"
 
 [node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_spvvf")
+theme_override_fonts/font = ExtResource("3_duhoi")
 theme_override_font_sizes/font_size = 40
 text = "Reunião importante"
 text_overrun_behavior = 3
@@ -64,7 +64,7 @@ text_overrun_behavior = 3
 [node name="EmailContentLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_spvvf")
+theme_override_fonts/font = ExtResource("3_duhoi")
 theme_override_font_sizes/font_size = 40
 text = "Hoje, às 8h, precisaremos fazer uma reuni"
 text_overrun_behavior = 3
@@ -72,7 +72,7 @@ text_overrun_behavior = 3
 [node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_spvvf")
+theme_override_fonts/font = ExtResource("3_duhoi")
 theme_override_font_sizes/font_size = 40
 text = "04/01/2026"
 horizontal_alignment = 1
@@ -106,7 +106,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_ucbxv")
+texture = ExtResource("4_vmk7o")
 expand_mode = 1
 
 [node name="MarginCenter" type="MarginContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer"]
@@ -117,7 +117,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_spvvf")
+theme_override_fonts/font = ExtResource("3_duhoi")
 theme_override_font_sizes/font_size = 40
 text = "ItinerárioReunião"
 text_overrun_behavior = 3

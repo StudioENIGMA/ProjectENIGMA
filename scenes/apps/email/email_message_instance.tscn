@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdtap844fc2jo"]
+
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_23rg2"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_23rg2"]
+color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+thickness = 2
+
+[node name="EmailMessageInstance" type="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 0)
+offset_right = 1080.0
+offset_bottom = 1281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SenderBarContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="SenderIconContainer" type="MarginContainer" parent="SenderBarContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TextureRect" type="TextureRect" parent="SenderBarContainer/SenderIconContainer"]
+layout_mode = 2
+texture = ExtResource("1_23rg2")
+expand_mode = 3
+
+[node name="SenderLabel" type="Label" parent="SenderBarContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 48
+text = "Chefinho"
+
+[node name="HourReceivedContainer" type="MarginContainer" parent="SenderBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 32
+
+[node name="HourReceivedLabel" type="Label" parent="SenderBarContainer/HourReceivedContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.32915837, 0.3291584, 0.3291583, 1)
+theme_override_font_sizes/font_size = 38
+text = "sáb, 20 de dez. de 2025, 18:35"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ContentContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="ContentLabel" type="Label" parent="ContentContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.24115604, 0.24115604, 0.24115601, 1)
+theme_override_font_sizes/font_size = 44
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="EndSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_23rg2")
