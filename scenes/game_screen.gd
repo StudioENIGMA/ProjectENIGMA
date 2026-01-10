@@ -16,6 +16,7 @@ func _ready() -> void:
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
   var npc_messages_director = story_director.messages_director.npc_messages_director
+  var emails_director = story_director.emails_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -35,6 +36,8 @@ func _ready() -> void:
   answers_director.request_answer_option.connect(
 	messages_app_chat.on_request_answer_option
   )
+  # Story Director new email to UI
+  emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
 
   # UI
   # UI message answered to Story Director
