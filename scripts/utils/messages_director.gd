@@ -1,4 +1,3 @@
-# res://scripts/story/messages/messages_director.gd
 extends Node
 
 #region CHILDREN NODES REFERENCES
@@ -18,11 +17,7 @@ var enqueue_seq: int = 0
 #region INITIALIZATION
 ## Connects signals and loads today's messages
 func _ready() -> void:
-	if answers_director != null and answers_director.has_signal("answer_committed"):
-		answers_director.answer_committed.connect(_on_answer_committed)
-	else:
-		push_warning("MessagesDirector: answers_director missing or has no signal 'answer_committed'.")
-
+	answers_director.answer_committed.connect(_on_answer_committed)
 	reload_and_queue_today()
 
 ## Reloads all message threads and queues today's entry points
