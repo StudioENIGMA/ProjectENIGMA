@@ -1,27 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy23ci0xfts4j"]
+[gd_scene load_steps=2 format=3 uid="uid://dy23ci0xfts4j"]
 
 [ext_resource type="Script" uid="uid://cshfukqkunwsp" path="res://scripts/apps/email/email_app_viewer.gd" id="1_xxlyd"]
-[ext_resource type="PackedScene" uid="uid://cdtap844fc2jo" path="res://scenes/apps/email/email_message_instance.tscn" id="2_654my"]
 
-[node name="EmailAppViewer" type="VBoxContainer"]
+[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "email_messages_container")]
 custom_minimum_size = Vector2(1080, 2165)
 script = ExtResource("1_xxlyd")
+subject_label = NodePath("ScrollContainer/FullEmailContainer/SubjectMarginContainer/EmailSubjectLabel")
+email_messages_container = NodePath("ScrollContainer/FullEmailContainer/EmailMessagesContainer")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="FullEmailContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SubjectMarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="SubjectMarginContainer" type="MarginContainer" parent="ScrollContainer/FullEmailContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 64
 
-[node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/VBoxContainer/SubjectMarginContainer"]
+[node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/FullEmailContainer/SubjectMarginContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 1
@@ -30,5 +31,5 @@ theme_override_font_sizes/font_size = 64
 text = "Reunião Emergencial"
 vertical_alignment = 1
 
-[node name="EmailMessageInstance" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_654my")]
+[node name="EmailMessagesContainer" type="VBoxContainer" parent="ScrollContainer/FullEmailContainer"]
 layout_mode = 2
