@@ -1,17 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy23ci0xfts4j"]
+[gd_scene load_steps=3 format=3 uid="uid://dy23ci0xfts4j"]
 
 [ext_resource type="Script" uid="uid://cshfukqkunwsp" path="res://scripts/apps/email/email_app_viewer.gd" id="1_xxlyd"]
+[ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_654my"]
 
-[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "email_messages_container")]
+[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "email_messages_container", "scroll_container")]
 custom_minimum_size = Vector2(1080, 2165)
 script = ExtResource("1_xxlyd")
 subject_label = NodePath("ScrollContainer/FullEmailContainer/SubjectMarginContainer/EmailSubjectLabel")
 email_messages_container = NodePath("ScrollContainer/FullEmailContainer/EmailMessagesContainer")
+scroll_container = NodePath("ScrollContainer")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_654my")
 
 [node name="FullEmailContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
