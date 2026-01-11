@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=26 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
-[ext_resource type="Script" uid="uid://dggelqsckm7vr" path="res://scripts/utils/npc_messages_director.gd" id="23_8imdr"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 
@@ -288,11 +287,8 @@ emails_director = NodePath("EmailsDirector")
 
 [node name="MessagesDirector" type="Node2D" parent="StoryDirector" node_paths=PackedStringArray("npc_messages_director", "answers_director")]
 script = ExtResource("22_f2213")
-npc_messages_director = NodePath("NPCMessagesDirector")
+npc_messages_director = NodePath("")
 answers_director = NodePath("AnswersDirector")
-
-[node name="NPCMessagesDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
-script = ExtResource("23_8imdr")
 
 [node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
 script = ExtResource("24_8e4ax")

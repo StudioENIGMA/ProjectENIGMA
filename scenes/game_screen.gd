@@ -15,7 +15,6 @@ extends Node2D
 func _ready() -> void:
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
-  var npc_messages_director = story_director.messages_director.npc_messages_director
   var emails_director = story_director.emails_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
@@ -30,8 +29,8 @@ func _ready() -> void:
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
-  npc_messages_director.npc_message_created.connect(messages_app_home.on_create_message)
-  npc_messages_director.npc_message_created.connect(messages_app_chat.on_create_message)
+  story_director.messages_director.npc_message_created.connect(messages_app_home.on_create_message)
+  story_director.messages_director.npc_message_created.connect(messages_app_chat.on_create_message)
   # Story Director request answer option to UI
   answers_director.request_answer_option.connect(
 	messages_app_chat.on_request_answer_option

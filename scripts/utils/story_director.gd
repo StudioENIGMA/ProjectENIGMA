@@ -9,18 +9,19 @@ extends Node2D
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
-# Unified queue entries:
+# Unified queue for all apps that deliver story content over time
 # {"channel":String, "due_at":int, "seq":int, "requires":Array, "payload":Dictionary}
 var story_queue: Array[Dictionary] = []
 var story_enqueue_seq: int = 0
 
-# channel -> controller node
-var channel_controller_by_name: Dictionary = {}
+# Maps channel name to director node
+var channel_director_by_name: Dictionary = {}
 #endregion QUEUE STATE
 
 #region INITIALIZATION
+## Creates channel_director_by_name and connects to their schedule_entry_requested signals.
 func _ready() -> void:
-	channel_controller_by_name = {
+	channel_director_by_name = {
 		"messages": messages_director,
 		"emails": emails_director,
 	}
@@ -32,24 +33,30 @@ func _ready() -> void:
 #endregion INITIALIZATION
 
 #region SETUP FLOW
+## Reloads all JSON data and sets up today's story entries.
 func reload_and_setup_today() -> void:
+	# Clear existing queue
 	_clear_story_queue()
 
+	# Load JSON roots from data directories
 	var message_roots := _load_json_roots_from_directory(messages_dir_path)
 	var email_roots := _load_json_roots_from_directory(emails_dir_path)
 
-	# Call down: StoryDirector provides data; controllers interpret and request schedules upward
+	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
 	emails_director.setup_from_json_roots(email_roots)
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
+## Handles schedule_entry_requested from messages director
 func _on_messages_schedule_entry_requested(schedule_entry: Dictionary) -> void:
 	_enqueue_story_entry("messages", schedule_entry)
 
+## Handles schedule_entry_requested from email director
 func _on_emails_schedule_entry_requested(schedule_entry: Dictionary) -> void:
 	_enqueue_story_entry("emails", schedule_entry)
 
+## Enqueues a story entry into the unified story queue
 func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> void:
 	var due_at := int(schedule_entry["due_at"])
 	var requires: Array = schedule_entry.get("requires", [])
@@ -67,63 +74,76 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> v
 #endregion SIGNAL HANDLERS
 
 #region CLOCK
+## Called by Clock every tick to process due story entries
 func on_clock_tick(current_minutes: int) -> void:
+	# If no entries, nothing to do
 	if story_queue.is_empty():
 		return
 
+	# Check the head of the queue (ordered, so earliest due_at first)
 	var head := story_queue[0]
 	if current_minutes < int(head["due_at"]):
-		return
+		return # If the head is not due, nothing to do
+
+	# If due, check all entries in order until we find one that can be delivered
+	# or we run out of due entries.
+	# The reason to do this is that some entries may be blocked by unmet requirements
+	# and we want to skip them for now, checking only the head would cause a head-of-line blocking.
 
 	# Deliver at most one per tick
 	var entry_index := 0
 	while entry_index < story_queue.size():
 		var story_entry := story_queue[entry_index]
 
+		# If we reached an entry not yet due, stop checking
 		if current_minutes < int(story_entry["due_at"]):
 			return
 
+		# If due, check requirements
 		if not _requirements_met(story_entry.get("requires", [])):
-			# Requeue blocked entry
+			# Requeue blocked entry for next tick
 			story_entry["due_at"] = current_minutes + 1
 			story_queue.remove_at(entry_index)
 			_insert_story_entry_sorted(story_entry)
 			return
 
-		# Ready: remove + call down into the right controller
+		# If ready remove from queue + call down into the right controller
 		story_queue.remove_at(entry_index)
-
 		var channel_name := str(story_entry["channel"])
-		var controller: Node = channel_controller_by_name[channel_name]
+		var controller: Node = channel_director_by_name[channel_name]
 		controller.deliver_scheduled_entry(story_entry["payload"], current_minutes)
-		return
+		return # Only one delivery per tick
 #endregion CLOCK
 
 #region QUEUE OPS
+## Clears the story queue and resets sequence counter
 func _clear_story_queue() -> void:
 	story_queue.clear()
 	story_enqueue_seq = 0
 
+## Inserts a story entry into the story queue maintaining order by due_at and seq
+## This allows FIFO ordering for entries with the same due_at
 func _insert_story_entry_sorted(story_entry: Dictionary) -> void:
 	var due_at := int(story_entry["due_at"])
 	var seq := int(story_entry["seq"])
 
-	for i in range(story_queue.size()):
-		var existing := story_queue[i]
+	for index in range(story_queue.size()):
+		var existing := story_queue[index]
 		var existing_due := int(existing["due_at"])
 
 		if existing_due > due_at:
-			story_queue.insert(i, story_entry)
+			story_queue.insert(index, story_entry)
 			return
 
 		if existing_due == due_at and int(existing["seq"]) > seq:
-			story_queue.insert(i, story_entry)
+			story_queue.insert(index, story_entry)
 			return
 
 	story_queue.append(story_entry)
 #endregion QUEUE OPS
 
 #region JSON LOADING
+## Loads all JSON roots from a given directory path
 func _load_json_roots_from_directory(directory_path: String) -> Array:
 	var file_paths := _list_json_file_paths(directory_path)
 	file_paths.sort()
@@ -133,6 +153,7 @@ func _load_json_roots_from_directory(directory_path: String) -> Array:
 		roots.append(_read_json_root(file_path))
 	return roots
 
+## Lists all JSON file paths in a given directory
 func _list_json_file_paths(directory_path: String) -> Array[String]:
 	var directory := DirAccess.open(directory_path)
 	var file_paths: Array[String] = []
@@ -153,6 +174,7 @@ func _list_json_file_paths(directory_path: String) -> Array[String]:
 
 	return file_paths
 
+## Reads and parses a JSON file, returning the root Variant
 func _read_json_root(file_path: String) -> Variant:
 	var file := FileAccess.open(file_path, FileAccess.READ)
 	var parser := JSON.new()
@@ -162,6 +184,7 @@ func _read_json_root(file_path: String) -> Variant:
 #endregion JSON LOADING
 
 #region REQUIREMENTS
+## Evaluates if all requirements in the given array are met
 func _requirements_met(requirements: Array) -> bool:
 	if requirements.is_empty():
 		return true
@@ -174,6 +197,7 @@ func _requirements_met(requirements: Array) -> bool:
 
 	return true
 
+## Evaluates a single requirement flag
 func _evaluate_flag(flag: String) -> bool:
 	if flag in GameData.apps_name.keys():
 		return GameData.downloaded_apps.has(GameData.apps_name[flag])

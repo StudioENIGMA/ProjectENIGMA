@@ -1,4 +1,3 @@
-# res://scripts/story/emails/emails_controller.gd
 extends Node
 
 #region SIGNALS
@@ -7,11 +6,11 @@ signal email_received(email_data: Dictionary)
 #endregion SIGNALS
 
 #region STATE
-# subject -> Array[Dictionary]
 var emails_by_subject: Dictionary = {}
 #endregion STATE
 
 #region SETUP
+## Sets up emails from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
 	emails_by_subject.clear()
 
@@ -22,8 +21,9 @@ func setup_from_json_roots(json_roots: Array) -> void:
 #endregion SETUP
 
 #region REGISTER EMAILS
+## Registers emails from a JSON root Variant
 func _register_emails_from_root(root: Variant) -> void:
-	# Your current email files are arrays: [ { ... }, { ... } ]
+	# Our email files are array[Dictionary]: [ { ... }, { ... } ]
 	assert(typeof(root) == TYPE_ARRAY)
 
 	for email_dict in root:
@@ -31,12 +31,16 @@ func _register_emails_from_root(root: Variant) -> void:
 			continue
 		_register_one_email(email_dict)
 
+## Registers a single email given its dictionary
 func _register_one_email(email_dict: Dictionary) -> void:
 	var subject := str(email_dict["subject"]).strip_edges()
 	assert(subject != "")
 
+	# If an email with this subject already exists, we can only append to its thread
+	# This allow us to consider one email as head of a thread, and subsequent emails as replies
 	var allow_append := bool(email_dict.get("append", false))
 
+	## If no append flag, it will fail fast on duplicates
 	if emails_by_subject.has(subject):
 		assert(allow_append)
 		var thread: Array = emails_by_subject[subject]
@@ -48,6 +52,7 @@ func _register_one_email(email_dict: Dictionary) -> void:
 #endregion REGISTER EMAILS
 
 #region SCHEDULING TODAY
+## Queues today's emails for all registered email threads
 func _queue_today_emails() -> void:
 	for subject in emails_by_subject.keys():
 		var thread: Array = emails_by_subject[subject]
@@ -73,6 +78,7 @@ func _queue_today_emails() -> void:
 #endregion SCHEDULING TODAY
 
 #region DELIVERY (CALLED DOWN BY STORYDIRECTOR)
+## Delivers a scheduled email entry
 func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) -> void:
 	var subject := str(schedule_entry["subject"])
 	var thread_index := int(schedule_entry["thread_index"])
@@ -96,6 +102,5 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 		"relative_due_time": float(email_dict.get("relative_due_time", 0.0)),
 	}
 
-	# Signal outward; UI sibling (EmailAppHome) listens and instantiates UI.
 	email_received.emit(delivered_email)
 #endregion DELIVERY
