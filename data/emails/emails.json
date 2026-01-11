@@ -7,5 +7,12 @@
     "attachments": [],
     "requires": [],
     "relative_due_time": 0
+  },
+  {
+    "day": 0,
+    "sender": "RH",
+    "subject": "Assinatura de contrato de Estágio",
+    "content": "Boa tarde, pedimos que, para iniciar seu estágio, dê sequência no processo de assinatura do contrato de estágio que está anexado a esta mensagem.\n\nPor favor, revise o documento com atenção e assine o tão logo possível para que possamos dar continuidade ao seu processo de integração na empresa.\n\nAtenciosamente,\nEquipe de RH",
+    "relative_due_time": 10
   }
 ]
