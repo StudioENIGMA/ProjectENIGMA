@@ -35,9 +35,4 @@ theme_override_colors/font_color = Color(0.374139, 0.374139, 0.374139, 1)
 theme_override_font_sizes/font_size = 30
 text = "BCC  •  3 horas atrás"
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
