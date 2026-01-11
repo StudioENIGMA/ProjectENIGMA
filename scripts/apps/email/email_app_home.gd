@@ -51,7 +51,6 @@ func _update_list_of_emails(updated_email_index) -> void:
 
 	if updated_email_index == -1:
 		email_row = EMAIL_ROW_SCENE.instantiate()
-		print(emails_data[0])
 		email_row.setup(emails_data[0])
 		email_row.subscreen_open_requested.connect(_on_open_email)
 		list_of_emails.add_child(email_row)
