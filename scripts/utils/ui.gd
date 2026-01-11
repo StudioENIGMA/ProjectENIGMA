@@ -25,6 +25,7 @@ func _connect_siblings_to_children() -> void:
   story_director.npc_message_created.connect(base_app.messages_app_home.on_create_message)
   story_director.npc_message_created.connect(base_app.messages_app_chat.on_create_message)
   story_director.request_answer_option.connect(base_app.messages_app_chat.on_request_answer_option)
+  story_director.news_ready.connect(base_app.browser_app._on_news_received)
 
   # End day event
   event_handler.day_ended.connect(day_over_ui.show_day_over)
@@ -38,3 +39,5 @@ func _connect_children_to_siblings() -> void:
   )
 
   base_app.messages_app_chat.message_answered.connect(message_answered.emit)
+  base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
+
