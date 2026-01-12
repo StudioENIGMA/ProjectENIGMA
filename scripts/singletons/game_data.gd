@@ -94,6 +94,7 @@ var data = {
 	"reputation_points": 0,
 	"random_send_amplitude_max":480,
 	"max_game_time":600,
+	"bank_balance" : 200,
 	"virus_info": {
 		"has_virus": false,
 		"viruses_quantity":0,
