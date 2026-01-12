@@ -25,6 +25,15 @@ enum Sender {
 	NPC,
 }
 
+enum PaymentType {
+	PIX,
+	TICKET,
+}
+
+class PaymentCode:
+	var code: String
+	var type: PaymentType
+
 var hours_minutes:int = 600 # Start at 18:00
 
 var apps_name: Dictionary = {
