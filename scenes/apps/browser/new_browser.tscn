@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsvwmvxegd4s4"]
+
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_ty0vx"]
+[ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="2_53ija"]
+[ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/apps/browser/browser_news.tscn" id="3_x0uf5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ww8iv"]
+font = ExtResource("1_ty0vx")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_53ija"]
+font = ExtResource("1_ty0vx")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[node name="NewBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 1
+offset_right = 1080.0
+offset_bottom = 2160.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 240)
+layout_mode = 2
+
+[node name="BrowserName" type="Label" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Navegador"
+label_settings = SubResource("LabelSettings_ww8iv")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 1160)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="quick_acess_sites_icons" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+layout_mode = 2
+
+[node name="quick_acess_sites_icons5" parent="VBoxContainer/GridContainer" instance=ExtResource("2_53ija")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Notícias"
+label_settings = SubResource("LabelSettings_53ija")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="browser_news" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_x0uf5")]
+layout_mode = 2
+
+[node name="browser_news2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_x0uf5")]
+layout_mode = 2
