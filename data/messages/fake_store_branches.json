@@ -1,5 +1,6 @@
 {
   "thread_id": "fake_store",
+  "sender": "numero_desconhecido",
   "entry_points": [
     {
       "day": 0,
@@ -11,17 +12,14 @@
     "d0_start": [
       {
         "id": "fs_0_0",
-        "sender": "numero_desconhecido",
         "text": "Bom dia, estagiário. Eu tenho uma proposta que você vai achar interessante."
       },
       {
         "id": "fs_0_1",
-        "sender": "numero_desconhecido",
         "text": "A loja que seu chefe te passou é toda bloqueada, e eles controlam tudo que você faz nela."
       },
       {
         "id": "fs_0_2",
-        "sender": "numero_desconhecido",
         "text": "Essa é livre, pra instalar é só clicar. Divirta-se.",
         "annex":
         {
@@ -48,7 +46,6 @@
     "from_fs_0_3": [
       {
         "id": "fs_0_3",
-        "sender": "numero_desconhecido",
         "text": "Você não vai se arrepender."
       }
     ]

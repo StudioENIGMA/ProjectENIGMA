@@ -29,14 +29,12 @@ var next_answer_id: int = 1
 ## Presents choice options for a message node. Creates answer_ids and emits request_answer_option.
 func present_choices(
 	thread_id: String,
-	node: Dictionary,
+	npc_name: String,
 	choices: Array,
 	current_minutes: int
 ) -> void:
 	if choices.is_empty():
 		return
-
-	var npc_name := str(node.get("sender", thread_id))
 
 	for choice in choices:
 		if typeof(choice) != TYPE_DICTIONARY:

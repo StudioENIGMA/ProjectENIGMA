@@ -1,5 +1,6 @@
 {
   "thread_id": "finances",
+  "sender": "Financeiro",
   "entry_points": [
     {
       "day": 0,
@@ -11,7 +12,6 @@
     "d0_start": [
       {
         "id": "f_0_0",
-        "sender": "Financeiro",
         "text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá me ajudar em algumas tarefas.",
         "choices": [
           {

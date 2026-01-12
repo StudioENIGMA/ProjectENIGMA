@@ -66,8 +66,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_duhoi")
 theme_override_font_sizes/font_size = 40
-text = "Hoje, às 8h, precisaremos fazer uma reuni"
+text = "Hoje, às 8h, precisaremos fazer uma reunião"
 text_overrun_behavior = 3
+max_lines_visible = 1
 
 [node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer"]
 layout_mode = 2

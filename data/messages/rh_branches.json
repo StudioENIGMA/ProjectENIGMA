@@ -1,5 +1,6 @@
 {
   "thread_id": "rh",
+  "sender": "RH",
   "entry_points": [
     {
       "day": 0,
@@ -11,7 +12,6 @@
     "d0_start": [
       {
         "id": "rh_0_0",
-        "sender": "RH",
         "text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
         "effects": [
           {
@@ -21,7 +21,6 @@
       },
       {
         "id": "rh_0_1",
-        "sender": "RH",
         "text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias eu vou te passando mais tarefas da minha área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
         "choices": [
           {

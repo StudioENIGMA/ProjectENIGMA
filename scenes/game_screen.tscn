@@ -23,8 +23,8 @@
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
-[ext_resource type="Script" uid="uid://dggelqsckm7vr" path="res://scripts/utils/npc_messages_director.gd" id="23_8imdr"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
+[ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 
 [node name="GameScreen" type="Node2D" node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 script = ExtResource("1_8imdr")
@@ -280,19 +280,20 @@ autostart = true
 [node name="ClockTimer" type="Timer" parent="EventHandler"]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." node_paths=PackedStringArray("messages_director")]
+[node name="StoryDirector" type="Node2D" parent="." node_paths=PackedStringArray("messages_director", "emails_director")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
+emails_director = NodePath("EmailsDirector")
 
 [node name="MessagesDirector" type="Node2D" parent="StoryDirector" node_paths=PackedStringArray("npc_messages_director", "answers_director")]
 script = ExtResource("22_f2213")
-npc_messages_director = NodePath("NPCMessagesDirector")
+npc_messages_director = NodePath("")
 answers_director = NodePath("AnswersDirector")
-
-[node name="NPCMessagesDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
-script = ExtResource("23_8imdr")
 
 [node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
 script = ExtResource("24_8e4ax")
+
+[node name="EmailsDirector" type="Node2D" parent="StoryDirector"]
+script = ExtResource("26_8e4ax")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
