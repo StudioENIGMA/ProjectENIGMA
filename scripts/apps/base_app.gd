@@ -22,6 +22,9 @@ var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tsc
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
+var bank_app = preload("res://scenes/apps/bank/bank_app.tscn").instantiate()
+var bank_payment_code = preload("res://scenes/apps/bank/payment_code.tscn").instantiate()
+var bank_payment_info = preload("res://scenes/apps/bank/payment_information.tscn").instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -92,6 +95,20 @@ func _ready() -> void:
 	# Email app home (Email app)
 	email_app_home.visible = false
 	app_specific_screen.add_child(email_app_home)
+
+	# Bank app (Bank app)
+	bank_app.visible = false
+	app_specific_screen.add_child(bank_app)
+	bank_app.subscreen_open_requested.connect(_on_app_opened)
+
+	# Payment Code (Bank app)
+	bank_payment_code.visible = false
+	app_specific_screen.add_child(bank_payment_code)
+	bank_payment_code.subscreen_open_requested.connect(_on_app_opened)
+
+	# Payment Information (Bank app)
+	bank_payment_info.visible = false
+	app_specific_screen.add_child(bank_payment_info)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -236,7 +253,11 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
 		# Email app
-		GameData.App.EMAIL: email_app_home
+		GameData.App.EMAIL: email_app_home,
+		# Bank app
+		GameData.App.BANK: bank_app,
+		GameData.App.PAYMENTCODE: bank_payment_code,
+		GameData.App.PAYMENTINFORMATION: bank_payment_info,
 	}
 	return app_map.get(app_enum, null)
 
@@ -255,6 +276,10 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
 		# Email app
-		GameData.App.EMAIL: GameData.App.EMAIL
+		GameData.App.EMAIL: GameData.App.EMAIL,
+		# Bank app
+		GameData.App.BANK: GameData.App.BANK,
+		GameData.App.PAYMENTCODE: GameData.App.BANK,
+		GameData.App.PAYMENTINFORMATION: GameData.App.BANK,
 	}
 	return main_app_map.get(subscreen_enum, null)

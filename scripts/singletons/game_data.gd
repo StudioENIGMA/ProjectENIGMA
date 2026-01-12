@@ -14,6 +14,10 @@ enum App {
 	BROWSER,
 	# Email app
 	EMAIL,
+	# Bank app
+	BANK,
+	PAYMENTCODE,
+	PAYMENTINFORMATION,
 }
 
 enum Sender {
@@ -33,6 +37,10 @@ var apps_name: Dictionary = {
 	# Store apps
 	"Store": App.STORE,
 	"FakeStore": App.FAKESTORE,
+	# Bank app
+	"Bank" : App.BANK,
+	"PaymentCode" : App.PAYMENTCODE,
+	"PaymentInformation" : App.PAYMENTINFORMATION,
 }
 
 var apps_data = {
