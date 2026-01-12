@@ -7,6 +7,7 @@ signal app_opened(app_name:String, optional_data:Dictionary)
 @export var email_button: Button
 @export var shop_button: Button
 @export var fake_shop_button: Button
+@export var bank_button: Button
 
 @export var base_app: Control
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	email_button.pressed.connect(_on_email_button_pressed)
 	shop_button.pressed.connect(_on_shop_button_pressed)
 	fake_shop_button.pressed.connect(_on_fake_shop_button_pressed)
+	bank_button.pressed.connect(_on_bank_button_pressed)
 
 func _on_messages_button_pressed() -> void:
 	emit_signal("app_opened", GameData.App.MESSAGESHOME, null)
@@ -47,6 +49,10 @@ func _on_fake_shop_button_pressed() -> void:
 		"available_apps": GameData.apps_in_store,
 		"downloaded_apps": GameData.downloaded_apps
 	})
+	touch_sound_player.play_touch_sound()
+
+func _on_bank_button_pressed() -> void:
+	emit_signal("app_opened", GameData.App.BANK, null)
 	touch_sound_player.play_touch_sound()
 
 ## Handles the app uninstalled event from the store app
