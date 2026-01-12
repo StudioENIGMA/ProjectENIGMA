@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=23 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8imdr"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
+[ext_resource type="Texture2D" uid="uid://dpjbuhogesd8q" path="res://assets/icons/utai.png" id="13_87fqc"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/sounds/play_touch_sound.gd" id="14_yc1wb"]
@@ -40,7 +41,7 @@ base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "base_app", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "bank_button", "base_app", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -51,6 +52,7 @@ settings_button = NodePath("AppsUI/SettingsButton")
 email_button = NodePath("AppsUI/EmailButton")
 shop_button = NodePath("AppsUI/ShopButton")
 fake_shop_button = NodePath("AppsUI/FakeShopButton")
+bank_button = NodePath("AppsUI/BankButton")
 base_app = NodePath("../BaseApp")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -167,6 +169,18 @@ theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Email"
 icon = ExtResource("12_7em7s")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="BankButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(26, 358)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Banco"
+icon = ExtResource("13_87fqc")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
