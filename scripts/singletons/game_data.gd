@@ -15,6 +15,8 @@ enum App {
 	# Email app
 	EMAIL,
 	EMAILREAD,
+	# Authenticator app
+	AUTHENTICATOR,
 }
 
 enum Sender {
@@ -40,6 +42,8 @@ var apps_name: Dictionary = {
 	# Email app
 	"Email": App.EMAIL,
 	"EmailRead": App.EMAILREAD,
+	# Authenticator app
+	"Authenticator": App.AUTHENTICATOR,
 }
 
 # WARNING: Only Main Apps should be here, not subscreens

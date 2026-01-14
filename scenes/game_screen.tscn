@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://t733xktji2q8"]
+[gd_scene load_steps=27 format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
+[ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="14_8e4ax"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/sounds/play_touch_sound.gd" id="14_yc1wb"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
@@ -47,7 +48,7 @@ day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 desktop_ui = NodePath("DesktopUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "authenticator_button", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -58,6 +59,7 @@ settings_button = NodePath("AppsUI/SettingsButton")
 email_button = NodePath("AppsUI/EmailButton")
 shop_button = NodePath("AppsUI/ShopButton")
 fake_shop_button = NodePath("AppsUI/FakeShopButton")
+authenticator_button = NodePath("AppsUI/AuthenticatorButton")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" groups=["clock_display"]]
@@ -177,6 +179,18 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="AuthenticatorButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(264, 358)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Autenticador"
+icon = ExtResource("14_8e4ax")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/DesktopUI"]
 position = Vector2(75.5, 650)
 stream = ExtResource("13_51grn")
@@ -285,9 +299,8 @@ script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 
-[node name="MessagesDirector" type="Node2D" parent="StoryDirector" node_paths=PackedStringArray("npc_messages_director", "answers_director")]
+[node name="MessagesDirector" type="Node2D" parent="StoryDirector" node_paths=PackedStringArray("answers_director")]
 script = ExtResource("22_f2213")
-npc_messages_director = NodePath("")
 answers_director = NodePath("AnswersDirector")
 
 [node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
