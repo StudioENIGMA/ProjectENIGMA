@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdtap844fc2jo"]
+[gd_scene load_steps=4 format=3 uid="uid://cdtap844fc2jo"]
 
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_23rg2"]
+[ext_resource type="Script" uid="uid://4k8bswival24" path="res://scripts/apps/email/email_message_instance.gd" id="1_tskvh"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_23rg2"]
 color = Color(0.41981313, 0.41981313, 0.4198131, 1)
 thickness = 2
 
-[node name="EmailMessageInstance" type="VBoxContainer"]
+[node name="EmailMessageInstance" type="VBoxContainer" node_paths=PackedStringArray("sender_icon", "sender_label", "hour_received_label", "content_label")]
 custom_minimum_size = Vector2(1080, 0)
 offset_right = 1080.0
 offset_bottom = 1281.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_tskvh")
+sender_icon = NodePath("SenderBarContainer/SenderIconContainer/SenderIcon")
+sender_label = NodePath("SenderBarContainer/SenderLabel")
+hour_received_label = NodePath("SenderBarContainer/HourReceivedContainer/HourReceivedLabel")
+content_label = NodePath("ContentContainer/ContentLabel")
 
 [node name="SenderBarContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 240)
@@ -25,7 +31,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="TextureRect" type="TextureRect" parent="SenderBarContainer/SenderIconContainer"]
+[node name="SenderIcon" type="TextureRect" parent="SenderBarContainer/SenderIconContainer"]
 layout_mode = 2
 texture = ExtResource("1_23rg2")
 expand_mode = 3
@@ -67,7 +73,6 @@ text = "Lorem Ipsum is simply dummy text of the printing and typesetting industr
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
 
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-horizontal_alignment = 3
 autowrap_mode = 3
 
 [node name="EndSeparator" type="HSeparator" parent="."]

@@ -1,7 +1,7 @@
 extends MarginContainer
 
 #region SIGNALS
-signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Dictionary)
+signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
@@ -14,30 +14,34 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Dictio
 @export var annex_name_label: Label
 #endregion CHILDREN NODES REFERENCES
 
-var email_data: Dictionary = {}
+# The data of the email is an array os individual email messages
+var email_data: Array
 
 #region SETUP
 ## Sets up the email instance with the provided email data
-##
-## p_email_data: The data of the email to be displayed
-func setup(p_email_data: Dictionary) -> void:
+func setup(p_email_data) -> void:
 	email_data = p_email_data
 
-	var npc_name := str(email_data.get("sender_name", ""))
+	# Setup UI content using most recent email (last in the array)
+	var last_email = email_data[email_data.size() - 1]
+
+	var npc_name := str(last_email.get("sender", ""))
 	var photo_path := "res://assets/avatars/%s.png" % npc_name
 
 	email_sender_icon.texture = load(photo_path)
 	email_sender_label.text = npc_name
-	email_subject_label.text = str(email_data.get("subject", ""))
-	email_content_label.text = str(email_data.get("content", ""))
-	email_date_label.text = str(email_data.get("date_string", ""))
+	email_subject_label.text = last_email.get("subject", "")
+	email_content_label.text = last_email.get("content", "")
+	email_date_label.text = GameData.hours_minutes_as_string(last_email.get("relative_due_time"))
 
-	var annex: Dictionary = email_data.get("annex", {})
-	var has_annex := (typeof(annex) == TYPE_DICTIONARY and not annex.is_empty())
-
-	annex_section.visible = has_annex
-	if has_annex:
-		annex_name_label.text = str(annex.get("name", ""))
+	# If any annex exists, show annex section
+	for email_message in email_data:
+		var annex: Dictionary = last_email.get("annex", {})
+		var message_has_annex = not annex.is_empty()
+		if message_has_annex:
+			annex_section.visible = true
+			annex_name_label.text = str(annex.get("name", ""))
+			break
 #endregion SETUP
 
 #region INPUT

@@ -89,16 +89,12 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 	var attachments: Array = email_dict.get("attachments", [])
 
 	var delivered_email: Dictionary = {
-		# thread identity
-		"thread_subject": subject,
-		"thread_index": thread_index,
-
 		# payload
-		"sender_name": str(email_dict.get("sender", "")),
+		"sender": email_dict.get("sender"),
 		"subject": subject,
-		"content": str(email_dict.get("content", "")),
+		"content": email_dict.get("content"),
 		"attachments": attachments,
-		"day": int(email_dict.get("day", 0)),
+		"day": email_dict.get("day"),
 		"relative_due_time": float(email_dict.get("relative_due_time", 0.0)),
 	}
 

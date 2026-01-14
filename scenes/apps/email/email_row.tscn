@@ -84,6 +84,7 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="AnnexContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/AnnexContainer"]

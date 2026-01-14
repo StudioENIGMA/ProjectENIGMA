@@ -107,6 +107,12 @@ var data = {
 	"has_settings": true
 }
 
+func hours_minutes_as_string(relative_time: int) -> String:
+	var current_day_minutes:float = relative_time + starting_hours_minutes
+	var current_hour:int = int(current_day_minutes / 60)
+	var current_minute:int = int(current_day_minutes) % 60
+	return "%02d:%02d" % [current_hour, current_minute]
+
 func load_game() -> void:
 	var file_path = "res://data/save.json"
 
