@@ -49,3 +49,6 @@ func _ready() -> void:
 ## current_minutes: The current in-game minutes
 func _on_clock_tick(current_minutes: int) -> void:
   story_director.on_clock_tick(current_minutes)
+
+  # Authenticator validity update
+  ui.base_app.authenticator_app.update_codes_validity()

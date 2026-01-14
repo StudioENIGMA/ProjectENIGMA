@@ -100,5 +100,5 @@ func _register_answer_state(
 func _apply_choice_effects(choice: Dictionary) -> void:
 	var rep_points := int(choice.get("reputation_points", 0))
 	if rep_points != 0:
-		GameData.data["reputation_points"] = int(GameData.data.get("reputation_points", 0)) + rep_points
+		GameData.reputation_points += rep_points
 #endregion EFFECTS

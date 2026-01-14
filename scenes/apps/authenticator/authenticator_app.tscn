@@ -1,9 +1,11 @@
-[gd_scene format=3 uid="uid://bqdo7vb231hqt"]
+[gd_scene load_steps=2 format=3 uid="uid://bqdo7vb231hqt"]
 
-[node name="AuthenticatorApp" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" uid="uid://cjfcakkk01xe0" path="res://scripts/apps/authenticator/authenticator_app.gd" id="1_6mfd3"]
+
+[node name="ListOfAuthenticators" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6mfd3")

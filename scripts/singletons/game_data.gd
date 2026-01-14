@@ -1,5 +1,10 @@
 extends Node
 
+enum Sender {
+	PLAYER,
+	NPC,
+}
+
 enum App {
 	# Messages app
 	MESSAGESHOME,
@@ -17,15 +22,16 @@ enum App {
 	EMAILREAD,
 	# Authenticator app
 	AUTHENTICATOR,
-}
-
-enum Sender {
-	PLAYER,
-	NPC,
+	# Bank app
+	BANK,
 }
 
 var starting_hours_minutes:int = 600	# Start at 6:00
 var hours_minutes:int = 600 # This one will increase with time
+var max_hours_minutes:int = 1200 # End at 12:00
+var current_day:int = 0
+var reputation_points:int = 0
+var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -85,30 +91,7 @@ var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
 var available_updates: Array[App] = []
 
 var data = {
-	"current_day": 0,
-	"reputation_points": 0,
-	"random_send_amplitude_max":480,
-	"max_game_time":600,
-	"virus_info": {
-		"has_virus": false,
-		"viruses_quantity":0,
-		"virus_time": 0
-	},
-	"OS_version": "0",
-	"passwords": {
-		"Ajustes":"",
-		"Mensagens":"",
-		"Loja":"",
-		"Navegador":"",
-		"Email":"",
-		"Loja Alternativa":"",
-	},
 	"downloaded_apps": ["mensagens", "settings"],
-	"has_store": true,
-	"has_fake_store": true,
-	"has_browser": true,
-	"has_mail": true,
-	"has_settings": true
 }
 
 func hours_minutes_as_string(relative_time: int) -> String:

@@ -60,7 +60,7 @@ func _queue_today_emails() -> void:
 		for thread_index in range(thread.size()):
 			var email_dict: Dictionary = thread[thread_index]
 
-			if int(email_dict.get("day", -999)) != int(GameData.data.current_day):
+			if int(email_dict.get("day", -999)) != int(GameData.current_day):
 				continue
 
 			var relative_due_time: float = float(email_dict.get("relative_due_time", INF))
