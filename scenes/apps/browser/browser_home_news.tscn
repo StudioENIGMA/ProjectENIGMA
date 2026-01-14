@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr151pqe4jihj"]
+
+[ext_resource type="Script" uid="uid://4o4l8fux5uc3" path="res://scripts/apps/browser/browser_home_news.gd" id="1_sm52b"]
+
+[node name="BrowserHomeNews" type="HBoxContainer" node_paths=PackedStringArray("news_content", "news_metadata")]
+script = ExtResource("1_sm52b")
+news_content = NodePath("VBoxContainer/NewsContent")
+news_metadata = NodePath("VBoxContainer/NewsMetaData")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 280)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(940, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="NewsContent" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est tincidunt fringilla lobortis."
+autowrap_mode = 3
+
+[node name="NewsMetaData" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "BCC  •  3 horas atrás"
+autowrap_mode = 3

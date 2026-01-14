@@ -1,79 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://6gxid20u3y1i"]
+[gd_scene load_steps=6 format=3 uid="uid://c5gubxu6ohvld"]
 
 [ext_resource type="Script" uid="uid://ceyd6unkld2n4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
-[ext_resource type="PackedScene" uid="uid://db76w5p3v8r56" path="res://scenes/apps/browser/browser_news.tscn" id="2_h4mx2"]
-[ext_resource type="Script" uid="uid://c1ixylcaiugqj" path="res://scripts/apps/browser/shop-site/quick_acess_sites.gd" id="3_v7wwx"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_k30y1"]
 [ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="4_k30y1"]
 
-[node name="Browser" type="Control"]
-custom_minimum_size = Vector2(1080, 2160)
+[sub_resource type="LabelSettings" id="LabelSettings_ww8iv"]
+font = ExtResource("2_k30y1")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_53ija"]
+font = ExtResource("2_k30y1")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[node name="Browser" type="Control" node_paths=PackedStringArray("news_container")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y4bje")
+news_container = NodePath("ScrollContainer/VBoxContainer/NewsContainer")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
-[node name="News" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/News"]
-custom_minimum_size = Vector2(0, 1120)
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1080, 240)
 layout_mode = 2
 
-[node name="News_label" type="Label" parent="CenterContainer/News"]
+[node name="BrowserName" type="Label" parent="ScrollContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Notícias"
-vertical_alignment = 2
-
-[node name="browser_news" parent="CenterContainer/News" instance=ExtResource("2_h4mx2")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(120, 240)
-layout_mode = 2
-
-[node name="Browser_title_label" type="Label" parent="CenterContainer/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
 text = "Navegador"
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_ww8iv")
 
-[node name="Quick_acess_label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 274.0
-offset_right = 300.0
-offset_bottom = 329.0
-theme_override_colors/font_color = Color(0.501407, 0.501406, 0.501406, 1)
-theme_override_font_sizes/font_size = 40
-text = "Acesso rápido"
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1080, 1160)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
 
-[node name="news_label_separator" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 1171.0
-offset_right = 733.0
-offset_bottom = 1179.0
+[node name="quick_acess_sites_icons" parent="ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons3" parent="ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="quick_acess_sites_icons4" parent="ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+
+[node name="quick_acess_sites_icons5" parent="ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+
+[node name="NewsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NewsContainer"]
+layout_mode = 2
+text = "Notícias"
+label_settings = SubResource("LabelSettings_53ija")
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/NewsContainer"]
+custom_minimum_size = Vector2(720, 10)
+layout_mode = 2
+size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
-
-[node name="Quick_acess_sites" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 357.0
-offset_right = 1080.0
-offset_bottom = 1095.0
-theme_override_constants/separation = 250
-script = ExtResource("3_v7wwx")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Quick_acess_sites"]
-layout_direction = 2
-layout_mode = 2
-theme_override_constants/separation = 270
-
-[node name="quick_acess_sites_icons" parent="Quick_acess_sites/HBoxContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
