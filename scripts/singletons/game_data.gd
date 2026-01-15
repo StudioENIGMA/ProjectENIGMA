@@ -118,6 +118,7 @@ var data = {
 }
 
 func format_brl(value: float) -> String:
+	var result = "-" if sign(value) == -1 else ""
 	value = abs(value)
 
 	# Round to 2 decimal places
@@ -137,10 +138,7 @@ func format_brl(value: float) -> String:
 			formatted_int = "." + formatted_int
 			count = 0
 
-	var result := "R$ %s,%s" % [formatted_int, decimal_part]
-
-	if sign(value) == -1:
-		result = "-" + result
+	result += "R$ %s,%s" % [formatted_int, decimal_part]
 
 	return result
 
