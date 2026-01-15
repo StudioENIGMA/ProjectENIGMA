@@ -76,7 +76,7 @@ func _queue_today_entry_points() -> void:
 			if typeof(entry) != TYPE_DICTIONARY:
 				continue
 
-			if int(entry.get("day", -999)) != int(GameData.data.current_day):
+			if int(entry.get("day", -999)) != int(GameData.current_day):
 				continue
 
 			var branch := str(entry.get("branch", ""))

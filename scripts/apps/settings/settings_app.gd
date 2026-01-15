@@ -7,7 +7,7 @@ signal subscreen_open_requested(subscreen_name:String)
 @export var virus_scanner_gui: Control
 
 func _ready() -> void:
-	var day = GameData.data.current_day
+	var day = GameData.current_day
 
 	passwords_manager_gui.setup("Gerenciador de Senhas")
 	update_os_gui.setup("Atualização de Software")
