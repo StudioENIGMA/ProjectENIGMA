@@ -1,420 +1,205 @@
 extends Node2D
 
-signal npc_message_created(
-	npc_name: String,
-	message: String,
-	annex: Dictionary,
-	sender: GameData.Sender,
-	time: int
-)
+#region CHILDREN NODES REFERENCES
+@export var messages_director: Node
+@export var emails_director: Node
 
-signal request_answer_option(
-	npc_name: String,
-	message: String,
-	title: String,
-	reputation_points: int,
-	time: int,
-	answer_id: int
-)
-
-@export var ui: Control
-@export var event_handler: Node2D
 @export var messages_dir_path: String = "res://data/messages"
+@export var emails_dir_path: String = "res://data/emails"
+#endregion CHILDREN NODES REFERENCES
 
-# thread_id -> {"thread_id":..., "entry_points":[...], "branches":{ branch_name: [node,...] } }
-var threads_by_id: Dictionary = {}
+#region QUEUE STATE
+# Unified queue for all apps that deliver story content over time
+# {"channel":String, "due_at":int, "seq":int, "requires":Array, "payload":Dictionary}
+var story_queue: Array[Dictionary] = []
+var story_enqueue_seq: int = 0
 
-# Sorted queue entries:
-# {"thread_id":String, "branch":String, "index":int, "priority":int, "due_at":int}
-var message_queue: Array[Dictionary] = []
-var enqueue_seq: int = 0
+# Maps channel name to director node
+var channel_director_by_name: Dictionary = {}
+#endregion QUEUE STATE
 
-# answer_id -> {"thread_id":String, "choice":Dictionary, "origin":Dictionary, "priority":int}
-var answer_state_by_id: Dictionary = {}
-var next_answer_id: int = 1
-
-
+#region INITIALIZATION
+## Creates channel_director_by_name and connects to their schedule_entry_requested signals.
 func _ready() -> void:
-	ui.message_answered.connect(_on_message_answered)
-	event_handler.clock_tick.connect(_on_clock_tick)
+	channel_director_by_name = {
+		"messages": messages_director,
+		"emails": emails_director,
+	}
 
-	_load_threads_from_directory()
-	_queue_today_entry_points()
+	messages_director.schedule_entry_requested.connect(_on_messages_schedule_entry_requested)
+	emails_director.schedule_entry_requested.connect(_on_emails_schedule_entry_requested)
 
+	reload_and_setup_today()
+#endregion INITIALIZATION
 
-# -------------------------
-# Loading
-# -------------------------
-func _load_threads_from_directory() -> void:
-	threads_by_id.clear()
+#region SETUP FLOW
+## Reloads all JSON data and sets up today's story entries.
+func reload_and_setup_today() -> void:
+	# Clear existing queue
+	_clear_story_queue()
 
-	var dir := DirAccess.open(messages_dir_path)
-	if dir == null:
-		push_error("StoryDirectorJSON: Failed to open dir: %s" % messages_dir_path)
+	# Load JSON roots from data directories
+	var message_roots := _load_json_roots_from_directory(messages_dir_path)
+	var email_roots := _load_json_roots_from_directory(emails_dir_path)
+
+	# StoryDirector provides data, directors interpret and request schedules upward
+	messages_director.setup_from_json_roots(message_roots)
+	emails_director.setup_from_json_roots(email_roots)
+#endregion SETUP FLOW
+
+#region SIGNAL HANDLERS
+## Handles schedule_entry_requested from messages director
+func _on_messages_schedule_entry_requested(schedule_entry: Dictionary) -> void:
+	_enqueue_story_entry("messages", schedule_entry)
+
+## Handles schedule_entry_requested from email director
+func _on_emails_schedule_entry_requested(schedule_entry: Dictionary) -> void:
+	_enqueue_story_entry("emails", schedule_entry)
+
+## Enqueues a story entry into the unified story queue
+func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> void:
+	var due_at := int(schedule_entry["due_at"])
+	var requires: Array = schedule_entry.get("requires", [])
+
+	var story_entry: Dictionary = {
+		"channel": channel_name,
+		"due_at": due_at,
+		"seq": story_enqueue_seq,
+		"requires": requires,
+		"payload": schedule_entry,
+	}
+
+	story_enqueue_seq += 1
+	_insert_story_entry_sorted(story_entry)
+#endregion SIGNAL HANDLERS
+
+#region CLOCK
+## Called by Clock every tick to process due story entries
+func on_clock_tick(current_minutes: int) -> void:
+	# If no entries, nothing to do
+	if story_queue.is_empty():
 		return
 
-	dir.list_dir_begin()
+	# Check the head of the queue (ordered, so earliest due_at first)
+	var head := story_queue[0]
+	if current_minutes < int(head["due_at"]):
+		return # If the head is not due, nothing to do
+
+	# If due, check all entries in order until we find one that can be delivered
+	# or we run out of due entries.
+	# The reason to do this is that some entries may be blocked by unmet requirements
+	# and we want to skip them for now, checking only the head would cause a head-of-line blocking.
+
+	# Deliver at most one per tick
+	var entry_index := 0
+	while entry_index < story_queue.size():
+		var story_entry := story_queue[entry_index]
+
+		# If we reached an entry not yet due, stop checking
+		if current_minutes < int(story_entry["due_at"]):
+			return
+
+		# If due, check requirements
+		if not _requirements_met(story_entry.get("requires", [])):
+			# Requeue blocked entry for next tick
+			story_entry["due_at"] = current_minutes + 1
+			story_queue.remove_at(entry_index)
+			_insert_story_entry_sorted(story_entry)
+			return
+
+		# If ready remove from queue + call down into the right controller
+		story_queue.remove_at(entry_index)
+		var channel_name := str(story_entry["channel"])
+		var controller: Node = channel_director_by_name[channel_name]
+		controller.deliver_scheduled_entry(story_entry["payload"], current_minutes)
+		return # Only one delivery per tick
+#endregion CLOCK
+
+#region QUEUE OPS
+## Clears the story queue and resets sequence counter
+func _clear_story_queue() -> void:
+	story_queue.clear()
+	story_enqueue_seq = 0
+
+## Inserts a story entry into the story queue maintaining order by due_at and seq
+## This allows FIFO ordering for entries with the same due_at
+func _insert_story_entry_sorted(story_entry: Dictionary) -> void:
+	var due_at := int(story_entry["due_at"])
+	var seq := int(story_entry["seq"])
+
+	for index in range(story_queue.size()):
+		var existing := story_queue[index]
+		var existing_due := int(existing["due_at"])
+
+		if existing_due > due_at:
+			story_queue.insert(index, story_entry)
+			return
+
+		if existing_due == due_at and int(existing["seq"]) > seq:
+			story_queue.insert(index, story_entry)
+			return
+
+	story_queue.append(story_entry)
+#endregion QUEUE OPS
+
+#region JSON LOADING
+## Loads all JSON roots from a given directory path
+func _load_json_roots_from_directory(directory_path: String) -> Array:
+	var file_paths := _list_json_file_paths(directory_path)
+	file_paths.sort()
+
+	var roots: Array = []
+	for file_path in file_paths:
+		roots.append(_read_json_root(file_path))
+	return roots
+
+## Lists all JSON file paths in a given directory
+func _list_json_file_paths(directory_path: String) -> Array[String]:
+	var directory := DirAccess.open(directory_path)
+	var file_paths: Array[String] = []
+
+	directory.list_dir_begin()
 	while true:
-		var file_name := dir.get_next()
+		var file_name := directory.get_next()
 		if file_name == "":
 			break
-
-		# Skip folders and hidden files
-		if dir.current_is_dir():
+		if directory.current_is_dir():
 			continue
 		if file_name.begins_with("."):
 			continue
-
-		# Only JSON files
 		if file_name.get_extension().to_lower() != "json":
 			continue
+		file_paths.append(directory_path.path_join(file_name))
+	directory.list_dir_end()
 
-		var full_path := messages_dir_path.path_join(file_name)
-		_load_one_json_file(full_path)
+	return file_paths
 
-	dir.list_dir_end()
-
-
-func _load_one_json_file(path: String) -> void:
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		push_error("StoryDirectorJSON: Failed to open file: %s" % path)
-		return
-
+## Reads and parses a JSON file, returning the root Variant
+func _read_json_root(file_path: String) -> Variant:
+	var file := FileAccess.open(file_path, FileAccess.READ)
 	var parser := JSON.new()
-	var err := parser.parse(file.get_as_text())
-	if err != OK:
-		push_error("StoryDirectorJSON: JSON parse error (%s) in %s" % [parser.get_error_message(), path])
-		return
+	var result := parser.parse(file.get_as_text())
+	assert(result == OK)
+	return parser.data
+#endregion JSON LOADING
 
-	var root: Variant = parser.data
-
-	# Supports:
-	# 1) { "thread_id": "...", ... }
-	# 2) { "threads": [ {thread...}, ... ] }
-	if typeof(root) == TYPE_DICTIONARY and root.has("threads"):
-		for thread_dict in root["threads"]:
-			_register_thread(thread_dict, path)
-	elif typeof(root) == TYPE_DICTIONARY and root.has("thread_id"):
-		_register_thread(root, path)
-	else:
-		push_error("StoryDirectorJSON: Unexpected JSON shape in %s" % path)
-
-
-func _register_thread(thread_dict: Variant, source_path: String) -> void:
-	if typeof(thread_dict) != TYPE_DICTIONARY:
-		return
-
-	var thread_id := str(thread_dict.get("thread_id", ""))
-	if thread_id == "":
-		push_error("StoryDirectorJSON: thread_id missing in %s" % source_path)
-		return
-
-	if threads_by_id.has(thread_id):
-		# Choose one behavior:
-		# 1) override
-		# 2) skip and warn
-		push_error("StoryDirectorJSON: Duplicate thread_id '%s' in %s" % [thread_id, source_path])
-		return
-
-	threads_by_id[thread_id] = thread_dict
-
-# -------------------------
-# Scheduling
-# -------------------------
-func _queue_today_entry_points() -> void:
-	message_queue.clear()
-
-	for thread_id in threads_by_id.keys():
-		var thread: Dictionary = threads_by_id[thread_id]
-		var entry_points: Array = thread.get("entry_points", [])
-
-		for entry in entry_points:
-			if typeof(entry) != TYPE_DICTIONARY:
-				continue
-
-			if int(entry.get("day", -999)) != int(GameData.data.current_day):
-				continue
-
-			# IMPORTANT: entry_points are "select one branch" style gates.
-			# If unmet now, we skip (do NOT postpone), otherwise the "other branch"
-			# could accidentally fire later.
-			var requires: Array = entry.get("requires", [])
-			if not _requirements_met(requires):
-				continue
-
-			var priority := int(entry.get("priority", 0))
-			var branch := str(entry.get("branch", ""))
-			if branch == "":
-				continue
-
-			_enqueue_branch_start(thread_id, branch, priority, _delay_for_priority(priority))
-
-
-func _enqueue_branch_start(
-	thread_id: String,
-	branch: String,
-	priority: int,
-	delay_ticks: int
-) -> void:
-	_enqueue_queue_entry({
-		"thread_id": thread_id,
-		"branch": branch,
-		"index": 0,
-		"priority": priority,
-	}, delay_ticks)
-
-
-func _enqueue_queue_entry(entry: Dictionary, delay_ticks: int) -> void:
-	enqueue_seq += 1
-	entry["seq"] = enqueue_seq
-	entry["due_at"] = GameData.hours_minutes + max(delay_ticks, 0)
-	_insert_sorted_by_due(entry)
-
-
-func _insert_sorted_by_due(entry: Dictionary) -> void:
-	var new_due := int(entry.get("due_at", 0))
-	var new_pri := int(entry.get("priority", 0))
-	var new_seq := int(entry.get("seq", 0))
-
-	var insert_index := 0
-	while insert_index < message_queue.size():
-		var cur := message_queue[insert_index]
-
-		var cur_due := int(cur.get("due_at", 0))
-		var cur_pri := int(cur.get("priority", 0))
-		var cur_seq := int(cur.get("seq", 0))
-
-		# cur comes before entry if:
-		# 1) earlier due_at
-		# 2) same due_at but smaller priority (more negative = higher priority)
-		# 3) same due_at & priority but smaller seq (earlier enqueue)
-		var cur_before := (
-			cur_due < new_due
-			or (cur_due == new_due and cur_pri < new_pri)
-			or (cur_due == new_due and cur_pri == new_pri and cur_seq < new_seq)
-		)
-
-		# If cur is NOT before entry, we insert here
-		if not cur_before:
-			break
-
-		insert_index += 1
-
-	message_queue.insert(insert_index, entry)
-
-
-func _delay_for_priority(priority: int) -> int:
-	# same spirit as your old director
-	if priority <= 0:
-		return 0
-	return randi_range(2, 4)
-
-
-# -------------------------
-# Tick -> Deliver
-# -------------------------
-func _on_clock_tick(current_minutes: int) -> void:
-	if message_queue.is_empty():
-		return
-
-	var head: Dictionary = message_queue[0]
-	if current_minutes < int(head["due_at"]):
-		return
-
-	message_queue.pop_front()
-	_deliver_queue_entry(head, current_minutes)
-
-
-func _deliver_queue_entry(queue_entry: Dictionary, current_minutes: int) -> void:
-	var thread_id := str(queue_entry.get("thread_id", ""))
-	var thread: Dictionary = threads_by_id.get(thread_id, {})
-	if thread.is_empty():
-		return
-
-	var branches: Dictionary = thread.get("branches", {})
-	var branch_name := str(queue_entry.get("branch", ""))
-	var branch_nodes: Array = branches.get(branch_name, [])
-
-	var node_index := int(queue_entry.get("index", 0))
-	if node_index < 0 or node_index >= branch_nodes.size():
-		return
-
-	var node: Dictionary = branch_nodes[node_index]
-
-	# node-level gating: if unmet, postpone 1 tick (so it can unlock later)
-	if not _requirements_met(node.get("requires", [])):
-		queue_entry["due_at"] = current_minutes + 1
-		_insert_sorted_by_due(queue_entry)
-		return
-
-	# Emit NPC message to the UI/app system
-	npc_message_created.emit(
-		str(node.get("sender", thread_id)),
-		str(node.get("text", "")),
-		node.get("annex", {}),
-		GameData.Sender.NPC,
-		GameData.hours_minutes
-	)
-
-	# If there are choices: present them and STOP branch progression until an answer is chosen.
-	var choices: Array = node.get("choices", [])
-	if not choices.is_empty():
-		_present_choices(
-			thread_id,
-			branch_name,
-			node_index,
-			int(queue_entry.get("priority", 0)),
-			node,
-			choices
-		)
-		return
-
-	# Otherwise continue to next node in this branch
-	var next_index := node_index + 1
-	if next_index < branch_nodes.size():
-		var next_priority := int(node.get("priority", queue_entry.get("priority", 0)))
-		_enqueue_queue_entry({
-			"thread_id": thread_id,
-			"branch": branch_name,
-			"index": next_index,
-			"priority": next_priority
-		}, _delay_for_priority(next_priority))
-
-
-func _present_choices(
-	thread_id: String,
-	origin_branch: String,
-	origin_index: int,
-	priority: int,
-	node: Dictionary,
-	choices: Array
-) -> void:
-	var npc_name := str(node.get("sender", thread_id))
-
-	for choice in choices:
-		if typeof(choice) != TYPE_DICTIONARY:
-			continue
-
-		var answer_id := _new_answer_id()
-		answer_state_by_id[answer_id] = {
-			"thread_id": thread_id,
-			"choice": choice,
-			"origin": {"branch": origin_branch, "index": origin_index},
-			"priority": priority,
-		}
-
-		var player_text := str(choice.get("player_text", ""))
-		var title := str(choice.get("title", player_text))
-		var rep_points := int(choice.get("reputation_points", 0))
-
-		# The answers bar treats "time" as due-time unless negative.
-		# We want it available immediately, so use current minute.
-		request_answer_option.emit(
-			npc_name,
-			player_text,
-			title,
-			rep_points,
-			GameData.hours_minutes,
-			answer_id
-		)
-
-
-func _new_answer_id() -> int:
-	next_answer_id += 1
-	return next_answer_id
-
-
-# -------------------------
-# Answer chosen
-# -------------------------
-func _on_message_answered(answer_id: int) -> void:
-	if not answer_state_by_id.has(answer_id):
-		return
-
-	var state: Dictionary = answer_state_by_id[answer_id]
-	answer_state_by_id.erase(answer_id)
-
-	var thread_id := str(state.get("thread_id", ""))
-	var choice: Dictionary = state.get("choice", {})
-	var origin: Dictionary = state.get("origin", {})
-	var priority := int(state.get("priority", 0))
-
-	_apply_choice_effects(choice)
-
-	# Preferred path: npc_reply -> goto_branch after delay
-	if choice.has("npc_reply"):
-		var reply: Dictionary = choice.get("npc_reply", {})
-		var delay_ticks := int(reply.get("delay_ticks", 0))
-
-		if reply.has("goto_branch"):
-			_enqueue_branch_start(thread_id, str(reply["goto_branch"]), priority, delay_ticks)
-			return
-
-	# Fallback behavior:
-	# If no npc_reply was defined, continue the current branch after the choice node.
-	var thread: Dictionary = threads_by_id.get(thread_id, {})
-	var branches: Dictionary = thread.get("branches", {})
-	var origin_branch := str(origin.get("branch", ""))
-	var origin_nodes: Array = branches.get(origin_branch, [])
-	var next_index := int(origin.get("index", 0)) + 1
-
-	if next_index >= 0 and next_index < origin_nodes.size():
-		_enqueue_queue_entry({
-			"thread_id": thread_id,
-			"branch": origin_branch,
-			"index": next_index,
-			"priority": priority
-		}, 0)
-
-
-func _apply_choice_effects(choice: Dictionary) -> void:
-	# Keep this intentionally minimal for now.
-	# Your JSON currently contains effects like {"installer": 1}, {"task_type": 1}, etc.
-	# Those ints can be unreliable unless you standardize them.
-	var rep_points := int(choice.get("reputation_points", 0))
-	if rep_points != 0:
-		GameData.data["reputation_points"] = int(GameData.data.get("reputation_points", 0)) + rep_points
-
-
-# -------------------------
-# Requirements
-# -------------------------
-func _requirements_met(requires: Array) -> bool:
-	if requires.is_empty():
+#region REQUIREMENTS
+## Evaluates if all requirements in the given array are met
+func _requirements_met(requirements: Array) -> bool:
+	if requirements.is_empty():
 		return true
 
-	for req in requires:
-		if typeof(req) != TYPE_DICTIONARY:
-			continue
-
-		var flag := str(req.get("flag", ""))
-		var expected := bool(req.get("is", true))
-		var actual := _read_flag(flag)
-
-		if actual != expected:
+	for requirement in requirements:
+		var flag := str(requirement.get("flag", ""))
+		var expected := bool(requirement.get("is", true))
+		if _evaluate_flag(flag) != expected:
 			return false
 
 	return true
 
-
-func _read_flag(flag: String) -> bool:
-	# Map your JSON flags -> current GameData truth.
-	# (Uses downloaded_apps, which is what your store installation updates.)
-	var app_map := {
-		"settings": GameData.App.SETTINGS,
-		"browser": GameData.App.BROWSER,
-		"mail": GameData.App.EMAIL,
-		"store": GameData.App.STORE,
-		"fake_store": GameData.App.FAKESTORE,
-	}
-
-	if flag in app_map:
-		return GameData.downloaded_apps.has(app_map[flag])
-
-	# optional fallback: GameData.data booleans if you ever use them
-	var key := "has_%s" % flag
-	if typeof(GameData.data) == TYPE_DICTIONARY and GameData.data.has(key):
-		return bool(GameData.data[key])
-
+## Evaluates a single requirement flag
+func _evaluate_flag(flag: String) -> bool:
+	if flag in GameData.apps_name.keys():
+		return GameData.downloaded_apps.has(GameData.apps_name[flag])
 	return false
+#endregion REQUIREMENTS

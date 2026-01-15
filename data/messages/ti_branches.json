@@ -1,36 +1,33 @@
 {
   "thread_id": "ti",
+  "sender": "TI",
   "entry_points": [
     {
       "day": 0,
-      "branch": "d0_start"
+      "branch": "d0_start",
+      "relative_due_time": 60
     }
   ],
   "branches": {
     "d0_start": [
       {
         "id": "ti_0_0",
-        "sender": "TI",
         "text": "fala estagio"
       },
       {
         "id": "ti_0_1",
-        "sender": "TI",
         "text": "eh o Lorenz do ti"
       },
       {
         "id": "ti_0_2",
-        "sender": "TI",
         "text": "trnql camarada?"
       },
       {
         "id": "ti_0_3",
-        "sender": "TI",
         "text": "vou ta te passando umas paradas aqui do ti pra vc resolver"
       },
       {
         "id": "ti_0_4",
-        "sender": "TI",
         "text": "mas n agora aproveita o banana kkkk",
         "choices": [
           {
@@ -55,14 +52,12 @@
     "from_ti_0_5": [
       {
         "id": "ti_0_5",
-        "sender": "TI",
         "text": "👍"
       }
     ],
     "from_ti_0_6": [
       {
         "id": "ti_0_6",
-        "sender": "TI",
         "text": "kkkkkkk tamo junto"
       }
     ]

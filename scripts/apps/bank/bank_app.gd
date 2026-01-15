@@ -21,12 +21,11 @@ func _on_hide_button_pressed() -> void:
 	if balance_value_label.text != "******":
 		balance_value_label.text = "******"
 	else:
-		balance_value_label.text = GameData.format_brl(GameData.data.bank_balance)
+		balance_value_label.text = GameData.format_brl(GameData.bank_balance)
 
 func _on_sub_app_pressed(payment_type:GameData.PaymentType) -> void:
 	emit_signal("subscreen_open_requested", GameData.App.PAYMENTCODE, payment_type)
 
-
 func _on_visibility_changed() -> void:
 	if balance_value_label.text != "******":
-		balance_value_label.text = GameData.format_brl(GameData.data.bank_balance)
+		balance_value_label.text = GameData.format_brl(GameData.bank_balance)

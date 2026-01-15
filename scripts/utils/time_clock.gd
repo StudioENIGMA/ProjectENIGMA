@@ -3,7 +3,7 @@ extends RichTextLabel
 var current_weekday_int:int = 4
 var current_weekday_string:String = "Quinta"
 var current_month_string:String = "Setembro" # Hardcoded for now, probably won't change in-game
-var current_day:int = 11 + GameData.data.current_day # Start at 11th
+var current_day:int = 11 + GameData.current_day # Start at 11th
 
 func update_weekday(day_increment:int) -> void:
 	# Update the current_day

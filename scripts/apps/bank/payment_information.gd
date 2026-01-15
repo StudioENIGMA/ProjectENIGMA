@@ -82,4 +82,4 @@ func get_code_information(payment_code: GameData.PaymentCode) -> Dictionary:
 
 func _on_confirm_button_pressed() -> void:
 	if code_informations != {}:
-		GameData.data.bank_balance -= code_informations["value"]
+		GameData.bank_balance -= code_informations["value"]

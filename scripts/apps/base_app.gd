@@ -22,6 +22,10 @@ var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tsc
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
+var email_app_viewer = preload("res://scenes/apps/email/email_app_viewer.tscn").instantiate()
+var authenticator_app = preload(
+	"res://scenes/apps/authenticator/authenticator_app.tscn"
+).instantiate()
 var bank_app = preload("res://scenes/apps/bank/bank_app.tscn").instantiate()
 var bank_payment_code = preload("res://scenes/apps/bank/payment_code.tscn").instantiate()
 var bank_payment_info = preload("res://scenes/apps/bank/payment_information.tscn").instantiate()
@@ -94,7 +98,16 @@ func _ready() -> void:
 
 	# Email app home (Email app)
 	email_app_home.visible = false
+	email_app_home.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(email_app_home)
+
+	# Email app viewer (Email app)
+	email_app_viewer.visible = false
+	app_specific_screen.add_child(email_app_viewer)
+
+	# Authenticator app
+	authenticator_app.visible = false
+	app_specific_screen.add_child(authenticator_app)
 
 	# Bank app (Bank app)
 	bank_app.visible = false
@@ -254,6 +267,9 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.FAKESTORE: fake_store_app,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
+		GameData.App.EMAILREAD: email_app_viewer,
+		# Authenticator app
+		GameData.App.AUTHENTICATOR: authenticator_app,
 		# Bank app
 		GameData.App.BANK: bank_app,
 		GameData.App.PAYMENTCODE: bank_payment_code,
@@ -277,6 +293,9 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.FAKESTORE: GameData.App.STORE,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
+		GameData.App.EMAILREAD: GameData.App.EMAIL,
+		# Authenticator app
+		GameData.App.AUTHENTICATOR: GameData.App.AUTHENTICATOR,
 		# Bank app
 		GameData.App.BANK: GameData.App.BANK,
 		GameData.App.PAYMENTCODE: GameData.App.BANK,
