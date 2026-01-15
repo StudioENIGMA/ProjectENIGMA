@@ -1,0 +1,14 @@
+{
+    "ANVNB" : {
+        "name" : "João Da Silva",
+        "cpf" : "123.456.789-10",
+        "email" : "joaodasilva@gmail.com",
+        "value" : 58.90
+    },
+    "12345" : {
+        "name" : "Lucas Freitas",
+        "cpf" : "123.456.789-10",
+        "email" : "lucasfreitas@gmail.com",
+        "value" : 2250.50
+    }
+}
