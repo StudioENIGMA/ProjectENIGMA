@@ -2,7 +2,7 @@ extends Control
 
 @export var informations_container : VBoxContainer
 var information_field_scene = preload("res://scenes/apps/bank/information_field.tscn")
-var code_informations: Dictionary
+var code_informations: Dictionary = {}
 
 func setup(payment_code:GameData.PaymentCode) -> void:
 
@@ -81,4 +81,5 @@ func get_code_information(payment_code: GameData.PaymentCode) -> Dictionary:
 
 
 func _on_confirm_button_pressed() -> void:
-	GameData.data.bank_balance -= code_informations["value"]
+	if code_informations != {}:
+		GameData.data.bank_balance -= code_informations["value"]
