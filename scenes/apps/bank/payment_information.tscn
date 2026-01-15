@@ -66,3 +66,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0en2f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8i7aa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0en2f")
 text = "Confirmar"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

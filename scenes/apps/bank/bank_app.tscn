@@ -16,6 +16,9 @@ font_size = 40
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="FontFile" id="FontFile_kcqqf"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/40/0/ascent = 0.0
 cache/0/40/0/descent = 0.0
 cache/0/40/0/underline_position = 0.0
@@ -34,6 +37,7 @@ font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [node name="bank_app" type="Control" node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
 layout_mode = 3
+anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -169,3 +173,5 @@ layout_mode = 2
 texture_normal = ExtResource("7_eaf8e")
 ignore_texture_size = true
 stretch_mode = 4
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

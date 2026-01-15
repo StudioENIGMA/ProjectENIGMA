@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4v8tpw3xp37v"]
+[gd_scene load_steps=6 format=3 uid="uid://c4v8tpw3xp37v"]
 
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_ppj0n"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_4a5t1"]
 [ext_resource type="Script" uid="uid://c3rdk0sefiyjr" path="res://scripts/apps/bank/information_field.gd" id="3_4a5t1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1xi2p"]
@@ -22,7 +21,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_pr6ro"]
-font = ExtResource("2_4a5t1")
+font = ExtResource("1_ppj0n")
 font_size = 60
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
