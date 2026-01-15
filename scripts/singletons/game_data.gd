@@ -117,6 +117,34 @@ var data = {
 	"has_settings": true
 }
 
+func format_brl(value: float) -> String:
+	value = abs(value)
+
+	# Round to 2 decimal places
+	var rounded: String = "%.2f" % value
+	var parts: PackedStringArray = rounded.split(".")
+	var integer_part: String = parts[0]
+	var decimal_part: String = parts[1]
+
+	# Add thousand separators
+	var formatted_int: String = ""
+	var count: int = 0
+
+	for i in range(integer_part.length() - 1, -1, -1):
+		formatted_int = integer_part[i] + formatted_int
+		count += 1
+		if count == 3 and i != 0:
+			formatted_int = "." + formatted_int
+			count = 0
+
+	var result := "R$ %s,%s" % [formatted_int, decimal_part]
+
+	if sign(value) == -1:
+		result = "-" + result
+
+	return result
+
+
 func load_game() -> void:
 	var file_path = "res://data/save.json"
 
