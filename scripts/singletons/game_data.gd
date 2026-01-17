@@ -24,7 +24,20 @@ enum App {
 	AUTHENTICATOR,
 	# Bank app
 	BANK,
+	PAYMENTCODE,
+	PAYMENTINFORMATION,
 }
+
+enum PaymentType {
+	PIX,
+	TICKET,
+}
+
+class PaymentCode:
+	var code: String
+	var type: PaymentType
+
+var bank_balance: float = 200
 
 var starting_hours_minutes:int = 600	# Start at 6:00
 var hours_minutes:int = 600 # This one will increase with time
@@ -43,6 +56,10 @@ var apps_name: Dictionary = {
 	# Store apps
 	"Store": App.STORE,
 	"FakeStore": App.FAKESTORE,
+	# Bank app
+	"Bank" : App.BANK,
+	"PaymentCode" : App.PAYMENTCODE,
+	"PaymentInformation" : App.PAYMENTINFORMATION,
 	# Browser app
 	"Browser": App.BROWSER,
 	# Email app
@@ -93,6 +110,31 @@ var available_updates: Array[App] = []
 var data = {
 	"downloaded_apps": ["mensagens", "settings"],
 }
+
+func format_brl(value: float) -> String:
+	var result = "-" if sign(value) == -1 else ""
+	value = abs(value)
+
+	# Round to 2 decimal places
+	var rounded: String = "%.2f" % value
+	var parts: PackedStringArray = rounded.split(".")
+	var integer_part: String = parts[0]
+	var decimal_part: String = parts[1]
+
+	# Add thousand separators
+	var formatted_int: String = ""
+	var count: int = 0
+
+	for i in range(integer_part.length() - 1, -1, -1):
+		formatted_int = integer_part[i] + formatted_int
+		count += 1
+		if count == 3 and i != 0:
+			formatted_int = "." + formatted_int
+			count = 0
+
+	result += "R$ %s,%s" % [formatted_int, decimal_part]
+
+	return result
 
 func hours_minutes_as_string(relative_time: int) -> String:
 	var current_day_minutes:float = relative_time + starting_hours_minutes

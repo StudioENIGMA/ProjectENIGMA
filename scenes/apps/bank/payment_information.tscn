@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ch51ac3sfyy"]
+
+[ext_resource type="Script" uid="uid://cemfrlx1v1lej" path="res://scripts/apps/bank/payment_information.gd" id="1_0en2f"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_m2c43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83l8f"]
+bg_color = Color(1, 0.015686275, 0.2784314, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0en2f"]
+bg_color = Color(0.6039216, 0.09019608, 0.22352941, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i7aa"]
+bg_color = Color(0.99999994, 0.20383534, 0.32510448, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0en2f"]
+
+[node name="PaymentInformation" type="Control" node_paths=PackedStringArray("informations_container")]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2160.0
+script = ExtResource("1_0en2f")
+informations_container = NodePath("CenterContainer/VBoxContainer/InformationVBox")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="InformationVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 125)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_m2c43")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_83l8f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0en2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8i7aa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0en2f")
+text = "Confirmar"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

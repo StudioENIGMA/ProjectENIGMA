@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8imdr"]
 [ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
+[ext_resource type="Texture2D" uid="uid://dpjbuhogesd8q" path="res://assets/icons/utai.png" id="13_87fqc"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
 [ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="14_8e4ax"]
@@ -48,7 +49,7 @@ day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 desktop_ui = NodePath("DesktopUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "authenticator_button", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "authenticator_button", "bank_button", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -60,6 +61,7 @@ email_button = NodePath("AppsUI/EmailButton")
 shop_button = NodePath("AppsUI/ShopButton")
 fake_shop_button = NodePath("AppsUI/FakeShopButton")
 authenticator_button = NodePath("AppsUI/AuthenticatorButton")
+bank_button = NodePath("AppsUI/BankButton")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" groups=["clock_display"]]
@@ -187,6 +189,18 @@ theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Autenticador"
 icon = ExtResource("14_8e4ax")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="BankButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+custom_minimum_size = Vector2(26, 358)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_oknyi")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Banco"
+icon = ExtResource("13_87fqc")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
