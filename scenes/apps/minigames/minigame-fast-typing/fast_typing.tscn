@@ -14,3 +14,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(300, 2400)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
