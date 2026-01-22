@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dkc8r4g62i6p"]
+
+[node name="MinigameTimer" type="MarginContainer"]
