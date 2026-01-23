@@ -22,6 +22,7 @@ var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tsc
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate()
+var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -91,7 +92,10 @@ func _ready() -> void:
 
 	#Browser App (Browser App)
 	browser_app.visible = false
+	browser_app_news.visible = false
+	browser_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app)
+	app_specific_screen.add_child(browser_app_news)
 
 ## Handles the app opened event from the desktop UI
 ##
@@ -237,6 +241,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.FAKESTORE: fake_store_app,
 		# Browser app
 		GameData.App.BROWSER: browser_app,
+		GameData.App.BROWSERNEWS: browser_app_news
 	}
 	return app_map.get(app_enum, null)
 
@@ -256,6 +261,6 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.FAKESTORE: GameData.App.STORE,
 		# Browser app
 		GameData.App.BROWSER: GameData.App.BROWSER,
-		GameData.App.BROWSERNEWS: GameData.App.BROWSERNEWS,
+		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
 	}
 	return main_app_map.get(subscreen_enum, null)
