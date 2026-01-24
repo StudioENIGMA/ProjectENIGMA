@@ -38,3 +38,5 @@ func refill_timer() -> void:
 		if (remaining_time_bar.value+5) > 30:
 			remaining_time_bar.value = 30
 		remaining_time_bar.value += 5
+	
+	remaining_time_bar.size.y = 160
