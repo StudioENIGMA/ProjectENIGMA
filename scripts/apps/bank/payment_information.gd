@@ -1,6 +1,7 @@
 extends Control
 
 signal transaction_completed()
+signal request_transaction_notification(app:GameData.App, content:String, title:String, time:int)
 
 @export var informations_container : VBoxContainer
 @export var not_found_container: VBoxContainer
@@ -92,4 +93,16 @@ func _on_confirm_button_pressed() -> void:
 	if code_informations != {}:
 		GameData.bank_balance -= code_informations["value"]
 		emit_signal("transaction_completed");
+
+		var receiver: String
+		if(code_informations.has("name")):
+			receiver = code_informations["name"]
+		elif(code_informations.has("institution")):
+			receiver = code_informations["institution"]
+
+		var formatted_value = GameData.format_brl(code_informations["value"])
+		var content = "Uma transação foi realizada para %s no valor de %s" % [receiver, formatted_value]
+		var time: int = GameData.hours_minutes
+		request_transaction_notification.emit(
+			GameData.App.BANK, content, "Transação realizada com sucesso", time
 		);
