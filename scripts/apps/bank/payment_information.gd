@@ -1,5 +1,7 @@
 extends Control
 
+signal transaction_completed()
+
 @export var informations_container : VBoxContainer
 @export var not_found_container: VBoxContainer
 @export var confirm_button: Button
@@ -89,3 +91,5 @@ func get_code_information(payment_code: GameData.PaymentCode) -> Dictionary:
 func _on_confirm_button_pressed() -> void:
 	if code_informations != {}:
 		GameData.bank_balance -= code_informations["value"]
+		emit_signal("transaction_completed");
+		);
