@@ -19,6 +19,7 @@ func setup(app_enum:GameData.App, content:String, title:String):
 func _ready() -> void:
 	notification_content_label.text = initial_content
 	notification_title_label.text = initial_title
+	notification_title_label.update_font_size()
 	app_icon.texture = load(initial_icon)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
