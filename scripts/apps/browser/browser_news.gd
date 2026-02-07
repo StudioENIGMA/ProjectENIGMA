@@ -10,7 +10,6 @@ var _news_data: Dictionary = {}
 func setup(data: Dictionary) -> void:
 	_news_data = data
 
-	# Se os labels já existirem, atualiza na hora
 	if is_inside_tree():
 		_apply_data()
 
