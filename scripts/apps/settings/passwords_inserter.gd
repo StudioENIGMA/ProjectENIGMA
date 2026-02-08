@@ -2,14 +2,18 @@ extends Control
 
 signal password_correct()
 
+#region CHILDREN NODES REFERENCES
 @export var password_digit_1: Label
 @export var password_digit_2: Label
 @export var password_digit_3: Label
 @export var password_digit_4: Label
 @export var instruction_label: Label
+#endregion
 
 var gated_app: GameData.App
 
+## Sets up the PasswordsInserter UI with the provided data, initializing the gated app
+## and updating the instruction label accordingly
 func setup(data: Dictionary) -> void:
 	gated_app = data["GatedApp"]
 	var app_name = GameData.apps_name_reverse.get(gated_app, "Desconhecido")
@@ -17,6 +21,8 @@ func setup(data: Dictionary) -> void:
 
 	clear_password_fields()
 
+#region PASSWORD LOGIC
+## Retrieves the entered password as a concatenated string of the four digit labels
 func get_entered_password() -> String:
 	return "%s%s%s%s" % [
 		password_digit_1.text,
@@ -25,12 +31,15 @@ func get_entered_password() -> String:
 		password_digit_4.text,
 	]
 
+## Clears the password digit labels, resetting them to their default state
 func clear_password_fields() -> void:
 	password_digit_1.text = "_"
 	password_digit_2.text = "_"
 	password_digit_3.text = "_"
 	password_digit_4.text = "_"
 
+## Handles key input events to capture numeric password entry and validate it against
+## the stored password for the gated app
 func _input(event: InputEvent) -> void:
 	# Avoid capturing keys when hidden
 	if not is_visible_in_tree():
@@ -59,3 +68,4 @@ func _input(event: InputEvent) -> void:
 				else:
 					clear_password_fields()
 					instruction_label.text = "Senha incorreta"
+#endregion
