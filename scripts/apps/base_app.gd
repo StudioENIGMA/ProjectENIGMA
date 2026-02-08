@@ -130,6 +130,9 @@ func _ready() -> void:
 	# Payment Information (Bank app)
 	bank_payment_info.visible = false
 	app_specific_screen.add_child(bank_payment_info)
+	bank_payment_info.transaction_completed.connect(
+		func(): _on_back_button_pressed(); _on_back_button_pressed()
+	)
 
 ## Handles the app opened event from the desktop UI
 ##

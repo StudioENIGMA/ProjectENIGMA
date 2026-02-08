@@ -103,6 +103,14 @@ var apps_data = {
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/email.png",
 	},
+
+	App.BANK: {
+		"name": "Utaí",
+		"chinese_name": "巴西莓",
+		"description": "Realize seus pagamentos aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/utai.png",
+	}
 }
 
 var apps_chinese_operations = {
