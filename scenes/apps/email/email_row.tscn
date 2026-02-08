@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://ulxoabk2xr6m"]
+
+[ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_row.gd" id="1_tb307"]
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_tb307"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_duhoi"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="4_vmk7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="Theme" id="Theme_hpj05"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
+
+[node name="EmailRow" type="MarginContainer" node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
+size_flags_horizontal = 3
+mouse_filter = 0
+script = ExtResource("1_tb307")
+email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
+email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
+email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")
+email_content_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailContentLabel")
+email_date_label = NodePath("VBoxContainer/EmailContainer/EmailDateLabel")
+annex_section = NodePath("VBoxContainer/AnnexContainer")
+annex_name_label = NodePath("VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer/AnnexNameLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmailContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1080, 240)
+layout_mode = 2
+
+[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer"]
+layout_mode = 2
+texture = ExtResource("1_vh7fo")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="EmailContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SenderNameLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tb307")
+theme_override_font_sizes/font_size = 50
+text = "Chefinho"
+
+[node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_duhoi")
+theme_override_font_sizes/font_size = 40
+text = "Reunião importante"
+text_overrun_behavior = 3
+
+[node name="EmailContentLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_duhoi")
+theme_override_font_sizes/font_size = 40
+text = "Hoje, às 8h, precisaremos fazer uma reunião"
+text_overrun_behavior = 3
+max_lines_visible = 1
+
+[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_duhoi")
+theme_override_font_sizes/font_size = 40
+text = "04/01/2026"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginRight" type="MarginContainer" parent="VBoxContainer/EmailContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="AnnexContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/AnnexContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="AnnexPanel" type="PanelContainer" parent="VBoxContainer/AnnexContainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_hpj05")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ClipIcon" type="TextureRect" parent="VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_vmk7o")
+expand_mode = 1
+
+[node name="MarginCenter" type="MarginContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="AnnexNameLabel" type="Label" parent="VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_duhoi")
+theme_override_font_sizes/font_size = 40
+text = "ItinerárioReunião"
+text_overrun_behavior = 3

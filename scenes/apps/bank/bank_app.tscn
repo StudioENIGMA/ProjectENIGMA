@@ -1,0 +1,177 @@
+[gd_scene load_steps=12 format=3 uid="uid://o0judfg0ie3h"]
+
+[ext_resource type="Script" uid="uid://bbe1w64twx2tt" path="res://scripts/apps/bank/bank_app.gd" id="1_f135x"]
+[ext_resource type="Texture2D" uid="uid://cb4v4bb0jsqnr" path="res://assets/icons/default_person_icon.svg" id="2_a2xj4"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_o1c47"]
+[ext_resource type="Texture2D" uid="uid://cdkp5cwdx5wa1" path="res://assets/icons/closed_eye_icon.svg" id="3_sxruq"]
+[ext_resource type="Texture2D" uid="uid://b05e6xvr80oqk" path="res://assets/icons/eye_icon.svg" id="4_qciko"]
+[ext_resource type="Texture2D" uid="uid://buv1c45prpwvu" path="res://assets/icons/pix_icon.svg" id="6_a2xj4"]
+[ext_resource type="Texture2D" uid="uid://ck2cuqj2ndeas" path="res://assets/icons/boleto_icon.svg" id="7_eaf8e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iisxx"]
+bg_color = Color(0.19215687, 0.6862745, 0.68235296, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcqqf"]
+font_size = 40
+font_color = Color(0, 0.03529412, 0.14117648, 1)
+
+[sub_resource type="FontFile" id="FontFile_kcqqf"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_o1c47"]
+font = ExtResource("2_o1c47")
+font_size = 49
+font_color = Color(0, 0.03529412, 0.14117648, 1)
+
+[node name="bank_app" type="Control" node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_f135x")
+balance_value_label = NodePath("CenterContainer/VBoxContainer/ValueHBoxContainer/ValueLabel")
+hide_value_button = NodePath("CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer/HideBalanceButton")
+pix_button = NodePath("CenterContainer/VBoxContainer/ButtonsHBoxContainer/PixButton")
+ticket_button = NodePath("CenterContainer/VBoxContainer/ButtonsHBoxContainer/TicketButton")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1080, 2160)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1080.0
+offset_bottom = 2160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1080, 2056)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderPanel" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iisxx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.5
+offset_top = -166.5
+offset_right = 499.5
+offset_bottom = 166.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_a2xj4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HideBalanceButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("3_sxruq")
+texture_pressed = ExtResource("4_qciko")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+layout_mode = 2
+text = "Olá, Companheiro ENIGMA"
+label_settings = SubResource("LabelSettings_kcqqf")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BalanceHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="BalanceLabel" type="Label" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontFile_kcqqf")
+text = "Saldo"
+label_settings = SubResource("LabelSettings_o1c47")
+
+[node name="ValueHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/ValueHBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="CenterContainer/VBoxContainer/ValueHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontFile_kcqqf")
+text = "******"
+label_settings = SubResource("LabelSettings_o1c47")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="PixButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 2
+texture_normal = ExtResource("6_a2xj4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CenterMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TicketButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 2
+texture_normal = ExtResource("7_eaf8e")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

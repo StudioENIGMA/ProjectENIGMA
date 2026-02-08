@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ducv1b0dl1fg2"
-path="res://.godot/imported/clip-icon.png-996b823f18adc6979ce74642d76429c5.ctex"
+uid="uid://cpoby6ygtkhi8"
+path="res://.godot/imported/utai.svg-68e9b2bb10e69cd46212e0c3a269b22a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/clip-icon.png"
-dest_files=["res://.godot/imported/clip-icon.png-996b823f18adc6979ce74642d76429c5.ctex"]
+source_file="res://assets/icons/utai.svg"
+dest_files=["res://.godot/imported/utai.svg-68e9b2bb10e69cd46212e0c3a269b22a.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=0.4
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

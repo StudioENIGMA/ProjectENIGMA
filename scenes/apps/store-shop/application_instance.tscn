@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1qfm0rk4ahe5"]
+[gd_scene load_steps=7 format=3 uid="uid://1qfm0rk4ahe5"]
 
 [ext_resource type="Script" uid="uid://dgjx6w2dl8b6y" path="res://scripts/apps/both_shops/application_instance.gd" id="1_c7dlv"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_5uj2r"]
@@ -14,13 +14,6 @@ corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1p0b"]
 bg_color = Color(0.568627, 0.101961, 0.219608, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04xty"]
-bg_color = Color(0.384314, 0.0705882, 0.192157, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -90,12 +83,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(256, 120)
 layout_mode = 2
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5uj2r")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjihv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
-theme_override_styles/focus = SubResource("StyleBoxFlat_04xty")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fjihv")
 text = "Abrir
 "
 
