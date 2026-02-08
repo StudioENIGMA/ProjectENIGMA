@@ -48,8 +48,8 @@ var current_day:int = 0
 var reputation_points:int = 0
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {
-	App.BANK: "1234", # Default password for Bank app
-} # GameData.App as key, password as value
+	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
+}
 
 var apps_name: Dictionary = {
 	# Messages app

@@ -174,8 +174,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		back_button.visible = false
 
 	# Open password check dialog if the app is password protected
-	var password_protected_apps = [GameData.App.BANK]
-	if app in password_protected_apps:
+	if app in GameData.passwords.keys(): # Single source of truth
 		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
 
 ## Handles the close app button press event
