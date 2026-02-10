@@ -5,16 +5,15 @@ extends PanelContainer
 @export var summary_label: Label
 @export var logo_texture_rect: TextureRect
 
-func setup(
-	company_score: int, company_name: String, company_logo: String, reviews_summary: String) -> void:
-	logo_texture_rect.texture = load(company_logo)
+func setup(company_data: Dictionary) -> void:
+	logo_texture_rect.texture = load(company_data['logo'])
 
-	name_label.text = company_name
-	summary_label.text = "Resumo: %s" % reviews_summary
-	score_label.text = str(company_score)
+	name_label.text = company_data['name']
+	summary_label.text = "Resumo: %s" % company_data['sumarry']
+	score_label.text = str(company_data['score'])
 
 	var current_style: StyleBoxFlat = score_label.get_theme_stylebox("normal").duplicate()
-	if company_score >= 50:
+	if company_data['score'] >= 50:
 		current_style.bg_color = Color("#196153")
 	else:
 		current_style.bg_color = Color("#660f31")

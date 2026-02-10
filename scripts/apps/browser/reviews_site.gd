@@ -13,9 +13,7 @@ func _ready() -> void:
 
 func create_company_card(company_data: Dictionary) -> void:
 	var company_card = company_card_scene.instantiate()
-	company_card.setup(
-		company_data["score"], company_data["name"], company_data["logo"], company_data["summary"]
-	)
+	company_card.setup(company_data)
 
 	v_box_container.add_child(company_card)
 	var child_idx = v_box_container.get_child_count() - 2
