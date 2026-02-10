@@ -8,4 +8,3 @@ func _on_gui_input(event: InputEvent) -> void:
 		var scene = load("res://scenes/real_shop_site.tscn").instantiate()
 		get_tree().root.add_child(scene)
 		get_tree().current_scene = scene
-
