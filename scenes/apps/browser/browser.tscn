@@ -36,24 +36,13 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="quick_acess_sites_icons" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
+[node name="quick_acess_sites_icons" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1841544942 instance=ExtResource("4_k30y1")]
 layout_mode = 2
+site_name = "Loja"
 
-[node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=330443488 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
+[node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1037423139 instance=ExtResource("4_k30y1")]
 layout_mode = 2
-
-[node name="quick_acess_sites_icons3" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=627541012 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
-layout_mode = 2
-
-[node name="quick_acess_sites_icons4" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1212732151 instance=ExtResource("4_k30y1")]
-layout_mode = 2
-
-[node name="quick_acess_sites_icons5" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=252869147 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
-layout_mode = 2
+site_name = "Loja Fake"
 
 [node name="NewsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1269479065]
 layout_mode = 2
@@ -68,3 +57,6 @@ custom_minimum_size = Vector2(720, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
+
+[connection signal="open_real_shop" from="ScrollContainer/VBoxContainer/GridContainer/quick_acess_sites_icons" to="." method="_on_open_real_store"]
+[connection signal="open_fake_shop" from="ScrollContainer/VBoxContainer/GridContainer/quick_acess_sites_icons2" to="." method="_on_open_fake_shop"]

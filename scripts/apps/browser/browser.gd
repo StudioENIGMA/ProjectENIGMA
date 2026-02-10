@@ -34,4 +34,10 @@ func _on_news_received(day_news: Dictionary) -> void:
 
 func _on_open_news(news_data : Dictionary):
 	subscreen_open_requested.emit(GameData.App.BROWSERNEWS, news_data)
+
+func _on_open_real_store():
+	subscreen_open_requested.emit(GameData.App.BROWSERREALSHOP)
+
+func _on_open_fake_shop():
+	subscreen_open_requested.emit(GameData.App.BROWSERFAKESHOP)
 	

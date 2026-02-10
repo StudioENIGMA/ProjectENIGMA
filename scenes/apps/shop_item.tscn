@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcq5gqpyjjaem"]
+[gd_scene format=3 uid="uid://bcq5gqpyjjaem"]
 
-[ext_resource type="Script" uid="uid://cucqo0ecd3jj2" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="1_btjjm"]
-[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="1_lrx6i"]
+[ext_resource type="Script" uid="uid://cucqo0ecd3jj2" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="1_fqwnt"]
+[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="2_brity"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btjjm"]
 bg_color = Color(0.929715, 0.929715, 0.929715, 1)
@@ -13,23 +13,24 @@ shadow_color = Color(0.109804, 0.109804, 0.109804, 0.0745098)
 shadow_size = 4
 shadow_offset = Vector2(3, 3)
 
-[node name="shop_item" type="Control"]
+[node name="shop_item" type="Control" unique_id=1587774648]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_btjjm")
+size_flags_horizontal = 3
+script = ExtResource("1_fqwnt")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1483474221]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 0
-offset_right = 480.0
+offset_right = 540.0
 offset_bottom = 758.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_btjjm")
 
-[node name="item_icon" type="TextureRect" parent="Panel"]
+[node name="item_icon" type="TextureRect" parent="Panel" unique_id=238673017]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -39,10 +40,10 @@ offset_top = 15.0
 offset_right = 154.5
 offset_bottom = 280.0
 grow_horizontal = 2
-texture = ExtResource("1_lrx6i")
+texture = ExtResource("2_brity")
 stretch_mode = 5
 
-[node name="item_name" type="Label" parent="Panel"]
+[node name="item_name" type="Label" parent="Panel" unique_id=546356179]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -59,25 +60,26 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Nome do item
 "
+horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="buy_button" type="Button" parent="Panel"]
+[node name="buy_button" type="Button" parent="Panel" unique_id=1339298584]
 layout_mode = 0
-offset_left = 19.0
+offset_left = 32.0
 offset_top = 594.0
-offset_right = 298.0
+offset_right = 311.0
 offset_bottom = 706.0
 theme_override_font_sizes/font_size = 40
 text = "COMPRAR"
 
-[node name="Panel" type="Panel" parent="Panel"]
+[node name="Panel" type="Panel" parent="Panel" unique_id=1762089419]
 layout_mode = 0
-offset_left = 342.0
+offset_left = 382.0
 offset_top = 532.0
-offset_right = 462.0
+offset_right = 502.0
 offset_bottom = 739.0
 
-[node name="add_item" type="Button" parent="Panel/Panel"]
+[node name="add_item" type="Button" parent="Panel/Panel" unique_id=1162247535]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -87,7 +89,7 @@ theme_override_font_sizes/font_size = 40
 text = "+
 "
 
-[node name="item_quantity" type="Label" parent="Panel/Panel"]
+[node name="item_quantity" type="Label" parent="Panel/Panel" unique_id=337419749]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -102,7 +104,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="remove_item" type="Button" parent="Panel/Panel"]
+[node name="remove_item" type="Button" parent="Panel/Panel" unique_id=1997089078]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
