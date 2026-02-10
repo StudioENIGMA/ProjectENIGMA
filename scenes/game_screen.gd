@@ -37,10 +37,14 @@ func _ready() -> void:
   )
   # Story Director new email to UI
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
+  #Story Director Browser
+  story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
 
   # UI
   # UI message answered to Story Director
   ui.message_answered.connect(answers_director.on_message_answered)
+  # UI browser news requested
+  ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
 
 #endregion INITIALIZATION
 
