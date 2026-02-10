@@ -36,12 +36,13 @@ corner_detail = 9
 font = ExtResource("2_ukd8c")
 font_size = 110
 
-[node name="CompanyCard" type="PanelContainer" unique_id=1823120764 node_paths=PackedStringArray("score_label", "name_label", "summary_label")]
+[node name="CompanyCard" type="PanelContainer" unique_id=1823120764 node_paths=PackedStringArray("score_label", "name_label", "summary_label", "logo_texture_rect")]
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhigj")
 script = ExtResource("1_bh8fw")
 score_label = NodePath("HBoxContainer2/ScoreLabel")
 name_label = NodePath("HBoxContainer2/VBoxContainer/NameLabel")
 summary_label = NodePath("HBoxContainer2/VBoxContainer/SummaryLabel")
+logo_texture_rect = NodePath("HBoxContainer2/LogoTextureRect")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1152595399]
 custom_minimum_size = Vector2(0, 250)
@@ -51,7 +52,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1760041421]
+[node name="LogoTextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1760041421]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0

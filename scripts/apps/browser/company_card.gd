@@ -3,8 +3,12 @@ extends PanelContainer
 @export var score_label: Label
 @export var name_label: Label
 @export var summary_label: Label
+@export var logo_texture_rect: TextureRect
 
-func setup(company_score: int, company_name: String, reviews_summary: String) -> void:
+func setup(
+	company_score: int, company_name: String, company_logo: String, reviews_summary: String) -> void:
+	logo_texture_rect.texture = load(company_logo)
+
 	name_label.text = company_name
 	summary_label.text = "Resumo: %s" % reviews_summary
 	score_label.text = str(company_score)
