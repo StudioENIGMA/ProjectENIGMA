@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clmq5ocg6g06r"]
+[gd_scene format=3 uid="uid://clmq5ocg6g06r"]
 
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_3xwap"]
 [ext_resource type="Script" uid="uid://h6v46v800kee" path="res://scripts/apps/base_app.gd" id="1_8sayc"]
@@ -7,15 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_8sayc"]
 [ext_resource type="Script" uid="uid://dm05wp1j0pade" path="res://scripts/apps/top_bar_clock_label.gd" id="4_04ele"]
 
-[node name="BaseApp" type="Control" node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen")]
+[node name="BaseApp" type="Control" unique_id=1827271139 node_paths=PackedStringArray("close_app_button", "back_button", "desktop_ui", "app_specific_screen")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8sayc")
 close_app_button = NodePath("TopBar/TopBarIcons/CloseAppContainer/CloseAppButton")
 back_button = NodePath("TopBar/TopBarIcons/BackButtonContainer/BackButton")
+desktop_ui = NodePath("TopBar")
 app_specific_screen = NodePath("AppSpecificScreen")
 
-[node name="BaseBackgroundColor" type="ColorRect" parent="."]
+[node name="BaseBackgroundColor" type="ColorRect" parent="." unique_id=1505261636]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 1
 anchors_preset = 10
@@ -25,7 +26,7 @@ offset_bottom = 2400.0
 grow_horizontal = 2
 color = Color(1, 1, 0.972549, 1)
 
-[node name="TopBar" type="ColorRect" parent="."]
+[node name="TopBar" type="ColorRect" parent="." unique_id=837064309]
 custom_minimum_size = Vector2(1080, 240)
 layout_mode = 0
 offset_right = 1080.0
@@ -33,7 +34,7 @@ offset_bottom = 240.0
 mouse_filter = 2
 color = Color(0.27451, 0.709804, 0.690196, 1)
 
-[node name="TopBarIcons" type="HBoxContainer" parent="TopBar"]
+[node name="TopBarIcons" type="HBoxContainer" parent="TopBar" unique_id=2075151806]
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -49,15 +50,15 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="MarginLeft" type="MarginContainer" parent="TopBar/TopBarIcons"]
+[node name="MarginLeft" type="MarginContainer" parent="TopBar/TopBarIcons" unique_id=22472082]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="BackButtonContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+[node name="BackButtonContainer" type="CenterContainer" parent="TopBar/TopBarIcons" unique_id=463500431]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="BackButton" type="TextureButton" parent="TopBar/TopBarIcons/BackButtonContainer"]
+[node name="BackButton" type="TextureButton" parent="TopBar/TopBarIcons/BackButtonContainer" unique_id=1087242505]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("1_53k8s")
@@ -68,15 +69,15 @@ texture_focused = ExtResource("1_53k8s")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CenterMargin" type="MarginContainer" parent="TopBar/TopBarIcons"]
+[node name="CenterMargin" type="MarginContainer" parent="TopBar/TopBarIcons" unique_id=459384205]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClockContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+[node name="ClockContainer" type="CenterContainer" parent="TopBar/TopBarIcons" unique_id=763160078]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="ClockLabel" type="Label" parent="TopBar/TopBarIcons/ClockContainer" groups=["clock_display"]]
+[node name="ClockLabel" type="Label" parent="TopBar/TopBarIcons/ClockContainer" unique_id=1268811847 groups=["clock_display"]]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/line_spacing = -16
@@ -86,14 +87,14 @@ text = "08
 00"
 script = ExtResource("4_04ele")
 
-[node name="BatteryContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+[node name="BatteryContainer" type="CenterContainer" parent="TopBar/TopBarIcons" unique_id=120918396]
 custom_minimum_size = Vector2(40, 80)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="TopBar/TopBarIcons/BatteryContainer"]
+[node name="Control" type="Control" parent="TopBar/TopBarIcons/BatteryContainer" unique_id=965229733]
 layout_mode = 2
 
-[node name="BatteryIcon" type="TextureRect" parent="TopBar/TopBarIcons/BatteryContainer/Control"]
+[node name="BatteryIcon" type="TextureRect" parent="TopBar/TopBarIcons/BatteryContainer/Control" unique_id=1631332067]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 0
 offset_left = -40.0
@@ -105,28 +106,28 @@ texture = ExtResource("2_53k8s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginLeftVerticalLine2" type="MarginContainer" parent="TopBar/TopBarIcons"]
+[node name="MarginLeftVerticalLine2" type="MarginContainer" parent="TopBar/TopBarIcons" unique_id=2092546801]
 custom_minimum_size = Vector2(20, 80)
 layout_mode = 2
 
-[node name="VerticalLineContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+[node name="VerticalLineContainer" type="CenterContainer" parent="TopBar/TopBarIcons" unique_id=329098875]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
-[node name="VerticalLineIcon" type="ColorRect" parent="TopBar/TopBarIcons/VerticalLineContainer"]
+[node name="VerticalLineIcon" type="ColorRect" parent="TopBar/TopBarIcons/VerticalLineContainer" unique_id=2009754190]
 custom_minimum_size = Vector2(4, 100)
 layout_mode = 2
 color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 
-[node name="MarginRightVerticalLine" type="MarginContainer" parent="TopBar/TopBarIcons"]
+[node name="MarginRightVerticalLine" type="MarginContainer" parent="TopBar/TopBarIcons" unique_id=2010762343]
 custom_minimum_size = Vector2(20, 80)
 layout_mode = 2
 
-[node name="CloseAppContainer" type="CenterContainer" parent="TopBar/TopBarIcons"]
+[node name="CloseAppContainer" type="CenterContainer" parent="TopBar/TopBarIcons" unique_id=1698021207]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
-[node name="CloseAppButton" type="TextureButton" parent="TopBar/TopBarIcons/CloseAppContainer"]
+[node name="CloseAppButton" type="TextureButton" parent="TopBar/TopBarIcons/CloseAppContainer" unique_id=179249940]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("3_8sayc")
@@ -137,11 +138,11 @@ texture_focused = ExtResource("3_8sayc")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MarginRight" type="MarginContainer" parent="TopBar/TopBarIcons"]
+[node name="MarginRight" type="MarginContainer" parent="TopBar/TopBarIcons" unique_id=473813396]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="AppSpecificScreen" type="Control" parent="."]
+[node name="AppSpecificScreen" type="Control" parent="." unique_id=1069969982]
 custom_minimum_size = Vector2(1080, 2160)
 anchors_preset = 0
 offset_top = 240.0

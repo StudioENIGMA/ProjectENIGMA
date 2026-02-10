@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcf1ro7bwyle6"]
+[gd_scene format=3 uid="uid://bcf1ro7bwyle6"]
 
 [ext_resource type="Script" uid="uid://bj6y8i3k683iu" path="res://scripts/apps/email/email_app_home.gd" id="1_v74p8"]
 
