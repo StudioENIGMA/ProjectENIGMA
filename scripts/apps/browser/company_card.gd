@@ -9,8 +9,8 @@ func setup(company_data: Dictionary) -> void:
 	logo_texture_rect.texture = load(company_data['logo'])
 
 	name_label.text = company_data['name']
-	summary_label.text = "Resumo: %s" % company_data['sumarry']
-	score_label.text = str(company_data['score'])
+	summary_label.text = "Resumo: %s" % company_data['summary']
+	score_label.text = "%d" % company_data['score']
 
 	var current_style: StyleBoxFlat = score_label.get_theme_stylebox("normal").duplicate()
 	if company_data['score'] >= 50:
