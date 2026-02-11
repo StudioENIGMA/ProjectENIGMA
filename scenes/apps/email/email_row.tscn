@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ulxoabk2xr6m"]
+[gd_scene format=3 uid="uid://ulxoabk2xr6m"]
 
 [ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_row.gd" id="1_tb307"]
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]

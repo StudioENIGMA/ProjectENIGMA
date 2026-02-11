@@ -19,6 +19,7 @@ enum App {
 	FAKESTORE,
 	# Browser app
 	BROWSER,
+	BROWSERNEWS,
 	# Email app
 	EMAIL,
 	EMAILREAD,
@@ -61,12 +62,13 @@ var apps_name: Dictionary = {
 	# Store apps
 	"Store": App.STORE,
 	"FakeStore": App.FAKESTORE,
+	# Browser
+	"Browser": App.BROWSER,
+	"BrowserNews": App.BROWSERNEWS,
 	# Bank app
 	"Bank" : App.BANK,
 	"PaymentCode" : App.PAYMENTCODE,
 	"PaymentInformation" : App.PAYMENTINFORMATION,
-	# Browser app
-	"Browser": App.BROWSER,
 	# Email app
 	"Email": App.EMAIL,
 	"EmailRead": App.EMAILREAD,
