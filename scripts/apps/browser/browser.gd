@@ -9,6 +9,7 @@ signal subscreen_open_requested(
 )
 
 @export var news_container : VBoxContainer
+@export var quick_sites_containier: GridContainer
 
 var day_news_data : Dictionary
 
@@ -27,6 +28,9 @@ func _ready():
 		browser_home_news.open_news.connect(_on_open_news)
 		news_container.add_child(browser_home_news)
 
+	for quick_site in quick_sites_containier.get_children():
+		quick_site.open_site_requested.connect(_on_open_site_requested)
+
 
 func _on_news_received(day_news: Dictionary) -> void:
 	day_news_data = day_news
@@ -35,3 +39,5 @@ func _on_news_received(day_news: Dictionary) -> void:
 func _on_open_news(news_data : Dictionary):
 	subscreen_open_requested.emit(GameData.App.BROWSERNEWS, news_data)
 
+func _on_open_site_requested(app: GameData.App):
+	subscreen_open_requested.emit(app, null)
