@@ -15,6 +15,7 @@ func setup(payment_code:GameData.PaymentCode) -> void:
 
 	# Iterate through the list and free each child
 	for child in children:
+		informations_container.remove_child(child)
 		child.queue_free()
 
 	code_informations = get_code_information(payment_code)

@@ -1,5 +1,7 @@
 extends MarginContainer
 
+signal subscreen_open_requested(app: GameData.App, data: Dictionary)
+
 #region CHILDREN NODES REFERENCES
 @export var app_icon: TextureRect
 @export var current_password_label: Label
@@ -25,9 +27,9 @@ func setup(data: Dictionary) -> void:
 	change_password_button.pressed.connect(_on_change_password_pressed)
 	toggle_visibility_button.pressed.connect(_on_toggle_visibility_pressed)
 
+## Requests base app to open the password change subscreen for the gated app
 func _on_change_password_pressed() -> void:
-	# Open a dialog to enter a new password (not implemented here)
-	pass
+	emit_signal("subscreen_open_requested", GameData.App.PASSWORDCHANGE, {"GatedApp": gated_app})
 
 ## Toggles the visibility of the current password label between masked and actual password
 func _on_toggle_visibility_pressed() -> void:

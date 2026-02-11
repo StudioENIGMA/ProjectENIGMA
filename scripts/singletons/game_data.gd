@@ -12,6 +12,8 @@ enum App {
 	# Settings app
 	SETTINGS,
 	PASSWORDMANAGER,
+	PASSWORDCHECK,
+	PASSWORDCHANGE,
 	# Store app
 	STORE,
 	FAKESTORE,
@@ -27,8 +29,6 @@ enum App {
 	BANK,
 	PAYMENTCODE,
 	PAYMENTINFORMATION,
-	# Password app
-	PASSWORDCHECK,
 }
 
 enum PaymentType {
