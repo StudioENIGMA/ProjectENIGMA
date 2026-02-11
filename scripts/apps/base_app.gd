@@ -31,6 +31,9 @@ var authenticator_app = preload(
 var bank_app = preload("res://scenes/apps/bank/bank_app.tscn").instantiate()
 var bank_payment_code = preload("res://scenes/apps/bank/payment_code.tscn").instantiate()
 var bank_payment_info = preload("res://scenes/apps/bank/payment_information.tscn").instantiate()
+var password_check_dialog = preload(
+	"res://scenes/settings/passwords_inserter.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -85,6 +88,11 @@ func _ready() -> void:
 	# Passwords Manager app (Settings app)
 	passwords_manager_app.visible = false
 	app_specific_screen.add_child(passwords_manager_app)
+
+	# Password Check Dialog (Password Manager)
+	password_check_dialog.visible = false
+	password_check_dialog.password_correct.connect(_on_back_button_pressed)
+	app_specific_screen.add_child(password_check_dialog)
 
 	# Store app (Store app)
 	store_app.visible = false
@@ -143,7 +151,12 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
 	self.visible = true
 
-	var main_app:GameData.App = _get_main_app_enum(app)
+	var main_app:GameData.App
+
+	if (app != GameData.App.PASSWORDCHECK):
+		main_app = _get_main_app_enum(app)
+	else:
+		main_app = optional_data["GatedApp"]
 
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
@@ -159,7 +172,8 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 	# Show back button if more than one app is open and hide previous app
-	if open_apps.size() > 1:
+	# Also, do not show back button if the current app is the password check dialog
+	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
 		back_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
@@ -167,6 +181,11 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		previous_app.visible = false
 	else:
 		back_button.visible = false
+
+	# Open password check dialog if the app is password protected
+	var password_protected_apps = [GameData.App.BANK]
+	if app in password_protected_apps:
+		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
 
 ## Handles the close app button press event
 ##
@@ -289,6 +308,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BANK: bank_app,
 		GameData.App.PAYMENTCODE: bank_payment_code,
 		GameData.App.PAYMENTINFORMATION: bank_payment_info,
+		# Password Manager app
+		GameData.App.PASSWORDCHECK: password_check_dialog,
 	}
 	return app_map.get(app_enum, null)
 
