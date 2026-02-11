@@ -104,7 +104,7 @@ func _ready() -> void:
 	browser_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app)
 	app_specific_screen.add_child(browser_app_news)
-	
+
 	# Email app home (Email app)
 	email_app_home.visible = false
 	email_app_home.subscreen_open_requested.connect(_on_app_opened)

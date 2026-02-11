@@ -1,13 +1,14 @@
 extends HBoxContainer
 
-@export var news_content: Label 
+signal open_news(news_data: Dictionary)
+
+@export var news_content: Label
 @export var news_metadata: Label
 
-signal open_news(news_data: Dictionary)
 var _news_data: Dictionary
 
 func set_news_data(news_title : String, news_text_content : String, news_data : String) -> void:
-	
+
 	_news_data = {
 		"title": news_title,
 		"content": news_text_content,
