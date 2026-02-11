@@ -21,6 +21,8 @@ var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiat
 var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
+var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate()
+var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
 var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
 var email_app_viewer = preload("res://scenes/apps/email/email_app_viewer.tscn").instantiate()
 var authenticator_app = preload(
@@ -104,6 +106,13 @@ func _ready() -> void:
 	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(fake_store_app)
 
+	#Browser App (Browser App)
+	browser_app.visible = false
+	browser_app_news.visible = false
+	browser_app.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app)
+	app_specific_screen.add_child(browser_app_news)
+	
 	# Email app home (Email app)
 	email_app_home.visible = false
 	email_app_home.subscreen_open_requested.connect(_on_app_opened)
@@ -286,6 +295,9 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
+		# Browser app
+		GameData.App.BROWSER: browser_app,
+		GameData.App.BROWSERNEWS: browser_app_news,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
@@ -314,6 +326,9 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
+		# Browser app
+		GameData.App.BROWSER: GameData.App.BROWSER,
+		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
