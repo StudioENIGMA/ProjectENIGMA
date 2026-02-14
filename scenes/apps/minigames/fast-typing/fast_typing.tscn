@@ -8,13 +8,17 @@
 font = ExtResource("2_3r1p2")
 font_size = 50
 
-[node name="FastTyping" type="Control" unique_id=716089780]
+[node name="FastTyping" type="Control" unique_id=716089780 node_paths=PackedStringArray("text_to_type1", "text_to_type2", "player_type_space", "minigame_timer")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 2400.0
 script = ExtResource("1_w44rq")
+text_to_type1 = NodePath("ColorRect/VBoxContainer/Label")
+text_to_type2 = NodePath("ColorRect/VBoxContainer/Label2")
+player_type_space = NodePath("ColorRect/VBoxContainer/LineEdit")
+minigame_timer = NodePath("ColorRect/VBoxContainer/MinigameTimer")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1505632888]
 custom_minimum_size = Vector2(1080, 2400)

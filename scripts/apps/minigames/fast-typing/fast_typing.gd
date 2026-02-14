@@ -1,10 +1,13 @@
 extends Control
 
+
 #region CHILDREN NODES REFERENCES
 @export var text_to_type1: Label
 @export var text_to_type2: Label
 @export var player_type_space: LineEdit
+@export var minigame_timer: MarginContainer
 #endregion
+
 
 
 # Called when the node enters the scene tree for the first time.
