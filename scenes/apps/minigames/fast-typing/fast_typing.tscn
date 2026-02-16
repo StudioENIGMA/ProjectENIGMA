@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://b88v1fo4yrqrt"]
 
 [ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_w44rq"]
-[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_3r1p2"]
 [ext_resource type="PackedScene" uid="uid://dkc8r4g62i6p" path="res://scenes/apps/minigames/MinigameTimer.tscn" id="3_vf3tb"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_utiw0"]
-font = ExtResource("2_3r1p2")
-font_size = 50
 
 [node name="FastTyping" type="Control" unique_id=716089780 node_paths=PackedStringArray("text_to_type1", "text_to_type2", "player_type_space", "minigame_timer")]
 custom_minimum_size = Vector2(1080, 2400)
@@ -15,8 +10,8 @@ anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 2400.0
 script = ExtResource("1_w44rq")
-text_to_type1 = NodePath("ColorRect/VBoxContainer/Label")
-text_to_type2 = NodePath("ColorRect/VBoxContainer/Label2")
+text_to_type1 = NodePath("ColorRect/VBoxContainer/RichTextLabel")
+text_to_type2 = NodePath("ColorRect/VBoxContainer/RichTextLabel2")
 player_type_space = NodePath("ColorRect/VBoxContainer/LineEdit")
 minigame_timer = NodePath("ColorRect/VBoxContainer/MinigameTimer")
 
@@ -52,25 +47,23 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=1760921481]
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer" unique_id=561864986]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-text = "Lorem "
-label_settings = SubResource("LabelSettings_utiw0")
+bbcode_enabled = true
+text = "[font_size=50][color=red]T[/color][color=blue]e[/color][color=green]x[/color][color=yellow]t[/color]"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=1039962562]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="ColorRect/VBoxContainer" unique_id=1921632009]
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect/VBoxContainer" unique_id=256532155]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-text = "Lorem"
-label_settings = SubResource("LabelSettings_utiw0")
+bbcode_enabled = true
+text = "[font_size=50][color=red]T[/color][color=blue]e[/color][color=green]x[/color][color=yellow]t[/color]"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=1045844993]
 custom_minimum_size = Vector2(0, 100)
