@@ -195,6 +195,13 @@ func _read_json_root(file_path: String) -> Variant:
 	var result := parser.parse(file.get_as_text())
 	assert(result == OK)
 	return parser.data
+
+func _read_json_array(file_path: String) -> Array:
+	var json_data = _read_json_root(file_path)
+	assert(typeof(json_data) == TYPE_ARRAY)
+	return json_data
+
+
 #endregion JSON LOADING
 
 #region REQUIREMENTS
