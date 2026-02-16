@@ -1,9 +1,5 @@
 extends Node2D
 
-#region CHILDREN NODES REFERENCES
-@export var messages_director: Node
-@export var emails_director: Node
-
 signal request_answer_option(
 	npc_name: String,
 	message: String,
@@ -14,6 +10,10 @@ signal request_answer_option(
 )
 
 signal news_ready(day_news_data: Dictionary)
+
+#region CHILDREN NODES REFERENCES
+@export var messages_director: Node
+@export var emails_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
