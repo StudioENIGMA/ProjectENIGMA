@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
-[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scenes/game_screen.gd" id="1_8imdr"]
+[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scripts/utils/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
@@ -25,9 +25,10 @@
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
-[ext_resource type="Script" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
-[ext_resource type="Script" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
-[ext_resource type="Script" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
+[ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
+[ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
+[ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 
 [node name="GameScreen" type="Node2D" unique_id=2138891880 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 script = ExtResource("1_8imdr")
@@ -308,11 +309,12 @@ theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
-[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("day_over_timer", "clock_timer")]
+[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("day_over_timer", "clock_timer", "hack_handler")]
 visible = false
 script = ExtResource("6_pur81")
 day_over_timer = NodePath("DayOverTimer")
 clock_timer = NodePath("ClockTimer")
+hack_handler = NodePath("HackHandler")
 
 [node name="DayOverTimer" type="Timer" parent="EventHandler" unique_id=1345561278]
 wait_time = 600.0
@@ -321,6 +323,9 @@ autostart = true
 
 [node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=1490794400]
 autostart = true
+
+[node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
+script = ExtResource("25_5o8nl")
 
 [node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")

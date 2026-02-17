@@ -20,7 +20,6 @@ func refresh_passwords_list() -> void:
 	# Clear existing password instances
 	for child in password_container.get_children():
 		child.queue_free()
-		
 
 	# Recreate password instances for each app that requires a password
 	for app in GameData.passwords.keys():

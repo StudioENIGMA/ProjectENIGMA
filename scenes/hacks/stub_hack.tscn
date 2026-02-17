@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cl868dr1c08ae"]
+
+[ext_resource type="Script" uid="uid://bfwmuagjcosqi" path="res://scripts/hacks/stub_hack.gd" id="1_2fxc5"]
+
+[node name="StubHack" type="CenterContainer" unique_id=342134493 node_paths=PackedStringArray("confirm_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2fxc5")
+confirm_button = NodePath("VBoxContainer/Button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1066266299]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1183986326]
+layout_mode = 2
+text = "Você foi hackeado"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=702838160]
+layout_mode = 2
+text = "Deshackear"

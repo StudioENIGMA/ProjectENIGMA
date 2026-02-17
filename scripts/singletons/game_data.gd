@@ -14,6 +14,7 @@ enum App {
 	PASSWORDMANAGER,
 	PASSWORDCHECK,
 	PASSWORDCHANGE,
+	UPDATEOS,
 	# Store app
 	STORE,
 	FAKESTORE,
@@ -29,6 +30,14 @@ enum App {
 	BANK,
 	PAYMENTCODE,
 	PAYMENTINFORMATION,
+	# Hack minigames
+	STUBHACK,
+}
+
+enum HackMinigame {
+	FAST_TYPING,
+	MAZE,
+	LINE_CONNECT,
 }
 
 enum PaymentType {
@@ -51,6 +60,17 @@ var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
 }
+
+var updated_password_today: bool = false
+var updated_os_today: bool = false
+var breaches_immunity_ticks: int = 45
+
+var current_hack_probability: float = 0 # Probability of being hacked every tick
+var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
+var decrement_due_breach: int = 30
+var hack_immunity_ticks: int = 30 # Number of ticks of immunity after being hacked
+var is_hacked: bool = false
+var last_hacked_tick: int = starting_hours_minutes # Safe game start
 
 var apps_name: Dictionary = {
 	# Messages app

@@ -26,6 +26,8 @@ func _ready() -> void:
   event_handler.start_new_day.connect(ui.day_over_ui.hide_day_over)
   # Event Handler takes care of clock ticks, warn those who need to know
   event_handler.clock_tick.connect(_on_clock_tick)
+  # Event handler hack event to UI
+  event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -45,6 +47,9 @@ func _ready() -> void:
   ui.message_answered.connect(answers_director.on_message_answered)
   # UI browser news requested
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
+  # UI hacked minigame ended to event handler
+  ui.base_app.stub_hack.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+
 
 #endregion INITIALIZATION
 
