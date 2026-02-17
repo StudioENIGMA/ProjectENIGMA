@@ -18,12 +18,9 @@ func on_clock_tick() -> void:
     if not GameData.updated_os_today:
       breaches += 1
 
-  print("Current breaches: ", breaches)
-
   var hack_probability_increment = calculate_hack_probability_increment(
     GameData.expected_ticks_between_hacks - GameData.decrement_due_breach * breaches
   )
-  print("hack increment", hack_probability_increment)
 
   GameData.current_hack_probability += hack_probability_increment
 
