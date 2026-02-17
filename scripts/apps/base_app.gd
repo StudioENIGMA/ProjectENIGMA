@@ -41,7 +41,7 @@ var stub_hack = preload(
 	"res://scenes/hacks/stub_hack.tscn"
 ).instantiate()
 var update_os_screen = preload(
-	"res://scenes/settings/update_os_screen.tscn"
+	"res://scenes/settings/update_os.tscn"
 ).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
@@ -102,7 +102,6 @@ func _ready() -> void:
 	# Update OS screen (Settings app)
 	update_os_screen.visible = false
 	app_specific_screen.add_child(update_os_screen)
-	update_os_screen.subscreen_open_requested.connect(_on_app_opened)
 
 	# Password Check Dialog (Password Manager)
 	password_check_dialog.visible = false
@@ -332,6 +331,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		GameData.App.PASSWORDCHECK: password_check_dialog,
+		GameData.App.UPDATEOS: update_os_screen,
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
@@ -365,6 +365,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
+		GameData.App.UPDATEOS: GameData.App.SETTINGS,
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
