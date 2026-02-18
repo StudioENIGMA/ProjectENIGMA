@@ -9,11 +9,12 @@ font = ExtResource("2_k30y1")
 font_size = 60
 font_color = Color(0, 0, 0, 1)
 
-[node name="Browser" type="Control" unique_id=884751200 node_paths=PackedStringArray("news_container")]
+[node name="Browser" type="Control" unique_id=884751200 node_paths=PackedStringArray("news_container", "quick_sites_containier")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y4bje")
 news_container = NodePath("ScrollContainer/VBoxContainer/NewsContainer")
+quick_sites_containier = NodePath("ScrollContainer/VBoxContainer/GridContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=537045444]
 custom_minimum_size = Vector2(1080, 2160)
@@ -36,9 +37,10 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="quick_acess_sites_icons" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
+[node name="ReviewsSite" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
+site_name = "ElogieLÁ"
 
 [node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=330443488 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(540, 400)

@@ -1,9 +1,5 @@
 extends Node2D
 
-#region CHILDREN NODES REFERENCES
-@export var messages_director: Node
-@export var emails_director: Node
-
 signal request_answer_option(
 	npc_name: String,
 	message: String,
@@ -15,11 +11,17 @@ signal request_answer_option(
 
 signal news_ready(day_news_data: Dictionary)
 
+#region CHILDREN NODES REFERENCES
+@export var messages_director: Node
+@export var emails_director: Node
+@export var reviews_director: Node
+
 @export var ui: Control
 @export var event_handler: Node2D
 @export var messages_dir_path: String = "res://data/messages"
 @export var news_dir_path: String = "res://data/news.json"
 @export var emails_dir_path: String = "res://data/emails"
+@export var reviews_dir_path: String = "res://data/browser/reviewed_companies.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -56,9 +58,13 @@ func reload_and_setup_today() -> void:
 	var message_roots := _load_json_roots_from_directory(messages_dir_path)
 	var email_roots := _load_json_roots_from_directory(emails_dir_path)
 
+	# Load JSON file from file path
+	var reviews_array := _read_json_array(reviews_dir_path)
+
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
 	emails_director.setup_from_json_roots(email_roots)
+	reviews_director.setup_from_json_array(reviews_array)
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -195,6 +201,13 @@ func _read_json_root(file_path: String) -> Variant:
 	var result := parser.parse(file.get_as_text())
 	assert(result == OK)
 	return parser.data
+
+func _read_json_array(file_path: String) -> Array:
+	var json_data = _read_json_root(file_path)
+	assert(typeof(json_data) == TYPE_ARRAY)
+	return json_data
+
+
 #endregion JSON LOADING
 
 #region REQUIREMENTS

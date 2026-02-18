@@ -25,9 +25,10 @@
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
-[ext_resource type="Script" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
-[ext_resource type="Script" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
-[ext_resource type="Script" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
+[ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
+[ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 
 [node name="GameScreen" type="Node2D" unique_id=2138891880 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 script = ExtResource("1_8imdr")
@@ -322,10 +323,11 @@ autostart = true
 [node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=1490794400]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "reviews_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
+reviews_director = NodePath("ReviewsDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
@@ -338,5 +340,8 @@ script = ExtResource("24_8e4ax")
 
 [node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1709843134]
 script = ExtResource("26_8e4ax")
+
+[node name="ReviewsDirector" type="Node2D" parent="StoryDirector" unique_id=1137316225]
+script = ExtResource("29_5o8nl")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
