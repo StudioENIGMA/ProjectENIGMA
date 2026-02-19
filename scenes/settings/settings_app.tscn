@@ -1,18 +1,26 @@
 [gd_scene format=3 uid="uid://cmft24jq1687n"]
 
 [ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/apps/settings/settings_app.gd" id="1_i6x2j"]
-[ext_resource type="PackedScene" uid="uid://cvwlm6u0uf6p3" path="res://scenes/settings/Settings_button_test.tscn" id="2_mwrqi"]
+[ext_resource type="Texture2D" uid="uid://dbc6aruv4aj27" path="res://assets/icons/pass_manager_card.png" id="2_rm6uv"]
+[ext_resource type="Texture2D" uid="uid://1y51mylpkn2n" path="res://assets/icons/pass_manager_card_hover.png" id="3_rl4m7"]
+[ext_resource type="Texture2D" uid="uid://yujda0l8v82d" path="res://assets/icons/pass_manager_unlocked_card.png" id="4_aoiuy"]
+[ext_resource type="Texture2D" uid="uid://du5y002buv8hx" path="res://assets/icons/update_os_card.png" id="5_pcpul"]
+[ext_resource type="Texture2D" uid="uid://dpbkxwx548q3p" path="res://assets/icons/update_os_card_hover.png" id="6_0hejv"]
+[ext_resource type="Texture2D" uid="uid://bdcg5wfbi7wss" path="res://assets/icons/update_os_locked_card.png" id="7_bwi6s"]
+[ext_resource type="Texture2D" uid="uid://bnah8ag7r22rr" path="res://assets/icons/bug_card.png" id="8_w4oym"]
+[ext_resource type="Texture2D" uid="uid://ds4ujq4asv5v8" path="res://assets/icons/bug_card_hover.png" id="9_tunpi"]
+[ext_resource type="Texture2D" uid="uid://dlt52akfwk4c1" path="res://assets/icons/bug_unlocked_card.png" id="10_k5mib"]
 
-[node name="SettingsApp" type="Control" unique_id=570380604 node_paths=PackedStringArray("passwords_manager_gui", "update_os_gui", "virus_scanner_gui")]
+[node name="SettingsApp" type="Control" unique_id=570380604 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_i6x2j")
-passwords_manager_gui = NodePath("CenterContainer/VBoxContainer/PasswordManagerGUI")
-update_os_gui = NodePath("CenterContainer/VBoxContainer/UpdateOSGUI")
-virus_scanner_gui = NodePath("CenterContainer/VBoxContainer/ScannerGUI")
+passwords_manager_button = NodePath("CenterContainer/VBoxContainer/PasswordManager")
+update_os_button = NodePath("CenterContainer/VBoxContainer/UpdateOS")
+virus_scanner_button = NodePath("CenterContainer/VBoxContainer/VirusScanner")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=410215421]
 custom_minimum_size = Vector2(1080, 2160)
@@ -28,19 +36,37 @@ custom_minimum_size = Vector2(1000, 2056)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PasswordManagerGUI" parent="CenterContainer/VBoxContainer" unique_id=1086558427 instance=ExtResource("2_mwrqi")]
+[node name="PasswordManager" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2028246426]
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
+texture_normal = ExtResource("2_rm6uv")
+texture_hover = ExtResource("3_rl4m7")
+texture_disabled = ExtResource("4_aoiuy")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=714076363]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="UpdateOSGUI" parent="CenterContainer/VBoxContainer" unique_id=1216615352 instance=ExtResource("2_mwrqi")]
+[node name="UpdateOS" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2100572624]
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
+texture_normal = ExtResource("5_pcpul")
+texture_hover = ExtResource("6_0hejv")
+texture_disabled = ExtResource("7_bwi6s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1982596094]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="ScannerGUI" parent="CenterContainer/VBoxContainer" unique_id=2064189952 instance=ExtResource("2_mwrqi")]
+[node name="VirusScanner" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=1931336353]
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
+texture_normal = ExtResource("8_w4oym")
+texture_hover = ExtResource("9_tunpi")
+texture_disabled = ExtResource("10_k5mib")
+ignore_texture_size = true
+stretch_mode = 5

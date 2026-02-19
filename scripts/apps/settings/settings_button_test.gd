@@ -8,7 +8,7 @@ func setup(default_texture: Resource, hover_texture: Resource) -> void:
 	button.texture_normal = default_texture
 	button.texture_hover = hover_texture
 	button.texture_pressed = hover_texture
-	
+
 func change_gui_lock_texture(lock_texture: Resource):
 	button.texture_disabled = lock_texture
 	button.disabled = true
