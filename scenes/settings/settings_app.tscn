@@ -11,32 +11,25 @@
 [ext_resource type="Texture2D" uid="uid://ds4ujq4asv5v8" path="res://assets/icons/bug_card_hover.png" id="9_tunpi"]
 [ext_resource type="Texture2D" uid="uid://dlt52akfwk4c1" path="res://assets/icons/bug_unlocked_card.png" id="10_k5mib"]
 
-[node name="SettingsApp" type="Control" unique_id=570380604 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
-custom_minimum_size = Vector2(1080, 2160)
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_i6x2j")
-passwords_manager_button = NodePath("CenterContainer/VBoxContainer/PasswordManager")
-update_os_button = NodePath("CenterContainer/VBoxContainer/UpdateOS")
-virus_scanner_button = NodePath("CenterContainer/VBoxContainer/VirusScanner")
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=410215421]
-custom_minimum_size = Vector2(1080, 2160)
-layout_mode = 1
+[node name="SettingsApp" type="MarginContainer" unique_id=228120666 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 128
+script = ExtResource("1_i6x2j")
+passwords_manager_button = NodePath("VBoxContainer/PasswordManager")
+update_os_button = NodePath("VBoxContainer/UpdateOS")
+virus_scanner_button = NodePath("VBoxContainer/VirusScanner")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=252474445]
-custom_minimum_size = Vector2(1000, 2056)
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=252474445]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 128
 
-[node name="PasswordManager" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2028246426]
+[node name="PasswordManager" type="TextureButton" parent="VBoxContainer" unique_id=2028246426]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 texture_normal = ExtResource("2_rm6uv")
@@ -45,11 +38,7 @@ texture_disabled = ExtResource("4_aoiuy")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=714076363]
-custom_minimum_size = Vector2(0, 128)
-layout_mode = 2
-
-[node name="UpdateOS" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2100572624]
+[node name="UpdateOS" type="TextureButton" parent="VBoxContainer" unique_id=2100572624]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 texture_normal = ExtResource("5_pcpul")
@@ -58,11 +47,7 @@ texture_disabled = ExtResource("7_bwi6s")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1982596094]
-custom_minimum_size = Vector2(0, 128)
-layout_mode = 2
-
-[node name="VirusScanner" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=1931336353]
+[node name="VirusScanner" type="TextureButton" parent="VBoxContainer" unique_id=1931336353]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 texture_normal = ExtResource("8_w4oym")
