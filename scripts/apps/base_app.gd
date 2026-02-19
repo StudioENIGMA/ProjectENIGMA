@@ -25,6 +25,9 @@ var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate(
 var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
 var browser_app_real_shop = preload("res://scenes/apps/browser/real_shop_site.tscn").instantiate()
 var browser_app_fake_shop = preload("res://scenes/apps/browser/fake_shop_site.tscn").instantiate()
+var browser_reviews_site = preload(
+	"res://scenes/apps/browser/reviews_site/reviews_site.tscn"
+).instantiate()
 var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
 var email_app_viewer = preload("res://scenes/apps/email/email_app_viewer.tscn").instantiate()
 var authenticator_app = preload(
@@ -33,6 +36,12 @@ var authenticator_app = preload(
 var bank_app = preload("res://scenes/apps/bank/bank_app.tscn").instantiate()
 var bank_payment_code = preload("res://scenes/apps/bank/payment_code.tscn").instantiate()
 var bank_payment_info = preload("res://scenes/apps/bank/payment_information.tscn").instantiate()
+var password_check_dialog = preload(
+	"res://scenes/settings/passwords_inserter.tscn"
+).instantiate()
+var password_change_dialog = preload(
+	"res://scenes/settings/passwords_changer.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -86,7 +95,13 @@ func _ready() -> void:
 
 	# Passwords Manager app (Settings app)
 	passwords_manager_app.visible = false
+	passwords_manager_app.password_change_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(passwords_manager_app)
+
+	# Password Check Dialog (Password Manager)
+	password_check_dialog.visible = false
+	password_check_dialog.password_correct.connect(_on_back_button_pressed)
+	app_specific_screen.add_child(password_check_dialog)
 
 	# Store app (Store app)
 	store_app.visible = false
@@ -110,7 +125,11 @@ func _ready() -> void:
 	app_specific_screen.add_child(browser_app_news)
 	app_specific_screen.add_child(browser_app_real_shop)
 	app_specific_screen.add_child(browser_app_fake_shop)
-	
+
+	#Reviews Site (Browser App)
+	browser_reviews_site.visible = false
+	app_specific_screen.add_child(browser_reviews_site)
+
 	# Email app home (Email app)
 	email_app_home.visible = false
 	email_app_home.subscreen_open_requested.connect(_on_app_opened)
@@ -141,6 +160,11 @@ func _ready() -> void:
 		func(): _on_back_button_pressed(); _on_back_button_pressed()
 	)
 
+	# Password Change Dialog (Password)
+	password_change_dialog.visible = false
+	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
+	app_specific_screen.add_child(password_change_dialog)
+
 ## Handles the app opened event from the desktop UI
 ##
 ## app_name: The name of the application being opened
@@ -149,7 +173,12 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
 	self.visible = true
 
-	var main_app:GameData.App = _get_main_app_enum(app)
+	var main_app:GameData.App
+
+	if (app != GameData.App.PASSWORDCHECK):
+		main_app = _get_main_app_enum(app)
+	else:
+		main_app = optional_data["GatedApp"]
 
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
@@ -165,7 +194,8 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 	# Show back button if more than one app is open and hide previous app
-	if open_apps.size() > 1:
+	# Also, do not show back button if the current app is the password check dialog
+	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
 		back_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
@@ -173,6 +203,10 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		previous_app.visible = false
 	else:
 		back_button.visible = false
+
+	# Open password check dialog if the app is password protected
+	if app in GameData.passwords.keys(): # Single source of truth
+		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
 
 ## Handles the close app button press event
 ##
@@ -280,6 +314,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Settings app
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
+		GameData.App.PASSWORDCHECK: password_check_dialog,
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
@@ -288,6 +323,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BROWSERNEWS: browser_app_news,
 		GameData.App.BROWSERREALSHOP: browser_app_real_shop,
 		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
+		GameData.App.REVIEWSSITE: browser_reviews_site,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
@@ -297,6 +333,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BANK: bank_app,
 		GameData.App.PAYMENTCODE: bank_payment_code,
 		GameData.App.PAYMENTINFORMATION: bank_payment_info,
+		# Password Manager app (not settings, as it must close alone)
+		GameData.App.PASSWORDCHANGE: password_change_dialog,
 	}
 	return app_map.get(app_enum, null)
 
@@ -319,6 +357,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
 		GameData.App.BROWSERREALSHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
+		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
@@ -328,5 +367,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BANK: GameData.App.BANK,
 		GameData.App.PAYMENTCODE: GameData.App.BANK,
 		GameData.App.PAYMENTINFORMATION: GameData.App.BANK,
+		# Password Manager app (not settings, as it must close alone)
+		GameData.App.PASSWORDCHANGE: GameData.App.PASSWORDMANAGER,
 	}
 	return main_app_map.get(subscreen_enum, null)

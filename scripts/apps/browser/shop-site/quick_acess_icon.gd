@@ -1,17 +1,18 @@
 extends Control
 
-signal open_real_shop
-signal open_fake_shop
+signal open_site_requested(app: GameData.App)
 
-@export var site_name : String
-@export var site_text_label : Label
+@export var site_name: String
+@export var logo_url: String
+@export var app: GameData.App
+
+@export var logo_button: TextureButton
+@export var site_label: Label
 
 func _ready() -> void:
-    site_text_label.text = site_name
+	site_label.text = site_name
+	logo_button.texture_normal = load(logo_url)
 
 
 func _on_texture_button_pressed() -> void:
-    if(site_name == "Loja"):
-        open_real_shop.emit()
-    else:
-        open_fake_shop.emit()
+	open_site_requested.emit(app)

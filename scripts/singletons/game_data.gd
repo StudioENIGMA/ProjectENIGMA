@@ -12,6 +12,8 @@ enum App {
 	# Settings app
 	SETTINGS,
 	PASSWORDMANAGER,
+	PASSWORDCHECK,
+	PASSWORDCHANGE,
 	# Store app
 	STORE,
 	FAKESTORE,
@@ -20,6 +22,7 @@ enum App {
 	BROWSERNEWS,
 	BROWSERREALSHOP,
 	BROWSERFAKESHOP,
+	REVIEWSSITE,
 	# Email app
 	EMAIL,
 	EMAILREAD,
@@ -48,6 +51,9 @@ var max_hours_minutes:int = 1200 # End at 12:00
 var current_day:int = 0
 var reputation_points:int = 0
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
+var passwords: Dictionary = {
+	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
+}
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -64,6 +70,7 @@ var apps_name: Dictionary = {
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserRealShop": App.BROWSERREALSHOP,
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
+	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
 	"Bank" : App.BANK,
 	"PaymentCode" : App.PAYMENTCODE,
@@ -73,7 +80,11 @@ var apps_name: Dictionary = {
 	"EmailRead": App.EMAILREAD,
 	# Authenticator app
 	"Authenticator": App.AUTHENTICATOR,
+	# Password app
+	"PasswordCheck": App.PASSWORDCHECK,
 }
+
+var apps_name_reverse: Dictionary = {}
 
 # WARNING: Only Main Apps should be here, not subscreens
 var apps_data = {
@@ -121,9 +132,11 @@ var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL, App.BROWSER]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
 var available_updates: Array[App] = []
 
-var data = {
-	"downloaded_apps": ["mensagens", "settings"],
-}
+func _ready() -> void:
+	# Create reverse mapping for apps_name
+	for app_name in apps_name.keys():
+		var app_enum = apps_name[app_name]
+		apps_name_reverse[app_enum] = app_name
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""
@@ -155,31 +168,3 @@ func hours_minutes_as_string(relative_time: int) -> String:
 	var current_hour:int = int(current_day_minutes / 60)
 	var current_minute:int = int(current_day_minutes) % 60
 	return "%02d:%02d" % [current_hour, current_minute]
-
-func load_game() -> void:
-	var file_path = "res://data/save.json"
-
-	var save_file = FileAccess.open(file_path, FileAccess.READ)
-	if save_file:
-		var json_string = save_file.get_as_text()
-		save_file.close()
-
-		var save_json = JSON.new()
-		var parse_result = save_json.parse(json_string)
-		if not parse_result == OK:
-			print("JSON Parse Error: ", save_json.get_error_message())
-			return
-
-		var save_data = save_json.data
-		data = save_data
-
-func save_game() -> void:
-	var file_path = "res://data/save.json"
-
-	var json_string = JSON.stringify(data)
-	print(json_string)
-
-	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
-	if save_file:
-		save_file.store_string(json_string)
-		save_file.close()

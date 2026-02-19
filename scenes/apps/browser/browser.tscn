@@ -9,11 +9,12 @@ font = ExtResource("2_k30y1")
 font_size = 60
 font_color = Color(0, 0, 0, 1)
 
-[node name="Browser" type="Control" unique_id=884751200 node_paths=PackedStringArray("news_container")]
+[node name="Browser" type="Control" unique_id=884751200 node_paths=PackedStringArray("news_container", "quick_sites_containier")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y4bje")
 news_container = NodePath("ScrollContainer/VBoxContainer/NewsContainer")
+quick_sites_containier = NodePath("ScrollContainer/VBoxContainer/GridContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=537045444]
 custom_minimum_size = Vector2(1080, 2160)
@@ -36,13 +37,23 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="quick_acess_sites_icons" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1841544942 instance=ExtResource("4_k30y1")]
+[node name="ReviewsSite" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
-site_name = "Loja"
+site_name = "ElogieLÁ"
+app = 12
 
-[node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1037423139 instance=ExtResource("4_k30y1")]
+[node name="RealShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
-site_name = "Loja Fake"
+site_name = "Loja Real"
+app = 10
+
+[node name="FakeShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(540, 400)
+layout_mode = 2
+site_name = "Loja Falsa"
+app = 11
 
 [node name="NewsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1269479065]
 layout_mode = 2
@@ -57,6 +68,3 @@ custom_minimum_size = Vector2(720, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
-
-[connection signal="open_real_shop" from="ScrollContainer/VBoxContainer/GridContainer/quick_acess_sites_icons" to="." method="_on_open_real_store"]
-[connection signal="open_fake_shop" from="ScrollContainer/VBoxContainer/GridContainer/quick_acess_sites_icons2" to="." method="_on_open_fake_shop"]
