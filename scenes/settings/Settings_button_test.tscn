@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvwlm6u0uf6p3"]
+
+[ext_resource type="Script" uid="uid://bixkoelfo3bqt" path="res://scripts/apps/settings/settings_button_test.gd" id="1_2il5x"]
+
+[node name="SettingsButtonTest" type="Control" unique_id=1086558427 node_paths=PackedStringArray("button")]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 200.0
+script = ExtResource("1_2il5x")
+button = NodePath("TextureButton")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1719407654]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 200.0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
