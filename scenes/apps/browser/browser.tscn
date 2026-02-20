@@ -41,12 +41,14 @@ columns = 2
 custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 site_name = "ElogieLÁ"
+logo_url = "res://assets/icons/shops/square_logos/elogie_la.png"
 app = 12
 
-[node name="RealShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
+[node name="AmazoniaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
-site_name = "Loja Real"
+site_name = "Amazônia"
+logo_url = "res://assets/icons/shops/square_logos/amazonia.png"
 app = 10
 
 [node name="FakeShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
