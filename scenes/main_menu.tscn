@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl30assw3y4mn"]
+[gd_scene format=3 uid="uid://bl30assw3y4mn"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
@@ -9,36 +9,36 @@
 [ext_resource type="AudioStream" uid="uid://d3kphgo4xvrud" path="res://assets/sounds/ost/main_theme_r1.ogg" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
 
-[node name="Main Menu" type="Node2D"]
+[node name="Main Menu" type="Node2D" unique_id=921864250]
 
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
+[node name="Background" type="Sprite2D" parent="." unique_id=980343776]
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_l6cm7")
 
-[node name="ProjetoEnigma" type="Sprite2D" parent="."]
+[node name="ProjetoEnigma" type="Sprite2D" parent="." unique_id=409175951]
 position = Vector2(2, -804)
 scale = Vector2(2.50667, 2.50667)
 texture = ExtResource("1_wu84c")
 
-[node name="MainVBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=165846684]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -496.0
+offset_top = -100.0
 offset_right = 496.0
-offset_bottom = 1106.0
+offset_bottom = 900.0
 grow_horizontal = 2
 
-[node name="New Game Button" type="Button" parent="MainVBoxContainer"]
+[node name="New Game Button" type="Button" parent="MainVBoxContainer" unique_id=1507016343]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "NEW GAME"
 script = ExtResource("3_rtw2f")
 
-[node name="Load Game Button" type="Button" parent="MainVBoxContainer"]
+[node name="Load Game Button" type="Button" parent="MainVBoxContainer" unique_id=1287796145]
 visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
@@ -46,7 +46,7 @@ theme_override_font_sizes/font_size = 100
 text = "LOAD GAME"
 script = ExtResource("4_oa1go")
 
-[node name="Settings Button" type="Button" parent="MainVBoxContainer" node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
+[node name="Settings Button" type="Button" parent="MainVBoxContainer" unique_id=1176641697 node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -56,7 +56,7 @@ settings_menu = NodePath("../../SettingsVBoxContainer")
 settings_back_button = NodePath("../../SettingsBackButton")
 main_menu = NodePath("..")
 
-[node name="SettingsBackButton" type="Button" parent="."]
+[node name="SettingsBackButton" type="Button" parent="." unique_id=1678298928]
 visible = false
 custom_minimum_size = Vector2(80, 80)
 offset_left = -496.0
@@ -66,7 +66,7 @@ offset_bottom = -284.0
 theme_override_font_sizes/font_size = 45
 text = "<"
 
-[node name="SettingsVBoxContainer" type="VBoxContainer" parent="."]
+[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=1270711956]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -76,92 +76,92 @@ offset_right = 496.0
 offset_bottom = 1106.0
 grow_horizontal = 2
 
-[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=949907170]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume Geral"
 
-[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1663820973]
 layout_mode = 2
 
-[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer"]
+[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1629408015]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 100.0
 
-[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer"]
+[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=691207241]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=102687753]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume da Música"
 
-[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=2088540133]
 layout_mode = 2
 
-[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2"]
+[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=738808862]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 50.0
 
-[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2"]
+[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=42543692]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=1458756456]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume de Efeitos Sonoros"
 
-[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=63443719]
 layout_mode = 2
 
-[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3"]
+[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=896627671]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 50.0
 
-[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3"]
+[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=283176451]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer"]
+[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer" unique_id=1694471206]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "------------------------------------------------"
 
-[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer"]
+[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer" unique_id=1709062317]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
 theme_override_font_sizes/font_size = 45
 text = "Future settings come here :)"
 
-[node name="Music Handler" type="Node" parent="." node_paths=PackedStringArray("sfx_player", "music_player")]
+[node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sfx_player", "music_player")]
 script = ExtResource("2_wu84c")
 sfx_player = NodePath("SFX Player")
 music_player = NodePath("Music Player")
 startup_sound = ExtResource("3_8ln24")
 main_theme = ExtResource("4_rtw2f")
 
-[node name="Music Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+[node name="Music Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=898085309]
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 bus = &"Music"
 
-[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=1882431160]
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 bus = &"SFX"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=944831038]
 
 [connection signal="pressed" from="MainVBoxContainer/New Game Button" to="MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="MainVBoxContainer/Load Game Button" to="MainVBoxContainer/Load Game Button" method="_on_pressed"]

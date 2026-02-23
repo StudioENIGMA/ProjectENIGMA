@@ -72,6 +72,7 @@ layout_mode = 2
 [node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer" unique_id=1841423927]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 keep_editing_on_text_submit = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=939916421]
