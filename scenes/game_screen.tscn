@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://t733xktji2q8"]
+[gd_scene format=3 uid="uid://t733xktji2q8"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
@@ -28,13 +28,13 @@
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 
-[node name="GameScreen" type="Node2D" node_paths=PackedStringArray("ui", "event_handler", "story_director")]
+[node name="GameScreen" type="Node2D" unique_id=1834709910 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 script = ExtResource("1_8imdr")
 ui = NodePath("UI")
 event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "desktop_ui")]
+[node name="UI" type="Control" parent="." unique_id=2039907252 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "desktop_ui")]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 3
 anchors_preset = 5
@@ -49,7 +49,7 @@ day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 desktop_ui = NodePath("DesktopUI")
 
-[node name="DesktopUI" type="Control" parent="UI" node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "authenticator_button", "bank_button", "touch_sound_player")]
+[node name="DesktopUI" type="Control" parent="UI" unique_id=2030389557 node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "authenticator_button", "bank_button", "touch_sound_player")]
 custom_minimum_size = Vector2(1080, 2400)
 anchors_preset = 0
 offset_right = 40.0
@@ -64,7 +64,7 @@ authenticator_button = NodePath("AppsUI/AuthenticatorButton")
 bank_button = NodePath("AppsUI/BankButton")
 touch_sound_player = NodePath("AudioStreamPlayer2D")
 
-[node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" groups=["clock_display"]]
+[node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" unique_id=574664823 groups=["clock_display"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,7 +88,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("16_1vcyb")
 
-[node name="Background" type="TextureRect" parent="UI/DesktopUI"]
+[node name="Background" type="TextureRect" parent="UI/DesktopUI" unique_id=74826303]
 z_index = -100
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 0
@@ -97,12 +97,12 @@ offset_bottom = 2400.0
 texture = ExtResource("1_3a7ej")
 stretch_mode = 6
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background"]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
 stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI"]
+[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI" unique_id=1935745718]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,7 +118,7 @@ grow_vertical = 2
 theme_override_constants/h_separation = 64
 columns = 3
 
-[node name="MessagesButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="MessagesButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=875594070]
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
@@ -132,7 +132,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="SettingsButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="SettingsButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=629224046]
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")
@@ -144,7 +144,7 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1537533961]
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")
@@ -156,7 +156,7 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="FakeShopButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="FakeShopButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=94617055]
 visible = false
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
@@ -169,7 +169,7 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="EmailButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="EmailButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=899932453]
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")
@@ -181,7 +181,7 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="AuthenticatorButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="AuthenticatorButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1104123100]
 custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")
@@ -193,7 +193,7 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="BankButton" type="Button" parent="UI/DesktopUI/AppsUI"]
+[node name="BankButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1736287316]
 custom_minimum_size = Vector2(26, 358)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_oknyi")
@@ -205,12 +205,12 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/DesktopUI"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/DesktopUI" unique_id=2129706902]
 position = Vector2(75.5, 650)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
 
-[node name="BaseApp" parent="UI" node_paths=PackedStringArray("desktop_ui") instance=ExtResource("3_qca60")]
+[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("desktop_ui") instance=ExtResource("3_qca60")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -218,7 +218,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 desktop_ui = NodePath("../DesktopUI")
 
-[node name="NotificationUI" type="Control" parent="UI" node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
+[node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50
 custom_minimum_size = Vector2(1080, 250)
 layout_mode = 1
@@ -238,39 +238,39 @@ script = ExtResource("14_5o8nl")
 notification_timer = NodePath("NotificationTimer")
 audio_stream_player = NodePath("NotificationSoundPlayer")
 
-[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI"]
+[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI" unique_id=663275218]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI"]
+[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI" unique_id=495132933]
 wait_time = 2.5
 one_shot = true
 
-[node name="DayOverUI" type="Control" parent="UI" node_paths=PackedStringArray("next_day_button")]
+[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button")]
 visible = false
 anchors_preset = 0
 script = ExtResource("13_bd51b")
 next_day_button = NodePath("CenterContainer/TextDayOverContainer/NextDayButton")
 
-[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI"]
+[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1905301528]
 modulate = Color(1, 1, 1, 0.835294)
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 2400.0
 texture = ExtResource("22_87fqc")
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI"]
+[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI" unique_id=1163380987]
 custom_minimum_size = Vector2(1080, 2400)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer"]
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer" unique_id=1593008203]
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 
-[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=1334004570]
 layout_mode = 2
 theme = ExtResource("6_h0j4g")
 theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
@@ -283,44 +283,44 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=116572443]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer"]
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=327593996]
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_font_sizes/font_size = 146
 text = "Dia"
 icon_alignment = 1
 
-[node name="EventHandler" type="Node2D" parent="." node_paths=PackedStringArray("day_over_timer", "clock_timer")]
+[node name="EventHandler" type="Node2D" parent="." unique_id=1118676119 node_paths=PackedStringArray("day_over_timer", "clock_timer")]
 visible = false
 script = ExtResource("6_pur81")
 day_over_timer = NodePath("DayOverTimer")
 clock_timer = NodePath("ClockTimer")
 
-[node name="DayOverTimer" type="Timer" parent="EventHandler"]
+[node name="DayOverTimer" type="Timer" parent="EventHandler" unique_id=1470514722]
 wait_time = 600.0
 one_shot = true
 autostart = true
 
-[node name="ClockTimer" type="Timer" parent="EventHandler"]
+[node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." node_paths=PackedStringArray("messages_director", "emails_director")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1633099414 node_paths=PackedStringArray("messages_director", "emails_director")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 
-[node name="MessagesDirector" type="Node2D" parent="StoryDirector" node_paths=PackedStringArray("answers_director")]
+[node name="MessagesDirector" type="Node2D" parent="StoryDirector" unique_id=12625708 node_paths=PackedStringArray("answers_director")]
 script = ExtResource("22_f2213")
 answers_director = NodePath("AnswersDirector")
 
-[node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector"]
+[node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector" unique_id=1434115663]
 script = ExtResource("24_8e4ax")
 
-[node name="EmailsDirector" type="Node2D" parent="StoryDirector"]
+[node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1412889098]
 script = ExtResource("26_8e4ax")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

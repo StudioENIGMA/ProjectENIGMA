@@ -1,83 +1,72 @@
 [gd_scene format=3 uid="uid://b88v1fo4yrqrt"]
 
-[ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_w44rq"]
-[ext_resource type="PackedScene" uid="uid://dkc8r4g62i6p" path="res://scenes/apps/minigames/MinigameTimer.tscn" id="3_vf3tb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85j70"]
+bg_color = Color(0.16862746, 1, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16862746, 1, 0, 1)
 
-[node name="FastTyping" type="Control" unique_id=716089780 node_paths=PackedStringArray("text_to_type1", "text_to_type2", "player_type_space", "minigame_timer")]
-custom_minimum_size = Vector2(1080, 2400)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 2400.0
-script = ExtResource("1_w44rq")
-text_to_type1 = NodePath("ColorRect/VBoxContainer/RichTextLabel")
-text_to_type2 = NodePath("ColorRect/VBoxContainer/RichTextLabel2")
-player_type_space = NodePath("ColorRect/VBoxContainer/LineEdit")
-minigame_timer = NodePath("ColorRect/VBoxContainer/MinigameTimer")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v8xt"]
+bg_color = Color(0.108750015, 0.108750015, 0.108750015, 1)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1505632888]
-custom_minimum_size = Vector2(1080, 2400)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1628367075]
-custom_minimum_size = Vector2(150, 2400)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1819427756]
-custom_minimum_size = Vector2(780, 2400)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -390.0
-offset_top = -1200.0
-offset_right = 390.0
-offset_bottom = 1200.0
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=98329374]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer" unique_id=561864986]
-custom_minimum_size = Vector2(0, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=399654397]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-bbcode_enabled = true
-text = "[font_size=50][color=red]T[/color][color=blue]e[/color][color=green]x[/color][color=yellow]t[/color]"
+size_flags_vertical = 4
+
+[node name="Phrase1Border" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1210873449]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85j70")
+
+[node name="Phrase1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Phrase1Border" unique_id=949960580]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="NumberBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1216627710]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6v8xt")
+
+[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1/NumberBackground" unique_id=161915714]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="ExpectedPhrase" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1718818289]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SamplePhrase SamplePhrase SamplePhrase"
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=1039962562]
-custom_minimum_size = Vector2(0, 100)
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1180457625]
 layout_mode = 2
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect/VBoxContainer" unique_id=256532155]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-bbcode_enabled = true
-text = "[font_size=50][color=red]T[/color][color=blue]e[/color][color=green]x[/color][color=yellow]t[/color]"
-vertical_alignment = 1
-
-[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=1045844993]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer" unique_id=1841423927]
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-keep_editing_on_text_submit = true
-
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=939916421]
-custom_minimum_size = Vector2(0, 950)
-layout_mode = 2
-
-[node name="MinigameTimer" parent="ColorRect/VBoxContainer" unique_id=216229825 instance=ExtResource("3_vf3tb")]
-layout_mode = 2
+size_flags_vertical = 8
+text = "INPUT"
