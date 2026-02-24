@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://c1qboulwjbkfo"]
 
-[ext_resource type="PackedScene" uid="uid://bcq5gqpyjjaem" path="res://scenes/apps/shop_item.tscn" id="3_ksnp8"]
-
 [node name="real_shop_site" type="Control" unique_id=1932523554]
 layout_mode = 3
 anchors_preset = 0
@@ -34,10 +32,4 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer" unique_id=904128371]
-layout_mode = 2
-
-[node name="shop_item" parent="ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=598012988 instance=ExtResource("3_ksnp8")]
-layout_mode = 2
-
-[node name="shop_item2" parent="ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1751394470 instance=ExtResource("3_ksnp8")]
 layout_mode = 2
