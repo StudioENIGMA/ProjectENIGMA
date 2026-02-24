@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcq5gqpyjjaem"]
 
-[ext_resource type="Script" uid="uid://cucqo0ecd3jj2" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="1_fqwnt"]
+[ext_resource type="Script" uid="uid://b3bk0ouw038hr" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="1_fqwnt"]
 [ext_resource type="Texture2D" uid="uid://d22hlgtgtjums" path="res://assets/icons/shops/products/camiseta-placeholder.png" id="2_hf56t"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_hf56t"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_6sr1t"]
@@ -81,7 +81,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="shop_item" type="Control" unique_id=1587774648 node_paths=PackedStringArray("item_quantity_label")]
+[node name="shop_item" type="Control" unique_id=1587774648 node_paths=PackedStringArray("item_name_label", "item_price_label", "item_icon_rect", "item_quantity_label")]
 custom_minimum_size = Vector2(500, 650)
 layout_mode = 3
 anchors_preset = 0
@@ -89,6 +89,9 @@ offset_right = 400.0
 offset_bottom = 550.0
 size_flags_horizontal = 3
 script = ExtResource("1_fqwnt")
+item_name_label = NodePath("CenterContainer/Panel/VBoxContainer/ItemNameLabel")
+item_price_label = NodePath("CenterContainer/Panel/VBoxContainer/ItemPriceLabel")
+item_icon_rect = NodePath("CenterContainer/Panel/VBoxContainer/Panel/ItemIcon")
 item_quantity_label = NodePath("CenterContainer/Panel/VBoxContainer/HBoxContainer/ItemQuantity")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=362315748]
