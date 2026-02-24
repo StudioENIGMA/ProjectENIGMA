@@ -13,6 +13,5 @@ func _ready() -> void:
 	site_label.text = site_name
 	logo_button.texture_normal = load(logo_url)
 
-
 func _on_texture_button_pressed() -> void:
 	open_site_requested.emit(app)

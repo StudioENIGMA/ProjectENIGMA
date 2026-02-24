@@ -16,7 +16,7 @@ func _ready() -> void:
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
-  var reviews_director = story_director.reviews_director
+  var browser_director = story_director.browser_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -41,11 +41,11 @@ func _ready() -> void:
   #Story Director Browser
   story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
   #Story Director Reviews Website
-  ui.base_app.browser_reviews_site.request_companies_array.connect(
-	reviews_director._on_companies_array_requested
+  ui.base_app.browser_app.open_site_requested.connect(
+	browser_director._on_open_website_requested
   )
-  reviews_director.send_companies_array.connect(
-	ui.base_app.browser_reviews_site._on_companies_array_received
+  browser_director.open_website.connect(
+	ui.base_app._on_app_opened
   )
 
   # UI

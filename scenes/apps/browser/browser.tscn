@@ -42,7 +42,7 @@ custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
 site_name = "ElogieLÁ"
 logo_url = "res://assets/icons/shops/square_logos/elogie_la.png"
-app = 12
+app = 13
 
 [node name="AmazoniaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(540, 400)

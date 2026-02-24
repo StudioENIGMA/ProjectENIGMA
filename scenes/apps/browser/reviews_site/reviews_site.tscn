@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dha101g56wy0v"]
 
-[ext_resource type="Script" path="res://scripts/apps/browser/reviews_site.gd" id="1_diiut"]
+[ext_resource type="Script" uid="uid://coh88l3bsoq1p" path="res://scripts/apps/browser/reviews_site.gd" id="1_diiut"]
 [ext_resource type="FontFile" uid="uid://dsdmug7ebmwf4" path="res://assets/fonts/IBMPlexSans-BoldItalic.ttf" id="3_cc67j"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_rf6y2"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_t15gq"]
@@ -30,11 +30,6 @@ font = ExtResource("4_t15gq")
 font_size = 65
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_haa8b"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 3
-border_color = Color(0, 0.03529412, 0.14117648, 1)
-
 [node name="ReviewsSite" type="Control" unique_id=963354837 node_paths=PackedStringArray("v_box_container")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
@@ -42,7 +37,7 @@ anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 2160.0
 script = ExtResource("1_diiut")
-v_box_container = NodePath("VBoxContainer")
+v_box_container = NodePath("VBoxContainer/CardsContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210300150]
 custom_minimum_size = Vector2(1080, 2160)
@@ -84,7 +79,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rf6y2")
 text = "  Empresas"
 label_settings = SubResource("LabelSettings_haa8b")
 
-[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=629018227]
-custom_minimum_size = Vector2(0, 20)
+[node name="CardsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=2048503295]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_haa8b")

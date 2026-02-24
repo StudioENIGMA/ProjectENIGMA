@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhmxsqe60mptf"]
 
-[ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/apps/browser/shop-site/quick_acess_icon.gd" id="1_h124j"]
+[ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/apps/browser/quick_acess_icon.gd" id="1_h124j"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_lv07k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v1pv2"]
