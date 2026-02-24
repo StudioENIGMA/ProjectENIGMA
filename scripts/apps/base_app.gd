@@ -24,7 +24,10 @@ var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn")
 var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate()
 var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
 var browser_app_amazonia_shop = preload(
-	"res://scenes/apps/browser/amazonia_shop.tscn"
+	"res://scenes/apps/browser/shops/amazonia/amazonia_shop.tscn"
+).instantiate()
+var browser_app_amazonia_cart = preload(
+	"res://scenes/apps/browser/shops/amazonia/amazonia_cart.tscn"
 ).instantiate()
 var browser_app_fake_shop = preload("res://scenes/apps/browser/fake_shop_site.tscn").instantiate()
 var browser_reviews_site = preload(
@@ -126,8 +129,12 @@ func _ready() -> void:
 
 	#Browser Shops
 	browser_app_amazonia_shop.visible = false
-	browser_app_fake_shop.visible = false
+	browser_app_amazonia_shop.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_shop)
+	browser_app_amazonia_cart.visible = false
+	app_specific_screen.add_child(browser_app_amazonia_cart)
+
+	browser_app_fake_shop.visible = false
 	app_specific_screen.add_child(browser_app_fake_shop)
 
 	#Reviews Site (Browser App)
@@ -326,6 +333,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BROWSER: browser_app,
 		GameData.App.BROWSERNEWS: browser_app_news,
 		GameData.App.BROWSERAMAZONIASHOP: browser_app_amazonia_shop,
+		GameData.App.BROWSERAMAZONIACART: browser_app_amazonia_cart,
 		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
 		GameData.App.REVIEWSSITE: browser_reviews_site,
 		# Email app
@@ -360,6 +368,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BROWSER: GameData.App.BROWSER,
 		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
 		GameData.App.BROWSERAMAZONIASHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERAMAZONIACART: GameData.App.BROWSER,
 		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
 		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
 		# Email app
