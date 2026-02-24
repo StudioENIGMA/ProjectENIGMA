@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://d0xpj0mg2nn3r"]
 
-[ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/shop_site.gd" id="1_kdpxy"]
-[ext_resource type="Texture2D" uid="uid://2h3ngxtdbcnl" path="res://assets/icons/shops/png_logos/amazonia_logo.png" id="2_m2qqu"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_pxvh7"]
-[ext_resource type="Texture2D" uid="uid://d1a60s68pr7o" path="res://assets/icons/shopping_cart.png" id="4_m6b04"]
-[ext_resource type="PackedScene" uid="uid://bcq5gqpyjjaem" path="res://scenes/apps/shop_item.tscn" id="5_tu3s5"]
+[ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/shop_site.gd" id="1_noxrb"]
+[ext_resource type="Texture2D" uid="uid://2h3ngxtdbcnl" path="res://assets/icons/shops/png_logos/amazonia_logo.png" id="2_n4b0i"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_vmshr"]
+[ext_resource type="Texture2D" uid="uid://d1a60s68pr7o" path="res://assets/icons/shopping_cart.png" id="4_hn4db"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
 bg_color = Color(0.078431375, 0.43137255, 0.7058824, 1)
@@ -17,23 +16,24 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3ltg"]
-font = ExtResource("3_pxvh7")
+font = ExtResource("3_vmshr")
 font_size = 32
 
 [node name="AmazoniaShop" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_kdpxy")
+script = ExtResource("1_noxrb")
 items_grid_container = NodePath("VBoxContainer/ScrollContainer/GridContainer")
 cart_circle_label = NodePath("VBoxContainer/HeaderPanel/CartCircle")
 cart_quantity_label = NodePath("VBoxContainer/HeaderPanel/CartCircle/CartQuantity")
+shopping_cart_enum = 11
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
 custom_minimum_size = Vector2(1050, 0)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 404.0
+layout_mode = 1
+offset_right = 1050.0
+offset_bottom = 2093.0
 size_flags_horizontal = 3
 
 [node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
@@ -54,7 +54,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_m2qqu")
+texture = ExtResource("2_n4b0i")
 stretch_mode = 5
 
 [node name="CartCircle" type="Panel" parent="VBoxContainer/HeaderPanel" unique_id=1261955429]
@@ -98,10 +98,10 @@ offset_bottom = 57.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=686786243]
+[node name="CartButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=686786243]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture_normal = ExtResource("4_m6b04")
+texture_normal = ExtResource("4_hn4db")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -127,26 +127,5 @@ theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 20
 columns = 2
 
-[node name="shop_item" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=598012988 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item2" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1751394470 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item3" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1587774648 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item4" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=723586509 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item5" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=817895995 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item6" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1824414762 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item7" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1271613780 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
-
-[node name="shop_item8" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1389765098 instance=ExtResource("5_tu3s5")]
-layout_mode = 2
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/HeaderPanel/Cart Container/CartButton" to="." method="_on_cart_button_pressed"]
