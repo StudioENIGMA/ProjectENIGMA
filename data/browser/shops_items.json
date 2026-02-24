@@ -1,0 +1,10 @@
+{
+    "amazonia":[
+        {"id" : 1, "name": "Camiseta Azul", "price": 120, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
+        {"id" : 2, "name": "Camiseta Azul2", "price": 130, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
+        {"id" : 3, "name": "Camiseta Azul3", "price": 140, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
+        {"id" : 4, "name": "Camiseta Azul4", "price": 150, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
+        {"id" : 5, "name": "Camiseta Azul5", "price": 160, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
+        {"id" : 6, "name": "Camiseta Azul6", "price": 170, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"}
+    ]
+}
