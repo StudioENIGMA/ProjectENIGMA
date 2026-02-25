@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jkfhji6cbhs2"]
+[gd_scene format=3 uid="uid://jkfhji6cbhs2"]
 
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_8cst2"]
 [ext_resource type="Script" uid="uid://bbggxy5yoiuwj" path="res://scripts/apps/bank/payment_code.gd" id="1_f4jb8"]
@@ -50,7 +50,7 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bn8q"]
 
-[node name="PaymentCode" type="Control" node_paths=PackedStringArray("code_title_label", "code_line")]
+[node name="PaymentCode" type="Control" unique_id=506621724 node_paths=PackedStringArray("code_title_label", "code_line")]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
 anchors_preset = 0
@@ -60,7 +60,7 @@ script = ExtResource("1_f4jb8")
 code_title_label = NodePath("CenterContainer/VBoxContainer/CodeTitle")
 code_line = NodePath("CenterContainer/VBoxContainer/CodeLine")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=964008743]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 1
 anchors_preset = 15
@@ -69,16 +69,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=397485284]
 layout_mode = 2
 
-[node name="CodeTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="CodeTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1765607446]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Código Boleto"
 label_settings = SubResource("LabelSettings_f4jb8")
 
-[node name="CodeLine" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="CodeLine" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=419033483]
 custom_minimum_size = Vector2(950, 200)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.03529412, 0.14117648, 1)
@@ -92,13 +92,13 @@ placeholder_text = "Código"
 alignment = 1
 secret_character = "*"
 
-[node name="CodePanel" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="CodePanel" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=844236623]
 visible = false
 custom_minimum_size = Vector2(950, 200)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vpb8k")
 
-[node name="Code" type="Label" parent="CenterContainer/VBoxContainer/CodePanel"]
+[node name="Code" type="Label" parent="CenterContainer/VBoxContainer/CodePanel" unique_id=2094062213]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,11 +114,11 @@ grow_vertical = 2
 text = "XXXXX"
 label_settings = SubResource("LabelSettings_ic8ki")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1214890779]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1076816384]
 custom_minimum_size = Vector2(700, 125)
 layout_mode = 2
 size_flags_horizontal = 4
