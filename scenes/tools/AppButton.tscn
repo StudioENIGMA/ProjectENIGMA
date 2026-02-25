@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://tfos8eqtx3j3"]
+
+[ext_resource type="Script" uid="uid://ddh67j0ymux7c" path="res://scripts/tools/app_button.gd" id="1_wh6kl"]
+[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="1_wjthx"]
+[ext_resource type="Script" uid="uid://b17eiem34kqyg" path="res://scripts/tools/app_icon.gd" id="3_qhiuw"]
+[ext_resource type="Script" uid="uid://cilc6iidnfhns" path="res://scripts/tools/app_name.gd" id="4_nw0xf"]
+
+[node name="AppButton" type="VBoxContainer" unique_id=369145603 node_paths=PackedStringArray("app_icon", "app_name_label")]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -25.5
+offset_right = 32.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_wh6kl")
+app_texture = ExtResource("1_wjthx")
+app_name = "Mensagens"
+app_icon = NodePath("AppIcon")
+app_name_label = NodePath("AppName")
+
+[node name="AppIcon" type="TextureRect" parent="." unique_id=1549305057]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_wjthx")
+expand_mode = 1
+script = ExtResource("3_qhiuw")
+
+[node name="AppName" type="Label" parent="." unique_id=942977704]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Mensagens"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+script = ExtResource("4_nw0xf")

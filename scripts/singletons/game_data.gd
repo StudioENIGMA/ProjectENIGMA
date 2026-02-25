@@ -94,6 +94,46 @@ var apps_data = {
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/email.png",
 	},
+
+	App.SETTINGS: {
+		"name": "Configurações",
+		"chinese_name": "設定和個人化",
+		"description": "Ajuste as configurações do seu dispositivo!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/settings.png",
+	},
+
+	App.STORE: {
+		"name": "Loja",
+		"chinese_name": "應用程式商店",
+		"description": "Baixe novos aplicativos para o seu dispositivo!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/app-store.png",
+	},
+
+	App.FAKESTORE: {
+		"name": "Loja Falsa",
+		"chinese_name": "假商店",
+		"description": "Uma loja falsa para testar se o jogador sabe identificar golpes!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/fake-app-store.png",
+	},
+
+	App.AUTHENTICATOR: {
+		"name": "Autenticador",
+		"chinese_name": "身份驗證器",
+		"description": "Gerencie seus códigos de autenticação de dois fatores aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/default-app.png",
+	},
+
+	App.BANK: {
+		"name": "Banco",
+		"chinese_name": "銀行和財務",
+		"description": "Gerencie suas finanças e faça pagamentos aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/utai.png",
+	},
 }
 
 var apps_chinese_operations = {
@@ -159,11 +199,15 @@ func load_game() -> void:
 		var save_data = save_json.data
 		data = save_data
 
-func save_game() -> void:
-	var file_path = "res://data/save.json"
+func _ready() -> void:
+	export_game_data_for_tools()
 
-	var json_string = JSON.stringify(data)
-	print(json_string)
+func export_game_data_for_tools() -> void:
+	var file_path = "res://data/exported_game_data.json"
+
+	var json_string = JSON.stringify({
+		"apps_data": apps_data,
+	})
 
 	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
 	if save_file:

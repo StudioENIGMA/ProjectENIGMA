@@ -30,15 +30,18 @@ file_logging/max_log_files=15
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=1200
+window/size/viewport_width=360
+window/size/viewport_height=640
 window/stretch/mode="canvas_items"
-window/stretch/scale=0.5
 window/handheld/orientation=1
 
 [global_group]
 
 clock_display="Nodes related to displaying time"
+
+[gui]
+
+theme/default_theme_scale=1.8
 
 [rendering]
 

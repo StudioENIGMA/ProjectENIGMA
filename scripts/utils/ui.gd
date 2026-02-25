@@ -8,7 +8,7 @@ signal message_answered(answer_id:int)
 @export var base_app:Control
 @export var day_over_ui:Control
 @export var notifications_control:Control
-@export var desktop_ui:Control
+@export var apps_ui:Control
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
@@ -19,5 +19,5 @@ func _ready() -> void:
   )
 
   base_app.messages_app_chat.message_answered.connect(message_answered.emit)
-  base_app.apk_installation_requested.connect(desktop_ui._on_app_installed)
+  base_app.apk_installation_requested.connect(apps_ui.on_app_installed)
 #endregion INITIALIZATION
