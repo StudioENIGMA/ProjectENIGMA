@@ -17,6 +17,7 @@ func _ready() -> void:
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
   var reviews_director = story_director.reviews_director
+  var bank_director = story_director.bank_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -46,6 +47,13 @@ func _ready() -> void:
   )
   reviews_director.send_companies_array.connect(
 	ui.base_app.browser_reviews_site._on_companies_array_received
+  )
+  #Story Director Bank
+  ui.base_app.bank_payment_info.transaction_completed.connect(
+	bank_director._on_transaction_completed
+  )
+  bank_director.send_codes_dict.connect(
+	ui.base_app.bank_payment_info._on_codes_dict_updated, ConnectFlags.CONNECT_DEFERRED
   )
 
   # UI
