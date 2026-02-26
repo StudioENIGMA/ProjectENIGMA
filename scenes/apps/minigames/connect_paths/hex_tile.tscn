@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://w4o7dcm8pify"]
+
+[ext_resource type="Texture2D" uid="uid://cnrek5mrfxlj0" path="res://assets/icons/hexagon_minigame.png" id="1_kl0ic"]
+[ext_resource type="Script" uid="uid://dn174n4oyfjnm" path="res://scripts/apps/minigames/connect_paths/hex_tile.gd" id="1_lfyj1"]
+
+[node name="HexTile" type="Area2D" unique_id=1760861266]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_lfyj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=906888226]
+texture = ExtResource("1_kl0ic")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1583950541]
+position = Vector2(0.8671968, 7.776796)
+scale = Vector2(0.9999998, 0.9999998)
+polygon = PackedVector2Array(-0.867197, 287.22327, 251.63284, 142.22324, 251.63284, -142.77682, -0.867197, -287.77686, -250.86725, -142.77682, -250.86725, 144.72324)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
