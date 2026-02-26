@@ -18,11 +18,9 @@ offset_right = 32.0
 offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("1_wh6kl")
-app_texture = ExtResource("1_wjthx")
-app_name = "Mensagens"
 app_icon = NodePath("AppIcon")
 app_name_label = NodePath("AppName")
 
@@ -30,14 +28,14 @@ app_name_label = NodePath("AppName")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 texture = ExtResource("1_wjthx")
 expand_mode = 1
 script = ExtResource("3_qhiuw")
 
 [node name="AppName" type="Label" parent="." unique_id=942977704]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 10
 text = "Mensagens"
 horizontal_alignment = 1
