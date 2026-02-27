@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
-[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_8imdr"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
-[ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
+[ext_resource type="Script" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
@@ -164,8 +164,9 @@ script = ExtResource("14_yc1wb")
 [node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui") instance=ExtResource("3_qca60")]
 visible = false
 layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+grow_horizontal = 1
+grow_vertical = 1
 apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
@@ -265,7 +266,7 @@ autostart = true
 [node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1633099414 node_paths=PackedStringArray("messages_director", "emails_director")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1633099414 node_paths=PackedStringArray("messages_director", "emails_director", "reviews_director")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")

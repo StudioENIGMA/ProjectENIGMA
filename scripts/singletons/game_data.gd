@@ -200,23 +200,6 @@ func hours_minutes_as_string(relative_time: int) -> String:
 	var current_minute:int = int(current_day_minutes) % 60
 	return "%02d:%02d" % [current_hour, current_minute]
 
-func load_game() -> void:
-	var file_path = "res://data/save.json"
-
-	var save_file = FileAccess.open(file_path, FileAccess.READ)
-	if save_file:
-		var json_string = save_file.get_as_text()
-		save_file.close()
-
-		var save_json = JSON.new()
-		var parse_result = save_json.parse(json_string)
-		if not parse_result == OK:
-			print("JSON Parse Error: ", save_json.get_error_message())
-			return
-
-		var save_data = save_json.data
-		data = save_data
-
 func export_game_data_for_tools() -> void:
 	var file_path = "res://data/exported_game_data.json"
 
