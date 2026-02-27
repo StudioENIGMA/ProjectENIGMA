@@ -70,105 +70,12 @@ theme_override_font_sizes/font_size = 32
 text = "LOAD GAME"
 script = ExtResource("4_oa1go")
 
-[node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697 node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
+[node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 script = ExtResource("5_tbmy8")
-settings_menu = NodePath("../../../SettingsVBoxContainer")
-settings_back_button = NodePath("../../../SettingsBackButton")
-main_menu = NodePath("..")
-
-[node name="SettingsBackButton" type="Button" parent="." unique_id=1678298928]
-visible = false
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = -496.0
-offset_top = -364.0
-offset_right = -416.0
-offset_bottom = -284.0
-theme_override_font_sizes/font_size = 45
-text = "<"
-
-[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=1270711956]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -496.0
-offset_right = 496.0
-offset_bottom = 1106.0
-grow_horizontal = 2
-
-[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=949907170]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume Geral"
-
-[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1663820973]
-layout_mode = 2
-
-[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1629408015]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 100.0
-
-[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=691207241]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=102687753]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume da Música"
-
-[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=2088540133]
-layout_mode = 2
-
-[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=738808862]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 50.0
-
-[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=42543692]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=1458756456]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume de Efeitos Sonoros"
-
-[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=63443719]
-layout_mode = 2
-
-[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=896627671]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 50.0
-
-[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=283176451]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer" unique_id=1694471206]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "------------------------------------------------"
-
-[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer" unique_id=1709062317]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
-theme_override_font_sizes/font_size = 45
-text = "Future settings come here :)"
 
 [node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sfx_player", "music_player")]
 script = ExtResource("2_wu84c")
@@ -189,11 +96,3 @@ bus = &"SFX"
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
-[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Settings Button" to="ButtonsMargin/MainVBoxContainer/Settings Button" method="_on_pressed"]
-[connection signal="pressed" from="SettingsBackButton" to="ButtonsMargin/MainVBoxContainer/Settings Button" method="_on_settings_back_button_pressed"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MasterVolumeHSlider" to="Music Handler" method="_on_master_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MuteMasterCheckBox" to="Music Handler" method="_on_mute_master_check_box_toggled"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MusicVolumeHSlider" to="Music Handler" method="_on_music_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MuteMusicCheckBox" to="Music Handler" method="_on_mute_music_check_box_toggled"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/SFXVolumeHSlider" to="Music Handler" method="_on_sfx_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/MuteSFXCheckBox" to="Music Handler" method="_on_mute_sfx_check_box_toggled"]

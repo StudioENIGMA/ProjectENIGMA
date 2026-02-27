@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
-[ext_resource type="Script" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
+[ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
@@ -48,7 +48,7 @@ script = ExtResource("1_5o8nl")
 base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
-apps_ui = NodePath("DesktopUI/AppsUI")
+apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
 
 [node name="DesktopUI" type="Control" parent="UI" unique_id=541633836]
 layout_mode = 1
@@ -107,63 +107,55 @@ theme_override_font_sizes/font_size = 30
 text = "Tue 17, April"
 horizontal_alignment = 2
 
-[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI" unique_id=1935745718 node_paths=PackedStringArray("touch_sound_player")]
+[node name="BottomMargin" type="MarginContainer" parent="UI/DesktopUI" unique_id=1166920329]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.36900002
-anchor_right = 1.0
-anchor_bottom = 0.63100004
-offset_top = -0.16000366
-offset_bottom = 0.15997314
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -177.0
+offset_right = 170.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI/BottomMargin" unique_id=1935745718 node_paths=PackedStringArray("touch_sound_player")]
+layout_mode = 2
 columns = 4
 script = ExtResource("8_h0j4g")
 touch_sound_player = NodePath("AppTouchSound")
 
-[node name="Messages" parent="UI/DesktopUI/AppsUI" unique_id=369145603 instance=ExtResource("16_5o8nl")]
+[node name="Messages" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=369145603 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 
-[node name="Settings" parent="UI/DesktopUI/AppsUI" unique_id=93658187 instance=ExtResource("16_5o8nl")]
+[node name="Settings" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=93658187 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 2
 
-[node name="Shop" parent="UI/DesktopUI/AppsUI" unique_id=1060404952 instance=ExtResource("16_5o8nl")]
+[node name="Shop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1060404952 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 4
 
-[node name="FakeShop" parent="UI/DesktopUI/AppsUI" unique_id=177805895 instance=ExtResource("16_5o8nl")]
+[node name="FakeShop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=177805895 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 5
 
-[node name="Authenticator" parent="UI/DesktopUI/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
+[node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 9
 
-[node name="Bank" parent="UI/DesktopUI/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
+[node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 10
 
-[node name="Email" parent="UI/DesktopUI/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+[node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 app = 7
 
-[node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/AppsUI" unique_id=2129706902]
+[node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
@@ -173,7 +165,7 @@ visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-apps_ui = NodePath("../DesktopUI/AppsUI")
+apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50
