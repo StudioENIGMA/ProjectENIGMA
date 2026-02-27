@@ -114,7 +114,7 @@ func _compute_max_bubble_width() -> float:
 	if row_width <= 0.0:
 		return MAX_BUBBLE_WIDTH
 
-	var reserved_edge := 32.0
+	var reserved_edge := 8
 	if align == Align.RIGHT and right_margin:
 		reserved_edge = max(0.0, right_margin.custom_minimum_size.x)
 	elif align == Align.LEFT and left_margin:

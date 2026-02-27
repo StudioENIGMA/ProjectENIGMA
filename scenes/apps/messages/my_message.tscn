@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpbe3r4honjav"]
+[gd_scene format=3 uid="uid://bpbe3r4honjav"]
 
 [ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/message_instance.gd" id="1_2u343"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_yluvu"]
@@ -14,11 +14,12 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_left = 20
 
-[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container", "annex_button")]
+[node name="MyMessage" type="HBoxContainer" unique_id=1707791925 node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container", "annex_button")]
+offset_right = 133.0
+offset_bottom = 5136.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_2u343")
-align = null
 label = NodePath("VBoxContainer/MessageBackground/MessageContent")
 panel_container = NodePath("VBoxContainer/MessageBackground")
 left_margin = NodePath("MarginLeft")
@@ -26,36 +27,36 @@ right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
 annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
 
-[node name="MarginLeft" type="MarginContainer" parent="."]
+[node name="MarginLeft" type="MarginContainer" parent="." unique_id=1124050800]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1859824023]
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_constants/separation = 32
 
-[node name="MessageBackground" type="PanelContainer" parent="VBoxContainer"]
+[node name="MessageBackground" type="PanelContainer" parent="VBoxContainer" unique_id=1925040422]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_styles/panel = SubResource("StyleBoxFlat_wq22m")
 
-[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground"]
+[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground" unique_id=1917943482]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_fonts/font = ExtResource("1_yluvu")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 8
 text = "Lorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum Dolo"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="AnnexContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="AnnexContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=701759393]
 visible = false
 layout_mode = 2
 
-[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer"]
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer" unique_id=1102248027]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Fake App.apk"
@@ -64,7 +65,7 @@ autowrap_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="MarginRight" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(32, 0)
+[node name="MarginRight" type="MarginContainer" parent="." unique_id=2086457402]
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 size_flags_horizontal = 0
