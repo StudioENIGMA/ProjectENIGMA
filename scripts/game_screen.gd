@@ -16,6 +16,7 @@ func _ready() -> void:
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
+  var reviews_director = story_director.reviews_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -37,10 +38,21 @@ func _ready() -> void:
   )
   # Story Director new email to UI
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
+  #Story Director Browser
+  story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
+  #Story Director Reviews Website
+  ui.base_app.browser_reviews_site.request_companies_array.connect(
+	reviews_director._on_companies_array_requested
+  )
+  reviews_director.send_companies_array.connect(
+	ui.base_app.browser_reviews_site._on_companies_array_received
+  )
 
   # UI
   # UI message answered to Story Director
   ui.message_answered.connect(answers_director.on_message_answered)
+  # UI browser news requested
+  ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
 
 #endregion INITIALIZATION
 

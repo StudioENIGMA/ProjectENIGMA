@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://782uc7mdo00s"]
+[gd_scene format=3 uid="uid://782uc7mdo00s"]
 
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="1_6euxv"]
 [ext_resource type="Script" uid="uid://u5sf0v35yk3l" path="res://scripts/notifications/notification_popup.gd" id="1_uiujy"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_y4pw6"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_uiujy"]
+[ext_resource type="Script" uid="uid://bqvi30n2qxuys" path="res://scripts/notifications/notification_title_label.gd" id="4_2qhue"]
 
 [sub_resource type="Animation" id="Animation_4rfki"]
 length = 0.001
@@ -77,7 +78,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="Notification" type="Control" node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon")]
+[node name="Notification" type="Control" unique_id=1003812012 node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon")]
 custom_minimum_size = Vector2(1080, 250)
 layout_mode = 3
 anchors_preset = 0
@@ -90,18 +91,16 @@ notification_content_label = NodePath("NotificationVisuals/HBoxContainer/VBoxCon
 notification_title_label = NodePath("NotificationVisuals/HBoxContainer/VBoxContainer/NotificationTitleLabel")
 app_icon = NodePath("NotificationVisuals/HBoxContainer/AppIcon")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qlsx4")
-}
-autoplay = "appear"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1280010021]
+libraries/ = SubResource("AnimationLibrary_qlsx4")
+autoplay = &"appear"
 
-[node name="NotificationVisuals" type="Control" parent="."]
+[node name="NotificationVisuals" type="Control" parent="." unique_id=112424607]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="NotificationBackground" type="Panel" parent="NotificationVisuals"]
+[node name="NotificationBackground" type="Panel" parent="NotificationVisuals" unique_id=197565666]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uiujy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NotificationVisuals"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NotificationVisuals" unique_id=1406579561]
 custom_minimum_size = Vector2(1000, 250)
 layout_mode = 1
 anchors_preset = 8
@@ -131,11 +130,11 @@ offset_bottom = 230.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginLeft" type="MarginContainer" parent="NotificationVisuals/HBoxContainer"]
+[node name="MarginLeft" type="MarginContainer" parent="NotificationVisuals/HBoxContainer" unique_id=1583648335]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="AppIcon" type="TextureRect" parent="NotificationVisuals/HBoxContainer"]
+[node name="AppIcon" type="TextureRect" parent="NotificationVisuals/HBoxContainer" unique_id=2088501250]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -143,26 +142,31 @@ texture = ExtResource("1_6euxv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginCenter" type="MarginContainer" parent="NotificationVisuals/HBoxContainer"]
+[node name="MarginCenter" type="MarginContainer" parent="NotificationVisuals/HBoxContainer" unique_id=646122945]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NotificationVisuals/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NotificationVisuals/HBoxContainer" unique_id=1863298490]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 9
 
-[node name="MarginUp" type="MarginContainer" parent="NotificationVisuals/HBoxContainer/VBoxContainer"]
+[node name="MarginUp" type="MarginContainer" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=318932793]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="NotificationTitleLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer"]
+[node name="NotificationTitleLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=1312883590]
+custom_minimum_size = Vector2(690, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_uiujy")
 theme_override_font_sizes/font_size = 50
 text = "Chefinho"
+script = ExtResource("4_2qhue")
+max_font_size = 50
+min_font_size = 40
+max_x_size = 690
 
-[node name="NotificationContentLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer"]
+[node name="NotificationContentLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=1358316469]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_y4pw6")
 theme_override_font_sizes/font_size = 35
@@ -170,6 +174,6 @@ text = "Olá, seja bem vindo à Enigma!"
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="right" type="MarginContainer" parent="NotificationVisuals/HBoxContainer"]
+[node name="right" type="MarginContainer" parent="NotificationVisuals/HBoxContainer" unique_id=1794806702]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2

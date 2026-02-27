@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_8sayc")
 close_app_button = NodePath("TopBar/TopBarIcons/CloseAppContainer/CloseAppButton")
 back_button = NodePath("TopBar/TopBarIcons/BackButtonContainer/BackButton")
+desktop_ui = NodePath("TopBar")
 app_specific_screen = NodePath("AppSpecificScreen")
 
 [node name="BaseBackgroundColor" type="ColorRect" parent="." unique_id=1453402197]

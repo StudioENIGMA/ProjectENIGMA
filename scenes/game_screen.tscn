@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 layout_mode = 3
@@ -268,6 +269,9 @@ autostart = true
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
+reviews_director = NodePath("ReviewsDirector")
+ui = NodePath("../UI")
+event_handler = NodePath("../EventHandler")
 
 [node name="MessagesDirector" type="Node2D" parent="StoryDirector" unique_id=12625708 node_paths=PackedStringArray("answers_director")]
 script = ExtResource("22_f2213")
@@ -278,5 +282,8 @@ script = ExtResource("24_8e4ax")
 
 [node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1412889098]
 script = ExtResource("26_8e4ax")
+
+[node name="ReviewsDirector" type="Node2D" parent="StoryDirector" unique_id=1137316225]
+script = ExtResource("29_5o8nl")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

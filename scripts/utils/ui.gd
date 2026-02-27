@@ -17,6 +17,9 @@ func _ready() -> void:
   base_app.messages_app_chat.request_message_notification.connect(
 		notifications_control.add_notification_to_queue
   )
+  base_app.bank_payment_info.request_transaction_notification.connect(
+		notifications_control.add_notification_to_queue
+  )
 
   base_app.messages_app_chat.message_answered.connect(message_answered.emit)
   base_app.apk_installation_requested.connect(apps_ui.on_app_installed)

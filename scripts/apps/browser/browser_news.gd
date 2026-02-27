@@ -1,12 +1,30 @@
-extends Panel
+extends Control
 
-func _on_gui_input(event: InputEvent) -> void:
-	if (
-		(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or
-		(event is InputEventScreenTouch)
-	) and event.pressed:
-		var scene = load("res://scenes/news_page.tscn").instantiate()
-		scene.title = "Título da notícia"
-		scene.text = "Texto da Notícia"
-		get_tree().root.add_child(scene)
-		get_tree().current_scene = scene
+@export var news_title: Label
+@export var news_metadata: Label
+@export var news_content: Label
+
+
+var _news_data: Dictionary = {}
+
+func setup(data: Dictionary) -> void:
+	_news_data = data
+
+	if is_inside_tree():
+		_apply_data()
+
+func _ready() -> void:
+	_apply_data()
+
+func _apply_data() -> void:
+	if _news_data.is_empty():
+		return
+
+	if _news_data.has("title"):
+		news_title.text = _news_data["title"]
+
+	if _news_data.has("metadata"):
+		news_metadata.text = _news_data["metadata"]
+
+	if _news_data.has("content"):
+		news_content.text = _news_data["content"]

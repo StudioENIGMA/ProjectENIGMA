@@ -1,6 +1,11 @@
 extends Control
 
+signal transaction_completed()
+signal request_transaction_notification(app:GameData.App, content:String, title:String, time:int)
+
 @export var informations_container : VBoxContainer
+@export var not_found_container: VBoxContainer
+@export var confirm_button: Button
 var information_field_scene = preload("res://scenes/apps/bank/information_field.tscn")
 var code_informations: Dictionary = {}
 
@@ -10,13 +15,18 @@ func setup(payment_code:GameData.PaymentCode) -> void:
 
 	# Iterate through the list and free each child
 	for child in children:
+		informations_container.remove_child(child)
 		child.queue_free()
 
 	code_informations = get_code_information(payment_code)
 
-	#TODO - MAKE A ERROR MESSAGE IF CODE NOT FOUND
 	if code_informations == {}:
+		not_found_container.setup(payment_code.code);
+		not_found_container.visible = true;
+		confirm_button.visible = false;
 		return
+	not_found_container.visible = false;
+	confirm_button.visible = true;
 
 	if payment_code.type == GameData.PaymentType.PIX:
 		var name_field = information_field_scene.instantiate()
@@ -83,3 +93,17 @@ func get_code_information(payment_code: GameData.PaymentCode) -> Dictionary:
 func _on_confirm_button_pressed() -> void:
 	if code_informations != {}:
 		GameData.bank_balance -= code_informations["value"]
+		emit_signal("transaction_completed");
+
+		var receiver: String
+		if(code_informations.has("name")):
+			receiver = code_informations["name"]
+		elif(code_informations.has("institution")):
+			receiver = code_informations["institution"]
+
+		var formatted_value = GameData.format_brl(code_informations["value"])
+		var content = "Uma transação foi realizada para %s no valor de %s" % [receiver, formatted_value]
+		var time: int = GameData.hours_minutes
+		request_transaction_notification.emit(
+			GameData.App.BANK, content, "Transação realizada com sucesso", time
+		);
