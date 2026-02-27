@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2nkg5lcmsjeu"]
+[gd_scene format=3 uid="uid://ri33yy1e4mo1"]
 
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="1_s3mx7"]
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="1_th5w6"]
@@ -14,9 +14,9 @@ border_color = Color(0.505882, 0.505882, 0.505882, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu0a"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="messages_chat" type="Node2D"]
+[node name="messages_chat" type="Node2D" unique_id=1532234037]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=628505550]
 offset_left = -540.0
 offset_top = -980.0
 offset_right = 540.0
@@ -26,7 +26,7 @@ follow_focus = true
 horizontal_scroll_mode = 0
 script = ExtResource("1_th5w6")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer" unique_id=1641600579]
 custom_minimum_size = Vector2(1080, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -34,7 +34,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 35
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=769333498]
 offset_left = -535.0
 offset_top = 894.0
 offset_right = 534.0
@@ -42,7 +42,7 @@ offset_bottom = 1165.0
 theme_override_constants/separation = 10
 script = ExtResource("1_s3mx7")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1586244622]
 offset_left = -474.0
 offset_top = -1142.0
 offset_right = -213.0
