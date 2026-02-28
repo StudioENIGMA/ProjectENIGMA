@@ -8,10 +8,9 @@ signal app_uninstalled(app_name:String)
 func _ready() -> void:
 	uninstall_button.pressed.connect(_on_uninstall_pressed)
 
-func setup(apps_data) -> void:
 	# Get available and downloaded apps from GameData
-	var available_apps = apps_data.available_apps
-	var downloaded_apps = apps_data.downloaded_apps
+	var available_apps = GameData.apps_in_store
+	var downloaded_apps = GameData.downloaded_apps
 
 	# Clear existing app items
 	for child in available_apps_container.get_children():

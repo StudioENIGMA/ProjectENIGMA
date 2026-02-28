@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bofm0wpgowhx6"]
+[gd_scene format=3 uid="uid://bofm0wpgowhx6"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/apps/both_shops/store_app.gd" id="1_ncjuv"]
 
-[node name="StoreApp" type="Control" node_paths=PackedStringArray("available_apps_container")]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="StoreApp" type="Control" unique_id=1076540786 node_paths=PackedStringArray("available_apps_container")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ncjuv")
 available_apps_container = NodePath("AvailableApps")
 
-[node name="AvailableApps" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(1080, 1920)
+[node name="AvailableApps" type="VBoxContainer" parent="." unique_id=83016202]
 layout_mode = 1
-offset_right = 1080.0
-offset_bottom = 1920.0
-theme_override_constants/separation = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

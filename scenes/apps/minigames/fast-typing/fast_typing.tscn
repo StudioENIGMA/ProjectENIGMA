@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b88v1fo4yrqrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85j70"]
+bg_color = Color(0.16862746, 1, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16862746, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v8xt"]
+bg_color = Color(0.108750015, 0.108750015, 0.108750015, 1)
+
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=399654397]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Phrase1Border" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1210873449]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_85j70")
+
+[node name="Phrase1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Phrase1Border" unique_id=949960580]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="NumberBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1216627710]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6v8xt")
+
+[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1/NumberBackground" unique_id=161915714]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="ExpectedPhrase" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1718818289]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SamplePhrase SamplePhrase SamplePhrase"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1180457625]
+layout_mode = 2
+size_flags_vertical = 8
+text = "INPUT"

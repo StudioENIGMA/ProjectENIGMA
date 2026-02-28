@@ -2,7 +2,7 @@
 ## serves as a container for the main game screen components and
 ## facilitates communication between them
 
-extends Node2D
+extends Control
 
 #region CHILDREN NODES REFERENCES
 @export var ui: Control
