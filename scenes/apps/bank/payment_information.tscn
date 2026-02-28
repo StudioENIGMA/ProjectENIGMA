@@ -13,7 +13,6 @@ border_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8i7aa"]
 font = ExtResource("2_0en2f")
-font_size = 80
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjutn"]
@@ -22,7 +21,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tjutn"]
 font = ExtResource("3_m2c43")
-font_size = 50
+font_size = 12
 font_color = Color(0.36078432, 0.078431375, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83l8f"]
@@ -49,46 +48,46 @@ corner_radius_bottom_left = 50
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0en2f"]
 
 [node name="PaymentInformation" type="Control" unique_id=963354837 node_paths=PackedStringArray("informations_container", "not_found_container", "confirm_button")]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0en2f")
-informations_container = NodePath("CenterContainer/VBoxContainer/InformationVBox")
-not_found_container = NodePath("CenterContainer/VBoxContainer/NotFoundContainer")
-confirm_button = NodePath("CenterContainer/VBoxContainer/ConfirmButton")
+informations_container = NodePath("MarginContainer/VBoxContainer/InformationVBox")
+not_found_container = NodePath("MarginContainer/VBoxContainer/NotFoundContainer")
+confirm_button = NodePath("MarginContainer/VBoxContainer/ConfirmButton")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1989879165]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1597706409]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1778340396]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1778340396]
 layout_mode = 2
+size_flags_vertical = 4
 
-[node name="NotFoundContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=218993155 node_paths=PackedStringArray("not_found_label")]
-visible = false
-custom_minimum_size = Vector2(900, 0)
+[node name="NotFoundContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=218993155 node_paths=PackedStringArray("not_found_label")]
 layout_mode = 2
 script = ExtResource("2_8i7aa")
 not_found_label = NodePath("NotFoundLabel")
 
-[node name="NotFoundLabel" type="Label" parent="CenterContainer/VBoxContainer/NotFoundContainer" unique_id=1399787231]
-custom_minimum_size = Vector2(900, 0)
+[node name="NotFoundLabel" type="Label" parent="MarginContainer/VBoxContainer/NotFoundContainer" unique_id=1399787231]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_m2c43")
 text = "O código digitado \"%s\" não foi encontrado."
 label_settings = SubResource("LabelSettings_8i7aa")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ErrorLabel" type="Label" parent="CenterContainer/VBoxContainer/NotFoundContainer" unique_id=1624262838]
+[node name="ErrorLabel" type="Label" parent="MarginContainer/VBoxContainer/NotFoundContainer" unique_id=1624262838]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_tjutn")
 text = "Confira se a informação está correta!"
@@ -96,24 +95,21 @@ label_settings = SubResource("LabelSettings_tjutn")
 horizontal_alignment = 1
 clip_text = true
 
-[node name="InformationVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=903232668]
+[node name="InformationVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=903232668]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1346111414]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="ConfirmButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1245690070]
-custom_minimum_size = Vector2(700, 125)
+[node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1245690070]
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_m2c43")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_83l8f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0en2f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8i7aa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0en2f")
 text = "Confirmar"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
