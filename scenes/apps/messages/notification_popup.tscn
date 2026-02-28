@@ -145,6 +145,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_uiujy")
 theme_override_font_sizes/font_size = 16
 text = "Chefinho"
+clip_text = true
 
 [node name="NotificationContentLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=1358316469]
 layout_mode = 2
