@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_e64tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
-content_margin_left = 50.0
-content_margin_top = 50.0
-content_margin_right = 50.0
-content_margin_bottom = 50.0
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
 bg_color = Color(0.266667, 0.811765, 0.698039, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -28,6 +28,7 @@ annex_container = NodePath("VBoxContainer/AnnexContainer")
 annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
 
 [node name="MarginLeft" type="MarginContainer" parent="." unique_id=1124050800]
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -47,25 +48,30 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_fonts/font = ExtResource("1_yluvu")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "Lorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum Dolo"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="AnnexContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=701759393]
-visible = false
+[node name="AnnexContainer" type="CenterContainer" parent="VBoxContainer" unique_id=95574192]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer" unique_id=1102248027]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
 text = "Fake App.apk"
 icon = ExtResource("3_e64tx")
 autowrap_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="MarginRight" type="MarginContainer" parent="." unique_id=2086457402]
-custom_minimum_size = Vector2(8, 0)
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 0

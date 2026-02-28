@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qunmr")
-messages_list = NodePath("MessagesScrollContainer/MessagesList")
+messages_list = NodePath("MessagesScrollContainer/MarginContainer/MessagesList")
 answers_bar = NodePath("AnswersBar")
 scroll_container = NodePath("MessagesScrollContainer")
 
@@ -26,12 +26,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ir5vx")
 
-[node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer" unique_id=289766915]
+[node name="MarginContainer" type="MarginContainer" parent="MessagesScrollContainer" unique_id=1878788171]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer/MarginContainer" unique_id=289766915]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
 [node name="AnswersBar" type="HBoxContainer" parent="." unique_id=1570615758]
 custom_minimum_size = Vector2(0, 64)

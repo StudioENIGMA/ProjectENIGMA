@@ -5,7 +5,7 @@ signal apk_installation_requested(app: GameData.App)
 
 enum Align { LEFT, RIGHT }
 
-const MAX_BUBBLE_WIDTH := 650.0
+const MAX_BUBBLE_WIDTH := 310.0
 
 @export var align: Align = Align.RIGHT
 
@@ -15,7 +15,7 @@ const MAX_BUBBLE_WIDTH := 650.0
 # Optional: allow the same script to support both scenes cleanly
 @export var left_margin: MarginContainer
 @export var right_margin: MarginContainer
-@export var annex_container: VBoxContainer
+@export var annex_container: CenterContainer
 @export var annex_button: Button
 
 var _is_reflowing := false
