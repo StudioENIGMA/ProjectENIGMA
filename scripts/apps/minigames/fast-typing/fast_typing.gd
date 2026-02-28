@@ -8,7 +8,7 @@ extends Control
 @export var minigame_timer:MarginContainer
 #endregion
 
-var text_sequence_queue: Array = [] 
+var text_sequence_queue: Array = []
 #var bytes_of_text_to_type1: PackedByteArray
 #var bytes_of_text_to_type2: PackedByteArray
 var first_completed:bool = false
@@ -26,20 +26,19 @@ func _ready() -> void:
 	#bytes_of_text_to_type2 = text_to_type1.text.to_utf8_buffer()
 	push_to_queue(text_to_type1.text)
 	push_to_queue(text_to_type2.text)
-	
+
 	setup()
 
 func setup() -> void:
-		
 	current_text = text_sequence_queue.pop_front()
 	splited_text_words = current_text.split(" ")
-	
+
 	splited_text_words.pop_front() # Removing font size from the array
 	typed_correctly_words.clear() # Removing first text from correct words
-	
+
 	word = splited_text_words.pop_front()
 	print(word)
-	
+
 #func verify_player_typed_text() -> void:
 #	current_text = text_sequence_queue.pop_front()
 #	type_completed = false
@@ -58,24 +57,24 @@ func setup() -> void:
 
 func update_correct_word(text_to_type:RichTextLabel) -> void:
 	var colored_text:String = ""
-	
+
 	for colored_word in typed_correctly_words:
 		colored_text = colored_text + " " + colored_word
-		
+
 	if splited_text_words.is_empty():
 		text_to_type.text = "[font_size=50]" + colored_text
 		player_type_space.clear()
-		
+
 		setup()
 		return
-		
+
 	for word in splited_text_words:
 		colored_text = colored_text + " " + word
-		
+
 	text_to_type.text = "[font_size=50]" + colored_text
 	player_type_space.clear()
 	word = splited_text_words.pop_front()
-	
+
 
 func push_to_queue(text: String) -> void:
 	text_sequence_queue.push_back(text)
