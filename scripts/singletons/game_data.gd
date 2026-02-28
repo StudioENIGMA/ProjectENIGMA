@@ -165,7 +165,7 @@ func _ready() -> void:
 	for app_name in apps_name.keys():
 		var app_enum = apps_name[app_name]
 		apps_name_reverse[app_enum] = app_name
-	
+
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
 
