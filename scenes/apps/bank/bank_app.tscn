@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://o0judfg0ie3h"]
+[gd_scene format=3 uid="uid://o0judfg0ie3h"]
 
 [ext_resource type="Script" uid="uid://bbe1w64twx2tt" path="res://scripts/apps/bank/bank_app.gd" id="1_f135x"]
 [ext_resource type="Texture2D" uid="uid://cb4v4bb0jsqnr" path="res://assets/icons/default_person_icon.svg" id="2_a2xj4"]
@@ -19,23 +19,32 @@ font_color = Color(0, 0.03529412, 0.14117648, 1)
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-cache/0/40/0/ascent = 0.0
-cache/0/40/0/descent = 0.0
-cache/0/40/0/underline_position = 0.0
-cache/0/40/0/underline_thickness = 0.0
-cache/0/40/0/scale = 1.0
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_o1c47"]
 font = ExtResource("2_o1c47")
 font_size = 49
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
-[node name="bank_app" type="Control" node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
+[node name="bank_app" type="Control" unique_id=700652337 node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
 layout_mode = 3
 anchors_preset = 0
 grow_horizontal = 2
@@ -48,7 +57,7 @@ hide_value_button = NodePath("CenterContainer/VBoxContainer/HeaderPanel/VBoxCont
 pix_button = NodePath("CenterContainer/VBoxContainer/ButtonsHBoxContainer/PixButton")
 ticket_button = NodePath("CenterContainer/VBoxContainer/ButtonsHBoxContainer/TicketButton")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1957155241]
 custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 1
 anchors_preset = 15
@@ -59,17 +68,17 @@ offset_bottom = 2160.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=705782544]
 custom_minimum_size = Vector2(1080, 2056)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="HeaderPanel" type="Panel" parent="CenterContainer/VBoxContainer" unique_id=779101400]
 custom_minimum_size = Vector2(1000, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iisxx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel" unique_id=1641381836]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,17 +92,17 @@ offset_bottom = 166.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer" unique_id=2128695690]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer" unique_id=1875786871]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 texture = ExtResource("2_a2xj4")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="HideBalanceButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer"]
+[node name="HideBalanceButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer/HBoxContainer" unique_id=849605775]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -104,70 +113,70 @@ texture_pressed = ExtResource("4_qciko")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer" unique_id=37385866]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="MessageLabel" type="Label" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer"]
+[node name="MessageLabel" type="Label" parent="CenterContainer/VBoxContainer/HeaderPanel/VBoxContainer" unique_id=1041296203]
 layout_mode = 2
 text = "Olá, Companheiro ENIGMA"
 label_settings = SubResource("LabelSettings_kcqqf")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1517223498]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="BalanceHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="BalanceHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1683759983]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer" unique_id=1028435437]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
-[node name="BalanceLabel" type="Label" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer"]
+[node name="BalanceLabel" type="Label" parent="CenterContainer/VBoxContainer/BalanceHBoxContainer" unique_id=362301506]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = SubResource("FontFile_kcqqf")
 text = "Saldo"
 label_settings = SubResource("LabelSettings_o1c47")
 
-[node name="ValueHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="ValueHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=639547637]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/ValueHBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/ValueHBoxContainer" unique_id=611386103]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
-[node name="ValueLabel" type="Label" parent="CenterContainer/VBoxContainer/ValueHBoxContainer"]
+[node name="ValueLabel" type="Label" parent="CenterContainer/VBoxContainer/ValueHBoxContainer" unique_id=1482826108]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = SubResource("FontFile_kcqqf")
 text = "******"
 label_settings = SubResource("LabelSettings_o1c47")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=151354097]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=41625721]
 layout_mode = 2
 
-[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer" unique_id=774154420]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="PixButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+[node name="PixButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer" unique_id=1321361937]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 2
 texture_normal = ExtResource("6_a2xj4")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="CenterMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+[node name="CenterMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer" unique_id=1192137595]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TicketButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer"]
+[node name="TicketButton" type="TextureButton" parent="CenterContainer/VBoxContainer/ButtonsHBoxContainer" unique_id=983147319]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 2
 texture_normal = ExtResource("7_eaf8e")
