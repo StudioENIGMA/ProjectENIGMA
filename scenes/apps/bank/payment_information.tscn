@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cemfrlx1v1lej" path="res://scripts/apps/bank/payment_information.gd" id="1_0en2f"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_0en2f"]
-[ext_resource type="Script" path="res://scripts/apps/bank/not_found_container.gd" id="2_8i7aa"]
+[ext_resource type="Script" uid="uid://cwx2fryg58o0k" path="res://scripts/apps/bank/not_found_container.gd" id="2_8i7aa"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_m2c43"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2c43"]

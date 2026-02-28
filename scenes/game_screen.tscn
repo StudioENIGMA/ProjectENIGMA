@@ -20,7 +20,8 @@
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
-[ext_resource type="Script" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
+[ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
 layout_mode = 3
@@ -256,11 +257,12 @@ autostart = true
 [node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1633099414 node_paths=PackedStringArray("messages_director", "emails_director", "reviews_director")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "reviews_director", "bank_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 reviews_director = NodePath("ReviewsDirector")
+bank_director = NodePath("BankDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
@@ -276,5 +278,8 @@ script = ExtResource("26_8e4ax")
 
 [node name="ReviewsDirector" type="Node2D" parent="StoryDirector" unique_id=1137316225]
 script = ExtResource("29_5o8nl")
+
+[node name="BankDirector" type="Node2D" parent="StoryDirector" unique_id=1479037282]
+script = ExtResource("32_21xuv")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
