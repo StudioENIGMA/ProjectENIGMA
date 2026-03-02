@@ -40,6 +40,12 @@ var password_check_dialog = preload(
 var password_change_dialog = preload(
 	"res://scenes/settings/passwords_changer.tscn"
 ).instantiate()
+var stub_hack = preload(
+	"res://scenes/hacks/stub_hack.tscn"
+).instantiate()
+var update_os_screen = preload(
+	"res://scenes/settings/update_os.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -96,6 +102,10 @@ func _ready() -> void:
 	passwords_manager_app.password_change_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(passwords_manager_app)
 
+	# Update OS screen (Settings app)
+	update_os_screen.visible = false
+	app_specific_screen.add_child(update_os_screen)
+
 	# Password Check Dialog (Password Manager)
 	password_check_dialog.visible = false
 	password_check_dialog.password_correct.connect(_on_back_button_pressed)
@@ -113,14 +123,14 @@ func _ready() -> void:
 	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(fake_store_app)
 
-	#Browser App (Browser App)
+	# Browser App (Browser App)
 	browser_app.visible = false
 	browser_app_news.visible = false
 	browser_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app)
 	app_specific_screen.add_child(browser_app_news)
 
-	#Reviews Site (Browser App)
+	# Reviews Site (Browser App)
 	browser_reviews_site.visible = false
 	app_specific_screen.add_child(browser_reviews_site)
 
@@ -159,6 +169,11 @@ func _ready() -> void:
 	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
 	app_specific_screen.add_child(password_change_dialog)
 
+	# Hack minigame stub (Hack minigames)
+	stub_hack.visible = false
+	stub_hack.hack_concluded.connect(_on_back_button_pressed)
+	app_specific_screen.add_child(stub_hack)
+
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
@@ -184,17 +199,24 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	specific_app.visible = true
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
+	# If is a hack minigame, do not show back or close buttons
+	if main_app == GameData.App.STUBHACK:
+		back_button.visible = false
+		close_app_button.visible = false
+		return
+
 	# Show back button if more than one app is open and hide previous app
 	# Also, do not show back button if the current app is the password check dialog
 	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
 		back_button.visible = true
+		close_app_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = false
 	else:
 		back_button.visible = false
-
+		close_app_button.visible = true
 	# Open password check dialog if the app is password protected
 	if app in GameData.passwords.keys(): # Single source of truth
 		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
@@ -219,8 +241,10 @@ func _on_back_button_pressed() -> void:
 	# Show back button if more than one app is still open and show previous app
 	if number_of_open_apps > 1:
 		back_button.visible = true
+		close_app_button.visible = true
 	else:
 		back_button.visible = false
+		close_app_button.visible = number_of_open_apps == 1
 
 	# Show previous app if any
 	if number_of_open_apps > 0:
@@ -284,6 +308,11 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	if previous_node:
 		previous_node.visible = true
 
+## Starts the hack minigame by showing the hack stub
+func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
+	# For now, we will just show the hack stub for any hack minigame
+	_on_app_opened(GameData.App.STUBHACK, {"HackMinigame": hack_minigame})
+
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
@@ -294,6 +323,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		GameData.App.PASSWORDCHECK: password_check_dialog,
+		GameData.App.UPDATEOS: update_os_screen,
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
@@ -312,6 +342,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.PAYMENTINFORMATION: bank_payment_info,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: password_change_dialog,
+		# Hack minigame stub
+		GameData.App.STUBHACK: stub_hack,
 	}
 	return app_map.get(app_enum, null)
 
@@ -324,6 +356,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
+		GameData.App.UPDATEOS: GameData.App.SETTINGS,
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
@@ -342,5 +375,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PAYMENTINFORMATION: GameData.App.BANK,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: GameData.App.PASSWORDMANAGER,
+		# Hack minigame stub
+		GameData.App.STUBHACK: GameData.App.STUBHACK,
 	}
 	return main_app_map.get(subscreen_enum, null)
