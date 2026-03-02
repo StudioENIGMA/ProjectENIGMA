@@ -72,5 +72,6 @@ func _on_confirm_button_pressed() -> void:
 	GameData.passwords[gated_app] = new_password
 	clear_password_fields()
 	instruction_label.text = "Senha alterada com sucesso!"
+	GameData.updated_password_today = true
 	emit_signal("password_changed")
 #endregion
