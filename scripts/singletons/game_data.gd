@@ -14,6 +14,7 @@ enum App {
 	PASSWORDMANAGER,
 	PASSWORDCHECK,
 	PASSWORDCHANGE,
+	VIRUSSCANNER,
 	UPDATEOS,
 	# Store app
 	STORE,
@@ -72,6 +73,8 @@ var decrement_due_breach: int = 30
 var hack_immunity_ticks: int = 30 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
+var number_of_viruses: int = 1
+var unsafe_apps: Array[App] = [App.FAKESTORE]	
 
 var apps_name: Dictionary = {
 	# Messages app

@@ -65,6 +65,8 @@ func _ready() -> void:
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
   # UI hacked minigame ended to event handler
   ui.base_app.stub_hack.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  # UI asking for minigame
+  ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
 
 
 #endregion INITIALIZATION
