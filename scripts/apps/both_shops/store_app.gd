@@ -2,9 +2,9 @@ extends "res://scripts/apps/both_shops/generic_store_app.gd"
 
 signal subscreen_open_requested(subscreen_name:GameData.App)
 
-func setup(apps_data) -> void:
-	var available_apps = apps_data.available_apps
-	var downloaded_apps = apps_data.downloaded_apps
+func _ready() -> void:
+	var available_apps = GameData.apps_in_store
+	var downloaded_apps = GameData.downloaded_apps
 
 	# Clear existing app items
 	for child in available_apps_container.get_children():

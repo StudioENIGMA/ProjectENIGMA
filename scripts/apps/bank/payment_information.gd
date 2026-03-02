@@ -1,16 +1,17 @@
 extends Control
 
-signal transaction_completed()
+signal transaction_completed(payment_code: GameData.PaymentCode)
 signal request_transaction_notification(app:GameData.App, content:String, title:String, time:int)
 
 @export var informations_container : VBoxContainer
 @export var not_found_container: VBoxContainer
 @export var confirm_button: Button
 var information_field_scene = preload("res://scenes/apps/bank/information_field.tscn")
-var code_informations: Dictionary = {}
+var payment_code: GameData.PaymentCode
+var codes_dict: Dictionary
 
-func setup(payment_code:GameData.PaymentCode) -> void:
-
+func setup(code:GameData.PaymentCode) -> void:
+	payment_code = code
 	var children = informations_container.get_children()
 
 	# Iterate through the list and free each child
@@ -18,9 +19,9 @@ func setup(payment_code:GameData.PaymentCode) -> void:
 		informations_container.remove_child(child)
 		child.queue_free()
 
-	code_informations = get_code_information(payment_code)
+	var code_informations = codes_dict.get(payment_code.code)
 
-	if code_informations == {}:
+	if code_informations == null:
 		not_found_container.setup(payment_code.code);
 		not_found_container.visible = true;
 		confirm_button.visible = false;
@@ -60,40 +61,14 @@ func setup(payment_code:GameData.PaymentCode) -> void:
 		informations_container.add_child(transaction_value_field)
 		informations_container.move_child(transaction_value_field, 1)
 
-
-func get_code_information(payment_code: GameData.PaymentCode) -> Dictionary:
-	var file_path = ""
-
-	match payment_code.type:
-		GameData.PaymentType.PIX:
-			file_path = "res://data/bank/pix_codes_data.json"
-		GameData.PaymentType.TICKET:
-			file_path = "res://data/bank/ticket_codes_data.json"
-
-	var information_file = FileAccess.open(file_path, FileAccess.READ)
-
-	if !information_file:
-		return {}
-
-	var json_string = information_file.get_as_text()
-	information_file.close()
-
-	var information_json = JSON.new()
-	var parse_result = information_json.parse(json_string)
-	if not parse_result == OK:
-		print("JSON Parse Error: ", information_json.get_error_message())
-		return {}
-
-	if information_json.data.get(payment_code.code) == null:
-		return {}
-
-	return information_json.data[payment_code.code]
-
+func _on_codes_dict_updated(new_dict: Dictionary) -> void:
+	codes_dict = new_dict
 
 func _on_confirm_button_pressed() -> void:
-	if code_informations != {}:
+	var code_informations = codes_dict.get(payment_code.code)
+	if code_informations != null:
 		GameData.bank_balance -= code_informations["value"]
-		emit_signal("transaction_completed");
+		emit_signal("transaction_completed", payment_code);
 
 		var receiver: String
 		if(code_informations.has("name")):

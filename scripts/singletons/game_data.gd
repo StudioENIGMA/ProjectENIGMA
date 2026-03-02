@@ -21,6 +21,7 @@ enum App {
 	# Browser app
 	BROWSER,
 	BROWSERNEWS,
+	REVIEWSSITE,
 	# Email app
 	EMAIL,
 	EMAILREAD,
@@ -85,6 +86,7 @@ var apps_name: Dictionary = {
 	# Browser
 	"Browser": App.BROWSER,
 	"BrowserNews": App.BROWSERNEWS,
+	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
 	"Bank" : App.BANK,
 	"PaymentCode" : App.PAYMENTCODE,
@@ -126,13 +128,45 @@ var apps_data = {
 		"icon_path": "res://assets/icons/email.png",
 	},
 
+	App.SETTINGS: {
+		"name": "Configurações",
+		"chinese_name": "設定和個人化",
+		"description": "Ajuste as configurações do seu dispositivo!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/settings.png",
+	},
+
+	App.STORE: {
+		"name": "Loja",
+		"chinese_name": "應用程式商店",
+		"description": "Baixe novos aplicativos para o seu dispositivo!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/app-store.png",
+	},
+
+	App.FAKESTORE: {
+		"name": "Loja Falsa",
+		"chinese_name": "假商店",
+		"description": "Uma loja falsa para testar se o jogador sabe identificar golpes!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/fake-app-store.png",
+	},
+
+	App.AUTHENTICATOR: {
+		"name": "Autenticador",
+		"chinese_name": "身份驗證器",
+		"description": "Gerencie seus códigos de autenticação de dois fatores aqui!",
+		"description_in_chinese": "Chinese",
+		"icon_path": "res://assets/icons/default-app.png",
+	},
+
 	App.BANK: {
-		"name": "Utaí",
-		"chinese_name": "巴西莓",
-		"description": "Realize seus pagamentos aqui!",
+		"name": "Banco",
+		"chinese_name": "銀行和財務",
+		"description": "Gerencie suas finanças e faça pagamentos aqui!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/utai.png",
-	}
+	},
 }
 
 var apps_chinese_operations = {
@@ -151,6 +185,9 @@ func _ready() -> void:
 	for app_name in apps_name.keys():
 		var app_enum = apps_name[app_name]
 		apps_name_reverse[app_enum] = app_name
+
+	# Export game data for tools (like the app icons)
+	export_game_data_for_tools()
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""
@@ -182,3 +219,15 @@ func hours_minutes_as_string(relative_time: int) -> String:
 	var current_hour:int = int(current_day_minutes / 60)
 	var current_minute:int = int(current_day_minutes) % 60
 	return "%02d:%02d" % [current_hour, current_minute]
+
+func export_game_data_for_tools() -> void:
+	var file_path = "res://data/exported_game_data.json"
+
+	var json_string = JSON.stringify({
+		"apps_data": apps_data,
+	})
+
+	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
+	if save_file:
+		save_file.store_string(json_string)
+		save_file.close()

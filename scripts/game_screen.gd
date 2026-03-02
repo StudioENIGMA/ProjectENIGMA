@@ -2,7 +2,7 @@
 ## serves as a container for the main game screen components and
 ## facilitates communication between them
 
-extends Node2D
+extends Control
 
 #region CHILDREN NODES REFERENCES
 @export var ui: Control
@@ -16,6 +16,8 @@ func _ready() -> void:
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
+  var reviews_director = story_director.reviews_director
+  var bank_director = story_director.bank_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -41,6 +43,20 @@ func _ready() -> void:
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
   #Story Director Browser
   story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
+  #Story Director Reviews Website
+  ui.base_app.browser_reviews_site.request_companies_array.connect(
+	reviews_director._on_companies_array_requested
+  )
+  reviews_director.send_companies_array.connect(
+	ui.base_app.browser_reviews_site._on_companies_array_received
+  )
+  #Story Director Bank
+  ui.base_app.bank_payment_info.transaction_completed.connect(
+	bank_director._on_transaction_completed
+  )
+  bank_director.send_codes_dict.connect(
+	ui.base_app.bank_payment_info._on_codes_dict_updated, ConnectFlags.CONNECT_DEFERRED
+  )
 
   # UI
   # UI message answered to Story Director

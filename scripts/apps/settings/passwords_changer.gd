@@ -13,13 +13,15 @@ signal password_changed()
 
 var gated_app: GameData.App
 
+func _ready() -> void:
+	confirm_button.pressed.connect(_on_confirm_button_pressed)
+
 ## Sets up the PasswordsInserter UI with the provided data, initializing the gated app
 ## and updating the instruction label accordingly
 func setup(data: Dictionary) -> void:
 	gated_app = data["GatedApp"]
 	var app_name = GameData.apps_name_reverse.get(gated_app, "Desconhecido")
 	instruction_label.text = "Insira a nova senha para %s:" % app_name
-	confirm_button.pressed.connect(_on_confirm_button_pressed)
 
 	clear_password_fields()
 
