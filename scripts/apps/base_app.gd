@@ -40,6 +40,9 @@ var password_check_dialog = preload(
 var password_change_dialog = preload(
 	"res://scenes/settings/passwords_changer.tscn"
 ).instantiate()
+var virus_scanner = preload(
+	"res://scenes/settings/virus_scanner.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -100,6 +103,10 @@ func _ready() -> void:
 	password_check_dialog.visible = false
 	password_check_dialog.password_correct.connect(_on_back_button_pressed)
 	app_specific_screen.add_child(password_check_dialog)
+
+	# Virus Scanner app (Virus Scanner app)
+	virus_scanner.visible = false
+	app_specific_screen.add_child(virus_scanner)
 
 	# Store app (Store app)
 	store_app.visible = false
@@ -294,6 +301,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		GameData.App.PASSWORDCHECK: password_check_dialog,
+		GameData.App.VIRUSSCANNER: virus_scanner,
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
@@ -324,6 +332,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
+		GameData.App.VIRUSSCANNER: GameData.App.SETTINGS,
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
