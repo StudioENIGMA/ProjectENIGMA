@@ -2,296 +2,232 @@
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
-[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scenes/game_screen.gd" id="1_8imdr"]
+[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
-[ext_resource type="Script" uid="uid://bu1qlne633uln" path="res://scripts/utils/desktop_ui.gd" id="2_q7j5u"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
-[ext_resource type="Theme" uid="uid://dumg8l48etp41" path="res://assets/themes/test_theme.tres" id="6_h0j4g"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
-[ext_resource type="Texture2D" uid="uid://clmd7chum00ms" path="res://assets/icons/settings.png" id="7_87fqc"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="7_oknyi"]
-[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="8_4u5i3"]
-[ext_resource type="Texture2D" uid="uid://bry5wkwnk70xo" path="res://assets/icons/app-store.png" id="9_f2213"]
-[ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="11_8imdr"]
-[ext_resource type="Texture2D" uid="uid://dw6c7elijoikh" path="res://assets/icons/email.png" id="12_7em7s"]
+[ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
+[ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
-[ext_resource type="Texture2D" uid="uid://dpjbuhogesd8q" path="res://assets/icons/utai.png" id="13_87fqc"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
 [ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
-[ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="14_8e4ax"]
-[ext_resource type="Texture2D" uid="uid://cj6hhywlfcl5a" path="res://assets/icons/browser.png" id="14_q7j5u"]
 [ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/sounds/play_touch_sound.gd" id="14_yc1wb"]
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="PackedScene" uid="uid://tfos8eqtx3j3" path="res://scenes/tools/AppButton.tscn" id="16_5o8nl"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
+[ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 [ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
-[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="30_5o8nl"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
+[ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
-[node name="GameScreen" type="Node2D" unique_id=2138891880 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
+[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_8imdr")
 ui = NodePath("UI")
 event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 
-[node name="UI" type="Control" parent="." unique_id=1902657514 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "desktop_ui")]
-custom_minimum_size = Vector2(1080, 2400)
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_right = 1080.0
-offset_bottom = 2400.0
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_5o8nl")
 base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
-desktop_ui = NodePath("DesktopUI")
+apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
 
-[node name="DesktopUI" type="Control" parent="UI" unique_id=2145863273 node_paths=PackedStringArray("messages_button", "settings_button", "email_button", "shop_button", "fake_shop_button", "browser_button", "authenticator_button", "bank_button", "touch_sound_player")]
-custom_minimum_size = Vector2(1080, 2400)
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_q7j5u")
-messages_button = NodePath("AppsUI/MessagesButton")
-settings_button = NodePath("AppsUI/SettingsButton")
-email_button = NodePath("AppsUI/EmailButton")
-shop_button = NodePath("AppsUI/ShopButton")
-fake_shop_button = NodePath("AppsUI/FakeShopButton")
-browser_button = NodePath("AppsUI/BrowserButton")
-base_app = NodePath("../BaseApp")
-authenticator_button = NodePath("AppsUI/AuthenticatorButton")
-bank_button = NodePath("AppsUI/BankButton")
-touch_sound_player = NodePath("AudioStreamPlayer2D")
-
-[node name="Clock" type="RichTextLabel" parent="UI/DesktopUI" unique_id=732151852 groups=["clock_display"]]
+[node name="DesktopUI" type="Control" parent="UI" unique_id=541633836]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -208.0
-offset_top = -887.0
-offset_right = 437.0
-offset_bottom = -639.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-bbcode_enabled = true
-text = "[font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"150\\\"]18:32[/font][font n=res://assets/fonts/IBMPlexSans-Light.ttf size=\\\"40\\\"]PM
-Tue 17, April[/font]
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_1vcyb")
 
-[node name="Background" type="TextureRect" parent="UI/DesktopUI" unique_id=1113244942]
+[node name="Background" type="TextureRect" parent="UI/DesktopUI" unique_id=74826303]
 z_index = -100
-custom_minimum_size = Vector2(1080, 2400)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 2400.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_3a7ej")
-stretch_mode = 6
+expand_mode = 1
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=218492806]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
 stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
 
-[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI" unique_id=262605226]
+[node name="ClockContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=2049360299]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -229.0
+offset_bottom = 148.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 16
+
+[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/ClockContainer" unique_id=1868654397 node_paths=PackedStringArray("time_label", "weekday_label") groups=["clock_display"]]
+layout_mode = 2
+script = ExtResource("16_1vcyb")
+time_label = NodePath("Hour")
+weekday_label = NodePath("WeekDay")
+
+[node name="Hour" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=1389524436]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("7_yc1wb")
+theme_override_font_sizes/font_size = 80
+text = "18:32"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WeekDay" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=299553706]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("7_yc1wb")
+theme_override_font_sizes/font_size = 30
+text = "Tue 17, April"
+horizontal_alignment = 2
+
+[node name="BottomMargin" type="MarginContainer" parent="UI/DesktopUI" unique_id=1166920329]
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -464.5
-offset_top = -570.0
-offset_right = 464.5
-offset_bottom = 544.0
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -177.0
+offset_right = 170.5
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 64
-columns = 3
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
 
-[node name="MessagesButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=135074168]
-custom_minimum_size = Vector2(264, 358)
+[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI/BottomMargin" unique_id=1935745718 node_paths=PackedStringArray("touch_sound_player")]
 layout_mode = 2
-theme = ExtResource("6_h0j4g")
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Mensagens"
-icon = ExtResource("8_4u5i3")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+columns = 4
+script = ExtResource("8_h0j4g")
+touch_sound_player = NodePath("AppTouchSound")
 
-[node name="SettingsButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1981841444]
-custom_minimum_size = Vector2(264, 358)
+[node name="Messages" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=369145603 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Configurações"
-icon = ExtResource("7_87fqc")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
 
-[node name="ShopButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1656891858]
-custom_minimum_size = Vector2(264, 358)
+[node name="Settings" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=93658187 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Loja"
-icon = ExtResource("9_f2213")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
+app = 2
 
-[node name="FakeShopButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=18564198]
+[node name="Shop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1060404952 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+app = 8
+
+[node name="FakeShop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=177805895 instance=ExtResource("16_5o8nl")]
 visible = false
-custom_minimum_size = Vector2(264, 358)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Loja"
-icon = ExtResource("11_8imdr")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
+app = 9
 
-[node name="EmailButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=33619996]
-custom_minimum_size = Vector2(264, 358)
+[node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Email"
-icon = ExtResource("12_7em7s")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
+app = 15
 
-[node name="BrowserButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1154302620]
-custom_minimum_size = Vector2(264, 358)
+[node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Navegador"
-icon = ExtResource("14_q7j5u")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
+app = 16
 
-[node name="AuthenticatorButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1609223511]
+[node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Autenticador"
-icon = ExtResource("14_8e4ax")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
+app = 13
 
-[node name="BankButton" type="Button" parent="UI/DesktopUI/AppsUI" unique_id=1273649404]
-custom_minimum_size = Vector2(26, 358)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_oknyi")
-theme_override_font_sizes/font_size = 40
-action_mode = 0
-text = "Banco"
-icon = ExtResource("13_87fqc")
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UI/DesktopUI" unique_id=1848742522]
-position = Vector2(75.5, 650)
+[node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
+position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
 
-[node name="BaseApp" parent="UI" unique_id=1032773209 node_paths=PackedStringArray("desktop_ui") instance=ExtResource("3_qca60")]
+[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui") instance=ExtResource("3_qca60")]
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-desktop_ui = NodePath("../DesktopUI")
+apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 
-[node name="NotificationUI" type="Control" parent="UI" unique_id=727006646 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
+[node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50
-custom_minimum_size = Vector2(1080, 250)
+custom_minimum_size = Vector2(256, 64)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -540.0
-offset_top = -1200.0
-offset_right = 540.0
-offset_bottom = -950.0
+offset_bottom = 64.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("14_5o8nl")
 notification_timer = NodePath("NotificationTimer")
 audio_stream_player = NodePath("NotificationSoundPlayer")
 
-[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI" unique_id=172382801]
+[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI" unique_id=663275218]
 stream = ExtResource("15_q7j5u")
 volume_db = -3.0
 bus = &"SFX"
 
-[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI" unique_id=177745253]
+[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI" unique_id=495132933]
 wait_time = 2.5
 one_shot = true
 
-[node name="DayOverUI" type="Control" parent="UI" unique_id=492296735 node_paths=PackedStringArray("next_day_button")]
+[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button")]
 visible = false
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("13_bd51b")
 next_day_button = NodePath("CenterContainer/TextDayOverContainer/NextDayButton")
 
-[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1103942121]
+[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1905301528]
 modulate = Color(1, 1, 1, 0.835294)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 2400.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("22_87fqc")
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI" unique_id=1362993238]
-custom_minimum_size = Vector2(1080, 2400)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI" unique_id=1163380987]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer" unique_id=407210207]
-custom_minimum_size = Vector2(1080, 0)
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer" unique_id=1593008203]
 layout_mode = 2
 
-[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=1088076909]
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=1334004570]
 layout_mode = 2
-theme = ExtResource("6_h0j4g")
 theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 180
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "FIM DO DIA"
 fit_content = true
@@ -300,47 +236,52 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=1410169135]
+[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=116572443]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=2129681794]
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=327593996]
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
-theme_override_font_sizes/font_size = 146
+theme_override_font_sizes/font_size = 30
 text = "Dia"
 icon_alignment = 1
 
-[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("day_over_timer", "clock_timer")]
+[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("day_over_timer", "clock_timer", "hack_handler")]
 visible = false
 script = ExtResource("6_pur81")
 day_over_timer = NodePath("DayOverTimer")
 clock_timer = NodePath("ClockTimer")
+hack_handler = NodePath("HackHandler")
 
-[node name="DayOverTimer" type="Timer" parent="EventHandler" unique_id=1345561278]
+[node name="DayOverTimer" type="Timer" parent="EventHandler" unique_id=1470514722]
 wait_time = 600.0
 one_shot = true
 autostart = true
 
-[node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=1490794400]
+[node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
 autostart = true
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "ui", "event_handler")]
+[node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
+script = ExtResource("25_5o8nl")
+
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 browser_director = NodePath("BrowserDirector")
+bank_director = NodePath("BankDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
-[node name="MessagesDirector" type="Node2D" parent="StoryDirector" unique_id=800574944 node_paths=PackedStringArray("answers_director")]
+[node name="MessagesDirector" type="Node2D" parent="StoryDirector" unique_id=12625708 node_paths=PackedStringArray("answers_director")]
 script = ExtResource("22_f2213")
 answers_director = NodePath("AnswersDirector")
 
-[node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector" unique_id=1405881180]
+[node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector" unique_id=1434115663]
 script = ExtResource("24_8e4ax")
 
-[node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1709843134]
+[node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1412889098]
 script = ExtResource("26_8e4ax")
 
 [node name="BrowserDirector" type="Node2D" parent="StoryDirector" unique_id=1009951536 node_paths=PackedStringArray("reviews_director", "shops_director")]
@@ -353,5 +294,8 @@ script = ExtResource("30_5o8nl")
 
 [node name="ShopsDirector" type="Node2D" parent="StoryDirector/BrowserDirector" unique_id=1391960317]
 script = ExtResource("30_q7j5u")
+
+[node name="BankDirector" type="Node2D" parent="StoryDirector" unique_id=1479037282]
+script = ExtResource("32_21xuv")
 
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]

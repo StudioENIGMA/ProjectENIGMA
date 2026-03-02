@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bt7a2lnrb0to"]
+
+[ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
+
+[node name="VirusScanner" type="VBoxContainer" unique_id=810286205 node_paths=PackedStringArray("virus_result", "apps_result", "remove_virus_button", "remove_apps_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -27.0
+offset_right = 119.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+script = ExtResource("1_sa0sr")
+virus_result = NodePath("VirusResult")
+apps_result = NodePath("AppsResult")
+remove_virus_button = NodePath("VirusResult/MarginContainer/RemoveVirusButton")
+remove_apps_button = NodePath("AppsResult/MarginContainer/UnninstallButton")
+scan_button = NodePath("ScannerButton")
+scan_timer = NodePath("ScanTimer")
+virus_result_label = NodePath("VirusResult/VirusLabel")
+apps_result_label = NodePath("AppsResult/AppsLabel")
+
+[node name="ScannerButton" type="Button" parent="." unique_id=896499335]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Iniciar Varredura"
+
+[node name="VirusResult" type="VBoxContainer" parent="." unique_id=368339873]
+layout_mode = 2
+
+[node name="VirusLabel" type="Label" parent="VirusResult" unique_id=763997514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 18
+text = "N vírus detectados:"
+
+[node name="MarginContainer" type="MarginContainer" parent="VirusResult" unique_id=592668013]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="RemoveVirusButton" type="Button" parent="VirusResult/MarginContainer" unique_id=541151401]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Remover vírus"
+
+[node name="AppsResult" type="VBoxContainer" parent="." unique_id=390473578]
+layout_mode = 2
+
+[node name="AppsLabel" type="Label" parent="AppsResult" unique_id=78767065]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 18
+text = "N aplicativos maliciosos:"
+
+[node name="MarginContainer" type="MarginContainer" parent="AppsResult" unique_id=986893016]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="UnninstallButton" type="Button" parent="AppsResult/MarginContainer" unique_id=158631373]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Desinstalar Aplicativos"
+
+[node name="ScanTimer" type="Timer" parent="." unique_id=1178492530]
+wait_time = 3.0
+one_shot = true

@@ -9,6 +9,7 @@ signal day_ended()
 #region CHILDREN NODES REFERENCES
 @export var day_over_timer:Timer
 @export var clock_timer:Timer
+@export var hack_handler:Node2D
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
@@ -16,6 +17,7 @@ signal day_ended()
 func _ready() -> void:
 	day_over_timer.timeout.connect(_on_day_over_timeout)
 	clock_timer.timeout.connect(_on_clock_timer_timeout)
+	clock_timer.timeout.connect(hack_handler.on_clock_tick)
 
 	# Update the in-game time display at start
 	_update_in_game_time()
