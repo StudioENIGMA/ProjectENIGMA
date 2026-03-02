@@ -116,6 +116,8 @@ func _ready() -> void:
 
 	# Virus Scanner app (Virus Scanner app)
 	virus_scanner.visible = false
+	virus_scanner.app_uninstalled.connect(apps_ui.on_app_uninstalled) # Remove from home screen
+	virus_scanner.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(virus_scanner)
 
 	# Store app (Store app)
@@ -126,8 +128,6 @@ func _ready() -> void:
 	# Fake Store app (Fake Store app)
 	fake_store_app.visible = false
 	fake_store_app.subscreen_open_requested.connect(_on_app_opened)
-	fake_store_app.app_uninstalled.connect(apps_ui.on_app_uninstalled) # Remove from home screen
-	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(fake_store_app)
 
 	# Browser App (Browser App)
