@@ -19,9 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
-[ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
+[ext_resource type="Script" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
-[ext_resource type="Script" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
@@ -139,24 +139,24 @@ app = 2
 
 [node name="Shop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1060404952 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 6
+app = 7
 
 [node name="FakeShop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=177805895 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-app = 7
+app = 8
 
 [node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 13
+app = 14
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 14
+app = 15
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 11
+app = 12
 
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
@@ -265,7 +265,6 @@ autostart = true
 script = ExtResource("25_5o8nl")
 
 [node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "reviews_director", "bank_director", "ui", "event_handler")]
-
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
