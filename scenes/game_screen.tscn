@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 [ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
@@ -290,7 +291,7 @@ reviews_director = NodePath("ReviewsDirector")
 shops_director = NodePath("ShopsDirector")
 
 [node name="ReviewsDirector" type="Node2D" parent="StoryDirector/BrowserDirector" unique_id=1137316225]
-script = ExtResource("30_5o8nl")
+script = ExtResource("29_5o8nl")
 
 [node name="ShopsDirector" type="Node2D" parent="StoryDirector/BrowserDirector" unique_id=1391960317]
 script = ExtResource("30_q7j5u")
