@@ -26,10 +26,7 @@ func on_clock_tick() -> void:
 
 	var random_value = randi_range(0, 100)
 	if random_value < GameData.current_hack_probability * 100:
-		GameData.is_hacked = true
-		GameData.last_hacked_tick = current_minutes
-
-	open_minigame()
+		open_minigame()
 
 ## Receives the expected number of ticks of immunity between hacks and the number
 ## of ticks expected between hacks, and calculates the parameters for the hacking system
@@ -54,6 +51,9 @@ func on_hack_concluded() -> void:
 	GameData.last_hacked_tick = GameData.hours_minutes
 
 func open_minigame() -> void:
+	GameData.is_hacked = true
+	GameData.last_hacked_tick = GameData.hours_minutes
+
 	# Select random hack minigame
 	var hack_index = randi_range(0, GameData.HackMinigame.size() - 1)
 	var hack_minigame = GameData.HackMinigame.values()[hack_index]
