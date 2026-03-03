@@ -11,26 +11,41 @@
 [ext_resource type="Texture2D" uid="uid://ds4ujq4asv5v8" path="res://assets/icons/bug_card_hover.png" id="9_tunpi"]
 [ext_resource type="Texture2D" uid="uid://dlt52akfwk4c1" path="res://assets/icons/bug_unlocked_card.png" id="10_k5mib"]
 
-[node name="SettingsApp" type="MarginContainer" unique_id=228120666 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
+[node name="SettingsApp" type="Control" unique_id=2127877474 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_top = 128
 script = ExtResource("1_i6x2j")
-passwords_manager_button = NodePath("VBoxContainer/PasswordManager")
-update_os_button = NodePath("VBoxContainer/UpdateOS")
-virus_scanner_button = NodePath("VBoxContainer/VirusScanner")
+passwords_manager_button = NodePath("HBoxContainer/VBoxContainer/PasswordManager")
+update_os_button = NodePath("HBoxContainer/VBoxContainer/UpdateOS")
+virus_scanner_button = NodePath("HBoxContainer/VBoxContainer/VirusScanner")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=252474445]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=47553879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer" unique_id=587829397]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_constants/separation = 128
 
-[node name="PasswordManager" type="TextureButton" parent="VBoxContainer" unique_id=2028246426]
-custom_minimum_size = Vector2(0, 240)
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=252474445]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 55
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1812738925]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="PasswordManager" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=2028246426]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_rm6uv")
 texture_hover = ExtResource("3_rl4m7")
@@ -38,8 +53,8 @@ texture_disabled = ExtResource("4_aoiuy")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="UpdateOS" type="TextureButton" parent="VBoxContainer" unique_id=2100572624]
-custom_minimum_size = Vector2(0, 240)
+[node name="UpdateOS" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=2100572624]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("5_pcpul")
 texture_hover = ExtResource("6_0hejv")
@@ -47,11 +62,15 @@ texture_disabled = ExtResource("7_bwi6s")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="VirusScanner" type="TextureButton" parent="VBoxContainer" unique_id=1931336353]
-custom_minimum_size = Vector2(0, 240)
+[node name="VirusScanner" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=1931336353]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("8_w4oym")
 texture_hover = ExtResource("9_tunpi")
 texture_disabled = ExtResource("10_k5mib")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="RightMargin" type="MarginContainer" parent="HBoxContainer" unique_id=545724357]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
