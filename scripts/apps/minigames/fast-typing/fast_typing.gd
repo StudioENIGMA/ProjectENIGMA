@@ -1,5 +1,7 @@
 extends Control
 
+signal hack_concluded
+
 const PHRASE_SCENE = preload("res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn")
 const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew"]
 
@@ -10,6 +12,8 @@ const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", 
 
 var current_phrases = []
 var current_index = 0
+var has_wrong_char = false
+var completed_phrases = 0
 
 func _ready():
 	current_phrases.append(generate_random_phrase())
@@ -43,14 +47,41 @@ func update_display():
 		child.queue_free()
 	for phrase in current_phrases:
 		var phrase_instance = PHRASE_SCENE.instantiate()
-		phrase_instance.setup(phrase, current_index)
+		var is_completed = current_index < completed_phrases
+		var is_current = current_index == completed_phrases
+		phrase_instance.setup(phrase, current_index, is_completed, is_current)
 		phrases_vbox.add_child(phrase_instance)
 		current_index += 1
 
 func _user_typed(new_text):
 	# Get the current phrase to type
-	var current_phrase = current_phrases[0]
+	var current_phrase = current_phrases[completed_phrases]
 	var current_phrase_str = " ".join(current_phrase)
 	
-	# Check if the character typed is correct
-	var expected_char = current_phrase_str.substr(line_edit.text.length() - 1, 1)
+	# Check the last character that matches the current phrase
+	if new_text == current_phrase_str:
+		# User typed the whole phrase correctly, move to the next one
+		_conclude_phrase()
+	elif current_phrase_str.begins_with(new_text):
+		# User is typing correctly so far
+		has_wrong_char = false
+		line_edit.add_theme_color_override("font_color", Color.LIME_GREEN)
+	else:
+		# User typed a wrong character
+		has_wrong_char = true
+		line_edit.add_theme_color_override("font_color", Color.RED)
+
+func _conclude_phrase():
+	completed_phrases += 1
+
+	# Reset line edit
+	line_edit.text = ""
+	line_edit.add_theme_color_override("font_color", Color.WHITE)
+
+	# Check if there are more phrases to type
+	if completed_phrases >= current_phrases.size():
+		# Hack minigame completed, emit signal to notify the main app
+		hack_concluded.emit()
+	else:
+		# Mark current phrase as completed and update display
+		update_display()

@@ -41,6 +41,12 @@ theme_override_constants/margin_bottom = 16
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
+[node name="TimerProgress" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=2059900595]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+fill_mode = 1
+show_percentage = false
+
 [node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
 layout_mode = 2
 size_flags_vertical = 6
@@ -67,3 +73,5 @@ selecting_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 caret_force_displayed = true
+
+[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer" unique_id=1720465626]
