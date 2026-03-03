@@ -14,8 +14,10 @@ const DEFAULT_LOGO =  preload("res://assets/projeto enigma.png")
 @export var site_label: Label
 
 var logo_by_enum = {
-	GameData.App.REVIEWSSITE: preload("res://assets/icons/shops/square_logos/elogie_la.png"),
-	GameData.App.BROWSERAMAZONIASHOP: preload("res://assets/icons/shops/square_logos/amazonia.png"),
+	GameData.App.REVIEWSSITE: preload("res://assets/icons/shops/square_logos/elogie_la_logo_fundo.png"),
+	GameData.App.BROWSERAMAZONIASHOP: preload("res://assets/icons/shops/square_logos/amazonia_fundo.png"),
+	GameData.App.BROWSEREMILIASHOP: preload("res://assets/icons/shops/square_logos/emilia_bolos_fundo.png"),
+	GameData.App.BROWSERAECSHOP: preload("res://assets/icons/shops/square_logos/a&c_fundo.png")
 }
 
 var sites_names_by_enum = {
