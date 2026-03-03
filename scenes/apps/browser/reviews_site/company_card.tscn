@@ -7,24 +7,24 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhigj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 3
+border_width_top = 1
 border_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6lrvl"]
 font = ExtResource("2_ukd8c")
-font_size = 45
+font_size = 15
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rf6y2"]
 font = ExtResource("3_g0lnl")
-font_size = 30
+font_size = 10
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vhbm"]
-content_margin_left = 20.0
-content_margin_top = 10.0
-content_margin_right = 20.0
-content_margin_bottom = 10.0
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
 bg_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
@@ -34,9 +34,13 @@ corner_detail = 9
 
 [sub_resource type="LabelSettings" id="LabelSettings_q207y"]
 font = ExtResource("2_ukd8c")
-font_size = 110
+font_size = 37
 
 [node name="CompanyCard" type="PanelContainer" unique_id=1823120764 node_paths=PackedStringArray("score_label", "name_label", "summary_label", "logo_texture_rect")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 113.0
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhigj")
 script = ExtResource("1_bh8fw")
 score_label = NodePath("HBoxContainer2/ScoreLabel")
@@ -45,28 +49,33 @@ summary_label = NodePath("HBoxContainer2/VBoxContainer/SummaryLabel")
 logo_texture_rect = NodePath("HBoxContainer2/LogoTextureRect")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1152595399]
-custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
 [node name="LeftMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=1447865404]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
 [node name="LogoTextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1760041421]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_ee6mc")
+expand_mode = 1
 stretch_mode = 4
 
 [node name="LeftCenterMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=116352352]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2" unique_id=2038256396]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="UpMargin" type="MarginContainer" parent="HBoxContainer2/VBoxContainer" unique_id=1454222734]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="HBoxContainer2/VBoxContainer" unique_id=62512005]
 layout_mode = 2
@@ -75,14 +84,20 @@ text = "Empresa Exemplo"
 label_settings = SubResource("LabelSettings_6lrvl")
 
 [node name="SummaryLabel" type="Label" parent="HBoxContainer2/VBoxContainer" unique_id=1836412959]
-custom_minimum_size = Vector2(600, 50)
+custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 text = "Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. "
 label_settings = SubResource("LabelSettings_rf6y2")
+horizontal_alignment = 3
 autowrap_mode = 2
+text_overrun_behavior = 4
+
+[node name="LeftMargin2" type="MarginContainer" parent="HBoxContainer2/VBoxContainer" unique_id=690265833]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="RightCenterMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=619461320]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="HBoxContainer2" unique_id=1573661522]
@@ -93,5 +108,5 @@ text = "93"
 label_settings = SubResource("LabelSettings_q207y")
 
 [node name="RightMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=489272516]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2

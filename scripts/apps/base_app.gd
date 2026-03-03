@@ -23,6 +23,28 @@ var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantia
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate()
 var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
+var browser_app_amazonia_shop = preload(
+	"res://scenes/apps/browser/shops/amazonia/amazonia_shop.tscn"
+).instantiate()
+var browser_app_amazonia_cart = preload(
+	"res://scenes/apps/browser/shops/amazonia/amazonia_cart.tscn"
+).instantiate()
+var browser_app_emilia_shop = preload(
+	"res://scenes/apps/browser/shops/emilia_bolos/emilia_shop.tscn"
+).instantiate()
+var browser_app_emilia_cart = preload(
+	"res://scenes/apps/browser/shops/emilia_bolos/emilia_cart.tscn"
+).instantiate()
+var browser_app_aec_shop = preload(
+	"res://scenes/apps/browser/shops/aec/aec_shop.tscn"
+).instantiate()
+var browser_app_aec_cart = preload(
+	"res://scenes/apps/browser/shops/aec/aec_cart.tscn"
+).instantiate()
+var browser_app_shop_payment_screen = preload(
+"res://scenes/apps/browser/shops/payment_screen.tscn"
+).instantiate()
+var browser_app_fake_shop = preload("res://scenes/apps/browser/fake_shop_site.tscn").instantiate()
 var browser_reviews_site = preload(
 	"res://scenes/apps/browser/reviews_site/reviews_site.tscn"
 ).instantiate()
@@ -137,7 +159,40 @@ func _ready() -> void:
 	app_specific_screen.add_child(browser_app)
 	app_specific_screen.add_child(browser_app_news)
 
-	# Reviews Site (Browser App)
+	#Browser Shops (Browser App)
+	#Amazonia
+	browser_app_amazonia_shop.visible = false
+	browser_app_amazonia_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_amazonia_shop)
+
+	browser_app_amazonia_cart.visible = false
+	browser_app_amazonia_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_amazonia_cart)
+
+	#Emilia_Bolos
+	browser_app_emilia_shop.visible = false
+	browser_app_emilia_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_emilia_shop)
+
+	browser_app_emilia_cart.visible = false
+	browser_app_emilia_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_emilia_cart)
+
+	#A&C
+	browser_app_aec_shop.visible = false
+	browser_app_aec_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_aec_shop)
+
+	browser_app_aec_cart.visible = false
+	browser_app_aec_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_aec_cart)
+
+	#Payment_Screen
+	browser_app_shop_payment_screen.visible = false
+	app_specific_screen.add_child(browser_app_shop_payment_screen)
+	browser_app_shop_payment_screen.cancel_order.connect(_on_back_button_pressed)
+
+	#Reviews Site (Browser App)
 	browser_reviews_site.visible = false
 	app_specific_screen.add_child(browser_reviews_site)
 
@@ -169,6 +224,9 @@ func _ready() -> void:
 	app_specific_screen.add_child(bank_payment_info)
 	bank_payment_info.transaction_completed.connect(
 		func(_payment_code: GameData.PaymentCode): _on_back_button_pressed(); _on_back_button_pressed()
+	)
+	bank_payment_info.transaction_completed.connect(
+		browser_app_shop_payment_screen._on_transaction_completed
 	)
 
 	# Password Change Dialog (Password)
@@ -338,6 +396,14 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Browser app
 		GameData.App.BROWSER: browser_app,
 		GameData.App.BROWSERNEWS: browser_app_news,
+		GameData.App.BROWSERAMAZONIASHOP: browser_app_amazonia_shop,
+		GameData.App.BROWSERAMAZONIACART: browser_app_amazonia_cart,
+		GameData.App.BROWSEREMILIASHOP: browser_app_emilia_shop,
+		GameData.App.BROWSEREMILIACART: browser_app_emilia_cart,
+		GameData.App.BROWSERAECSHOP: browser_app_aec_shop,
+		GameData.App.BROWSERAECCART: browser_app_aec_cart,
+		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
+		GameData.App.BROWSERPAYMENTSCREEN: browser_app_shop_payment_screen,
 		GameData.App.REVIEWSSITE: browser_reviews_site,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
@@ -372,6 +438,14 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Browser app
 		GameData.App.BROWSER: GameData.App.BROWSER,
 		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
+		GameData.App.BROWSERAMAZONIASHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERAMAZONIACART: GameData.App.BROWSER,
+		GameData.App.BROWSEREMILIASHOP: GameData.App.BROWSER,
+		GameData.App.BROWSEREMILIACART: GameData.App.BROWSER,
+		GameData.App.BROWSERAECSHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERAECCART: GameData.App.BROWSER,
+		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERPAYMENTSCREEN: GameData.App.BROWSER,
 		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
