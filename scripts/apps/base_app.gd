@@ -35,6 +35,12 @@ var browser_app_emilia_shop = preload(
 var browser_app_emilia_cart = preload(
 	"res://scenes/apps/browser/shops/emilia_bolos/emilia_cart.tscn"
 ).instantiate()
+var browser_app_aec_shop = preload(
+	"res://scenes/apps/browser/shops/aec/aec_shop.tscn"
+).instantiate()
+var browser_app_aec_cart = preload(
+	"res://scenes/apps/browser/shops/aec/aec_cart.tscn"
+).instantiate()
 var browser_app_shop_payment_screen = preload(
 "res://scenes/apps/browser/shops/payment_screen.tscn"
 ).instantiate()
@@ -154,6 +160,7 @@ func _ready() -> void:
 	app_specific_screen.add_child(browser_app_news)
 
 	#Browser Shops (Browser App)
+	#Amazonia
 	browser_app_amazonia_shop.visible = false
 	browser_app_amazonia_shop.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_shop)
@@ -162,6 +169,7 @@ func _ready() -> void:
 	browser_app_amazonia_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_cart)
 
+	#Emilia_Bolos
 	browser_app_emilia_shop.visible = false
 	browser_app_emilia_shop.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_emilia_shop)
@@ -170,6 +178,16 @@ func _ready() -> void:
 	browser_app_emilia_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_emilia_cart)
 
+	#A&C
+	browser_app_aec_shop.visible = false
+	browser_app_aec_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_aec_shop)
+
+	browser_app_aec_cart.visible = false
+	browser_app_aec_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_aec_cart)
+
+	#Payment_Screen
 	browser_app_shop_payment_screen.visible = false
 	app_specific_screen.add_child(browser_app_shop_payment_screen)
 	browser_app_shop_payment_screen.cancel_order.connect(_on_back_button_pressed)
@@ -382,6 +400,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BROWSERAMAZONIACART: browser_app_amazonia_cart,
 		GameData.App.BROWSEREMILIASHOP: browser_app_emilia_shop,
 		GameData.App.BROWSEREMILIACART: browser_app_emilia_cart,
+		GameData.App.BROWSERAECSHOP: browser_app_aec_shop,
+		GameData.App.BROWSERAECCART: browser_app_aec_cart,
 		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
 		GameData.App.BROWSERPAYMENTSCREEN: browser_app_shop_payment_screen,
 		GameData.App.REVIEWSSITE: browser_reviews_site,
@@ -422,6 +442,8 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BROWSERAMAZONIACART: GameData.App.BROWSER,
 		GameData.App.BROWSEREMILIASHOP: GameData.App.BROWSER,
 		GameData.App.BROWSEREMILIACART: GameData.App.BROWSER,
+		GameData.App.BROWSERAECSHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERAECCART: GameData.App.BROWSER,
 		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERPAYMENTSCREEN: GameData.App.BROWSER,
 		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
