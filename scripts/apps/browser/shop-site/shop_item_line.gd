@@ -51,9 +51,13 @@ func update_ui(shop_enum: GameData.App) -> void:
 			button_normal_hex = Color("ff9900")
 			button_hover_hex = Color("ce7a00")
 		GameData.App.BROWSEREMILIASHOP:
-			quantity_hex = Color("5cbbd1")
+			quantity_hex = Color("55ddff")
 			button_normal_hex = Color("bf1240")
 			button_hover_hex = Color("66041eff")
+		GameData.App.BROWSERAECSHOP:
+			quantity_hex = Color("565656")
+			button_normal_hex = Color("6b1331")
+			button_hover_hex = Color("ae2855ff")
 
 	var quantity_style_box = item_quantity_label.get_theme_stylebox("normal").duplicate(true)
 	quantity_style_box.bg_color = quantity_hex
