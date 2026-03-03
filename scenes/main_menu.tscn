@@ -1,28 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl30assw3y4mn"]
+[gd_scene format=3 uid="uid://bl30assw3y4mn"]
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
-[ext_resource type="Script" uid="uid://dm0gsskdintec" path="res://scripts/main_menu/sound_handler.gd" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://dm0gsskdintec" path="res://scripts/utils/sound and music/sound_director.gd" id="2_wu84c"]
 [ext_resource type="AudioStream" uid="uid://b6v0lb1b78cfc" path="res://assets/sounds/sfx/enigma_startup_sfx_r1.ogg" id="3_8ln24"]
 [ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cat5v86k6gaeu" path="res://scripts/main_menu/load_game_handler.gd" id="4_oa1go"]
 [ext_resource type="AudioStream" uid="uid://d3kphgo4xvrud" path="res://assets/sounds/ost/main_theme_r1.ogg" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://dk0tti620pdco" path="res://assets/sounds/music/melody/pulse_melody_A.wav" id="9_flqon"]
+[ext_resource type="AudioStream" uid="uid://qdbfjhcbf63w" path="res://assets/sounds/music/melody/pulse_melody_B.wav" id="10_rcqid"]
+[ext_resource type="AudioStream" uid="uid://bgrtmjgqwmcsf" path="res://assets/sounds/music/melody/pulse_melody_C.wav" id="11_1ajci"]
+[ext_resource type="AudioStream" uid="uid://bxosm6xflry64" path="res://assets/sounds/music/acomp/triangle_acomp_A.wav" id="12_vr8o3"]
+[ext_resource type="AudioStream" uid="uid://cpio1nae7hbru" path="res://assets/sounds/music/acomp/triangle_acomp_B.wav" id="13_1a85y"]
+[ext_resource type="AudioStream" uid="uid://tvctftyvavuy" path="res://assets/sounds/music/bass1/saw_bass_A.wav" id="13_1acrt"]
+[ext_resource type="AudioStream" uid="uid://dcphtcldghfq2" path="res://assets/sounds/music/acomp/triangle_acomp_C.wav" id="14_hl5e0"]
+[ext_resource type="AudioStream" uid="uid://vl0dfmoq2afh" path="res://assets/sounds/music/bass1/saw_bass_B.wav" id="14_vr8o3"]
+[ext_resource type="AudioStream" uid="uid://cjai24uqbnepp" path="res://assets/sounds/music/bass1/saw_bass_C.wav" id="15_1a85y"]
+[ext_resource type="Script" uid="uid://caiwy8fsy5e4j" path="res://scripts/utils/sound and music/music.gd" id="19_hstxw"]
+[ext_resource type="Script" uid="uid://bnnvgatmel77g" path="res://scripts/utils/sound and music/sound_signaler.gd" id="20_8egab"]
+[ext_resource type="Script" uid="uid://cgmwugr4boy24" path="res://scripts/utils/sound and music/instrument.gd" id="27_vr8o3"]
 
-[node name="Main Menu" type="Node2D"]
+[node name="Main Menu" type="Node2D" unique_id=740632925]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=2068065474]
 visible = false
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_l6cm7")
 
-[node name="ProjetoEnigma" type="Sprite2D" parent="."]
+[node name="ProjetoEnigma" type="Sprite2D" parent="." unique_id=1950377009]
 position = Vector2(2, -804)
 scale = Vector2(2.50667, 2.50667)
 texture = ExtResource("1_wu84c")
 
-[node name="MainVBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=1790237194]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -31,14 +43,14 @@ offset_right = 496.0
 offset_bottom = 1106.0
 grow_horizontal = 2
 
-[node name="New Game Button" type="Button" parent="MainVBoxContainer"]
+[node name="New Game Button" type="Button" parent="MainVBoxContainer" unique_id=1693188747]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "NEW GAME"
 script = ExtResource("3_rtw2f")
 
-[node name="Load Game Button" type="Button" parent="MainVBoxContainer"]
+[node name="Load Game Button" type="Button" parent="MainVBoxContainer" unique_id=1456546749]
 visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
@@ -46,7 +58,7 @@ theme_override_font_sizes/font_size = 100
 text = "LOAD GAME"
 script = ExtResource("4_oa1go")
 
-[node name="Settings Button" type="Button" parent="MainVBoxContainer" node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
+[node name="Settings Button" type="Button" parent="MainVBoxContainer" unique_id=66766585 node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -56,7 +68,7 @@ settings_menu = NodePath("../../SettingsVBoxContainer")
 settings_back_button = NodePath("../../SettingsBackButton")
 main_menu = NodePath("..")
 
-[node name="SettingsBackButton" type="Button" parent="."]
+[node name="SettingsBackButton" type="Button" parent="." unique_id=563389314]
 visible = false
 custom_minimum_size = Vector2(80, 80)
 offset_left = -496.0
@@ -66,7 +78,7 @@ offset_bottom = -284.0
 theme_override_font_sizes/font_size = 45
 text = "<"
 
-[node name="SettingsVBoxContainer" type="VBoxContainer" parent="."]
+[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=1278910257]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -76,92 +88,143 @@ offset_right = 496.0
 offset_bottom = 1106.0
 grow_horizontal = 2
 
-[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=776415957]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume Geral"
 
-[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=964562890]
 layout_mode = 2
 
-[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer"]
+[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1106874711]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 100.0
 
-[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer"]
+[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1635560067]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2001148396]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume da Música"
 
-[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=509804549]
 layout_mode = 2
 
-[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2"]
+[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1453401608]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 50.0
 
-[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2"]
+[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1568464992]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer"]
+[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=836153096]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volume de Efeitos Sonoros"
 
-[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer"]
+[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=220484687]
 layout_mode = 2
 
-[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3"]
+[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1736542948]
 custom_minimum_size = Vector2(800, 80)
 layout_mode = 2
 value = 50.0
 
-[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3"]
+[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1183911123]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Mute"
 expand_icon = true
 
-[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer"]
+[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer" unique_id=1768239902]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "------------------------------------------------"
 
-[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer"]
+[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer" unique_id=1034599175]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
 theme_override_font_sizes/font_size = 45
 text = "Future settings come here :)"
 
-[node name="Music Handler" type="Node" parent="." node_paths=PackedStringArray("sfx_player", "music_player")]
+[node name="Music Handler" type="Node" parent="." unique_id=1271643304 node_paths=PackedStringArray("sound_signaler", "sfx_player", "current_music", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
 script = ExtResource("2_wu84c")
-sfx_player = NodePath("SFX Player")
-music_player = NodePath("Music Player")
-startup_sound = ExtResource("3_8ln24")
+sound_signaler = NodePath("SoundSignaler")
 main_theme = ExtResource("4_rtw2f")
+sfx_player = NodePath("SFX Player")
+startup_sound = ExtResource("3_8ln24")
+current_music = NodePath("Musics/Music A")
+instruments = [NodePath("Instruments/Main Synth"), NodePath("Instruments/Back Synth"), NodePath("Instruments/Bass")]
+synth_player = NodePath("Synth Player")
+modulated_player = NodePath("Modulated Player")
+chord_player = NodePath("Chord Player")
+bass_player = NodePath("Bass Player")
 
-[node name="Music Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+[node name="Synth Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=2046290068]
+bus = &"Synth"
+
+[node name="Modulated Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=924207264]
+bus = &"Modulated"
+
+[node name="Chord Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=678464956]
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
-bus = &"Music"
+bus = &"Chord"
 
-[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler"]
+[node name="Bass Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=359060776]
+bus = &"Bass"
+
+[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=1557966203]
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 bus = &"SFX"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Instruments" type="Node" parent="Music Handler" unique_id=1482462651]
+
+[node name="Main Synth" type="Node" parent="Music Handler/Instruments" unique_id=1223988231]
+script = ExtResource("27_vr8o3")
+instrument = "Main Synth"
+type = 1
+state = true
+stems = Array[AudioStream]([ExtResource("9_flqon"), ExtResource("10_rcqid"), ExtResource("11_1ajci")])
+
+[node name="Back Synth" type="Node" parent="Music Handler/Instruments" unique_id=1983866628]
+script = ExtResource("27_vr8o3")
+instrument = "Back Synth"
+type = 2
+state = true
+stems = Array[AudioStream]([ExtResource("12_vr8o3"), ExtResource("13_1a85y"), ExtResource("14_hl5e0")])
+
+[node name="Bass" type="Node" parent="Music Handler/Instruments" unique_id=714713538]
+script = ExtResource("27_vr8o3")
+instrument = "Bass"
+type = 3
+state = true
+stems = Array[AudioStream]([ExtResource("13_1acrt"), ExtResource("14_vr8o3"), ExtResource("15_1a85y")])
+
+[node name="Musics" type="Node" parent="Music Handler" unique_id=1466456361]
+
+[node name="Music A" type="Node" parent="Music Handler/Musics" unique_id=1370377509 node_paths=PackedStringArray("stem_sequence")]
+script = ExtResource("19_hstxw")
+stem_sequence = {
+NodePath("../../Instruments/Main Synth"): [0, 1, 2, 1, 0]
+}
+metadata/_custom_type_script = "uid://caiwy8fsy5e4j"
+
+[node name="SoundSignaler" type="Node" parent="Music Handler" unique_id=1934625505]
+script = ExtResource("20_8egab")
+metadata/_custom_type_script = "uid://bnnvgatmel77g"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=94987639]
 
 [connection signal="pressed" from="MainVBoxContainer/New Game Button" to="MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="MainVBoxContainer/Load Game Button" to="MainVBoxContainer/Load Game Button" method="_on_pressed"]
