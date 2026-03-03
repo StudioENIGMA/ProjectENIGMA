@@ -46,6 +46,7 @@ columns = 2
 
 [node name="ReviewsSite" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
 layout_mode = 2
+site = 20
 
 [node name="AmazoniaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
 layout_mode = 2
@@ -54,6 +55,10 @@ site = 12
 [node name="EmiliaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
 layout_mode = 2
 site = 14
+
+[node name="AECShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=554390335 instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 16
 
 [node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=507321296]
 layout_mode = 2
