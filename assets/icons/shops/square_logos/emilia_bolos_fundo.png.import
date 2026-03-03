@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca17d8ry4wt3o"
-path="res://.godot/imported/amazonia2.png-980f3bcb24d66a4c34d648c97c1dab86.ctex"
+uid="uid://cjy72qc2lcxrv"
+path="res://.godot/imported/emilia_bolos_fundo.png-77ef0cd8a08720616f1ef50f7b851829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/shops/square_logos/amazonia2.png"
-dest_files=["res://.godot/imported/amazonia2.png-980f3bcb24d66a4c34d648c97c1dab86.ctex"]
+source_file="res://assets/icons/shops/square_logos/emilia_bolos_fundo.png"
+dest_files=["res://.godot/imported/emilia_bolos_fundo.png-77ef0cd8a08720616f1ef50f7b851829.ctex"]
 
 [params]
 

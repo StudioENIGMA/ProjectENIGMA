@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codo4fw26cp8g"
-path="res://.godot/imported/amazonia.png-5e5fe71264f1b6f94a2bdfec0ca8b21c.ctex"
+uid="uid://dcpk4mebjjg15"
+path="res://.godot/imported/elogie_la_logo_fundo.png-4f4cfd754028a0c38ac444a07b67e8cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/shops/square_logos/amazonia.png"
-dest_files=["res://.godot/imported/amazonia.png-5e5fe71264f1b6f94a2bdfec0ca8b21c.ctex"]
+source_file="res://assets/icons/shops/square_logos/elogie_la_logo_fundo.png"
+dest_files=["res://.godot/imported/elogie_la_logo_fundo.png-4f4cfd754028a0c38ac444a07b67e8cd.ctex"]
 
 [params]
 

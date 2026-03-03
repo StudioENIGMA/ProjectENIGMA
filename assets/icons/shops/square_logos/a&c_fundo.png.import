@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nmne2081hs5p"
-path="res://.godot/imported/elogie_la.png-60787e24b00e975d31da7eed67942045.ctex"
+uid="uid://y3k4mrqoihtk"
+path="res://.godot/imported/a&c_fundo.png-2dde8e9d3dc3d3e72ccf06f9a800d6ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/shops/square_logos/elogie_la.png"
-dest_files=["res://.godot/imported/elogie_la.png-60787e24b00e975d31da7eed67942045.ctex"]
+source_file="res://assets/icons/shops/square_logos/a&c_fundo.png"
+dest_files=["res://.godot/imported/a&c_fundo.png-2dde8e9d3dc3d3e72ccf06f9a800d6ae.ctex"]
 
 [params]
 
