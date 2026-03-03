@@ -22,9 +22,12 @@ func _ready():
 
 	update_display()
 
+	line_edit.text_changed.connect(_user_typed)
+
 ## Means hack minigame started
 func setup():
-
+	# Catch focus to the line edit
+	line_edit.grab_focus()
 
 func generate_random_phrase():
 	var random_phrase = []
@@ -43,3 +46,11 @@ func update_display():
 		phrase_instance.setup(phrase, current_index)
 		phrases_vbox.add_child(phrase_instance)
 		current_index += 1
+
+func _user_typed(new_text):
+	# Get the current phrase to type
+	var current_phrase = current_phrases[0]
+	var current_phrase_str = " ".join(current_phrase)
+	
+	# Check if the character typed is correct
+	var expected_char = current_phrase_str.substr(line_edit.text.length() - 1, 1)
