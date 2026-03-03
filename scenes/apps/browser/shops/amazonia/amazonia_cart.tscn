@@ -116,19 +116,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s0ola")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gp37k")
 text = "Fechar Pedido"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=430096585]
-custom_minimum_size = Vector2(0, 7)
-layout_mode = 2
-
 [node name="TotalPriceLabel" type="Label" parent="VBoxContainer" unique_id=26153793]
 layout_mode = 2
 text = "Total do Pedido:"
 label_settings = SubResource("LabelSettings_s0ola")
 horizontal_alignment = 1
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=844519749]
-custom_minimum_size = Vector2(0, 7)
-layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1686365655]
 custom_minimum_size = Vector2(355, 400)
