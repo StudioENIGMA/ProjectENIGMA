@@ -44,7 +44,7 @@ var virus_scanner = preload(
 	"res://scenes/settings/virus_scanner.tscn"
 ).instantiate()
 var stub_hack = preload(
-	"res://scenes/hacks/stub_hack.tscn"
+	"res://scenes/apps/minigames/fast-typing/fast_typing.tscn"
 ).instantiate()
 var update_os_screen = preload(
 	"res://scenes/settings/update_os.tscn"

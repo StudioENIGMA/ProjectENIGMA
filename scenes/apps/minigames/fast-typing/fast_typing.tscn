@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b88v1fo4yrqrt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85j70"]
+[ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
+[ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)
 draw_center = false
 border_width_left = 2
@@ -9,10 +12,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.16862746, 1, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v8xt"]
-bg_color = Color(0.108750015, 0.108750015, 0.108750015, 1)
-
-[node name="BackgroundColor" type="ColorRect" unique_id=1797498864]
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "phrases_vbox")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,6 +21,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+script = ExtResource("1_j12ft")
+line_edit = NodePath("MarginContainer/VBoxContainer/LineEditContainer/LineEdit")
+phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhrasesContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
 layout_mode = 1
@@ -29,44 +32,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=399654397]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-size_flags_vertical = 4
 
-[node name="Phrase1Border" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1210873449]
+[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_85j70")
+size_flags_vertical = 6
 
-[node name="Phrase1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Phrase1Border" unique_id=949960580]
+[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 16
+size_flags_vertical = 2
 
-[node name="NumberBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1216627710]
-custom_minimum_size = Vector2(64, 64)
+[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1535581066]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_6v8xt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcuuw")
 
-[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1/NumberBackground" unique_id=161915714]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/LineEditContainer" unique_id=1677715837]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "1"
-horizontal_alignment = 1
-
-[node name="ExpectedPhrase" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Phrase1Border/Phrase1" unique_id=1718818289]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SamplePhrase SamplePhrase SamplePhrase"
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer" unique_id=1180457625]
-layout_mode = 2
-size_flags_vertical = 8
-text = "INPUT"
+size_flags_vertical = 10
+theme_override_colors/caret_color = Color(0.16862746, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Digite as frases acima"
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+caret_force_displayed = true
