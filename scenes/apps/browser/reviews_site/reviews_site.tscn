@@ -7,17 +7,17 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ebbpw"]
 font = ExtResource("4_rf6y2")
-font_size = 150
+font_size = 50
 font_color = Color(0.13333334, 0.52156866, 0.6117647, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3uag7"]
 font = ExtResource("3_cc67j")
-font_size = 150
+font_size = 50
 font_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t15gq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 4
+border_width_bottom = 2
 border_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf6y2"]
@@ -27,57 +27,63 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_haa8b"]
 font = ExtResource("4_t15gq")
-font_size = 65
+font_size = 22
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [node name="ReviewsSite" type="Control" unique_id=963354837 node_paths=PackedStringArray("v_box_container")]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_diiut")
-v_box_container = NodePath("VBoxContainer/CardsContainer")
+v_box_container = NodePath("ScrollContainer/VBoxContainer/CardsContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210300150]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=257895420]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1210300150]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=214079755]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=214079755]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1576738968]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1576738968]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1837850493]
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1837850493]
 layout_mode = 2
 text = "Elogie"
 label_settings = SubResource("LabelSettings_ebbpw")
 
-[node name="Title2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1312027773]
+[node name="Title2" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1312027773]
 layout_mode = 2
 text = "LÁ"
 label_settings = SubResource("LabelSettings_3uag7")
 
-[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=688334165]
-custom_minimum_size = Vector2(1030, 20)
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=688334165]
+custom_minimum_size = Vector2(340, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_t15gq")
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1350766366]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1350766366]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_rf6y2")
 text = "  Empresas"
 label_settings = SubResource("LabelSettings_haa8b")
 
-[node name="CardsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=2048503295]
+[node name="CardsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2048503295]
 layout_mode = 2

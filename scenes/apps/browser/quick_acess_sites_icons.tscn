@@ -4,15 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_lv07k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v1pv2"]
-font_size = 40
+font_size = 18
 font_color = Color(0, 0, 0, 1)
 
 [node name="quick_acess_sites_icons" type="Control" unique_id=1379295309 node_paths=PackedStringArray("logo_button", "site_label")]
-custom_minimum_size = Vector2(540, 300)
+custom_minimum_size = Vector2(180, 142.8)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 540.0
-offset_bottom = 420.0
+offset_right = 180.0
+offset_bottom = 142.8
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_h124j")
 site_name = "Nome do Site"
 logo_url = "res://assets/projeto enigma.png"
@@ -21,27 +23,23 @@ logo_button = NodePath("VBoxContainer/TextureButton")
 site_label = NodePath("VBoxContainer/SiteLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1713104016]
-custom_minimum_size = Vector2(280, 280)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -140.0
-offset_right = 140.0
-offset_bottom = 339.0
-grow_horizontal = 2
+offset_right = 180.0
+offset_bottom = 142.0
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=818044856]
-custom_minimum_size = Vector2(280, 280)
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("1_lv07k")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="SiteLabel" type="Label" parent="VBoxContainer" unique_id=1822662016]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "
-"
+theme_override_font_sizes/font_size = 12
 label_settings = SubResource("LabelSettings_v1pv2")
 horizontal_alignment = 1
 vertical_alignment = 1

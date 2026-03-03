@@ -7,57 +7,57 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btjjm"]
 bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 shadow_color = Color(0.109804, 0.109804, 0.109804, 0.0745098)
 shadow_size = 4
 shadow_offset = Vector2(3, 3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6q6x"]
 bg_color = Color(1, 1, 0.972549, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_5vx8r"]
 font = ExtResource("3_hf56t")
-font_size = 35
+font_size = 12
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_713ls"]
 font = ExtResource("4_6sr1t")
-font_size = 40
+font_size = 14
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf56t"]
 bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6xbk"]
 bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sr1t"]
 bg_color = Color(0.078431375, 0.43137255, 0.7058824, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hf56t"]
 font = ExtResource("4_6sr1t")
-font_size = 55
+font_size = 19
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_713ls"]
 bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa58a"]
 bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vx8r"]
 content_margin_left = 5.0
@@ -65,10 +65,10 @@ content_margin_top = 4.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(1, 0.6, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddim5"]
 content_margin_left = 5.0
@@ -76,17 +76,17 @@ content_margin_top = 4.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.80733943, 0.4803862, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="shop_item" type="Control" unique_id=1587774648 node_paths=PackedStringArray("item_name_label", "item_price_label", "item_icon_rect", "item_quantity_label")]
-custom_minimum_size = Vector2(500, 650)
+custom_minimum_size = Vector2(170, 230)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 400.0
-offset_bottom = 550.0
+offset_right = 170.0
+offset_bottom = 221.0
 size_flags_horizontal = 3
 script = ExtResource("1_fqwnt")
 item_name_label = NodePath("CenterContainer/Panel/VBoxContainer/ItemNameLabel")
@@ -95,7 +95,6 @@ item_icon_rect = NodePath("CenterContainer/Panel/VBoxContainer/Panel/ItemIcon")
 item_quantity_label = NodePath("CenterContainer/Panel/VBoxContainer/HBoxContainer/ItemQuantity")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=362315748]
-custom_minimum_size = Vector2(450, 600)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=1483474221]
-custom_minimum_size = Vector2(500, 650)
+custom_minimum_size = Vector2(170, 230)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_btjjm")
 
@@ -116,32 +115,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.5
-offset_top = -310.0
-offset_right = 232.5
-offset_bottom = 310.0
+offset_left = -79.0
+offset_top = -111.0
+offset_right = 79.0
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="CenterContainer/Panel/VBoxContainer" unique_id=602828687]
-custom_minimum_size = Vector2(400, 350)
+custom_minimum_size = Vector2(136, 119)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_j6q6x")
 
 [node name="ItemIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/Panel" unique_id=238673017]
-custom_minimum_size = Vector2(400, 350)
-layout_mode = 0
-offset_left = 32.0
-offset_right = 432.0
-offset_bottom = 350.0
+custom_minimum_size = Vector2(136, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -60.0
+offset_right = 68.0
+offset_bottom = 60.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("2_hf56t")
+expand_mode = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=447374429]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 3.5)
 layout_mode = 2
 
 [node name="ItemNameLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=546356179]
@@ -164,28 +171,29 @@ label_settings = SubResource("LabelSettings_713ls")
 autowrap_mode = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2085532695]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2061739393]
 clip_contents = true
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
 [node name="RemoveButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1997089078]
-custom_minimum_size = Vector2(45, 45)
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_hf56t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hf56t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s6xbk")
 text = "-"
 
 [node name="ItemQuantity" type="Label" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=337419749]
-custom_minimum_size = Vector2(45, 0)
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_6sr1t")
@@ -195,26 +203,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AddButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1162247535]
-custom_minimum_size = Vector2(45, 45)
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_713ls")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_713ls")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wa58a")
 text = "+
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=183938448]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="AddButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1339298584]
 clip_contents = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_hf56t")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_5vx8r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ddim5")
 text = "Adicionar ao Carrinho"

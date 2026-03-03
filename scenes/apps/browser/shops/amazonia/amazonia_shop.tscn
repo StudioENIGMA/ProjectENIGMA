@@ -17,33 +17,37 @@ corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3ltg"]
 font = ExtResource("3_vmshr")
-font_size = 32
+font_size = 10
 
 [node name="AmazoniaShop" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_noxrb")
 items_grid_container = NodePath("VBoxContainer/ScrollContainer/GridContainer")
 cart_circle_label = NodePath("VBoxContainer/HeaderPanel/CartCircle")
 cart_quantity_label = NodePath("VBoxContainer/HeaderPanel/CartCircle/CartQuantity")
-shopping_cart_enum = 11
+shopping_cart_enum = 13
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
-custom_minimum_size = Vector2(1050, 0)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 2093.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 85)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
 
 [node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel" unique_id=279131630]
+custom_minimum_size = Vector2(170, 49)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,29 +61,30 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_n4b0i")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="CartCircle" type="Panel" parent="VBoxContainer/HeaderPanel" unique_id=1261955429]
-visible = false
 z_index = 1
-layout_mode = 0
-offset_left = 893.0
-offset_top = 137.0
-offset_right = 938.0
-offset_bottom = 182.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 2.5
+offset_right = -53.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g1xjh")
 
 [node name="CartQuantity" type="Label" parent="VBoxContainer/HeaderPanel/CartCircle" unique_id=879610460]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = -23.0
-offset_right = 19.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -94,37 +99,35 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -47.0
-offset_bottom = 57.0
+offset_left = -74.0
+offset_top = -25.0
+offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 2
 
 [node name="CartButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=686786243]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture_normal = ExtResource("4_hn4db")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=665588549]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(17, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1686365655]
-custom_minimum_size = Vector2(1050, 1800)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer" unique_id=1236318303]
-custom_minimum_size = Vector2(1050, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 20
 columns = 2

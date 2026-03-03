@@ -9,24 +9,24 @@ bg_color = Color(0.078431375, 0.43137255, 0.7058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwe4i"]
 draw_center = false
-border_width_top = 4
+border_width_top = 1
 border_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gwe4i"]
 font = ExtResource("3_vmshr")
-font_size = 55
+font_size = 19
 font_color = Color(0.09803922, 0.16078432, 0.21176471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0ola"]
-content_margin_left = 250.0
-content_margin_top = 25.0
-content_margin_right = 250.0
-content_margin_bottom = 25.0
+content_margin_left = 85.0
+content_margin_top = 9.0
+content_margin_right = 85.0
+content_margin_bottom = 9.0
 bg_color = Color(1, 0.6, 0, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp37k"]
 content_margin_left = 250.0
@@ -34,33 +34,38 @@ content_margin_top = 25.0
 content_margin_right = 250.0
 content_margin_bottom = 25.0
 bg_color = Color(0.80784315, 0.47843137, 0, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_s0ola"]
 font = ExtResource("3_vmshr")
-font_size = 35
+font_size = 12
 font_color = Color(0.039115418, 0.05697029, 0.11616606, 1)
 
 [node name="AmazoniaCart" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_v_box", "total_price_label")]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_gwe4i")
 items_v_box = NodePath("VBoxContainer/ScrollContainer/VBoxContainer")
 total_price_label = NodePath("VBoxContainer/TotalPriceLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
-custom_minimum_size = Vector2(1050, 0)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 404.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 85)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
 
@@ -71,16 +76,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -98.5
-offset_right = 272.0
-offset_bottom = 98.5
+offset_left = -94.0
+offset_top = -36.0
+offset_right = 94.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 7
 
 [node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=279131630]
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(119, 35)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -97,7 +102,7 @@ label_settings = SubResource("LabelSettings_gwe4i")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
 [node name="FinishButton" type="Button" parent="VBoxContainer" unique_id=941589167]
@@ -105,13 +110,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.08235294, 0.03529412, 0.078431375, 1)
 theme_override_fonts/font = ExtResource("3_vmshr")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_s0ola")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gp37k")
 text = "Fechar Pedido"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=430096585]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
 [node name="TotalPriceLabel" type="Label" parent="VBoxContainer" unique_id=26153793]
@@ -121,17 +126,19 @@ label_settings = SubResource("LabelSettings_s0ola")
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=844519749]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1686365655]
-custom_minimum_size = Vector2(1050, 1700)
+custom_minimum_size = Vector2(355, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1094467615]
-custom_minimum_size = Vector2(1050, 0)
+custom_minimum_size = Vector2(355, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 25
