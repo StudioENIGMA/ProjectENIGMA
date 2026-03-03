@@ -25,6 +25,7 @@ func update_cart_items() -> void:
 
 	if shopping_info == null || shopping_info.shopping_cart.is_empty():
 		finish_button.visible = false
+		total_price_label.text = "Total do Pedido: %s" % GameData.format_brl(0)
 		return
 
 	finish_button.visible = true
