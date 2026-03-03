@@ -15,6 +15,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var messages_director: Node
 @export var emails_director: Node
 @export var reviews_director: Node
+@export var bank_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -22,6 +23,8 @@ signal news_ready(day_news_data: Dictionary)
 @export var news_dir_path: String = "res://data/news.json"
 @export var emails_dir_path: String = "res://data/emails"
 @export var reviews_dir_path: String = "res://data/browser/reviewed_companies.json"
+@export var pix_codes_dir_path: String = "res://data/bank/pix_codes_data.json"
+@export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -60,11 +63,14 @@ func reload_and_setup_today() -> void:
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
+	var pix_dictionary = _read_json_root(pix_codes_dir_path)
+	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
 	emails_director.setup_from_json_roots(email_roots)
 	reviews_director.setup_from_json_array(reviews_array)
+	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -238,8 +244,7 @@ func _on_browser_request_news() -> void:
 
 # get the news of the current day
 func _load_news_data() -> Dictionary:
-	var current_day = _get_current_day()
-	print(current_day)
+	var current_day = GameData.current_day
 	var file = FileAccess.open(news_dir_path, FileAccess.READ)
 	var json_text = file.get_as_text()
 	file.close()
@@ -247,15 +252,5 @@ func _load_news_data() -> Dictionary:
 	var data = JSON.parse_string(json_text)
 	var day_key = "day_%d" % current_day
 	return data[day_key]
-
-#get the current day
-func _get_current_day():
-	var file = FileAccess.open("res://data/save.json", FileAccess.READ)
-	var json_text = file.get_as_text()
-	file.close()
-
-	var data = JSON.parse_string(json_text)
-	var current_day = data["current_day"]
-	return current_day
 
 #endregion REQUIREMENTS

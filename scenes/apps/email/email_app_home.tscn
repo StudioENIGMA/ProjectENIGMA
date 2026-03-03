@@ -2,19 +2,27 @@
 
 [ext_resource type="Script" uid="uid://bj6y8i3k683iu" path="res://scripts/apps/email/email_app_home.gd" id="1_v74p8"]
 
-[node name="EmailAppHome" type="Control" node_paths=PackedStringArray("list_of_emails")]
+[node name="EmailAppHome" type="Control" unique_id=266592855 node_paths=PackedStringArray("list_of_emails")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_v74p8")
 list_of_emails = NodePath("EmailsScroll/EmailsList")
 
-[node name="EmailsScroll" type="ScrollContainer" parent="."]
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 2185.0
+[node name="EmailsScroll" type="ScrollContainer" parent="." unique_id=1088793543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="EmailsList" type="VBoxContainer" parent="EmailsScroll"]
+[node name="EmailsList" type="VBoxContainer" parent="EmailsScroll" unique_id=225980634]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3

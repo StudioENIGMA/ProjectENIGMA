@@ -7,10 +7,12 @@
 color = Color(0.41981313, 0.41981313, 0.4198131, 1)
 thickness = 2
 
-[node name="EmailMessageInstance" type="VBoxContainer" node_paths=PackedStringArray("sender_icon", "sender_label", "hour_received_label", "content_label")]
-custom_minimum_size = Vector2(1080, 0)
-offset_right = 1080.0
-offset_bottom = 1281.0
+[node name="EmailMessageInstance" type="VBoxContainer" unique_id=324249404 node_paths=PackedStringArray("sender_icon", "sender_label", "hour_received_label", "content_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_tskvh")
@@ -19,55 +21,55 @@ sender_label = NodePath("SenderBarContainer/SenderLabel")
 hour_received_label = NodePath("SenderBarContainer/HourReceivedContainer/HourReceivedLabel")
 content_label = NodePath("ContentContainer/ContentLabel")
 
-[node name="SenderBarContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 240)
+[node name="SenderBarContainer" type="HBoxContainer" parent="." unique_id=1471787187]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="SenderIconContainer" type="MarginContainer" parent="SenderBarContainer"]
-custom_minimum_size = Vector2(240, 240)
+[node name="SenderIconContainer" type="MarginContainer" parent="SenderBarContainer" unique_id=1498567195]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="SenderIcon" type="TextureRect" parent="SenderBarContainer/SenderIconContainer"]
+[node name="SenderIcon" type="TextureRect" parent="SenderBarContainer/SenderIconContainer" unique_id=1152017814]
 layout_mode = 2
 texture = ExtResource("1_23rg2")
 expand_mode = 3
 
-[node name="SenderLabel" type="Label" parent="SenderBarContainer"]
+[node name="SenderLabel" type="Label" parent="SenderBarContainer" unique_id=569291859]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 18
 text = "Chefinho"
 
-[node name="HourReceivedContainer" type="MarginContainer" parent="SenderBarContainer"]
+[node name="HourReceivedContainer" type="MarginContainer" parent="SenderBarContainer" unique_id=1599768129]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 8
 
-[node name="HourReceivedLabel" type="Label" parent="SenderBarContainer/HourReceivedContainer"]
+[node name="HourReceivedLabel" type="Label" parent="SenderBarContainer/HourReceivedContainer" unique_id=978976184]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.32915837, 0.3291584, 0.3291583, 1)
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 12
 text = "sáb, 20 de dez. de 2025, 18:35"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ContentContainer" type="MarginContainer" parent="."]
+[node name="ContentContainer" type="MarginContainer" parent="." unique_id=676801728]
 layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="ContentLabel" type="Label" parent="ContentContainer"]
-custom_minimum_size = Vector2(700, 0)
+[node name="ContentLabel" type="Label" parent="ContentContainer" unique_id=2007974726]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.24115604, 0.24115604, 0.24115601, 1)
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 14
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
@@ -75,6 +77,6 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, wh
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 autowrap_mode = 3
 
-[node name="EndSeparator" type="HSeparator" parent="."]
+[node name="EndSeparator" type="HSeparator" parent="." unique_id=243205637]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_23rg2")

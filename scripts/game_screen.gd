@@ -2,7 +2,7 @@
 ## serves as a container for the main game screen components and
 ## facilitates communication between them
 
-extends Node2D
+extends Control
 
 #region CHILDREN NODES REFERENCES
 @export var ui: Control
@@ -17,6 +17,7 @@ func _ready() -> void:
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
   var reviews_director = story_director.reviews_director
+  var bank_director = story_director.bank_director
   var messages_app_home = ui.base_app.messages_app_home
   var messages_app_chat = ui.base_app.messages_app_chat
 
@@ -27,6 +28,8 @@ func _ready() -> void:
   event_handler.start_new_day.connect(ui.day_over_ui.hide_day_over)
   # Event Handler takes care of clock ticks, warn those who need to know
   event_handler.clock_tick.connect(_on_clock_tick)
+  # Event handler hack event to UI
+  event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -47,12 +50,24 @@ func _ready() -> void:
   reviews_director.send_companies_array.connect(
 	ui.base_app.browser_reviews_site._on_companies_array_received
   )
+  #Story Director Bank
+  ui.base_app.bank_payment_info.transaction_completed.connect(
+	bank_director._on_transaction_completed
+  )
+  bank_director.send_codes_dict.connect(
+	ui.base_app.bank_payment_info._on_codes_dict_updated, ConnectFlags.CONNECT_DEFERRED
+  )
 
   # UI
   # UI message answered to Story Director
   ui.message_answered.connect(answers_director.on_message_answered)
   # UI browser news requested
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
+  # UI hacked minigame ended to event handler
+  ui.base_app.stub_hack.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  # UI asking for minigame
+  ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
+
 
 #endregion INITIALIZATION
 
