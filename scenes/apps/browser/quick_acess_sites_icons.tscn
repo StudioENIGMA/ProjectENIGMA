@@ -16,9 +16,7 @@ offset_bottom = 142.8
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_h124j")
-site_name = "Nome do Site"
-logo_url = "res://assets/projeto enigma.png"
-app = 8
+site = 18
 logo_button = NodePath("VBoxContainer/TextureButton")
 site_label = NodePath("VBoxContainer/SiteLabel")
 
