@@ -24,6 +24,8 @@ enum App {
 	BROWSERNEWS,
 	BROWSERAMAZONIASHOP,
 	BROWSERAMAZONIACART,
+	BROWSEREMILIASHOP,
+	BROWSEREMILIACART,
 	BROWSERPAYMENTSCREEN,
 	BROWSERFAKESHOP,
 	REVIEWSSITE,
@@ -67,11 +69,13 @@ class ShoppingInfo:
 		is_order_opened = false
 
 var shops_names = {
-	App.BROWSERAMAZONIASHOP: "Amazônia"
+	App.BROWSERAMAZONIASHOP: "Amazônia",
+	App.BROWSEREMILIASHOP: "Emília Bolos"
 }
 
 var cart_enum_to_shop_enum = {
-	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP
+	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
+	App.BROWSEREMILIACART: App.BROWSEREMILIASHOP
 }
 
 var bank_balance: float = 200
@@ -114,6 +118,8 @@ var apps_name: Dictionary = {
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
+	"BrowserEmiliaShop": App.BROWSEREMILIASHOP,
+	"BrowserEmiliaCart": App.BROWSEREMILIACART,
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
