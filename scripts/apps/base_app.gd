@@ -29,6 +29,9 @@ var browser_app_amazonia_shop = preload(
 var browser_app_amazonia_cart = preload(
 	"res://scenes/apps/browser/shops/amazonia/amazonia_cart.tscn"
 ).instantiate()
+var browser_app_shop_payment_screen = preload(
+"res://scenes/apps/browser/shops/payment_screen.tscn"
+).instantiate()
 var browser_app_fake_shop = preload("res://scenes/apps/browser/fake_shop_site.tscn").instantiate()
 var browser_reviews_site = preload(
 	"res://scenes/apps/browser/reviews_site/reviews_site.tscn"
@@ -144,15 +147,21 @@ func _ready() -> void:
 	app_specific_screen.add_child(browser_app)
 	app_specific_screen.add_child(browser_app_news)
 
-	#Browser Shops
+	#Browser Shops (Browser App)
 	browser_app_amazonia_shop.visible = false
 	browser_app_amazonia_shop.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_shop)
+
 	browser_app_amazonia_cart.visible = false
+	browser_app_amazonia_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_cart)
 
 	browser_app_fake_shop.visible = false
 	app_specific_screen.add_child(browser_app_fake_shop)
+
+	browser_app_shop_payment_screen.visible = false
+	app_specific_screen.add_child(browser_app_shop_payment_screen)
+	browser_app_shop_payment_screen.cancel_order.connect(_on_back_button_pressed)
 
 	#Reviews Site (Browser App)
 	browser_reviews_site.visible = false
@@ -186,6 +195,9 @@ func _ready() -> void:
 	app_specific_screen.add_child(bank_payment_info)
 	bank_payment_info.transaction_completed.connect(
 		func(_payment_code: GameData.PaymentCode): _on_back_button_pressed(); _on_back_button_pressed()
+	)
+	bank_payment_info.transaction_completed.connect(
+		browser_app_shop_payment_screen._on_transaction_completed
 	)
 
 	# Password Change Dialog (Password)
@@ -358,6 +370,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BROWSERAMAZONIASHOP: browser_app_amazonia_shop,
 		GameData.App.BROWSERAMAZONIACART: browser_app_amazonia_cart,
 		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
+		GameData.App.BROWSERPAYMENTSCREEN: browser_app_shop_payment_screen,
 		GameData.App.REVIEWSSITE: browser_reviews_site,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
@@ -395,6 +408,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BROWSERAMAZONIASHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERAMAZONIACART: GameData.App.BROWSER,
 		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERPAYMENTSCREEN: GameData.App.BROWSER,
 		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,

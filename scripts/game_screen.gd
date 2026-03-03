@@ -57,6 +57,12 @@ func _ready() -> void:
   bank_director.send_codes_dict.connect(
 	ui.base_app.bank_payment_info._on_codes_dict_updated, ConnectFlags.CONNECT_DEFERRED
   )
+  ui.base_app.browser_app_shop_payment_screen.create_code.connect(
+   bank_director._on_code_created
+  )
+  bank_director.send_new_code.connect(
+    ui.base_app.browser_app_shop_payment_screen._on_code_received
+  )
 
   # UI
   # UI message answered to Story Director

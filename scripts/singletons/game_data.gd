@@ -24,6 +24,7 @@ enum App {
 	BROWSERNEWS,
 	BROWSERAMAZONIASHOP,
 	BROWSERAMAZONIACART,
+	BROWSERPAYMENTSCREEN,
 	BROWSERFAKESHOP,
 	REVIEWSSITE,
 	# Email app
@@ -53,6 +54,25 @@ enum PaymentType {
 class PaymentCode:
 	var code: String
 	var type: PaymentType
+
+class ShoppingInfo:
+	var shop_enum: App
+	var shopping_cart: Array = []
+	var total_price: float = 0
+	var is_order_opened: bool = false
+
+	func reset():
+		shopping_cart.clear()
+		total_price = 0
+		is_order_opened = false
+
+var shops_names = {
+	App.BROWSERAMAZONIASHOP: "Amazônia"
+}
+
+var cart_enum_to_shop_enum = {
+	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP
+}
 
 var bank_balance: float = 200
 
