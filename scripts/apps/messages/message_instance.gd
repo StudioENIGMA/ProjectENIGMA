@@ -5,7 +5,7 @@ signal apk_installation_requested(app: GameData.App)
 
 enum Align { LEFT, RIGHT }
 
-const MAX_BUBBLE_WIDTH := 650.0
+const MAX_BUBBLE_WIDTH := 310.0
 
 @export var align: Align = Align.RIGHT
 
@@ -15,7 +15,7 @@ const MAX_BUBBLE_WIDTH := 650.0
 # Optional: allow the same script to support both scenes cleanly
 @export var left_margin: MarginContainer
 @export var right_margin: MarginContainer
-@export var annex_container: VBoxContainer
+@export var annex_container: CenterContainer
 @export var annex_button: Button
 
 var _is_reflowing := false
@@ -114,7 +114,7 @@ func _compute_max_bubble_width() -> float:
 	if row_width <= 0.0:
 		return MAX_BUBBLE_WIDTH
 
-	var reserved_edge := 32.0
+	var reserved_edge := 8
 	if align == Align.RIGHT and right_margin:
 		reserved_edge = max(0.0, right_margin.custom_minimum_size.x)
 	elif align == Align.LEFT and left_margin:

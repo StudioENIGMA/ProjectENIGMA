@@ -1,4 +1,12 @@
-extends RichTextLabel
+extends VBoxContainer
+
+@export var large_size:int = 80
+@export var small_size:int = 30
+
+#region CHILDREN NODES REFERENCES
+@export var time_label: Label
+@export var weekday_label: Label
+#endregion
 
 var current_weekday_int:int = 4
 var current_weekday_string:String = "Quinta"
@@ -37,11 +45,6 @@ func update_clock_display(current_hour:int, current_minute:int) -> void:
 	# Combine hours and minutes
 	var hour_string  = hours + ":" + minutes
 
-	# Set font sizes
-	var font_large = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"150\"]"
-	var font_small = "[font n=res://assets/fonts/IBMPlexSans-ExtraLight.ttf size=\"40\"]"
-
 	# Update the RichTextLabel content
-	self.text = font_large + hour_string + "[/font]" + font_small + "\n"
-	self.text += current_weekday_string.left(3) + ", " + str(current_day) + " " + current_month_string
-	self.text += "[/font]"
+	time_label.text = hour_string
+	weekday_label.text = current_weekday_string + ", " + str(current_day) + " " + current_month_string

@@ -1,38 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2pee1p02e7tm"]
+[gd_scene format=3 uid="uid://c2pee1p02e7tm"]
 
 [ext_resource type="Script" uid="uid://bxlysbnsleii0" path="res://scripts/apps/both_shops/fake_store_app.gd" id="1_42ygq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkt3l"]
-bg_color = Color(0.876126, 0, 0.0768186, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[node name="FakeStoreApp" type="Control" node_paths=PackedStringArray("uninstall_button", "available_apps_container")]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="FakeStoreApp" type="Control" unique_id=1526222287 node_paths=PackedStringArray("available_apps_container")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_42ygq")
-uninstall_button = NodePath("Uninstall")
 available_apps_container = NodePath("AvailableApps")
 
-[node name="AvailableApps" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(1080, 1920)
+[node name="AvailableApps" type="VBoxContainer" parent="." unique_id=876086071]
 layout_mode = 1
-offset_right = 1080.0
-offset_bottom = 1920.0
-theme_override_constants/separation = 100
-
-[node name="Uninstall" type="Button" parent="."]
-custom_minimum_size = Vector2(1080, 240)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -240.0
-offset_right = 1080.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_wkt3l")
-text = "解除安裝"
+grow_horizontal = 2
+grow_vertical = 2

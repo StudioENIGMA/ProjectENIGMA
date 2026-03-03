@@ -9,8 +9,8 @@ signal apk_installation_requested(app: GameData.App)
 ## Reference to the return app button in the top bar
 @export var back_button:TextureButton
 
-## Reference to the desktop UI node (to manage app opening/closing)
-@export var desktop_ui:Control
+## Reference to the apps buttons (to manage app opening/closing)
+@export var apps_ui:Control
 
 ## Reference to the controller that holds specific app controls
 @export var app_specific_screen:Control
@@ -23,6 +23,9 @@ var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantia
 var fake_store_app = preload("res://scenes/apps/store-shop/fake_store_app.tscn").instantiate()
 var browser_app = preload("res://scenes/apps/browser/browser.tscn").instantiate()
 var browser_app_news = preload("res://scenes/apps/browser/news_page.tscn").instantiate()
+var browser_reviews_site = preload(
+	"res://scenes/apps/browser/reviews_site/reviews_site.tscn"
+).instantiate()
 var email_app_home = preload("res://scenes/apps/email/email_app_home.tscn").instantiate()
 var email_app_viewer = preload("res://scenes/apps/email/email_app_viewer.tscn").instantiate()
 var authenticator_app = preload(
@@ -36,6 +39,15 @@ var password_check_dialog = preload(
 ).instantiate()
 var password_change_dialog = preload(
 	"res://scenes/settings/passwords_changer.tscn"
+).instantiate()
+var virus_scanner = preload(
+	"res://scenes/settings/virus_scanner.tscn"
+).instantiate()
+var stub_hack = preload(
+	"res://scenes/hacks/stub_hack.tscn"
+).instantiate()
+var update_os_screen = preload(
+	"res://scenes/settings/update_os.tscn"
 ).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
@@ -58,8 +70,8 @@ func _ready() -> void:
 	back_button.pressed.connect(_on_back_button_pressed)
 	close_app_button.pressed.connect(_on_close_app_button_pressed)
 
-	# Connect to desktop UI app opened signal
-	desktop_ui.app_opened.connect(_on_app_opened)
+	# Connect to apps UI app opened signal
+	apps_ui.app_opened.connect(_on_app_opened)
 
 	# Messages app home (Messages app)
 	messages_app_home.visible = false
@@ -93,10 +105,20 @@ func _ready() -> void:
 	passwords_manager_app.password_change_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(passwords_manager_app)
 
+	# Update OS screen (Settings app)
+	update_os_screen.visible = false
+	app_specific_screen.add_child(update_os_screen)
+
 	# Password Check Dialog (Password Manager)
 	password_check_dialog.visible = false
 	password_check_dialog.password_correct.connect(_on_back_button_pressed)
 	app_specific_screen.add_child(password_check_dialog)
+
+	# Virus Scanner app (Virus Scanner app)
+	virus_scanner.visible = false
+	virus_scanner.app_uninstalled.connect(apps_ui.on_app_uninstalled) # Remove from home screen
+	virus_scanner.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
+	app_specific_screen.add_child(virus_scanner)
 
 	# Store app (Store app)
 	store_app.visible = false
@@ -106,17 +128,19 @@ func _ready() -> void:
 	# Fake Store app (Fake Store app)
 	fake_store_app.visible = false
 	fake_store_app.subscreen_open_requested.connect(_on_app_opened)
-	fake_store_app.app_uninstalled.connect(desktop_ui._on_app_uninstalled) # Remove from home screen
-	fake_store_app.app_uninstalled.connect(_on_app_uninstalled) # Remove from open apps
 	app_specific_screen.add_child(fake_store_app)
 
-	#Browser App (Browser App)
+	# Browser App (Browser App)
 	browser_app.visible = false
 	browser_app_news.visible = false
 	browser_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app)
 	app_specific_screen.add_child(browser_app_news)
-	
+
+	# Reviews Site (Browser App)
+	browser_reviews_site.visible = false
+	app_specific_screen.add_child(browser_reviews_site)
+
 	# Email app home (Email app)
 	email_app_home.visible = false
 	email_app_home.subscreen_open_requested.connect(_on_app_opened)
@@ -144,7 +168,7 @@ func _ready() -> void:
 	bank_payment_info.visible = false
 	app_specific_screen.add_child(bank_payment_info)
 	bank_payment_info.transaction_completed.connect(
-		func(): _on_back_button_pressed(); _on_back_button_pressed()
+		func(_payment_code: GameData.PaymentCode): _on_back_button_pressed(); _on_back_button_pressed()
 	)
 
 	# Password Change Dialog (Password)
@@ -152,10 +176,12 @@ func _ready() -> void:
 	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
 	app_specific_screen.add_child(password_change_dialog)
 
+	# Hack minigame stub (Hack minigames)
+	stub_hack.visible = false
+	stub_hack.hack_concluded.connect(_on_back_button_pressed)
+	app_specific_screen.add_child(stub_hack)
+
 ## Handles the app opened event from the desktop UI
-##
-## app_name: The name of the application being opened
-## optional_data: Additional data that might be passed when opening the app
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
 	self.visible = true
@@ -180,24 +206,29 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	specific_app.visible = true
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
+	# If is a hack minigame, do not show back or close buttons
+	if main_app == GameData.App.STUBHACK:
+		back_button.visible = false
+		close_app_button.visible = false
+		return
+
 	# Show back button if more than one app is open and hide previous app
 	# Also, do not show back button if the current app is the password check dialog
 	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
 		back_button.visible = true
+		close_app_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = false
 	else:
 		back_button.visible = false
-
+		close_app_button.visible = true
 	# Open password check dialog if the app is password protected
 	if app in GameData.passwords.keys(): # Single source of truth
 		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
 
 ## Handles the close app button press event
-##
-## Hides the currently open app and updates the top bar visibility accordingly
 func _on_back_button_pressed() -> void:
 	# Get the currently open app (topmost)
 	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
@@ -217,8 +248,10 @@ func _on_back_button_pressed() -> void:
 	# Show back button if more than one app is still open and show previous app
 	if number_of_open_apps > 1:
 		back_button.visible = true
+		close_app_button.visible = true
 	else:
 		back_button.visible = false
+		close_app_button.visible = number_of_open_apps == 1
 
 	# Show previous app if any
 	if number_of_open_apps > 0:
@@ -228,8 +261,6 @@ func _on_back_button_pressed() -> void:
 		previous_app.visible = true
 
 ## Handles the close app button press event
-##
-## Closes the current main app and all its subscreens
 func _on_close_app_button_pressed() -> void:
 	if open_apps.is_empty():
 		return
@@ -240,8 +271,6 @@ func _on_close_app_button_pressed() -> void:
 	_close_main_app(main_app_enum)
 
 ## Handles the app uninstalled event from the store app
-##
-## app_name: The name of the application being uninstalled
 func _on_app_uninstalled(app:GameData.App) -> void:
 	# If the uninstalled app is currently open, close it
 	var main_app := _get_main_app_enum(app)
@@ -250,8 +279,6 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 		_close_main_app(main_app)
 
 ## Checks if there is any open app with the specified main app enum
-##
-## main_app: The main app enum to check
 func _has_open_main_app(main_app: GameData.App) -> bool:
 	for app_dict in open_apps:
 		if app_dict.get("MainApp") == main_app:
@@ -259,8 +286,6 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 	return false
 
 ## Closes all open apps with the specified main app enum
-##
-## main_app_enum: The main app enum to close
 func _close_main_app(main_app_enum: GameData.App) -> void:
 	# Close all open apps with same main_app
 	for i in range(open_apps.size() - 1, -1, -1):
@@ -290,9 +315,12 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	if previous_node:
 		previous_node.visible = true
 
+## Starts the hack minigame by showing the hack stub
+func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
+	# For now, we will just show the hack stub for any hack minigame
+	_on_app_opened(GameData.App.STUBHACK, {"HackMinigame": hack_minigame})
+
 ## Returns the app node by its name
-##
-## app_name: The name of the application
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
 		# Messages app
@@ -302,12 +330,15 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
 		GameData.App.PASSWORDCHECK: password_check_dialog,
+		GameData.App.VIRUSSCANNER: virus_scanner,
+		GameData.App.UPDATEOS: update_os_screen,
 		# Store app
 		GameData.App.STORE: store_app,
 		GameData.App.FAKESTORE: fake_store_app,
 		# Browser app
 		GameData.App.BROWSER: browser_app,
 		GameData.App.BROWSERNEWS: browser_app_news,
+		GameData.App.REVIEWSSITE: browser_reviews_site,
 		# Email app
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
@@ -319,12 +350,12 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.PAYMENTINFORMATION: bank_payment_info,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: password_change_dialog,
+		# Hack minigame stub
+		GameData.App.STUBHACK: stub_hack,
 	}
 	return app_map.get(app_enum, null)
 
 ## Returns the main app enum for a given subscreen enum
-##
-## subscreen_enum: The subscreen enum
 func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 	var main_app_map = {
 		# Messages app
@@ -333,12 +364,15 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
+		GameData.App.VIRUSSCANNER: GameData.App.SETTINGS,
+		GameData.App.UPDATEOS: GameData.App.SETTINGS,
 		# Store app
 		GameData.App.STORE: GameData.App.STORE,
 		GameData.App.FAKESTORE: GameData.App.STORE,
 		# Browser app
 		GameData.App.BROWSER: GameData.App.BROWSER,
 		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
+		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
@@ -350,5 +384,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PAYMENTINFORMATION: GameData.App.BANK,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: GameData.App.PASSWORDMANAGER,
+		# Hack minigame stub
+		GameData.App.STUBHACK: GameData.App.STUBHACK,
 	}
 	return main_app_map.get(subscreen_enum, null)

@@ -16,11 +16,13 @@ func _ready() -> void:
 	passwords_manager_gui.settings_gui_pressed.connect(
 		_on_sub_app_pressed.bindv([GameData.App.PASSWORDMANAGER])
 	)
+	virus_scanner_gui.settings_gui_pressed.connect(
+		_on_sub_app_pressed.bindv([GameData.App.VIRUSSCANNER])
+	)
 
-	# Hide certain settings based on the current day
-	if day < 2:
-		update_os_gui.change_gui_color(Color(0.72, 0.72, 0.72), Color(0.36, 0.36, 0.36))
-		virus_scanner_gui.change_gui_color(Color(0.72, 0.72, 0.72), Color(0.36, 0.36, 0.36))
+	update_os_gui.settings_gui_pressed.connect(
+		_on_sub_app_pressed.bindv([GameData.App.UPDATEOS])
+	)
 
 func _on_sub_app_pressed(app:GameData.App) -> void:
 	emit_signal("subscreen_open_requested", app)
