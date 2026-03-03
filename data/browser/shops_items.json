@@ -1,11 +1,10 @@
 {
     "amazonia":[
-        {"id" : 1, "name": "Camiseta Azul", "price": 120, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
-        {"id" : 2, "name": "Camiseta Azul2", "price": 130, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
-        {"id" : 3, "name": "Camiseta Azul3", "price": 140, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
-        {"id" : 4, "name": "Camiseta Azul4", "price": 150, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
-        {"id" : 5, "name": "Camiseta Azul5", "price": 160, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"},
-        {"id" : 6, "name": "Camiseta Azul6", "price": 170, "logo": "res://assets/icons/shops/products/camiseta-placeholder.png"}
+        {"id" : 11, "name": "Barra de Aço", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+        {"id" : 12, "name": "Furadeira Elétrica", "price": 249.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
+        {"id" : 13, "name": "Martelo", "price": 59.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
+        {"id" : 14, "name": "Monitor 4K 144HZ", "price": 1249.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
+        {"id" : 15, "name": "Nitrogênio Líquido 1L", "price": 19.90, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"}
     ],
     "emilia_bolos" : [
         {"id" : 21, "name": "Brigadeiro Gourmet", "price": 4.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
@@ -15,5 +14,13 @@
         {"id" : 25, "name": "Bolo Decorado", "price": 119.9, "logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"},
         {"id" : 26, "name": "Tiramisu", "price": 179.90, "logo": "res://assets/icons/shops/products/emilia/tiramisu.png"},
         {"id" : 27, "name": "Bolo com Cobertura de Chocolate", "price": 189.90, "logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"}
+    ],
+    "aec":[
+        {"id" : 31, "name": "Camisa Social Azul", "price": 119.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_1.png"},
+        {"id" : 32, "name": "Camisa Social Vermelha", "price": 119.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_2.png"},
+        {"id" : 33, "name": "Camiseta Azul", "price": 59.90, "logo": "res://assets/icons/shops/products/aec/camiseta_1.png"},
+        {"id" : 34, "name": "Camiseta Vermelha", "price": 59.90, "logo": "res://assets/icons/shops/products/aec/camiseta_2.png"},
+        {"id" : 35, "name": "Camisa Polo Azul", "price": 89.9, "logo": "res://assets/icons/shops/products/aec/polo_1.png"},
+        {"id" : 36, "name": "Camisa Polo Vermelha", "price": 89.9, "logo": "res://assets/icons/shops/products/aec/polo_2.png"}
     ]
 }
