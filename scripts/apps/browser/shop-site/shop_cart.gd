@@ -30,7 +30,7 @@ func update_cart_items() -> void:
 	finish_button.visible = true
 	for item in shopping_info.shopping_cart:
 		var line_instance = ITEM_LINE_SCENE.instantiate()
-		line_instance.setup(item)
+		line_instance.setup(item, shopping_info.shop_enum)
 		line_instance.update_shopping_cart.connect(_on_shopping_cart_updated)
 		line_instance.delete_item.connect(_on_item_deleted)
 		items_v_box.add_child(line_instance)

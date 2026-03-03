@@ -22,14 +22,25 @@ func setup(shop_items_array: Array):
 	for item_data in shop_items_array:
 		var shop_item_instance = SHOP_ITEM_SCENE.instantiate()
 		items_grid_container.add_child(shop_item_instance)
-		shop_item_instance.setup(item_data)
+		shop_item_instance.setup(item_data, shopping_info.shop_enum)
 		shop_item_instance.add_to_cart.connect(_on_added_to_cart)
 
 func _on_added_to_cart(item_data: Dictionary) -> void:
 	if !shopping_info.is_order_opened:
 		shopping_cart_quantity += item_data["quantity"]
-		shopping_info.shopping_cart.append(item_data)
+		add_item_to_cart(item_data)
 		update_cart_circle()
+
+func add_item_to_cart(item_data: Dictionary) -> void:
+	var is_already_in_cart: bool = false
+
+	for item in shopping_info.shopping_cart:
+		if item["id"] == item_data["id"]:
+			is_already_in_cart = true
+			item["quantity"] += item_data["quantity"]
+
+	if !is_already_in_cart:
+		shopping_info.shopping_cart.append(item_data)
 
 func update_cart_circle() -> void:
 	if shopping_cart_quantity > 0:

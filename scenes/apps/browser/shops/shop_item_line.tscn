@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d22hlgtgtjums" path="res://assets/icons/shops/products/camiseta-placeholder.png" id="2_hf56t"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_hf56t"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_6sr1t"]
+[ext_resource type="Script" uid="uid://wqwfnmp0m5d2" path="res://scripts/utils/one_line_label.gd" id="4_dixt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btjjm"]
 bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
@@ -60,7 +61,7 @@ corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sr1t"]
-bg_color = Color(0.078431375, 0.43137255, 0.7058824, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hf56t"]
 font = ExtResource("4_6sr1t")
@@ -81,7 +82,7 @@ content_margin_left = 5.0
 content_margin_top = 2.0
 content_margin_right = 5.0
 content_margin_bottom = 2.0
-bg_color = Color(1, 0.6, 0, 1)
+bg_color = Color(0.7433166, 0.69575363, 0.6972537, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -98,7 +99,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="shop_item_line" type="Control" unique_id=1587774648 node_paths=PackedStringArray("unit_price_label", "total_price_label", "item_name_label", "item_quantity_label", "item_icon_rect")]
+[node name="shop_item_line" type="Control" unique_id=1587774648 node_paths=PackedStringArray("unit_price_label", "total_price_label", "item_name_label", "item_quantity_label", "item_icon_rect", "delete_button")]
 custom_minimum_size = Vector2(340, 170)
 layout_mode = 3
 anchors_preset = 0
@@ -110,7 +111,8 @@ unit_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/H
 total_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/TotalContainer/TotalPriceLabel")
 item_name_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/ItemNameLabel")
 item_quantity_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ItemQuantity")
-item_icon_rect = NodePath("CenterContainer/Panel/HBoxContainer/Panel/ItemIcon")
+item_icon_rect = NodePath("CenterContainer/Panel/HBoxContainer/Panel/Control/ItemIcon")
+delete_button = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/DeleteButton")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=362315748]
 layout_mode = 1
@@ -150,24 +152,30 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_j6q6x")
 
-[node name="ItemIcon" type="TextureRect" parent="CenterContainer/Panel/HBoxContainer/Panel" unique_id=238673017]
-custom_minimum_size = Vector2(135, 120)
+[node name="Control" type="Control" parent="CenterContainer/Panel/HBoxContainer/Panel" unique_id=1780139486]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -67.5
-offset_top = -60.0
-offset_right = 67.5
-offset_bottom = 60.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="CenterContainer/Panel/HBoxContainer/Panel/Control" unique_id=238673017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = ExtResource("2_hf56t")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/HBoxContainer" unique_id=68997308]
 custom_minimum_size = Vector2(170, 0)
@@ -185,6 +193,7 @@ text = "Nome do item"
 label_settings = SubResource("LabelSettings_5vx8r")
 horizontal_alignment = 1
 autowrap_mode = 3
+script = ExtResource("4_dixt6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer" unique_id=198598592]
 layout_mode = 2
