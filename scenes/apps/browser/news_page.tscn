@@ -4,7 +4,11 @@
 
 [node name="news_page" type="Control" unique_id=156952088 node_paths=PackedStringArray("news_title", "news_metadata", "news_content")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0arqi")
 news_title = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_title")
 news_metadata = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_metadata")
@@ -12,8 +16,8 @@ news_content = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_text
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=314263896]
 layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
+offset_right = 360.0
+offset_bottom = 624.0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
@@ -26,12 +30,13 @@ vertical_scroll_mode = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1970221380]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 90
+theme_override_constants/separation = 18
 
 [node name="news_title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=905218139]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Título da notícia"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -40,14 +45,14 @@ autowrap_mode = 3
 [node name="news_metadata" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1863864797]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "BCC 
-"
+theme_override_font_sizes/font_size = 20
+text = "BCC "
 
 [node name="news_text" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1599963861]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 text = "A bateria do celular descarrega rápido por uma combinação de fatores, que vão desde o desgaste natural das células de íon-lítio até hábitos de uso que aceleram sua degradação, como manter a tela com brilho alto, múltiplas conexões ativas, uso intenso de aplicativos e exposição ao calor. Mesmo com avanços tecnológicos, ainda não existe uma “superbateria” capaz de durar dias sem recarga. Nesse sentido, entender como o componente funciona, por que perde eficiência com o tempo e quais práticas ajudam a preservá-lo é essencial para manter a autonomia e prolongar sua vida útil.
 
 Nesta matéria, o TechTudo reuniu informações de especialistas, fabricantes e pesquisas para responder às dúvidas mais comuns sobre o desgaste das baterias, desde a sua composição até práticas corretas de carregamento. Confira nas linhas a seguir e saiba como prolongar a vida útil do seu celular.

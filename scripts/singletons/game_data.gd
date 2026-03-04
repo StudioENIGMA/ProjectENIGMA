@@ -22,6 +22,14 @@ enum App {
 	# Browser app
 	BROWSER,
 	BROWSERNEWS,
+	BROWSERAMAZONIASHOP,
+	BROWSERAMAZONIACART,
+	BROWSEREMILIASHOP,
+	BROWSEREMILIACART,
+	BROWSERAECSHOP,
+	BROWSERAECCART,
+	BROWSERPAYMENTSCREEN,
+	BROWSERFAKESHOP,
 	REVIEWSSITE,
 	# Email app
 	EMAIL,
@@ -51,6 +59,29 @@ class PaymentCode:
 	var code: String
 	var type: PaymentType
 
+class ShoppingInfo:
+	var shop_enum: App
+	var shopping_cart: Array = []
+	var total_price: float = 0
+	var is_order_opened: bool = false
+
+	func reset():
+		shopping_cart.clear()
+		total_price = 0
+		is_order_opened = false
+
+var shops_names = {
+	App.BROWSERAMAZONIASHOP: "Amazônia",
+	App.BROWSEREMILIASHOP: "Emília Bolos",
+	App.BROWSERAECSHOP: "A&C"
+}
+
+var cart_enum_to_shop_enum = {
+	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
+	App.BROWSEREMILIACART: App.BROWSEREMILIASHOP,
+	App.BROWSERAECCART: App.BROWSERAECSHOP
+}
+
 var bank_balance: float = 200
 
 var starting_hours_minutes:int = 600	# Start at 6:00
@@ -74,7 +105,7 @@ var hack_immunity_ticks: int = 30 # Number of ticks of immunity after being hack
 var is_hacked: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 1
-var unsafe_apps: Array[App] = [App.FAKESTORE]	
+var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -89,6 +120,13 @@ var apps_name: Dictionary = {
 	# Browser
 	"Browser": App.BROWSER,
 	"BrowserNews": App.BROWSERNEWS,
+	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
+	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
+	"BrowserEmiliaShop": App.BROWSEREMILIASHOP,
+	"BrowserEmiliaCart": App.BROWSEREMILIACART,
+	"BrowserAeCShop": App.BROWSERAECSHOP,
+	"BrowserAeCCart": App.BROWSERAECCART,
+	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
 	"Bank" : App.BANK,
