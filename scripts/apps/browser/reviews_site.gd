@@ -1,17 +1,15 @@
 extends Control
 
-signal request_companies_array()
-
 @export var v_box_container: VBoxContainer
 
 var company_card_scene = preload("res://scenes/apps/browser/reviews_site/company_card.tscn")
 var companies_array: Array
 
-func _ready() -> void:
-	request_companies_array.emit.call_deferred()
+func setup(data_array: Array) -> void:
+	for child in v_box_container.get_children():
+		child.queue_free()
 
-func _on_companies_array_received(json_array: Array) -> void:
-	companies_array = json_array
+	companies_array = data_array
 	for company_data in companies_array:
 		create_company_card(company_data)
 

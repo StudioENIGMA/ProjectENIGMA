@@ -14,7 +14,7 @@ signal news_ready(day_news_data: Dictionary)
 #region CHILDREN NODES REFERENCES
 @export var messages_director: Node
 @export var emails_director: Node
-@export var reviews_director: Node
+@export var browser_director: Node
 @export var bank_director: Node
 
 @export var ui: Control
@@ -23,6 +23,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var news_dir_path: String = "res://data/news.json"
 @export var emails_dir_path: String = "res://data/emails"
 @export var reviews_dir_path: String = "res://data/browser/reviewed_companies.json"
+@export var shops_items_dir_path: String = "res://data/browser/shops_items.json"
 @export var pix_codes_dir_path: String = "res://data/bank/pix_codes_data.json"
 @export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
 #endregion CHILDREN NODES REFERENCES
@@ -63,13 +64,15 @@ func reload_and_setup_today() -> void:
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
+	var shops_dictionary = _read_json_root(shops_items_dir_path)
 	var pix_dictionary = _read_json_root(pix_codes_dir_path)
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
 	emails_director.setup_from_json_roots(email_roots)
-	reviews_director.setup_from_json_array(reviews_array)
+	browser_director.reviews_director.setup_from_json_array(reviews_array)
+	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 #endregion SETUP FLOW
 

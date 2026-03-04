@@ -45,7 +45,7 @@ func _on_code_created(code_information, app: GameData.App) -> void:
 			code = generate_code(GameData.PaymentType.PIX)
 			pix_codes_dynamic[code] = code_information
 		GameData.PaymentType.TICKET:
-			code_information.eraser("type")
+			code_information.erase("type")
 			code = generate_code(GameData.PaymentType.TICKET)
 			ticket_codes_dynamic[code] = code_information
 	update_codes_dict()
@@ -76,7 +76,7 @@ func generate_numeric_code() -> String:
 	var code: String = ""
 	for i in range(6):
 		code += str(randi_range(0,9))
-	
+
 	if ticket_codes_dynamic.has(code) or ticket_codes_static.has(code):
 		return generate_numeric_code()
 
