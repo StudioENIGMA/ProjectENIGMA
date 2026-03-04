@@ -4,9 +4,7 @@ signal message_answered(answer_id:int)
 
 signal apk_installation_requested(app: GameData.App)
 
-## Reference to the close app button in the top bar
 @export var close_app_button:TextureButton
-## Reference to the return app button in the top bar
 @export var back_button:TextureButton
 
 ## Reference to the apps buttons (to manage app opening/closing)
@@ -14,6 +12,9 @@ signal apk_installation_requested(app: GameData.App)
 
 ## Reference to the controller that holds specific app controls
 @export var app_specific_screen:Control
+@export var hack_screen: Control
+
+@export var notification_ui: Control
 
 var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
@@ -179,7 +180,7 @@ func _ready() -> void:
 	# Hack minigame fast type (Hack minigames)
 	fast_typing.visible = false
 	fast_typing.hack_concluded.connect(_on_back_button_pressed)
-	app_specific_screen.add_child(fast_typing)
+	hack_screen.add_child(fast_typing)
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
@@ -201,16 +202,22 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	if optional_data != null:
 		specific_app.setup(optional_data)
-
-	# Pull specific app to front and make it visible
+	
 	specific_app.visible = true
-	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
+	notification_ui.visible = true
 
 	# If is a hack minigame, do not show back or close buttons
-	if main_app == GameData.App.FASTTYPING:
-		back_button.visible = false
-		close_app_button.visible = false
+	var hack_minigames = [
+		GameData.App.FASTTYPING,
+	]
+	if main_app in hack_minigames:
+		hack_screen.visible = true
+		hack_screen.move_child(specific_app, hack_screen.get_child_count() - 1)
+		notification_ui.visible = false
 		return
+
+	# Pull specific app to front
+	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 	# Show back button if more than one app is open and hide previous app
 	# Also, do not show back button if the current app is the password check dialog
