@@ -20,3 +20,6 @@ func update_timer() -> void:
   # If the timer has run out, emit the signal
   if value <= 0:
     timer_finished.emit()
+
+func stop_timer() -> void:
+  idle = true
