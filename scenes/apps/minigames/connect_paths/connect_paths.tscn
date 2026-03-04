@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dk7hf4ywo2mbh" path="res://scripts/apps/minigames/connect_paths/connect_paths.gd" id="1_3v8es"]
 [ext_resource type="PackedScene" uid="uid://w4o7dcm8pify" path="res://scenes/apps/minigames/connect_paths/hex_tile.tscn" id="1_qs3w8"]
+[ext_resource type="Script" uid="uid://c0rkiklahpm4c" path="res://scripts/apps/minigames/connect_paths/generate_path.gd" id="3_1gj6j"]
 
-[node name="ConnectPaths" type="Control" unique_id=1377028313 node_paths=PackedStringArray("mid_hex", "ul_hex", "ur_hex", "l_hex", "r_hex", "ll_hex", "lr_hex")]
+[node name="ConnectPaths" type="Control" unique_id=1377028313 node_paths=PackedStringArray("mid_hex", "ul_hex", "ur_hex", "l_hex", "r_hex", "ll_hex", "lr_hex", "path_generator")]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
@@ -15,6 +16,7 @@ l_hex = NodePath("Panel/LHex")
 r_hex = NodePath("Panel/RHex")
 ll_hex = NodePath("Panel/LlHex")
 lr_hex = NodePath("Panel/LrHex")
+path_generator = NodePath("PathGenerator")
 
 [node name="Panel" type="Panel" parent="." unique_id=255285473]
 layout_mode = 0
@@ -23,22 +25,25 @@ offset_bottom = 2160.0
 mouse_filter = 2
 
 [node name="MidHex" parent="Panel" unique_id=1740780383 instance=ExtResource("1_qs3w8")]
-position = Vector2(540, 1080)
+position = Vector2(540.00006, 1024.0001)
 
 [node name="UlHex" parent="Panel" unique_id=284757787 instance=ExtResource("1_qs3w8")]
-position = Vector2(428, 890)
+position = Vector2(428.00003, 834.00006)
 
 [node name="UrHex" parent="Panel" unique_id=1711722943 instance=ExtResource("1_qs3w8")]
-position = Vector2(651, 890)
+position = Vector2(651.00006, 834.00006)
 
 [node name="RHex" parent="Panel" unique_id=2039586028 instance=ExtResource("1_qs3w8")]
-position = Vector2(760.00006, 1080.0001)
+position = Vector2(760, 1024)
 
 [node name="LrHex" parent="Panel" unique_id=153318998 instance=ExtResource("1_qs3w8")]
-position = Vector2(651, 1270)
+position = Vector2(651.00006, 1214.0001)
 
-[node name="LlHex" parent="Panel" unique_id=1092277273 instance=ExtResource("1_qs3w8")]
-position = Vector2(319.00015, 1080.0001)
+[node name="LlHex" parent="Panel" unique_id=1476174502 instance=ExtResource("1_qs3w8")]
+position = Vector2(428.00003, 1214.0001)
 
-[node name="LHex" parent="Panel" unique_id=1476174502 instance=ExtResource("1_qs3w8")]
-position = Vector2(428, 1270)
+[node name="LHex" parent="Panel" unique_id=1092277273 instance=ExtResource("1_qs3w8")]
+position = Vector2(319.00012, 1024)
+
+[node name="PathGenerator" type="Node" parent="." unique_id=371390664]
+script = ExtResource("3_1gj6j")
