@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0xpj0mg2nn3r"]
+[gd_scene format=3 uid="uid://d0xpj0mg2nn3r"]
 
 [ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/real_shop_site.gd" id="1_3x70g"]
 [ext_resource type="PackedScene" uid="uid://bcq5gqpyjjaem" path="res://scenes/apps/store-shop/shop_item.tscn" id="1_h8nqv"]

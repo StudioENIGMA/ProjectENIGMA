@@ -64,7 +64,7 @@ func _ready() -> void:
   # UI browser news requested
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
   # UI hacked minigame ended to event handler
-  ui.base_app.stub_hack.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
 
@@ -79,3 +79,6 @@ func _on_clock_tick(current_minutes: int) -> void:
 
   # Authenticator validity update
   ui.base_app.authenticator_app.update_codes_validity()
+
+  # Minigame update timer
+  ui.base_app.fast_typing.minigame_timer.update_timer()

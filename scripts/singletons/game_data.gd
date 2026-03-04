@@ -33,13 +33,13 @@ enum App {
 	PAYMENTCODE,
 	PAYMENTINFORMATION,
 	# Hack minigames
-	STUBHACK,
+	FASTTYPING,
 }
 
 enum HackMinigame {
-	FAST_TYPING,
+	FASTTYPING,
 	MAZE,
-	LINE_CONNECT,
+	LINECONNECT,
 }
 
 enum PaymentType {

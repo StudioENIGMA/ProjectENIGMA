@@ -43,7 +43,7 @@ var password_change_dialog = preload(
 var virus_scanner = preload(
 	"res://scenes/settings/virus_scanner.tscn"
 ).instantiate()
-var stub_hack = preload(
+var fast_typing = preload(
 	"res://scenes/apps/minigames/fast-typing/fast_typing.tscn"
 ).instantiate()
 var update_os_screen = preload(
@@ -176,10 +176,10 @@ func _ready() -> void:
 	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
 	app_specific_screen.add_child(password_change_dialog)
 
-	# Hack minigame stub (Hack minigames)
-	stub_hack.visible = false
-	stub_hack.hack_concluded.connect(_on_back_button_pressed)
-	app_specific_screen.add_child(stub_hack)
+	# Hack minigame fast type (Hack minigames)
+	fast_typing.visible = false
+	fast_typing.hack_concluded.connect(_on_back_button_pressed)
+	app_specific_screen.add_child(fast_typing)
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
@@ -207,7 +207,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 	# If is a hack minigame, do not show back or close buttons
-	if main_app == GameData.App.STUBHACK:
+	if main_app == GameData.App.FASTTYPING:
 		back_button.visible = false
 		close_app_button.visible = false
 		return
@@ -315,10 +315,17 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	if previous_node:
 		previous_node.visible = true
 
-## Starts the hack minigame by showing the hack stub
+## Starts the hack minigame
 func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
-	# For now, we will just show the hack stub for any hack minigame
-	_on_app_opened(GameData.App.STUBHACK, {"HackMinigame": hack_minigame})
+	match hack_minigame:
+		GameData.HackMinigame.FASTTYPING:
+			_on_app_opened(GameData.App.FASTTYPING)
+		GameData.HackMinigame.MAZE:
+			_on_app_opened(GameData.App.FASTTYPING)
+		GameData.HackMinigame.LINECONNECT:
+			_on_app_opened(GameData.App.FASTTYPING)
+		_:
+			_on_app_opened(GameData.App.FASTTYPING)
 
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
@@ -350,8 +357,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.PAYMENTINFORMATION: bank_payment_info,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: password_change_dialog,
-		# Hack minigame stub
-		GameData.App.STUBHACK: stub_hack,
+		# Hack minigames
+		GameData.App.FASTTYPING: fast_typing,
 	}
 	return app_map.get(app_enum, null)
 
@@ -384,7 +391,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PAYMENTINFORMATION: GameData.App.BANK,
 		# Password Manager app (not settings, as it must close alone)
 		GameData.App.PASSWORDCHANGE: GameData.App.PASSWORDMANAGER,
-		# Hack minigame stub
-		GameData.App.STUBHACK: GameData.App.STUBHACK,
+		# Hack minigames
+		GameData.App.FASTTYPING: GameData.App.FASTTYPING,
 	}
 	return main_app_map.get(subscreen_enum, null)

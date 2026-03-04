@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
 [ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
+[ext_resource type="PackedScene" uid="uid://cpc47dpgdkxt8" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)
@@ -12,7 +13,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.16862746, 1, 0, 1)
 
-[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "phrases_vbox")]
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "phrases_vbox", "minigame_timer")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,6 +25,7 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 script = ExtResource("1_j12ft")
 line_edit = NodePath("MarginContainer/VBoxContainer/LineEditContainer/LineEdit")
 phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhrasesContainer")
+minigame_timer = NodePath("MarginContainer/VBoxContainer/MinigameTimer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
 layout_mode = 1
@@ -41,11 +43,8 @@ theme_override_constants/margin_bottom = 16
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="TimerProgress" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=2059900595]
-custom_minimum_size = Vector2(0, 64)
+[node name="MinigameTimer" parent="MarginContainer/VBoxContainer" unique_id=743981125 instance=ExtResource("2_w44rq")]
 layout_mode = 2
-fill_mode = 1
-show_percentage = false
 
 [node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
 layout_mode = 2
@@ -73,5 +72,3 @@ selecting_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 caret_force_displayed = true
-
-[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer" unique_id=1720465626]
