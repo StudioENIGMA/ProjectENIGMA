@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnrek5mrfxlj0" path="res://assets/icons/hexagon_minigame.png" id="1_kl0ic"]
 [ext_resource type="Script" uid="uid://dn174n4oyfjnm" path="res://scripts/apps/minigames/connect_paths/hex_tile.gd" id="1_lfyj1"]
-[ext_resource type="Texture2D" uid="uid://cuapambmubi4q" path="res://assets/icons/line_minigame.png" id="3_m68pf"]
+[ext_resource type="Texture2D" uid="uid://cy6rraoabgjsc" path="res://assets/icons/white_line_minigame.png" id="3_m68pf"]
 
 [node name="HexTile" type="Area2D" unique_id=1760861266 node_paths=PackedStringArray("line1", "line2", "line3", "line4", "line5", "line6")]
 scale = Vector2(0.4, 0.4)
@@ -25,39 +25,38 @@ scale = Vector2(0.9999997, 0.9999997)
 polygon = PackedVector2Array(-0.867197, 287.22327, 251.63284, 142.22324, 251.63284, -142.77682, -0.867197, -287.77686, -250.86725, -142.77682, -250.86725, 144.72324)
 
 [node name="Line1" type="Sprite2D" parent="." unique_id=539614940]
-position = Vector2(53.84659, -94.22255)
-rotation = 0.5235988
-scale = Vector2(0.26478136, 0.41228613)
+position = Vector2(59.678967, -104.57577)
+rotation = -1.0471976
+scale = Vector2(0.6132371, 0.44408178)
 texture = ExtResource("3_m68pf")
 
 [node name="Line2" type="Sprite2D" parent="." unique_id=1470215707]
-position = Vector2(109.6141, -8.192655e-06)
-rotation = 1.5707964
-scale = Vector2(0.2608941, 0.4220891)
+position = Vector2(124.99999, -8.192655e-06)
+scale = Vector2(0.63169163, 0.4220891)
 texture = ExtResource("3_m68pf")
 
 [node name="Line3" type="Sprite2D" parent="." unique_id=428899843]
-position = Vector2(55.0512, 98.25855)
-rotation = 2.6179938
-scale = Vector2(0.2608941, 0.43122035)
+position = Vector2(63.69056, 109.30193)
+rotation = 1.0471976
+scale = Vector2(0.650504, 0.5146697)
 texture = ExtResource("3_m68pf")
 
 [node name="Line4" type="Sprite2D" parent="." unique_id=1663950308]
-position = Vector2(-58.21168, 96.232666)
-rotation = 3.6651914
-scale = Vector2(0.25864977, 0.4280016)
+position = Vector2(-62.773315, 110.7344)
+rotation = 2.0943952
+scale = Vector2(0.64999723, 0.4476584)
 texture = ExtResource("3_m68pf")
 
 [node name="Line5" type="Sprite2D" parent="." unique_id=1313660978]
-position = Vector2(-106.23375, -1.1993825)
-rotation = 4.712389
-scale = Vector2(0.26414564, 0.4283351)
+position = Vector2(-124.02037, 0.43570232)
+rotation = 3.1415927
+scale = Vector2(0.6313849, 0.43767843)
 texture = ExtResource("3_m68pf")
 
 [node name="Line6" type="Sprite2D" parent="." unique_id=1558410597]
-position = Vector2(-50.16603, -87.96708)
-rotation = 5.7595863
-scale = Vector2(0.2608941, 0.42608088)
+position = Vector2(-60.094517, -101.93214)
+rotation = 4.1887903
+scale = Vector2(0.60141855, 0.48638916)
 texture = ExtResource("3_m68pf")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
