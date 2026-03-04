@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://kwm27n3hhcfn"]
+
+[ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3v2jb"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_ymprt"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_42uqr"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="3_vt3rf"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_4kdu2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vt3rf"]
+font = ExtResource("2_ymprt")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_83xxk"]
+font = ExtResource("3_42uqr")
+font_size = 34
+font_color = Color(0, 0.85074466, 0.6337248, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_42uqr"]
+font = ExtResource("3_vt3rf")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kdu2"]
+font = ExtResource("5_4kdu2")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhcoi"]
+font = ExtResource("5_4kdu2")
+
+[node name="EndDay" type="Control" unique_id=696111839]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1397790098]
+modulate = Color(0.29219002, 0.29219005, 0.29219002, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3v2jb")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=103777931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1360467571]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1986176475]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=444572489]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Fim do Tutorial"
+label_settings = SubResource("LabelSettings_vt3rf")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=71852642]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1169545653]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Status" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=209013890]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "VOCÊ PASSOU!"
+label_settings = SubResource("LabelSettings_83xxk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=343924021]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=621767591]
+layout_mode = 2
+text = "Pontuação:"
+label_settings = SubResource("LabelSettings_42uqr")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3" unique_id=288657490]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1130779884]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_4kdu2")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1049506712]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Alguns lembretes: 
+- Este foi o tutorial para começar sua jornada na empresa, o jogo começa no próximo dia!"
+label_settings = SubResource("LabelSettings_uhcoi")
+autowrap_mode = 3

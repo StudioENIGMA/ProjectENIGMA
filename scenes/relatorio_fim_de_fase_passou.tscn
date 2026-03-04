@@ -68,17 +68,6 @@ theme_override_colors/font_outline_color = Color(0, 0.6862745, 0.73333335, 1)
 theme_override_font_sizes/font_size = 75
 text = "VOCÊ PASSOU!"
 
-[node name="LabelTitulo4" type="Label" parent="." unique_id=1330707819]
-offset_left = 55.0
-offset_top = 566.0
-offset_right = 1013.0
-offset_bottom = 703.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Alguns lembretes:
-_______________________________________________"
-
 [node name="Button" type="Button" parent="." unique_id=121315507]
 offset_left = 321.0
 offset_top = 2103.0
@@ -91,6 +80,17 @@ text = "Ir para o
 próximo dia"
 flat = true
 icon_alignment = 1
+
+[node name="LabelTitulo4" type="Label" parent="." unique_id=1330707819]
+offset_left = 55.0
+offset_top = 566.0
+offset_right = 1013.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Alguns lembretes:
+_______________________________________________"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1455496485]
 offset_left = 63.0
