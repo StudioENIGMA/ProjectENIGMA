@@ -28,5 +28,4 @@ color = Color(0, 0, 0, 1)
 
 [node name="WallMap" type="TileMapLayer" parent="." unique_id=1359831944]
 z_index = 10
-scale = Vector2(0.089, 0.089)
 tile_set = ExtResource("1_eiwxe")
