@@ -212,6 +212,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	]
 	if main_app in hack_minigames:
 		hack_screen.visible = true
+		specific_app.setup()
 		hack_screen.move_child(specific_app, hack_screen.get_child_count() - 1)
 		notification_ui.visible = false
 		return

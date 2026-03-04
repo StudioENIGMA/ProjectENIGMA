@@ -23,7 +23,9 @@ func _ready() -> void:
 ## Means hack minigame started
 func setup() -> void:
 	reset_minigame()
+
 	# Catch focus to the line edit
+	await get_tree().process_frame
 	line_edit.grab_focus()
 
 func generate_random_phrase() -> Array:
@@ -52,10 +54,10 @@ func _user_typed(new_text) -> void:
 	var current_phrase_str = " ".join(current_phrase)
 	
 	# Check the last character that matches the current phrase
-	if new_text == current_phrase_str:
+	if new_text.strip_edges().to_lower() == current_phrase_str:
 		# User typed the whole phrase correctly, move to the next one
 		_conclude_phrase()
-	elif current_phrase_str.begins_with(new_text):
+	elif current_phrase_str.begins_with(new_text.strip_edges().to_lower()):
 		# User is typing correctly so far
 		has_wrong_char = false
 		line_edit.add_theme_color_override("font_color", Color.LIME_GREEN)
@@ -83,11 +85,11 @@ func _conclude_phrase() -> void:
 func _on_time_finished() -> void:
 	# Time's up, reset the minigame
 	reset_minigame()
-	update_display()
 
 func reset_minigame() -> void:
 	# Generate phrases
 	current_phrases.clear()
+
 	current_phrases.append(generate_random_phrase())
 
 	for i in range(2):
@@ -103,3 +105,5 @@ func reset_minigame() -> void:
 
 	# Reset timer
 	minigame_timer.setup(60) # 60 seconds for the minigame
+
+	update_display()
