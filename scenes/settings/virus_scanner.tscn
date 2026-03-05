@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bt7a2lnrb0to"]
 
-[ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
+[ext_resource type="Script" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
 
 [node name="VirusScanner" type="VBoxContainer" unique_id=810286205 node_paths=PackedStringArray("virus_result", "apps_result", "remove_virus_button", "remove_apps_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label")]
 anchors_preset = 8
