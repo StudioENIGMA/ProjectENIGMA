@@ -1,29 +1,36 @@
 [gd_scene format=3 uid="uid://c5gubxu6ohvld"]
 
 [ext_resource type="Script" uid="uid://ceyd6unkld2n4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
-[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_k30y1"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_h4mx2"]
 [ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="4_k30y1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4mx2"]
+content_margin_left = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_53ija"]
-font = ExtResource("2_k30y1")
-font_size = 60
+font = ExtResource("3_h4mx2")
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="Browser" type="Control" unique_id=884751200 node_paths=PackedStringArray("news_container", "quick_sites_containier")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_y4bje")
 news_container = NodePath("ScrollContainer/VBoxContainer/NewsContainer")
 quick_sites_containier = NodePath("ScrollContainer/VBoxContainer/GridContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=537045444]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 360.0
+offset_bottom = 620.0
+vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1928409541]
-custom_minimum_size = Vector2(1080, 2160)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=25825933]
@@ -31,42 +38,43 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 20
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer" unique_id=810850432]
-custom_minimum_size = Vector2(1080, 1160)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
 [node name="ReviewsSite" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
 layout_mode = 2
-site_name = "ElogieLÁ"
+site = 20
 
-[node name="quick_acess_sites_icons2" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=330443488 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
+[node name="AmazoniaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
 layout_mode = 2
+site = 12
 
-[node name="quick_acess_sites_icons3" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=627541012 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
+[node name="EmiliaShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
 layout_mode = 2
+site = 14
 
-[node name="quick_acess_sites_icons4" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=1212732151 instance=ExtResource("4_k30y1")]
+[node name="AECShop" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=554390335 instance=ExtResource("4_k30y1")]
 layout_mode = 2
+site = 16
 
-[node name="quick_acess_sites_icons5" parent="ScrollContainer/VBoxContainer/GridContainer" unique_id=252869147 instance=ExtResource("4_k30y1")]
-custom_minimum_size = Vector2(540, 400)
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=507321296]
 layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="NewsLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=31833758]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4mx2")
+text = "Notícias"
+label_settings = SubResource("LabelSettings_53ija")
 
 [node name="NewsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1269479065]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NewsContainer" unique_id=31833758]
-layout_mode = 2
-text = "Notícias"
-label_settings = SubResource("LabelSettings_53ija")
-
 [node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/NewsContainer" unique_id=1715783317]
-custom_minimum_size = Vector2(720, 10)
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)

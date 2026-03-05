@@ -28,135 +28,57 @@ visible = false
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_l6cm7")
+expand_mode = 1
 
-[node name="ProjetoEnigma" type="Sprite2D" parent="." unique_id=1950377009]
-position = Vector2(2, -804)
-scale = Vector2(2.50667, 2.50667)
-texture = ExtResource("1_wu84c")
-
-[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=1790237194]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -496.0
-offset_right = 496.0
-offset_bottom = 1106.0
+[node name="ButtonsMargin" type="MarginContainer" parent="." unique_id=143529880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="New Game Button" type="Button" parent="MainVBoxContainer" unique_id=1693188747]
-custom_minimum_size = Vector2(0, 200)
+[node name="MainVBoxContainer" type="VBoxContainer" parent="ButtonsMargin" unique_id=165846684]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_constants/separation = 2
+
+[node name="ProjetoEnigma" type="TextureRect" parent="ButtonsMargin/MainVBoxContainer" unique_id=1004285426]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_wu84c")
+expand_mode = 1
+
+[node name="LogoSpacing" type="MarginContainer" parent="ButtonsMargin/MainVBoxContainer" unique_id=1121775217]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="New Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1507016343]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "NEW GAME"
 script = ExtResource("3_rtw2f")
 
-[node name="Load Game Button" type="Button" parent="MainVBoxContainer" unique_id=1456546749]
-visible = false
-custom_minimum_size = Vector2(0, 200)
+[node name="Load Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1287796145]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 32
 text = "LOAD GAME"
 script = ExtResource("4_oa1go")
 
-[node name="Settings Button" type="Button" parent="MainVBoxContainer" unique_id=66766585 node_paths=PackedStringArray("settings_menu", "settings_back_button", "main_menu")]
-custom_minimum_size = Vector2(0, 200)
+[node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 script = ExtResource("5_tbmy8")
-settings_menu = NodePath("../../SettingsVBoxContainer")
-settings_back_button = NodePath("../../SettingsBackButton")
-main_menu = NodePath("..")
 
-[node name="SettingsBackButton" type="Button" parent="." unique_id=563389314]
-visible = false
-custom_minimum_size = Vector2(80, 80)
-offset_left = -496.0
-offset_top = -364.0
-offset_right = -416.0
-offset_bottom = -284.0
-theme_override_font_sizes/font_size = 45
-text = "<"
-
-[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=1278910257]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -496.0
-offset_right = 496.0
-offset_bottom = 1106.0
-grow_horizontal = 2
-
-[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=776415957]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume Geral"
-
-[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=964562890]
-layout_mode = 2
-
-[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1106874711]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 100.0
-
-[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1635560067]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2001148396]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume da Música"
-
-[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=509804549]
-layout_mode = 2
-
-[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1453401608]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 50.0
-
-[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1568464992]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=836153096]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Volume de Efeitos Sonoros"
-
-[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=220484687]
-layout_mode = 2
-
-[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1736542948]
-custom_minimum_size = Vector2(800, 80)
-layout_mode = 2
-value = 50.0
-
-[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1183911123]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-text = "Mute"
-expand_icon = true
-
-[node name="MainLabel2" type="Label" parent="SettingsVBoxContainer" unique_id=1768239902]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "------------------------------------------------"
-
-[node name="MainLabel3" type="Label" parent="SettingsVBoxContainer" unique_id=1034599175]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
-theme_override_font_sizes/font_size = 45
-text = "Future settings come here :)"
-
-[node name="Music Handler" type="Node" parent="." unique_id=1271643304 node_paths=PackedStringArray("sound_signaler", "sfx_player", "current_music", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
+[node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sfx_player", "music_player")]
 script = ExtResource("2_wu84c")
 sound_signaler = NodePath("SoundSignaler")
 main_theme = ExtResource("4_rtw2f")

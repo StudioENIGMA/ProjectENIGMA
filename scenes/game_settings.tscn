@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c61njhp2co37l"]
+
+[ext_resource type="Script" uid="uid://7pq25a7amaxx" path="res://scripts/settings_back_button.gd" id="1_4spmm"]
+
+[node name="GameSettings" type="Control" unique_id=44018652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1038363500]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+
+[node name="SettingsBackButton" type="Button" parent="MarginContainer" unique_id=2004333547]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "<"
+script = ExtResource("1_4spmm")
+
+[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=87154663]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -200.5
+offset_right = 167.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=793399517]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Volume Geral"
+
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1139492380]
+layout_mode = 2
+
+[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1768791635]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=670951558]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Silenciar"
+expand_icon = true
+
+[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2088218196]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Volume da Música"
+
+[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1159322637]
+layout_mode = 2
+
+[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1384072290]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=374218314]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Silenciar"
+expand_icon = true
+
+[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2031282743]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 26
+text = "Volume de Efeitos Sonoros"
+
+[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=32729890]
+layout_mode = 2
+
+[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=2088189801]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1942551776]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Silenciar"
+expand_icon = true

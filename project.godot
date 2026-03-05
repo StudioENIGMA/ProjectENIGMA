@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Project ENIGMA"
-run/main_scene="uid://5lby0fhxei1c"
+run/main_scene="uid://bl30assw3y4mn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -34,10 +34,9 @@ file_logging/max_log_files=15
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=1200
+window/size/viewport_width=360
+window/size/viewport_height=640
 window/stretch/mode="canvas_items"
-window/stretch/scale=0.5
 window/handheld/orientation=1
 
 [global_group]
