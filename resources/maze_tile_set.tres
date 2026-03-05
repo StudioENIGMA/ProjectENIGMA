@@ -9,7 +9,7 @@ resource_name = "BLOCKED_WALL"
 texture = ExtResource("1_nns82")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 7.5540657, -7.5540657, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ijvx"]
 resource_name = "HIDDEN_PATH"
