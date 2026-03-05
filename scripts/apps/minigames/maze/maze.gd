@@ -1,17 +1,25 @@
 extends Node2D
 
 const INITIAL_WIDTH: int = 16
-const INITIAL_HEIGHT: int = 24
+const INITIAL_HEIGHT: int = 16
 const BLOCKED_WALL_ID: int = 0
 const HIDDEN_PATH_ID: int = 1
 const ALLOWED_PATH_ID: int = 2
+
+enum Directions{
+	UP = 1,
+	DOWN = 2,
+	LEFT = 3,
+	RIGHT = 4
+}
 
 @export var tilemap: TileMapLayer
 
 var map_width: int = INITIAL_WIDTH
 var map_height: int = INITIAL_HEIGHT
 var tile_size: int = 20
-var map_offset: int = 1
+var map_y_offset: int = 10
+var map_x_offset: int = 1
 
 var maze: Array[Array] = []
 
@@ -41,11 +49,10 @@ func define_initial_and_final_position() -> void:
 	var final_position: int = 0
 
 	
-
 func generate_walls() -> void:
 	for x in range(map_width):
 		for y in range(map_height):
-			if x == 0 or x == map_width-1 or y == 0 or y == map_height-1:
-				tilemap.set_cell(Vector2i(x + map_offset, y + map_offset), BLOCKED_WALL_ID, Vector2i(0, 0), 0)
+			if x == 0 or x == map_width - 1 or y == 0 or y == map_height - 1:
+				tilemap.set_cell(Vector2i(x + map_x_offset, y + map_y_offset), BLOCKED_WALL_ID, Vector2i(0, 0), 0)
 
-	tilemap.set_cell(Vector2i(map_width-1 + map_offset, map_height-1 + map_offset), HIDDEN_PATH_ID, Vector2i(0, 0), 0)
+	tilemap.set_cell(Vector2i(map_width, map_height - 1 + map_y_offset), HIDDEN_PATH_ID, Vector2i(0, 0), 0)
