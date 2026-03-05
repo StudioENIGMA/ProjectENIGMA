@@ -32,7 +32,6 @@ func _ready() -> void:
 
 func get_hexagon_path(hexagon_array):
 	hexagons = hexagon_array
-	print(hexagons)
 
 func set_lines():
 	for i in range(hexagons.size()):
@@ -99,10 +98,18 @@ func get_rotation_period(vertex_positions: Array) -> int:
 
 func check_rotations():
 	var check = true
-	for i in range(0, 7):
+
+	for i in range(7):
+
+		if hexagons[i]["vertex_number"] == 0:
+			continue
+
 		var period = get_rotation_period(hexagons[i]["vertex_positions"])
-		if not (hexagons_positions[i] - 1) % period == 0:
+
+		if ((hexagons_positions[i] - 1) % period) != 0:
 			check = false
+			break
+
 	if check:
 		print("concluiu minigame")
 		

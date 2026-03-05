@@ -28,22 +28,22 @@ mouse_filter = 2
 position = Vector2(540.00006, 1024.0001)
 
 [node name="UlHex" parent="Panel" unique_id=284757787 instance=ExtResource("1_qs3w8")]
-position = Vector2(428.00003, 834.00006)
+position = Vector2(373, 733)
 
 [node name="UrHex" parent="Panel" unique_id=1711722943 instance=ExtResource("1_qs3w8")]
-position = Vector2(651.00006, 834.00006)
+position = Vector2(707, 733)
 
 [node name="RHex" parent="Panel" unique_id=2039586028 instance=ExtResource("1_qs3w8")]
-position = Vector2(760, 1024)
+position = Vector2(869, 1024)
 
 [node name="LrHex" parent="Panel" unique_id=153318998 instance=ExtResource("1_qs3w8")]
-position = Vector2(651.00006, 1214.0001)
+position = Vector2(707, 1311)
 
 [node name="LlHex" parent="Panel" unique_id=1476174502 instance=ExtResource("1_qs3w8")]
-position = Vector2(428.00003, 1214.0001)
+position = Vector2(373, 1310)
 
 [node name="LHex" parent="Panel" unique_id=1092277273 instance=ExtResource("1_qs3w8")]
-position = Vector2(319.00012, 1024)
+position = Vector2(208, 1024)
 
 [node name="PathGenerator" type="Node" parent="." unique_id=371390664]
 script = ExtResource("3_1gj6j")
