@@ -84,6 +84,7 @@ var cart_enum_to_shop_enum = {
 
 var bank_balance: float = 200
 
+var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 6:00
 var hours_minutes:int = 600 # This one will increase with time
 var max_hours_minutes:int = 1200 # End at 12:00
