@@ -23,7 +23,7 @@ var maze: Array[Array] = []
 var player_init_position: Vector2i
 var maze_end_point: Vector2i
 
-# Called when the node enters the scene tree for the first time.
+## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	define_maze_difficult()
 	generate_maze_size()

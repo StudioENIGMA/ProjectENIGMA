@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dyadxwg52iqfk"]
+
+[ext_resource type="Script" uid="uid://ciwrqrrc5edpj" path="res://scripts/apps/minigames/maze/player.gd" id="1_hqvxg"]
+[ext_resource type="Texture2D" uid="uid://dips4qgoi2uoa" path="res://assets/icons/unknow_maze.png" id="2_txulh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emfwr"]
+
+[node name="Player" type="Node2D" unique_id=1018759934 node_paths=PackedStringArray("player")]
+script = ExtResource("1_hqvxg")
+player = NodePath("CharacterBody2D")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=138341796]
+position = Vector2(20, 20)
+input_pickable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2087889139]
+texture = ExtResource("2_txulh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=328415649]
+shape = SubResource("RectangleShape2D_emfwr")
