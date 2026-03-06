@@ -1,7 +1,5 @@
 extends Node2D
 
-const INITIAL_WIDTH: int = 13
-const INITIAL_HEIGHT: int = 13
 const BLOCKED_WALL_ID: int = 0
 const HIDDEN_PATH_ID: int = 1
 const ALLOWED_PATH_ID: int = 2
@@ -15,10 +13,10 @@ enum Directions{
 
 @export var tilemap: TileMapLayer
 
-var map_width: int = INITIAL_WIDTH
-var map_height: int = INITIAL_HEIGHT
+var map_width: int
+var map_height: int
 var tile_size: int = 20
-var map_y_offset: int = 10
+var map_y_offset: int = 5
 var map_x_offset: int = 2
 
 var maze: Array[Array] = []
@@ -27,17 +25,18 @@ var maze_end_point: Vector2i
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	define_maze_difficult()
 	generate_maze_size()
 	create_maze()
 
-	print(maze)
-
 	draw_maze()
 
+func define_maze_difficult() -> void:
+	var heigth_sizes: Array[int] = [19, 21, 23]
+	map_height = heigth_sizes.pick_random()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	var width_sizes: Array[int] = [13, 15]
+	map_width = width_sizes.pick_random()
 
 #Initialize the matrix and fill of zeros
 func generate_maze_size() -> void:
@@ -74,12 +73,11 @@ func create_maze() -> void:
 
 	generator(start_x, start_y, maze)
 
-	maze_end_point = Vector2i(int(float(map_width) / 2), map_height)
+	maze_end_point = Vector2i(int(floor(float(map_width) / 2)), map_height-1)
+	var up_end_point: Vector2i = Vector2i(int(float(map_width) / 2), map_height - 2)
 
-	#for i in range(map_height):
-		#for j in range(map_width):
-			#if maze[i][j] == -1:
-				#maze[i][j] = 0
+	maze[maze_end_point.y][maze_end_point.x] = 0
+	maze[up_end_point.y][maze_end_point.x] = 0
 				
 func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 	# Mark current cell as visited
@@ -96,17 +94,31 @@ func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 
 		match dir:
 			Directions.UP:
-				nx = cx; ny = cy - 2; mx = cx; my = cy - 1
+				nx = cx 
+				ny = cy - 2
+				mx = cx 
+				my = cy - 1
 			Directions.DOWN:
-				nx = cx; ny = cy + 2; mx = cx; my = cy + 1
+				nx = cx 
+				ny = cy + 2
+				mx = cx 
+				my = cy + 1
 			Directions.LEFT:
-				nx = cx - 2; ny = cy; mx = cx - 1; my = cy
+				nx = cx - 2 
+				ny = cy 
+				mx = cx - 1 
+				my = cy
 			Directions.RIGHT:
-				nx = cx + 2; ny = cy; mx = cx + 1; my = cy
+				nx = cx + 2 
+				ny = cy 
+				mx = cx + 1 
+				my = cy
 
 		if is_in_bounds(nx, ny) and grid[nx][ny] == 1:
 			grid[mx][my] = 0
 			generator(nx, ny, grid)
 
+## Check if next position is inside the maze
+## In other words, check if this position is not out of bound the matrix
 func is_in_bounds(x: int, y: int) -> bool:
 	return x >= 0 and x < map_height and y >= 0 and y < map_width
