@@ -16,4 +16,3 @@ func _process(delta: float) -> void:
 func input_moviment_player() -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		player.global_position = get_global_mouse_position()
-
