@@ -1,90 +1,109 @@
 extends Control
 
+signal hack_concluded
+
+const PHRASE_SCENE = preload("res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn")
+const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew"]
 
 #region CHILDREN NODES REFERENCES
-@export var text_to_type1:RichTextLabel
-@export var text_to_type2:RichTextLabel
-@export var player_type_space:LineEdit
-@export var minigame_timer:MarginContainer
+@export var line_edit: LineEdit
+@export var phrases_vbox: VBoxContainer
+@export var minigame_timer: ProgressBar
 #endregion
 
-var text_sequence_queue: Array = []
-#var bytes_of_text_to_type1: PackedByteArray
-#var bytes_of_text_to_type2: PackedByteArray
-var first_completed:bool = false
-var type_completed:bool
-var current_text:String
-var splited_text_words:Array
-var typed_correctly_words:Array
-var word:String
+var current_phrases = []
+var current_index = 0
+var has_wrong_char = false
+var completed_phrases = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	text_to_type1.text = "[font_size=50] Received text 1"
-	text_to_type2.text = "[font_size=50] Received text 2"
-	#bytes_of_text_to_type1 = text_to_type1.text.to_utf8_buffer()
-	#bytes_of_text_to_type2 = text_to_type1.text.to_utf8_buffer()
-	push_to_queue(text_to_type1.text)
-	push_to_queue(text_to_type2.text)
+	line_edit.text_changed.connect(_user_typed)
+	minigame_timer.timer_finished.connect(_on_time_finished)
 
-	setup()
-
+## Means hack minigame started
 func setup() -> void:
-	current_text = text_sequence_queue.pop_front()
-	splited_text_words = current_text.split(" ")
+	reset_minigame()
 
-	splited_text_words.pop_front() # Removing font size from the array
-	typed_correctly_words.clear() # Removing first text from correct words
+	# Catch focus to the line edit
+	await get_tree().process_frame
+	line_edit.grab_focus()
 
-	word = splited_text_words.pop_front()
-	print(word)
+func generate_random_phrase() -> Array:
+	var random_phrase = []
+	for i in range(5):
+		var random_word = RANDOM_WORDS[randi() % RANDOM_WORDS.size()]
+		random_phrase.append(random_word)
+	
+	return random_phrase
 
-#func verify_player_typed_text() -> void:
-#	current_text = text_sequence_queue.pop_front()
-#	type_completed = false
-#	
-#	splited_text_words = current_text.split(" ")
-#	word = splited_text_words.pop_front()
-#	
-#	while !type_completed:
-#		if player_type_space.text == word:
-#			if !text_sequence_queue.is_empty():
-#				typed_correctly_words.append("[color=green] "+word+"[/clolor]")
-#				update_correct_word(text_to_type1)
-#			else:
-#				typed_correctly_words.append("[color=green] "+word+"[/clolor]")
-#				update_correct_word(text_to_type2)
+func update_display() -> void:
+	current_index = 0
+	for child in phrases_vbox.get_children():
+		child.queue_free()
+	for phrase in current_phrases:
+		var phrase_instance = PHRASE_SCENE.instantiate()
+		var is_completed = current_index < completed_phrases
+		var is_current = current_index == completed_phrases
+		phrase_instance.setup(phrase, current_index, is_completed, is_current)
+		phrases_vbox.add_child(phrase_instance)
+		current_index += 1
 
-func update_correct_word(text_to_type:RichTextLabel) -> void:
-	var colored_text:String = ""
+func _user_typed(new_text) -> void:
+	# Get the current phrase to type
+	var current_phrase = current_phrases[completed_phrases]
+	var current_phrase_str = " ".join(current_phrase)
+	
+	# Check the last character that matches the current phrase
+	if new_text.strip_edges().to_lower() == current_phrase_str:
+		# User typed the whole phrase correctly, move to the next one
+		_conclude_phrase()
+	elif current_phrase_str.begins_with(new_text.strip_edges().to_lower()):
+		# User is typing correctly so far
+		has_wrong_char = false
+		line_edit.add_theme_color_override("font_color", Color.LIME_GREEN)
+	else:
+		# User typed a wrong character
+		has_wrong_char = true
+		line_edit.add_theme_color_override("font_color", Color.RED)
 
-	for colored_word in typed_correctly_words:
-		colored_text = colored_text + " " + colored_word
+func _conclude_phrase() -> void:
+	completed_phrases += 1
 
-	if splited_text_words.is_empty():
-		text_to_type.text = "[font_size=50]" + colored_text
-		player_type_space.clear()
+	# Reset line edit
+	line_edit.text = ""
+	line_edit.add_theme_color_override("font_color", Color.WHITE)
 
-		setup()
-		return
+	# Check if there are more phrases to type
+	if completed_phrases >= current_phrases.size():
+		# Hack minigame completed, emit signal to notify the main app and stop timer
+		minigame_timer.stop_timer()
+		hack_concluded.emit()
+	else:
+		# Mark current phrase as completed and update display
+		update_display()
 
-	for word in splited_text_words:
-		colored_text = colored_text + " " + word
+func _on_time_finished() -> void:
+	# Time's up, reset the minigame
+	reset_minigame()
 
-	text_to_type.text = "[font_size=50]" + colored_text
-	player_type_space.clear()
-	word = splited_text_words.pop_front()
+func reset_minigame() -> void:
+	# Generate phrases
+	current_phrases.clear()
 
+	current_phrases.append(generate_random_phrase())
 
-func push_to_queue(text: String) -> void:
-	text_sequence_queue.push_back(text)
+	for i in range(2):
+		# Generate 2 bools, 1 for each extra phrase that may be added
+		var random_bool = randf() < 0.5
+		if random_bool:
+			current_phrases.append(generate_random_phrase())
+	
+	# Reset conclusion
+	completed_phrases = 0
+	line_edit.text = ""
+	line_edit.add_theme_color_override("font_color", Color.WHITE)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if player_type_space.text == word:
-			if !text_sequence_queue.is_empty():
-				typed_correctly_words.append("[color=green]"+word+"[/color]")
-				update_correct_word(text_to_type1)
-			else:
-				typed_correctly_words.append("[color=green]"+word+"[/color]")
-				update_correct_word(text_to_type2)
+	# Reset timer
+	minigame_timer.setup(60) # 60 seconds for the minigame
+
+	update_display()

@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2c43"]
 content_margin_bottom = 30.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 5
+border_width_bottom = 2
 border_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8i7aa"]
