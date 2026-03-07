@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://da73r1l7mq3wr"]
+
+[ext_resource type="Script" uid="uid://dybft1yys40xi" path="res://scripts/apps/messages/time_indicator.gd" id="1_ee2y0"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_ol3eb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee2y0"]
+bg_color = Color(0.021434654, 0.021434627, 0.021434633, 0.57254905)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxw6v"]
+font = ExtResource("1_ol3eb")
+
+[node name="TimeIndicator" type="Control" unique_id=1237356495 node_paths=PackedStringArray("time_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ee2y0")
+time_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1916046569]
+layout_mode = 0
+offset_left = 157.5
+offset_right = 202.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ee2y0")
+label_settings = SubResource("LabelSettings_mxw6v")
+horizontal_alignment = 1
+vertical_alignment = 1
