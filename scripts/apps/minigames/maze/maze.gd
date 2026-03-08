@@ -12,6 +12,7 @@ enum Directions{
 }
 
 @export var tilemap: TileMapLayer
+@export var maze_player: Node2D
 
 var map_width: int
 var map_height: int
@@ -30,6 +31,8 @@ func _ready() -> void:
 	create_maze()
 
 	draw_maze()
+
+	maze_player.position = Vector2(25.0 * map_x_offset, 22.0 * map_y_offset)
 
 func define_maze_difficult() -> void:
 	var heigth_sizes: Array[int] = [19, 21, 23]

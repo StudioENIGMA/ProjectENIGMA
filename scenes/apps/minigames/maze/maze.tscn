@@ -2,30 +2,16 @@
 
 [ext_resource type="TileSet" uid="uid://cvvn1vsl4t5sd" path="res://resources/maze_tile_set.tres" id="1_eiwxe"]
 [ext_resource type="Script" uid="uid://bscyydv2hcxj5" path="res://scripts/apps/minigames/maze/maze.gd" id="1_ug48i"]
+[ext_resource type="PackedScene" uid="uid://dyadxwg52iqfk" path="res://scenes/apps/minigames/maze/player.tscn" id="3_cj1de"]
 
-[node name="Maze" type="Node2D" unique_id=1552520262 node_paths=PackedStringArray("tilemap")]
+[node name="Maze" type="Node2D" unique_id=1552520262 node_paths=PackedStringArray("tilemap", "maze_player")]
 script = ExtResource("1_ug48i")
-tilemap = NodePath("WallMap")
+tilemap = NodePath("MazeMap")
+maze_player = NodePath("Player")
 
-[node name="Control" type="Control" parent="." unique_id=150180086]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1828352362]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0, 0, 0, 1)
-
-[node name="WallMap" type="TileMapLayer" parent="." unique_id=1359831944]
-z_index = 10
+[node name="MazeMap" type="TileMapLayer" parent="." unique_id=1359831944]
+z_index = 1
 tile_set = ExtResource("1_eiwxe")
+
+[node name="Player" parent="." unique_id=1018759934 instance=ExtResource("3_cj1de")]
+z_index = 1

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyadxwg52iqfk"]
 
 [ext_resource type="Script" uid="uid://ciwrqrrc5edpj" path="res://scripts/apps/minigames/maze/player.gd" id="1_hqvxg"]
+[ext_resource type="Script" uid="uid://cfwu8r4p4rmdf" path="res://scripts/apps/minigames/maze/player_body.gd" id="2_emfwr"]
 [ext_resource type="Texture2D" uid="uid://dips4qgoi2uoa" path="res://assets/icons/unknow_maze.png" id="2_txulh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emfwr"]
@@ -9,9 +10,13 @@
 script = ExtResource("1_hqvxg")
 player = NodePath("CharacterBody2D")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=138341796]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=138341796 node_paths=PackedStringArray("collision_shape")]
 position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
 input_pickable = true
+script = ExtResource("2_emfwr")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2087889139]
 texture = ExtResource("2_txulh")
