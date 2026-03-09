@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bt7a2lnrb0to"]
 
-[ext_resource type="Script" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
+[ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
 
-[node name="VirusScanner" type="VBoxContainer" unique_id=810286205 node_paths=PackedStringArray("virus_result", "apps_result", "remove_virus_button", "remove_apps_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label")]
+[node name="VirusScanner" type="VBoxContainer" unique_id=810286205 node_paths=PackedStringArray("virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label", "hack_result_label")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,12 +18,15 @@ theme_override_constants/separation = 16
 script = ExtResource("1_sa0sr")
 virus_result = NodePath("VirusResult")
 apps_result = NodePath("AppsResult")
+hack_result = NodePath("HackResult")
 remove_virus_button = NodePath("VirusResult/MarginContainer/RemoveVirusButton")
 remove_apps_button = NodePath("AppsResult/MarginContainer/UnninstallButton")
+remove_hack_button = NodePath("HackResult/MarginContainer/UnhackButton")
 scan_button = NodePath("ScannerButton")
 scan_timer = NodePath("ScanTimer")
 virus_result_label = NodePath("VirusResult/VirusLabel")
 apps_result_label = NodePath("AppsResult/AppsLabel")
+hack_result_label = NodePath("HackResult/UnhackLabel")
 
 [node name="ScannerButton" type="Button" parent="." unique_id=896499335]
 layout_mode = 2
@@ -67,6 +70,25 @@ theme_override_constants/margin_right = 16
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Desinstalar Aplicativos"
+
+[node name="HackResult" type="VBoxContainer" parent="." unique_id=54324658]
+layout_mode = 2
+
+[node name="UnhackLabel" type="Label" parent="HackResult" unique_id=1533226930]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 18
+text = "Hack detectado:"
+
+[node name="MarginContainer" type="MarginContainer" parent="HackResult" unique_id=1045503287]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="UnhackButton" type="Button" parent="HackResult/MarginContainer" unique_id=565616793]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Deshackear"
 
 [node name="ScanTimer" type="Timer" parent="." unique_id=1178492530]
 wait_time = 3.0
