@@ -25,11 +25,8 @@ func on_clock_tick() -> void:
 
 	GameData.current_hack_probability += hack_probability_increment
 
-	print(GameData.current_hack_probability)
-
 	var random_value = randi_range(0, 100)
 	if random_value < GameData.current_hack_probability * 100:
-		print("Hacked!")
 		GameData.is_hacked = true
 		send_hack_notification.emit()
 

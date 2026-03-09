@@ -300,6 +300,10 @@ func _on_back_button_pressed() -> void:
 	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
 	var current_app = _get_app_by_enum(current_app_enum)
+	var hack_minigames = [
+		GameData.App.FASTTYPING,
+	]
+	var was_hack_minigame = current_app_enum in hack_minigames
 
 	# Hide the current app
 	current_app.visible = false
@@ -325,6 +329,10 @@ func _on_back_button_pressed() -> void:
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
+	
+	# Hack minigames hide notification UI while active. Restore it when minigame closes.
+	if was_hack_minigame:
+		notification_ui.visible = true
 
 ## Handles the close app button press event
 func _on_close_app_button_pressed() -> void:

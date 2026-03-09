@@ -100,9 +100,9 @@ var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 10 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
-var hack_immunity_ticks: int = 0 # Number of ticks of immunity after being hacked
+var hack_immunity_ticks: int = 30 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 1
