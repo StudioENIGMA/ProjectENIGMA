@@ -85,6 +85,7 @@ var cart_enum_to_shop_enum = {
 
 var bank_balance: float = 200
 
+var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 6:00
 var hours_minutes:int = 600 # This one will increase with time
 var max_hours_minutes:int = 1200 # End at 12:00
@@ -267,6 +268,24 @@ func hours_minutes_as_string(relative_time: int) -> String:
 	var current_hour:int = int(current_day_minutes / 60)
 	var current_minute:int = int(current_day_minutes) % 60
 	return "%02d:%02d" % [current_hour, current_minute]
+
+func get_current_date_dict() -> Dictionary:
+	var current_date_dict: Dictionary = start_date_dict.duplicate(true)
+
+	# Gets the current system timezone offset (in minutes)
+	var tz = Time.get_time_zone_from_system()
+	var offset_seconds = tz.bias * 60
+
+	# Converts to Unix timestamp, but add the offset to correct it
+	# We add the offset because Godot treats the input as UTC.
+	# By adding the offset, we "shift" the local time into true UTC.
+	var utc_unix = Time.get_unix_time_from_datetime_dict(current_date_dict) + offset_seconds
+
+	# 3. Adds the current day (86,400 seconds)
+	var next_day_utc = utc_unix + current_day * 86400
+
+	# Convert back to dictionary and subtract the offset to return to local time
+	return Time.get_datetime_dict_from_unix_time(next_day_utc - offset_seconds)
 
 func export_game_data_for_tools() -> void:
 	var file_path = "res://data/exported_game_data.json"
