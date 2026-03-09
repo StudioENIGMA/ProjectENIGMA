@@ -66,3 +66,11 @@ func _on_notification_timer_timeout() -> void:
 	# If other notifications are in the queue, send the next one
 	if notification_array.size() > 0:
 		send_notification(notification_array[0])
+
+func send_hack_notification() -> void:
+	add_notification_to_queue(
+		GameData.App.HACK,
+		"V3RIFIQU3 0 SC4NN3R",
+		"V0CÊ F0I H4CK34D0!",
+		0
+	)

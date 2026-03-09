@@ -30,6 +30,7 @@ func _ready() -> void:
   event_handler.clock_tick.connect(_on_clock_tick)
   # Event handler hack event to UI
   event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
+  event_handler.hack_handler.send_hack_notification.connect(ui.notifications_control.send_hack_notification)
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
