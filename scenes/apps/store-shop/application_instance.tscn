@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1qfm0rk4ahe5"]
+[gd_scene format=3 uid="uid://1qfm0rk4ahe5"]
 
 [ext_resource type="Script" uid="uid://dgjx6w2dl8b6y" path="res://scripts/apps/both_shops/application_instance.gd" id="1_c7dlv"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_5uj2r"]
@@ -19,11 +19,13 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="ApplicationInstance" type="Control" node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button")]
-custom_minimum_size = Vector2(1000, 200)
+[node name="ApplicationInstance" type="Control" unique_id=681096564 node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button")]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 3
-anchors_preset = 0
-offset_bottom = 130.0
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_bottom = -64.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("1_c7dlv")
@@ -31,67 +33,63 @@ app_icon = NodePath("HBoxContainer/AppIcon")
 app_name_label = NodePath("HBoxContainer/TextDescription/AppNameLabel")
 app_description_label = NodePath("HBoxContainer/TextDescription/AppDescriptionLabel")
 interact_button = NodePath("HBoxContainer/AppButton")
-metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(1000, 200)
-layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 200.0
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1897928754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1211746212]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
-[node name="AppIcon" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="AppIcon" type="TextureRect" parent="HBoxContainer" unique_id=372036378]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("4_1a3t7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CenterMargin" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="TextDescription" type="VBoxContainer" parent="HBoxContainer" unique_id=1920478587]
 layout_mode = 2
-
-[node name="TextDescription" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_constants/separation = -4
 
-[node name="AppNameLabel" type="Label" parent="HBoxContainer/TextDescription"]
+[node name="AppNameLabel" type="Label" parent="HBoxContainer/TextDescription" unique_id=1827286809]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 16
 text = "Nome do Aplicativo"
 
-[node name="AppDescriptionLabel" type="Label" parent="HBoxContainer/TextDescription"]
-custom_minimum_size = Vector2(400, 0)
+[node name="AppDescriptionLabel" type="Label" parent="HBoxContainer/TextDescription" unique_id=1028123814]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ygwm0")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 12
 text = "Descrição Do Aplicativo"
-autowrap_mode = 3
 
-[node name="CenterMargin2" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-
-[node name="AppButton" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(256, 120)
+[node name="AppButton" type="Button" parent="HBoxContainer" unique_id=882987288]
+custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjihv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fjihv")
 text = "Abrir
 "
+
+[node name="RightMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1184436804]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/AppButton" to="." method="_on_app_button_pressed"]

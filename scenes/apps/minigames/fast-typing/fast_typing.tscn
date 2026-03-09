@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b88v1fo4yrqrt"]
+
+[ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
+[ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
+[ext_resource type="PackedScene" uid="uid://cpc47dpgdkxt8" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
+bg_color = Color(0.16862746, 1, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16862746, 1, 0, 1)
+
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "phrases_vbox", "minigame_timer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+script = ExtResource("1_j12ft")
+line_edit = NodePath("MarginContainer/VBoxContainer/LineEditContainer/LineEdit")
+phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhrasesContainer")
+minigame_timer = NodePath("MarginContainer/VBoxContainer/MinigameTimer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=399654397]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="MinigameTimer" parent="MarginContainer/VBoxContainer" unique_id=743981125 instance=ExtResource("2_w44rq")]
+layout_mode = 2
+
+[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1535581066]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcuuw")
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/LineEditContainer" unique_id=1677715837]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/caret_color = Color(0.16862746, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Digite as frases acima"
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+caret_force_displayed = true

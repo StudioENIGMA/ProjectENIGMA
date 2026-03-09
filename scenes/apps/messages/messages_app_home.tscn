@@ -1,23 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app_home.gd" id="1_jwkj7"]
 
-[node name="MessagesAppHome" type="Control" node_paths=PackedStringArray("list_of_chats")]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="MessagesAppHome" type="Control" unique_id=1164578380 node_paths=PackedStringArray("list_of_chats")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jwkj7")
 list_of_chats = NodePath("MessagesScrollContainer/ListOfChats")
 
-[node name="MessagesScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(1080, 2160)
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 2160.0
+[node name="MessagesScrollContainer" type="ScrollContainer" parent="." unique_id=1809766873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ListOfChats" type="VBoxContainer" parent="MessagesScrollContainer"]
-custom_minimum_size = Vector2(1080, 2160)
+[node name="ListOfChats" type="VBoxContainer" parent="MessagesScrollContainer" unique_id=1987720290]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
