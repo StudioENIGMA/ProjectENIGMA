@@ -8,6 +8,7 @@ extends Control
 @export var ll_hex : Node2D
 @export var lr_hex : Node2D
 @export var path_generator : Node
+@export var minigame_timer : Node
 
 
 var hexagons = []
@@ -23,12 +24,14 @@ func _ready() -> void:
 	lr_hex.rotation_click.connect(update_rotation.bind(4))
 	ll_hex.rotation_click.connect(update_rotation.bind(5))
 	l_hex.rotation_click.connect(update_rotation.bind(6))
+	setup()
+	
 
+func setup() -> void :
 	path_generator.generate()
 	create_hexagons_node_array()
 	set_lines()
 	randomize_rotation()
-
 
 func get_hexagon_path(hexagon_array):
 	hexagons = hexagon_array

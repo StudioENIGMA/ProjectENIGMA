@@ -92,6 +92,7 @@ func generate_hexagons(hexagon_array: Array) -> void:
 
 	if r_hexagon["vertex_positions"].has(4):
 		lr_hexagon["vertex_positions"].append(1)
+		lr_hexagon["vertex_number"] += 1
 
 	# LOWER LEFT
 	if mid_hexagon["vertex_positions"].has(4):
@@ -107,6 +108,7 @@ func generate_hexagons(hexagon_array: Array) -> void:
 
 	if lr_hexagon["vertex_positions"].has(5):
 		ll_hexagon["vertex_positions"].append(2)
+		ll_hexagon["vertex_number"] += 1
 
 	# LEFT
 	if mid_hexagon["vertex_positions"].has(5):
