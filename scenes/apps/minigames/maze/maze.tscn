@@ -4,14 +4,27 @@
 [ext_resource type="Script" uid="uid://bscyydv2hcxj5" path="res://scripts/apps/minigames/maze/maze.gd" id="1_ug48i"]
 [ext_resource type="PackedScene" uid="uid://dyadxwg52iqfk" path="res://scenes/apps/minigames/maze/player.tscn" id="3_cj1de"]
 
-[node name="Maze" type="Node2D" unique_id=1552520262 node_paths=PackedStringArray("tilemap", "maze_player")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj1de"]
+
+[node name="Maze" type="Node2D" unique_id=1552520262 node_paths=PackedStringArray("tilemap", "maze_player", "goal_area")]
 script = ExtResource("1_ug48i")
 tilemap = NodePath("MazeMap")
 maze_player = NodePath("Player")
+goal_area = NodePath("Area2D")
 
 [node name="MazeMap" type="TileMapLayer" parent="." unique_id=1359831944]
 z_index = 1
+scale = Vector2(1.2, 1.2)
 tile_set = ExtResource("1_eiwxe")
 
 [node name="Player" parent="." unique_id=1018759934 instance=ExtResource("3_cj1de")]
 z_index = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=638970106]
+z_index = 1
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1385065448]
+position = Vector2(168, 576)
+shape = SubResource("RectangleShape2D_cj1de")

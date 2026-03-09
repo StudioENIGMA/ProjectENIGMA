@@ -5,13 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://cla21bmg2dgrh" path="res://assets/icons/path_maze.png" id="3_qf5u5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nns82"]
+friction = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cosw"]
 resource_name = "BLOCKED_WALL"
 texture = ExtResource("1_nns82")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.093645, -7.733925, 8.453358, -7.733925, 8.273499, 8.093643, -8.093645, 8.093643)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ijvx"]
 resource_name = "HIDDEN_PATH"
@@ -29,6 +30,7 @@ texture_region_size = Vector2i(20, 20)
 tile_size = Vector2i(20, 20)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
+physics_layer_0/collision_priority = 0.01
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_nns82")
 sources/0 = SubResource("TileSetAtlasSource_4cosw")
 sources/1 = SubResource("TileSetAtlasSource_6ijvx")

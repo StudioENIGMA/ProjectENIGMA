@@ -4,17 +4,20 @@
 [ext_resource type="Script" uid="uid://cfwu8r4p4rmdf" path="res://scripts/apps/minigames/maze/player_body.gd" id="2_emfwr"]
 [ext_resource type="Texture2D" uid="uid://dips4qgoi2uoa" path="res://assets/icons/unknow_maze.png" id="2_txulh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_emfwr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_txulh"]
 
-[node name="Player" type="Node2D" unique_id=1018759934 node_paths=PackedStringArray("player")]
+[node name="Player" type="Node2D" unique_id=1018759934 node_paths=PackedStringArray("player_body")]
 script = ExtResource("1_hqvxg")
-player = NodePath("CharacterBody2D")
+player_body = NodePath("CharacterBody2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=138341796 node_paths=PackedStringArray("collision_shape")]
 position = Vector2(20, 20)
-scale = Vector2(0.8, 0.8)
 collision_layer = 2
 input_pickable = true
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
+safe_margin = 0.001
 script = ExtResource("2_emfwr")
 collision_shape = NodePath("CollisionShape2D")
 
@@ -22,4 +25,4 @@ collision_shape = NodePath("CollisionShape2D")
 texture = ExtResource("2_txulh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=328415649]
-shape = SubResource("RectangleShape2D_emfwr")
+shape = SubResource("CircleShape2D_txulh")
