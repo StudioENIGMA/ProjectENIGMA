@@ -117,9 +117,9 @@ var apps_name: Dictionary = {
 	"PasswordManager": App.PASSWORDMANAGER,
 	# Store apps
 	"Store": App.STORE,
-	"FakeStore": App.FAKESTORE,
+	"fake_store": App.FAKESTORE,
 	# Browser
-	"Browser": App.BROWSER,
+	"browser": App.BROWSER,
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
@@ -218,8 +218,8 @@ var apps_chinese_operations = {
 	"open": "阿布里爾"
 }
 
-var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL, App.BROWSER]
-var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 var available_updates: Array[App] = []
 
 func _ready() -> void:
