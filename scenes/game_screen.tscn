@@ -165,10 +165,11 @@ position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
 
-[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui") instance=ExtResource("3_qca60")]
+[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui", "notification_ui") instance=ExtResource("3_qca60")]
 visible = false
 layout_mode = 1
 apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
+notification_ui = NodePath("../NotificationUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 z_index = 50

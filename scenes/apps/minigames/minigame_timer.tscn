@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpc47dpgdkxt8"]
+
+[ext_resource type="Script" uid="uid://74th4xut3snq" path="res://scripts/apps/minigames/minigame_timer.gd" id="1_25ebd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aoikp"]
+bg_color = Color(0.6, 0.9490196, 0.09803922, 1)
+
+[node name="RemainingTimeBar" type="ProgressBar" unique_id=159806396]
+custom_minimum_size = Vector2(0, 32)
+layout_direction = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_aoikp")
+max_value = 60.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("1_25ebd")

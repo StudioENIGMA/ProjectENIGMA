@@ -8,32 +8,56 @@ extends VBoxContainer
 @export var weekday_label: Label
 #endregion
 
-var current_weekday_int:int = 4
-var current_weekday_string:String = "Quinta"
-var current_month_string:String = "Setembro" # Hardcoded for now, probably won't change in-game
-var current_day:int = 11 + GameData.current_day # Start at 11th
+func get_date_string() -> String:
+	var current_date_dict = GameData.get_current_date_dict()
 
-func update_weekday(day_increment:int) -> void:
-	# Update the current_day
-	current_day = current_day + day_increment
-
+	var current_weekday_string = ""
 	# Update the current_weekday_string
-	current_weekday_int = (current_weekday_int + day_increment) % 7
-	match current_weekday_int:
-		1:
+	match current_date_dict["weekday"]:
+		Time.Weekday.WEEKDAY_MONDAY:
 			current_weekday_string = "Segunda"
-		2:
+		Time.Weekday.WEEKDAY_TUESDAY:
 			current_weekday_string = "Terça"
-		3:
+		Time.Weekday.WEEKDAY_WEDNESDAY:
 			current_weekday_string = "Quarta"
-		4:
+		Time.Weekday.WEEKDAY_THURSDAY:
 			current_weekday_string = "Quinta"
-		5:
+		Time.Weekday.WEEKDAY_FRIDAY:
 			current_weekday_string = "Sexta"
-		6:
+		Time.Weekday.WEEKDAY_SATURDAY:
 			current_weekday_string = "Sábado"
-		0:
+		Time.Weekday.WEEKDAY_SUNDAY:
 			current_weekday_string = "Domingo"
+
+	var current_month_string = ""
+	# Update the current_weekday_string
+	match current_date_dict["month"]:
+		Time.Month.MONTH_JANUARY:
+			current_month_string = "Janeiro"
+		Time.Month.MONTH_FEBRUARY:
+			current_month_string = "Fevereiro"
+		Time.Month.MONTH_MARCH:
+			current_month_string = "Março"
+		Time.Month.MONTH_APRIL:
+			current_month_string = "Abril"
+		Time.Month.MONTH_MAY:
+			current_month_string = "Maio"
+		Time.Month.MONTH_JUNE:
+			current_month_string = "Junho"
+		Time.Month.MONTH_JULY:
+			current_month_string = "Julho"
+		Time.Month.MONTH_AUGUST:
+			current_month_string = "Agosto"
+		Time.Month.MONTH_SEPTEMBER:
+			current_month_string = "Setembro"
+		Time.Month.MONTH_OCTOBER:
+			current_month_string = "Outubro"
+		Time.Month.MONTH_NOVEMBER:
+			current_month_string = "Novembro"
+		Time.Month.MONTH_DECEMBER:
+			current_month_string = "Dezembro"
+
+	return "%s, %s %s" % [current_weekday_string, str(current_date_dict["day"]), current_month_string]
 
 func update_clock_display(current_hour:int, current_minute:int) -> void:
 	# Format time with leading zeros
@@ -47,4 +71,4 @@ func update_clock_display(current_hour:int, current_minute:int) -> void:
 
 	# Update the RichTextLabel content
 	time_label.text = hour_string
-	weekday_label.text = current_weekday_string + ", " + str(current_day) + " " + current_month_string
+	weekday_label.text = get_date_string()

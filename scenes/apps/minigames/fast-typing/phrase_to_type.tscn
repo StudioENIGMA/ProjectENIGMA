@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dlougih6ppbnw"]
+
+[ext_resource type="Script" uid="uid://4dyyq45qqf30" path="res://scripts/apps/minigames/fast-typing/phrase_to_type.gd" id="1_ctqnj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
+bg_color = Color(0.16862746, 1, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16862746, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctqnj"]
+bg_color = Color(0.108750015, 0.108750015, 0.108750015, 1)
+
+[node name="Phrase1Border" type="PanelContainer" unique_id=1831462153 node_paths=PackedStringArray("phrase_label", "index_label")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcuuw")
+script = ExtResource("1_ctqnj")
+phrase_label = NodePath("Phrase1/ExpectedPhrase")
+index_label = NodePath("Phrase1/NumberBackground/Number")
+
+[node name="Phrase1" type="HBoxContainer" parent="." unique_id=1129574547]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="NumberBackground" type="PanelContainer" parent="Phrase1" unique_id=225351027]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctqnj")
+
+[node name="Number" type="Label" parent="Phrase1/NumberBackground" unique_id=1812067514]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="ExpectedPhrase" type="RichTextLabel" parent="Phrase1" unique_id=911795912]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+text = "SamplePhrase SamplePhrase SamplePhrase SamplePhrase"
+vertical_alignment = 1

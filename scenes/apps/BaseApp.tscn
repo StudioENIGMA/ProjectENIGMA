@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cm3aeep5vsikl" path="res://assets/icons/x.svg" id="3_8sayc"]
 [ext_resource type="Script" uid="uid://dm05wp1j0pade" path="res://scripts/apps/top_bar_clock_label.gd" id="4_04ele"]
 
-[node name="BaseApp" type="Control" unique_id=1808972621 node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen")]
+[node name="BaseApp" type="Control" unique_id=1808972621 node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen", "hack_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,8 +17,8 @@ grow_vertical = 2
 script = ExtResource("1_8sayc")
 close_app_button = NodePath("TopBar/TopBarIcons/CloseAppContainer/CloseAppButton")
 back_button = NodePath("TopBar/TopBarIcons/BackButtonContainer/BackButton")
-desktop_ui = NodePath("TopBar")
 app_specific_screen = NodePath("AppSpecificScreen")
+hack_screen = NodePath("HackScreen")
 
 [node name="BaseBackgroundColor" type="ColorRect" parent="." unique_id=1453402197]
 layout_mode = 1
@@ -136,3 +136,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
+
+[node name="HackScreen" type="Control" parent="." unique_id=1202790988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+mouse_filter = 2
