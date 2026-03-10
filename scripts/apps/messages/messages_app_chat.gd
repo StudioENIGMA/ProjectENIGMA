@@ -45,6 +45,7 @@ const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 
 @export var avatar_rect: TextureRect
 @export var name_label: Label
+@export var verified_rect: TextureRect
 
 var conversation_name:String = ""
 var messages_typing: Dictionary = {}
@@ -64,7 +65,7 @@ func _ready() -> void:
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
-	set_header_panel()
+	set_header_panel(conversation_data["verified"])
 
 	answers_bar.set_active_conversation(conversation_name)
 	answers_bar.clear_ui()
@@ -192,7 +193,8 @@ func on_request_answer_option(
 		answer_id
 	)
 
-func set_header_panel() -> void:
+func set_header_panel(is_verified: bool) -> void:
 	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
 	avatar_rect.texture = load(photo_path)
 	name_label.text = conversation_name
+	verified_rect.visible = true if is_verified else false

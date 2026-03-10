@@ -63,6 +63,7 @@ func on_send_message(
 		conversations_data.push_front({
 			"name":npc_name,
 			"photo":photo_path,
+			"verified": GameData.verified_contacts.has(npc_name),
 			"messages":[{
 				"message":message,
 				"annex":annex,

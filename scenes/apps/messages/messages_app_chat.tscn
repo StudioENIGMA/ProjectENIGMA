@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="2_wcops"]
 [ext_resource type="Script" uid="uid://bb2ycrpcduebj" path="res://scripts/utils/max_size_label.gd" id="3_f5yby"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_u5pol"]
+[ext_resource type="Texture2D" uid="uid://dg538esstxeq3" path="res://assets/icons/verified.svg" id="5_tjy8d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf2si"]
 bg_color = Color(0.015686275, 0.105882354, 0.22745098, 0.9137255)
@@ -15,7 +16,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_top = 2
 border_color = Color(0.12156863, 0.14117648, 0.19607843, 1)
 
-[node name="MessagesAppChat" type="Control" unique_id=1068585976 node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container", "avatar_rect", "name_label")]
+[node name="MessagesAppChat" type="Control" unique_id=1068585976 node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container", "avatar_rect", "name_label", "verified_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,7 @@ answers_bar = NodePath("CenterContainer/AnswersBar")
 scroll_container = NodePath("MessagesScrollContainer")
 avatar_rect = NodePath("PanelContainer/HBoxContainer/AvatarRect")
 name_label = NodePath("PanelContainer/HBoxContainer/NameLabel")
+verified_rect = NodePath("PanelContainer/HBoxContainer/VerifiedRect")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1480692123]
 layout_mode = 1
@@ -64,6 +66,17 @@ text = "Chefinho"
 vertical_alignment = 1
 script = ExtResource("3_f5yby")
 MAX_WIDTH = 150.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=277448958]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="VerifiedRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=512255077]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_tjy8d")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="." unique_id=1928195733]
 layout_mode = 1
