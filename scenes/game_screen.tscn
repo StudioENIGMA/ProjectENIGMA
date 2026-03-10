@@ -36,7 +36,7 @@ shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 2.0
 
-[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director")]
+[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +49,7 @@ script = ExtResource("1_8imdr")
 ui = NodePath("UI")
 event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
+progressive_blur = NodePath("progressiveBlur")
 
 [node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui")]
 layout_mode = 1
