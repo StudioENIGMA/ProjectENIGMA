@@ -48,8 +48,8 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_fonts/font = ExtResource("1_yluvu")
-theme_override_font_sizes/font_size = 16
-text = "Lorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum Dolo"
+theme_override_font_sizes/font_size = 13
+text = "Lorem"
 vertical_alignment = 1
 autowrap_mode = 3
 

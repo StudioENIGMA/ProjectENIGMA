@@ -33,7 +33,8 @@ func _ready() -> void:
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
-  story_director.messages_director.npc_message_created.connect(messages_app_home.on_create_message)
+  story_director.messages_director.npc_message_sent.connect(messages_app_home.on_send_message)
+  story_director.messages_director.npc_message_sent.connect(messages_app_chat.on_send_message)
   story_director.messages_director.npc_message_created.connect(messages_app_chat.on_create_message)
   # Story Director request answer option to UI
   answers_director.request_answer_option.connect(
