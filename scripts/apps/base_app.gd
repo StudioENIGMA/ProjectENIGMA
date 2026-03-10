@@ -260,7 +260,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	if optional_data != null:
 		specific_app.setup(optional_data)
-	
+
 	specific_app.visible = true
 	notification_ui.visible = true
 
@@ -329,7 +329,7 @@ func _on_back_button_pressed() -> void:
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		var previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
-	
+
 	# Hack minigames hide notification UI while active. Restore it when minigame closes.
 	if was_hack_minigame:
 		notification_ui.visible = true
