@@ -53,6 +53,8 @@ func on_send_message(
 		func(conversation:Dictionary):return conversation["name"] == npc_name
 	)
 
+	var current_date_dict = GameData.get_current_date_dict()
+
 	# Create new conversation if it doesn't exist
 	if conversation_index == -1:
 		var photo_path = str("res://assets/avatars/", npc_name, ".png")
@@ -66,7 +68,8 @@ func on_send_message(
 				"annex":annex,
 				"sender":sender,
 				"time":time,
-				"visualized":false
+				"visualized":false,
+				"date_dict": current_date_dict
 			}],
 			"options":[]
 		})
@@ -77,7 +80,8 @@ func on_send_message(
 			"annex":annex,
 			"sender":sender,
 			"time":time,
-			"visualized":false
+			"visualized":false,
+			"date_dict": current_date_dict
 		})
 
 		# Move conversation to the top of the list

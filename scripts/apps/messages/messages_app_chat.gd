@@ -37,6 +37,7 @@ signal delete_answers(npc_name:String)
 
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
+const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 
 @export var messages_list:VBoxContainer
 @export var answers_bar:HBoxContainer
@@ -68,7 +69,19 @@ func setup(conversation_data:Dictionary) -> void:
 		messages_list.remove_child(child_node)
 		child_node.queue_free()
 
+	var current_date_dict = conversation_data["messages"][0].date_dict
+
+	var time_indicator_instance = TIME_INDICATOR.instantiate()
+	messages_list.add_child(time_indicator_instance)
+	time_indicator_instance.setup(current_date_dict)
+
 	for message in conversation_data["messages"]:
+		if message.date_dict != current_date_dict:
+			current_date_dict = message.date_dict
+			var time_instance = TIME_INDICATOR.instantiate()
+			messages_list.add_child(time_instance)
+			time_instance.setup(current_date_dict)
+
 		var message_instance:HBoxContainer;
 		if message.sender == GameData.Sender.PLAYER:
 			message_instance = MY_MESSAGE.instantiate()
