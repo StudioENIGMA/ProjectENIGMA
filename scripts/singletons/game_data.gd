@@ -82,6 +82,8 @@ var cart_enum_to_shop_enum = {
 	App.BROWSERAECCART: App.BROWSERAECSHOP
 }
 
+var verified_contacts = ["Chefinho"]
+
 var bank_balance: float = 200
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
