@@ -119,10 +119,6 @@ func setup(conversation_data:Dictionary) -> void:
 
 func on_create_message(
 	npc_name:String,
-	_message:String,
-	_annex:Dictionary,
-	_sender:GameData.Sender,
-	_time:int
 ) -> void:
 	messages_typing[npc_name] = true
 	if npc_name != conversation_name:

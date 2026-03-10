@@ -124,10 +124,6 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	# Emit NPC message
 	npc_message_created.emit(
 		thread.get("sender", thread_id),
-		message_node.get("text", ""),
-		message_node.get("annex", {}),
-		GameData.Sender.NPC,
-		current_minutes
 	)
 
 	## Await animation time
