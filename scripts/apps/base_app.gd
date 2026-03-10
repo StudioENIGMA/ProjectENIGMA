@@ -104,7 +104,7 @@ func _ready() -> void:
 	messages_app_chat.visible = false
 	messages_app_chat.message_answered.connect(message_answered.emit) # Propagate signal to UI
 	messages_app_chat.request_message_creation_on_answer.connect(
-		messages_app_home.on_create_message # Propagate signal to app home
+		messages_app_home.on_send_message # Propagate signal to app home
 	)
 	messages_app_chat.storage_answer.connect(
 		messages_app_home.on_player_answer # Propagate signal to app home
