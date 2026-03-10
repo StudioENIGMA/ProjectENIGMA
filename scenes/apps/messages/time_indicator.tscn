@@ -16,23 +16,33 @@ expand_margin_right = 2.0
 font = ExtResource("1_ol3eb")
 
 [node name="TimeIndicator" type="Control" unique_id=1237356495 node_paths=PackedStringArray("time_label")]
+custom_minimum_size = Vector2(0, 22)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -618.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_ee2y0")
 time_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=1916046569]
-layout_mode = 0
-offset_left = 157.5
-offset_right = 202.5
-offset_bottom = 22.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.0
+offset_right = 22.5
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ee2y0")
+text = "Hoje"
 label_settings = SubResource("LabelSettings_mxw6v")
 horizontal_alignment = 1
 vertical_alignment = 1
