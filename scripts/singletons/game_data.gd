@@ -42,6 +42,7 @@ enum App {
 	PAYMENTINFORMATION,
 	# Hack minigames
 	FASTTYPING,
+	LINECONNECT,
 }
 
 enum HackMinigame {

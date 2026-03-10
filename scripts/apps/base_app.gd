@@ -69,6 +69,9 @@ var virus_scanner = preload(
 var fast_typing = preload(
 	"res://scenes/apps/minigames/fast-typing/fast_typing.tscn"
 ).instantiate()
+var line_connect = preload(
+	"res://scenes/apps/minigames/connect_paths/connect_paths.tscn"
+).instantiate()
 var update_os_screen = preload(
 	"res://scenes/settings/update_os.tscn"
 ).instantiate()
@@ -240,6 +243,11 @@ func _ready() -> void:
 	fast_typing.hack_concluded.connect(_on_back_button_pressed)
 	hack_screen.add_child(fast_typing)
 
+	# Hack minigame line connect (Hack minigames)
+	line_connect.visible = false
+	line_connect.hack_concluded.connect(_on_back_button_pressed)
+	hack_screen.add_child(line_connect)
+
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Show top bar when an app is opened
@@ -267,6 +275,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# If is a hack minigame, do not show back or close buttons
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
+		GameData.App.LINECONNECT,
 	]
 	if main_app in hack_minigames:
 		hack_screen.visible = true
@@ -385,13 +394,13 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 	match hack_minigame:
 		GameData.HackMinigame.FASTTYPING:
-			_on_app_opened(GameData.App.FASTTYPING)
+			_on_app_opened(GameData.App.LINECONNECT)
 		GameData.HackMinigame.MAZE:
-			_on_app_opened(GameData.App.FASTTYPING)
+			_on_app_opened(GameData.App.LINECONNECT)
 		GameData.HackMinigame.LINECONNECT:
-			_on_app_opened(GameData.App.FASTTYPING)
+			_on_app_opened(GameData.App.LINECONNECT)
 		_:
-			_on_app_opened(GameData.App.FASTTYPING)
+			_on_app_opened(GameData.App.LINECONNECT)
 
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
@@ -433,6 +442,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.PASSWORDCHANGE: password_change_dialog,
 		# Hack minigames
 		GameData.App.FASTTYPING: fast_typing,
+		GameData.App.LINECONNECT: line_connect,
 	}
 	return app_map.get(app_enum, null)
 
@@ -475,5 +485,6 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PASSWORDCHANGE: GameData.App.PASSWORDMANAGER,
 		# Hack minigames
 		GameData.App.FASTTYPING: GameData.App.FASTTYPING,
+		GameData.App.LINECONNECT: GameData.App.LINECONNECT,
 	}
 	return main_app_map.get(subscreen_enum, null)

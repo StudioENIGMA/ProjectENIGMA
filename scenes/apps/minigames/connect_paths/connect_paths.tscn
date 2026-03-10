@@ -11,7 +11,6 @@ bg_color = Color(0, 0, 0, 1)
 [node name="ConnectPaths" type="Control" unique_id=1377028313 node_paths=PackedStringArray("mid_hex", "ul_hex", "ur_hex", "l_hex", "r_hex", "ll_hex", "lr_hex", "path_generator", "minigame_timer")]
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 2
 script = ExtResource("1_3v8es")
 mid_hex = NodePath("Panel/MidHex")
 ul_hex = NodePath("Panel/UlHex")
@@ -60,3 +59,5 @@ offset_bottom = 50.0
 
 [node name="PathGenerator" type="Node" parent="." unique_id=371390664]
 script = ExtResource("3_1gj6j")
+
+[connection signal="timer_finished" from="Panel/RemainingTimeBar" to="." method="_on_time_finished"]

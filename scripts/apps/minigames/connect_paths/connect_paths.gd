@@ -1,5 +1,7 @@
 extends Control
 
+signal hack_concluded
+
 @export var mid_hex : Node2D
 @export var ul_hex : Node2D
 @export var ur_hex : Node2D
@@ -8,7 +10,7 @@ extends Control
 @export var ll_hex : Node2D
 @export var lr_hex : Node2D
 @export var path_generator : Node
-@export var minigame_timer : Node
+@export var minigame_timer : ProgressBar
 
 
 var hexagons = []
@@ -32,6 +34,7 @@ func setup() -> void :
 	create_hexagons_node_array()
 	set_lines()
 	randomize_rotation()
+	minigame_timer.setup(10)
 
 func get_hexagon_path(hexagon_array):
 	hexagons = hexagon_array
@@ -114,5 +117,9 @@ func check_rotations():
 			break
 
 	if check:
-		print("concluiu minigame")
+		minigame_timer.stop_timer()
+		hack_concluded.emit()
+
+func _on_time_finished() -> void:
+	setup()
 		
