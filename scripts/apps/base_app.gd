@@ -260,7 +260,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	if optional_data != null:
 		specific_app.setup(optional_data)
-
+	elif specific_app.has_method("setup"):
+		specific_app.setup()
+	
 	specific_app.visible = true
 	notification_ui.visible = true
 

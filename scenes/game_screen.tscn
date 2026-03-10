@@ -249,17 +249,11 @@ theme_override_font_sizes/font_size = 30
 text = "Dia"
 icon_alignment = 1
 
-[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("day_over_timer", "clock_timer", "hack_handler")]
+[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("clock_timer", "hack_handler")]
 visible = false
 script = ExtResource("6_pur81")
-day_over_timer = NodePath("DayOverTimer")
 clock_timer = NodePath("ClockTimer")
 hack_handler = NodePath("HackHandler")
-
-[node name="DayOverTimer" type="Timer" parent="EventHandler" unique_id=1470514722]
-wait_time = 600.0
-one_shot = true
-autostart = true
 
 [node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
 autostart = true
