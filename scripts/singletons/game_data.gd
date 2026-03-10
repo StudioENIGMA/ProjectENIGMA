@@ -117,9 +117,9 @@ var apps_name: Dictionary = {
 	"PasswordManager": App.PASSWORDMANAGER,
 	# Store apps
 	"Store": App.STORE,
-	"FakeStore": App.FAKESTORE,
+	"fake_store": App.FAKESTORE,
 	# Browser
-	"Browser": App.BROWSER,
+	"browser": App.BROWSER,
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
