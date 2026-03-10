@@ -58,6 +58,7 @@ func _ready() -> void:
 	sound_signaler.connect("set_double_tempo", set_double_tempo)
 	sound_signaler.connect("set_music", set_music)
 	sound_signaler.connect("set_should_generate_music", set_should_generate_music)
+	sound_signaler.connect("start_music_early", on_start_music_early)
 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), convert_float_to_db(50.0))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), convert_float_to_db(50.0))
@@ -133,8 +134,8 @@ func play_music():
 
 		# print("play")
 		update_half_bar_stems()
-		if not double_tempo:
-			update_full_bar_stems()
+		# if not double_tempo:
+		update_full_bar_stems()
 	elif tick == int(bar_size / 2.0):
 		update_half_bar_stems()
 
@@ -149,14 +150,22 @@ func play_music():
 
 func check_for_music():
 	if current_music != null:
+		set_should_generate_music(false)
 		return
 
 	current_stem = 0
 	if not musics.is_empty():
 		current_music = musics.pop_front()
+		set_double_tempo(current_music.double_tempo)
+		set_melody_modulation(current_music.modulated_melody)
 		set_should_generate_music(false)
 	else:
+		set_double_tempo(false)
+		set_melody_modulation(false)
 		set_should_generate_music(true)
+
+func on_start_music_early():
+	stop_music_next_frame = true
 
 func set_music(music : Music):
 	current_music = music

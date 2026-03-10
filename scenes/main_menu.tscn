@@ -28,10 +28,8 @@ visible = false
 position = Vector2(2, 13)
 scale = Vector2(1.54229, 1.87636)
 texture = ExtResource("1_l6cm7")
-expand_mode = 1
 
 [node name="ButtonsMargin" type="MarginContainer" parent="." unique_id=143529880]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,7 +76,7 @@ theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 script = ExtResource("5_tbmy8")
 
-[node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sfx_player", "music_player")]
+[node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sound_signaler", "sfx_player", "current_music", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
 script = ExtResource("2_wu84c")
 sound_signaler = NodePath("SoundSignaler")
 main_theme = ExtResource("4_rtw2f")
@@ -147,14 +145,3 @@ script = ExtResource("20_8egab")
 metadata/_custom_type_script = "uid://bnnvgatmel77g"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=94987639]
-
-[connection signal="pressed" from="MainVBoxContainer/New Game Button" to="MainVBoxContainer/New Game Button" method="_on_pressed"]
-[connection signal="pressed" from="MainVBoxContainer/Load Game Button" to="MainVBoxContainer/Load Game Button" method="_on_pressed"]
-[connection signal="pressed" from="MainVBoxContainer/Settings Button" to="MainVBoxContainer/Settings Button" method="_on_pressed"]
-[connection signal="pressed" from="SettingsBackButton" to="MainVBoxContainer/Settings Button" method="_on_settings_back_button_pressed"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MasterVolumeHSlider" to="Music Handler" method="_on_master_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MuteMasterCheckBox" to="Music Handler" method="_on_mute_master_check_box_toggled"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MusicVolumeHSlider" to="Music Handler" method="_on_music_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MuteMusicCheckBox" to="Music Handler" method="_on_mute_music_check_box_toggled"]
-[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/SFXVolumeHSlider" to="Music Handler" method="_on_sfx_volume_h_slider_value_changed"]
-[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/MuteSFXCheckBox" to="Music Handler" method="_on_mute_sfx_check_box_toggled"]
