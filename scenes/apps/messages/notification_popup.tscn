@@ -77,7 +77,7 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[node name="Notification" type="Control" unique_id=1003812012 node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon")]
+[node name="Notification" type="Control" unique_id=1003812012 node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon", "background")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 3
 anchors_preset = 10
@@ -89,6 +89,7 @@ script = ExtResource("1_uiujy")
 notification_content_label = NodePath("NotificationVisuals/HBoxContainer/VBoxContainer/NotificationContentLabel")
 notification_title_label = NodePath("NotificationVisuals/HBoxContainer/VBoxContainer/NotificationTitleLabel")
 app_icon = NodePath("NotificationVisuals/HBoxContainer/AppIcon")
+background = NodePath("NotificationVisuals/NotificationBackground")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1280010021]
 libraries/ = SubResource("AnimationLibrary_qlsx4")
