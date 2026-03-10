@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ciwrqrrc5edpj" path="res://scripts/apps/minigames/maze/player.gd" id="1_hqvxg"]
 [ext_resource type="Script" uid="uid://cfwu8r4p4rmdf" path="res://scripts/apps/minigames/maze/player_body.gd" id="2_emfwr"]
-[ext_resource type="Texture2D" uid="uid://dips4qgoi2uoa" path="res://assets/icons/unknow_maze.png" id="2_txulh"]
+[ext_resource type="Texture2D" uid="uid://xebbr21cyiog" path="res://assets/icons/alien.png" id="3_txulh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_txulh"]
 
@@ -22,7 +22,7 @@ script = ExtResource("2_emfwr")
 collision_shape = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2087889139]
-texture = ExtResource("2_txulh")
+texture = ExtResource("3_txulh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=328415649]
 shape = SubResource("CircleShape2D_txulh")
