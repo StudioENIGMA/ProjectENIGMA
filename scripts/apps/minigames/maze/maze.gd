@@ -2,16 +2,16 @@ extends Control
 
 signal hack_concluded
 
-const BLOCKED_WALL_ID: int = 0
-const HIDDEN_PATH_ID: int = 1
-const ALLOWED_PATH_ID: int = 2
-
 enum Directions{
 	UP = 1,
 	DOWN = 2,
 	LEFT = 3,
 	RIGHT = 4
 }
+
+const BLOCKED_WALL_ID: int = 0
+const HIDDEN_PATH_ID: int = 1
+const ALLOWED_PATH_ID: int = 2
 
 @export var tilemap: TileMapLayer
 @export var maze_player: Node2D
@@ -32,7 +32,7 @@ func _ready() -> void:
 	maze_player.position_changed.connect(_check_finish)
 	minigame_timer.timer_finished.connect(_on_time_finished)
 	setup()
-	
+
 func setup() -> void:
 	tilemap.clear()
 	define_maze_difficult()
@@ -69,20 +69,26 @@ func draw_maze() -> void:
 		for j in range(map_width):
 			if maze[i][j] == 1:
 				#Insert wall tile at position inside the vector
-				tilemap.set_cell(Vector2i(j + map_x_offset, i + map_y_offset), BLOCKED_WALL_ID, Vector2i(0, 0), 0)
+				tilemap.set_cell(
+					Vector2i(j + map_x_offset, i + map_y_offset), BLOCKED_WALL_ID, Vector2i(0, 0), 0
+				)
 			if maze[i][j] == 0:
-				#Insert path tile at position inside the vector 
-				tilemap.set_cell(Vector2i(j + map_x_offset, i + map_y_offset), ALLOWED_PATH_ID, Vector2i(0, 0), 0)
+				#Insert path tile at position inside the vector
+				tilemap.set_cell(
+					Vector2i(j + map_x_offset, i + map_y_offset), ALLOWED_PATH_ID, Vector2i(0, 0), 0
+				)
 
 			if maze[i][j] == 2:
-				tilemap.set_cell(Vector2i(j + map_x_offset, i + map_y_offset), HIDDEN_PATH_ID, Vector2i(0, 0), 0)
-		
+				tilemap.set_cell(
+					Vector2i(j + map_x_offset, i + map_y_offset), HIDDEN_PATH_ID, Vector2i(0, 0), 0
+				)
+
 
 func create_maze() -> void:
 	for i in range(map_height):
 		for j in range(map_width):
-			maze[i][j] = 1	
-	
+			maze[i][j] = 1
+
 	# Randomize the initial position during maze generation
 	var start_x: int = range(1, map_height - 2, 2).pick_random()
 	var start_y: int = range(1, map_width - 2, 2).pick_random()
@@ -97,11 +103,11 @@ func create_maze() -> void:
 
 	maze_end_point = Vector2(24 * float(map_width+map_x_offset) / 2, 24 * (map_height+map_y_offset))
 
-				
+
 func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 	# Mark current cell as visited
 	grid[cx][cy] = 0
-	
+
 	var dirs = [Directions.UP, Directions.DOWN, Directions.LEFT, Directions.RIGHT]
 	dirs.shuffle() # Randomize the order of directions to try
 
@@ -113,24 +119,24 @@ func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 
 		match dir:
 			Directions.UP:
-				nx = cx 
+				nx = cx
 				ny = cy - 2
-				mx = cx 
+				mx = cx
 				my = cy - 1
 			Directions.DOWN:
-				nx = cx 
+				nx = cx
 				ny = cy + 2
-				mx = cx 
+				mx = cx
 				my = cy + 1
 			Directions.LEFT:
-				nx = cx - 2 
-				ny = cy 
-				mx = cx - 1 
+				nx = cx - 2
+				ny = cy
+				mx = cx - 1
 				my = cy
 			Directions.RIGHT:
-				nx = cx + 2 
-				ny = cy 
-				mx = cx + 1 
+				nx = cx + 2
+				ny = cy
+				mx = cx + 1
 				my = cy
 
 		if is_in_bounds(nx, ny) and grid[nx][ny] == 1:
