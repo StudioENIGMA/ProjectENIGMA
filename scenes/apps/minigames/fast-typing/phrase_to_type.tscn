@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlougih6ppbnw"]
 
-[ext_resource type="Script" uid="uid://4dyyq45qqf30" path="res://scripts/apps/minigames/fast-typing/phrase_to_type.gd" id="1_ctqnj"]
+[ext_resource type="Script" path="res://scripts/apps/minigames/fast-typing/phrase_to_type.gd" id="1_ctqnj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)

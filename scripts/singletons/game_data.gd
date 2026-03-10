@@ -41,6 +41,7 @@ enum App {
 	PAYMENTCODE,
 	PAYMENTINFORMATION,
 	# Hack minigames
+	HACK, # Used only for notifications
 	FASTTYPING,
 	LINECONNECT,
 }
@@ -101,10 +102,11 @@ var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 5 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 20 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
-var hack_immunity_ticks: int = 30 # Number of ticks of immunity after being hacked
+var hack_immunity_ticks: int = 10 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
+var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 1
 var unsafe_apps: Array[App] = [App.FAKESTORE]
@@ -118,9 +120,9 @@ var apps_name: Dictionary = {
 	"PasswordManager": App.PASSWORDMANAGER,
 	# Store apps
 	"Store": App.STORE,
-	"FakeStore": App.FAKESTORE,
+	"fake_store": App.FAKESTORE,
 	# Browser
-	"Browser": App.BROWSER,
+	"browser": App.BROWSER,
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
@@ -210,6 +212,12 @@ var apps_data = {
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/utai.png",
 	},
+
+	App.HACK: {
+		"name": "Hack",
+		"icon_path": "res://assets/icons/utai.png",
+		"is_bad": true,
+	}
 }
 
 var apps_chinese_operations = {
@@ -219,8 +227,8 @@ var apps_chinese_operations = {
 	"open": "阿布里爾"
 }
 
-var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL, App.BROWSER]
-var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.BROWSER]
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 var available_updates: Array[App] = []
 
 func _ready() -> void:

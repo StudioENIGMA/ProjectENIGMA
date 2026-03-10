@@ -11,21 +11,23 @@
 	  "day": 1,
 	  "branch": "d1_start_1",
 	  "requires": [
-		{
-		  "flag": "fake_store",
-		  "is": false
-		}
-	  ]
+				{
+					"flag": "fake_store",
+					"is": false
+				}
+	  	],
+		"relative_due_time": 0
 	},
 	{
 	  "day": 1,
 	  "branch": "d1_start_2",
 	  "requires": [
-		{
-		  "flag": "fake_store",
-		  "is": true
-		}
-	  ]
+				{
+					"flag": "fake_store",
+					"is": true
+				}
+	  	],
+		"relative_due_time": 0
 	}
   ],
   "branches": {
