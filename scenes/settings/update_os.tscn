@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fpumwpohvjnl"]
 
 [ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/apps/settings/update_os.gd" id="1_hn00k"]
+[ext_resource type="Texture2D" uid="uid://curi7hvanqlq8" path="res://assets/icons/gear.png" id="2_cinje"]
 
 [node name="UpdateOs" type="Control" unique_id=1880233724 node_paths=PackedStringArray("update_button")]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hn00k")
-update_button = NodePath("VBoxContainer/Button")
+update_button = NodePath("VBoxContainer2/Button")
 
 [node name="VBoxContainer" type="CenterContainer" parent="." unique_id=902596245]
 layout_mode = 1
@@ -20,7 +21,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1093613202]
-custom_minimum_size = Vector2(250, 150)
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=575798135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=53842160]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1105536739]
+custom_minimum_size = Vector2(285, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture = ExtResource("2_cinje")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer2" unique_id=2073749276]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=1093613202]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 text = "Atualizar OS"
