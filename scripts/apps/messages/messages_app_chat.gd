@@ -43,6 +43,7 @@ const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 @export var scroll_container:ScrollContainer
 
 var conversation_name:String = ""
+var messages_typing: Dictionary = {}
 
 func _ready() -> void:
 	answers_bar.message_answered.connect(message_answered.emit) # Propagate signal to base app
@@ -50,7 +51,7 @@ func _ready() -> void:
 		request_message_creation_on_answer.emit # Propagate signal to base app
 	)
 	answers_bar.request_message_creation_on_answer.connect(
-		on_create_message # Handle message creation in current chat
+		on_send_message # Handle message creation in current chat
 	)
 	answers_bar.storage_answer.connect(
 		storage_answer.emit # Propagate signal to base app
@@ -74,11 +75,16 @@ func setup(conversation_data:Dictionary) -> void:
 		else:
 			message_instance = OTHERS_MESSAGE.instantiate()
 
+		messages_list.add_child(message_instance)
 		message_instance.setup(message.message, message.get("annex", {}))
 		message_instance.apk_installation_requested.connect(
 			apk_installation_requested.emit # Propagate signal to base app
 		)
-		messages_list.add_child(message_instance)
+
+	if messages_typing[conversation_name] == true:
+		var message_typing_instance = OTHERS_MESSAGE.instantiate()
+		messages_list.add_child(message_typing_instance)
+		message_typing_instance.setup("", {}, true)
 
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
@@ -95,6 +101,21 @@ func setup(conversation_data:Dictionary) -> void:
 
 func on_create_message(
 	npc_name:String,
+	_message:String,
+	_annex:Dictionary,
+	_sender:GameData.Sender,
+	_time:int
+) -> void:
+	messages_typing[npc_name] = true
+	if npc_name != conversation_name:
+		return
+
+	var message_typing_instance = OTHERS_MESSAGE.instantiate()
+	messages_list.add_child(message_typing_instance)
+	message_typing_instance.setup("", {}, true)
+
+func on_send_message(
+	npc_name:String,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
@@ -110,7 +131,15 @@ func on_create_message(
 				npc_name,
 				time
 			)
+		messages_typing[npc_name] = false
 		return
+
+	if messages_typing[conversation_name]:
+		# Free message typing instance
+		var typing_instance = messages_list.get_child(messages_list.get_child_count() - 1)
+		messages_list.remove_child(typing_instance)
+		typing_instance.queue_free()
+		messages_typing[npc_name] = false
 
 	# Add the new message to the messages list
 	var message_instance:HBoxContainer;
@@ -119,11 +148,11 @@ func on_create_message(
 	else:
 		message_instance = OTHERS_MESSAGE.instantiate()
 
+	messages_list.add_child(message_instance)
 	message_instance.setup(message, annex)
 	message_instance.apk_installation_requested.connect(
 		apk_installation_requested.emit # Propagate signal to base app
 	)
-	messages_list.add_child(message_instance)
 
 	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom
 	if sender == GameData.Sender.PLAYER or scroll_container.call_deferred("check_scroll_to_bottom"):

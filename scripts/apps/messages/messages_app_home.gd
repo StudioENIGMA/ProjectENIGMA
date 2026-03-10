@@ -36,16 +36,13 @@ func on_player_answer(
 		{"message":message, "title":title, "reputation_points":reputation_points, "answer_id":answer_id}
 	)
 
-	# Update the conversation in the UI
-	_update_list_of_chats(conversation_index)
-
 ## Handles the creation of a new message in the messaging app
 ##
 ## npc_name: The name of the NPC which the conversation is with
 ## message: The content of the message
 ## sender: Enum indicating who sent the message (ME or OTHER)
 ## time: The time the message was sent
-func on_create_message(
+func on_send_message(
 	npc_name:String,
 	message:String,
 	annex:Dictionary,
