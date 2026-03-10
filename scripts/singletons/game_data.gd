@@ -230,6 +230,21 @@ func _ready() -> void:
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
 
+func get_human_typing_time(message: String) -> int:
+	var word_count = message.split(" ").size()
+
+	# 1. Base time: simulated reaction/start time
+	var base_thinking_time = 0.5
+
+	var total_time = base_thinking_time
+
+	# 2. Variable time: approx 0.15 to 0.3 seconds per word
+	for _i in range(word_count):
+		var time_per_word = randf_range(0.15, 0.3)
+		total_time += time_per_word
+
+	return total_time
+
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""
 	value = abs(value)
