@@ -69,7 +69,7 @@ theme_override_constants/margin_right = 16
 [node name="UnninstallButton" type="Button" parent="AppsResult/MarginContainer" unique_id=158631373]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Desinstalar Aplicativos"
+text = "Desinstalar aplicativos"
 
 [node name="HackResult" type="VBoxContainer" parent="." unique_id=54324658]
 layout_mode = 2

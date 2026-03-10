@@ -34,6 +34,7 @@ func _on_scan_button_pressed() -> void:
 	scan_timer.start()
 
 func _on_scan_timer_timeout() -> void:
+	await get_tree().process_frame # Ensure UI updates before showing results
 	virus_result.visible = true
 	apps_result.visible = true
 	hack_result.visible = true
@@ -42,6 +43,7 @@ func _on_scan_timer_timeout() -> void:
 
 	var has_viruses = GameData.number_of_viruses > 0
 	virus_result_label.text = "Vírus detectados: " + str(GameData.number_of_viruses)
+	remove_virus_button.text = "Remover vírus"
 
 	if has_viruses:
 		remove_virus_button.disabled = false
@@ -55,6 +57,7 @@ func _on_scan_timer_timeout() -> void:
 	)
 	var has_unsafe_apps = installed_unsafe_apps.size() > 0
 	apps_result_label.text = "Aplicativos inseguros detectados: " + str(installed_unsafe_apps.size())
+	remove_apps_button.text = "Desinstalar aplicativos"
 
 	if has_unsafe_apps:
 		remove_apps_button.disabled = false
@@ -64,6 +67,9 @@ func _on_scan_timer_timeout() -> void:
 		apps_result_label.add_theme_color_override("font_color", Color.GREEN)
 	
 	var has_hack = GameData.is_hacked
+
+	print("Hack status:", has_hack)
+
 	if has_hack:
 		hack_result.visible = true
 		hack_result_label.text = "Sistema comprometido!"
@@ -82,10 +88,6 @@ func _on_scan_timer_timeout() -> void:
 
 func _on_remove_virus_button_pressed() -> void:
 	GameData.number_of_viruses = 0
-	virus_result_label.text = "Vírus detectados: 0"
-	virus_result_label.add_theme_color_override("font_color", Color.GREEN)
-	remove_virus_button.disabled = true
-
 	minigame_request.emit()
 
 func _on_remove_apps_button_pressed() -> void:
@@ -93,18 +95,7 @@ func _on_remove_apps_button_pressed() -> void:
 		if GameData.downloaded_apps.has(unsafe_app):
 			GameData.downloaded_apps.erase(unsafe_app)
 			app_uninstalled.emit(unsafe_app)
-	apps_result_label.text = "Aplicativos inseguros detectados: 0"
-	apps_result_label.add_theme_color_override("font_color", Color.GREEN)
-	remove_apps_button.disabled = true
-
 	minigame_request.emit()
 
 func _on_remove_hack_button_pressed() -> void:
-	hack_result_label.text = "Nenhuma ameaça detectada"
-	hack_result_label.add_theme_color_override("font_color", Color.GREEN)
-	remove_hack_button.disabled = true
-
-	# Restore other buttons functionality
-	_on_scan_timer_timeout() # Refresh buttons states based on current threats
-
 	minigame_request.emit()
