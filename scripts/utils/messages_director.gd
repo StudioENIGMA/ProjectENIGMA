@@ -139,7 +139,7 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 		message_node.get("text", ""),
 		message_node.get("annex", {}),
 		GameData.Sender.NPC,
-		current_minutes
+		current_minutes + wait_time
 	)
 
 	await  get_tree().create_timer(1).timeout
