@@ -14,12 +14,12 @@ texture_normal = ExtResource("1_kl0ic")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_lfyj1")
-line1 = NodePath("Control/Panel")
-line2 = NodePath("Control/Panel2")
-line3 = NodePath("Control/Panel3")
-line4 = NodePath("Control/Panel4")
-line5 = NodePath("Control/Panel5")
-line6 = NodePath("Control/Panel6")
+line1 = NodePath("Control/Line1")
+line2 = NodePath("Control/Line2")
+line3 = NodePath("Control/Line3")
+line4 = NodePath("Control/Line4")
+line5 = NodePath("Control/Line5")
+line6 = NodePath("Control/Line6")
 lines_container = NodePath("Control")
 
 [node name="Control" type="Control" parent="." unique_id=1880181680]
@@ -32,21 +32,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control" unique_id=1469009838]
-custom_minimum_size = Vector2(32, 8)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 47.0
-offset_bottom = 4.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 4)
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
-
-[node name="Panel2" type="Panel" parent="Control" unique_id=1318954945]
+[node name="Line1" type="Panel" parent="Control" unique_id=1318954945]
 custom_minimum_size = Vector2(32, 8)
 layout_mode = 1
 anchors_preset = 4
@@ -61,22 +47,51 @@ pivot_offset = Vector2(0, 4)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Panel3" type="Panel" parent="Control" unique_id=603701791]
+[node name="Line2" type="Panel" parent="Control" unique_id=1469009838]
 custom_minimum_size = Vector2(32, 8)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -4.0
-offset_right = 44.612976
+offset_right = 47.0
 offset_bottom = 4.0
 grow_vertical = 2
-rotation = -2.0943952
 pivot_offset = Vector2(0, 4)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Panel4" type="Panel" parent="Control" unique_id=1219837162]
+[node name="Line3" type="Panel" parent="Control" unique_id=855115597]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0000005
+offset_right = 44.505608
+offset_bottom = 3.9999995
+grow_vertical = 2
+rotation = -5.2359877
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
+
+[node name="Line4" type="Panel" parent="Control" unique_id=1362390661]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -3.9999995
+offset_right = 44.504738
+offset_bottom = 4.0000005
+grow_vertical = 2
+rotation = -4.1887903
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
+
+[node name="Line5" type="Panel" parent="Control" unique_id=1219837162]
 custom_minimum_size = Vector2(32, 8)
 layout_mode = 1
 anchors_preset = 4
@@ -91,32 +106,17 @@ pivot_offset = Vector2(0, 4)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Panel5" type="Panel" parent="Control" unique_id=1362390661]
+[node name="Line6" type="Panel" parent="Control" unique_id=603701791]
 custom_minimum_size = Vector2(32, 8)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -4.0
-offset_right = 44.504738
+offset_right = 44.612976
 offset_bottom = 4.0
 grow_vertical = 2
-rotation = -4.1887903
-pivot_offset = Vector2(0, 4)
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
-
-[node name="Panel6" type="Panel" parent="Control" unique_id=855115597]
-custom_minimum_size = Vector2(32, 8)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 44.505608
-offset_bottom = 4.0
-grow_vertical = 2
-rotation = -5.2359877
+rotation = -2.0943952
 pivot_offset = Vector2(0, 4)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")

@@ -394,7 +394,7 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 	match hack_minigame:
 		GameData.HackMinigame.FASTTYPING:
-			_on_app_opened(GameData.App.LINECONNECT)
+			_on_app_opened(GameData.App.FASTTYPING)
 		GameData.HackMinigame.MAZE:
 			_on_app_opened(GameData.App.LINECONNECT)
 		GameData.HackMinigame.LINECONNECT:

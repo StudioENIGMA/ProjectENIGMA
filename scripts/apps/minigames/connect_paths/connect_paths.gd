@@ -34,7 +34,7 @@ func setup() -> void:
 	create_hexagons_node_array()
 	set_lines()
 	randomize_rotation()
-	minigame_timer.setup(10)
+	minigame_timer.setup(20)
 
 func get_hexagon_path(hexagon_array):
 	hexagons = hexagon_array

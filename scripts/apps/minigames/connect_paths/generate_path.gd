@@ -62,6 +62,7 @@ func generate_hexagons(hexagon_array: Array) -> void:
 
 	if ul_hexagon["vertex_positions"].has(2):
 		ur_hexagon["vertex_positions"].append(5)
+		ur_hexagon["vertex_number"] += 1
 
 	# RIGHT
 	if mid_hexagon["vertex_positions"].has(2):
@@ -77,6 +78,7 @@ func generate_hexagons(hexagon_array: Array) -> void:
 
 	if ur_hexagon["vertex_positions"].has(3):
 		r_hexagon["vertex_positions"].append(6)
+		r_hexagon["vertex_number"] += 1
 
 	# LOWER RIGHT
 	if mid_hexagon["vertex_positions"].has(3):
@@ -130,6 +132,14 @@ func generate_hexagons(hexagon_array: Array) -> void:
 	lr_hexagon["vertex_positions"].sort()
 	ll_hexagon["vertex_positions"].sort()
 	l_hexagon["vertex_positions"].sort()
+
+	mid_hexagon["vertex_number"] = mid_hexagon["vertex_positions"].size()
+	ul_hexagon["vertex_number"] = ul_hexagon["vertex_positions"].size()
+	ur_hexagon["vertex_number"] = ur_hexagon["vertex_positions"].size()
+	r_hexagon["vertex_number"] = r_hexagon["vertex_positions"].size()
+	lr_hexagon["vertex_number"] = lr_hexagon["vertex_positions"].size()
+	ll_hexagon["vertex_number"] = ll_hexagon["vertex_positions"].size()
+	l_hexagon["vertex_number"] = l_hexagon["vertex_positions"].size()
 
 	hexagon_array.append(mid_hexagon)
 	hexagon_array.append(ul_hexagon)
