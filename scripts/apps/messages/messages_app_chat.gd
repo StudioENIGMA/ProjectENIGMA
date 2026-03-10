@@ -93,7 +93,7 @@ func setup(conversation_data:Dictionary) -> void:
 			message_instance = OTHERS_MESSAGE.instantiate()
 
 		messages_list.add_child(message_instance)
-		message_instance.setup(message.message, message.get("annex", {}))
+		message_instance.setup(message.message, message.get("annex", {}), message.time)
 		message_instance.apk_installation_requested.connect(
 			apk_installation_requested.emit # Propagate signal to base app
 		)
@@ -101,7 +101,7 @@ func setup(conversation_data:Dictionary) -> void:
 	if messages_typing[conversation_name] == true:
 		var message_typing_instance = OTHERS_MESSAGE.instantiate()
 		messages_list.add_child(message_typing_instance)
-		message_typing_instance.setup("", {}, true)
+		message_typing_instance.setup("", {}, 0, true)
 
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
@@ -129,7 +129,7 @@ func on_create_message(
 
 	var message_typing_instance = OTHERS_MESSAGE.instantiate()
 	messages_list.add_child(message_typing_instance)
-	message_typing_instance.setup("", {}, true)
+	message_typing_instance.setup("", {}, 0, true)
 
 func on_send_message(
 	npc_name:String,
@@ -166,7 +166,7 @@ func on_send_message(
 		message_instance = OTHERS_MESSAGE.instantiate()
 
 	messages_list.add_child(message_instance)
-	message_instance.setup(message, annex)
+	message_instance.setup(message, annex, time)
 	message_instance.apk_installation_requested.connect(
 		apk_installation_requested.emit # Propagate signal to base app
 	)

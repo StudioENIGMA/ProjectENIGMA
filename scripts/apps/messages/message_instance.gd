@@ -11,6 +11,7 @@ const MAX_BUBBLE_WIDTH := 200.0
 
 @export var label: Label
 @export var panel_container: PanelContainer
+@export var time_label: Label
 
 @export var message_animation: HBoxContainer
 # Optional: allow the same script to support both scenes cleanly
@@ -29,17 +30,20 @@ func _ready() -> void:
 	call_deferred("_reflow")
 
 
-func setup(message: String, annex: Dictionary, play_animation: bool = false) -> void:
-	if label:
+func setup(message: String, annex: Dictionary, time : int, play_animation: bool = false) -> void:
+	if label and time_label:
 		if play_animation and message_animation and annex_container:
 			message_animation.visible = true
 			label.visible = false
 			annex_container.visible = false
+			time_label.visible = false
 		elif message_animation and annex_container:
 			annex_container.visible = true
 			label.visible = true
 			message_animation.visible = false
+			time_label.visible = true
 		label.text = message
+		time_label.text = GameData.hours_minutes_as_string(time)
 	_apply_annex(annex)
 	_reflow()
 
