@@ -42,6 +42,7 @@ func _update_in_game_time() -> void:
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
 	
+	print(GameData.hours_minutes, GameData.max_hours_minutes)
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
 		_on_day_over_timeout()
 

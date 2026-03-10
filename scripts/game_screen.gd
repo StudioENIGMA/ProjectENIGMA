@@ -100,7 +100,7 @@ func _on_clock_tick(current_minutes: int) -> void:
 
 func _update_blur() -> void:
   # Max blur scale is 10
-  var blur_scale:float = min(GameData.number_of_viruses / 50.0, 10)
+  var blur_scale:float = min(GameData.number_of_viruses / 50.0, 6.0)
 
   var blur_material:ShaderMaterial = progressive_blur.material
   blur_material.set_shader_parameter("blur_scale", blur_scale)
