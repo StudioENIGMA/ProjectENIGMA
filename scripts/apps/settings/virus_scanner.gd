@@ -68,8 +68,6 @@ func _on_scan_timer_timeout() -> void:
 	
 	var has_hack = GameData.is_hacked
 
-	print("Hack status:", has_hack)
-
 	if has_hack:
 		hack_result.visible = true
 		hack_result_label.text = "Sistema comprometido!"
