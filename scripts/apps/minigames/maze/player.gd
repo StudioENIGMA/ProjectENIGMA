@@ -13,7 +13,6 @@ func _ready() -> void:
 	player_body.moved.connect(_on_player_moved)
 
 func _on_player_drag_started(global_mouse_pos: Vector2) -> void:
-	print("drag started")
 	dragging = true
 	drag_offset = global_mouse_pos - player_body.global_position
 
@@ -21,7 +20,6 @@ func _on_player_drag_ended() -> void:
 	dragging = false
 
 func _on_player_moved() -> void:
-	#print("moveu")
 	position_changed.emit()
 
 func _input(event):

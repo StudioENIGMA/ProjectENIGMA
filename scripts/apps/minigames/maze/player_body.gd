@@ -7,30 +7,16 @@ signal moved
 @export var collision_shape: CollisionShape2D
 
 func try_move(displacement: Vector2, max_step: float = 10.0) -> void:
-	#print("Tentando mover com deslocamento: ", displacement)
 	var remaining = displacement
 	var start_position = global_position
-	# var collision
-	
 
 	while remaining.length() > max_step:
 		var step = remaining.normalized() * max_step
 		move_and_collide(step)
 		remaining -= step
 
-		## Remove friction
-		#if collision:
-			#velocity = velocity.slide(collision.get_normal())
-			#move_and_collide(collision.get_remainder().slide(collision.get_normal()))
-
 	if remaining.length() > 0:
 		move_and_collide(remaining)
-
-		## Remove friction
-		#if collision:
-			#velocity = velocity.slide(collision.get_normal())
-			#move_and_collide(collision.get_remainder().slide(collision.get_normal()))
-
 	
 	if global_position != start_position:
 		moved.emit()

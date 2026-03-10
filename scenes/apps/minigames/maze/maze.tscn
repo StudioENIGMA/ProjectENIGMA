@@ -3,7 +3,10 @@
 [ext_resource type="TileSet" uid="uid://cvvn1vsl4t5sd" path="res://resources/maze_tile_set.tres" id="1_eiwxe"]
 [ext_resource type="Script" uid="uid://bscyydv2hcxj5" path="res://scripts/apps/minigames/maze/maze.gd" id="1_ug48i"]
 [ext_resource type="PackedScene" uid="uid://dyadxwg52iqfk" path="res://scenes/apps/minigames/maze/player.tscn" id="3_cj1de"]
-[ext_resource type="PackedScene" uid="uid://cpc47dpgdkxt8" path="res://scenes/apps/minigames/minigame_timer.tscn" id="4_nf5cy"]
+[ext_resource type="PackedScene" uid="uid://cctt7lf1neuv" path="res://scenes/apps/minigames/minigame_timer.tscn" id="4_nf5cy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf5cy"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Maze" type="Control" unique_id=1413399530 node_paths=PackedStringArray("tilemap", "maze_player", "minigame_timer")]
 layout_mode = 3
@@ -17,6 +20,7 @@ minigame_timer = NodePath("RemainingTimeBar")
 layout_mode = 0
 offset_right = 360.0
 offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nf5cy")
 
 [node name="MazeMap" type="TileMapLayer" parent="." unique_id=1359831944]
 z_index = 1

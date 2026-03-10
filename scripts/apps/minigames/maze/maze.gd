@@ -30,25 +30,20 @@ var maze_end_point: Vector2
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	maze_player.position_changed.connect(_check_finish)
-	#goal_area.body_entered.connect(_on_goal_arrived)
-
+	minigame_timer.timer_finished.connect(_on_time_finished)
 	setup()
 	
 func setup() -> void:
+	tilemap.clear()
 	define_maze_difficult()
 	generate_maze_size()
 	create_maze()
 
 	draw_maze()
 
-	#maze_player.position = Vector2(40.0, 29.0 * map_y_offset)
-	#print(tilemap.get_cell_source_id(Vector2(40.0, 29.0 * map_y_offset)))
-
-	var start_cell = Vector2i(map_x_offset, map_y_offset)
+	var start_cell = Vector2i(1+map_x_offset, 1+map_y_offset)
 	var start_global_pos = tilemap.to_global(tilemap.map_to_local(start_cell))
-	maze_player.global_position = start_global_pos
-
-	#print("Célula inicial: ", start_cell, " source_id: ", tilemap.get_cell_source_id(start_cell))
+	maze_player.player_body.global_position = start_global_pos
 
 	minigame_timer.setup(30)
 
@@ -147,25 +142,16 @@ func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 func is_in_bounds(x: int, y: int) -> bool:
 	return x >= 0 and x < map_height and y >= 0 and y < map_width
 
-#func _on_goal_arrived(body) -> void:
-	#print("entrou")
-	#if body.name == maze_player:
-		#minigame_concluded.emit()
-		#print("Goal arrived!")
 
 func _check_finish():
 	if tilemap == null:
 		return
 
-	# Converte a posição global do player para coordenadas de célula no tilemap
 	var player_global_pos = maze_player.player_body.global_position
-	print(player_global_pos)
 	var cell = tilemap.local_to_map(tilemap.to_local(player_global_pos))
 
-	# Obtém o source_id do tile na célula
 	var source_id = tilemap.get_cell_source_id(cell)
 
-	# Compara com o ID do tile final (HIDDEN_PATH_ID = 1)
 	if source_id == HIDDEN_PATH_ID:
 		hack_concluded.emit()
 		maze_player.position_changed.disconnect(_check_finish)
