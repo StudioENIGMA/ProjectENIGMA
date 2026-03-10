@@ -56,7 +56,7 @@ layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1636098345]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_57877")
