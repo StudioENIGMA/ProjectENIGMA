@@ -29,52 +29,54 @@ offset_bottom = 640.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1gj6j")
 
 [node name="MidHex" parent="Panel" unique_id=1740780383 instance=ExtResource("1_qs3w8")]
+custom_minimum_size = Vector2(102, 108)
 layout_mode = 0
-offset_left = 116.0
-offset_top = 279.0
-offset_right = 244.0
-offset_bottom = 407.0
+offset_left = 129.0
+offset_top = 266.0
+offset_right = 231.0
+offset_bottom = 374.0
 
 [node name="UlHex" parent="Panel" unique_id=284757787 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 179.0
-offset_right = 186.0
-offset_bottom = 307.0
+offset_left = 78.0
+offset_top = 183.0
+offset_right = 180.0
+offset_bottom = 291.0
 
 [node name="UrHex" parent="Panel" unique_id=1711722943 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
-offset_left = 174.00002
-offset_top = 179.0
-offset_right = 302.0
-offset_bottom = 307.0
+offset_left = 180.0
+offset_top = 183.0
+offset_right = 282.0
+offset_bottom = 291.0
 
 [node name="RHex" parent="Panel" unique_id=2039586028 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 279.0
-offset_right = 360.0
-offset_bottom = 407.0
+offset_top = 266.0
+offset_right = 334.0
+offset_bottom = 374.0
 
 [node name="LrHex" parent="Panel" unique_id=153318998 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 378.0
-offset_right = 302.0
-offset_bottom = 506.0
+offset_left = 180.0
+offset_top = 350.0
+offset_right = 282.0
+offset_bottom = 458.0
 
 [node name="LlHex" parent="Panel" unique_id=1476174502 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 378.0
-offset_right = 186.0
-offset_bottom = 506.0
+offset_left = 78.0
+offset_top = 350.0
+offset_right = 180.0
+offset_bottom = 458.0
 
 [node name="LHex" parent="Panel" unique_id=1092277273 instance=ExtResource("1_qs3w8")]
 layout_mode = 0
-offset_top = 279.0
+offset_left = 26.0
+offset_top = 266.0
 offset_right = 128.0
-offset_bottom = 407.0
+offset_bottom = 374.0
 
 [node name="RemainingTimeBar" parent="Panel" unique_id=159806396 instance=ExtResource("3_4ifqg")]
 layout_mode = 1
