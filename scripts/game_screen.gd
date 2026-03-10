@@ -73,6 +73,8 @@ func _ready() -> void:
   ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
+  # UI new game request to event handler
+  ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
 
 
 #endregion INITIALIZATION
