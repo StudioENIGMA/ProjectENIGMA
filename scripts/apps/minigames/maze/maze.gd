@@ -29,11 +29,11 @@ var maze_end_point: Vector2
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	maze_player.position_changed.connect(_check_finish)
 	minigame_timer.timer_finished.connect(_on_time_finished)
 	setup()
 
 func setup() -> void:
+	maze_player.position_changed.connect(_check_finish)
 	tilemap.clear()
 	define_maze_difficult()
 	generate_maze_size()
