@@ -43,6 +43,9 @@ const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 @export var answers_bar:HBoxContainer
 @export var scroll_container:ScrollContainer
 
+@export var avatar_rect: TextureRect
+@export var name_label: Label
+
 var conversation_name:String = ""
 var messages_typing: Dictionary = {}
 
@@ -61,6 +64,7 @@ func _ready() -> void:
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
+	set_header_panel()
 
 	answers_bar.set_active_conversation(conversation_name)
 	answers_bar.clear_ui()
@@ -187,3 +191,8 @@ func on_request_answer_option(
 		time,
 		answer_id
 	)
+
+func set_header_panel() -> void:
+	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
+	avatar_rect.texture = load(photo_path)
+	name_label.text = conversation_name
