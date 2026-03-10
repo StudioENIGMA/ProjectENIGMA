@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_ol3eb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee2y0"]
-bg_color = Color(0.021434654, 0.021434627, 0.021434633, 0.57254905)
+bg_color = Color(0.019607844, 0.019607844, 0.019607844, 0.7882353)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4

@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_e64tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
-content_margin_left = 16.0
-content_margin_top = 8.0
-content_margin_right = 16.0
-content_margin_bottom = 8.0
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
 bg_color = Color(0.266667, 0.811765, 0.698039, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -54,7 +54,7 @@ layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1917943482]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_fonts/font = ExtResource("1_yluvu")
