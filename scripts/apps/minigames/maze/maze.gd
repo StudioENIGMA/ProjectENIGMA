@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 signal minigame_concluded
 
@@ -15,7 +15,6 @@ enum Directions{
 
 @export var tilemap: TileMapLayer
 @export var maze_player: Node2D
-@export var goal_area: Area2D
 
 var map_width: int = 13
 var map_height: int
@@ -45,13 +44,13 @@ func _ready() -> void:
 	var start_global_pos = tilemap.to_global(tilemap.map_to_local(start_cell))
 	maze_player.global_position = start_global_pos
 
-	print("Célula inicial: ", start_cell, " source_id: ", tilemap.get_cell_source_id(start_cell))
+	#print("Célula inicial: ", start_cell, " source_id: ", tilemap.get_cell_source_id(start_cell))
 
 func define_maze_difficult() -> void:
 	var heigth_sizes: Array[int] = [19, 21, 23]
 	map_height = heigth_sizes.pick_random()
 
-#Initialize the matrix and fill of zeros
+## Initialize the matrix and fill of zeros
 func generate_maze_size() -> void:
 	for i in range(map_height):
 		var row: Array = []
@@ -83,7 +82,7 @@ func create_maze() -> void:
 		for j in range(map_width):
 			maze[i][j] = 1	
 	
-	#Randomize the initial position during maze generation
+	# Randomize the initial position during maze generation
 	var start_x: int = range(1, map_height - 2, 2).pick_random()
 	var start_y: int = range(1, map_width - 2, 2).pick_random()
 
@@ -97,8 +96,6 @@ func create_maze() -> void:
 
 	maze_end_point = Vector2(24 * float(map_width+map_x_offset) / 2, 24 * (map_height+map_y_offset))
 
-	goal_area.position = maze_end_point
-	print(goal_area.position)
 				
 func generator(cx: int, cy: int, grid: Array[Array]) -> void:
 	# Mark current cell as visited
@@ -155,7 +152,7 @@ func _check_finish():
 		return
 
 	# Converte a posição global do player para coordenadas de célula no tilemap
-	var player_global_pos = maze_player.global_position
+	var player_global_pos = maze_player.player_body.global_position
 	print(player_global_pos)
 	var cell = tilemap.local_to_map(tilemap.to_local(player_global_pos))
 
@@ -166,5 +163,4 @@ func _check_finish():
 	if source_id == HIDDEN_PATH_ID:
 		print("Chegou ao fim!")
 		minigame_concluded.emit()
-		# Opcional: desconectar para evitar múltiplas emissões
 		maze_player.position_changed.disconnect(_check_finish)

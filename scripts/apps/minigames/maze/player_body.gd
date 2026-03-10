@@ -7,7 +7,7 @@ signal moved
 @export var collision_shape: CollisionShape2D
 
 func try_move(displacement: Vector2, max_step: float = 10.0) -> void:
-	print("Tentando mover com deslocamento: ", displacement)
+	#print("Tentando mover com deslocamento: ", displacement)
 	var remaining = displacement
 	var start_position = global_position
 	# var collision
