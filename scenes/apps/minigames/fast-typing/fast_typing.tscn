@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
 [ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
-[ext_resource type="PackedScene" uid="uid://cpc47dpgdkxt8" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
+[ext_resource type="PackedScene" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)

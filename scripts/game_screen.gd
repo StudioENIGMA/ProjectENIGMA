@@ -31,6 +31,9 @@ func _ready() -> void:
   event_handler.clock_tick.connect(_on_clock_tick)
   # Event handler hack event to UI
   event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
+  event_handler.hack_handler.send_hack_notification.connect(
+    ui.notifications_control.send_hack_notification
+  )
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -74,7 +77,9 @@ func _ready() -> void:
   ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
-
+  # UI start new day
+  ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
+  ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
 
 #endregion INITIALIZATION
 

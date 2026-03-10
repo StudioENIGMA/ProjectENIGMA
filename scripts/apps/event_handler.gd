@@ -7,7 +7,6 @@ signal day_ended()
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
-@export var day_over_timer:Timer
 @export var clock_timer:Timer
 @export var hack_handler:Node2D
 #endregion CHILDREN NODES REFERENCES
@@ -15,7 +14,6 @@ signal day_ended()
 #region INITIALIZATION
 ## Initializes the event handler by connecting timers to their respective functions
 func _ready() -> void:
-	day_over_timer.timeout.connect(_on_day_over_timeout)
 	clock_timer.timeout.connect(_on_clock_timer_timeout)
 	clock_timer.timeout.connect(hack_handler.on_clock_tick)
 
@@ -43,6 +41,9 @@ func _update_in_game_time() -> void:
 	var clock_nodes = get_tree().get_nodes_in_group("clock_display")
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
+	
+	if GameData.hours_minutes >= GameData.max_hours_minutes:
+		_on_day_over_timeout()
 
 	# Increment in-game time by 1 minute
 	GameData.hours_minutes = GameData.hours_minutes + 1
@@ -68,10 +69,8 @@ func reset_data_for_new_day() -> void:
 	print("current day: ", GameData.current_day)
 
 	# Reset in-game time
-	GameData.hours_minutes = 1080
+	GameData.hours_minutes = GameData.starting_hours_minutes
 
 	# Restart timers
 	clock_timer.start()
-	day_over_timer.wait_time = GameData.max_hours_minutes - GameData.starting_hours_minutes
-	day_over_timer.start()
 #endregion DAY CYCLE MANAGEMENT
