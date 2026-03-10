@@ -2,61 +2,119 @@
 
 [ext_resource type="Texture2D" uid="uid://cnrek5mrfxlj0" path="res://assets/icons/hexagon_minigame.png" id="1_kl0ic"]
 [ext_resource type="Script" uid="uid://dn174n4oyfjnm" path="res://scripts/apps/minigames/connect_paths/hex_tile.gd" id="1_lfyj1"]
-[ext_resource type="Texture2D" uid="uid://cy6rraoabgjsc" path="res://assets/icons/white_line_minigame.png" id="3_m68pf"]
 
-[node name="HexTile" type="Area2D" unique_id=1760861266 node_paths=PackedStringArray("line1", "line2", "line3", "line4", "line5", "line6")]
-scale = Vector2(0.6, 0.6)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfyj1"]
+bg_color = Color(11.708403, 11.708403, 11.708403, 1)
+
+[node name="HexTile" type="TextureButton" unique_id=1053703184 node_paths=PackedStringArray("line1", "line2", "line3", "line4", "line5", "line6", "lines_container")]
+custom_minimum_size = Vector2(128, 128)
+texture_normal = ExtResource("1_kl0ic")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_lfyj1")
-line1 = NodePath("Line1")
-line2 = NodePath("Line2")
-line3 = NodePath("Line3")
-line4 = NodePath("Line4")
-line5 = NodePath("Line5")
-line6 = NodePath("Line6")
+line1 = NodePath("Control/Panel")
+line2 = NodePath("Control/Panel2")
+line3 = NodePath("Control/Panel3")
+line4 = NodePath("Control/Panel4")
+line5 = NodePath("Control/Panel5")
+line6 = NodePath("Control/Panel6")
+lines_container = NodePath("Control")
 
-[node name="Hex" type="Sprite2D" parent="." unique_id=906888226]
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_kl0ic")
+[node name="Control" type="Control" parent="." unique_id=1880181680]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1583950541]
-visibility_layer = 0
-position = Vector2(0.8671967, 7.776795)
-scale = Vector2(0.9999997, 0.9999997)
-polygon = PackedVector2Array(-0.86719704, 100.55657, 89.132835, 47.22322, 87.46617, -56.11015, -0.86719704, -106.11016, -90.867226, -54.44348, -90.867226, 45.556553)
+[node name="Panel" type="Panel" parent="Control" unique_id=1469009838]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Line1" type="Sprite2D" parent="." unique_id=539614940]
-position = Vector2(21.123848, -36.499985)
+[node name="Panel2" type="Panel" parent="Control" unique_id=1318954945]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
 rotation = -1.0471976
-scale = Vector2(0.21475556, 0.2)
-texture = ExtResource("3_m68pf")
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Line2" type="Sprite2D" parent="." unique_id=1470215707]
-position = Vector2(43.33275, 0)
-scale = Vector2(0.22127303, 0.2)
-texture = ExtResource("3_m68pf")
+[node name="Panel3" type="Panel" parent="Control" unique_id=603701791]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
+rotation = -2.0943952
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Line3" type="Sprite2D" parent="." unique_id=428899843]
-position = Vector2(22.411777, 38.28416)
-rotation = 1.0471976
-scale = Vector2(0.22679995, 0.2)
-texture = ExtResource("3_m68pf")
+[node name="Panel4" type="Panel" parent="Control" unique_id=1219837162]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
+rotation = -3.1415927
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Line4" type="Sprite2D" parent="." unique_id=1663950308]
-position = Vector2(-21.878868, 38.700882)
-rotation = 2.0943952
-scale = Vector2(0.22645262, 0.196)
-texture = ExtResource("3_m68pf")
+[node name="Panel5" type="Panel" parent="Control" unique_id=1362390661]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
+rotation = -4.1887903
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
 
-[node name="Line5" type="Sprite2D" parent="." unique_id=1313660978]
-position = Vector2(-43.64853, 0.37226453)
-rotation = 3.1415927
-scale = Vector2(0.22164926, 0.19582681)
-texture = ExtResource("3_m68pf")
-
-[node name="Line6" type="Sprite2D" parent="." unique_id=1558410597]
-position = Vector2(-21.273893, -36.313286)
-rotation = 4.1887903
-scale = Vector2(0.21440071, 0.2)
-texture = ExtResource("3_m68pf")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="Panel6" type="Panel" parent="Control" unique_id=855115597]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_vertical = 2
+rotation = -5.2359877
+pivot_offset = Vector2(0, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfyj1")
