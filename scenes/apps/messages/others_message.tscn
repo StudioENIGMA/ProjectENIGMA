@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_57877"]
 [ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/message_instance.gd" id="1_b0d7c"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_0thuc"]
+[ext_resource type="PackedScene" uid="uid://blgv12ypdllvw" path="res://scenes/apps/messages/message_animation.tscn" id="3_qubeq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
 content_margin_left = 16.0
@@ -14,13 +15,14 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 
-[node name="OthersMessage" type="HBoxContainer" unique_id=1308090997 node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container", "annex_button")]
+[node name="OthersMessage" type="HBoxContainer" unique_id=1308090997 node_paths=PackedStringArray("label", "panel_container", "message_animation", "left_margin", "right_margin", "annex_container", "annex_button")]
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_b0d7c")
 align = 0
 label = NodePath("VBoxContainer/MessageBackground/MessageContent")
 panel_container = NodePath("VBoxContainer/MessageBackground")
+message_animation = NodePath("VBoxContainer/MessageBackground/MessageAnimation")
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
@@ -48,10 +50,14 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_57877")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
 text = "Lorem"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="MessageAnimation" parent="VBoxContainer/MessageBackground" unique_id=847927361 instance=ExtResource("3_qubeq")]
+visible = false
+layout_mode = 2
 
 [node name="AnnexContainer" type="CenterContainer" parent="VBoxContainer" unique_id=238967666]
 layout_mode = 2
