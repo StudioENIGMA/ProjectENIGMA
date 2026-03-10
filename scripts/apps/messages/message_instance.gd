@@ -43,7 +43,7 @@ func setup(message: String, annex: Dictionary, time : int, play_animation: bool 
 			message_animation.visible = false
 			time_label.visible = true
 		label.text = message
-		time_label.text = GameData.hours_minutes_as_string(time)
+		time_label.text = GameData.hours_minutes_as_string(time - GameData.starting_hours_minutes)
 	_apply_annex(annex)
 	_reflow()
 
