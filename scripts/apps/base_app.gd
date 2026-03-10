@@ -69,6 +69,9 @@ var virus_scanner = preload(
 var fast_typing = preload(
 	"res://scenes/apps/minigames/fast-typing/fast_typing.tscn"
 ).instantiate()
+var maze = preload(
+	"res://scenes/apps/minigames/maze/maze.tscn"
+).instantiate()
 var update_os_screen = preload(
 	"res://scenes/settings/update_os.tscn"
 ).instantiate()
@@ -239,6 +242,10 @@ func _ready() -> void:
 	fast_typing.visible = false
 	fast_typing.hack_concluded.connect(_on_back_button_pressed)
 	hack_screen.add_child(fast_typing)
+
+	# Hack minigame maze (Hack minigames)
+	maze.visible = false
+	maze.hack_concluded.connect()
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:

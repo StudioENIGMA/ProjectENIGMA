@@ -1,6 +1,6 @@
 extends Control
 
-signal minigame_concluded
+signal hack_concluded
 
 const BLOCKED_WALL_ID: int = 0
 const HIDDEN_PATH_ID: int = 1
@@ -15,6 +15,7 @@ enum Directions{
 
 @export var tilemap: TileMapLayer
 @export var maze_player: Node2D
+@export var minigame_timer : ProgressBar
 
 var map_width: int = 13
 var map_height: int
@@ -31,6 +32,9 @@ func _ready() -> void:
 	maze_player.position_changed.connect(_check_finish)
 	#goal_area.body_entered.connect(_on_goal_arrived)
 
+	setup()
+	
+func setup() -> void:
 	define_maze_difficult()
 	generate_maze_size()
 	create_maze()
@@ -45,6 +49,8 @@ func _ready() -> void:
 	maze_player.global_position = start_global_pos
 
 	#print("Célula inicial: ", start_cell, " source_id: ", tilemap.get_cell_source_id(start_cell))
+
+	minigame_timer.setup(30)
 
 func define_maze_difficult() -> void:
 	var heigth_sizes: Array[int] = [19, 21, 23]
@@ -161,6 +167,8 @@ func _check_finish():
 
 	# Compara com o ID do tile final (HIDDEN_PATH_ID = 1)
 	if source_id == HIDDEN_PATH_ID:
-		print("Chegou ao fim!")
-		minigame_concluded.emit()
+		hack_concluded.emit()
 		maze_player.position_changed.disconnect(_check_finish)
+
+func _on_time_finished() -> void:
+	setup()
