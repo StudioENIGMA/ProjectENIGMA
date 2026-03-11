@@ -43,6 +43,7 @@ enum App {
 	# Hack minigames
 	HACK, # Used only for notifications
 	FASTTYPING,
+	LINECONNECT,
 }
 
 enum HackMinigame {

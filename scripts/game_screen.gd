@@ -32,7 +32,7 @@ func _ready() -> void:
   # Event handler hack event to UI
   event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
   event_handler.hack_handler.send_hack_notification.connect(
-    ui.notifications_control.send_hack_notification
+	ui.notifications_control.send_hack_notification
   )
 
   # STORY DIRECTOR
@@ -75,6 +75,7 @@ func _ready() -> void:
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
   # UI hacked minigame ended to event handler
   ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  ui.base_app.line_connect.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
   # UI start new day
@@ -94,6 +95,7 @@ func _on_clock_tick(current_minutes: int) -> void:
 
   # Minigame update timer
   ui.base_app.fast_typing.minigame_timer.update_timer()
+  ui.base_app.line_connect.minigame_timer.update_timer()
 
   # Update blur for all the game
   _update_blur()
