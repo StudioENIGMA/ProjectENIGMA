@@ -33,7 +33,7 @@ func generate_random_phrase() -> Array:
 	for i in range(5):
 		var random_word = RANDOM_WORDS[randi() % RANDOM_WORDS.size()]
 		random_phrase.append(random_word)
-	
+
 	return random_phrase
 
 func update_display() -> void:
@@ -52,7 +52,7 @@ func _user_typed(new_text) -> void:
 	# Get the current phrase to type
 	var current_phrase = current_phrases[completed_phrases]
 	var current_phrase_str = " ".join(current_phrase)
-	
+
 	# Check the last character that matches the current phrase
 	if new_text.strip_edges().to_lower() == current_phrase_str:
 		# User typed the whole phrase correctly, move to the next one
@@ -97,7 +97,7 @@ func reset_minigame() -> void:
 		var random_bool = randf() < 0.5
 		if random_bool:
 			current_phrases.append(generate_random_phrase())
-	
+
 	# Reset conclusion
 	completed_phrases = 0
 	line_edit.text = ""
