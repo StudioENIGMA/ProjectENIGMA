@@ -226,17 +226,19 @@ func _requirements_met(requirements: Array) -> bool:
 		return true
 
 	for requirement in requirements:
-		var flag := str(requirement.get("flag", ""))
-		var expected := bool(requirement.get("is", true))
-		if _evaluate_flag(flag) != expected:
+		var expected = bool(requirement.get("is", true))
+		if _evaluate_requirement(requirement) != expected:
 			return false
 
 	return true
 
 ## Evaluates a single requirement flag
-func _evaluate_flag(flag: String) -> bool:
-	if flag in GameData.apps_name.keys():
-		return GameData.downloaded_apps.has(GameData.apps_name[flag])
+func _evaluate_requirement(requirement: Dictionary) -> bool:
+	var flag = requirement.get("flag", "")
+	if flag == "app_installed":
+		var app_id = requirement.get("app_id", "")
+		var app = GameData.apps_name.get(app_id, null)
+		return GameData.downloaded_apps.has(app)
 	return false
 
 func _on_browser_request_news() -> void:

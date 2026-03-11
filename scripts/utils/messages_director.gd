@@ -184,6 +184,7 @@ func _on_answer_committed(
 func _get_node_requires(thread: Dictionary, branch: String, index: int) -> Array:
 	var branches: Dictionary = thread.get("branches", {})
 	var nodes: Array = branches.get(branch, [])
+	print("Getting requires for thread '%s', branch '%s', index %d" % [thread.get("thread_id", "unknown"), branch, index])
 	assert(index >= 0 and index < nodes.size())
 
 	var node: Dictionary = nodes[index]
