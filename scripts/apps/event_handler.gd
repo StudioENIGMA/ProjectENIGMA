@@ -41,12 +41,12 @@ func _update_in_game_time() -> void:
 	var clock_nodes = get_tree().get_nodes_in_group("clock_display")
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
-	
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
 		_on_day_over_timeout()
 
-	# Increment in-game time by 1 minute
-	GameData.hours_minutes = GameData.hours_minutes + 1
+	# Increment in-game time by X minutes, X = 1 + number of viruses / 50 as integer
+	var minutes_to_add = 1 + int(GameData.number_of_viruses / 50)
+	GameData.hours_minutes = GameData.hours_minutes + minutes_to_add
 #endregion CLOCK TICK
 
 #region DAY CYCLE MANAGEMENT

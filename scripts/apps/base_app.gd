@@ -260,8 +260,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	var specific_app = _get_app_by_enum(app)
 
 	if optional_data != null:
-		specific_app.setup(optional_data)
-	elif specific_app.has_method("setup"):
+		if specific_app.has_method("setup"):
+			specific_app.setup(optional_data)
+	elif specific_app.has_method("setup") and specific_app.get_method_argument_count("setup") == 0:
 		specific_app.setup()
 	
 	specific_app.visible = true
