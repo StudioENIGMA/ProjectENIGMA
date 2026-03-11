@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://do2glcjvs4s7j"]
+
+[ext_resource type="Script" uid="uid://dm0gsskdintec" path="res://scripts/utils/sound and music/sound_director.gd" id="1_jcbr8"]
+[ext_resource type="AudioStream" uid="uid://b6v0lb1b78cfc" path="res://assets/sounds/sfx/enigma_startup_sfx_r1.ogg" id="2_ctm6e"]
+[ext_resource type="Script" uid="uid://cgmwugr4boy24" path="res://scripts/utils/sound and music/instrument.gd" id="3_nn1sj"]
+[ext_resource type="AudioStream" uid="uid://dk0tti620pdco" path="res://assets/sounds/music/melody/pulse_melody_A.wav" id="4_uh5fx"]
+[ext_resource type="AudioStream" uid="uid://qdbfjhcbf63w" path="res://assets/sounds/music/melody/pulse_melody_B.wav" id="5_jpawr"]
+[ext_resource type="AudioStream" uid="uid://bgrtmjgqwmcsf" path="res://assets/sounds/music/melody/pulse_melody_C.wav" id="6_ih8q6"]
+[ext_resource type="AudioStream" uid="uid://bxosm6xflry64" path="res://assets/sounds/music/acomp/triangle_acomp_A.wav" id="7_ktn66"]
+[ext_resource type="AudioStream" uid="uid://c5abxnpvtmnp3" path="res://assets/sounds/music/melody/pulse_melody_A_alt.wav" id="7_uh5fx"]
+[ext_resource type="AudioStream" uid="uid://cpio1nae7hbru" path="res://assets/sounds/music/acomp/triangle_acomp_B.wav" id="8_b5s6l"]
+[ext_resource type="AudioStream" uid="uid://cqxhesgs4qql2" path="res://assets/sounds/music/melody/pulse_melody_B_alt.wav" id="8_jpawr"]
+[ext_resource type="AudioStream" uid="uid://dcphtcldghfq2" path="res://assets/sounds/music/acomp/triangle_acomp_C.wav" id="9_i5lod"]
+[ext_resource type="AudioStream" uid="uid://ocqkieomo5u7" path="res://assets/sounds/music/melody/pulse_melody_C_alt.wav" id="9_ih8q6"]
+[ext_resource type="AudioStream" uid="uid://tvctftyvavuy" path="res://assets/sounds/music/bass1/saw_bass_A.wav" id="10_5cb0x"]
+[ext_resource type="AudioStream" uid="uid://vl0dfmoq2afh" path="res://assets/sounds/music/bass1/saw_bass_B.wav" id="11_n2nan"]
+[ext_resource type="AudioStream" uid="uid://cjai24uqbnepp" path="res://assets/sounds/music/bass1/saw_bass_C.wav" id="12_sb2te"]
+[ext_resource type="Script" uid="uid://caiwy8fsy5e4j" path="res://scripts/utils/sound and music/music.gd" id="13_1ssji"]
+[ext_resource type="Script" uid="uid://bnnvgatmel77g" path="res://scripts/utils/sound and music/sound_signaler.gd" id="14_qcij4"]
+
+[node name="MusicPlayer" type="Node2D" unique_id=176206279 node_paths=PackedStringArray("sound_signaler", "sfx_player", "current_music", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
+script = ExtResource("1_jcbr8")
+sound_signaler = NodePath("SoundSignaler")
+sfx_player = NodePath("SFX Player")
+startup_sound = ExtResource("2_ctm6e")
+current_music = NodePath("Musics/Music Dark")
+instruments = [NodePath("Instruments/Main Synth"), NodePath("Instruments/Back Synth"), NodePath("Instruments/Bass")]
+synth_player = NodePath("Synth Player")
+modulated_player = NodePath("Modulated Player")
+chord_player = NodePath("Chord Player")
+bass_player = NodePath("Bass Player")
+
+[node name="Synth Player" type="AudioStreamPlayer2D" parent="." unique_id=1887928803]
+bus = &"Synth"
+
+[node name="Modulated Player" type="AudioStreamPlayer2D" parent="." unique_id=877426970]
+bus = &"Modulated"
+
+[node name="Chord Player" type="AudioStreamPlayer2D" parent="." unique_id=1529047262]
+position = Vector2(2, 13)
+scale = Vector2(1.54229, 1.87636)
+bus = &"Chord"
+
+[node name="Bass Player" type="AudioStreamPlayer2D" parent="." unique_id=1404711506]
+bus = &"Bass"
+
+[node name="SFX Player" type="AudioStreamPlayer2D" parent="." unique_id=2040672821]
+position = Vector2(2, 13)
+scale = Vector2(1.54229, 1.87636)
+bus = &"SFX"
+
+[node name="Instruments" type="Node" parent="." unique_id=403634569]
+
+[node name="Main Synth" type="Node" parent="Instruments" unique_id=1754724803]
+script = ExtResource("3_nn1sj")
+instrument = "Main Synth"
+type = 1
+state = true
+stems = Array[AudioStream]([ExtResource("4_uh5fx"), ExtResource("5_jpawr"), ExtResource("6_ih8q6")])
+
+[node name="Dark Synth" type="Node" parent="Instruments" unique_id=2042782771]
+script = ExtResource("3_nn1sj")
+instrument = "Main Synth"
+type = 1
+state = true
+stems = Array[AudioStream]([ExtResource("7_uh5fx"), ExtResource("8_jpawr"), ExtResource("9_ih8q6")])
+
+[node name="Back Synth" type="Node" parent="Instruments" unique_id=1583636416]
+script = ExtResource("3_nn1sj")
+instrument = "Back Synth"
+type = 2
+state = true
+stems = Array[AudioStream]([ExtResource("7_ktn66"), ExtResource("8_b5s6l"), ExtResource("9_i5lod")])
+
+[node name="Back Dark Synth" type="Node" parent="Instruments" unique_id=1920703480]
+script = ExtResource("3_nn1sj")
+instrument = "Back Synth"
+type = 2
+state = true
+stems = Array[AudioStream]([ExtResource("7_ktn66"), ExtResource("8_b5s6l"), ExtResource("9_i5lod")])
+
+[node name="Bass" type="Node" parent="Instruments" unique_id=1997049636]
+script = ExtResource("3_nn1sj")
+instrument = "Bass"
+type = 3
+state = true
+stems = Array[AudioStream]([ExtResource("10_5cb0x"), ExtResource("11_n2nan"), ExtResource("12_sb2te")])
+
+[node name="Dark Bass" type="Node" parent="Instruments" unique_id=1833315389]
+script = ExtResource("3_nn1sj")
+instrument = "Bass"
+type = 3
+state = true
+stems = Array[AudioStream]([ExtResource("10_5cb0x"), ExtResource("11_n2nan"), ExtResource("12_sb2te")])
+
+[node name="Musics" type="Node" parent="." unique_id=1829595381]
+
+[node name="Music A" type="Node" parent="Musics" unique_id=1086097309 node_paths=PackedStringArray("stem_sequence")]
+script = ExtResource("13_1ssji")
+stem_sequence = {
+NodePath("../../Instruments/Main Synth"): [0, 1, 2, 0, 1]
+}
+metadata/_custom_type_script = "uid://caiwy8fsy5e4j"
+
+[node name="Music Dark" type="Node" parent="Musics" unique_id=1761016764 node_paths=PackedStringArray("stem_sequence")]
+script = ExtResource("13_1ssji")
+stem_sequence = {
+NodePath("../../Instruments/Dark Synth"): [0, 1, 2, 1, 0]
+}
+double_tempo = true
+metadata/_custom_type_script = "uid://caiwy8fsy5e4j"
+
+[node name="SoundSignaler" type="Node" parent="." unique_id=1455010071]
+script = ExtResource("14_qcij4")
+metadata/_custom_type_script = "uid://bnnvgatmel77g"
