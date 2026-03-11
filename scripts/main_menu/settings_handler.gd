@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 const SETTINGS_SCENE_PATH = "res://scenes/game_settings.tscn"
 

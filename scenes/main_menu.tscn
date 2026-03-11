@@ -3,9 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
 [ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://du5kswxhx88jp" path="res://assets/icons/buttons/new_game_button.png" id="3_tbmy8"]
 [ext_resource type="Script" uid="uid://cat5v86k6gaeu" path="res://scripts/main_menu/load_game_handler.gd" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://1y0kr2h3wcsj" path="res://assets/icons/buttons/load_button.png" id="5_jk1qb"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="6_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bictd3ayn8c4r" path="res://assets/icons/buttons/settings_button.png" id="7_jk1qb"]
 
 [node name="Main Menu" type="Control" unique_id=668069274]
 layout_mode = 3
@@ -54,28 +57,33 @@ expand_mode = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="New Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1507016343]
-custom_minimum_size = Vector2(0, 100)
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsMargin/MainVBoxContainer" unique_id=371860481]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "NEW GAME"
+
+[node name="New Game Button" type="TextureButton" parent="ButtonsMargin/MainVBoxContainer/VBoxContainer" unique_id=863106954]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_tbmy8")
+stretch_mode = 5
 script = ExtResource("3_rtw2f")
 
-[node name="Load Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1287796145]
-custom_minimum_size = Vector2(0, 100)
+[node name="Load Game Button" type="TextureButton" parent="ButtonsMargin/MainVBoxContainer/VBoxContainer" unique_id=800911920]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "LOAD GAME"
+size_flags_vertical = 3
+texture_normal = ExtResource("5_jk1qb")
+stretch_mode = 5
 script = ExtResource("4_oa1go")
 
-[node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697]
+[node name="Settings Button" type="TextureButton" parent="ButtonsMargin/MainVBoxContainer/VBoxContainer" unique_id=926738015]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "SETTINGS"
+size_flags_vertical = 3
+texture_normal = ExtResource("7_jk1qb")
+stretch_mode = 5
 script = ExtResource("5_tbmy8")
 
 [node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
 
-[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
-[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
+[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/VBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/VBoxContainer/New Game Button" method="_on_pressed"]
+[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/VBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/VBoxContainer/Load Game Button" method="_on_pressed"]

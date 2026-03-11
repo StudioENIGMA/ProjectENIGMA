@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 var new_game_scene:Resource
 
