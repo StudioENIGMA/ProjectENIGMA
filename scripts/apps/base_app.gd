@@ -69,6 +69,9 @@ var virus_scanner = preload(
 var fast_typing = preload(
 	"res://scenes/apps/minigames/fast-typing/fast_typing.tscn"
 ).instantiate()
+var maze = preload(
+	"res://scenes/apps/minigames/maze/maze.tscn"
+).instantiate()
 var line_connect = preload(
 	"res://scenes/apps/minigames/connect_paths/connect_paths.tscn"
 ).instantiate()
@@ -244,6 +247,12 @@ func _ready() -> void:
 	fast_typing.hack_concluded.connect(virus_scanner._on_scan_timer_timeout) # Refresh hack status
 	hack_screen.add_child(fast_typing)
 
+	# Hack minigame maze (Hack minigames)
+	maze.visible = false
+	maze.hack_concluded.connect(_on_back_button_pressed)
+	maze.hack_concluded.connect(virus_scanner._on_scan_timer_timeout)
+	hack_screen.add_child(maze)
+
 	# Hack minigame line connect (Hack minigames)
 	line_connect.visible = false
 	line_connect.hack_concluded.connect(_on_back_button_pressed)
@@ -281,6 +290,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
 		GameData.App.LINECONNECT,
+		GameData.App.MAZE,
 	]
 	if main_app in hack_minigames:
 		hack_screen.visible = true
@@ -409,7 +419,7 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 		GameData.HackMinigame.FASTTYPING:
 			_on_app_opened(GameData.App.FASTTYPING)
 		GameData.HackMinigame.MAZE:
-			_on_app_opened(GameData.App.LINECONNECT)
+			_on_app_opened(GameData.App.MAZE)
 		GameData.HackMinigame.LINECONNECT:
 			_on_app_opened(GameData.App.LINECONNECT)
 		_:
@@ -456,6 +466,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Hack minigames
 		GameData.App.FASTTYPING: fast_typing,
 		GameData.App.LINECONNECT: line_connect,
+		GameData.App.MAZE: maze,
 	}
 	return app_map.get(app_enum, null)
 
@@ -499,5 +510,6 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Hack minigames
 		GameData.App.FASTTYPING: GameData.App.FASTTYPING,
 		GameData.App.LINECONNECT: GameData.App.LINECONNECT,
+		GameData.App.MAZE: GameData.App.MAZE,
 	}
 	return main_app_map.get(subscreen_enum, null)

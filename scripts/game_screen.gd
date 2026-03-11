@@ -76,6 +76,7 @@ func _ready() -> void:
   # UI hacked minigame ended to event handler
   ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   ui.base_app.line_connect.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  ui.base_app.maze.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
   # UI start new day
@@ -96,6 +97,7 @@ func _on_clock_tick(current_minutes: int) -> void:
   # Minigame update timer
   ui.base_app.fast_typing.minigame_timer.update_timer()
   ui.base_app.line_connect.minigame_timer.update_timer()
+  ui.base_app.maze.minigame_timer.update_timer()
 
   # Update blur for all the game
   _update_blur()
