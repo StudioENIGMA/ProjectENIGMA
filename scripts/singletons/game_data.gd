@@ -82,7 +82,7 @@ var cart_enum_to_shop_enum = {
 	App.BROWSERAECCART: App.BROWSERAECSHOP
 }
 
-var verified_contacts = ["Chefinho"]
+var verified_contacts = []
 
 var bank_balance: float = 200
 
