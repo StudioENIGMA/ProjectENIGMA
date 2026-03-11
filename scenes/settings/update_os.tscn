@@ -3,6 +3,34 @@
 [ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/apps/settings/update_os.gd" id="1_hn00k"]
 [ext_resource type="Texture2D" uid="uid://curi7hvanqlq8" path="res://assets/icons/gear.png" id="2_cinje"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cinje"]
+bg_color = Color(0.6039216, 0.09019608, 0.22352941, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plx2x"]
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.6509804)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt8am"]
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.57254905)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7oopa"]
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.80784315)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="Animation" id="Animation_cinje"]
 length = 0.001
 tracks/0/type = "value"
@@ -20,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/path = NodePath("VBoxContainer/ProgressBar:value")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/path = NodePath("VBoxContainer/ProgressBar:value")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -72,50 +100,58 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hn00k")
-update_button = NodePath("Button")
+update_button = NodePath("VBoxContainer/Button")
 animator = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1105536739]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -142.5
-offset_top = 50.0
-offset_right = 142.5
-offset_bottom = 335.0
-grow_horizontal = 2
+custom_minimum_size = Vector2(285, 285)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 45.5
+offset_right = 322.0
+offset_bottom = 330.5
 rotation = 6.2831855
 pivot_offset = Vector2(142.5, 142.5)
 size_flags_horizontal = 6
-size_flags_vertical = 2
+size_flags_vertical = 0
 texture = ExtResource("2_cinje")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2073749276]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 376.0
-offset_right = 350.0
-offset_bottom = 424.0
-scale = Vector2(1, 0.1)
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1597780260]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 64.5
+offset_right = 170.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=2073749276]
+custom_minimum_size = Vector2(340, 10)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_cinje")
 value = 100.0
 show_percentage = false
 
-[node name="Button" type="Button" parent="." unique_id=1093613202]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -220.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1093613202]
+custom_minimum_size = Vector2(320, 150)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_plx2x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gt8am")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7oopa")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gt8am")
 text = "Atualizar OS"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1741731604]
 libraries/ = SubResource("AnimationLibrary_7oopa")
 
-[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ProgressBar" to="." method="_on_progress_bar_value_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

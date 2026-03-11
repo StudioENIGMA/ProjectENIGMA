@@ -10,12 +10,11 @@ func _ready() -> void:
 
 func _on_update_button_pressed() -> void:
 	GameData.updated_os_today = true
-	update_button.text = "Sistema atualizado hoje"
+	update_button.text = "Atualizando Sistema"
 	update_button.disabled = true
 	animator.play("update_os")
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	# Use to detect when update is over (at the end of the animation)
-	# Replace with function body.
-	pass
+	update_button.text = "Sistema atualizado hoje"
