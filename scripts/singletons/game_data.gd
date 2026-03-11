@@ -88,9 +88,9 @@ var cart_enum_to_shop_enum = {
 var bank_balance: float = 200
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
-var starting_hours_minutes:int = 600	# Start at 6:00
+var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 1200 # End at 12:00
+var max_hours_minutes:int = 960 # End at 16:00
 var current_day:int = 0
 var reputation_points:int = 0
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
@@ -103,7 +103,7 @@ var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 20 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
 var hack_immunity_ticks: int = 0 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false

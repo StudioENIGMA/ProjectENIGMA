@@ -17,10 +17,6 @@ func _ready() -> void:
 		_on_sub_app_pressed.bindv([GameData.PaymentType.TICKET])
 	)
 
-func setup(_data: Dictionary) -> void:
-	# No setup needed for now, necessary for base app
-	pass
-
 func _on_hide_button_pressed() -> void:
 	if balance_value_label.text != "******":
 		balance_value_label.text = "******"
