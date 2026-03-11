@@ -3,7 +3,68 @@
 [ext_resource type="Script" uid="uid://ci7xaa1rvkl38" path="res://scripts/apps/settings/update_os.gd" id="1_hn00k"]
 [ext_resource type="Texture2D" uid="uid://curi7hvanqlq8" path="res://assets/icons/gear.png" id="2_cinje"]
 
-[node name="UpdateOs" type="Control" unique_id=1880233724 node_paths=PackedStringArray("update_button", "gear")]
+[sub_resource type="Animation" id="Animation_cinje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_plx2x"]
+resource_name = "update_os"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.772319, 1.02, 2.1, 2.2255976, 2.4666667, 2.5801432, 2.7247605, 2.8320572, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 15.45, 15.45, 20.0, 20.0, 25.0, 25.0, 50.83, 50.83, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7oopa"]
+_data = {
+&"RESET": SubResource("Animation_cinje"),
+&"update_os": SubResource("Animation_plx2x")
+}
+
+[node name="UpdateOs" type="Control" unique_id=1880233724 node_paths=PackedStringArray("update_button", "animator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hn00k")
 update_button = NodePath("Button")
-gear = NodePath("TextureRect")
+animator = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1105536739]
 layout_mode = 1
@@ -24,6 +85,7 @@ offset_top = 50.0
 offset_right = 142.5
 offset_bottom = 335.0
 grow_horizontal = 2
+rotation = 6.2831855
 pivot_offset = Vector2(142.5, 142.5)
 size_flags_horizontal = 6
 size_flags_vertical = 2
@@ -32,10 +94,12 @@ expand_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2073749276]
 layout_mode = 0
+offset_left = 10.0
 offset_top = 376.0
-offset_right = 340.0
+offset_right = 350.0
 offset_bottom = 424.0
 scale = Vector2(1, 0.1)
+value = 100.0
 show_percentage = false
 
 [node name="Button" type="Button" parent="." unique_id=1093613202]
@@ -50,3 +114,8 @@ offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Atualizar OS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1741731604]
+libraries/ = SubResource("AnimationLibrary_7oopa")
+
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]
