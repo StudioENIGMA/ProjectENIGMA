@@ -24,7 +24,7 @@
         "annex":
         {
           "type": "apk",
-          "app_name": "FakeStore",
+          "app_name": "fake_store",
           "image": "res://assets/icons/fake-app-store.png",
           "caption": "Loja de Aplicativos Corporativa.apk"
         },

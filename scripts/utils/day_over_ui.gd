@@ -1,6 +1,11 @@
 extends Control
 
+signal day_over_clicked()
+
 @export var next_day_button:Button
+
+func _ready() -> void:
+	next_day_button.pressed.connect(_on_next_day_button_pressed)
 
 func show_day_over() -> void:
 	self.visible = true
@@ -10,5 +15,4 @@ func hide_day_over() -> void:
 	self.visible = false
 
 func _on_next_day_button_pressed() -> void:
-	GameData.current_day += 1
-	# TODO start new day logic
+	day_over_clicked.emit()

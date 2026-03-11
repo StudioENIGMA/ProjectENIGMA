@@ -1,10 +1,15 @@
 extends Node2D
 
 signal open_hack_minigame(hack_minigame: GameData.HackMinigame)
+signal send_hack_notification()
 
 func on_clock_tick() -> void:
 	var current_minutes = GameData.hours_minutes
+	if GameData.is_in_minigame:
+		return # Don't progress hack while in minigame
+
 	if GameData.is_hacked:
+		virus_progression()
 		return # Already hacked, no need to check again
 
 	if GameData.last_hacked_tick + GameData.hack_immunity_ticks > current_minutes:
@@ -26,13 +31,16 @@ func on_clock_tick() -> void:
 
 	var random_value = randi_range(0, 100)
 	if random_value < GameData.current_hack_probability * 100:
-		open_minigame()
+		GameData.is_hacked = true
+		send_hack_notification.emit()
 
 ## Receives the expected number of ticks of immunity between hacks and the number
 ## of ticks expected between hacks, and calculates the parameters for the hacking system
 func calculate_hack_probability_increment(
 	expected_ticks_between_hacks: int
 	) -> float:
+
+	expected_ticks_between_hacks = max(expected_ticks_between_hacks, 1) # Avoid division by zero or negative values
 
 	# Approximation:
 	# E[T] ≈ sqrt(π / (2 * hack_probability_increment))
@@ -46,15 +54,18 @@ func calculate_hack_probability_increment(
 ## Once hack minigame is concluded, reset hack probability and set the last hacked tick to the
 ## current tick to give the player some time of immunity before the next hack can happen
 func on_hack_concluded() -> void:
+	GameData.is_in_minigame = false
 	GameData.is_hacked = false
 	GameData.current_hack_probability = 0.0
 	GameData.last_hacked_tick = GameData.hours_minutes
 
 func open_minigame() -> void:
-	GameData.is_hacked = true
-	GameData.last_hacked_tick = GameData.hours_minutes
+	GameData.is_in_minigame = true
 
 	# Select random hack minigame
 	var hack_index = randi_range(0, GameData.HackMinigame.size() - 1)
 	var hack_minigame = GameData.HackMinigame.values()[hack_index]
 	open_hack_minigame.emit(hack_minigame)
+
+func virus_progression() -> void:
+	GameData.number_of_viruses += 1

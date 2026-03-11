@@ -3,6 +3,13 @@ extends "res://scripts/apps/both_shops/generic_store_app.gd"
 signal subscreen_open_requested(subscreen_name:GameData.App)
 
 func _ready() -> void:
+	refresh_store()
+
+func setup() -> void:
+	# Refresh apps in store
+	refresh_store()
+
+func refresh_store() -> void:
 	var available_apps = GameData.apps_in_store
 	var downloaded_apps = GameData.downloaded_apps
 

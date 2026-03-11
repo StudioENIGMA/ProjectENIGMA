@@ -8,6 +8,7 @@ extends Control
 @export var ui: Control
 @export var event_handler: Node2D
 @export var story_director: Node2D
+@export var progressive_blur: ColorRect
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
@@ -30,6 +31,9 @@ func _ready() -> void:
   event_handler.clock_tick.connect(_on_clock_tick)
   # Event handler hack event to UI
   event_handler.hack_handler.open_hack_minigame.connect(ui.base_app.start_hack_minigame)
+  event_handler.hack_handler.send_hack_notification.connect(
+	ui.notifications_control.send_hack_notification
+  )
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -62,7 +66,7 @@ func _ready() -> void:
    bank_director._on_code_created
   )
   bank_director.send_new_code.connect(
-    ui.base_app.browser_app_shop_payment_screen._on_code_received
+	ui.base_app.browser_app_shop_payment_screen._on_code_received
   )
 
   # UI
@@ -72,9 +76,13 @@ func _ready() -> void:
   ui.base_app.browser_app.request_news.connect(story_director._on_browser_request_news)
   # UI hacked minigame ended to event handler
   ui.base_app.fast_typing.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  ui.base_app.line_connect.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
+  ui.base_app.maze.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
   # UI asking for minigame
   ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
-
+  # UI start new day
+  ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
+  ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
 
 #endregion INITIALIZATION
 
@@ -89,3 +97,15 @@ func _on_clock_tick(current_minutes: int) -> void:
 
   # Minigame update timer
   ui.base_app.fast_typing.minigame_timer.update_timer()
+  ui.base_app.line_connect.minigame_timer.update_timer()
+  ui.base_app.maze.minigame_timer.update_timer()
+
+  # Update blur for all the game
+  _update_blur()
+
+func _update_blur() -> void:
+  # Max blur scale is 10
+  var blur_scale:float = min(GameData.number_of_viruses / 50.0, 6.0)
+
+  var blur_material:ShaderMaterial = progressive_blur.material
+  blur_material.set_shader_parameter("blur_scale", blur_scale)
