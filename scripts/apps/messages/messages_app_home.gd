@@ -36,16 +36,13 @@ func on_player_answer(
 		{"message":message, "title":title, "reputation_points":reputation_points, "answer_id":answer_id}
 	)
 
-	# Update the conversation in the UI
-	_update_list_of_chats(conversation_index)
-
 ## Handles the creation of a new message in the messaging app
 ##
 ## npc_name: The name of the NPC which the conversation is with
 ## message: The content of the message
 ## sender: Enum indicating who sent the message (ME or OTHER)
 ## time: The time the message was sent
-func on_create_message(
+func on_send_message(
 	npc_name:String,
 	message:String,
 	annex:Dictionary,
@@ -56,6 +53,8 @@ func on_create_message(
 		func(conversation:Dictionary):return conversation["name"] == npc_name
 	)
 
+	var current_date_dict = GameData.get_current_date_dict()
+
 	# Create new conversation if it doesn't exist
 	if conversation_index == -1:
 		var photo_path = str("res://assets/avatars/", npc_name, ".png")
@@ -64,12 +63,14 @@ func on_create_message(
 		conversations_data.push_front({
 			"name":npc_name,
 			"photo":photo_path,
+			"verified": GameData.verified_contacts.has(npc_name),
 			"messages":[{
 				"message":message,
 				"annex":annex,
 				"sender":sender,
 				"time":time,
-				"visualized":false
+				"visualized":false,
+				"date_dict": current_date_dict
 			}],
 			"options":[]
 		})
@@ -80,7 +81,8 @@ func on_create_message(
 			"annex":annex,
 			"sender":sender,
 			"time":time,
-			"visualized":false
+			"visualized":false,
+			"date_dict": current_date_dict
 		})
 
 		# Move conversation to the top of the list
