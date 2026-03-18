@@ -37,12 +37,18 @@ signal delete_answers(npc_name:String)
 
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
+const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 
 @export var messages_list:VBoxContainer
 @export var answers_bar:HBoxContainer
 @export var scroll_container:ScrollContainer
 
+@export var avatar_rect: TextureRect
+@export var name_label: Label
+@export var verified_rect: TextureRect
+
 var conversation_name:String = ""
+var messages_typing: Dictionary = {}
 
 func _ready() -> void:
 	answers_bar.message_answered.connect(message_answered.emit) # Propagate signal to base app
@@ -50,7 +56,7 @@ func _ready() -> void:
 		request_message_creation_on_answer.emit # Propagate signal to base app
 	)
 	answers_bar.request_message_creation_on_answer.connect(
-		on_create_message # Handle message creation in current chat
+		on_send_message # Handle message creation in current chat
 	)
 	answers_bar.storage_answer.connect(
 		storage_answer.emit # Propagate signal to base app
@@ -59,6 +65,7 @@ func _ready() -> void:
 
 func setup(conversation_data:Dictionary) -> void:
 	conversation_name = conversation_data["name"]
+	set_header_panel(conversation_data["verified"])
 
 	answers_bar.set_active_conversation(conversation_name)
 	answers_bar.clear_ui()
@@ -67,18 +74,35 @@ func setup(conversation_data:Dictionary) -> void:
 		messages_list.remove_child(child_node)
 		child_node.queue_free()
 
+	var current_date_dict = conversation_data["messages"][0].date_dict
+
+	var time_indicator_instance = TIME_INDICATOR.instantiate()
+	messages_list.add_child(time_indicator_instance)
+	time_indicator_instance.setup(current_date_dict)
+
 	for message in conversation_data["messages"]:
+		if message.date_dict != current_date_dict:
+			current_date_dict = message.date_dict
+			var time_instance = TIME_INDICATOR.instantiate()
+			messages_list.add_child(time_instance)
+			time_instance.setup(current_date_dict)
+
 		var message_instance:HBoxContainer;
 		if message.sender == GameData.Sender.PLAYER:
 			message_instance = MY_MESSAGE.instantiate()
 		else:
 			message_instance = OTHERS_MESSAGE.instantiate()
 
-		message_instance.setup(message.message, message.get("annex", {}))
+		messages_list.add_child(message_instance)
+		message_instance.setup(message.message, message.get("annex", {}), message.time)
 		message_instance.apk_installation_requested.connect(
 			apk_installation_requested.emit # Propagate signal to base app
 		)
-		messages_list.add_child(message_instance)
+
+	if messages_typing[conversation_name] == true:
+		var message_typing_instance = OTHERS_MESSAGE.instantiate()
+		messages_list.add_child(message_typing_instance)
+		message_typing_instance.setup("", {}, 0, true)
 
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
@@ -95,6 +119,17 @@ func setup(conversation_data:Dictionary) -> void:
 
 func on_create_message(
 	npc_name:String,
+) -> void:
+	messages_typing[npc_name] = true
+	if npc_name != conversation_name:
+		return
+
+	var message_typing_instance = OTHERS_MESSAGE.instantiate()
+	messages_list.add_child(message_typing_instance)
+	message_typing_instance.setup("", {}, 0, true)
+
+func on_send_message(
+	npc_name:String,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
@@ -110,7 +145,15 @@ func on_create_message(
 				npc_name,
 				time
 			)
+		messages_typing[npc_name] = false
 		return
+
+	if messages_typing[conversation_name]:
+		# Free message typing instance
+		var typing_instance = messages_list.get_child(messages_list.get_child_count() - 1)
+		messages_list.remove_child(typing_instance)
+		typing_instance.queue_free()
+		messages_typing[npc_name] = false
 
 	# Add the new message to the messages list
 	var message_instance:HBoxContainer;
@@ -119,11 +162,11 @@ func on_create_message(
 	else:
 		message_instance = OTHERS_MESSAGE.instantiate()
 
-	message_instance.setup(message, annex)
+	messages_list.add_child(message_instance)
+	message_instance.setup(message, annex, time)
 	message_instance.apk_installation_requested.connect(
 		apk_installation_requested.emit # Propagate signal to base app
 	)
-	messages_list.add_child(message_instance)
 
 	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom
 	if sender == GameData.Sender.PLAYER or scroll_container.call_deferred("check_scroll_to_bottom"):
@@ -145,3 +188,9 @@ func on_request_answer_option(
 		time,
 		answer_id
 	)
+
+func set_header_panel(is_verified: bool) -> void:
+	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
+	avatar_rect.texture = load(photo_path)
+	name_label.text = conversation_name
+	verified_rect.visible = true if is_verified else false

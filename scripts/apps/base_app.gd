@@ -111,7 +111,7 @@ func _ready() -> void:
 	messages_app_chat.visible = false
 	messages_app_chat.message_answered.connect(message_answered.emit) # Propagate signal to UI
 	messages_app_chat.request_message_creation_on_answer.connect(
-		messages_app_home.on_create_message # Propagate signal to app home
+		messages_app_home.on_send_message # Propagate signal to app home
 	)
 	messages_app_chat.storage_answer.connect(
 		messages_app_home.on_player_answer # Propagate signal to app home
@@ -282,7 +282,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 			specific_app.setup(optional_data)
 	elif specific_app.has_method("setup") and specific_app.get_method_argument_count("setup") == 0:
 		specific_app.setup()
-	
+
 	specific_app.visible = true
 	notification_ui.visible = true
 

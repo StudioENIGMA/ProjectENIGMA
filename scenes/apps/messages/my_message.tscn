@@ -2,26 +2,32 @@
 
 [ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/message_instance.gd" id="1_2u343"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_yluvu"]
+[ext_resource type="FontFile" uid="uid://famge14wt6yw" path="res://assets/fonts/IBMPlexSans-Light.ttf" id="3_080el"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_e64tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
-content_margin_left = 16.0
-content_margin_top = 8.0
-content_margin_right = 16.0
-content_margin_bottom = 8.0
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
 bg_color = Color(0.266667, 0.811765, 0.698039, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_left = 20
 
-[node name="MyMessage" type="HBoxContainer" unique_id=1707791925 node_paths=PackedStringArray("label", "panel_container", "left_margin", "right_margin", "annex_container", "annex_button")]
+[sub_resource type="LabelSettings" id="LabelSettings_03dd2"]
+font = ExtResource("3_080el")
+font_size = 10
+
+[node name="MyMessage" type="HBoxContainer" unique_id=1707791925 node_paths=PackedStringArray("label", "panel_container", "time_label", "left_margin", "right_margin", "annex_container", "annex_button")]
 offset_right = 133.0
 offset_bottom = 5136.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_2u343")
-label = NodePath("VBoxContainer/MessageBackground/MessageContent")
+label = NodePath("VBoxContainer/MessageBackground/VBoxContainer/MessageContent")
 panel_container = NodePath("VBoxContainer/MessageBackground")
+time_label = NodePath("VBoxContainer/MessageBackground/VBoxContainer/TimeLabel")
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
@@ -43,15 +49,27 @@ layout_mode = 2
 size_flags_horizontal = 16
 theme_override_styles/panel = SubResource("StyleBoxFlat_wq22m")
 
-[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground" unique_id=1917943482]
-custom_minimum_size = Vector2(0, 70)
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MessageBackground" unique_id=1091044580]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1917943482]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 16
 theme_override_fonts/font = ExtResource("1_yluvu")
-theme_override_font_sizes/font_size = 16
-text = "Lorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum DoloLorem Ipsum Dolo"
+theme_override_font_sizes/font_size = 13
+text = "Lorem"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1494808288]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "14:03"
+label_settings = SubResource("LabelSettings_03dd2")
+horizontal_alignment = 2
 
 [node name="AnnexContainer" type="CenterContainer" parent="VBoxContainer" unique_id=95574192]
 layout_mode = 2

@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bhabn2lfvwif8" path="res://scripts/apps/messages/messages_app_chat.gd" id="1_qunmr"]
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_ir5vx"]
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="2_nf2si"]
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="2_wcops"]
+[ext_resource type="Script" uid="uid://bb2ycrpcduebj" path="res://scripts/utils/max_size_label.gd" id="3_f5yby"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_u5pol"]
+[ext_resource type="Texture2D" uid="uid://dg538esstxeq3" path="res://assets/icons/verified.svg" id="5_tjy8d"]
 
-[node name="MessagesAppChat" type="Control" unique_id=1068585976 node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf2si"]
+bg_color = Color(0.015686275, 0.105882354, 0.22745098, 0.9137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir5vx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_color = Color(0.12156863, 0.14117648, 0.19607843, 1)
+
+[node name="MessagesAppChat" type="Control" unique_id=1068585976 node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container", "avatar_rect", "name_label", "verified_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,17 +25,69 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qunmr")
 messages_list = NodePath("MessagesScrollContainer/MarginContainer/MessagesList")
-answers_bar = NodePath("AnswersBar")
+answers_bar = NodePath("CenterContainer/AnswersBar")
 scroll_container = NodePath("MessagesScrollContainer")
+avatar_rect = NodePath("PanelContainer/HBoxContainer/AvatarRect")
+name_label = NodePath("PanelContainer/HBoxContainer/NameLabel")
+verified_rect = NodePath("PanelContainer/HBoxContainer/VerifiedRect")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1480692123]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nf2si")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1813561622]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AvatarRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=601099207]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_nf2si")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=481527146]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer" unique_id=540056861]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_u5pol")
+theme_override_font_sizes/font_size = 29
+text = "Chefinho"
+vertical_alignment = 1
+script = ExtResource("3_f5yby")
+max_width = 130.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=277448958]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="VerifiedRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=512255077]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_tjy8d")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="." unique_id=1928195733]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -64.0
+anchor_bottom = 0.90000004
+offset_top = 50.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_hint_mode = 1
 script = ExtResource("2_ir5vx")
 
 [node name="MarginContainer" type="MarginContainer" parent="MessagesScrollContainer" unique_id=1878788171]
@@ -41,13 +105,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="AnswersBar" type="HBoxContainer" parent="." unique_id=1570615758]
-custom_minimum_size = Vector2(0, 64)
+[node name="CenterContainer" type="PanelContainer" parent="." unique_id=340443307]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.90000004
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -14.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir5vx")
+
+[node name="AnswersBar" type="HBoxContainer" parent="CenterContainer" unique_id=1570615758]
+custom_minimum_size = Vector2(340, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("2_wcops")
