@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://cat5v86k6gaeu" path="res://scripts/main_menu/load_game_handler.gd" id="4_oa1go"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://vkfy3aw4upiu" path="res://scripts/conscent_panel.gd" id="7_oa1go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
 
 [node name="Main Menu" type="Control" unique_id=668069274]
 layout_mode = 3
@@ -76,6 +80,54 @@ text = "SETTINGS"
 script = ExtResource("5_tbmy8")
 
 [node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
+
+[node name="ConscentPanel" type="PanelContainer" parent="." unique_id=267683509 node_paths=PackedStringArray("conscent_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtw2f")
+script = ExtResource("7_oa1go")
+conscent_button = NodePath("MarginContainer/VBoxContainer/WarnButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConscentPanel" unique_id=1102398695]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConscentPanel/MarginContainer" unique_id=205262850]
+layout_mode = 2
+
+[node name="Warn" type="RichTextLabel" parent="ConscentPanel/MarginContainer/VBoxContainer" unique_id=604680348]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+text = "ATENÇÃO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="ConscentPanel/MarginContainer/VBoxContainer" unique_id=912462158]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/normal_font_size = 22
+text = "O presente jogo foi projetado e pensado para jogadores a partir de 12 anos de idade. Ao pressionar o botão abaixo você confirma possuir idade suficiente para continuar.
+
+O objetivo do jogo é simular e documentar perigos da internet, dessa forma, qualquer semelhança com pessoas reais é mera coincidência."
+horizontal_alignment = 3
+
+[node name="WarnButton" type="Button" parent="ConscentPanel/MarginContainer/VBoxContainer" unique_id=1409049501]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Confirmar"
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]

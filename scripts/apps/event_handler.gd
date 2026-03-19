@@ -54,6 +54,7 @@ func _update_in_game_time() -> void:
 func _on_day_over_timeout() -> void:
 	# Emit the day ended signal to notify other systems
 	day_ended.emit()
+	GameData.save_game()
 
 	# Stop the timers
 	clock_timer.stop()

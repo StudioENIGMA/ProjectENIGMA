@@ -232,7 +232,6 @@ var apps_chinese_operations = {
 
 var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
-var available_updates: Array[App] = []
 
 func _ready() -> void:
 	# Create reverse mapping for apps_name
@@ -318,3 +317,57 @@ func export_game_data_for_tools() -> void:
 	if save_file:
 		save_file.store_string(json_string)
 		save_file.close()
+
+## This will happen once a day ends, so we don't need to save everything
+func save_game() -> void:
+	var game_state = {
+		"start_date_dict": start_date_dict,
+		"current_day": current_day,
+		"reputation_points": reputation_points,
+		"passwords": passwords,
+		"apps_in_store": apps_in_store,
+		"downloaded_apps": downloaded_apps,
+	}
+	var file_path = "res://data/saved_game.json"
+	var json_string = JSON.stringify(game_state)
+	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
+	if save_file:
+		save_file.store_string(json_string)
+		save_file.close()
+
+func load_game() -> void:
+	var file_path := "res://data/saved_game.json"
+	if not FileAccess.file_exists(file_path):
+		return
+
+	var load_file := FileAccess.open(file_path, FileAccess.READ)
+	if load_file == null:
+		return
+
+	var json_string := load_file.get_as_text()
+	load_file.close()
+
+	var json := JSON.new()
+	var err := json.parse(json_string)
+	if err != OK:
+		push_error("Failed to parse save file")
+		return
+
+	var game_state: Dictionary = json.data
+
+	start_date_dict = game_state.get("start_date_dict")
+	current_day = int(game_state.get("current_day"))
+	reputation_points = int(game_state.get("reputation_points"))
+	passwords = game_state.get("passwords")
+
+	var raw_apps_in_store: Array = game_state["apps_in_store"]
+	var saved_apps_in_store: Array[App] = []
+	for value in raw_apps_in_store:
+		saved_apps_in_store.append(int(value))
+	apps_in_store = saved_apps_in_store
+
+	var raw_downloaded_apps: Array = game_state["downloaded_apps"]
+	var saved_downloaded_apps: Array[App] = []
+	for value in raw_downloaded_apps:
+		saved_downloaded_apps.append(int(value))
+	downloaded_apps = saved_downloaded_apps
