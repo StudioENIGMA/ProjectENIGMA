@@ -43,7 +43,7 @@ const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 @export var answers_bar:HBoxContainer
 @export var scroll_container:ScrollContainer
 
-@export var avatar_rect: TextureRect
+@export var profile_picture: Control
 @export var name_label: Label
 @export var verified_rect: TextureRect
 
@@ -191,6 +191,6 @@ func on_request_answer_option(
 
 func set_header_panel(is_verified: bool) -> void:
 	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
-	avatar_rect.texture = load(photo_path)
+	profile_picture.setup(photo_path, conversation_name)
 	name_label.text = conversation_name
 	verified_rect.visible = true if is_verified else false
