@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec3 key_color = vec3(0.0, 0.0, 0.0); // Green color to remove
+uniform vec3 key_color = vec3(0.0, 1.0, 0.0); // Green color to remove
 uniform float sensitivity : hint_range(0.0, 1.0) = 0.4;
 uniform float smoothness : hint_range(0.0, 1.0) = 0.05;
 
