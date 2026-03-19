@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 signal minigame_request()
 signal app_uninstalled(app_name: GameData.App)
@@ -15,6 +15,8 @@ signal app_uninstalled(app_name: GameData.App)
 @export var virus_result_label: Label
 @export var apps_result_label: Label
 @export var hack_result_label: Label
+@export var scanner_animation: Control
+@export var scanner_video_stream: VideoStreamPlayer
 #endregion
 
 func _ready() -> void:
@@ -22,7 +24,7 @@ func _ready() -> void:
 	apps_result.visible = false
 	hack_result.visible = false
 	scan_button.pressed.connect(_on_scan_button_pressed)
-	scan_timer.timeout.connect(_on_scan_timer_timeout)
+	scanner_video_stream.finished.connect(_on_video_stream_finished)
 
 	remove_apps_button.pressed.connect(_on_remove_apps_button_pressed)
 	remove_virus_button.pressed.connect(_on_remove_virus_button_pressed)
@@ -31,9 +33,11 @@ func _ready() -> void:
 func _on_scan_button_pressed() -> void:
 	scan_button.disabled = true
 	scan_button.text = "Varredura em progresso"
-	scan_timer.start()
+	scanner_animation.visible = true
+	scanner_video_stream.play()
 
-func _on_scan_timer_timeout() -> void:
+func _on_video_stream_finished() -> void:
+	scanner_animation.visible = false
 	await get_tree().process_frame # Ensure UI updates before showing results
 	virus_result.visible = true
 	apps_result.visible = true

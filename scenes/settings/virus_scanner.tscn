@@ -1,95 +1,170 @@
 [gd_scene format=3 uid="uid://bt7a2lnrb0to"]
 
 [ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
+[ext_resource type="Shader" uid="uid://dori4q68p863g" path="res://shaders/virus_scanner.gdshader" id="2_2ymon"]
+[ext_resource type="VideoStream" uid="uid://d07x467tfkssb" path="res://assets/videos/scanner-virus.ogv" id="3_2ymon"]
+[ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="4_06fvf"]
 
-[node name="VirusScanner" type="VBoxContainer" unique_id=810286205 node_paths=PackedStringArray("virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label", "hack_result_label")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06fvf"]
+shader = ExtResource("2_2ymon")
+shader_parameter/key_color = Vector3(0.07, 0, 1)
+shader_parameter/sensitivity = 0.3890000184775
+shader_parameter/smoothness = 0.4090000194275
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m62g1"]
+shader = ExtResource("4_06fvf")
+shader_parameter/blur_radius = 8
+shader_parameter/blur_scale = 3.1250001484375
+shader_parameter/darkness = 0.8
+shader_parameter/fade_direction = 0
+shader_parameter/fade_cutoff = 1.0
+shader_parameter/fade_intensity = 0.10000000149012
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06fvf"]
+bg_color = Color(0, 0.09411765, 0, 0.39607844)
+
+[node name="Virus Scanner" type="Control" unique_id=891835500 node_paths=PackedStringArray("virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label", "hack_result_label", "scanner_animation", "scanner_video_stream")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sa0sr")
+virus_result = NodePath("VirusVBox/VirusResult")
+apps_result = NodePath("VirusVBox/AppsResult")
+hack_result = NodePath("VirusVBox/HackResult")
+remove_virus_button = NodePath("VirusVBox/VirusResult/MarginContainer/RemoveVirusButton")
+remove_apps_button = NodePath("VirusVBox/AppsResult/MarginContainer/UnninstallButton")
+remove_hack_button = NodePath("VirusVBox/HackResult/MarginContainer/UnhackButton")
+scan_button = NodePath("VirusVBox/ScannerButton")
+scan_timer = NodePath("VirusVBox/ScanTimer")
+virus_result_label = NodePath("VirusVBox/VirusResult/VirusLabel")
+apps_result_label = NodePath("VirusVBox/AppsResult/AppsLabel")
+hack_result_label = NodePath("VirusVBox/HackResult/UnhackLabel")
+scanner_animation = NodePath("ScannerAnimation")
+scanner_video_stream = NodePath("ScannerAnimation/VideoStreamPlayer")
+
+[node name="VirusVBox" type="VBoxContainer" parent="." unique_id=810286205]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -119.5
-offset_top = -27.0
-offset_right = 119.5
-offset_bottom = 27.0
+offset_left = -121.0
+offset_top = -153.5
+offset_right = 121.0
+offset_bottom = 153.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
-script = ExtResource("1_sa0sr")
-virus_result = NodePath("VirusResult")
-apps_result = NodePath("AppsResult")
-hack_result = NodePath("HackResult")
-remove_virus_button = NodePath("VirusResult/MarginContainer/RemoveVirusButton")
-remove_apps_button = NodePath("AppsResult/MarginContainer/UnninstallButton")
-remove_hack_button = NodePath("HackResult/MarginContainer/UnhackButton")
-scan_button = NodePath("ScannerButton")
-scan_timer = NodePath("ScanTimer")
-virus_result_label = NodePath("VirusResult/VirusLabel")
-apps_result_label = NodePath("AppsResult/AppsLabel")
-hack_result_label = NodePath("HackResult/UnhackLabel")
 
-[node name="ScannerButton" type="Button" parent="." unique_id=896499335]
+[node name="ScannerButton" type="Button" parent="VirusVBox" unique_id=896499335]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Iniciar Varredura"
 
-[node name="VirusResult" type="VBoxContainer" parent="." unique_id=368339873]
+[node name="VirusResult" type="VBoxContainer" parent="VirusVBox" unique_id=368339873]
 layout_mode = 2
 
-[node name="VirusLabel" type="Label" parent="VirusResult" unique_id=763997514]
+[node name="VirusLabel" type="Label" parent="VirusVBox/VirusResult" unique_id=763997514]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 18
 text = "N vírus detectados:"
 
-[node name="MarginContainer" type="MarginContainer" parent="VirusResult" unique_id=592668013]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/VirusResult" unique_id=592668013]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="RemoveVirusButton" type="Button" parent="VirusResult/MarginContainer" unique_id=541151401]
+[node name="RemoveVirusButton" type="Button" parent="VirusVBox/VirusResult/MarginContainer" unique_id=541151401]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Remover vírus"
 
-[node name="AppsResult" type="VBoxContainer" parent="." unique_id=390473578]
+[node name="AppsResult" type="VBoxContainer" parent="VirusVBox" unique_id=390473578]
 layout_mode = 2
 
-[node name="AppsLabel" type="Label" parent="AppsResult" unique_id=78767065]
+[node name="AppsLabel" type="Label" parent="VirusVBox/AppsResult" unique_id=78767065]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 18
 text = "N aplicativos maliciosos:"
 
-[node name="MarginContainer" type="MarginContainer" parent="AppsResult" unique_id=986893016]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/AppsResult" unique_id=986893016]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="UnninstallButton" type="Button" parent="AppsResult/MarginContainer" unique_id=158631373]
+[node name="UnninstallButton" type="Button" parent="VirusVBox/AppsResult/MarginContainer" unique_id=158631373]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Desinstalar aplicativos"
 
-[node name="HackResult" type="VBoxContainer" parent="." unique_id=54324658]
+[node name="HackResult" type="VBoxContainer" parent="VirusVBox" unique_id=54324658]
 layout_mode = 2
 
-[node name="UnhackLabel" type="Label" parent="HackResult" unique_id=1533226930]
+[node name="UnhackLabel" type="Label" parent="VirusVBox/HackResult" unique_id=1533226930]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 18
 text = "Hack detectado:"
 
-[node name="MarginContainer" type="MarginContainer" parent="HackResult" unique_id=1045503287]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/HackResult" unique_id=1045503287]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="UnhackButton" type="Button" parent="HackResult/MarginContainer" unique_id=565616793]
+[node name="UnhackButton" type="Button" parent="VirusVBox/HackResult/MarginContainer" unique_id=565616793]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Deshackear"
 
-[node name="ScanTimer" type="Timer" parent="." unique_id=1178492530]
+[node name="ScanTimer" type="Timer" parent="VirusVBox" unique_id=1178492530]
 wait_time = 3.0
 one_shot = true
+
+[node name="ScannerAnimation" type="Control" parent="." unique_id=1335361373]
+visible = false
+z_index = 12
+layout_mode = 1
+anchor_top = -0.11100001
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.040008545
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ScannerAnimation" unique_id=1994339711]
+z_index = 3
+material = SubResource("ShaderMaterial_06fvf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_2ymon")
+expand = true
+
+[node name="Blur" type="Panel" parent="ScannerAnimation" unique_id=1603302661]
+z_index = 1
+material = SubResource("ShaderMaterial_m62g1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="ScannerAnimation" unique_id=1022420634]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_06fvf")
