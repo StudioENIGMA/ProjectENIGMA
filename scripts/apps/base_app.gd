@@ -238,7 +238,7 @@ func _ready() -> void:
 	# Hack minigame fast type (Hack minigames)
 	fast_typing.visible = false
 	fast_typing.hack_concluded.connect(_on_back_button_pressed)
-	fast_typing.hack_concluded.connect(virus_scanner._on_scan_timer_timeout) # Refresh hack status
+	fast_typing.hack_concluded.connect(virus_scanner._on_video_stream_finished) # Refresh hack status
 	hack_screen.add_child(fast_typing)
 
 ## Handles the app opened event from the desktop UI
