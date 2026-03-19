@@ -2,12 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
-[ext_resource type="Script" uid="uid://dm0gsskdintec" path="res://scripts/main_menu/sound_handler.gd" id="2_wu84c"]
-[ext_resource type="AudioStream" uid="uid://b6v0lb1b78cfc" path="res://assets/sounds/sfx/enigma_startup_sfx_r1.ogg" id="3_8ln24"]
 [ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cat5v86k6gaeu" path="res://scripts/main_menu/load_game_handler.gd" id="4_oa1go"]
-[ext_resource type="AudioStream" uid="uid://d3kphgo4xvrud" path="res://assets/sounds/ost/main_theme_r1.ogg" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="6_rtw2f"]
 
 [node name="Main Menu" type="Control" unique_id=668069274]
 layout_mode = 3
@@ -77,22 +75,7 @@ theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 script = ExtResource("5_tbmy8")
 
-[node name="Music Handler" type="Node" parent="." unique_id=1211276130 node_paths=PackedStringArray("sfx_player", "music_player")]
-script = ExtResource("2_wu84c")
-sfx_player = NodePath("SFX Player")
-music_player = NodePath("Music Player")
-startup_sound = ExtResource("3_8ln24")
-main_theme = ExtResource("4_rtw2f")
-
-[node name="Music Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=898085309]
-position = Vector2(2, 13)
-scale = Vector2(1.54229, 1.87636)
-bus = &"Music"
-
-[node name="SFX Player" type="AudioStreamPlayer2D" parent="Music Handler" unique_id=1882431160]
-position = Vector2(2, 13)
-scale = Vector2(1.54229, 1.87636)
-bus = &"SFX"
+[node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]

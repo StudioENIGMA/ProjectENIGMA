@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b2ixf6unak5hi"]
+
+[ext_resource type="Script" uid="uid://chg4ag8nhu7q1" path="res://scripts/apps/messages/profile_picture.gd" id="1_dxxu6"]
+[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="2_875b6"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_v06dn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6h6t"]
+bg_color = Color(0.06560712, 0.2726395, 0.22955495, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 15
+
+[node name="ProfilePicture" type="Control" unique_id=233740664 node_paths=PackedStringArray("default_panel", "panel_label", "photo_rect")]
+layout_mode = 3
+anchor_right = 0.178
+anchor_bottom = 0.1
+offset_right = -0.08000183
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxxu6")
+default_panel = NodePath("DefaultPanel")
+panel_label = NodePath("DefaultPanel/Label")
+photo_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=854137703]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_875b6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DefaultPanel" type="Panel" parent="." unique_id=129828562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6h6t")
+
+[node name="Label" type="Label" parent="DefaultPanel" unique_id=542033521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.17663777, 0.576024, 0.4929816, 1)
+theme_override_fonts/font = ExtResource("3_v06dn")
+theme_override_font_sizes/font_size = 30
+text = "N"
+horizontal_alignment = 1
+vertical_alignment = 1

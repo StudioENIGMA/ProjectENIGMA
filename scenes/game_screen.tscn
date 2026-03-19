@@ -22,10 +22,10 @@
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
-[ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
+[ext_resource type="Script" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
 [ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
-[ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
-[ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
+[ext_resource type="Script" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
+[ext_resource type="Script" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8e4ax"]
 shader = ExtResource("1_8e4ax")
@@ -45,6 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_8imdr")
 ui = NodePath("UI")
 event_handler = NodePath("EventHandler")
@@ -60,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_5o8nl")
 base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
@@ -73,6 +75,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="UI/DesktopUI" unique_id=74826303]
 z_index = -100
@@ -82,6 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_3a7ej")
 expand_mode = 1
 
