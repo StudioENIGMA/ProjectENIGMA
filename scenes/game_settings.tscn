@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://c61njhp2co37l"]
+[gd_scene format=3 uid="uid://ohywlsw55sht"]
 
 [ext_resource type="Script" uid="uid://7pq25a7amaxx" path="res://scripts/settings_back_button.gd" id="1_4spmm"]
+[ext_resource type="Script" uid="uid://6aoh67r7dg7l" path="res://scripts/utils/sound and music/sound_settings_manager.gd" id="2_prt7l"]
 
 [node name="GameSettings" type="Control" unique_id=44018652]
 layout_mode = 3
@@ -37,6 +38,7 @@ offset_right = 167.5
 offset_bottom = 200.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_prt7l")
 
 [node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=793399517]
 layout_mode = 2
@@ -100,3 +102,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Silenciar"
 expand_icon = true
+
+[connection signal="changed" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MasterVolumeHSlider" to="SettingsVBoxContainer" method="_on_master_volume_h_slider_value_changed"]
+[connection signal="toggled" from="SettingsVBoxContainer/MasterVolumeHBoxContainer/MuteMasterCheckBox" to="SettingsVBoxContainer" method="_on_mute_master_check_box_toggled"]
+[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MusicVolumeHSlider" to="SettingsVBoxContainer" method="_on_music_volume_h_slider_value_changed"]
+[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer2/MuteMusicCheckBox" to="SettingsVBoxContainer" method="_on_mute_music_check_box_toggled"]
+[connection signal="value_changed" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/SFXVolumeHSlider" to="SettingsVBoxContainer" method="_on_sfx_volume_h_slider_value_changed"]
+[connection signal="toggled" from="SettingsVBoxContainer/MusicVolumeHBoxContainer3/MuteSFXCheckBox" to="SettingsVBoxContainer" method="_on_mute_sfx_check_box_toggled"]
