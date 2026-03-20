@@ -5,30 +5,32 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_1xi2p"]
 font = ExtResource("1_ppj0n")
+font_size = 13
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap05p"]
 bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_pr6ro"]
 font = ExtResource("1_ppj0n")
-font_size = 12
+font_size = 18
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [node name="InformationField" type="VBoxContainer" unique_id=1626536848 node_paths=PackedStringArray("title_label", "information_label")]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 149.0
+offset_bottom = 100.0
 grow_horizontal = 2
+theme_override_constants/separation = 1
 script = ExtResource("3_4a5t1")
 title_label = NodePath("InformationTitle")
 information_label = NodePath("InformationPanel/InformationLabel")
@@ -40,7 +42,7 @@ text = "Nome"
 label_settings = SubResource("LabelSettings_1xi2p")
 
 [node name="InformationPanel" type="Panel" parent="." unique_id=987741722]
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ap05p")
 
@@ -61,5 +63,5 @@ text = "XXXXX"
 label_settings = SubResource("LabelSettings_pr6ro")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1247812102]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
