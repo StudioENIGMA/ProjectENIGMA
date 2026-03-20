@@ -2,8 +2,204 @@
 
 [ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
 [ext_resource type="Shader" uid="uid://dori4q68p863g" path="res://shaders/virus_scanner.gdshader" id="2_2ymon"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_m62g1"]
 [ext_resource type="VideoStream" uid="uid://d07x467tfkssb" path="res://assets/videos/scanner-virus.ogv" id="3_2ymon"]
 [ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="4_06fvf"]
+[ext_resource type="AudioStream" uid="uid://cnl1kvlrw424o" path="res://assets/sounds/sfx/scan.mp3" id="6_8hb8s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m62g1"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(4.042983e-06, 0.70202804, 0.56224895, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.48074782, 0.3792995, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hb8s"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(2.7434528e-06, 0.5340248, 0.42390457, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.48074782, 0.3792995, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcwu7"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.27899158, 0.21670073, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.48074782, 0.3792995, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uhps"]
+bg_color = Color(0.48669332, 0.028052654, 0.029278321, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drekx"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.6313726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bxk6"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esjit"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_723l7"]
+bg_color = Color(0.027181197, 0.31896025, 0.021757843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axdpx"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.6313726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r62ul"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.6313726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwol7"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37b8p"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wrp2"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.6313726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo2j5"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.6313726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sao6w"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmbgn"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.39607844)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_right = 15.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_06fvf"]
 shader = ExtResource("2_2ymon")
@@ -21,9 +217,9 @@ shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 0.10000000149012
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06fvf"]
-bg_color = Color(0, 0.09411765, 0, 0.39607844)
+bg_color = Color(0.023529412, 0.08627451, 0.050980393, 0.7176471)
 
-[node name="Virus Scanner" type="Control" unique_id=891835500 node_paths=PackedStringArray("virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "scan_timer", "virus_result_label", "apps_result_label", "hack_result_label", "scanner_animation", "scanner_video_stream")]
+[node name="Virus Scanner" type="Control" unique_id=891835500 node_paths=PackedStringArray("virus_panel", "apps_panel", "hack_panel", "virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "virus_result_label", "apps_result_label", "hack_result_label", "scanner_animation", "scanner_video_stream", "scanner_audio_stream")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,19 +227,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sa0sr")
-virus_result = NodePath("VirusVBox/VirusResult")
-apps_result = NodePath("VirusVBox/AppsResult")
-hack_result = NodePath("VirusVBox/HackResult")
-remove_virus_button = NodePath("VirusVBox/VirusResult/MarginContainer/RemoveVirusButton")
-remove_apps_button = NodePath("VirusVBox/AppsResult/MarginContainer/UnninstallButton")
-remove_hack_button = NodePath("VirusVBox/HackResult/MarginContainer/UnhackButton")
+virus_panel = NodePath("VirusVBox/Virus Panel")
+apps_panel = NodePath("VirusVBox/AppsPanel")
+hack_panel = NodePath("VirusVBox/HackPanel")
+virus_result = NodePath("VirusVBox/Virus Panel/VirusResult")
+apps_result = NodePath("VirusVBox/AppsPanel/AppsResult")
+hack_result = NodePath("VirusVBox/HackPanel/HackResult")
+remove_virus_button = NodePath("VirusVBox/Virus Panel/VirusResult/MarginContainer/RemoveVirusButton")
+remove_apps_button = NodePath("VirusVBox/AppsPanel/AppsResult/MarginContainer/UnninstallButton")
+remove_hack_button = NodePath("VirusVBox/HackPanel/HackResult/MarginContainer/UnhackButton")
 scan_button = NodePath("VirusVBox/ScannerButton")
-scan_timer = NodePath("VirusVBox/ScanTimer")
-virus_result_label = NodePath("VirusVBox/VirusResult/VirusLabel")
-apps_result_label = NodePath("VirusVBox/AppsResult/AppsLabel")
-hack_result_label = NodePath("VirusVBox/HackResult/UnhackLabel")
+virus_result_label = NodePath("VirusVBox/Virus Panel/VirusResult/VirusLabel")
+apps_result_label = NodePath("VirusVBox/AppsPanel/AppsResult/AppsLabel")
+hack_result_label = NodePath("VirusVBox/HackPanel/HackResult/UnhackLabel")
 scanner_animation = NodePath("ScannerAnimation")
 scanner_video_stream = NodePath("ScannerAnimation/VideoStreamPlayer")
+scanner_audio_stream = NodePath("ScannerAnimation/AudioStreamPlayer")
 
 [node name="VirusVBox" type="VBoxContainer" parent="." unique_id=810286205]
 layout_mode = 1
@@ -52,79 +251,137 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -153.5
-offset_right = 121.0
-offset_bottom = 153.5
+offset_left = -148.0
+offset_top = -225.0
+offset_right = 148.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 30
+alignment = 1
 
 [node name="ScannerButton" type="Button" parent="VirusVBox" unique_id=896499335]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Iniciar Varredura"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_m62g1")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_m62g1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m62g1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8hb8s")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pcwu7")
+text = "INICIAR
+VARREDURA"
+autowrap_mode = 3
 
-[node name="VirusResult" type="VBoxContainer" parent="VirusVBox" unique_id=368339873]
+[node name="Virus Panel" type="Panel" parent="VirusVBox" unique_id=1411915605]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4uhps")
 
-[node name="VirusLabel" type="Label" parent="VirusVBox/VirusResult" unique_id=763997514]
+[node name="VirusResult" type="VBoxContainer" parent="VirusVBox/Virus Panel" unique_id=368339873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VirusLabel" type="Label" parent="VirusVBox/Virus Panel/VirusResult" unique_id=763997514]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 18
 text = "N vírus detectados:"
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/VirusResult" unique_id=592668013]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/Virus Panel/VirusResult" unique_id=592668013]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="RemoveVirusButton" type="Button" parent="VirusVBox/VirusResult/MarginContainer" unique_id=541151401]
+[node name="RemoveVirusButton" type="Button" parent="VirusVBox/Virus Panel/VirusResult/MarginContainer" unique_id=541151401]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_drekx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_drekx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7bxk6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_esjit")
 text = "Remover vírus"
 
-[node name="AppsResult" type="VBoxContainer" parent="VirusVBox" unique_id=390473578]
+[node name="AppsPanel" type="Panel" parent="VirusVBox" unique_id=296972565]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_723l7")
 
-[node name="AppsLabel" type="Label" parent="VirusVBox/AppsResult" unique_id=78767065]
+[node name="AppsResult" type="VBoxContainer" parent="VirusVBox/AppsPanel" unique_id=390473578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AppsLabel" type="Label" parent="VirusVBox/AppsPanel/AppsResult" unique_id=78767065]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 15
 text = "N aplicativos maliciosos:"
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/AppsResult" unique_id=986893016]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/AppsPanel/AppsResult" unique_id=986893016]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="UnninstallButton" type="Button" parent="VirusVBox/AppsResult/MarginContainer" unique_id=158631373]
+[node name="UnninstallButton" type="Button" parent="VirusVBox/AppsPanel/AppsResult/MarginContainer" unique_id=158631373]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_axdpx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r62ul")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rwol7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_37b8p")
 text = "Desinstalar aplicativos"
 
-[node name="HackResult" type="VBoxContainer" parent="VirusVBox" unique_id=54324658]
+[node name="HackPanel" type="Panel" parent="VirusVBox" unique_id=1331192475]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_723l7")
 
-[node name="UnhackLabel" type="Label" parent="VirusVBox/HackResult" unique_id=1533226930]
+[node name="HackResult" type="VBoxContainer" parent="VirusVBox/HackPanel" unique_id=54324658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="UnhackLabel" type="Label" parent="VirusVBox/HackPanel/HackResult" unique_id=1533226930]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 18
 text = "Hack detectado:"
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/HackResult" unique_id=1045503287]
+[node name="MarginContainer" type="MarginContainer" parent="VirusVBox/HackPanel/HackResult" unique_id=1045503287]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="UnhackButton" type="Button" parent="VirusVBox/HackResult/MarginContainer" unique_id=565616793]
+[node name="UnhackButton" type="Button" parent="VirusVBox/HackPanel/HackResult/MarginContainer" unique_id=565616793]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wrp2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jo2j5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sao6w")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qmbgn")
 text = "Deshackear"
-
-[node name="ScanTimer" type="Timer" parent="VirusVBox" unique_id=1178492530]
-wait_time = 3.0
-one_shot = true
 
 [node name="ScannerAnimation" type="Control" parent="." unique_id=1335361373]
 visible = false
@@ -146,7 +403,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+audio_track = 2
 stream = ExtResource("3_2ymon")
+volume_db = 23.999998
 expand = true
 
 [node name="Blur" type="Panel" parent="ScannerAnimation" unique_id=1603302661]
@@ -168,3 +427,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_06fvf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScannerAnimation" unique_id=1374266378]
+stream = ExtResource("6_8hb8s")
+volume_db = -5.0
