@@ -52,11 +52,15 @@ custom_minimum_size = Vector2(8, 16)
 layout_mode = 2
 
 [node name="AppIcon" type="TextureRect" parent="HBoxContainer" unique_id=372036378]
-custom_minimum_size = Vector2(50, 40)
+custom_minimum_size = Vector2(65, 40)
 layout_mode = 2
 texture = ExtResource("4_1a3t7")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="MidMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1206103741]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
 
 [node name="TextDescription" type="VBoxContainer" parent="HBoxContainer" unique_id=1920478587]
 layout_mode = 2
