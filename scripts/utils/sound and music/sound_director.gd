@@ -11,6 +11,7 @@ extends Node
 @export_group("Music")
 @export var current_music         : Music
 @export var musics                : Array[Music]
+@export var loop_current_music    : bool = false
 @export var should_generate_music : bool = false
 var stop_music_next_frame         : bool = false
 
@@ -59,6 +60,8 @@ func _ready() -> void:
 	sound_signaler.connect("set_music", set_music)
 	sound_signaler.connect("set_should_generate_music", set_should_generate_music)
 	sound_signaler.connect("start_music_early", on_start_music_early)
+	sound_signaler.connect("skip_current_music", skip_current_music)
+	sound_signaler.connect("set_loop_current_music", set_loop_current_music)
 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), convert_float_to_db(50.0))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), convert_float_to_db(50.0))
@@ -145,7 +148,7 @@ func play_music():
 		calculate_max_stem_amount()
 		stop_music_next_frame = false
 
-	if not should_generate_music and current_stem == max_stem_amount - 1:
+	if not should_generate_music and current_stem == max_stem_amount - 1 and not loop_current_music:
 		stop_music_next_frame = true
 
 func check_for_music():
@@ -163,6 +166,7 @@ func check_for_music():
 		set_double_tempo(false)
 		set_melody_modulation(false)
 		set_should_generate_music(true)
+		set_loop_current_music(false)
 
 func on_start_music_early():
 	stop_music_next_frame = true
@@ -172,6 +176,14 @@ func set_music(music : Music):
 
 func set_should_generate_music(value : bool):
 	should_generate_music = value
+
+func set_loop_current_music(value : bool):
+	loop_current_music = value
+
+func skip_current_music():
+	current_music = null
+	current_stem = 0
+	check_for_music()
 
 
 func calculate_max_stem_amount():
