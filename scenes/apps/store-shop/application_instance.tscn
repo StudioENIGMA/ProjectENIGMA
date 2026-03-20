@@ -19,12 +19,17 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7dlv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.05882353, 0.047058824, 0.08235294, 1)
+
 [node name="ApplicationInstance" type="Control" unique_id=681096564 node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button")]
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(0, 87)
 layout_mode = 3
 anchor_right = 1.0
-anchor_bottom = 0.1
-offset_bottom = -64.0
+anchor_bottom = 0.136
+offset_bottom = -87.04001
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -43,11 +48,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LeftMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1211746212]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(8, 16)
 layout_mode = 2
 
 [node name="AppIcon" type="TextureRect" parent="HBoxContainer" unique_id=372036378]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 texture = ExtResource("4_1a3t7")
 expand_mode = 1
@@ -74,7 +79,7 @@ theme_override_font_sizes/font_size = 12
 text = "Descrição Do Aplicativo"
 
 [node name="AppButton" type="Button" parent="HBoxContainer" unique_id=882987288]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -89,7 +94,16 @@ text = "Abrir
 "
 
 [node name="RightMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1184436804]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(8, 16)
 layout_mode = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=352821594]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7dlv")
 
 [connection signal="pressed" from="HBoxContainer/AppButton" to="." method="_on_app_button_pressed"]
