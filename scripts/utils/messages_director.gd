@@ -15,6 +15,13 @@ signal npc_message_created(
 	sender: GameData.Sender,
 	time: int
 )
+signal npc_message_sent(
+	npc_name: String,
+	message: String,
+	annex: Dictionary,
+	sender: GameData.Sender,
+	time: int
+)
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
@@ -117,11 +124,21 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	# Emit NPC message
 	npc_message_created.emit(
 		thread.get("sender", thread_id),
+	)
+
+	## Await animation time
+	var wait_time: float = GameData.get_human_typing_time(message_node.get("text", ""))
+	await  get_tree().create_timer(wait_time).timeout
+
+	npc_message_sent.emit(
+		thread.get("sender", thread_id),
 		message_node.get("text", ""),
 		message_node.get("annex", {}),
 		GameData.Sender.NPC,
-		current_minutes
+		current_minutes + wait_time
 	)
+
+	await  get_tree().create_timer(1).timeout
 
 	# Handle choices if any
 	var choices: Array = message_node.get("choices", [])
@@ -137,7 +154,8 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	# Schedule next node if any
 	var next_index := node_index + 1
 	if next_index < branch_nodes.size():
-		var delay_minutes := int(message_node.get("delay_minutes", 2)) # Default delay
+		var delay_minutes = message_node.get("delay_minutes", 2) # Default delay
+
 		var next_node_requires := _get_node_requires(thread, branch, next_index)
 
 		schedule_entry_requested.emit({

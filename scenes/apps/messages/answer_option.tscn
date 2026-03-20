@@ -9,10 +9,10 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.189702, 0.611906, 0.524131, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1963626535 node_paths=PackedStringArray("option_button", "option_label")]
 offset_right = 40.0

@@ -12,7 +12,8 @@
 	  "branch": "d1_start_1",
 	  "requires": [
 				{
-					"flag": "fake_store",
+					"flag": "app_installed",
+					"app_id": "fake_store",
 					"is": false
 				}
 	  	],
@@ -23,34 +24,14 @@
 	  "branch": "d1_start_2",
 	  "requires": [
 				{
-					"flag": "fake_store",
+					"flag": "app_installed",
+					"app_id": "fake_store",
 					"is": true
 				}
 	  	],
 		"relative_due_time": 0
 	}
   ],
-  "branches": {
-	"d0_start_1": [
-	  {
-		"id": "boss_0_0",
-		"text": "Bom dia! É meu prazer dar-lhe as boas vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!)."
-	  },
-	  {
-		"id": "boss_0_1",
-		"text": "Durante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
-	  },
-	  {
-		"id": "boss_0_2",
-		"text": "Para realizar suas tarefas você precisará instalar alguns aplicativos nos próximos dias. A loja de aplicativos corporativa já está instalada no seu dispositivo, irei lhe avisar sempre que um novo app for liberado, mas peço que visite a loja e verifique os apps e atualizações disponíveis regularmente.",
-		"choices": [
-		  {
-			"id": "boss_0_2a_0",
-			"player_text": "Obrigado, farei isso."
-		  }
-		]
-	  }
-	],
 	"branches": {
 		"d0_start_1": [
 			{
@@ -78,7 +59,8 @@
 				"text": "Bom dia. Espero que você tenha tido tempo de se familiarizar com seu novo dispositivo. A partir de hoje seu trabalho começa pra valer.",
 				"requires": [
 					{
-						"flag": "fake_store",
+						"flag": "app_installed",
+						"app_id": "fake_store",
 						"is": false
 					}
 				]
@@ -92,7 +74,8 @@
 				"text": "Muito bem. Agora que você tem acesso ao navegador, me traga, por favor, um resumo das notícias do dia.",
 				"requires": [
 					{
-						"flag": "browser",
+						"flag": "app_installed",
+						"app_id": "browser",
 						"is": true
 					}
 				]
@@ -104,7 +87,8 @@
 				"text": "Bom dia. Espero que você tenha tido tempo de se familiarizar com seu novo dispositivo. A partir de hoje seu trabalho começa pra valer.",
 				"requires": [
 					{
-						"flag": "fake_store",
+						"flag": "app_installed",
+						"app_id": "fake_store",
 						"is": true
 					}
 				]
@@ -138,6 +122,5 @@
 				"text": "A chave do sucesso é confiança e dedicação. Agora ao trabalho."
 			}
 		]
-	}
 	}
 }
