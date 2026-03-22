@@ -27,10 +27,13 @@ func _ready() -> void:
 	lr_hex.rotation_click.connect(update_rotation.bind(4))
 	ll_hex.rotation_click.connect(update_rotation.bind(5))
 	l_hex.rotation_click.connect(update_rotation.bind(6))
-	time = 5
 	setup()
 
 func setup() -> void:
+	time = 15
+	reset_minigame()
+
+func reset_minigame() -> void:
 	hexagons_positions = [1, 1, 1, 1, 1, 1, 1]
 	path_generator.generate()
 	create_hexagons_node_array()
@@ -113,10 +116,10 @@ func check_rotations():
 			break
 
 	if check:
-		time = 5
+		time = 15
 		minigame_timer.stop_timer()
 		hack_concluded.emit()
 
 func _on_time_finished() -> void:
 	time += 5
-	setup()
+	reset_minigame()
