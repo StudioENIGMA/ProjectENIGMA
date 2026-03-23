@@ -27,6 +27,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="MessagesScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1809766873]
 layout_mode = 2
+horizontal_scroll_mode = 0
 script = ExtResource("2_b2xfe")
 size_x = 4
 

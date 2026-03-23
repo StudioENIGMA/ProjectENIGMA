@@ -85,6 +85,7 @@ offset_right = -2.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 scroll_hint_mode = 1
 script = ExtResource("2_ir5vx")
 size_x = 4
