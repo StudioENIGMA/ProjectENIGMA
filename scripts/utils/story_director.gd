@@ -226,17 +226,37 @@ func _requirements_met(requirements: Array) -> bool:
 		return true
 
 	for requirement in requirements:
-		var flag := str(requirement.get("flag", ""))
-		var expected := bool(requirement.get("is", true))
-		if _evaluate_flag(flag) != expected:
+		var expected = bool(requirement.get("is", true))
+		if _evaluate_requirement(requirement) != expected:
 			return false
 
 	return true
 
 ## Evaluates a single requirement flag
-func _evaluate_flag(flag: String) -> bool:
-	if flag in GameData.apps_name.keys():
-		return GameData.downloaded_apps.has(GameData.apps_name[flag])
+func _evaluate_requirement(requirement: Dictionary) -> bool:
+	var flag = requirement.get("flag", "")
+	if flag == "app_installed":
+		var app_id = requirement.get("app_id", "")
+		var app = GameData.apps_name.get(app_id, null)
+		return GameData.downloaded_apps.has(app)
+	if flag == "purchase":
+		var items = requirement.get("items", [])
+		for item in items:
+			var item_id = item.get("item_id", "")
+			var quantity = int(item.get("quantity", 0))
+			var store = item.get("store", "")
+
+			if not GameData.purchased_items.has(store):
+				return false
+			var store_purchases = GameData.purchased_items[store]
+			if not store_purchases.has(item_id):
+				return false
+			if store_purchases[item_id] < quantity:
+				return false
+	if flag == "payment":
+		var payment_id = requirement.get("payment_id", "")
+		return GameData.completed_payments.has(payment_id)
+
 	return false
 
 func _on_browser_request_news() -> void:

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cjm0ebk0x4rej"]
 
-[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_2huwx"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_746fn"]
 [ext_resource type="Script" uid="uid://djn3wgjm3cki7" path="res://scripts/apps/messages/conversation_row.gd" id="1_kc2jj"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_2huwx"]
+[ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="5_125sp"]
 
-[node name="ConversationRow" type="MarginContainer" unique_id=1337899830 node_paths=PackedStringArray("contact_label", "message_label", "avatar_texture", "open_chat_button")]
+[node name="ConversationRow" type="MarginContainer" unique_id=1337899830 node_paths=PackedStringArray("contact_label", "message_label", "profile_picture", "open_chat_button")]
 custom_minimum_size = Vector2(0, 64)
 anchors_preset = 10
 anchor_right = 1.0
@@ -18,17 +18,15 @@ theme_override_constants/margin_bottom = 4
 script = ExtResource("1_kc2jj")
 contact_label = NodePath("HBoxContainer/VBoxContainer/ContactNameLabel")
 message_label = NodePath("HBoxContainer/VBoxContainer/ContactLastMessageLabel")
-avatar_texture = NodePath("HBoxContainer/TextureRect")
+profile_picture = NodePath("HBoxContainer/ProfilePicture")
 open_chat_button = NodePath("OpenChatButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=276201283]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=491055556]
+[node name="ProfilePicture" parent="HBoxContainer" unique_id=233740664 instance=ExtResource("5_125sp")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_2huwx")
-expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=969623307]
 layout_mode = 2
@@ -40,7 +38,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_746fn")
 theme_override_font_sizes/font_size = 20
-text = "Chefinho"
+text = "Nome do Contato"
 
 [node name="ContactLastMessageLabel" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1102969923]
 layout_mode = 2
