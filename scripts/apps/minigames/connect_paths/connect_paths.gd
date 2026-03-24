@@ -141,11 +141,27 @@ func update_rotation(index):
 func check_rotations():
 	var check = true
 
-	for i in range(7):
-		for j in range(7):
-			if adjacency[i][j] == 1 and adjacency[j][i] != 1:
+	for i in range(hexagons.size()):
+		if hexagons[i]["vertex_number"] == 0:
+			continue
+
+		var rotation = hexagons_positions[i] - 1
+
+		for vertex in hexagons[i]["vertex_positions"]:
+			var rotated_vertex = rotate_vertex(vertex, rotation)
+
+			if not position_to_index[i].has(rotated_vertex):
 				check = false
 				break
+
+			var j = position_to_index[i][rotated_vertex]
+
+			if adjacency[j][i] != 1:
+				check = false
+				break
+
+		if not check:
+			break
 
 	if check:
 		print("cabo")
