@@ -16,11 +16,104 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p4gw"]
+content_margin_left = 2.0
+content_margin_top = 3.0
+content_margin_right = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_erget"]
 font = ExtResource("4_qubeq")
 font_size = 10
 
-[node name="OthersMessage" type="HBoxContainer" unique_id=1308090997 node_paths=PackedStringArray("label", "panel_container", "time_label", "message_animation", "left_margin", "right_margin", "annex_container", "annex_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puwxd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7529412)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7bqq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12h3o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6745098)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qubeq"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 0.48235294)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erget"]
+bg_color = Color(0.4, 0.05882353, 0.19215687, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id="Animation_qubeq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_erget"]
+resource_name = "download_animation"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.93333334, 1.6333333, 1.9333333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 0.24148409, 3.7321334, 0.16493852, 3.7321332),
+"update": 0,
+"values": [0.0, 35.0, 40.0, 65.0, 70.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12h3o"]
+_data = {
+&"RESET": SubResource("Animation_qubeq"),
+&"download_animation": SubResource("Animation_erget")
+}
+
+[node name="OthersMessage" type="HBoxContainer" unique_id=1308090997 node_paths=PackedStringArray("label", "panel_container", "time_label", "message_animation", "left_margin", "right_margin", "annex_container", "annex_button", "progress_bar", "animation_player")]
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_b0d7c")
@@ -32,7 +125,9 @@ message_animation = NodePath("VBoxContainer/MessageBackground/VBoxContainer/Mess
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
-annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
+annex_button = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/AnnexButton")
+progress_bar = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/ProgressBar")
+animation_player = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/ProgressBar/AnimationPlayer")
 
 [node name="MarginLeft" type="MarginContainer" parent="." unique_id=511946948]
 custom_minimum_size = Vector2(16, 0)
@@ -42,7 +137,7 @@ size_flags_horizontal = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1662735775]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 32
+theme_override_constants/separation = 10
 
 [node name="MessageBackground" type="PanelContainer" parent="VBoxContainer" unique_id=1028556440]
 layout_direction = 2
@@ -61,6 +156,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_57877")
 theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_8p4gw")
 text = "Lorem"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -81,18 +177,36 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer" unique_id=1126359486]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/AnnexContainer" unique_id=1324278115]
+layout_mode = 2
+
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer/VBoxContainer" unique_id=1126359486]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_puwxd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_puwxd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7bqq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_12h3o")
 text = "Fake App.apk"
 icon = ExtResource("3_0thuc")
 autowrap_mode = 2
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/AnnexContainer/VBoxContainer" unique_id=1213128637]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qubeq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_erget")
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/AnnexContainer/VBoxContainer/ProgressBar" unique_id=948284352]
+libraries/ = SubResource("AnimationLibrary_12h3o")
 
 [node name="MarginRight" type="MarginContainer" parent="." unique_id=1808003944]
 custom_minimum_size = Vector2(16, 0)

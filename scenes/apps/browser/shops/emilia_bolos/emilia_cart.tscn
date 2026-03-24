@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4igmrycuaxjc" path="res://scripts/apps/browser/shop-site/shop_cart.gd" id="1_wvj48"]
 [ext_resource type="Texture2D" uid="uid://cc1kkcy2ma3sc" path="res://assets/icons/shops/png_logos/emilia_bolos_logo.png" id="2_str3u"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_0muju"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="4_3yfui"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
 bg_color = Color(0.33333334, 0.8666667, 1, 1)
@@ -52,7 +53,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wvj48")
-items_v_box = NodePath("VBoxContainer/ScrollContainer/VBoxContainer")
+items_v_box = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer")
 total_price_label = NodePath("VBoxContainer/TotalPriceLabel")
 finish_button = NodePath("VBoxContainer/FinishButton")
 
@@ -123,15 +124,21 @@ text = "Total do Pedido:"
 label_settings = SubResource("LabelSettings_s0ola")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1686365655]
-custom_minimum_size = Vector2(355, 400)
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=2062398315]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1445909475]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
 size_flags_vertical = 4
 horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+scroll_hint_mode = 2
+script = ExtResource("4_3yfui")
+size_x = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1094467615]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=1467825990]
 custom_minimum_size = Vector2(355, 0)
 layout_mode = 2
 size_flags_horizontal = 4
