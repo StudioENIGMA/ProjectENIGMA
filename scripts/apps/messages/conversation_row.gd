@@ -23,3 +23,9 @@ func setup(p_conversation_data:Dictionary):
 
 func _on_button_pressed() -> void:
 	open_chat_requested.emit(conversation_data)
+
+func save() -> Dictionary:
+	var save_dict: Dictionary = {
+		"conversation_data": conversation_data
+	}
+	return save_dict
