@@ -25,6 +25,7 @@ func _ready() -> void:
   # EVENT HANDLER
   # Event Handler day end Timer to UI
   event_handler.day_ended.connect(ui.day_over_ui.show_day_over)
+  event_handler.day_ended.connect(ui.base_app.close_all_apps)
   # Event Handler new day start to UI
   event_handler.start_new_day.connect(ui.day_over_ui.hide_day_over)
   # Event Handler takes care of clock ticks, warn those who need to know

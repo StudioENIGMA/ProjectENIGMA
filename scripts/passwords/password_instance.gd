@@ -16,7 +16,7 @@ var password_visible: bool = false
 ## and updating the instruction label accordingly
 func setup(data: Dictionary) -> void:
 	# Get gated app from data and set up the UI accordingly
-	gated_app = data["GatedApp"]
+	gated_app = int(data["GatedApp"]) as GameData.App
 
 	# Set app icon
 	var app_icon_path = GameData.apps_data.get(gated_app, {}).get("icon_path", "")

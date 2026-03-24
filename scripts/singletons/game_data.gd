@@ -92,7 +92,7 @@ var bank_balance: float = 200
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 960 # End at 16:00
+var max_hours_minutes:int = 625 # End at 16:00
 var current_day:int = 0
 var reputation_points:int = 0
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
@@ -291,6 +291,10 @@ func hours_minutes_as_string(relative_time: int) -> String:
 func get_current_date_dict() -> Dictionary:
 	var current_date_dict: Dictionary = start_date_dict.duplicate(true)
 
+	# convert all values to int to avoid issues with JSON parsing
+	for key in current_date_dict.keys():
+		current_date_dict[key] = int(current_date_dict[key])
+
 	# Gets the current system timezone offset (in minutes)
 	var tz = Time.get_time_zone_from_system()
 	var offset_seconds = tz.bias * 60
@@ -358,7 +362,14 @@ func load_game() -> void:
 	start_date_dict = game_state.get("start_date_dict")
 	current_day = int(game_state.get("current_day"))
 	reputation_points = int(game_state.get("reputation_points"))
-	passwords = game_state.get("passwords")
+
+	# Convert passwords to their apps (keys are enum strings instead of enum App)
+	var game_state_passwords = game_state.get("passwords")
+	var saved_passwords: Dictionary = {}
+	for app_number in game_state_passwords.keys():
+		var app_enum = int(app_number)
+		saved_passwords[app_enum] = str(game_state_passwords[app_number])
+	passwords = saved_passwords
 
 	var raw_apps_in_store: Array = game_state["apps_in_store"]
 	var saved_apps_in_store: Array[App] = []
