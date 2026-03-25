@@ -392,6 +392,7 @@ func load_game() -> void:
 	var raw_saved_conversations: Array = game_state.get("saved_messages_conversations", [])
 	saved_messages_conversations.clear()
 	for saved_conversation in raw_saved_conversations:
+		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
 		saved_messages_conversations.append(saved_conversation.duplicate(true))
 
 	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
