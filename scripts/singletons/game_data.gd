@@ -114,6 +114,9 @@ var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 1
 var unsafe_apps: Array[App] = [App.FAKESTORE]
 
+var saved_messages_conversations: Array[Dictionary] = []
+var saved_email_threads: Array = []
+
 var apps_name: Dictionary = {
 	# Messages app
 	"MessagesHome": App.MESSAGESHOME,
@@ -322,34 +325,13 @@ func export_game_data_for_tools() -> void:
 		save_file.store_string(json_string)
 		save_file.close()
 
-## This will happen once a day ends, so we don't need to save everything
 func save_game() -> void:
-	var file_path = "res://data/saved_game.json"
+	var file_path = "user://saved_game.json"
 	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
+	if save_file == null:
+		push_error("Could not open save file for writing")
+		return
 
-	# Save nodes in the "Persist" group
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for node in save_nodes:
-		# Check the node is an instanced scene so it can be instanced again during load.
-		if node.scene_file_path.is_empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-			continue
-
-		# Check the node has a save function.
-		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
-			continue
-
-		# Call the node's save function.
-		var node_data = node.call("save")
-
-		# JSON provides a static method to serialized JSON string.
-		var json_string_node = JSON.stringify(node_data)
-
-		# Store the save dictionary as a new line in the save file.
-		save_file.store_line(json_string_node)
-
-	# Save gamedata
 	var game_state = {
 		"start_date_dict": start_date_dict,
 		"current_day": current_day,
@@ -357,15 +339,15 @@ func save_game() -> void:
 		"passwords": passwords,
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
+		"saved_messages_conversations": saved_messages_conversations,
+		"saved_email_threads": saved_email_threads,
 	}
 
-	var json_string = JSON.stringify(game_state)
-	if save_file:
-		save_file.store_string(json_string)
-		save_file.close()
+	save_file.store_string(JSON.stringify(game_state))
+	save_file.close()
 
 func load_game() -> void:
-	var file_path := "res://data/saved_game.json"
+	var file_path := "user://saved_game.json"
 	if not FileAccess.file_exists(file_path):
 		return
 
@@ -388,22 +370,32 @@ func load_game() -> void:
 	current_day = int(game_state.get("current_day"))
 	reputation_points = int(game_state.get("reputation_points"))
 
-	# Convert passwords to their apps (keys are enum strings instead of enum App)
-	var game_state_passwords = game_state.get("passwords")
+	var game_state_passwords = game_state.get("passwords", {})
 	var saved_passwords: Dictionary = {}
 	for app_number in game_state_passwords.keys():
 		var app_enum = int(app_number)
 		saved_passwords[app_enum] = str(game_state_passwords[app_number])
 	passwords = saved_passwords
 
-	var raw_apps_in_store: Array = game_state["apps_in_store"]
-	var saved_apps_in_store: Array[App] = []
+	var raw_apps_in_store: Array = game_state.get("apps_in_store", [])
+	var restored_apps_in_store: Array[App] = []
 	for value in raw_apps_in_store:
-		saved_apps_in_store.append(int(value))
-	apps_in_store = saved_apps_in_store
+		restored_apps_in_store.append(int(value))
+	apps_in_store = restored_apps_in_store
 
-	var raw_downloaded_apps: Array = game_state["downloaded_apps"]
-	var saved_downloaded_apps: Array[App] = []
+	var raw_downloaded_apps: Array = game_state.get("downloaded_apps", [])
+	var restored_downloaded_apps: Array[App] = []
 	for value in raw_downloaded_apps:
-		saved_downloaded_apps.append(int(value))
-	downloaded_apps = saved_downloaded_apps
+		restored_downloaded_apps.append(int(value))
+	downloaded_apps = restored_downloaded_apps
+
+	var raw_saved_conversations: Array = game_state.get("saved_messages_conversations", [])
+	saved_messages_conversations.clear()
+	for saved_conversation in raw_saved_conversations:
+		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
+	saved_email_threads.clear()
+
+	for saved_thread in raw_saved_email_threads:
+		saved_email_threads.append(saved_thread.duplicate(true))
