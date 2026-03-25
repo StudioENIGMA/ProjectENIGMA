@@ -4,6 +4,8 @@ signal message_answered(answer_id:int)
 
 signal apk_installation_requested(app: GameData.App)
 
+signal pause_game_requested()
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
@@ -261,6 +263,10 @@ func _ready() -> void:
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
+	if app == GameData.App.PAUSEMENU:
+		pause_game()
+		return
+
 	# Show top bar when an app is opened
 	self.visible = true
 
@@ -511,5 +517,9 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.FASTTYPING: GameData.App.FASTTYPING,
 		GameData.App.LINECONNECT: GameData.App.LINECONNECT,
 		GameData.App.MAZE: GameData.App.MAZE,
+		GameData.App.PAUSEMENU: GameData.App.PAUSEMENU,
 	}
 	return main_app_map.get(subscreen_enum, null)
+
+func pause_game() -> void:
+	pause_game_requested.emit()
