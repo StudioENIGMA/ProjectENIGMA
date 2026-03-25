@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dha101g56wy0v"]
 
 [ext_resource type="Script" uid="uid://coh88l3bsoq1p" path="res://scripts/apps/browser/reviews_site.gd" id="1_diiut"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_t15gq"]
 [ext_resource type="FontFile" uid="uid://dsdmug7ebmwf4" path="res://assets/fonts/IBMPlexSans-BoldItalic.ttf" id="3_cc67j"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_rf6y2"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_t15gq"]
@@ -38,52 +39,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_diiut")
-v_box_container = NodePath("ScrollContainer/VBoxContainer/CardsContainer")
+v_box_container = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/CardsContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=257895420]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210300150]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-vertical_scroll_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1210300150]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=214079755]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=214079755]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1576738968]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1576738968]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1837850493]
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1837850493]
 layout_mode = 2
 text = "Elogie"
 label_settings = SubResource("LabelSettings_ebbpw")
 
-[node name="Title2" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1312027773]
+[node name="Title2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1312027773]
 layout_mode = 2
 text = "LÁ"
 label_settings = SubResource("LabelSettings_3uag7")
 
-[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=688334165]
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=688334165]
 custom_minimum_size = Vector2(340, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_t15gq")
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1350766366]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1350766366]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_rf6y2")
 text = "  Empresas"
 label_settings = SubResource("LabelSettings_haa8b")
 
-[node name="CardsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2048503295]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1271896791]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=257895420]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_t15gq")
+size_x = 4
+
+[node name="CardsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=2048503295]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

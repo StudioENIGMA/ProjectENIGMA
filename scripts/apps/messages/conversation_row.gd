@@ -10,8 +10,11 @@ const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 @export var profile_picture:Control
 @export var conversation_data:Dictionary
 @export var open_chat_button:Button
+@export var notification_bubble: MarginContainer
+@export var notification_label: Label
 
 func _ready() -> void:
+	self.visibility_changed.connect(update_notification_bubble)
 	open_chat_button.pressed.connect(_on_button_pressed)
 
 func setup(p_conversation_data:Dictionary):
@@ -20,6 +23,14 @@ func setup(p_conversation_data:Dictionary):
 	contact_label.text = conversation_data["name"]
 	message_label.text = conversation_data["messages"].back()["message"]
 	profile_picture.setup(conversation_data["photo"], conversation_data["name"])
+	update_notification_bubble()
+
+func update_notification_bubble() -> void:
+	if conversation_data["notification_count"] > 0:
+		notification_bubble.visible = true
+		notification_label.text = str(conversation_data["notification_count"])
+	else:
+		notification_bubble.visible = false
 
 func _on_button_pressed() -> void:
 	open_chat_requested.emit(conversation_data)

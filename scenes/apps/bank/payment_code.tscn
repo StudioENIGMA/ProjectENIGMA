@@ -7,19 +7,20 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_f4jb8"]
 font = ExtResource("1_8cst2")
+font_size = 12
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpb8k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_ic8ki"]
 font = ExtResource("2_g6er5")
@@ -28,24 +29,24 @@ font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6er5"]
 bg_color = Color(1, 0.015686275, 0.2784314, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4jb8"]
 bg_color = Color(0.6039216, 0.09019608, 0.22352941, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic8ki"]
-bg_color = Color(0.99999994, 0.20383534, 0.32510448, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+bg_color = Color(1, 0.20392157, 0.3254902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bn8q"]
 
@@ -67,32 +68,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -42.0
-offset_right = 50.5
-offset_bottom = 42.0
+offset_left = -160.0
+offset_top = -68.0
+offset_right = 160.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 1
 
 [node name="CodeTitle" type="Label" parent="VBoxContainer" unique_id=935459167]
 layout_mode = 2
 text = "Código Pix"
 label_settings = SubResource("LabelSettings_f4jb8")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CodeLine" type="LineEdit" parent="VBoxContainer" unique_id=1329646969]
+custom_minimum_size = Vector2(320, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.03529412, 0.14117648, 1)
 theme_override_colors/font_selected_color = Color(0.4, 0.05882353, 0.19215687, 1)
 theme_override_colors/font_placeholder_color = Color(0.03529412, 0.20784314, 0.34509805, 0.6313726)
 theme_override_fonts/font = ExtResource("2_g6er5")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpb8k")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vpb8k")
 placeholder_text = "Código"
 alignment = 1
 secret_character = "*"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1180640167]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
 
 [node name="CodePanel" type="Panel" parent="VBoxContainer" unique_id=17003507]
 visible = false
@@ -117,12 +123,12 @@ text = "XXXXX"
 label_settings = SubResource("LabelSettings_ic8ki")
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1892486825]
-custom_minimum_size = Vector2(80, 32)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_g6er5")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_g6er5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_f4jb8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ic8ki")

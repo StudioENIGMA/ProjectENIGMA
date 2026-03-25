@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc1kkcy2ma3sc" path="res://assets/icons/shops/png_logos/emilia_bolos_logo.png" id="2_vxfac"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_0te8s"]
 [ext_resource type="Texture2D" uid="uid://d1a60s68pr7o" path="res://assets/icons/shopping_cart.png" id="4_bfrvg"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="5_vxfac"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
 bg_color = Color(0.33333334, 0.8666667, 1, 1)
@@ -27,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eu37t")
-items_grid_container = NodePath("VBoxContainer/ScrollContainer/VBoxContainer/GridContainer")
+items_grid_container = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer/GridContainer")
 cart_circle_label = NodePath("VBoxContainer/HeaderPanel/CartCircle")
 cart_quantity_label = NodePath("VBoxContainer/HeaderPanel/CartCircle/CartQuantity")
 shopping_cart_enum = 15
@@ -40,6 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
 [node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
 custom_minimum_size = Vector2(0, 85)
@@ -116,31 +118,39 @@ stretch_mode = 5
 custom_minimum_size = Vector2(17, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1686365655]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=2107930405]
 layout_mode = 2
 size_flags_vertical = 3
-vertical_scroll_mode = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=263221682]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1686365655]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_hint_mode = 2
+script = ExtResource("5_vxfac")
+size_x = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=387923339]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer" unique_id=263221682]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1236318303]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1236318303]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 10
 columns = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=54584]
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/HeaderPanel/Cart Container/CartButton" to="." method="_on_cart_button_pressed"]
