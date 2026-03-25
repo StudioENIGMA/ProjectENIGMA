@@ -64,6 +64,7 @@ func on_send_message(
 			"name":npc_name,
 			"photo":photo_path,
 			"verified": GameData.verified_contacts.has(npc_name),
+			"notification_count": 1,
 			"messages":[{
 				"message":message,
 				"annex":annex,
@@ -84,6 +85,7 @@ func on_send_message(
 			"visualized":false,
 			"date_dict": current_date_dict
 		})
+		conversations_data[conversation_index]["notification_count"] += 1
 
 		# Move conversation to the top of the list
 		conversations_data.push_front(conversations_data.pop_at(conversation_index))

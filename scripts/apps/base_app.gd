@@ -244,19 +244,19 @@ func _ready() -> void:
 	# Hack minigame fast type (Hack minigames)
 	fast_typing.visible = false
 	fast_typing.hack_concluded.connect(_on_back_button_pressed)
-	fast_typing.hack_concluded.connect(virus_scanner._on_scan_timer_timeout) # Refresh hack status
+	fast_typing.hack_concluded.connect(virus_scanner._on_video_stream_finished) # Refresh hack status
 	hack_screen.add_child(fast_typing)
 
 	# Hack minigame maze (Hack minigames)
 	maze.visible = false
 	maze.hack_concluded.connect(_on_back_button_pressed)
-	maze.hack_concluded.connect(virus_scanner._on_scan_timer_timeout)
+	maze.hack_concluded.connect(virus_scanner._on_video_stream_finished)
 	hack_screen.add_child(maze)
 
 	# Hack minigame line connect (Hack minigames)
 	line_connect.visible = false
 	line_connect.hack_concluded.connect(_on_back_button_pressed)
-	line_connect.hack_concluded.connect(virus_scanner._on_scan_timer_timeout)
+	line_connect.hack_concluded.connect(virus_scanner._on_video_stream_finished)
 	hack_screen.add_child(line_connect)
 
 ## Handles the app opened event from the desktop UI
