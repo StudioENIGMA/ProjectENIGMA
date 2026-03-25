@@ -1,0 +1,133 @@
+{
+  "thread_id": "josé",
+  "sender": "José",
+
+	"branches": {
+		"task0_jose": [
+			{
+				"id": "jose_purchase0_0",
+				"text": "Boa tarde, você poderia encomendar 5L de Nitrogênio Líquido (N2), por favor?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 5,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			},
+		],
+		"task1_jose": [
+			{
+				"id": "jose_purchase1_0",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 10 Barras de Aço?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 10,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_jose": [
+			{
+				"id": "jose_purchase2_0",
+				"text": "Boa tarde, você poderia, por favor, acessar um site e encomendar 2 martelos?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 13,
+								"quantity": 2,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task3_jose": [
+			{
+				"id": "jose_purchase3_0",
+				"text": "Boa tarde, você poderia encomendar 2 Monitores, por favor?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 2,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task4_jose": [
+			{
+				"id": "jose_purchase4_0",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 1 Furadeira Elétrica?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task5_jose": [
+			{
+				"id": "jose_purchase5_0",
+				"text": "Boa tarde, você poderia encomendar 8L de Nitrogênio Líquido (N2), por favor?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 8,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task6_jose": [
+			{
+				"id": "jose_purchase6_0",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 5 Barras de Aço?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 5,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+	}
+}
