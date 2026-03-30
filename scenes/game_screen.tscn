@@ -172,10 +172,6 @@ app = 23
 layout_mode = 2
 app = 24
 
-[node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
-layout_mode = 2
-app = 21
-
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
