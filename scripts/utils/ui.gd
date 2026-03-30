@@ -23,4 +23,6 @@ func _ready() -> void:
 
   base_app.messages_app_chat.message_answered.connect(message_answered.emit)
   base_app.apk_installation_requested.connect(apps_ui.on_app_installed)
+  base_app.store_app.app_installed.connect(apps_ui.on_app_installed)
+  base_app.fake_store_app.app_installed.connect(apps_ui.on_app_installed)
 #endregion INITIALIZATION
