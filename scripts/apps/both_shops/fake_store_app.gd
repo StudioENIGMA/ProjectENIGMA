@@ -5,7 +5,13 @@ signal subscreen_open_requested(subscreen_name:GameData.App)
 signal app_installed(app_name:GameData.App)
 
 func _ready() -> void:
-	# Get available and downloaded apps from GameData
+	refresh_store()
+
+func setup() -> void:
+	# Refresh apps in store
+	refresh_store()
+
+func refresh_store() -> void:
 	var available_apps = GameData.apps_in_store
 	var downloaded_apps = GameData.downloaded_apps
 
