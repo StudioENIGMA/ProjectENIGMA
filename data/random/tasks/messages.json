@@ -1,7 +1,37 @@
 [
-    {
-        "thread_id": "",
-        "branch": "",
-        "required_app": ""
-    }
+	{
+		"thread_id": "josé",
+		"branch": "task0_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task1_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task2_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task3_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task4_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task5_jose",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josé",
+		"branch": "task6_jose",
+		"required_app": "browser"
+	}
 ]

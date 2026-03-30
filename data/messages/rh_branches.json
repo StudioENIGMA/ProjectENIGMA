@@ -2,37 +2,37 @@
   "thread_id": "rh",
   "sender": "RH",
   "entry_points": [
-    {
-      "day": 0,
-      "branch": "d0_start",
-      "relative_due_time": 45
-    }
+	{
+	  "day": 0,
+	  "branch": "d0_start",
+	  "relative_due_time": 45
+	}
   ],
   "branches": {
-    "d0_start": [
-      {
-        "id": "rh_0_0",
-        "text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
-        "effects": [
-          {
-            "task_type": "daily"
-          }
-        ]
-      },
-      {
-        "id": "rh_0_1",
-        "text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias eu vou te passando mais tarefas da minha área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
-        "choices": [
-          {
-            "id": "rh_0_1a_0",
-            "player_text": "Pode contar comigo! (ᵔ◡ᵔ)"
-          },
-          {
-            "id": "rh_0_1a_1",
-            "player_text": "Beleza."
-          }
-        ]
-      }
-    ]
+	"d0_start": [
+	  {
+		"id": "rh_0_0",
+		"text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
+		"effects": [
+		  {
+			"task_type": "daily"
+		  }
+		]
+	  },
+	  {
+		"id": "rh_0_1",
+		"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias eu vou te passando mais tarefas da minha área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
+		"choices": [
+		  {
+			"id": "rh_0_1a_0",
+			"player_text": "Pode contar comigo! (ᵔ◡ᵔ)"
+		  },
+		  {
+			"id": "rh_0_1a_1",
+			"player_text": "Beleza."
+		  }
+		]
+	  }
+	]
   }
 }
