@@ -2,6 +2,8 @@ extends Control
 
 signal subscreen_open_requested(subscreen_name:GameData.App)
 
+signal app_installed(app_name:GameData.App)
+
 @export var app_icon: TextureRect
 @export var app_name_label: Label
 @export var app_description_label: Label
@@ -44,6 +46,7 @@ func _on_app_button_pressed() -> void:
 			interact_button.text = "Instalando..."
 		await get_tree().create_timer(3.0).timeout
 		GameData.downloaded_apps.append(current_app_name)
+		app_installed.emit(current_app_name)
 		if is_fake_app:
 			interact_button.text = GameData.apps_chinese_operations["open"]
 		else:
