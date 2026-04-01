@@ -1,0 +1,158 @@
+{
+  "thread_id": "marcão",
+  "sender": "Marcão",
+
+	"branches": {
+		"task0_marcao": [
+			{
+				"id": "marcao_purchase0_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "preciso que você compre 15kg de aço",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 15,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task1_marcao": [
+			{
+				"id": "marcao_purchase1_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "marcao_purchase1_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "marcao_purchase1_2",
+				"text": "preciso que você compre 7 furadeiras",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 7,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_marcao": [
+			{
+				"id": "marcao_purchase2_0",
+				"text": "Cara você não vai acreditar"
+			},
+			{
+				"id": "marcao_purchase2_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "marcao_purchase2_2",
+				"text": "tamo precisando trocar o nitrogênio do equipamento compra 12 litros de N2 faz o favor",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 12,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task3_marcao": [
+			{
+				"id": "marcao_purchase3_0",
+				"text": "Bom dia meu camarada"
+			},
+			{
+				"id": "marcao_purchase3_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_purchase3_2",
+				"text": "o dia tá bonito, mas a situação dos martelos está osso"
+			},
+			{
+				"id": "marcao_purchase3_3",
+				"text": "chefe deixou comprar meia dúzia de martelo",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 13,
+								"quantity": 6,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "marcao_purchase3_4",
+				"text": "faz esse favor para mim"
+			}
+		],
+		"task4_marcao": [
+			{
+				"id": "marcao_purchase4_0",
+				"text": "Camarada deixa eu te falar"
+			},
+			{
+				"id": "marcao_purchase4_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "marcao_purchase4_2",
+				"text": "rolou um vazamento de gás"
+			},
+			{
+				"id": "marcao_purchase4_3",
+				"text": "temos que repor isso o mais rápido possível"
+			},
+			{
+				"id": "marcao_purchase4_4",
+				"text": "compra 8 litros de N2 por favor",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 8,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task5_marcao": [
+			{
+				
+			}
+		]
+	}                                        
+}
