@@ -1,0 +1,91 @@
+{
+  "thread_id": "gilmar",
+  "sender": "Gilmar",
+
+	"branches": {
+		"task0_gilmar": [
+			{
+				"id": "gilmar_purchase0_0",
+				"text": "Oi."
+			},
+			{
+				"id": "gilmar_purchase0_1",
+				"text": "Precisamos de mais carregamento de aço. Você deve comprar 17kg",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 17,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task1_gilmar": [
+			{
+				"id": "gilmar_purchase1_0",
+				"text": "Olá."
+			},
+			{
+				"id": "gilmar_purchase1_1",
+				"text": "Alguns martelos deram defeito, compre 3 novos martelos para nossa indústria.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 13,
+								"quantity": 3,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_gilmar": [
+			{
+				"id": "gilmar_password0_0",
+				"text": "Oi."
+			},
+			{
+				"id": "gilmar_password0_1",
+				"text": "Chefe falou que você pode me ajudar a melhorar a senha, qual dessas é melhor? k93@ ou j89asd72nca43ds",
+				"choices": [
+					{
+						"id": "gilmar_password0_1a_0",
+						"player_text": "k93@",
+						"npc_reply": {
+							"goto_branch": "from_gilmar_password0_2",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "gilmar_password0_1a_1",
+						"player_text": "j89asd72nca43ds",
+						"npc_reply": {
+							"goto_branch": "from_gilmar_password0_3",
+							"delay_ticks": 2
+						}
+					}
+				]
+			}
+		],
+		"from_gilmar_password0_2": [
+		  	{
+				"id": "gilmar_password0_2",
+				"text": "Eu tomaria cuidado com tanta certeza."
+			}
+		],
+		"from_gilmar_password0_3": [
+			{
+				"id": "gilmar_password0_3",
+				"text": "Você tem razão."
+			}
+		]
+	}
+}
