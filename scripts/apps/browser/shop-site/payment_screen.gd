@@ -7,12 +7,14 @@ signal cancel_order()
 @export var code_label: Label
 var code_by_enum: Dictionary
 var info_by_enum: Dictionary
+var cart_by_enum: Dictionary
 var current_shop_enum: GameData.App
 
 func setup(shopping_info: GameData.ShoppingInfo) -> void:
 	current_shop_enum = shopping_info.shop_enum
 	info_by_enum[current_shop_enum] = shopping_info
 	price_label.text = "Valor total do Pedido: %s" % GameData.format_brl(shopping_info.total_price)
+	cart_by_enum[current_shop_enum] = shopping_info.shopping_cart.duplicate(true)
 	shopping_info.shopping_cart.clear()
 
 	if !code_by_enum.has(current_shop_enum):
@@ -37,6 +39,7 @@ func remove_code(shop_enum: GameData.App) -> void:
 	info_by_enum[shop_enum].reset()
 	info_by_enum.erase(shop_enum)
 	code_by_enum.erase(shop_enum)
+	cart_by_enum.erase(shop_enum)
 
 func _on_cancel_button_pressed() -> void:
 	remove_code(current_shop_enum)
