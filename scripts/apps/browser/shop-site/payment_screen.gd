@@ -48,4 +48,12 @@ func _on_cancel_button_pressed() -> void:
 func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
 	var key = code_by_enum.find_key(payment_code.code)
 	if key != null:
+		create_purchase_log(key)
 		remove_code(key)
+
+func create_purchase_log(shop_enum: GameData.App) -> void:
+	var purchased_items = {}
+	for item in cart_by_enum[shop_enum]:
+		purchased_items[item.id] = item.quantity
+
+	GameData.purchased_items[shop_enum] = purchased_items
