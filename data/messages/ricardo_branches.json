@@ -1,0 +1,115 @@
+{
+  "thread_id": "ricardo",
+  "sender": "Ricardo",
+
+	"branches": {
+		"task0_ricardo": [
+			{
+				"id": "ricardo_purchase0_0",
+				"text": "Estagiário, tô precisando de ajuda com os materiais de um projeto que estou pra terminar. Me arruma 8kg de Aço e uma furadeira nova faz o favor",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 8,
+								"store": "amazonia"
+							},
+							{
+								"item_id": 12,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task1_ricardo": [
+			{
+				"id": "ricardo_purchase1_0",
+				"text": "Estagiário, meu monitor quebrou e o chefe quer q vc compre um novo pra mim",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_ricardo": [
+			{
+				"id": "ricardo_purchase2_0",
+				"text": "Estagiário, meu uniforme queimou enquanto mexia com uma máquina de solda, então preciso de um novo kkkkkk",
+			},
+			{
+				"id": "ricardo_purchase2_1",
+				"text": "compra ai pra mim ai uma camisa social vermelha",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 32,
+								"quantity": 1,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task3_ricardo": [
+			{
+				"id": "ricardo_purchase3_0",
+				"text": "Estagiário, vamos começar um projeto grande na semana q vem, ent precisamos de 2 furadeiras, 16kg de aço, 32 litros de N2 e 4 martelos",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 2,
+								"store": "amazonia"
+							},
+							{
+								"item_id": 11,
+								"quantity": 16,
+								"store": "amazonia"
+							},
+							{
+								"item_id": 15,
+								"quantity": 32,
+								"store": "amazonia"
+							},
+							{
+								"item_id": 23,
+								"quantity": 4,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task4_ricardo": [
+			{
+				"id": "ricardo_payment0_0",
+				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui rm6b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "rm6b"
+					}
+				]
+			}
+		]
+	}
+}
