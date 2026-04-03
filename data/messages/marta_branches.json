@@ -1,0 +1,122 @@
+{
+  "thread_id": "marta",
+  "sender": "Marta",
+
+	"branches": {
+		"task0_marta": [
+			{
+				"id": "marta_purchase0_0",
+				"text": "Olá, novo estagiário!"
+			},
+			{
+				"id": "marta_purchase0_1",
+				"text": "Fui orientada pela Simone a pedir sua ajuda para encomendar os docinhos para a recepção dos novos estagiários aqui do nosso departamento."
+			}, 
+			{
+				"id": "marta_purchase0_2",
+				"text": "Você poderia, por favor, comprar 10 brigadeiros de cada sabor disponível.",
+				"riquires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 21,
+								"quantity": 10,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 22,
+								"quantity": 10,
+								"store": "emilia_bolos"
+							}
+						] 
+					}
+				]
+			},
+			{
+				"id": "marta_purchase0_3",
+				"text": "Obrigadaaaaaaa!"
+			}
+		],
+		"task1_marta": [
+			{
+				"id": "marta_purchase1_0",
+				"text": "Olá, novo companheiro!"
+			},
+			{
+				"id": "marta_purchase1_1",
+				"text": "Preciso de uma ajudinha sua…"
+			}, 
+			{
+				"id": "marta_purchase1_2",
+				"text": "Você pode resolver a tarefa de comprar 6 camisas polos vermelhas para o time de telecomunicação, por favorrrr.",
+				"riquires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 36,
+								"quantity": 6,
+								"store": "emilia_bolos"
+							}
+						] 
+					}
+				]
+			},
+			{
+				"id": "marta_purchase1_3",
+				"text": "Obrigadaaaaaaa."
+			}
+		],
+		"task2_marta": [
+			{
+				"id": "marta_purchase2_0",
+				"text": "Olá, novo companheiro!"
+			},
+			{
+				"id": "marta_purchase2_1",
+				"text": "Para nosso próximo encontro com uma cliente importante, gostaria que me ajudasse encomendando dois bolos cobertos com chocolate.",
+				"riquires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 27,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							}
+						] 
+					}
+				]
+			},
+			{
+				"id": "marta_purchase2_3",
+				"text": "Pooooor favorr. "
+			}
+		],
+		"task4_marta": [
+			{
+				"id": "marta_payment0_0",
+				"text": "Olaaá, novo companheiro!"
+			},
+			{
+				"id": "marta_payment0_1",
+				"text": "Poderia realizar essa pagamento de algumas prestações de contas da empresa…"
+			},
+			{
+				"id": "marta_payment0_2",
+				"text": "Por favorrrrr."
+			},
+			{
+				"id": "marta_payment0_3",
+				"text": "O código é t27d",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "t27d"
+					}
+				]
+			}
+		]
+	}
+}
