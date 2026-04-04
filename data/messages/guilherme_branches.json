@@ -65,15 +65,15 @@
 		],
 		"task2_guilherme": [
 			{
-				"id": "guilherme_purchase2_0",
+				"id": "guilherme_payment0_0",
 				"text": "Olá, a Simone pediu para solicitar sua ajuda para alguns dos pagamentos de contas da empresa."
 			},
 			{
-				"id": "guilherme_purchase2_1",
+				"id": "guilherme_payment0_1",
 				"text": "Estamos com uma carga muito alta."
 			},
 			{
-				"id": "guilherme_purchase2_2",
+				"id": "guilherme_payment0_2",
 				"text": "Segue o código do boleto: 9io34f",
 				"requires": [
 					{
@@ -85,15 +85,15 @@
 		],
 		"task3_guilherme": [
 			{
-				"id": "guilherme_purchase3_0",
+				"id": "guilherme_payment1_0",
 				"text": "Oi estagiário."
 			},
 			{
-				"id": "guilherme_purchase3_1",
+				"id": "guilherme_purchase1_1",
 				"text": "Estamos fazendo uma melhoria no departamento do financeiro, e precisamos de uma ajuda com alguns pagamentos."
 			},
 			{
-				"id": "guilherme_purchase3_2",
+				"id": "guilherme_purchase1_2",
 				"text": "Por favor, faça esse pagamento pelo código ft61",
 				"requires": [
 					{
