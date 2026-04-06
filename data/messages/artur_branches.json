@@ -1,0 +1,75 @@
+{
+  "thread_id": "artur",
+  "sender": "Artur",
+
+	"branches": {
+		"task0_artur": [
+			{
+				"id": "artur_payment0_0",
+				"text": "Fala cara, tô pelo celular"
+			},
+			{
+				"id": "artur_payment0_1",
+				"text": "tu pode pagar pra gente a fatura dessa plataforma que não conseguimos fazer parceria"
+			},
+			{
+				"id": "artur_payment0_2",
+				"text": "te mandar o código do pix: ol34",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ol34"
+					}
+				]
+			}
+		],
+		"task1_artur": [
+			{
+				"id": "artur_password0_0",
+				"text": "fala estágio, bom?"
+			},
+			{
+				"id": "artur_password0_1",
+				"text": "ops, estagiário* kkkkkkkkkkk"
+			},
+			{
+				"id": "artur_password0_2",
+				"text": "O Lorenz pediu pra eu avaliar se vc ta entendendo das senhas mesmo, logo mais o pessoal vai te pedir ajuda sobre, se já não pediram"
+			},
+			{
+				"id": "artur_password0_3",
+				"text": "qual dessas é melhor? aaaaaaaa ou s2s2s2s2",
+				"choices": [
+					{
+						"id": "artur_password0_0a_0",
+						"player_text": "aaaaaaaa",
+						"npc_reply": {
+							"goto_branch": "from_gilmar_password0_2",
+							"delay_ticks": 90
+						}
+					},
+					{
+						"id": "artur_password0_0a_1",
+						"player_text": "s2s2s2s2",
+						"npc_reply": {
+							"goto_branch": "from_artur_password0_4",
+							"delay_ticks": 90
+						}
+					}
+				]
+			}
+		],
+		"from_artur_password0_3": [
+		  	{
+				"id": "gilmar_password0_2",
+				"text": "lorenz me falou que vc se enganou sugerindo essa senha em"
+			}
+		],
+		"from_artur_password0_4": [
+			{
+				"id": "gilmar_password0_3",
+				"text": "Vlw estagiário, essa senha era melhor mesmo"
+			}
+		]
+	}
+}
