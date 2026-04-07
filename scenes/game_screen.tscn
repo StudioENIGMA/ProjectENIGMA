@@ -91,7 +91,6 @@ expand_mode = 1
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
 stream = ExtResource("2_bd51b")
-autoplay = true
 bus = &"Music"
 
 [node name="ClockContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=2049360299]

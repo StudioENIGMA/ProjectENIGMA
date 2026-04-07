@@ -79,3 +79,4 @@ script = ExtResource("5_tbmy8")
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
+[connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Settings Button" to="ButtonsMargin/MainVBoxContainer/Settings Button" method="_on_pressed"]
