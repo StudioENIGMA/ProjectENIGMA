@@ -16,6 +16,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var emails_director: Node
 @export var browser_director: Node
 @export var bank_director: Node
+@export var randomness_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -26,6 +27,8 @@ signal news_ready(day_news_data: Dictionary)
 @export var shops_items_dir_path: String = "res://data/browser/shops_items.json"
 @export var pix_codes_dir_path: String = "res://data/bank/pix_codes_data.json"
 @export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
+@export var tasks_dir_path: String = "res://data/random/tasks/messages.json"
+@export var scams_dir_path: String = "res://data/random/scams/messages.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -48,6 +51,7 @@ func _ready() -> void:
 
 	messages_director.schedule_entry_requested.connect(_on_messages_schedule_entry_requested)
 	emails_director.schedule_entry_requested.connect(_on_emails_schedule_entry_requested)
+	randomness_director.schedule_message.connect(_on_messages_schedule_entry_requested)
 
 	reload_and_setup_today()
 #endregion INITIALIZATION
@@ -67,6 +71,8 @@ func reload_and_setup_today() -> void:
 	var shops_dictionary = _read_json_root(shops_items_dir_path)
 	var pix_dictionary = _read_json_root(pix_codes_dir_path)
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
+	var tasks_array = _read_json_array(tasks_dir_path)
+	var scams_array = _read_json_array(scams_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
@@ -74,6 +80,7 @@ func reload_and_setup_today() -> void:
 	browser_director.reviews_director.setup_from_json_array(reviews_array)
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
+	randomness_director.setup_from_json_array(tasks_array, scams_array)
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
