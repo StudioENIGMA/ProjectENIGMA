@@ -151,7 +151,106 @@
 		],
 		"task5_marcao": [
 			{
-				
+				"id": "marcao_payment0_0",
+				"text": "Opa estagiário"
+			},
+			{
+				"id": "marcao_payment0_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "marcao_payment0_2",
+				"text": "chefe pediu para solicitar a você o pagamento de um boleto de alguns materiais"
+			},
+			{
+				"id": "marcao_payment0_3",
+				"text": "09314y",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "09314y"
+					}
+				]
+			}
+		],
+		"task6_marcao": [
+			{
+				"id": "marcao_payment1_0",
+				"text": "Cara me ajuda ai kkkkkkkkkkk"
+			},
+			{
+				"id": "marcao_payment1_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "marcao_payment1_2",
+				"text": "tamo precisando de uns materiais"
+			},
+			{
+				"id": "marcao_payment1_3",
+				"text": "paga o boleto por favor"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "o boleto é at534f",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "at534f"
+					}
+				]
+			}
+		],
+		"task7_marcao": [
+			{
+				"id": "marcao_payment2_0",
+				"text": "Preciso de um ajuda sua camarada"
+			},
+			{
+				"id": "marcao_payment2_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_payment2_2",
+				"text": "paga esses materiais necessários, chefe permitiu"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "hxe1as",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "hxe1as"
+					}
+				]
+			}
+		],
+		"task7_marcao": [
+			{
+				"id": "marcao_payment3_0",
+				"text": "Fala meu bom"
+			},
+			{
+				"id": "marcao_payment2_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "marcao_payment2_2",
+				"text": "fiz o pedido de um equipamento para montagem novo"
+			},
+			{
+				"id": "marcao_payment2_3",
+				"text": "sobrou para você fazer esse pagamento kkkkkk "
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "o boleto tem código 87652w",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "87652w"
+					}
+				]
 			}
 		]
 	}                                        

@@ -1,0 +1,99 @@
+{
+  "thread_id": "px_investment",
+  "sender": "Gerente PX Investment",
+
+	"branches": {
+		"task0_px_investment": [
+			{
+				"id": "px_investment_payment0_0",
+				"text": "Olá, bom dia"
+			},
+			{
+				"id": "px_investment_payment0_1",
+				"text": "Sou o Gerente do PX e ficou alinhado com o Diretor para o senhor fazer o pagamento do empréstimo com vencimento hoje."
+			},
+			{
+				"id": "px_investment_payment0_2",
+				"text": "Favor pagar o boleto: g6td7a",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "g6td7a"
+					}
+				]
+			}
+		],
+		"task1_px_investment": [
+			{
+				"id": "px_investment_payment1_0",
+				"text": "Caro cliente, bom dia!"
+			},
+			{
+				"id": "px_investment_payment01_1",
+				"text": "Nós do banco PX Investment temos uma ótima oferta de investimento para sua empresa! Invista R$20000,00 agora mesmo pelo Boleto twn378",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "twn378"
+					}
+				]
+			}
+		],
+		"task2_px_investment": [
+			{
+				"id": "px_investment_payment2_0",
+				"text": "Caro cliente, bom dia!"
+			},
+			{
+				"id": "px_investment_payment02_1",
+				"text": "O banco PX Investment tem uma oferta de investimento muito satisfatória para sua empresa! Coloque R$25000,00 nesse fundo de investimento agora mesmo pelo Boleto 78q401",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "78q401"
+					}
+				]
+			}
+		],
+		"task3_px_investment": [
+			{
+				"id": "px_investment_payment3_0",
+				"text": "Bom dia!"
+			},
+			{
+				"id": "px_investment_payment3_1",
+				"text": "Aqui é o Gerente do PX Investment. Me foi solicitado te pedir o pagamento de um dos nossos clientes que trabalha em sua empresa. Esse pagamento está de acordo com seu Chefe."
+			},
+			{
+				"id": "px_investment_payment03_2",
+				"text": "Segue o boleto de pagamento: 683921",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "683921"
+					}
+				]
+			}
+		],
+		"task4_px_investment": [
+			{
+				"id": "px_investment_payment4_0",
+				"text": "Bom dia!"
+			},
+			{
+				"id": "px_investment_payment4_1",
+				"text": "Sou Gerente do PX Investment e me foi solicitado te pedir o pagamento de um dos nossos clientes que trabalha em sua empresa. Esse pagamento ficou alinhado com seu Chefe."
+			},
+			{
+				"id": "px_investment_payment04_2",
+				"text": "Segue o boleto de pagamento: eytu24",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "eytu24"
+					}
+				]
+			}
+		]
+	}
+}
