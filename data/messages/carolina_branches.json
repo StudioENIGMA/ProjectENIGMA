@@ -66,10 +66,10 @@
 		"task3_carolina": [
 			{
 				"id": "carolina_password0_0",
-				"text": "Olá estagiário, é a Mariana pelo celular",
+				"text": "Oi estagiário, vc pode me ajudar a entender melhor sobre senhas? Quero trocar a minha, mas n sei qual modelo é mais seguro, estou em duvida entre 6721839812 ou k7.i3@m2",
 				"choices": [
 					{
-						"id": "carolina_password0_1a_0",
+						"id": "carolina_password0_0a_0",
 						"player_text": "k7.i3@m2",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_1",
@@ -77,7 +77,7 @@
 						}
 					},
 					{
-						"id": "carolina_password0_1a_1",
+						"id": "carolina_password0_0a_1",
 						"player_text": "6721839812",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_2",
@@ -87,15 +87,15 @@
 				]
 			}
 		],
-		"from_carolina_password0_2": [
+		"from_carolina_password0_1": [
 		  	{
-				"id": "carolina_password0_3",
+				"id": "carolina_password0_1",
 				"text": "Obrigadaa agora eu aprendi"
 			}
 		],
-		"from_carolina_password0_4": [
+		"from_carolina_password0_2": [
 			{
-				"id": "carolina_password0_4",
+				"id": "carolina_password0_2",
 				"text": "O sistema disse q ela é fraca :("
 			}
 		]
