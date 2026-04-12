@@ -33,5 +33,228 @@
 		"thread_id": "josé",
 		"branch": "task6_jose",
 		"required_app": "browser"
+	},
+	{
+		"thread_id": "mariana",
+		"branch": "task0_mariana",
+		"required_app": "none"
+	},
+	{
+		"thread_id": "marta",
+		"branch": "task0_marta",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marta",
+		"branch": "task1_marta",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marta",
+		"branch": "task2_marta",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marta",
+		"branch": "task3_marta",
+		"required_app": "Bank"
+	},
+
+	{
+		"thread_id": "px_investment",
+		"branch": "task0_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investment",
+		"branch": "task1_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investment",
+		"branch": "task2_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investment",
+		"branch": "task3_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investment",
+		"branch": "task4_px_investment",
+		"required_app": "Bank"
+	},
+
+	{
+		"thread_id": "ricardo",
+		"branch": "task0_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricardo",
+		"branch": "task1_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricardo",
+		"branch": "task2_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricardo",
+		"branch": "task3_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricardo",
+		"branch": "task4_ricardo",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "artur",
+		"branch": "task0_artur",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "artur",
+		"branch": "task1_artur",
+		"required_app": "none"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task0_marcao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task1_marcao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task2_marcao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task3_marcao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task4_marcao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task5_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task6_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task7_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcão",
+		"branch": "task8_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherme",
+		"branch": "task0_guilherme",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "guilherme",
+		"branch": "task1_guilherme",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "guilherme",
+		"branch": "task2_guilherme",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherme",
+		"branch": "task3_guilherme",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar",
+		"branch": "task0_gilmar",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "gilmar",
+		"branch": "task1_gilmar",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "gilmar",
+		"branch": "task2_gilmar",
+		"required_app": "none"
+	},
+	{
+		"thread_id": "carolina",
+		"branch": "task0_carolina",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "carolina",
+		"branch": "task1_carolina",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "carolina",
+		"branch": "task2_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina",
+		"branch": "task3_carolina",
+		"required_app": "none"
+	},
+	{
+		"thread_id": "viva",
+		"branch": "task0_negativa",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "viva",
+		"branch": "task1_negativa",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "viva",
+		"branch": "task2_negativa",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia",
+		"branch": "task0_marcia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcia",
+		"branch": "task1_marcia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcia",
+		"branch": "task2_marcia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcia",
+		"branch": "task3_marcia",
+		"required_app": "browser"
 	}
+
 ]
