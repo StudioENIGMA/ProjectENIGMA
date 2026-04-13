@@ -36,11 +36,11 @@
 		"task1_negativa": [
 			{
 				"id": "negativa_payment0_0",
-				"text": "Caro cliente",
+				"text": "Caro cliente"
 			},
 			{
 				"id": "negativa_payment0_1",
-				"text": "Estamos entrando em contato para avisar sobre o pagamento pendente de um dispositivo celular que ficou para o dia de hoje, conforme combinado com o Gerente.",
+				"text": "Estamos entrando em contato para avisar sobre o pagamento pendente de um dispositivo celular que ficou para o dia de hoje, conforme combinado com o Gerente."
 			},
 			{
 				"id": "negativa_payment0_2",
@@ -68,11 +68,11 @@
 		"task2_negativa": [
 			{
 				"id": "negativa_payment1_0",
-				"text": "Caro cliente",
+				"text": "Caro cliente"
 			},
 			{
 				"id": "negativa_payment1_1",
-				"text": "Como combinado, o pagamento referente a compra de 10 Notebooks tem vencimento para hoje. Solicitamos que seja feita o pagamento para não haver cobrança de multa.",
+				"text": "Como combinado, o pagamento referente a compra de 10 Notebooks tem vencimento para hoje. Solicitamos que seja feita o pagamento para não haver cobrança de multa."
 			},
 			{
 				"id": "negativa_payment1_2",
