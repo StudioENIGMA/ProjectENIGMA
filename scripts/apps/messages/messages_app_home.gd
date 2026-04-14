@@ -8,6 +8,9 @@ const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_
 
 var conversations_data:Array[Dictionary]
 
+func _ready() -> void:
+	load_conversations(GameData.saved_messages_conversations)
+
 ## Handles the player's answer to an NPC's message
 ##
 ## npc_name: The name of the NPC which the conversation is with
@@ -35,6 +38,7 @@ func on_player_answer(
 	conversations_data[conversation_index]["options"].append(
 		{"message":message, "title":title, "reputation_points":reputation_points, "answer_id":answer_id}
 	)
+	_sync_conversations_to_game_data()
 
 ## Handles the creation of a new message in the messaging app
 ##
@@ -92,6 +96,7 @@ func on_send_message(
 
 	# Update the conversation in the UI
 	_update_list_of_chats(conversation_index)
+	_sync_conversations_to_game_data()
 
 ## Updates the list of chats in the UI.
 ##
@@ -126,3 +131,22 @@ func on_delete_answers(npc_name:String) -> void:
 		return
 	conversations_data[idx]["options"].clear()
 	_update_list_of_chats(idx)
+	_sync_conversations_to_game_data()
+
+func _sync_conversations_to_game_data() -> void:
+	GameData.saved_messages_conversations = conversations_data.duplicate(true)
+
+func load_conversations(saved_conversations: Array) -> void:
+	conversations_data.clear()
+
+	for child in list_of_chats.get_children():
+		child.queue_free()
+
+	for saved_conversation in saved_conversations:
+		var restored_conversation: Dictionary = saved_conversation.duplicate(true)
+		conversations_data.append(restored_conversation)
+
+		var conversation_row = CONVERSATION_ROW_SCENE.instantiate()
+		conversation_row.setup(restored_conversation)
+		conversation_row.open_chat_requested.connect(_on_open_chat)
+		list_of_chats.add_child(conversation_row)

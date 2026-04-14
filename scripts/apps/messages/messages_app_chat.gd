@@ -104,7 +104,7 @@ func setup(conversation_data:Dictionary) -> void:
 			apk_installation_requested.emit # Propagate signal to base app
 		)
 
-	if messages_typing[conversation_name] == true:
+	if messages_typing.get(conversation_name, false) == true:
 		var message_typing_instance = OTHERS_MESSAGE.instantiate()
 		messages_list.add_child(message_typing_instance)
 		message_typing_instance.setup("", {}, 0, true)

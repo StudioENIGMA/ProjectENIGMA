@@ -164,6 +164,7 @@ layout_mode = 2
 app = 9
 
 [node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 23
 
