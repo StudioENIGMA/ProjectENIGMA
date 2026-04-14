@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bl30assw3y4mn"]
 
+[ext_resource type="Script" uid="uid://b2fotgbsp7nqt" path="res://scripts/main_menu.gd" id="1_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_wu84c"]
 [ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
@@ -7,17 +8,52 @@
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="6_rtw2f"]
 [ext_resource type="Script" uid="uid://vkfy3aw4upiu" path="res://scripts/conscent_panel.gd" id="7_oa1go"]
+[ext_resource type="Script" uid="uid://pm0hm7reoo87" path="res://scripts/confirmation_panel.gd" id="8_tbmy8"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="10_5dd4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
 
-[node name="Main Menu" type="Control" unique_id=668069274]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.6064064, 0.06568552, 4.813075e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.4457847, 0.036952697, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
+bg_color = Color(0.7918716, 0.100445725, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0, 0.36959997, 0.107734896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.104712255, 0.2792548, 0.15956783, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.17046908, 0.41386926, 0.24258903, 1)
+
+[node name="Main Menu" type="Control" unique_id=668069274 node_paths=PackedStringArray("new_game_button", "confirmation_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jk1qb")
+new_game_button = NodePath("ButtonsMargin/MainVBoxContainer/New Game Button")
+confirmation_panel = NodePath("ConfirmationPanel")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2074772363]
 layout_mode = 1
@@ -82,6 +118,7 @@ script = ExtResource("5_tbmy8")
 [node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
 
 [node name="ConscentPanel" type="PanelContainer" parent="." unique_id=267683509 node_paths=PackedStringArray("conscent_button")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,6 +165,75 @@ custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Confirmar"
+
+[node name="ConfirmationPanel" type="PanelContainer" parent="." unique_id=346616364 node_paths=PackedStringArray("confirm_button", "cancel_button")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_tbmy8")
+confirm_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/ContinueButton")
+cancel_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/CancelButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="ConfirmationPanel" unique_id=643762061]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPanel/PanelContainer" unique_id=515022701]
+custom_minimum_size = Vector2(280, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Warn" type="RichTextLabel" parent="ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1540755162]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "ATENÇÃO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1027129006]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/normal_font = ExtResource("10_5dd4i")
+theme_override_fonts/bold_font = ExtResource("10_5dd4i")
+theme_override_font_sizes/normal_font_size = 22
+text = "Ao iniciar um novo jogo, todo o progresso anterior será perdido."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1236853140]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1163520231]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+text = "Cancelar"
+
+[node name="ContinueButton" type="Button" parent="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1063753450]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+text = "Continuar"
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
