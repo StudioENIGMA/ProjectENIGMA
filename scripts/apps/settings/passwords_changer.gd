@@ -3,17 +3,15 @@ extends Control
 signal password_changed()
 
 #region CHILDREN NODES REFERENCES
-@export var password_digit_1: Label
-@export var password_digit_2: Label
-@export var password_digit_3: Label
-@export var password_digit_4: Label
 @export var instruction_label: Label
 @export var confirm_button: Button
+@export var line_edit: LineEdit
 #endregion
 
 var gated_app: GameData.App
 
 func _ready() -> void:
+	line_edit.text_changed.connect(_user_typed)
 	confirm_button.pressed.connect(_on_confirm_button_pressed)
 
 ## Sets up the PasswordsInserter UI with the provided data, initializing the gated app
@@ -23,54 +21,41 @@ func setup(data: Dictionary) -> void:
 	var app_name = GameData.apps_name_reverse.get(gated_app, "Desconhecido")
 	instruction_label.text = "Insira a nova senha para %s:" % app_name
 
-	clear_password_fields()
+	line_edit.text = ""
+
+	# Catch focus to the line edit
+	await get_tree().process_frame
+	line_edit.grab_focus()
 
 #region PASSWORD LOGIC
-## Retrieves the entered password as a concatenated string of the four digit labels
-func get_entered_password() -> String:
-	return "%s%s%s%s" % [
-		password_digit_1.text,
-		password_digit_2.text,
-		password_digit_3.text,
-		password_digit_4.text,
-	]
-
-## Clears the password digit labels, resetting them to their default state
-func clear_password_fields() -> void:
-	confirm_button.disabled = true
-	password_digit_1.text = "_"
-	password_digit_2.text = "_"
-	password_digit_3.text = "_"
-	password_digit_4.text = "_"
-
 ## Handles key input events to capture numeric password entry and validate it against
 ## the stored password for the gated app
-func _input(event: InputEvent) -> void:
-	# Avoid capturing keys when hidden
-	if not is_visible_in_tree():
+func _user_typed(entered_password: String) -> void:
+	# If empty, allow it
+	if entered_password.is_empty():
+		confirm_button.disabled = true
 		return
-
-	if event is InputEventKey and event.pressed and not event.echo:
-		var key_event = event as InputEventKey
-
-		if key_event.unicode >= ord("0") and key_event.unicode <= ord("9"):
-			var digit = char(key_event.unicode)
-
-			if password_digit_1.text == "_":
-				password_digit_1.text = digit
-			elif password_digit_2.text == "_":
-				password_digit_2.text = digit
-			elif password_digit_3.text == "_":
-				password_digit_3.text = digit
-			elif password_digit_4.text == "_":
-				password_digit_4.text = digit
-				confirm_button.disabled = false
+		
+	# Check if the new text is a valid number
+	if !entered_password.is_valid_float():
+			line_edit.text = line_edit.text.substr(0, line_edit.text.length() - 1)
+			line_edit.set_caret_column(line_edit.text.length())  # Move caret to the end
+	
+	if entered_password.length() > 4:
+		line_edit.text = entered_password.substr(0, 4)
+		line_edit.set_caret_column(line_edit.text.length())  # Move caret to the end
+	
+	if line_edit.text.length() == 4:
+		confirm_button.disabled = false
+	else:
+		confirm_button.disabled = true
 
 ## Handles confirm button press to update the password in GameData
 func _on_confirm_button_pressed() -> void:
-	var new_password = get_entered_password()
+	confirm_button.disabled = true
+	var new_password = line_edit.text
 	GameData.passwords[gated_app] = new_password
-	clear_password_fields()
+	line_edit.text = ""
 	instruction_label.text = "Senha alterada com sucesso!"
 	GameData.updated_password_today = true
 	emit_signal("password_changed")

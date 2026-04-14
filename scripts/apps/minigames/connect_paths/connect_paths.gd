@@ -16,6 +16,7 @@ signal hack_concluded
 var hexagons = []
 var hexagons_node = []
 var hexagons_positions = [1, 1, 1, 1, 1, 1, 1]
+var time
 
 func _ready() -> void:
 	path_generator.hexagons_generated.connect(get_hexagon_path)
@@ -29,12 +30,16 @@ func _ready() -> void:
 	setup()
 
 func setup() -> void:
+	time = 15
+	reset_minigame()
+
+func reset_minigame() -> void:
 	hexagons_positions = [1, 1, 1, 1, 1, 1, 1]
 	path_generator.generate()
 	create_hexagons_node_array()
 	set_lines()
 	randomize_rotation()
-	minigame_timer.setup(20)
+	minigame_timer.setup(time)
 
 func get_hexagon_path(hexagon_array):
 	hexagons = hexagon_array
@@ -111,8 +116,10 @@ func check_rotations():
 			break
 
 	if check:
+		time = 15
 		minigame_timer.stop_timer()
 		hack_concluded.emit()
 
 func _on_time_finished() -> void:
-	setup()
+	time += 5
+	reset_minigame()

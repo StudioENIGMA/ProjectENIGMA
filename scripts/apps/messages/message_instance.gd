@@ -19,6 +19,8 @@ const MAX_BUBBLE_WIDTH := 200.0
 @export var right_margin: MarginContainer
 @export var annex_container: CenterContainer
 @export var annex_button: Button
+@export var progress_bar: ProgressBar
+@export var animation_player: AnimationPlayer
 
 var _is_reflowing := false
 
@@ -163,8 +165,11 @@ func _on_apk_annex_pressed(annex: Dictionary) -> void:
 
 	# Disable the button to prevent multiple clicks
 	annex_button.disabled = true
-	annex_button.text = "Baixando..."
+	annex_button.text = "BAIXANDO..."
+	progress_bar.visible = true
+	animation_player.play("download_animation")
 
 	# Simulate download time
-	await get_tree().create_timer(2.0).timeout
-	annex_button.text = "Instalado"
+	await get_tree().create_timer(2.5).timeout
+	progress_bar.visible = false
+	annex_button.text = "INSTALADO"
