@@ -35,6 +35,7 @@ func _ready() -> void:
   event_handler.hack_handler.send_hack_notification.connect(
 	ui.notifications_control.send_hack_notification
   )
+  event_handler.set_shop_by_date()
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
