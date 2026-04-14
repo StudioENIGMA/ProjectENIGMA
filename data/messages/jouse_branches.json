@@ -1,0 +1,90 @@
+{
+  "thread_id": "jose_falso",
+  "sender": "Jousé",
+  "branches": {
+    "scan0_jose": [
+      {
+        "id": "jose_falso_0",
+        "text": "boa tarde. compra cinco n2 do libre mercado",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 15, "quantity": 5, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan1_jose": [
+      {
+        "id": "jose_falso_1",
+        "text": "vc pode ir compra 10 barra de aco?",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 11, "quantity": 10, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan2_jose": [
+      {
+        "id": "jose_falso_2",
+        "text": "Você poderia, por favor, acessar o Libre Mercado para encomendar 5 Martelos?",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 13, "quantity": 5, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan3_jose": [
+      {
+        "id": "jose_falso_3",
+        "text": "Boa tarde, encomende 1 Monitor no Libre Mercado",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 14, "quantity": 1, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan4_jose": [
+      {
+        "id": "jose_falso_4",
+        "text": "fala ae compra umas 3 furadeiras ae?",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 12, "quantity": 3, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan5_jose": [
+      {
+        "id": "jose_falso_5",
+        "text": "Boa tarde, você poderia encomendar 10L de Nitrogênio Líquido (N2), por favor? Use o site Libre Mercado pelos melhores preços.",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 15, "quantity": 10, "store": "amazonia" }]
+          }
+        ]
+      }
+    ],
+    "scan6_jose": [
+      {
+        "id": "jose_falso_6",
+        "text": "Boa tarde, você poderia, por favor, acessar o site Libre Mercado para encomendar 5 Barras de Aço?",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 11, "quantity": 5, "store": "amazonia" }]
+          }
+        ]
+      }
+    ]
+  }
+}
