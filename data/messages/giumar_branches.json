@@ -1,0 +1,30 @@
+{
+  "thread_id": "giumar",
+  "sender": "Giumar",
+	  "branches": {
+		"scan0_giumar": [
+			{
+				"id": "giumnar_payment0_0",
+				"text": "Θi mαno R6K3S"
+			},
+			{
+				"id": "giumnar_payment0_1",
+				"text": "descobri um αpp q tα pagaηdθ mt me mandα R$600,00 q τe devθlvo R$5000,00 R6K3S"
+			},
+			{
+				"id": "giumnar_payment0_2",
+				"text": "o pix eh R6K3S"
+			},
+			{
+				"id": "giumnar_payment0_3",
+				"text": "só sucesso",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "R6K3S"
+					}
+				]
+			}
+		]
+	}
+}

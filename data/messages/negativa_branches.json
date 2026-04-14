@@ -10,19 +10,7 @@
 			},
 			{
 				"id": "negativa_purchase0_1",
-				"text": "Estamos com uma nova parceria com a Amazônia, então precisamos que a compra de 4 monitores seja completada nela.",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [
-							{
-								"item_id": 14,
-								"quantity": 4,
-								"store": "amazonia"
-							}
-						]
-					}
-				]
+				"text": "Estamos com uma nova parceria com a Amazônia, então precisamos que a compra de 4 monitores seja completada nela."
 			},
 			{
 				"id": "negativa_purchase0_2",

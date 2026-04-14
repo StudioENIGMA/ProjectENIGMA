@@ -10,19 +10,7 @@
 			},
 			{
 				"id": "gilmar_purchase0_1",
-				"text": "Precisamos de mais carregamento de aço. Você deve comprar 17kg",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [
-							{
-								"item_id": 11,
-								"quantity": 17,
-								"store": "amazonia"
-							}
-						]
-					}
-				]
+				"text": "Precisamos de mais carregamento de aço. Você deve comprar 17kg"
 			}
 		],
 		"task1_gilmar": [
@@ -32,7 +20,11 @@
 			},
 			{
 				"id": "gilmar_purchase1_1",
-				"text": "Alguns martelos deram defeito, compre 3 novos martelos para nossa indústria.",
+				"text": "Alguns martelos deram defeito, compre 3 novos martelos para nossa indústria."
+			},
+			{
+				"id": "gilmar_purchase1_2",
+				"text": "Obrigado.",
 				"requires": [
 					{
 						"flag": "purchase",

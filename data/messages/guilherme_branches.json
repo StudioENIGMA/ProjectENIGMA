@@ -18,7 +18,14 @@
 			},
 			{
 				"id": "guilherme_purchase0_3",
-				"text": "Preciso de um bolo de cobertura morango para entrega rápida.",
+				"text": "Preciso de um bolo de cobertura morango para entrega rápida."
+			{
+				"id": "guilherme_purchase0_4",
+				"text": "Você poderia fazer a compra para mim? Por favor."
+			},
+			{
+				"id": "guilherme_purchase0_5",
+				"text": "Valeu cara",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -32,9 +39,6 @@
 					}
 				]
 			},
-			{
-				"id": "guilherme_purchase0_4",
-				"text": "Você poderia fazer a compra para mim? Por favor."
 			}
 		],
 		"task1_guilherme": [
@@ -48,7 +52,11 @@
 			},
 			{
 				"id": "guilherme_purchase1_2",
-				"text": "Por favor, compre 4 monitores.",
+				"text": "Por favor, compre 4 monitores."
+			},
+			{
+				"id": "guilherme_purchase1_3",
+				"text": "Valeu estagiário",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -74,11 +82,15 @@
 			},
 			{
 				"id": "guilherme_payment0_2",
-				"text": "Segue o código do boleto: 9io34f",
+				"text": "Segue o código do boleto: 9IO34F"
+			}, 
+			{
+				"id": "guilherme_payment0_3",
+				"text": "Valeu cara",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "9io34f"
+						"payment_id": "9IO34F"
 					}
 				]
 			}
@@ -94,13 +106,7 @@
 			},
 			{
 				"id": "guilherme_purchase1_2",
-				"text": "Por favor, faça esse pagamento pelo código ft61",
-				"requires": [
-					{
-						"flag": "payment",
-						"payment_id": "ft61"
-					}
-				]
+				"text": "Por favor, faça esse pagamento pelo código FT61A",
 			}
 		]
 	}

@@ -14,11 +14,15 @@
 			},
 			{
 				"id": "artur_payment0_2",
-				"text": "te mandar o código do pix: ol34",
+				"text": "te mandar o código do pix: OL349",
+			},
+			{
+				"id": "artur_payment0_3",
+				"text": "Valeu tmj",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "ol34"
+						"payment_id": "OL349"
 					}
 				]
 			}
@@ -44,7 +48,7 @@
 						"id": "artur_password0_0a_0",
 						"player_text": "aaaaaaaa",
 						"npc_reply": {
-							"goto_branch": "from_gilmar_password0_2",
+							"goto_branch": "from_artur_password0_3",
 							"delay_ticks": 90
 						}
 					},
