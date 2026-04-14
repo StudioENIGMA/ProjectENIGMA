@@ -1,0 +1,37 @@
+{
+  "thread_id": "ricardo_falso",
+  "sender": "Ricarudo",
+  "branches": {
+    "scan0_ricardo": [
+      {
+        "id": "ricardo_falso_0",
+        "text": "Estagiário, entra no Libre Mercado e compra pra mim 2 furadeiras, 16kg de aço, 32 litros de N2 e 4 martelos para o projeto",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [
+              { "item_id": 12, "quantity": 2, "store": "amazonia" },
+              { "item_id": 11, "quantity": 16, "store": "amazonia" },
+              { "item_id": 15, "quantity": 32, "store": "amazonia" },
+              { "item_id": 13, "quantity": 4, "store": "amazonia" }
+            ]
+          }
+        ]
+      }
+    ],
+    "scan1_ricardo": [
+      {
+        "id": "ricardo_falso_1",
+        "text": "Estagiário, paga esse conta de materiais q o chefe falou pra te contatar o código do pix é [código] [valor:R$2400,50]",
+        "requires": []
+      }
+    ],
+    "scan2_ricardo": [
+      {
+        "id": "ricardo_falso_2",
+        "text": "Opa estagiário o chefe quer q eu mesmo pague alguns materiais q, mas pra isso preciso da senha do banco, me passa ai [senha atual do banco]",
+        "requires": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "thread_id": "marta_falso",
+  "sender": "Maarta",
+  "branches": {
+    "scan0_marta": [
+      {
+        "id": "marta_falso_0",
+        "text": "Oi. Compra 40 brigadeiros de cada no empório dos bolos chefe pediu",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [
+              { "item_id": 21, "quantity": 40, "store": "emilia_bolos" },
+              { "item_id": 22, "quantity": 40, "store": "emilia_bolos" }
+            ]
+          }
+        ]
+      }
+    ],
+    "scan1_marta": [
+      {
+        "id": "marta_falso_1",
+        "text": "Oiiee, novo estagiário Paga essa conta aqui pra mim por favor eu sei que você é legal e vai pagar código: [código]",
+        "requires": []
+      }
+    ],
+    "scan2_marta": [
+      {
+        "id": "marta_falso_2",
+        "text": "oiiiiiiiii estgiário pro favor compra 3 camisaes sociaips na Zora pro time de vemdas obrigadaaaaaaaaa",
+        "requires": [
+          {
+            "flag": "purchase",
+            "items": [{ "item_id": 31, "quantity": 3, "store": "aec" }]
+          }
+        ]
+      }
+    ]
+  }
+}
