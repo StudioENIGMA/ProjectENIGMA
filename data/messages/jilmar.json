@@ -1,0 +1,34 @@
+{
+  "thread_id": "gilmar_falso",
+  "sender": "Jilmar",
+  "branches": {
+    "scan0_gilmar": [
+      {
+        "id": "gilmar_falso_0",
+        "text": "Olá estagiário. preciso de um pagamento, faz ae para mim",
+        "requires": []
+      }
+    ],
+    "scan1_gilmar": [
+      {
+        "id": "gilmar_falso_1",
+        "text": "olá tem que pagar esse negócio aqui, chefe mandou [código] [valor: R$6500,00]",
+        "requires": []
+      }
+    ],
+    "scan2_gilmar": [
+      {
+        "id": "gilmar_falso_2",
+        "text": "oi cara descobri um jeito de ganhar um dinheiro fácil, me manda 800 reais que eu vou jogar e transformar em 4000 meu pix é: código",
+        "requires": []
+      }
+    ],
+    "scan3_gilmar": [
+      {
+        "id": "gilmar_falso_3",
+        "text": "Oi mano descobri um app q ta pagando mt me manda R$600,00 q te develvo R$5000,00 meu pix eh [código] [valor: R$600,00]",
+        "requires": []
+      }
+    ]
+  }
+}
