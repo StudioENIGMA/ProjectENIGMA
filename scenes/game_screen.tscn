@@ -170,6 +170,7 @@ layout_mode = 2
 app = 23
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 24
 
