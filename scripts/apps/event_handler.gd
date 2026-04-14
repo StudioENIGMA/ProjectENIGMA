@@ -55,18 +55,18 @@ func _on_day_over_timeout() -> void:
 	# Emit the day ended signal to notify other systems
 	day_ended.emit()
 
+	GameData.current_day += 1
+	GameData.save_game()
+
 	# Stop the timers
 	clock_timer.stop()
 
 ## Resets game data for the new day
 func reset_data_for_new_day() -> void:
 	start_new_day.emit()
-	GameData.current_day += 1
 
 	if GameData.current_day == 1:
 		GameData.apps_in_store.append(GameData.App.BROWSER)
-
-	print("current day: ", GameData.current_day)
 
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes

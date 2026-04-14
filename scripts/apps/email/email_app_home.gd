@@ -15,29 +15,23 @@ const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
 # Each dictionary represents an email message
 var emails_data:Array
 
+func _ready() -> void:
+	load_emails(GameData.saved_email_threads)
+
 #region SIGNALS HANDLERS
-func on_receive_email(email_data:Dictionary) -> void:
-	# Find if email with same subject already exists
+func on_receive_email(email_data: Dictionary) -> void:
 	var email_index = emails_data.find_custom(
-		# Email is an array of messages, consider only the first one (all have same subjects)
-		func(email:Array):return email[0]["subject"] == email_data["subject"]
+		func(email_thread: Array): return email_thread[0]["subject"] == email_data["subject"]
 	)
 
-	# If email doesn't exist, add it to the list
 	if email_index == -1:
-		# Append as an array to represent a new conversation
-		emails_data.append([email_data])
-
-		# Move email to the top of the list
-		emails_data.push_front(emails_data.pop_at(email_index))
-	else: # Append new email data to existing email
+		emails_data.push_front([email_data])
+	else:
 		emails_data[email_index].append(email_data)
-
-		# Move email to the top of the list
 		emails_data.push_front(emails_data.pop_at(email_index))
 
-	# Refresh the list of emails in the UI
 	_update_list_of_emails(email_index)
+	_sync_emails_to_game_data()
 
 ## Handles the request to open a specific email
 func _on_open_email(app: GameData.App, email_data:Array) -> void:
@@ -46,7 +40,7 @@ func _on_open_email(app: GameData.App, email_data:Array) -> void:
 
 #region UI UPDATES
 ## Updates the list of emails in the UI
-func _update_list_of_emails(updated_email_index) -> void:
+func _update_list_of_emails(updated_email_index: int) -> void:
 	var email_row
 
 	if updated_email_index == -1:
@@ -59,6 +53,22 @@ func _update_list_of_emails(updated_email_index) -> void:
 		email_row.setup(emails_data[0])
 
 	list_of_emails.move_child(email_row, 0)
-
-
 #endregion UI UPDATES
+
+func _sync_emails_to_game_data() -> void:
+	GameData.saved_email_threads = emails_data.duplicate(true)
+
+func load_emails(saved_threads: Array) -> void:
+	emails_data.clear()
+
+	for child in list_of_emails.get_children():
+		child.queue_free()
+
+	for saved_thread in saved_threads:
+		var restored_thread = saved_thread.duplicate(true)
+		emails_data.append(restored_thread)
+
+		var email_row = EMAIL_ROW_SCENE.instantiate()
+		email_row.setup(restored_thread)
+		email_row.subscreen_open_requested.connect(_on_open_email)
+		list_of_emails.add_child(email_row)

@@ -26,24 +26,24 @@ font_color = Color(0.36078432, 0.078431375, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83l8f"]
 bg_color = Color(1, 0.015686275, 0.2784314, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0en2f"]
-bg_color = Color(0.6039216, 0.09019608, 0.22352941, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i7aa"]
-bg_color = Color(0.99999994, 0.20383534, 0.32510448, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+bg_color = Color(0.6039216, 0.09019608, 0.22352941, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khwnn"]
+bg_color = Color(1, 0.20392157, 0.3254902, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0en2f"]
 
@@ -66,8 +66,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1778340396]
 layout_mode = 2
@@ -98,17 +98,18 @@ clip_text = true
 [node name="InformationVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=903232668]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 1
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1245690070]
-custom_minimum_size = Vector2(128, 32)
+custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_m2c43")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_83l8f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0en2f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8i7aa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8i7aa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_khwnn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0en2f")
 text = "Confirmar"
 

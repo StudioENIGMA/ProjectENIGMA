@@ -413,6 +413,10 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	if previous_node:
 		previous_node.visible = true
 
+func close_all_apps() -> void:
+	while not open_apps.is_empty():
+		_on_close_app_button_pressed()
+
 ## Starts the hack minigame
 func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 	match hack_minigame:

@@ -42,6 +42,7 @@ window/handheld/orientation=1
 [global_group]
 
 clock_display="Nodes related to displaying time"
+Persist="Nodes to save and load"
 
 [input]
 

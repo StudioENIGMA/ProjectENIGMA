@@ -2,6 +2,8 @@ extends GridContainer
 
 signal app_opened(app_id: GameData.App)
 
+const APP_BUTTON_SCENE = preload("res://scenes/tools/AppButton.tscn")
+
 #region CHILDREN NODES REFERENCES
 @export var touch_sound_player:AudioStreamPlayer2D
 #endregion
@@ -31,10 +33,10 @@ func on_app_installed(app:GameData.App) -> void:
 		GameData.downloaded_apps.append(app)
 
 	# Show the icon on the home screen
-	for child in get_children():
-		if child.app == app:
-			child.visible = true
-			break
+	var app_button = APP_BUTTON_SCENE.instantiate()
+	app_button.app = app
+	app_button.gui_input.connect(_on_app_gui_input.bind(app_button))
+	add_child(app_button)
 
 ## Handles the app uninstalled event from the store app
 func on_app_uninstalled(app:GameData.App) -> void:

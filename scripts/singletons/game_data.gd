@@ -116,6 +116,9 @@ var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 1
 var unsafe_apps: Array[App] = [App.FAKESTORE]
 
+var saved_messages_conversations: Array[Dictionary] = []
+var saved_email_threads: Array = []
+
 var apps_name: Dictionary = {
 	# Messages app
 	"MessagesHome": App.MESSAGESHOME,
@@ -234,7 +237,6 @@ var apps_chinese_operations = {
 
 var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
-var available_updates: Array[App] = []
 
 func _ready() -> void:
 	# Create reverse mapping for apps_name
@@ -294,6 +296,10 @@ func hours_minutes_as_string(relative_time: int) -> String:
 func get_current_date_dict() -> Dictionary:
 	var current_date_dict: Dictionary = start_date_dict.duplicate(true)
 
+	# convert all values to int to avoid issues with JSON parsing
+	for key in current_date_dict.keys():
+		current_date_dict[key] = int(current_date_dict[key])
+
 	# Gets the current system timezone offset (in minutes)
 	var tz = Time.get_time_zone_from_system()
 	var offset_seconds = tz.bias * 60
@@ -320,3 +326,79 @@ func export_game_data_for_tools() -> void:
 	if save_file:
 		save_file.store_string(json_string)
 		save_file.close()
+
+func save_game() -> void:
+	var file_path = "user://saved_game.json"
+	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
+	if save_file == null:
+		push_error("Could not open save file for writing")
+		return
+
+	var game_state = {
+		"start_date_dict": start_date_dict,
+		"current_day": current_day,
+		"reputation_points": reputation_points,
+		"passwords": passwords,
+		"apps_in_store": apps_in_store,
+		"downloaded_apps": downloaded_apps,
+		"saved_messages_conversations": saved_messages_conversations,
+		"saved_email_threads": saved_email_threads,
+	}
+
+	save_file.store_string(JSON.stringify(game_state))
+	save_file.close()
+
+func load_game() -> void:
+	var file_path := "user://saved_game.json"
+	if not FileAccess.file_exists(file_path):
+		return
+
+	var load_file := FileAccess.open(file_path, FileAccess.READ)
+	if load_file == null:
+		return
+
+	var json_string := load_file.get_as_text()
+	load_file.close()
+
+	var json := JSON.new()
+	var err := json.parse(json_string)
+	if err != OK:
+		push_error("Failed to parse save file")
+		return
+
+	var game_state: Dictionary = json.data
+
+	start_date_dict = game_state.get("start_date_dict")
+	current_day = int(game_state.get("current_day"))
+	reputation_points = int(game_state.get("reputation_points"))
+
+	var game_state_passwords = game_state.get("passwords", {})
+	var saved_passwords: Dictionary = {}
+	for app_number in game_state_passwords.keys():
+		var app_enum = int(app_number)
+		saved_passwords[app_enum] = str(game_state_passwords[app_number])
+	passwords = saved_passwords
+
+	var raw_apps_in_store: Array = game_state.get("apps_in_store", [])
+	var restored_apps_in_store: Array[App] = []
+	for value in raw_apps_in_store:
+		restored_apps_in_store.append(int(value))
+	apps_in_store = restored_apps_in_store
+
+	var raw_downloaded_apps: Array = game_state.get("downloaded_apps", [])
+	var restored_downloaded_apps: Array[App] = []
+	for value in raw_downloaded_apps:
+		restored_downloaded_apps.append(int(value))
+	downloaded_apps = restored_downloaded_apps
+
+	var raw_saved_conversations: Array = game_state.get("saved_messages_conversations", [])
+	saved_messages_conversations.clear()
+	for saved_conversation in raw_saved_conversations:
+		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
+		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
+	saved_email_threads.clear()
+
+	for saved_thread in raw_saved_email_threads:
+		saved_email_threads.append(saved_thread.duplicate(true))

@@ -47,6 +47,7 @@ const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 @export var name_label: Label
 @export var verified_rect: TextureRect
 
+var conversation_dict: Dictionary
 var conversation_name:String = ""
 var messages_typing: Dictionary = {}
 
@@ -64,6 +65,10 @@ func _ready() -> void:
 	answers_bar.delete_answers.connect(delete_answers.emit) # Propagate signal to base app
 
 func setup(conversation_data:Dictionary) -> void:
+	if conversation_data["notification_count"] > 0:
+		conversation_data["notification_count"] = 0
+
+	conversation_dict = conversation_data
 	conversation_name = conversation_data["name"]
 	set_header_panel(conversation_data["verified"])
 
@@ -99,7 +104,7 @@ func setup(conversation_data:Dictionary) -> void:
 			apk_installation_requested.emit # Propagate signal to base app
 		)
 
-	if messages_typing[conversation_name] == true:
+	if messages_typing.get(conversation_name, false) == true:
 		var message_typing_instance = OTHERS_MESSAGE.instantiate()
 		messages_list.add_child(message_typing_instance)
 		message_typing_instance.setup("", {}, 0, true)
@@ -147,6 +152,8 @@ func on_send_message(
 			)
 		messages_typing[npc_name] = false
 		return
+
+	conversation_dict["notification_count"] = 0
 
 	if messages_typing[conversation_name]:
 		# Free message typing instance
