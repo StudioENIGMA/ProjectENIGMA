@@ -37,7 +37,7 @@
 	{
 		"thread_id": "mariana",
 		"branch": "task0_mariana",
-		"required_app": ""
+		"required_app": "MessagesHome"
 	},
 	{
 		"thread_id": "marta",
@@ -119,7 +119,7 @@
 	{
 		"thread_id": "artur",
 		"branch": "task1_artur",
-		"required_app": ""
+		"required_app": "MessagesHome"
 	},
 	{
 		"thread_id": "marcão",
@@ -199,7 +199,7 @@
 	{
 		"thread_id": "gilmar",
 		"branch": "task2_gilmar",
-		"required_app": ""
+		"required_app": "MessagesHome"
 	},
 	{
 		"thread_id": "carolina",
@@ -219,7 +219,7 @@
 	{
 		"thread_id": "carolina",
 		"branch": "task3_carolina",
-		"required_app": ""
+		"required_app": "MessagesHome"
 	},
 	{
 		"thread_id": "viva",
