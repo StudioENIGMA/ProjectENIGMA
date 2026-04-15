@@ -1,51 +1,52 @@
 {
   "thread_id": "marcia_falso",
   "sender": "Marciia",
+
   "branches": {
-    "scan0_marcia": [
-      {
-        "id": "marcia_falso_0",
-        "text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas, pf",
-        "requires": [
-          {
-            "flag": "purchase",
-            "items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
-          }
-        ]
-      }
-    ],
-    "scan1_marcia": [
-      {
-        "id": "marcia_falso_1",
-        "text": "boa tarde! :] acabaram as rosquinha. Você pode encomendar 10, por favor? ;))))",
-        "requires": []
-      }
-    ],
-    "scan2_marcia": [
-      {
-        "id": "marcia_falso_2",
-        "text": "vvocê poderïa encomend4ŕ 222 bolos pro próximó aniversário da empr3sä?",
-        "requires": [
-          {
-            "flag": "purchase",
-            "items": [
-              { "item_id": 25, "quantity": 222, "store": "emilia_bolos" }
-            ]
-          }
-        ]
-      }
-    ],
-    "scan3_marcia": [
-      {
-        "id": "marcia_falso_3",
-        "text": "camisa 5 compre chefe pediu agora",
-        "requires": [
-          {
-            "flag": "purchase",
-            "items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
-          }
-        ]
-      }
-    ]
+	"scan0_marcia": [
+	  {
+		"id": "marcia_falso_0",
+		"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas, pf",
+		"requires": [
+		  {
+			"flag": "purchase",
+			"items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
+		  }
+		]
+	  }
+	],
+	"scan1_marcia": [
+	  {
+		"id": "marcia_falso_1",
+		"text": "boa tarde! :] acabaram as rosquinha. Você pode encomendar 10, por favor? ;))))",
+		"requires": []
+	  }
+	],
+	"scan2_marcia": [
+	  {
+		"id": "marcia_falso_2",
+		"text": "vvocê poderïa encomend4ŕ 222 bolos pro próximó aniversário da empr3sä?",
+		"requires": [
+		  {
+			"flag": "purchase",
+			"items": [
+			  { "item_id": 25, "quantity": 222, "store": "emilia_bolos" }
+			]
+		  }
+		]
+	  }
+	],
+	"scan3_marcia": [
+	  {
+		"id": "marcia_falso_3",
+		"text": "camisa 5 compre chefe pediu agora",
+		"requires": [
+		  {
+			"flag": "purchase",
+			"items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
+		  }
+		]
+	  }
+	]
   }
 }

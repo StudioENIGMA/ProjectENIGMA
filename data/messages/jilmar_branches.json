@@ -16,8 +16,14 @@
 				"text": "SD3A4"
 			},
 			{
-				"id": "jilmar_payment0_2",
-				"text": "obrigado kkkkkkkkk"
+				"id": "jilmar_payment0_3",
+				"text": "obrigado kkkkkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SD3A4"
+					}
+				]
 			}
 		]
 	}

@@ -1,0 +1,29 @@
+{
+  "thread_id": "josue",
+  "sender": "Josué",
+  
+	"branches": {
+		"scan0_josue": [
+			{
+				"id": "josue_purchase0_0",
+				"text": "Você poderia, por favor, acessar o Libre Mercado para encomendar 5 Martelos?"
+			}
+		],
+		"scan1_josue": [
+			{
+				"id": "josue_purchase1_0",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Libre Mercado para encomendar 5 Barras de Aço?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 11, "quantity": 5, "store": "libre_mercado" }]
+					}
+				]
+			},
+			{
+				"id": "josue_purchase1_1",
+				"text": "Mandou bem!"
+			}
+		]
+	}
+}

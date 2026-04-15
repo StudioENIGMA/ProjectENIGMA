@@ -6,7 +6,11 @@
 		"task0_marcia": [
 			{
 				"id": "marcia_purchase0_0",
-				"text": "Oie! Você poderia comprar novas camisas para a próxima reunião da firma? Acho que 5 Camisas Polo Azuis são o suficiente!",
+				"text": "Oie! Você poderia comprar novas camisas para a próxima reunião da firma? Acho que 5 Camisas Polo Azuis são o suficiente!"
+			},
+			{
+				"id": "marcia_purchase0_1",
+				"text": "Obrigada!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -24,7 +28,11 @@
 		"task1_marcia": [
 			{
 				"id": "marcia_purchase1_0",
-				"text": "Boa tarde! O nosso estoque de brigadeiro gourmet e de maracujá acabou. Você pode encomendar 10 de cada, por favor?",
+				"text": "Boa tarde! O nosso estoque de brigadeiro gourmet e de maracujá acabou. Você pode encomendar 10 de cada, por favor?"
+			},
+			{
+				"id": "marcia_purchase1_1",
+				"text": "Obrigada, nos salvou!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -47,7 +55,11 @@
 		"task2_marcia": [
 			{
 				"id": "marcia_purchase2_0",
-				"text": "Olá, tudo bem? Você poderia encomendar 2 bolos, um com cobertura de morango e o outro de maracujá, pro próximo aniversário da empresa?",
+				"text": "Olá, tudo bem? Você poderia encomendar 2 bolos, um com cobertura de morango e o outro de maracujá, pro próximo aniversário da empresa?"
+			},
+			{
+				"id": "marcia_purchase2_0",
+				"text": "Obrigadaa!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -70,7 +82,11 @@
 		"task3_marcia": [
 			{
 				"id": "marcia_purchase3_0",
-				"text": "Oi, como vai? Estamos precisando de mais camisetas de cada, você poderia encomendar 5, por favor?",
+				"text": "Oi, como vai? Estamos precisando de mais camisetas de cada, você poderia encomendar 5, por favor?"
+			},
+			{
+				"id": "marcia_purchase3_0",
+				"text": "Obrigada!",
 				"requires": [
 					{
 						"flag": "purchase",
