@@ -1,20 +1,24 @@
 {
-  "thread_id": "marcia_falso",
+  "thread_id": "marciia",
   "sender": "Marciia",
 
-  "branches": {
-	"scan0_marcia": [
-	  {
-		"id": "marcia_falso_0",
-		"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas, pf",
-		"requires": [
-		  {
-			"flag": "purchase",
-			"items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
-		  }
-		]
-	  }
-	],
+	"branches": {
+		"scan0_marciia": [
+			{
+				"id": "marciia_purchase0_0",
+				"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas, pf"
+			},
+			{
+				"id": "marciia_purchase0_0",
+				"text": "valeu",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 33, "quantity": 5, "store": "aec" }]
+					}
+				]
+			}
+		],
 	"scan1_marcia": [
 	  {
 		"id": "marcia_falso_1",
