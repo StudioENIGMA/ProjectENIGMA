@@ -49,7 +49,7 @@
 						"player_text": "aaaaaaaa",
 						"npc_reply": {
 							"goto_branch": "from_artur_password0_3",
-							"delay_ticks": 90
+							"delay_ticks": 23
 						}
 					},
 					{
@@ -57,7 +57,7 @@
 						"player_text": "s2s2s2s2",
 						"npc_reply": {
 							"goto_branch": "from_artur_password0_4",
-							"delay_ticks": 90
+							"delay_ticks": 23
 						}
 					}
 				]
@@ -65,13 +65,13 @@
 		],
 		"from_artur_password0_3": [
 		  	{
-				"id": "gilmar_password0_2",
+				"id": "artur_password0_2",
 				"text": "lorenz me falou que vc se enganou sugerindo essa senha em"
 			}
 		],
 		"from_artur_password0_4": [
 			{
-				"id": "gilmar_password0_3",
+				"id": "artur_password0_3",
 				"text": "Vlw estagiário, essa senha era melhor mesmo"
 			}
 		]

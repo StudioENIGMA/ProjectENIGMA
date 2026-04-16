@@ -21,7 +21,7 @@
 						"player_text": "89kj.fs2",
 						"npc_reply": {
 							"goto_branch": "from_mariana_password0_3",
-							"delay_ticks": 78
+							"delay_ticks": 29
 						}
 					},
 					{
@@ -29,7 +29,7 @@
 						"player_text": "58lcws142",
 						"npc_reply": {
 							"goto_branch": "from_mariana_password0_4",
-							"delay_ticks": 78
+							"delay_ticks": 29
 						}
 					}
 				]
