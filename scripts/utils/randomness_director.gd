@@ -5,7 +5,7 @@ signal schedule_message(story_entry: Dictionary)
 #endregion SIGNALS
 
 #region CONSTANTS
-const random_tasks_delay = [0, 30, 30, 30, 30, 30, 30]
+const random_tasks_delay = [0, 60, 30, 30, 30, 30, 30]
 
 const number_of_events = [
 	{
@@ -39,15 +39,33 @@ const number_of_events = [
 ]
 #endregion CONSTANTS
 
+#region STATES
+var tasks_list: Array
+var scams_list: Array
+var events_scheduled: bool = false
+var clock_counter: int = 0
+#endregion STATES
+
+
 #region SETUP
 func setup_from_json_array(random_tasks: Array, random_scams: Array) -> void:
-	var tasks_list = random_tasks
-	var scams_list = random_scams
-	define_events_list(tasks_list, scams_list)
+	tasks_list = random_tasks
+	scams_list = random_scams
+	define_events_list()
 #endregion SETUP
 
 #region FUNCTIONS
-func define_events_list(tasks_list: Array, scams_list: Array) -> void:
+func _on_clock_tick() -> void:
+	if(events_scheduled):
+		return
+
+	clock_counter += 1
+	if(clock_counter == 10):
+		clock_counter = 0
+		print("trying again")
+		define_events_list()
+
+func define_events_list() -> void:
 	if(GameData.current_day == 0):
 		return
 
@@ -55,25 +73,29 @@ func define_events_list(tasks_list: Array, scams_list: Array) -> void:
 	var attempts = 0
 
 	var random_tasks = get_random_list(tasks_list.duplicate(true), number_of_events[GameData.current_day].tasks)
-	var random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
+	#var random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
 
 	var is_task_valid = evaluate_requirements(random_tasks)
-	var is_scams_valid = evaluate_requirements(random_scams)
+	# var is_scams_valid = evaluate_requirements(random_scams)
 
-	while((!is_task_valid or !is_scams_valid) and attempts <= MAX_ATTEMPTS):
+	# while((!is_task_valid or !is_scams_valid) and attempts <= MAX_ATTEMPTS):
+	while((!is_task_valid) and attempts <= MAX_ATTEMPTS):
+		print("Tentativa:", random_tasks)
 		if(!is_task_valid):
 			random_tasks = get_random_list(tasks_list.duplicate(true), number_of_events[GameData.current_day].tasks)
 			is_task_valid = evaluate_requirements(random_tasks)
-		if(!is_scams_valid):
-			random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
-			is_scams_valid = evaluate_requirements(random_scams)
+		# if(!is_scams_valid):
+		# 	random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
+		# 	is_scams_valid = evaluate_requirements(random_scams)
 		attempts += 1
 
-	if(!is_task_valid or !is_scams_valid):
-		push_warning("It was impossible to pick random events for the day: %d" % GameData.current_day)
+	# if(!is_task_valid or !is_scams_valid):
+	if(!is_task_valid):
+		print("NÃO FOI POSSÍVEL\n")
 		return
 
-	var events_list = random_tasks + random_scams
+	# var events_list = random_tasks + random_scams
+	var events_list = random_tasks
 	schedule_events(events_list)
 
 func get_random_list(events_list, number_of_elements) -> Array:
@@ -102,11 +124,13 @@ func evaluate_requirements(events_list) -> bool:
 
 func schedule_events(events_list: Array) -> void:
 	events_list.shuffle()
+	print(events_list)
 
 	var events_due_times = get_spaced_times(events_list.size())
 	assert(events_due_times.size() == events_list.size())
 
 	for i in range(events_list.size()):
+		print(events_due_times[i])
 		GameData.random_events_history.append(events_list[i].get("branch"))
 		schedule_message.emit({
 				"thread_id": events_list[i].get("thread_id"),
@@ -115,6 +139,8 @@ func schedule_events(events_list: Array) -> void:
 				"due_at": events_due_times[i],
 				"requires": [],
 			})
+	
+	events_scheduled = true
 
 func get_spaced_times(number_of_times: int) -> Array:
 	var times = []
@@ -122,7 +148,7 @@ func get_spaced_times(number_of_times: int) -> Array:
 	var max_attempts = number_of_times * 200
 
 	var start_of_range = GameData.starting_hours_minutes + random_tasks_delay[GameData.current_day]
-	var end_of_range = GameData.max_hours_minutes - 30
+	var end_of_range = 700#GameData.max_hours_minutes - 30
 
 	var min_dist = 30
 	# Verifies if min distance at 30s is possible
@@ -130,7 +156,7 @@ func get_spaced_times(number_of_times: int) -> Array:
 		min_dist = floori(((end_of_range - start_of_range) / number_of_times) * 0.8)
 
 	while times.size() < number_of_times and attempts < max_attempts:
-		var num = randf_range(start_of_range, end_of_range)
+		var num = randi_range(start_of_range, end_of_range)
 		var is_valid = true
 
 		for existing_num in times:
