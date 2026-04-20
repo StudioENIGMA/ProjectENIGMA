@@ -14,11 +14,15 @@
 			},
 			{
 				"id": "artur_payment0_2",
-				"text": "te mandar o código do pix: ol34",
+				"text": "te mandar o código do pix: OL349",
+			},
+			{
+				"id": "artur_payment0_3",
+				"text": "Valeu tmj",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "ol34"
+						"payment_id": "OL349"
 					}
 				]
 			}
@@ -44,8 +48,8 @@
 						"id": "artur_password0_0a_0",
 						"player_text": "aaaaaaaa",
 						"npc_reply": {
-							"goto_branch": "from_gilmar_password0_2",
-							"delay_ticks": 90
+							"goto_branch": "from_artur_password0_3",
+							"delay_ticks": 23
 						}
 					},
 					{
@@ -53,7 +57,7 @@
 						"player_text": "s2s2s2s2",
 						"npc_reply": {
 							"goto_branch": "from_artur_password0_4",
-							"delay_ticks": 90
+							"delay_ticks": 23
 						}
 					}
 				]
@@ -61,13 +65,13 @@
 		],
 		"from_artur_password0_3": [
 		  	{
-				"id": "gilmar_password0_2",
+				"id": "artur_password0_2",
 				"text": "lorenz me falou que vc se enganou sugerindo essa senha em"
 			}
 		],
 		"from_artur_password0_4": [
 			{
-				"id": "gilmar_password0_3",
+				"id": "artur_password0_3",
 				"text": "Vlw estagiário, essa senha era melhor mesmo"
 			}
 		]

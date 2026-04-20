@@ -6,19 +6,7 @@
 		"task0_carolina": [
 			{
 				"id": "carolina_purchase0_0",
-				"text": "Oii, vamos fzr uma confraternização do nosso time nos próximos dias e queria que vc me ajudasse comprando um bolo de cobertura de morango e um de cobertura de maracujá",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [
-							{
-								"item_id": 23,
-								"quantity": 1,
-								"store": "emilia_bolos"
-							}
-						]
-					}
-				]
+				"text": "Oii, vamos fzr uma confraternização do nosso time nos próximos dias e queria que vc me ajudasse comprando um bolo de cobertura de morango e um de cobertura de maracujá"
 			}
 		],
 		"task1_carolina": [
@@ -29,6 +17,10 @@
 			{
 				"id": "carolina_purchase1_1",
 				"text": "o chefe quer q isso seja resolvido o mais rápido possível, ent ficou pra vc comprar 1 monitor pra mim",
+			},
+			{
+				"id": "carolina_purchase1_2",
+				"text": "Obgdaa",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -54,11 +46,15 @@
 			},
 			{
 				"id": "carolina_purchase0_2",
-				"text": "o boleto é 98jfd3",
+				"text": "o boleto é 98JFD3"
+			},
+			{
+				"id": "carolina_payment0_3",
+				"text": "Obirigada!!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "98jfd3"
+						"payment_id": "98JFD3"
 					}
 				]
 			}
@@ -73,7 +69,7 @@
 						"player_text": "k7.i3@m2",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_1",
-							"delay_ticks": 40
+							"delay_ticks": 15
 						}
 					},
 					{
@@ -81,7 +77,7 @@
 						"player_text": "6721839812",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_2",
-							"delay_ticks": 40
+							"delay_ticks": 15
 						}
 					}
 				]

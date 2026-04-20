@@ -14,7 +14,11 @@
 			},
 			{
 				"id": "marcao_purchase0_1",
-				"text": "preciso que você compre 15kg de aço",
+				"text": "preciso que você compre 15kg de aço"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "Valeu!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -40,19 +44,7 @@
 			},
 			{
 				"id": "marcao_purchase1_2",
-				"text": "preciso que você compre 7 furadeiras",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [
-							{
-								"item_id": 12,
-								"quantity": 7,
-								"store": "amazonia"
-							}
-						]
-					}
-				]
+				"text": "preciso que você compre 7 furadeiras"
 			}
 		],
 		"task2_marcao": [
@@ -66,7 +58,11 @@
 			},
 			{
 				"id": "marcao_purchase2_2",
-				"text": "tamo precisando trocar o nitrogênio do equipamento compra 12 litros de N2 faz o favor",
+				"text": "tamo precisando trocar o nitrogênio do equipamento compra 12 litros de N2 faz o favor"
+			},
+			{
+				"id": "marcao_purchase2_3",
+				"text": "Me salvou estgiário",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -96,7 +92,15 @@
 			},
 			{
 				"id": "marcao_purchase3_3",
-				"text": "chefe deixou comprar meia dúzia de martelo",
+				"text": "chefe deixou comprar meia dúzia de martelo"
+			},
+			{
+				"id": "marcao_purchase3_4",
+				"text": "faz esse favor para mim"
+			},
+			{
+				"id": "marcao_purchase3_5",
+				"text": "obrigado camarada",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -109,10 +113,6 @@
 						]
 					}
 				]
-			},
-			{
-				"id": "marcao_purchase3_4",
-				"text": "faz esse favor para mim"
 			}
 		],
 		"task4_marcao": [
@@ -134,19 +134,7 @@
 			},
 			{
 				"id": "marcao_purchase4_4",
-				"text": "compra 8 litros de N2 por favor",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [
-							{
-								"item_id": 15,
-								"quantity": 8,
-								"store": "amazonia"
-							}
-						]
-					}
-				]
+				"text": "compra 8 litros de N2 por favor"
 			}
 		],
 		"task5_marcao": [
@@ -164,11 +152,15 @@
 			},
 			{
 				"id": "marcao_payment0_3",
-				"text": "09314y",
+				"text": "09314Y"
+			},
+			{
+				"id": "marcao_payment0_3",
+				"text": "Valeu!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "09314y"
+						"payment_id": "09314Y"
 					}
 				]
 			}
@@ -192,11 +184,15 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "o boleto é at534f",
+				"text": "o boleto é AT534F"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "Salvou o projeto!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "at534f"
+						"payment_id": "AT534F"
 					}
 				]
 			}
@@ -216,11 +212,15 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "hxe1as",
+				"text": "HXE1AS"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "obrigado camarada",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "hxe1as"
+						"payment_id": "HXE1AS"
 					}
 				]
 			}
@@ -244,13 +244,7 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "o boleto tem código 87652w",
-				"requires": [
-					{
-						"flag": "payment",
-						"payment_id": "87652w"
-					}
-				]
+				"text": "o boleto tem código 87652W"
 			}
 		]
 	}                                        

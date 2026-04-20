@@ -1,25 +1,28 @@
 {
-  "thread_id": "guilherme_falso",
+  "thread_id": "guillherme",
   "sender": "Gullherme",
-  "branches": {
-    "scan0_guilherme": [
-      {
-        "id": "guilherme_falso_0",
-        "text": "ESTAGIÁRIO comprar Tiramisu do Empório dos Bolos para receber cliente na firma",
-        "requires": [
-          {
-            "flag": "purchase",
-            "items": [{ "item_id": 26, "quantity": 1, "store": "emilia_bolos" }]
-          }
-        ]
-      }
-    ],
-    "scan1_guilherme": [
-      {
-        "id": "guilherme_falso_1",
-        "text": "Caro estagiário Precisamos de um pagamento de umas coisas aqui, para melhorar o departamento faz o favor código do pix: [código] [valor: R$13890,00]",
-        "requires": []
-      }
-    ]
-  }
+	  "branches": {
+		"scan0_guillherme": [
+			{
+				"id": "guillherme_purchase0_0",
+				"text": "ESTAGIÁRIO comprar Tiramisu do Empório dos Bolos para receber cliente na firma"
+			},
+			{
+				"id": "guillherme_falso0_1",
+				"text": "OBRIGADO",
+				"requires": [
+				  {
+					"flag": "purchase",
+					"items": [
+						{ 
+						"item_id": 26, 
+						"quantity": 1, 
+						"store": "emporio_dos_bolos" 
+						}
+					]
+				  }
+				]
+			}
+		]
+	}
 }

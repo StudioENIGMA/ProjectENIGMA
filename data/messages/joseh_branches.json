@@ -1,0 +1,39 @@
+{
+  "thread_id": "joseh",
+  "sender": "Joseh",
+  
+	"branches": {
+		"scan0_joseh": [
+			{
+				"id": "joseh_purchase0_0",
+				"text": "boa tarde. compra cinco n2 do libre mercado"
+			},
+			{
+				"id": "joseh_purchase0_1",
+				"text": "Bom trabalho!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 15, "quantity": 5, "store": "libre_mercado" }]
+					}
+				]
+			}
+		],
+		"scan1_joseh": [
+			{
+				"id": "joseh_purchase1_0",
+				"text": "fala ae compra umas 3 furadeiras ae? Libre mercado ta com promoção"
+			},
+			{
+				"id": "joseh_purchase1_1",
+				"text": "Boa 👍",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 12, "quantity": 3, "store": "libre_mercado" }]
+					}
+				]
+			}
+		],
+	}
+}
