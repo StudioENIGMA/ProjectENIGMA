@@ -15,6 +15,7 @@ var current_phrases = []
 var current_index = 0
 var has_wrong_char = false
 var completed_phrases = 0
+var time = 0
 
 func _ready() -> void:
 	line_edit.text_changed.connect(_user_typed)
@@ -22,6 +23,7 @@ func _ready() -> void:
 
 ## Means hack minigame started
 func setup() -> void:
+	time = 60
 	reset_minigame()
 
 	# Catch focus to the line edit
@@ -76,6 +78,7 @@ func _conclude_phrase() -> void:
 	# Check if there are more phrases to type
 	if completed_phrases >= current_phrases.size():
 		# Hack minigame completed, emit signal to notify the main app and stop timer
+		time = 60
 		minigame_timer.stop_timer()
 		hack_concluded.emit()
 	else:
@@ -83,6 +86,7 @@ func _conclude_phrase() -> void:
 		update_display()
 
 func _on_time_finished() -> void:
+	time += 15
 	# Time's up, reset the minigame
 	reset_minigame()
 
@@ -104,6 +108,6 @@ func reset_minigame() -> void:
 	line_edit.add_theme_color_override("font_color", Color.WHITE)
 
 	# Reset timer
-	minigame_timer.setup(60) # 60 seconds for the minigame
+	minigame_timer.setup(time) # 60 seconds for the minigame
 
 	update_display()

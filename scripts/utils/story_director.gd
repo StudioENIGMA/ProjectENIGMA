@@ -277,6 +277,6 @@ func _load_news_data() -> Dictionary:
 
 	var data = JSON.parse_string(json_text)
 	var day_key = "day_%d" % current_day
-	return data[day_key]
+	return data[day_key] if data.has(day_key) else {}
 
 #endregion REQUIREMENTS

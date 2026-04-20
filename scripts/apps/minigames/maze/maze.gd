@@ -27,13 +27,21 @@ var maze: Array[Array] = []
 var player_init_position: Vector2i
 var maze_end_point: Vector2
 
+var heigth_index
+
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	minigame_timer.timer_finished.connect(_on_time_finished)
+	heigth_index = 5
 	setup()
 
 func setup() -> void:
+	heigth_index = 5
+	reset_minigame()
+
+func reset_minigame() -> void:
 	maze_player.position_changed.connect(_check_finish)
+	
 	tilemap.clear()
 	define_maze_difficult()
 	generate_maze_size()
@@ -48,8 +56,8 @@ func setup() -> void:
 	minigame_timer.setup(30)
 
 func define_maze_difficult() -> void:
-	var heigth_sizes: Array[int] = [19, 21, 23]
-	map_height = heigth_sizes.pick_random()
+	var heigth_sizes: Array[int] = [13, 15, 17, 19, 21, 23]
+	map_height = heigth_sizes[heigth_index]
 
 ## Initialize the matrix and fill of zeros
 func generate_maze_size() -> void:
@@ -159,8 +167,11 @@ func _check_finish():
 	var source_id = tilemap.get_cell_source_id(cell)
 
 	if source_id == HIDDEN_PATH_ID:
+		heigth_index = 5
 		hack_concluded.emit()
 		maze_player.position_changed.disconnect(_check_finish)
 
 func _on_time_finished() -> void:
-	setup()
+	if heigth_index > 0:
+		heigth_index -= 1
+	reset_minigame()

@@ -1,6 +1,6 @@
 # Attach this script directly to your ScrollContainer node.
-
-extends ScrollContainer
+@tool
+extends "res://scripts/tools/thin_scroll.gd"
 
 # The duration of the scroll animation in seconds.
 @export var scroll_duration: float = 0.5
