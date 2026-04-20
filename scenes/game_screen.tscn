@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
 [ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
 [ext_resource type="PackedScene" uid="uid://tfos8eqtx3j3" path="res://scenes/tools/AppButton.tscn" id="16_5o8nl"]
+[ext_resource type="Script" uid="uid://b4nfvsrqm1lpn" path="res://scripts/pause_game_ui.gd" id="16_51grn"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
@@ -52,7 +53,7 @@ event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 
-[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui")]
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui", "pause_game_ui")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +68,7 @@ base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
+pause_game_ui = NodePath("PauseGameUI")
 
 [node name="DesktopUI" type="Control" parent="UI" unique_id=541633836]
 layout_mode = 1
@@ -172,6 +174,14 @@ app = 23
 layout_mode = 2
 app = 24
 
+[node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+app = 21
+
+[node name="PauseQuit" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=316207228 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+app = 31
+
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
@@ -184,7 +194,6 @@ apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 notification_ui = NodePath("../NotificationUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
-z_index = 50
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 1
 anchors_preset = 5
@@ -259,6 +268,74 @@ layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_font_sizes/font_size = 30
 text = "Dia"
+icon_alignment = 1
+
+[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button")]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_51grn")
+resume_button = NodePath("CenterContainer/TextDayOverContainer/ResumeButton")
+quit_button = NodePath("CenterContainer/TextDayOverContainer/QuitButton")
+
+[node name="DayOverBackground" type="TextureRect" parent="UI/PauseGameUI" unique_id=1458791751]
+modulate = Color(1, 1, 1, 0.835294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_87fqc")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseGameUI" unique_id=654835507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/PauseGameUI/CenterContainer" unique_id=191638452]
+layout_mode = 2
+
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1650474698]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "JOGO PAUSADO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1898125437]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=924523502]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_font_sizes/font_size = 30
+text = "Despausar"
+icon_alignment = 1
+
+[node name="CentralMargin2" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1776495103]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=2047760964]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_font_sizes/font_size = 30
+text = "Sair do Jogo"
 icon_alignment = 1
 
 [node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("clock_timer", "hack_handler")]
