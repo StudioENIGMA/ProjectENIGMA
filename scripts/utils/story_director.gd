@@ -112,6 +112,8 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> v
 #region CLOCK
 ## Called by Clock every tick to process due story entries
 func on_clock_tick(current_minutes: int) -> void:
+	randomness_director._on_clock_tick()
+
 	# If no entries, nothing to do
 	if story_queue.is_empty():
 		return
