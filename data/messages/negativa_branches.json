@@ -88,47 +88,63 @@
 		"from_negativa_password0_3":[
 			{
 				"id": "negativa_password0_3",
-				"text": "Código pix: 7e11",
+				"text": "Código pix: 7E111"
+			},
+			{
+				"id": "negativa_password0_4",
+				"text": "Recebemos seu pagamento!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "7e11"
+						"payment_id": "7E111"
 					}
 				]
 			}
 		],
-		"from_negativa_password0_4":[
+		"from_negativa_password0_5":[
 			{
-				"id": "negativa_password0_4",
-				"text": "Código boleto: 2746vc",
+				"id": "negativa_password0_5",
+				"text": "Código boleto: 2746VC"
+			},
+			{
+				"id": "negativa_password0_6",
+				"text": "Recebemos seu pagamento!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "2746vc"
+						"payment_id": "2746VC"
 					}
 				]
 			}
 		],
 		"from_negativa_password1_3":[
 			{
-				"id": "negativa_password0_3",
-				"text": "Código pix: 66m5",
+				"id": "negativa_password1_3",
+				"text": "Código pix: 66M5K"
+			},
+			{
+				"id": "negativa_password1_4",
+				"text": "Recebemos seu pagamento!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "66m5"
+						"payment_id": "66M5K"
 					}
 				]
 			}
 		],
-		"from_negativa_password1_4":[
+		"from_negativa_password1_5":[
 			{
-				"id": "negativa_password0_4",
-				"text": "Código boleto: 0io471",
+				"id": "negativa_password1_5",
+				"text": "Código boleto: 0IO471"
+			},
+			{
+				"id": "negativa_password1_6",
+				"text": "Recebemos seu pagamento!",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "0io471"
+						"payment_id": "0IO471"
 					}
 				]
 			}

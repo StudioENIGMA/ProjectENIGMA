@@ -6,7 +6,11 @@
 		"task0_ricardo": [
 			{
 				"id": "ricardo_purchase0_0",
-				"text": "Estagiário, tô precisando de ajuda com os materiais de um projeto que estou pra terminar. Me arruma 8kg de Aço e uma furadeira nova faz o favor",
+				"text": "Estagiário, tô precisando de ajuda com os materiais de um projeto que estou pra terminar. Me arruma 8kg de Aço e uma furadeira nova faz o favor"
+			},
+			{
+				"id": "ricardo_purchase0_1",
+				"text": "Obrigado campeão, Deus abençoe",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -29,7 +33,11 @@
 		"task1_ricardo": [
 			{
 				"id": "ricardo_purchase1_0",
-				"text": "Estagiário, meu monitor quebrou e o chefe quer q vc compre um novo pra mim",
+				"text": "Estagiário, meu monitor quebrou e o chefe quer q vc compre um novo pra mim"
+			},
+			{
+				"id": "ricardo_purchase1_1",
+				"text": "Obrigado estagiário 👍",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -51,7 +59,11 @@
 			},
 			{
 				"id": "ricardo_purchase2_1",
-				"text": "compra ai pra mim ai uma camisa social vermelha",
+				"text": "compra ai pra mim ai uma camisa social vermelha"
+			},
+			{
+				"id": "ricardo_purchase2_1",
+				"text": "Obrigado estagiário 👍",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -69,7 +81,11 @@
 		"task3_ricardo": [
 			{
 				"id": "ricardo_purchase3_0",
-				"text": "Estagiário, vamos começar um projeto grande na semana q vem, ent precisamos de 2 furadeiras, 16kg de aço, 32 litros de N2 e 4 martelos",
+				"text": "Estagiário, vamos começar um projeto grande na semana q vem, ent precisamos de 2 furadeiras, 16kg de aço, 32 litros de N2 e 4 martelos"
+			},
+			{
+				"id": "ricardo_purchase3_1",
+				"text": "Obrigado campeão, Deus abençoe",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -102,11 +118,15 @@
 		"task4_ricardo": [
 			{
 				"id": "ricardo_payment0_0",
-				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui rm6b",
+				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui RM6B8"
+			},
+			{
+				"id": "ricardo_purchase3_1",
+				"text": "Obrigado campeão, Deus abençoe",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "rm6b"
+						"payment_id": "RM6B8"
 					}
 				]
 			}
