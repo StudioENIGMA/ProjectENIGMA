@@ -89,6 +89,8 @@ var verified_contacts = []
 
 var bank_balance: float = 200
 
+var completed_payments = []
+
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
