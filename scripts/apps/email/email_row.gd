@@ -12,6 +12,7 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 @export var email_date_label: Label
 @export var annex_section: HBoxContainer
 @export var annex_name_label: Label
+@export var to_read_bubble: MarginContainer
 #endregion CHILDREN NODES REFERENCES
 
 # The data of the email is an array os individual email messages
@@ -19,7 +20,7 @@ var email_data: Array
 
 #region SETUP
 ## Sets up the email instance with the provided email data
-func setup(p_email_data) -> void:
+func setup(p_email_data, is_to_read: bool) -> void:
 	email_data = p_email_data
 
 	# Setup UI content using most recent email (last in the array)
@@ -42,6 +43,8 @@ func setup(p_email_data) -> void:
 			annex_section.visible = true
 			annex_name_label.text = str(annex.get("name", ""))
 			break
+
+	to_read_bubble.visible = is_to_read
 #endregion SETUP
 
 #region INPUT

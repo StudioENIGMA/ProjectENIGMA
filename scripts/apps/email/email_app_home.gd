@@ -20,6 +20,7 @@ const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
 # Each array represents a conversation
 # Each dictionary represents an email message
 var emails_data:Array
+var emails_to_read: Array
 
 func _ready() -> void:
 	load_emails(GameData.saved_email_threads)
@@ -36,6 +37,9 @@ func on_receive_email(email_data: Dictionary) -> void:
 		emails_data[email_index].append(email_data)
 		emails_data.push_front(emails_data.pop_at(email_index))
 
+	if not emails_to_read.has(email_data["conversation_id"]):
+		emails_to_read.append(email_data["conversation_id"])
+
 	request_email_notification.emit(
 		GameData.App.EMAIL,
 		email_data["subject"],
@@ -47,6 +51,7 @@ func on_receive_email(email_data: Dictionary) -> void:
 
 ## Handles the request to open a specific email
 func _on_open_email(app: GameData.App, email_data:Array) -> void:
+	emails_to_read.erase(email_data[0]["conversation_id"])
 	subscreen_open_requested.emit(app, email_data)
 #endregion SIGNALS HANDLERS
 
@@ -54,15 +59,16 @@ func _on_open_email(app: GameData.App, email_data:Array) -> void:
 ## Updates the list of emails in the UI
 func _update_list_of_emails(updated_email_index: int) -> void:
 	var email_row
+	var is_to_read = emails_to_read.has(emails_data[0][0]["conversation_id"])
 
 	if updated_email_index == -1:
 		email_row = EMAIL_ROW_SCENE.instantiate()
-		email_row.setup(emails_data[0])
+		email_row.setup(emails_data[0], is_to_read)
 		email_row.subscreen_open_requested.connect(_on_open_email)
 		list_of_emails.add_child(email_row)
 	else:
 		email_row = list_of_emails.get_child(updated_email_index)
-		email_row.setup(emails_data[0])
+		email_row.setup(emails_data[0], is_to_read)
 
 	list_of_emails.move_child(email_row, 0)
 #endregion UI UPDATES
@@ -80,7 +86,11 @@ func load_emails(saved_threads: Array) -> void:
 		var restored_thread = saved_thread.duplicate(true)
 		emails_data.append(restored_thread)
 
+		var is_to_read = emails_to_read.has(restored_thread[0]["conversation_id"])
 		var email_row = EMAIL_ROW_SCENE.instantiate()
-		email_row.setup(restored_thread)
+		email_row.setup(restored_thread, is_to_read)
 		email_row.subscreen_open_requested.connect(_on_open_email)
 		list_of_emails.add_child(email_row)
+
+func _on_visibility_changed() -> void:
+	load_emails(emails_data.duplicate(true))

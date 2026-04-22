@@ -7,6 +7,17 @@
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_duhoi"]
 [ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="4_vmk7o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duhoi"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.4, 0.05882353, 0.19215687, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -16,7 +27,7 @@ corner_radius_bottom_left = 25
 [sub_resource type="Theme" id="Theme_hpj05"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
-[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
+[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label", "to_read_bubble")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 240.0
@@ -32,9 +43,10 @@ email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
 email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
 email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")
 email_content_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailContentLabel")
-email_date_label = NodePath("VBoxContainer/EmailContainer/EmailDateLabel")
+email_date_label = NodePath("VBoxContainer/EmailContainer/HBoxContainer/EmailDateLabel")
 annex_section = NodePath("VBoxContainer/AnnexContainer")
 annex_name_label = NodePath("VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer/AnnexNameLabel")
+to_read_bubble = NodePath("VBoxContainer/EmailContainer/HBoxContainer/ToReadBubble")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=671330463]
 layout_mode = 2
@@ -79,7 +91,12 @@ text = "Hoje, às 8h, precisaremos fazer uma reunião"
 text_overrun_behavior = 3
 max_lines_visible = 1
 
-[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer" unique_id=779343190]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContainer" unique_id=346940088]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer/HBoxContainer" unique_id=779343190]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_duhoi")
@@ -87,6 +104,17 @@ theme_override_font_sizes/font_size = 12
 text = "04/01/2026"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToReadBubble" type="MarginContainer" parent="VBoxContainer/EmailContainer/HBoxContainer" unique_id=1028656989]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/EmailContainer/HBoxContainer/ToReadBubble" unique_id=1466996453]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_duhoi")
 
 [node name="MarginRight" type="MarginContainer" parent="VBoxContainer/EmailContainer" unique_id=395857113]
 custom_minimum_size = Vector2(8, 0)
