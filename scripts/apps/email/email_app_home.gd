@@ -21,7 +21,7 @@ func _ready() -> void:
 #region SIGNALS HANDLERS
 func on_receive_email(email_data: Dictionary) -> void:
 	var email_index = emails_data.find_custom(
-		func(email_thread: Array): return email_thread[0]["subject"] == email_data["subject"]
+		func(email_thread: Array): return email_thread[0]["conversation_id"] == email_data["conversation_id"]
 	)
 
 	if email_index == -1:
