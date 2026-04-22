@@ -45,6 +45,8 @@ enum App {
 	FASTTYPING,
 	LINECONNECT,
 	MAZE,
+	# Pause
+	PAUSEMENU,
 }
 
 enum HackMinigame {
@@ -154,6 +156,8 @@ var apps_name: Dictionary = {
 	"Authenticator": App.AUTHENTICATOR,
 	# Password app
 	"PasswordCheck": App.PASSWORDCHECK,
+	# Pause Menu
+	"PauseMenu": App.PAUSEMENU,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -228,7 +232,13 @@ var apps_data = {
 		"name": "Hack",
 		"icon_path": "res://assets/icons/utai.png",
 		"is_bad": true,
+	},
+
+	App.PAUSEMENU: {
+		"name": "Pause Menu",
+		"icon_path": "res://assets/icons/default-app.png",
 	}
+
 }
 
 var apps_chinese_operations = {

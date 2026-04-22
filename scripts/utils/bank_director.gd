@@ -35,6 +35,7 @@ func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
 			pix_codes_dynamic.erase(payment_code.code)
 		GameData.PaymentType.TICKET:
 			ticket_codes_dynamic.erase(payment_code.code)
+	GameData.completed_payments.append(payment_code.code)
 	update_codes_dict()
 
 func _on_code_created(code_information, app: GameData.App) -> void:

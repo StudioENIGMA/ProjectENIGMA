@@ -9,6 +9,7 @@ signal message_answered(answer_id:int)
 @export var day_over_ui:Control
 @export var notifications_control:Control
 @export var apps_ui:Control
+@export var pause_game_ui:Control
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION

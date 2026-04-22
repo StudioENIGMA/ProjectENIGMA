@@ -52,7 +52,6 @@ func _on_item_deleted(child: Control) -> void:
 
 func _on_finish_button_pressed() -> void:
 	shopping_info.is_order_opened = true
-	shopping_info.shopping_cart.clear()
 	subscreen_open_requested.emit(
 		GameData.App.BROWSERPAYMENTSCREEN, shopping_info
 	)
