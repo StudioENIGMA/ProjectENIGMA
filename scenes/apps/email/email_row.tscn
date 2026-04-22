@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_tb307"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_duhoi"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_duhoi"]
 [ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="4_vmk7o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
@@ -58,14 +59,14 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tb307")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 17
 text = "Chefinho"
 
 [node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer" unique_id=1281041694]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_duhoi")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("4_duhoi")
+theme_override_font_sizes/font_size = 13
 text = "Reunião importante"
 text_overrun_behavior = 3
 
@@ -73,7 +74,7 @@ text_overrun_behavior = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_duhoi")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 11
 text = "Hoje, às 8h, precisaremos fazer uma reunião"
 text_overrun_behavior = 3
 max_lines_visible = 1
