@@ -1,6 +1,7 @@
 [
   {
     "day": 0,
+    "conversation_id": "boss-1",
     "sender": "Chefinho",
     "subject": "Bem-vindo ao Estágio",
     "content": "Olá!\n\nÉ um prazer dar-lhe as boas-vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!).\n\nDurante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens.\n\nPara realizar suas tarefas você precisará instalar alguns aplicativos nos próximos dias. A loja de aplicativos corporativa já está instalada no seu dispositivo, irei lhe avisar sempre que um novo app for liberado, mas peço que visite a loja e verifique os apps e atualizações disponíveis regularmente.\n\nObrigado, e bom trabalho!\n\n- Chefinho",
@@ -10,6 +11,7 @@
   },
   {
     "day": 0,
+    "conversation_id": "hr-1",
     "sender": "RH",
     "subject": "Assinatura de contrato",
     "content": "Boa tarde, pedimos que, para iniciar seu estágio, dê sequência no processo de assinatura do contrato de estágio que está anexado a esta mensagem.\n\nPor favor, revise o documento com atenção e assine o tão logo possível para que possamos dar continuidade ao seu processo de integração na empresa.\n\nAtenciosamente,\nEquipe de RH",
@@ -17,6 +19,7 @@
   },
   {
     "day": 0,
+    "conversation_id": "boss-1",
     "sender": "Chefinho",
     "subject": "Bem-vindo ao Estágio",
     "content": "Lembre-se de verificar a loja de aplicativos corporativa para instalar os apps necessários para suas tarefas diárias. Mais informações foram enviadas ao seu aplicativo de mensagens.\n\n- Chefinho",
