@@ -2,6 +2,12 @@ extends Control
 
 #region SIGNALS
 signal subscreen_open_requested(subscreen_name:String, email_data:Dictionary)
+signal request_email_notification(
+	app:GameData.App,
+  content:String,
+  title:String,
+  time:int
+)
 #endregion SIGNALS
 
 const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
@@ -30,6 +36,12 @@ func on_receive_email(email_data: Dictionary) -> void:
 		emails_data[email_index].append(email_data)
 		emails_data.push_front(emails_data.pop_at(email_index))
 
+	request_email_notification.emit(
+		GameData.App.EMAIL,
+		email_data["subject"],
+		email_data["sender"],
+		GameData.hours_minutes
+	)
 	_update_list_of_emails(email_index)
 	_sync_emails_to_game_data()
 
