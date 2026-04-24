@@ -1,0 +1,12 @@
+[
+    {
+        "thread_id": "marta-1",
+		"email_id": "marta-1x1",
+		"required_app": "Email"
+    },
+    {
+        "thread_id": "marta-2",
+		"email_id": "marta-2x1",
+		"required_app": "Email"
+    }
+]
