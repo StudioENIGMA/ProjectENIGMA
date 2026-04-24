@@ -1,184 +1,174 @@
 {
-    "667831" : {
-        "institution" : "Elogie Lá",
-        "value" : 531.20
-    },
-    "902351" : {
-        "institution" : "Asiáticas",
-        "value" : 72.99
-    },
-    "569721" : {
-        "institution" : "Viva",
-        "value" : 69.90
-    },
-    "569722" : {
-        "institution" : "Viva",
-        "value" : 79.90
-    },
-    "568493" : {
-        "institution" : "Viva",
-        "value" : 89.90
-    },
-    "684936" : {
-        "institution" : "Viva",
-        "value" : 69.90
-    },
-    "203948" : {
-        "institution" : "Viva",
-        "value" : 129.90
-    },
-    "238172" : {
-        "institution" : "Viva",
-        "value" : 79.90
-    },
-    "274665" : {
-        "institution" : "Negativa",
-        "value" : 6449.00
-    },
-    "274615" : {
-        "institution" : "Negativa",
-        "value" : 8386.62
-    },
-    "098471" : {
-        "institution" : "Negativa",
-        "value" : 6449.00
-    },
-    "677700" : {
-        "institution" : "Negativa",
-        "value" : 6321.77
-    },
-    "345127" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 7844.00
-    },
-    "547925" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 25000.00
-    },
-    "593209" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 4798.00
-    },
-    "856321" : {
-        "institution" : "Viva",
-        "value" : 69.90
-    },
-    "786321" : {
-        "institution" : "Viva",
-        "value" : 200.00
-    },
-    "483234" : {
-        "institution" : "Viva",
-        "value" : 99.90
-    },
-    "432789" : {
-        "institution" : "Viva",
-        "value" : 6666.00
-    },
-    "896100" : {
-        "institution" : "Viva",
-        "value" : 89.90
-    },
-    "896108" : {
-        "institution" : "Viva",
-        "value" : 700.00
-    },
-    "896118" : {
-        "institution" : "Viva",
-        "value" : 690.90
-    },
-    "896119" : {
-        "institution" : "Viva",
-        "value" : 690.90
-    },
-    "896112" : {
-        "institution" : "Viva",
-        "value" : 169.90
-    },
-    "896152" : {
-        "institution" : "Viva",
-        "value" : 1290.90
-    },
-    "890152" : {
-        "institution" : "Viva",
-        "value" : 700.00
-    },
-    "400004" : {
-        "institution" : "Viva",
-        "value" : 34786.33
-    },
-    "455555" : {
-        "institution" : "Negativa",
-        "value" : 4389.90
-    },
-    "589654" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 20000.00
-    },
-    "586954" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 14000.00
-    },
-    "536954" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 14000.00
-    },
-    "586054" : {
-        "institution" : "Gerente PX Investment",
-        "value" : 14000.00
-    },
-    "586098" : {
-        "institution" : "Setor Industrial",
-        "value" : 3299.00
-    },
-    "586092" : {
-        "institution" : "Setor Industrial",
-        "value" : 1349.90
-    },
-    "897340" : {
-        "institution" : "Setor Industrial",
-        "value" : 1430.90
-    },
-    "897341" : {
-        "institution" : "Setor Industrial",
-        "value" : 17990.00
-    },
-    "468431" : {
-        "institution" : "Setor Industrial",
-        "value" : 5999.00
-    },
-    "789623" : {
-        "institution" : "Setor Industrial",
-        "value" : 6500.00
-    },
-    "769623" : {
-        "institution" : "Financeiro",
-        "value" : 9780.90
-    },
-    "760623" : {
-        "institution" : "Financeiro",
-        "value" : 3467.98
-    },
-    "760023" : {
-        "institution" : "Financeiro",
-        "value" : 15667.90
-    },
-    "960023" : {
-        "institution" : "TI",
-        "value" : 6767.67
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	"667831" : {
+		"institution" : "Elogie Lá",
+		"value" : 531.20
+	},
+	"902351" : {
+		"institution" : "Asiáticas",
+		"value" : 72.99
+	},
+	"569721" : {
+		"institution" : "Viva",
+		"value" : 69.90
+	},
+	"569722" : {
+		"institution" : "Viva",
+		"value" : 79.90
+	},
+	"568493" : {
+		"institution" : "Viva",
+		"value" : 89.90
+	},
+	"684936" : {
+		"institution" : "Viva",
+		"value" : 69.90
+	},
+	"203948" : {
+		"institution" : "Viva",
+		"value" : 129.90
+	},
+	"238172" : {
+		"institution" : "Viva",
+		"value" : 79.90
+	},
+	"274665" : {
+		"institution" : "Negativa",
+		"value" : 6449.00
+	},
+	"274615" : {
+		"institution" : "Negativa",
+		"value" : 8386.62
+	},
+	"098471" : {
+		"institution" : "Negativa",
+		"value" : 6449.00
+	},
+	"677700" : {
+		"institution" : "Negativa",
+		"value" : 6321.77
+	},
+	"345127" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 7844.00
+	},
+	"547925" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 25000.00
+	},
+	"593209" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 4798.00
+	},
+	"856321" : {
+		"institution" : "viva",
+		"value" : 69.90
+	},
+	"786321" : {
+		"institution" : "Viv4",
+		"value" : 200.00
+	},
+	"483234" : {
+		"institution" : "Viva",
+		"value" : 99.90
+	},
+	"432789" : {
+		"institution" : "Viva",
+		"value" : 6666.00
+	},
+	"896100" : {
+		"institution" : "Viva",
+		"value" : 89.90
+	},
+	"896108" : {
+		"institution" : "Vivs",
+		"value" : 700.00
+	},
+	"896118" : {
+		"institution" : "Vivaa",
+		"value" : 690.90
+	},
+	"896119" : {
+		"institution" : "Vivs",
+		"value" : 690.90
+	},
+	"896112" : {
+		"institution" : "VIVA",
+		"value" : 169.90
+	},
+	"896152" : {
+		"institution" : "ViVa",
+		"value" : 1290.90
+	},
+	"890152" : {
+		"institution" : "ViVa",
+		"value" : 700.00
+	},
+	"400004" : {
+		"institution" : "ViVa",
+		"value" : 34786.33
+	},
+	"455555" : {
+		"institution" : "Negativa",
+		"value" : 4389.90
+	},
+	"589654" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 20000.00
+	},
+	"586954" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 14000.00
+	},
+	"536954" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 14000.00
+	},
+	"586054" : {
+		"institution" : "Gerente PX Investment",
+		"value" : 14000.00
+	},
+	"586098" : {
+		"institution" : "Setor Industrial",
+		"value" : 3299.00
+	},
+	"586092" : {
+		"institution" : "Setor Industrial",
+		"value" : 1349.90
+	},
+	"897340" : {
+		"institution" : "Setor Industrial",
+		"value" : 1430.90
+	},
+	"897341" : {
+		"institution" : "Setor Industrial",
+		"value" : 17990.00
+	},
+	"468431" : {
+		"institution" : "Setor Industrial",
+		"value" : 5999.00
+	},
+	"789623" : {
+		"institution" : "Setor Industrial",
+		"value" : 6500.00
+	},
+	"769623" : {
+		"institution" : "Financeiro",
+		"value" : 9780.90
+	},
+	"760623" : {
+		"institution" : "Financeiro",
+		"value" : 3467.98
+	},
+	"760023" : {
+		"institution" : "Financeiro",
+		"value" : 15667.90
+	},
+	"960023" : {
+		"institution" : "TI",
+		"value" : 6767.67
+	},
+	"556382" : {
+		"institution" : "ENIGMAZ",
+		"value" : 500.0
+	}
 }

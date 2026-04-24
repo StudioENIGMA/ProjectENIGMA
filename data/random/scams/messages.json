@@ -158,5 +158,25 @@
 		"thread_id": "ricarudo",
 		"branch": "scan2_ricarudo",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan0_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan1_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan2_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolinda",
+		"branch": "carolinda_password0_0",
+		"required_app": "MessagesHome"
 	}
 ]
