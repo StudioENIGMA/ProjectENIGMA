@@ -1,19 +1,19 @@
 {
   "thread_id": "guilherrne",
-  "sender": "Gulherrne",
+  "sender": "Guilherrne",
 	  "branches": {
-		"scan1_guillherme": [
+		"scan0_guilherrne": [
 			{
-				"id": "guillherme_falso0_0",
+				"id": "guilherrne_payment0_0",
 				"text": "Caro estagiário "
 			},
 			{
-				"id": "guillherme_falso0_1",
+				"id": "guilherrne_payment0_1",
 				"text": "Precisamos de um pagamento de umas coisas aqui, para melhorar o departamento faz o favor código do pix: ",
 			},
 			{
-				"id": "guillherme_falso0_2",
-				"text": "Precisamos de um pagamento de umas coisas aqui, para melhorar o departamento faz o favor código do pix: "
+				"id": "guilherrne_falso0_2",
+				"text": "Precisamos de um pagamento de umas coisas aqui, para melhorar o departamento faz o favor código do pix: 12345"
 			}
 		]
 	}
