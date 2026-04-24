@@ -253,7 +253,8 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 		for item in items:
 			var item_id = item.get("item_id", "")
 			var quantity = int(item.get("quantity", 0))
-			var store = item.get("store", "")
+			var store_id = item.get("store", "")
+			var store = GameData.apps_name.get(store_id, null)
 
 			if not GameData.purchased_items.has(store):
 				return false
@@ -262,6 +263,8 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 				return false
 			if store_purchases[item_id] < quantity:
 				return false
+
+			return true
 	if flag == "payment":
 		var payment_id = requirement.get("payment_id", "")
 		return GameData.completed_payments.has(payment_id)

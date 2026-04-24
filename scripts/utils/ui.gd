@@ -9,6 +9,7 @@ signal message_answered(answer_id:int)
 @export var day_over_ui:Control
 @export var notifications_control:Control
 @export var apps_ui:Control
+@export var pause_game_ui:Control
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
@@ -18,6 +19,9 @@ func _ready() -> void:
 		notifications_control.add_notification_to_queue
   )
   base_app.bank_payment_info.request_transaction_notification.connect(
+		notifications_control.add_notification_to_queue
+  )
+  base_app.email_app_home.request_email_notification.connect(
 		notifications_control.add_notification_to_queue
   )
 
