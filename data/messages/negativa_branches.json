@@ -104,7 +104,7 @@
 		"from_negativa_password0_5":[
 			{
 				"id": "negativa_password0_5",
-				"text": "Código boleto: 2746VC"
+				"text": "Código boleto: 274665"
 			},
 			{
 				"id": "negativa_password0_6",
@@ -112,7 +112,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "2746VC"
+						"payment_id": "274665"
 					}
 				]
 			}
@@ -136,7 +136,7 @@
 		"from_negativa_password1_5":[
 			{
 				"id": "negativa_password1_5",
-				"text": "Código boleto: 0IO471"
+				"text": "Código boleto: 098471"
 			},
 			{
 				"id": "negativa_password1_6",
@@ -144,7 +144,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "0IO471"
+						"payment_id": "098471"
 					}
 				]
 			}

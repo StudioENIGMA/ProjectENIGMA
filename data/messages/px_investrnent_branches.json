@@ -1,0 +1,37 @@
+{
+  "thread_id": "px_investrnent",
+  "sender": "Px Investrnent ☑️",
+
+	"branches": {
+		"scan0_px_investrnent": [
+			{
+				"id": "px_investrnent_payment0_0",
+				"text": "Aqui é o Gerente do PX Investment. Me foi solicitado te pedir o pagamento de um dos nossos clientes que trabalha em sua empresa. Esse pagamento está de acordo com seu Chefe."
+			},
+			{
+				"id": "px_investrnent_payment0_1",
+				"text": "Segue o boleto de pagamento: 586934"
+			}
+		],
+		"scan1_px_investrnent": [
+			{
+				"id": "px_investrnent_payment1_0",
+				"text": "Aqui é o Gerente do PX Investment. Me foi solicitado te pedir o pagamento de um dos nossos clientes que trabalha em sua empresa. Esse pagamento está de acordo com seu Chefe."
+			},
+			{
+				"id": "px_investrnent_payment1_1",
+				"text": "Segue o boleto de pagamento: 536944"
+			}
+		],
+		"scan2_px_investrnent": [
+			{
+				"id": "px_investrnent_payment2_0",
+				"text": "Aqui é o Gerente do PX Investment. Me foi solihitado te pediiiir o pagaamento de um dofghs nossoss cliefntes que trasbalha em sua empresa. Esse pagamento está de acordofcom seu Chefe."
+			},
+			{
+				"id": "px_investrnent_payment2_1",
+				"text": "Seigue o asfboleto de pagnamento. 586054"
+			}
+		]
+	}
+}

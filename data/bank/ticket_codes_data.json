@@ -8,34 +8,34 @@
 		"value" : 72.99
 	},
 	"569721" : {
-		"institution" : "Viva",
+		"institution" : "Viva Inc.",
 		"value" : 69.90
 	},
-	"569722" : {
-		"institution" : "Viva",
+	"120958" : {
+		"institution" : "Viva Inc.",
 		"value" : 79.90
 	},
 	"568493" : {
-		"institution" : "Viva",
+		"institution" : "Viva Inc.",
 		"value" : 89.90
 	},
 	"684936" : {
-		"institution" : "Viva",
+		"institution" : "Viva Inc.",
 		"value" : 69.90
 	},
 	"203948" : {
-		"institution" : "Viva",
+		"institution" : "Viva Inc.",
 		"value" : 129.90
 	},
 	"238172" : {
-		"institution" : "Viva",
+		"institution" : "Viva Inc.",
 		"value" : 79.90
 	},
 	"274665" : {
 		"institution" : "Negativa",
 		"value" : 6449.00
 	},
-	"274615" : {
+	"725409" : {
 		"institution" : "Negativa",
 		"value" : 8386.62
 	},
@@ -47,31 +47,39 @@
 		"institution" : "Negativa",
 		"value" : 6321.77
 	},
+	"673423" : {
+		"institution" : "PX Investment ltda.",
+		"value" : 19822.00
+	},
+	"901254" : {
+		"institution" : "PX Investment ltda.",
+		"value" : 20000.0
+	},
 	"345127" : {
-		"institution" : "Gerente PX Investment",
+		"institution" : "PX Investment ltda.",
 		"value" : 7844.00
 	},
 	"547925" : {
-		"institution" : "Gerente PX Investment",
+		"institution" : "PX Investment ldta.",
 		"value" : 25000.00
 	},
-	"593209" : {
-		"institution" : "Gerente PX Investment",
+	"393209" : {
+		"institution" : "PX Investment ltda.",
 		"value" : 4798.00
 	},
 	"856321" : {
-		"institution" : "viva",
+		"institution" : "viva inc",
 		"value" : 69.90
 	},
 	"786321" : {
-		"institution" : "Viv4",
+		"institution" : "Viv4 Inc.",
 		"value" : 200.00
 	},
 	"483234" : {
-		"institution" : "Viva",
+		"institution" : "Vivas incs",
 		"value" : 99.90
 	},
-	"432789" : {
+	"932789" : {
 		"institution" : "Viva",
 		"value" : 6666.00
 	},
@@ -79,23 +87,23 @@
 		"institution" : "Viva",
 		"value" : 89.90
 	},
-	"896108" : {
+	"196108" : {
 		"institution" : "Vivs",
 		"value" : 700.00
 	},
-	"896118" : {
+	"566118" : {
 		"institution" : "Vivaa",
 		"value" : 690.90
 	},
-	"896119" : {
+	"113419" : {
 		"institution" : "Vivs",
 		"value" : 690.90
 	},
-	"896112" : {
+	"308112" : {
 		"institution" : "VIVA",
 		"value" : 169.90
 	},
-	"896152" : {
+	"894152" : {
 		"institution" : "ViVa",
 		"value" : 1290.90
 	},
@@ -110,10 +118,6 @@
 	"455555" : {
 		"institution" : "Negativa",
 		"value" : 4389.90
-	},
-	"589654" : {
-		"institution" : "Gerente PX Investment",
-		"value" : 20000.00
 	},
 	"586954" : {
 		"institution" : "Gerente PX Investment",
@@ -148,7 +152,7 @@
 		"value" : 5999.00
 	},
 	"789623" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrias Habitat",
 		"value" : 6500.00
 	},
 	"769623" : {
