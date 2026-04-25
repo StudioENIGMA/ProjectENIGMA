@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ulxoabk2xr6m"]
 
 [ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_row.gd" id="1_tb307"]
-[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]
+[ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="2_duhoi"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_tb307"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_duhoi"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_duhoi"]
@@ -27,7 +27,7 @@ corner_radius_bottom_left = 25
 [sub_resource type="Theme" id="Theme_hpj05"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
-[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label", "to_read_bubble")]
+[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("profile_picture", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label", "to_read_bubble")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 240.0
@@ -39,7 +39,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_tb307")
-email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
+profile_picture = NodePath("VBoxContainer/EmailContainer/ProfilePicture")
 email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
 email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")
 email_content_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailContentLabel")
@@ -55,11 +55,9 @@ size_flags_horizontal = 3
 [node name="EmailContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1824903356]
 layout_mode = 2
 
-[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer" unique_id=1678984217]
+[node name="ProfilePicture" parent="VBoxContainer/EmailContainer" unique_id=233740664 instance=ExtResource("2_duhoi")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_vh7fo")
-expand_mode = 1
 
 [node name="EmailContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer" unique_id=165264987]
 layout_mode = 2

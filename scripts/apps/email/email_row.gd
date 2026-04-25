@@ -5,7 +5,7 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
-@export var email_sender_icon: TextureRect
+@export var profile_picture:Control
 @export var email_sender_label: Label
 @export var email_subject_label: Label
 @export var email_content_label: Label
@@ -29,7 +29,7 @@ func setup(p_email_data, is_to_read: bool) -> void:
 	var npc_name := str(last_email.get("sender", ""))
 	var photo_path := "res://assets/avatars/%s.png" % npc_name
 
-	email_sender_icon.texture = load(photo_path)
+	profile_picture.setup(photo_path, npc_name)
 	email_sender_label.text = npc_name
 	email_subject_label.text = last_email.get("subject", "")
 	email_content_label.text = last_email.get("content", "")
