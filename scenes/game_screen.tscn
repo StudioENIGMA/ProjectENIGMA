@@ -177,6 +177,7 @@ layout_mode = 2
 app = 24
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 21
 
