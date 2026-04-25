@@ -39,7 +39,7 @@
 						]
 					}
 				]
-			},
+			}
 		],
 		"task1_guilherme": [
 			{
@@ -106,7 +106,7 @@
 			},
 			{
 				"id": "guilherme_purchase1_2",
-				"text": "Por favor, faça esse pagamento pelo código FT61A",
+				"text": "Por favor, faça esse pagamento pelo código FT61A"
 			}
 		]
 	}
