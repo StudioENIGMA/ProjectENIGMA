@@ -152,7 +152,7 @@
 			},
 			{
 				"id": "marcao_payment0_3",
-				"text": "09314Y"
+				"text": "586098"
 			},
 			{
 				"id": "marcao_payment0_3",
@@ -160,7 +160,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "09314Y"
+						"payment_id": "586098"
 					}
 				]
 			}
@@ -184,7 +184,7 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "o boleto é AT534F"
+				"text": "o boleto é 586092"
 			},
 			{
 				"id": "marcao_payment1_4",
@@ -192,7 +192,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "AT534F"
+						"payment_id": "586092"
 					}
 				]
 			}
@@ -212,7 +212,7 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "HXE1AS"
+				"text": "897340"
 			},
 			{
 				"id": "marcao_payment1_4",
@@ -220,7 +220,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "HXE1AS"
+						"payment_id": "897340"
 					}
 				]
 			}
@@ -244,7 +244,7 @@
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "o boleto tem código 87652W"
+				"text": "o boleto tem código 897341"
 			}
 		]
 	}                                        

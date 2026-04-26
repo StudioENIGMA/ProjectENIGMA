@@ -132,23 +132,23 @@
 		"value" : 14000.00
 	},
 	"586098" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrials",
 		"value" : 3299.00
 	},
 	"586092" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrials",
 		"value" : 1349.90
 	},
 	"897340" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrials",
 		"value" : 1430.90
 	},
 	"897341" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrials",
 		"value" : 17990.00
 	},
 	"468431" : {
-		"institution" : "Setor Industrial",
+		"institution" : "Industrials",
 		"value" : 5999.00
 	},
 	"789623" : {
@@ -173,6 +173,10 @@
 	},
 	"556382" : {
 		"institution" : "ENIGMAZ",
-		"value" : 500.0
+		"value" : 500.00
+	},
+	"056128" : {
+		"institution": "Empório da Festa",
+		"value": 1688.00
 	}
 }
