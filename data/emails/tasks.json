@@ -18,60 +18,6 @@
 		"requires": []
 	},
 	{
-		"thread_id": "Viva_task0",
-		"email_id": "Viva_payment0",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Sua fatura fecha hoje!\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 2ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_task1",
-		"email_id": "Viva_payment1",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Devido ao serviço de manutenção foi acrescentada uma taxa de serviço. Estamos enviando a 1ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_task2",
-		"email_id": "Viva_payment2",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Devido à problemas ocasionados por desastres naturais, uma taxa de emergência foi adicionada. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_task3",
-		"email_id": "Viva_payment3",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_task4",
-		"email_id": "Viva_payment4",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Com a implementação de segurança na rede solicitada pelo gerente de sua empresa, foi adicionada uma taxa ao valor padrão da fatura. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_task5",
-		"email_id": "Viva_payment5",
-		"sender": "pagamentos@Viva.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
 		"thread_id": "mariana_task0",
 		"email_id": "mariana_purchase0",
 		"sender": "mariana@enigma.com.br",
