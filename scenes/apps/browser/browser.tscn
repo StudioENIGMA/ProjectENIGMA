@@ -29,15 +29,16 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 5.0
 offset_right = 347.0
-offset_bottom = 662.0
+offset_bottom = 378.0
 size_flags_horizontal = 6
+theme_override_constants/separation = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=25825933]
 layout_mode = 2
 theme_override_constants/margin_bottom = 20
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=110709896]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 vertical_scroll_mode = 2
 
