@@ -21,6 +21,21 @@
 		"day": 2,
 		"branch": "d2_start",
 		"relative_due_time": 344
+	},
+	{
+		"day": 3,
+		"branch": "d3_start",
+		"relative_due_time": 100
+	},
+	{
+		"day": 3,
+		"branch": "d3_phishing",
+		"relative_due_time": 255
+	},
+	{
+		"day": 3,
+		"branch": "d3_spoofing",
+		"relative_due_time": 360
 	}
   ],
   "branches": {
@@ -282,6 +297,158 @@
 		{
 			"id": "ti_2_8",
 			"text": "ambos te deixam menos vulnerável aos hackers"
+		}
+	],
+	"d3_start": [
+		{
+			"id": "t1_3_0",
+			"text": "fala estgaio"
+		},
+		{
+			"id": "ti_3_1",
+			"text": "eu liberei para vc um scanner anti-virus nas configuraçoes"
+		},
+		{
+			"id": "ti_3_2",
+			"text": "qnd sentir q tem parada errada com seu celular"
+		},
+		{
+			"id": "ti_3_3",
+			"text": "provavelmente vc foi hackeado"
+		},
+		{
+			"id": "ti_3_4",
+			"text": "é só clicar em fzr uma varredura"
+		},
+		{
+			"id": "ti_3_5",
+			"text": "remover os hack e dps virus"
+		},
+		{
+			"id": "ti_3_6",
+			"text": "mas nossa versão tem um problema pra vc resolver e dps realmente remover"
+		}
+	],
+	"d3_phishing": [
+		{
+			"id": "ti_3_7",
+			"text": "fala estagio"
+		},
+		{
+			"id": "ti_3_7",
+			"text": "seguinte tu sabe qq eh Phishing?",
+			"choices": [
+				{
+					"id": "ti_3_7a_0",
+					"player_text": "Não sei, poderia me explicar?",
+					"npc_reply": {
+						"goto_branch": "from_ti_3_8",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_3_7a_1",
+					"player_text": "to ligado",
+					"npc_reply": {
+						"goto_branch": "from_ti_3_13",
+						"delay_ticks": 2
+					}
+				}
+			]
+		}
+	],
+	"from_ti_3_8": [
+		{
+			"id": "ti_3_8",
+			"text": "se liga ent"
+		},
+		{
+			"id": "ti_3_9",
+			"text": "Phishing eh qnd tentam te dar um golpe"
+		},
+		{
+			"id": "ti_3_10",
+			"text": "alguem te manda mensagem falsa com oferta ou fingindo ser alguem"
+		},
+		{
+			"id": "ti_3_11",
+			"text": "e ai a pessoa tenta te pedir dinheiro ou roubar seus dados"
+		},
+		{
+			"id": "ti_3_12",
+			"text": "tem q ficar ligado"
+		}
+	],
+	"from_ti_3_13": [
+		{
+			"id": "ti_3_13",
+			"text": "po perfeito ent"
+		},
+		{
+			"id": "ti_3_14",
+			"text": "fica ligado q tamo tendo caso aq na empresa disso"
+		},
+		{
+			"id": "ti_3_15",
+			"text": "n confia em nmro estranho n"
+		},
+		{
+			"id": "ti_3_16",
+			"text": "nem em nmro q tu conhece mas ta falando diferente"
+		},
+		{
+			"id": "ti_3_17",
+			"text": "tipo se eu falar com pontuação kkkk"
+		}
+	],
+	"d3_spoofing": [
+		{
+			"id": "ti_3_18",
+			"text": "ou se liga"
+		},
+		{
+			"id": "ti_3_19",
+			"text": "ja te expliquei qq eh phishing"
+		},
+		{
+			"id": "ti_3_20",
+			"text": "tem uma parada parecida"
+		},
+		{
+			"id": "ti_3_21",
+			"text": "eh mais especifico"
+		},
+		{
+			"id": "ti_3_22",
+			"text": "eh qnd tentam se passar por alguem conhecido ou confiavel"
+		},
+		{
+			"id": "ti_3_23",
+			"text": "tipo banco, ou site imitando outro"
+		},
+		{
+			"id": "ti_3_24",
+			"text": "tem q ficar atento com esses lugares pedindo coisa estranha"
+		},
+		{
+			"id": "ti_3_25",
+			"text": "banco n pede senha nunca nem gnt da empresada"
+		},
+		{
+			"id": "ti_3_26",
+			"text": "ah"
+		},
+		{
+			"id": "ti_3_27",
+			"text": "um jeito bom de perceber eh ver no nome ou link"
+		},
+		{
+			"id": "ti_3_28",
+			"text": "sempre tem algo diferente"
+		},
+		{
+			"id": "ti_3_29",
+			"text": "tipo amazoni4.com no lugar de amazonia.com"
 		}
 	]
   }

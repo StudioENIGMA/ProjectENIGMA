@@ -94,7 +94,15 @@
 			},
 			{
 				"id": "boss_0_4",
-				"text": "Eu fico responsável por te apresentar os funcionários do setor industrial que entrarão em contato com você. LEIA COM ATENÇÃO: São eles o José, o Marcão, o Gilmar, o Ricardo e a Mariana."
+				"text": "Eu fico responsável por te apresentar os funcionários do setor industrial e nossos parceiros que entrarão em contato com você. LEIA COM ATENÇÃO: Os funcionários do setor insutrial são o José, o Marcão, o Gilmar, o Ricardo e a Mariana."
+			},
+			{
+				"id": "boss_0_5",
+				"text": "Nossas empresas parceiras são a Viva, a PX Investment e a Negativa"
+			},
+			{
+				"id": "boss_0_6",
+				"text": "A PX Investment irá oferecer investimentos, e você poder aceitar todas"
 			}
 		],
 		"d1_start_1": [
