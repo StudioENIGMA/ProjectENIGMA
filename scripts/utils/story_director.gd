@@ -17,6 +17,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var browser_director: Node
 @export var bank_director: Node
 @export var randomness_director: Node
+@export var events_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -29,6 +30,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
 @export var tasks_dir_path: String = "res://data/random/tasks"
 @export var scams_dir_path: String = "res://data/random/scams"
+@export var events_dir_path: String = "res://data/events/events.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -74,6 +76,7 @@ func reload_and_setup_today() -> void:
 	var shops_dictionary = _read_json_root(shops_items_dir_path)
 	var pix_dictionary = _read_json_root(pix_codes_dir_path)
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
+	var events_dictionary = _read_json_root(events_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
@@ -82,6 +85,8 @@ func reload_and_setup_today() -> void:
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
+	events_director.setup_from_json_file(events_dictionary)
+
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -114,6 +119,7 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> v
 ## Called by Clock every tick to process due story entries
 func on_clock_tick(current_minutes: int) -> void:
 	randomness_director._on_clock_tick()
+	events_director._on_clock_tick()
 
 	# If no entries, nothing to do
 	if story_queue.is_empty():
@@ -150,6 +156,7 @@ func on_clock_tick(current_minutes: int) -> void:
 		story_queue.remove_at(entry_index)
 		var channel_name := str(story_entry["channel"])
 		var controller: Node = channel_director_by_name[channel_name]
+		events_director._on_event_initiated(story_entry["payload"].get("event_id", ""))
 		controller.deliver_scheduled_entry(story_entry["payload"], current_minutes)
 		return # Only one delivery per tick
 #endregion CLOCK

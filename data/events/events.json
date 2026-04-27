@@ -1,0 +1,18 @@
+{
+    "task0_jose": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 15,
+                        "quantity": 5,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
 [ext_resource type="Script" uid="uid://dhl4ydl1jo0ac" path="res://scripts/utils/randomness_director.gd" id="26_51grn"]
+[ext_resource type="Script" uid="uid://w75ry4o6y24x" path="res://scripts/utils/events_director.gd" id="28_5o8nl"]
 [ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
 [ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
@@ -389,6 +390,9 @@ script = ExtResource("32_21xuv")
 
 [node name="RandomnessDirector" type="Node2D" parent="StoryDirector" unique_id=1772428547]
 script = ExtResource("26_51grn")
+
+[node name="EventsDirector" type="Node2D" parent="StoryDirector" unique_id=1141190310]
+script = ExtResource("28_5o8nl")
 
 [node name="progressiveBlur" type="ColorRect" parent="." unique_id=1481049179]
 material = SubResource("ShaderMaterial_8e4ax")

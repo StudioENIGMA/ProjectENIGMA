@@ -101,7 +101,9 @@ var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
 var max_hours_minutes:int = 960 # End at 16:00
 var current_day:int = 0
-var reputation_points:int = 0
+var daily_reputation_points:int = 0
+var total_reputation_points:int = 0
+var events_log = []
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
@@ -350,7 +352,7 @@ func save_game() -> void:
 	var game_state = {
 		"start_date_dict": start_date_dict,
 		"current_day": current_day,
-		"reputation_points": reputation_points,
+		"total_reputation_points": total_reputation_points,
 		"passwords": passwords,
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
@@ -385,7 +387,7 @@ func load_game() -> void:
 
 	start_date_dict = game_state.get("start_date_dict")
 	current_day = int(game_state.get("current_day"))
-	reputation_points = int(game_state.get("reputation_points"))
+	total_reputation_points = int(game_state.get("total_reputation_points"))
 	bank_balance = float(bank_balance)
 
 	var game_state_passwords = game_state.get("passwords", {})

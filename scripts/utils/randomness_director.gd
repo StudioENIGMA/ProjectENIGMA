@@ -142,6 +142,7 @@ func schedule_events(events_list: Array) -> void:
 			schedule_email.emit({
 				"thread_id": events_list[i].get("thread_id"),
 				"email_id": event_id,
+				"event_id": event_id,
 				"due_at": events_due_times[i],
 				"requires": [],
 			})
@@ -149,7 +150,8 @@ func schedule_events(events_list: Array) -> void:
 			event_id = events_list[i].get("branch")
 			schedule_message.emit({
 					"thread_id": events_list[i].get("thread_id"),
-					"branch": events_list[i].get("branch"),
+					"branch": event_id,
+					"event_id": event_id,
 					"index": 0,
 					"due_at": events_due_times[i],
 					"requires": [],
