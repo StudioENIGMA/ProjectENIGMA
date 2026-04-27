@@ -66,6 +66,29 @@
 			}
 		],
 		"relative_due_time": 30
+	},
+	{
+		"day": 6,
+		"branch": "d6_good_end_game",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": false
+			}
+		],
+		"relative_due_time": 620
+	},
+	{
+		"day": 6,
+		"branch": "d6_bad_end_game",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": true
+			}
+		]
 	}
   ],
 	"branches": {
