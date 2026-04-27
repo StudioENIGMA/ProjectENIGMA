@@ -1,0 +1,42 @@
+{
+  "thread_id": "martha",
+  "sender": "Martha",
+
+ 	"branches": {
+		"scan0_martha": [
+			{
+				"id": "martha_purchase0_0",
+				"text": "Oi. Compra 40 brigadeiros de cada no empório dos bolos chefe pediu"
+			},
+			{
+				"id": "martha_purchase0_1",
+				"text": "ori.ga.da",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{ "item_id": 21, "quantity": 40, "store": "emilia_bolos" },
+							{ "item_id": 22, "quantity": 40, "store": "emilia_bolos" }
+						]
+					}
+				]
+			}
+		],
+		"scan2_marta": [
+			{
+				"id": "marta_falso_2",
+				"text": "oiiiiiiiii estgiário pro favor compra 3 camisaes sociaips na Zora pro time de vemdas obrigadaaaaaaaaa"
+			},
+			{
+				"id": "martha_purchase1_0",
+				"text": "o          bri   ga d",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 31, "quantity": 3, "store": "aec" }]
+					}
+				]
+			}
+		]
+	}
+}

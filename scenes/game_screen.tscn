@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
 [ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
 [ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://dhl4ydl1jo0ac" path="res://scripts/utils/randomness_director.gd" id="26_51grn"]
 [ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
 [ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
@@ -171,10 +172,12 @@ layout_mode = 2
 app = 23
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 24
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 21
 
@@ -350,12 +353,13 @@ autostart = true
 [node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
 script = ExtResource("25_5o8nl")
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 browser_director = NodePath("BrowserDirector")
 bank_director = NodePath("BankDirector")
+randomness_director = NodePath("RandomnessDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
@@ -382,6 +386,9 @@ script = ExtResource("30_q7j5u")
 
 [node name="BankDirector" type="Node2D" parent="StoryDirector" unique_id=1479037282]
 script = ExtResource("32_21xuv")
+
+[node name="RandomnessDirector" type="Node2D" parent="StoryDirector" unique_id=1772428547]
+script = ExtResource("26_51grn")
 
 [node name="progressiveBlur" type="ColorRect" parent="." unique_id=1481049179]
 material = SubResource("ShaderMaterial_8e4ax")

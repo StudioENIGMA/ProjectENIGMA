@@ -78,9 +78,11 @@ text = "Nome do Aplicativo"
 [node name="AppDescriptionLabel" type="Label" parent="HBoxContainer/TextDescription" unique_id=1028123814]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("3_ygwm0")
 theme_override_font_sizes/font_size = 12
 text = "Descrição Do Aplicativo"
+autowrap_mode = 3
 
 [node name="AppButton" type="Button" parent="HBoxContainer" unique_id=882987288]
 custom_minimum_size = Vector2(80, 45)

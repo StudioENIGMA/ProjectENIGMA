@@ -1,0 +1,30 @@
+{
+  "thread_id": "jilmar",
+  "sender": "Jilmar",
+	  "branches": {
+		"scan0_jilmar": [
+			{
+				"id": "jilmar_payment0_0",
+				"text": "Olá estagiário."
+			}, 
+			{
+				"id": "jilmar_payment0_1",
+				"text": "preciso de um pagamento no pix, faz ae para mim"
+			},
+			{
+				"id": "jilmar_payment0_2",
+				"text": "SD3A4"
+			},
+			{
+				"id": "jilmar_payment0_3",
+				"text": "obrigado kkkkkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SD3A4"
+					}
+				]
+			}
+		]
+	}
+}
