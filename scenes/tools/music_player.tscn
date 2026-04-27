@@ -18,12 +18,11 @@
 [ext_resource type="Script" uid="uid://caiwy8fsy5e4j" path="res://scripts/utils/sound and music/music.gd" id="13_1ssji"]
 [ext_resource type="Script" uid="uid://bnnvgatmel77g" path="res://scripts/utils/sound and music/sound_signaler.gd" id="14_qcij4"]
 
-[node name="MusicPlayer" type="Node2D" unique_id=176206279 node_paths=PackedStringArray("sound_signaler", "sfx_player", "current_music", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
+[node name="MusicPlayer" type="Node2D" unique_id=176206279 node_paths=PackedStringArray("sound_signaler", "sfx_player", "instruments", "synth_player", "modulated_player", "chord_player", "bass_player")]
 script = ExtResource("1_jcbr8")
 sound_signaler = NodePath("SoundSignaler")
 sfx_player = NodePath("SFX Player")
 startup_sound = ExtResource("2_ctm6e")
-current_music = NodePath("Musics/Music Dark")
 instruments = [NodePath("Instruments/Main Synth"), NodePath("Instruments/Back Synth"), NodePath("Instruments/Bass")]
 synth_player = NodePath("Synth Player")
 modulated_player = NodePath("Modulated Player")
