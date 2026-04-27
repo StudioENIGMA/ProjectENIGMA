@@ -72,3 +72,7 @@ selecting_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 caret_force_displayed = true
+
+[node name="KeyboardSpacer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 0)
