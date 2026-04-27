@@ -222,17 +222,17 @@
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task0_negativa",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task1_negativa",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task2_negativa",
 		"required_app": "Bank"
 	},
