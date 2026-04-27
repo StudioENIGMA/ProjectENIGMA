@@ -2,28 +2,28 @@
   "thread_id": "finances",
   "sender": "Financeiro",
   "entry_points": [
-    {
-      "day": 0,
-      "branch": "d0_start",
-      "relative_due_time": 30
-    }
+	{
+	  "day": 0,
+	  "branch": "d0_start",
+	  "relative_due_time": 30
+	}
   ],
   "branches": {
-    "d0_start": [
-      {
-        "id": "f_0_0",
-        "text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá me ajudar em algumas tarefas.",
-        "choices": [
-          {
-            "id": "f_0_0a_0",
-            "player_text": "Bom dia, pode contar comigo!"
-          },
-          {
-            "id": "f_0_0a_1",
-            "player_text": "Certo, estarei à disposição."
-          }
-        ]
-      }
-    ]
+	"d0_start": [
+	  {
+		"id": "f_0_0",
+		"text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá me ajudar em algumas tarefas.",
+		"choices": [
+		  {
+			"id": "f_0_0a_0",
+			"player_text": "Bom dia, pode contar comigo!"
+		  },
+		  {
+			"id": "f_0_0a_1",
+			"player_text": "Certo, estarei à disposição."
+		  }
+		]
+	  }
+	]
   }
 }

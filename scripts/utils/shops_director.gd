@@ -3,8 +3,11 @@ extends Node
 #region DEFINITIONS
 var enum_to_string = {
 	GameData.App.BROWSERAMAZONIASHOP : "amazonia",
+	GameData.App.BROWSERLIBREMERCADOSHOP : "libre_mercado",
 	GameData.App.BROWSEREMILIASHOP: "emilia_bolos",
-	GameData.App.BROWSERAECSHOP: "aec"
+	GameData.App.BROWSEREMPORIOBOLOSSHOP: "emporio_bolos",
+	GameData.App.BROWSERAECSHOP: "aec",
+	GameData.App.BROWSERZORASHOP: "zora",
 }
 #endregion DEFINITIONS
 

@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y4bje")
 news_container = NodePath("VBoxContainer/NewsContainer")
-quick_sites_containier = NodePath("VBoxContainer/GridContainer")
+quick_sites_containier = NodePath("VBoxContainer/ScrollContainer/GridContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1928409541]
 layout_mode = 0
@@ -37,33 +37,53 @@ theme_override_constants/separation = 4
 layout_mode = 2
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=810850432]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=110709896]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer" unique_id=810850432]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 4
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="ReviewsSite" parent="VBoxContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
+[node name="ReviewsSite" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1052973933 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(170, 142.8)
 layout_mode = 2
 size_flags_horizontal = 1
+site = 26
 
-[node name="AmazoniaShop" parent="VBoxContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
+[node name="AmazoniaShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1379295309 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(170, 142.8)
 layout_mode = 2
 site = 12
 
-[node name="EmiliaShop" parent="VBoxContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
+[node name="EmporioBolosShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=462216171 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(170, 142.8)
+layout_mode = 2
+site = 18
+
+[node name="AECShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=554390335 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(170, 142.8)
+layout_mode = 2
+
+[node name="LibreMercadoShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=1925331564 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(170, 142.8)
 layout_mode = 2
 site = 14
 
-[node name="AECShop" parent="VBoxContainer/GridContainer" unique_id=554390335 instance=ExtResource("4_k30y1")]
+[node name="EmiliaShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=2024376775 instance=ExtResource("4_k30y1")]
 custom_minimum_size = Vector2(170, 142.8)
 layout_mode = 2
 site = 16
+
+[node name="ZoraShop" parent="VBoxContainer/ScrollContainer/GridContainer" unique_id=606391727 instance=ExtResource("4_k30y1")]
+custom_minimum_size = Vector2(170, 142.8)
+layout_mode = 2
+site = 22
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=507321296]
 layout_mode = 2
@@ -79,6 +99,7 @@ label_settings = SubResource("LabelSettings_53ija")
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/NewsContainer" unique_id=1715783317]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
