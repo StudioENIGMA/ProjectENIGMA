@@ -2,64 +2,64 @@
   "thread_id": "ti",
   "sender": "TI",
   "entry_points": [
-    {
-      "day": 0,
-      "branch": "d0_start",
-      "relative_due_time": 60
-    }
+	{
+	  "day": 0,
+	  "branch": "d0_start",
+	  "relative_due_time": 60
+	}
   ],
   "branches": {
-    "d0_start": [
-      {
-        "id": "ti_0_0",
-        "text": "fala estagio"
-      },
-      {
-        "id": "ti_0_1",
-        "text": "eh o Lorenz do ti"
-      },
-      {
-        "id": "ti_0_2",
-        "text": "trnql camarada?"
-      },
-      {
-        "id": "ti_0_3",
-        "text": "vou ta te passando umas paradas aqui do ti pra vc resolver"
-      },
-      {
-        "id": "ti_0_4",
-        "text": "mas n agora aproveita o banana kkkk",
-        "choices": [
-          {
-            "id": "ti_0_4a_0",
-            "player_text": "suave",
-            "npc_reply": {
-              "goto_branch": "from_ti_0_5",
-              "delay_ticks": 2
-            }
-          },
-          {
-            "id": "ti_0_4a_1",
-            "player_text": "Tudo certo, prazer te conhecer!",
-            "npc_reply": {
-              "goto_branch": "from_ti_0_6",
-              "delay_ticks": 2
-            }
-          }
-        ]
-      }
-    ],
-    "from_ti_0_5": [
-      {
-        "id": "ti_0_5",
-        "text": "👍"
-      }
-    ],
-    "from_ti_0_6": [
-      {
-        "id": "ti_0_6",
-        "text": "kkkkkkk tamo junto"
-      }
-    ]
+	"d0_start": [
+	  {
+		"id": "ti_0_0",
+		"text": "fala estagio"
+	  },
+	  {
+		"id": "ti_0_1",
+		"text": "eh o Lorenz do ti"
+	  },
+	  {
+		"id": "ti_0_2",
+		"text": "trnql camarada?"
+	  },
+	  {
+		"id": "ti_0_3",
+		"text": "vou ta te passando umas paradas aqui do ti pra vc resolver"
+	  },
+	  {
+		"id": "ti_0_4",
+		"text": "mas n agora aproveita o banana kkkk",
+		"choices": [
+		  {
+			"id": "ti_0_4a_0",
+			"player_text": "suave",
+			"npc_reply": {
+			  "goto_branch": "from_ti_0_5",
+			  "delay_ticks": 2
+			}
+		  },
+		  {
+			"id": "ti_0_4a_1",
+			"player_text": "Tudo certo, prazer te conhecer!",
+			"npc_reply": {
+			  "goto_branch": "from_ti_0_6",
+			  "delay_ticks": 2
+			}
+		  }
+		]
+	  }
+	],
+	"from_ti_0_5": [
+	  {
+		"id": "ti_0_5",
+		"text": "👍"
+	  }
+	],
+	"from_ti_0_6": [
+	  {
+		"id": "ti_0_6",
+		"text": "kkkkkkk tamo junto"
+	  }
+	]
   }
 }

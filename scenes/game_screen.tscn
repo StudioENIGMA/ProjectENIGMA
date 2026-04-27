@@ -169,19 +169,19 @@ app = 9
 [node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-app = 23
+app = 29
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 24
+app = 30
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 21
+app = 27
 
 [node name="PauseQuit" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=316207228 instance=ExtResource("16_5o8nl")]
 layout_mode = 2
-app = 31
+app = 37
 
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)

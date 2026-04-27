@@ -2,52 +2,52 @@
   "thread_id": "fake_store",
   "sender": "numero_desconhecido",
   "entry_points": [
-    {
-      "day": 0,
-      "branch": "d0_start",
-      "relative_due_time": 15
-    }
+	{
+	  "day": 0,
+	  "branch": "d0_start",
+	  "relative_due_time": 15
+	}
   ],
   "branches": {
-    "d0_start": [
-      {
-        "id": "fs_0_0",
-        "text": "Bom dia, estagiário. Eu tenho uma proposta que você vai achar interessante."
-      },
-      {
-        "id": "fs_0_1",
-        "text": "A loja que seu chefe te passou é toda bloqueada, e eles controlam tudo que você faz nela."
-      },
-      {
-        "id": "fs_0_2",
-        "text": "Essa é livre, pra instalar é só clicar. Divirta-se.",
-        "annex":
-        {
-          "type": "apk",
-          "app_name": "fake_store",
-          "image": "res://assets/icons/fake-app-store.png",
-          "caption": "Loja de Aplicativos Corporativa.apk"
-        },
-        "choices": [
-          {
-            "id": "fs_0_2a_0",
-            "player_text": "Obrigado, vou instalar agora.",
-            "npc_reply": {
-              "goto_branch": "from_fs_0_3"
-            }
-          },
-          {
-            "id": "fs_0_2a_1",
-            "player_text": "Bloquear e Denunciar"
-          }
-        ]
-      }
-    ],
-    "from_fs_0_3": [
-      {
-        "id": "fs_0_3",
-        "text": "Você não vai se arrepender."
-      }
-    ]
+	"d0_start": [
+	  {
+		"id": "fs_0_0",
+		"text": "Bom dia, estagiário. Eu tenho uma proposta que você vai achar interessante."
+	  },
+	  {
+		"id": "fs_0_1",
+		"text": "A loja que seu chefe te passou é toda bloqueada, e eles controlam tudo que você faz nela."
+	  },
+	  {
+		"id": "fs_0_2",
+		"text": "Essa é livre, pra instalar é só clicar. Divirta-se.",
+		"annex":
+		{
+		  "type": "apk",
+		  "app_name": "fake_store",
+		  "image": "res://assets/icons/fake-app-store.png",
+		  "caption": "Loja de Aplicativos Corporativa.apk"
+		},
+		"choices": [
+		  {
+			"id": "fs_0_2a_0",
+			"player_text": "Obrigado, vou instalar agora.",
+			"npc_reply": {
+			  "goto_branch": "from_fs_0_3"
+			}
+		  },
+		  {
+			"id": "fs_0_2a_1",
+			"player_text": "Bloquear e Denunciar"
+		  }
+		]
+	  }
+	],
+	"from_fs_0_3": [
+	  {
+		"id": "fs_0_3",
+		"text": "Você não vai se arrepender."
+	  }
+	]
   }
 }
