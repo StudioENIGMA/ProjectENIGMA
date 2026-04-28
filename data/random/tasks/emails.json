@@ -1,12 +1,47 @@
 [    
 	{
-		"thread_id": "marta-3",
-		"email_id": "marta-3x1",
-		"required_app": "Email"
+		"thread_id": "mariana_task0",
+		"email_id": "mariana_purchase0",
+		"required_app": "browser"
 	},
 	{
-		"thread_id": "marta-4",
-		"email_id": "marta-4x1",
-		"required_app": "Email"
+		"thread_id": "mariana_task1",
+		"email_id": "mariana_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task0",
+		"email_id": "yago_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task1",
+		"email_id": "yago_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task2",
+		"email_id": "yago_purchase2",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task3",
+		"email_id": "yago_payment0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "artur_task0",
+		"email_id": "artur_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "artur_task1",
+		"email_id": "artur_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "mariana_task2",
+		"email_id": "mariana_payment0",
+		"required_app": "Bank"
 	}
 ]

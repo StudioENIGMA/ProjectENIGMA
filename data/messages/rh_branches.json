@@ -1,72 +1,103 @@
 {
-  "thread_id": "rh",
-  "sender": "RH",
-  "entry_points": [
-	{
-	  "day": 0,
-	  "branch": "d0_start",
-	  "relative_due_time": 160
-	},
-	{
-		"day": 2,
-		"branch": "d2_start",
-		"relative_due_time": 152
-	},
-	{
-		"day": 3,
-		"branch": "d3_start",
-		"relative_due_time": 10
-	}
-  ],
-  "branches": {
-	"d0_start": [
-	  {
-		"id": "rh_0_0",
-		"text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
-		"effects": [
-		  {
-			"task_type": "daily"
-		  }
-		]
-	  },
-	  {
-		"id": "rh_0_1",
-		"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)"
-	  },
-	  {
-		"id": "rh_0_2",
-		"text": "A membro da minha equipe é a Marcia",
-		"choices": [
-		  {
-			"id": "rh_0_1a_0",
-			"player_text": "Pode contar comigo! (ᵔ◡ᵔ)"
-		  },
-		  {
-			"id": "rh_0_1a_1",
-			"player_text": "Beleza."
-		  }
-		]
-	  }
-	], 
-	"d2_start": [
+	"thread_id": "rh",
+	"sender": "RH",
+	"entry_points": [
 		{
-			"id": "rh_2_0",
-			"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Fique atento!"
+			"day": 0,
+			"branch": "d0_start",
+			"relative_due_time": 160
 		},
 		{
-			"id": "rh_2_1",
-			"text": "Aproveitando, por favor, entre no Elogie Lá e me diga q reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ."
+			"day": 2,
+			"branch": "d2_start",
+			"relative_due_time": 152
+		},
+		{
+			"day": 3,
+			"branch": "d3_start",
+			"relative_due_time": 10
 		}
 	],
-	"d3_start": [
-		{
-			"id": "rh_3_0",
-			"text": "Olá! fiquei sabendo de uma importante noticia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
-		},
-		{
-			"id": "rh_3_1",
-			"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?"
-		}
-	]
-  }
+	"branches": {
+		"d0_start": [
+			{
+				"id": "rh_0_0",
+				"text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
+				"effects": [
+					{
+						"task_type": "daily"
+					}
+				]
+			},
+			{
+				"id": "rh_0_1",
+				"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)"
+			},
+			{
+				"id": "rh_0_2",
+				"text": "A membro da minha equipe é a Marcia",
+				"choices": [
+					{
+						"id": "rh_0_1a_0",
+						"player_text": "Pode contar comigo! (ᵔ◡ᵔ)"
+					},
+					{
+						"id": "rh_0_1a_1",
+						"player_text": "Beleza."
+					}
+				]
+			}
+		],
+		"d2_start": [
+			{
+				"id": "rh_2_0",
+				"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Fique atento!"
+			},
+			{
+				"id": "rh_2_1",
+				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga q reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ.",
+				"event_id": "rh_check0",
+				"choices": [
+					{
+						"id": "rh_2_1a_0",
+						"player_text": "94",
+						"npc_reply": {
+							"goto_branch": "from_rh_2_2",
+							"delay_ticks": 0.0
+						}
+					},
+					{
+						"id": "rh_2_1a_1",
+						"player_text": "27",
+						"npc_reply": {
+							"goto_branch": "from_rh_2_3",
+							"delay_ticks": 0.0
+						}
+					}
+				]
+			}
+		],
+		"d3_start": [
+			{
+				"id": "rh_3_0",
+				"text": "Olá! fiquei sabendo de uma importante noticia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
+			},
+			{
+				"id": "rh_3_1",
+				"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?"
+			}
+		],
+		"from_rh_2_2": [
+			{
+				"id": "rh_2_2",
+				"text": "Isso mesmo! Ela é uma loja muito confiável."
+			}
+		],
+		"from_rh_2_3": [
+			{
+				"id": "rh_2_3",
+				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Eu sempre compro por lá."
+			}
+		]
+	}
 }

@@ -1,8 +1,7 @@
 {
-  "thread_id": "ricarudo",
-  "sender": "Ricarudo",
-
-  	"branches": {
+	"thread_id": "ricarudo",
+	"sender": "Ricarudo",
+	"branches": {
 		"scan0_ricarudo": [
 			{
 				"id": "ricarudo_purchase0_0",
@@ -15,10 +14,26 @@
 					{
 						"flag": "purchase",
 						"items": [
-							{ "item_id": 12, "quantity": 2, "store": "amazonia" },
-							{ "item_id": 11, "quantity": 16, "store": "amazonia" },
-							{ "item_id": 15, "quantity": 32, "store": "amazonia" },
-							{ "item_id": 13, "quantity": 4, "store": "amazonia" }
+							{
+								"item_id": 12,
+								"quantity": 2,
+								"store": "libre_mercado"
+							},
+							{
+								"item_id": 11,
+								"quantity": 16,
+								"store": "libre_mercado"
+							},
+							{
+								"item_id": 15,
+								"quantity": 32,
+								"store": "libre_mercado"
+							},
+							{
+								"item_id": 13,
+								"quantity": 4,
+								"store": "libre_mercado"
+							}
 						]
 					}
 				]
@@ -37,19 +52,11 @@
 				"choices": [
 					{
 						"id": "ricarudo_password0_1a_0",
-						"player_text": "$bank_password",
-						"npc_reply": {
-							"goto_branch": "from_gilmar_password0_2",
-							"delay_ticks": 2
-						}
+						"player_text": "$bank_password"
 					},
 					{
 						"id": "ricarudo_password0_1a_1",
-						"player_text": "acho melhor não",
-						"npc_reply": {
-							"goto_branch": "from_gilmar_password0_3",
-							"delay_ticks": 2
-						}
+						"player_text": "acho melhor não"
 					}
 				]
 			}

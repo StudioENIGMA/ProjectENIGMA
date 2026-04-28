@@ -41,14 +41,14 @@
 	},
 	{
 		"thread_id": "guilherrne",
-		"branch": "scan1_guillherme",
+		"branch": "scan0_guilherrne",
 		"required_app": "Bank"
-  	},
+	},
 	{
 		"thread_id": "guillherme",
 		"branch": "scan0_guillherme",
 		"required_app": "browser"
-  	},
+	},
 	{
 		"thread_id": "jilmar",
 		"branch": "scan0_jilmar",
@@ -130,13 +130,13 @@
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marRta",
+		"thread_id": "martha",
 		"branch": "scan0_martha",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marRta",
-		"branch": "scan2_marta",
+		"thread_id": "martha",
+		"branch": "scan1_martha",
 		"required_app": "browser"
 	},
 	{
@@ -173,10 +173,5 @@
 		"thread_id": "jescica",
 		"branch": "scan2_jescica",
 		"required_app": "Bank"
-	},
-	{
-		"thread_id": "carolinda",
-		"branch": "carolinda_password0_0",
-		"required_app": "MessagesHome"
 	}
 ]

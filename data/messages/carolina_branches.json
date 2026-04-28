@@ -46,7 +46,7 @@
 			},
 			{
 				"id": "carolina_purchase0_2",
-				"text": "o boleto é 98JFD3"
+				"text": "o boleto é 569721"
 			},
 			{
 				"id": "carolina_payment0_3",
@@ -54,7 +54,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "98JFD3"
+						"payment_id": "569721"
 					}
 				]
 			}

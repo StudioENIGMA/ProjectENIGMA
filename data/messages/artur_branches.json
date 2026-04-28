@@ -1,7 +1,6 @@
 {
-  "thread_id": "artur",
-  "sender": "Artur",
-
+	"thread_id": "artur",
+	"sender": "Artur",
 	"branches": {
 		"task0_artur": [
 			{
@@ -14,7 +13,7 @@
 			},
 			{
 				"id": "artur_payment0_2",
-				"text": "te mandar o código do pix: OL349",
+				"text": "te mandar o código do pix: OL349"
 			},
 			{
 				"id": "artur_payment0_3",
@@ -48,7 +47,7 @@
 						"id": "artur_password0_0a_0",
 						"player_text": "aaaaaaaa",
 						"npc_reply": {
-							"goto_branch": "from_artur_password0_3",
+							"goto_branch": "from_artur_password0_4",
 							"delay_ticks": 23
 						}
 					},
@@ -56,22 +55,22 @@
 						"id": "artur_password0_0a_1",
 						"player_text": "s2s2s2s2",
 						"npc_reply": {
-							"goto_branch": "from_artur_password0_4",
+							"goto_branch": "from_artur_password0_5",
 							"delay_ticks": 23
 						}
 					}
 				]
 			}
 		],
-		"from_artur_password0_3": [
-		  	{
-				"id": "artur_password0_2",
+		"from_artur_password0_4": [
+			{
+				"id": "artur_password0_4",
 				"text": "lorenz me falou que vc se enganou sugerindo essa senha em"
 			}
 		],
-		"from_artur_password0_4": [
+		"from_artur_password0_5": [
 			{
-				"id": "artur_password0_3",
+				"id": "artur_password0_5",
 				"text": "Vlw estagiário, essa senha era melhor mesmo"
 			}
 		]

@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://b6jexty1x6sxh"]
+
+[ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/shop_site.gd" id="1_88cpl"]
+[ext_resource type="Texture2D" uid="uid://bfpu1i5bphni6" path="res://assets/icons/shops/png_logos/libre_mercado_logo.png" id="2_ok0x2"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_uvn4i"]
+[ext_resource type="Texture2D" uid="uid://d1a60s68pr7o" path="res://assets/icons/shopping_cart.png" id="4_r2y23"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="5_oi2gw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
+bg_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1xjh"]
+bg_color = Color(1, 0.6, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3ltg"]
+font = ExtResource("3_uvn4i")
+font_size = 10
+
+[node name="AmazoniaShop" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_88cpl")
+items_grid_container = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer/GridContainer")
+cart_circle_label = NodePath("VBoxContainer/HeaderPanel/CartCircle")
+cart_quantity_label = NodePath("VBoxContainer/HeaderPanel/CartCircle/CartQuantity")
+shopping_cart_enum = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
+
+[node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel" unique_id=279131630]
+custom_minimum_size = Vector2(170, 49)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ok0x2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CartCircle" type="Panel" parent="VBoxContainer/HeaderPanel" unique_id=1261955429]
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 2.5
+offset_right = -53.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g1xjh")
+
+[node name="CartQuantity" type="Label" parent="VBoxContainer/HeaderPanel/CartCircle" unique_id=879610460]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_y3ltg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cart Container" type="HBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=1568494512]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CartButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=686786243]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("4_r2y23")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=665588549]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1240597014]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1016461430]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_hint_mode = 2
+script = ExtResource("5_oi2gw")
+size_x = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=153643568]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer" unique_id=771682920]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2125060265]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 10
+columns = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/HeaderPanel/Cart Container/CartButton" to="." method="_on_cart_button_pressed"]

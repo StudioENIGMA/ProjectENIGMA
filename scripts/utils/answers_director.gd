@@ -101,4 +101,7 @@ func _apply_choice_effects(choice: Dictionary) -> void:
 	var rep_points := int(choice.get("reputation_points", 0))
 	if rep_points != 0:
 		GameData.reputation_points += rep_points
+
+	var player_text := str(choice.get("player_text", ""))
+	GameData.options_chose[player_text] = true
 #endregion EFFECTS

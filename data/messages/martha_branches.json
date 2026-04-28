@@ -22,13 +22,13 @@
 				]
 			}
 		],
-		"scan2_marta": [
+		"scan1_martha": [
 			{
-				"id": "marta_falso_2",
+				"id": "martha_purchase1_0",
 				"text": "oiiiiiiiii estgiário pro favor compra 3 camisaes sociaips na Zora pro time de vemdas obrigadaaaaaaaaa"
 			},
 			{
-				"id": "martha_purchase1_0",
+				"id": "martha_purchase1_1",
 				"text": "o          bri   ga d",
 				"requires": [
 					{

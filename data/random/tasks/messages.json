@@ -59,7 +59,6 @@
 		"branch": "task3_marta",
 		"required_app": "Bank"
 	},
-
 	{
 		"thread_id": "px_investment",
 		"branch": "task0_px_investment",
@@ -222,17 +221,17 @@
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task0_negativa",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task1_negativa",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "viva",
+		"thread_id": "negativa",
 		"branch": "task2_negativa",
 		"required_app": "Bank"
 	},

@@ -1,15 +1,5 @@
 [
 	{
-		"thread_id": "marta-1",
-		"email_id": "marta-1x1",
-		"required_app": "Email"
-	},
-	{
-		"thread_id": "marta-2",
-		"email_id": "marta-2x1",
-		"required_app": "Email"
-	},
-	{
 		"thread_id": "Viva_scan0",
 		"email_id": "Viva_scan_payment0",
 		"required_app": "Bank"
@@ -32,6 +22,11 @@
 	{
 		"thread_id": "Viva_scan4",
 		"email_id": "Viva_scan_payment4",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_negativa_scan0",
+		"email_id": "false_negativa_scan_payment0",
 		"required_app": "Bank"
 	}
 ]

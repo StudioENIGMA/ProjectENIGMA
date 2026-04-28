@@ -70,7 +70,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tb307")
 theme_override_font_sizes/font_size = 17
-text = "Chefinho"
+text = "Chefinho penis grande veiudo"
+text_overrun_behavior = 4
 
 [node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer" unique_id=1281041694]
 layout_mode = 2

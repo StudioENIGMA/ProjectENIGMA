@@ -1,7 +1,6 @@
 {
-  "thread_id": "carolinda",
-  "sender": "Carolinda",
-  
+	"thread_id": "carolinda",
+	"sender": "Carolinda",
 	"branches": {
 		"scan0_carolinda": [
 			{
@@ -10,19 +9,11 @@
 				"choices": [
 					{
 						"id": "carlinda_password0_1a_0",
-						"player_text": "acho melhor não",
-						"npc_reply": {
-							"goto_branch": "from_carolinda_password0_2",
-							"delay_ticks": 2
-						}
+						"player_text": "acho melhor não"
 					},
 					{
 						"id": "carolinda_password0_1a_1",
-						"player_text": "$bank_password",
-						"npc_reply": {
-							"goto_branch": "from_carolinda_password0_3",
-							"delay_ticks": 2
-						}
+						"player_text": "$bank_password"
 					}
 				]
 			}

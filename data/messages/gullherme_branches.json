@@ -1,6 +1,6 @@
 {
   "thread_id": "guillherme",
-  "sender": "Gullherme",
+  "sender": "Guillherme",
 	  "branches": {
 		"scan0_guillherme": [
 			{
@@ -8,7 +8,7 @@
 				"text": "ESTAGIÁRIO comprar Tiramisu do Empório dos Bolos para receber cliente na firma"
 			},
 			{
-				"id": "guillherme_falso0_1",
+				"id": "guillherme_purchase0_1",
 				"text": "OBRIGADO",
 				"requires": [
 				  {

@@ -20,9 +20,10 @@ var _message:String
 var _answer_id:int
 
 func setup(sender_name:String, title:String, message:String, answer_id:int) -> void:
-	option_label.text = title
+	var bank_password := str(GameData.passwords.get(GameData.App.BANK, ""))
+	option_label.text = title.replace("$bank_password", bank_password)
 	_name = sender_name
-	_message = message
+	_message = message.replace("$bank_password", bank_password)
 	_answer_id = answer_id
 
 func _on_button_pressed() -> void:
