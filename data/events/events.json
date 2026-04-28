@@ -1,4 +1,60 @@
 {
+    "boss_install0": {
+        "type": "main-task",
+        "description": "Instalação do Banco",
+        "requires": [
+            {
+                "flag": "app_installed",
+                "app_id": "Bank"
+            }
+        ]
+    },
+    "ti_password0": {
+        "type": "main-task",
+        "description": "Teste de Senha",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "L6s*(23v@"
+            }
+        ]
+    },
+    "fin_payment0": {
+        "type": "main-task",
+        "description": "Primeiro Pagamento",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "AAAAA"
+            }
+        ]
+    },
+    "rh_check0": {
+        "type": "main-task",
+        "description": "Usando o Elogie Lá",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "L6s*(23v@"
+            }
+        ]
+    },
+    "fin_purchase0": {
+        "type": "main-task",
+        "description": "Primeira Compra",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 32,
+                        "quantity": 3,
+                        "store": "aec"
+                    }
+                ]
+            }
+        ]
+    },
     "task0_jose": {
         "type": "random-task",
         "description": "descrição da task",

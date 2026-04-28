@@ -65,7 +65,8 @@
 		},
 		{
 			"id": "f_1_1",
-			"text": "Por favor, efetue este pagamento por PIX inserindo o código AAAAA na área de pagamento PIX do banco. Agradeço desde já."
+			"text": "Por favor, efetue este pagamento por PIX inserindo o código AAAAA na área de pagamento PIX do banco. Agradeço desde já.",
+			"event_id": "fin_payment0"
 		}
 	],
 	"d1_tip": [
@@ -93,7 +94,8 @@
 		},
 		{
 			"id": "f_2_3",
-			"text": "Irei aproveitar o contato com você para solicitar a compra de 3 camisas sociais, para o seu uniforme, por uma das lojas que você encontra no navegador."
+			"text": "Irei aproveitar o contato com você para solicitar a compra de 3 camisas sociais vermelhas, para o seu uniforme, por uma das lojas que você encontra no navegador.",
+			"event_id": "fin_purchase0"
 		}
 	]
   }
