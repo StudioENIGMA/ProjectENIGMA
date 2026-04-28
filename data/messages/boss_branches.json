@@ -20,16 +20,75 @@
 		"relative_due_time": 0
 	},
 	{
-	  "day": 1,
-	  "branch": "d1_start_2",
-	  "requires": [
+		"day": 1,
+		"branch": "d1_start_2",
+		"requires": [
 				{
 					"flag": "app_installed",
 					"app_id": "fake_store",
 					"is": true
 				}
-	  	],
+		],
 		"relative_due_time": 0
+	},
+	{
+		"day": 2,
+		"branch": "d2_start_1",
+		"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "fake_store",
+					"is": false
+				},
+		],
+		"relative_due_time": 0
+	},
+	{
+		"day": 2,
+		"branch": "d2_start_2",
+		"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "fake_store",
+					"is": true
+				}
+		],
+		"relative_due_time": 0
+	},
+	{
+		"day": 2,
+		"branch": "d2_task",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "browser",
+				"is": true
+			}
+		],
+		"relative_due_time": 30
+	},
+	{
+		"day": 6,
+		"branch": "d6_good_end_game",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": false
+			}
+		],
+		"relative_due_time": 620
+	},
+	{
+		"day": 6,
+		"branch": "d6_bad_end_game",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": true
+			}
+		]
 	}
   ],
 	"branches": {
@@ -40,7 +99,7 @@
 			},
 			{
 				"id": "boss_0_1",
-				"text": "Durante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+				"text": "Durante os próximos 6 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
 			},
 			{
 				"id": "boss_0_2",
@@ -51,6 +110,22 @@
 						"player_text": "Obrigado, farei isso."
 					}
 				]
+			},
+			{
+				"id": "boss_0_3",
+				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
+			},
+			{
+				"id": "boss_0_4",
+				"text": "Eu fico responsável por te apresentar os funcionários do setor industrial e nossos parceiros que entrarão em contato com você. LEIA COM ATENÇÃO: Os funcionários do setor insutrial são o José, o Marcão, o Gilmar, o Ricardo e a Mariana."
+			},
+			{
+				"id": "boss_0_5",
+				"text": "Nossas empresas parceiras são a Viva, a PX Investment e a Negativa"
+			},
+			{
+				"id": "boss_0_6",
+				"text": "A PX Investment irá oferecer investimentos, e você poder aceitar todas"
 			}
 		],
 		"d1_start_1": [
@@ -67,15 +142,15 @@
 			},
 			{
 				"id": "b_1_1",
-				"text": "Eu pedi para o TI liberar a instalação do Navegador na sua loja de aplicativos."
+				"text": "Eu pedi para o TI liberar a instalação do Banco na sua loja de aplicativos."
 			},
 			{
 				"id": "b_1_6",
-				"text": "Muito bem. Agora que você tem acesso ao navegador, me traga, por favor, um resumo das notícias do dia.",
+				"text": "Muito bem. Agora que você tem acesso ao Banco, o pessoal já pode te pedir ajuda com pagamentos",
 				"requires": [
 					{
 						"flag": "app_installed",
-						"app_id": "browser",
+						"app_id": "Bank",
 						"is": true
 					}
 				]
@@ -95,11 +170,11 @@
 			},
 			{
 				"id": "b_1_3",
-				"text": "Vejo aqui que o TI já liberou o seu acesso pros aplicativos da nossa loja."
+				"text": "Vejo aqui que o TI já liberou o seu acesso a todos os aplicativos da nossa loja. Vocẽ já pode instalar os aplicativos que ainda não tiver instalado."
 			},
 			{
 				"id": "b_1_4",
-				"text": "Vou avisar aos outros departamentos. Se eles já liberaram a loja, então você já possui boa experiência prévia. Espero que você consiga lidar com tarefas mais complicadas. ",
+				"text": "Vou avisar aos outros departamentos. Se eles já liberaram a loja, então você já possui boa experiência prévia. Espero que você consiga lidar com tarefas mais complicadas.",
 				"choices": [
 					{
 						"id": "b_1_4a_0",
@@ -120,6 +195,36 @@
 			{
 				"id": "b_1_5",
 				"text": "A chave do sucesso é confiança e dedicação. Agora ao trabalho."
+			}
+		],
+		"d2_start_1": [
+			{
+				"id": "b_2_0",
+				"text": "Parabéns pelo seu desempenho ontem, continue assim."
+			},
+			{
+				"id": "b_2_1",
+				"text": "Você agora pode baixar o Email e o Navegador em seu bananaPhone. Por favor, faça o download de ambos os aplicativos."
+			}
+		],
+		"d2_start_2": [
+			{
+				"id": "b_2_3",
+				"text": "Parabéns pelo seu desempenho ontem, continue assim."
+			},
+			{
+				"id": "b_2_4",
+				"text": "Como não tenho acesso a quais aplicativos você de fato instalou, mesmo com a loja liberada, tenho um aviso. Você agora pode baixar o Navegador em seu bananaPhone. A partir de agora para fazer o seu trabalho você precisará do aplactivo de Email e do Navegador padrão do Banana, faça a instalação de ambos caso ainda não tenha."
+			}
+		],
+		"d2_task": [
+			{
+				"id": "b_2_9",
+				"text": "Preciso te informar que o Navegador possui alguma notícias em sua parte inferior. Leia as notícias todos os dias para se manter informado ou aprender alguma coisa nova."
+			},
+			{
+				"id": "b_2_10",
+				"text": "Aproveitando, abra as notícias e depois volte aqui para me contar o que elas dizem."
 			}
 		]
 	}
