@@ -122,7 +122,7 @@ var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
 var max_hours_minutes:int = 960 # End at 16:00
-var current_day:int = 0
+var current_day:int = 1
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
 var events_log = []
@@ -459,6 +459,8 @@ func reset_to_defaults():
 	# Get a list of all variables you defined in the script
 	for prop in get_script().get_script_property_list():
 		var prop_name = prop.name
+		if prop_name == "start_date_dict":
+			continue
 		# Copy the default value from the fresh instance to this one
 		self.set(prop_name, fresh_instance.get(prop_name))
 
