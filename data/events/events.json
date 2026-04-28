@@ -1,4 +1,80 @@
 {
+    "boss_install0": {
+        "type": "main-task",
+        "description": "Instalação do Banco",
+        "requires": [
+            {
+                "flag": "app_installed",
+                "app_id": "Bank"
+            }
+        ]
+    },
+    "boss_news0": {
+        "type": "main-task",
+        "description": "Teste de Senha",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "Houve vazamento de bilhõs de senhas"
+            }
+        ]
+    },
+    "ti_password0": {
+        "type": "main-task",
+        "description": "Teste de Senha",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "L6s*(23v@"
+            }
+        ]
+    },
+    "fin_payment0": {
+        "type": "main-task",
+        "description": "Primeiro Pagamento",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "AAAAA"
+            }
+        ]
+    },
+    "rh_check0": {
+        "type": "main-task",
+        "description": "Usando o Elogie Lá",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "L6s*(23v@"
+            }
+        ]
+    },
+    "rh_news0": {
+        "type": "main-task",
+        "description": "Entendendo de APKs",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "Os arquivos podem possuir diferentes tipos de vírus"
+            }
+        ]
+    },
+    "fin_purchase0": {
+        "type": "main-task",
+        "description": "Primeira Compra",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 32,
+                        "quantity": 3,
+                        "store": "aec"
+                    }
+                ]
+            }
+        ]
+    },
     "task0_jose": {
         "type": "random-task",
         "description": "descrição da task",
@@ -1493,7 +1569,7 @@
             }
         ]
     },
-    "yago_purchase2":{
+    "yago_purchase2": {
         "type": "random-task",
         "description": "descrição da task",
         "requires": [
