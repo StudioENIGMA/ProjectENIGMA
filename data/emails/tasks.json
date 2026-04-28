@@ -67,7 +67,7 @@
 		"email_id": "yago_purchase2",
 		"sender": "yagob@enigma.fin.com.br",
 		"subject": "Compra de Camisas",
-		"content": "Olá, estagiário,\n\nPrecisamos melhorar os computadores dos nossos recrutadores, e os computadores já foram comprados, mas também precisamos de monitores novos. Assim gostaria que você comprasse 9 monitores.\n\nCordialmente, Yago.",
+		"content": "Olá, estagiário,\n\nCom a chegada de novos estagiários precisaremos de novos uniformes. O Chefe me permitiu te pedir para comprar 3 camisetas azuis, 4 camisas sociais azuis e 5 camisas polo vermelhas.\n\nCordialmente, Yago.",
 		"attachments": [],
 		"requires": []
 	},

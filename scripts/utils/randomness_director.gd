@@ -43,7 +43,7 @@ const number_of_events = [
 #region STATES
 var tasks_list: Array
 var scams_list: Array
-var events_scheduled: bool = false
+var events_scheduled: bool
 var clock_counter: int = 0
 #endregion STATES
 
@@ -52,21 +52,22 @@ var clock_counter: int = 0
 func setup_from_json_roots(random_tasks: Array, random_scams: Array) -> void:
 	tasks_list = random_tasks[0] + random_tasks[1]
 	scams_list = random_scams[0] + random_scams[1]
+	events_scheduled = false
 	define_events_list()
 #endregion SETUP
 
 #region FUNCTIONS
 func _on_clock_tick() -> void:
-	if(events_scheduled or GameData.current_day == 0):
+	if (events_scheduled or GameData.current_day == 0):
 		return
 
 	clock_counter += 1
-	if(clock_counter == 10):
+	if (clock_counter == 1):
 		clock_counter = 0
 		define_events_list()
 
 func define_events_list() -> void:
-	if(GameData.current_day == 0):
+	if (GameData.current_day == 0):
 		return
 
 	const MAX_ATTEMPTS = 200
@@ -78,16 +79,16 @@ func define_events_list() -> void:
 	var is_task_valid = evaluate_requirements(random_tasks)
 	var is_scams_valid = evaluate_requirements(random_scams)
 
-	while((!is_task_valid or !is_scams_valid) and attempts <= MAX_ATTEMPTS):
-		if(!is_task_valid):
+	while ((!is_task_valid or !is_scams_valid) and attempts <= MAX_ATTEMPTS):
+		if (!is_task_valid):
 			random_tasks = get_random_list(tasks_list.duplicate(true), number_of_events[GameData.current_day].tasks)
 			is_task_valid = evaluate_requirements(random_tasks)
-		if(!is_scams_valid):
+		if (!is_scams_valid):
 			random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
 			is_scams_valid = evaluate_requirements(random_scams)
 		attempts += 1
 
-	if(!is_task_valid or !is_scams_valid):
+	if (!is_task_valid or !is_scams_valid):
 		push_warning("It wasn't possible to generate random events, trying again in 10 seconds")
 		return
 
@@ -112,15 +113,16 @@ func evaluate_requirements(events_list) -> bool:
 			event["is_email"] = true
 		assert(event_id != null)
 
-		if(GameData.random_events_history.has(event_id)):
+		if (GameData.random_events_history.has(event_id)):
 			return false
 
 		var app_id = event.get("required_app", "")
 		var app = GameData.apps_name.get(app_id, null)
-		if(!GameData.downloaded_apps.has(app)):
+
+		if (!GameData.downloaded_apps.has(app)):
 			return false
 		
-		if(event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
+		if (event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
 			return false
 		
 		var thread_id = event.get("thread_id")

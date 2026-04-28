@@ -1,7 +1,6 @@
 {
-  "thread_id": "mariana",
-  "sender": "Mariana",
-
+	"thread_id": "mariana",
+	"sender": "Mariana",
 	"branches": {
 		"task0_mariana": [
 			{
@@ -14,7 +13,7 @@
 			},
 			{
 				"id": "mariana_password0_2",
-				"text": "Olá estagiário, é a Mariana pelo celular",
+				"text": "Qual é melhor? 89kj.fs2 ou 58lcws142",
 				"choices": [
 					{
 						"id": "mariana_password0_1a_0",
@@ -35,8 +34,8 @@
 				]
 			}
 		],
-		"from_mariana_password0_2": [
-		  	{
+		"from_mariana_password0_3": [
+			{
 				"id": "mariana_password0_3",
 				"text": "Ótima senha, abrigada"
 			}

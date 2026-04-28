@@ -4,7 +4,7 @@ extends Node
 const TYPE_TO_RP = {
 	"random-task": 15,
 	"main-task": 20,
-	"scam": -10,
+	"scam": - 10,
 }
 #endregion CONSTANTS
 
@@ -15,7 +15,7 @@ var events_to_check: Array[String]
 
 #region SETUP
 func setup_from_json_file(events_json: Variant) -> void:
-	assert(typeof(events_json) == TYPE_ARRAY)
+	assert(typeof(events_json) == TYPE_DICTIONARY)
 	events_dict = events_json
 	events_to_check = []
 #endregion SETUP
@@ -31,6 +31,7 @@ func _on_clock_tick() -> void:
 		var is_event_completed: bool = evaluate_requirements(event)
 		if is_event_completed:
 			GameData.events_log.append(event)
+			events_to_check.erase(event_id)
 
 			var event_type = event.get("type", "")
 			var reputation_points = TYPE_TO_RP.get(event_type, 0)
@@ -53,7 +54,7 @@ func evaluate_requirements(event: Dictionary) -> bool:
 				var quantity = int(item.get("quantity", 0))
 				var store_ids = item.get("store", [])
 
-				if typeof(store_ids == TYPE_STRING):
+				if typeof(store_ids) == TYPE_STRING:
 					store_ids = [store_ids]
 
 				var is_item_valid = false

@@ -12,17 +12,17 @@
 		"scan1_josue": [
 			{
 				"id": "josue_purchase1_0",
-				"text": "Boa tarde, você poderia, por favor, acessar o site Libre Mercado para encomendar 5 Barras de Aço?",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Libre Mercado para encomendar 5 Barras de Aço?"
+			},
+			{
+				"id": "josue_purchase1_1",
+				"text": "Mandou bem!",
 				"requires": [
 					{
 						"flag": "purchase",
 						"items": [{ "item_id": 11, "quantity": 5, "store": "libre_mercado" }]
 					}
 				]
-			},
-			{
-				"id": "josue_purchase1_1",
-				"text": "Mandou bem!"
 			}
 		]
 	}

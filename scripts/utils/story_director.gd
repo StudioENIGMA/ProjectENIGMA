@@ -264,6 +264,8 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 			var store_id = item.get("store", "")
 			var store = GameData.shop_string_to_enum.get(store_id, null)
 
+			if store == null:
+				return false
 			if not GameData.purchased_items.has(store):
 				return false
 			var store_purchases = GameData.purchased_items[store]

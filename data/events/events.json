@@ -1364,7 +1364,7 @@
             }
         ]
     },
-    "Viva_scan_payment1": {
+    "Vivas_scan_payment1": {
         "type": "scam",
         "description": "descrição da task",
         "requires": [
@@ -1374,7 +1374,7 @@
             }
         ]
     },
-    "Viva_scan_payment2": {
+    "Vivaa_scan_payment2": {
         "type": "scam",
         "description": "descrição da task",
         "requires": [
@@ -1384,7 +1384,7 @@
             }
         ]
     },
-    "Viva_scan_payment3": {
+    "Viiva_scan_payment3": {
         "type": "scam",
         "description": "descrição da task",
         "requires": [
@@ -1488,6 +1488,32 @@
                         "item_id": 14,
                         "quantity": 9,
                         "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "yago_purchase2":{
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 33,
+                        "quantity": 3,
+                        "store": "aec"
+                    },
+                    {
+                        "item_id": 31,
+                        "quantity": 4,
+                        "store": "aec"
+                    },
+                    {
+                        "item_id": 36,
+                        "quantity": 5,
+                        "store": "aec"
                     }
                 ]
             }

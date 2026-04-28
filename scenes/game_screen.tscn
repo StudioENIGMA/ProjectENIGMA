@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
-[ext_resource type="Script" uid="uid://xaccuwl3nujq" path="res://scripts/utils/pause_button.gd" id="6_q7j5u"]
+[ext_resource type="Script" path="res://scripts/utils/pause_button.gd" id="6_q7j5u"]
 [ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
 [ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://b4nfvsrqm1lpn" path="res://scripts/pause_game_ui.gd" id="16_51grn"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="19_1vcyb"]
-[ext_resource type="Script" uid="uid://dayquwr7wsoce" path="res://scripts/utils/pause_confirmation_panel.gd" id="19_21xuv"]
+[ext_resource type="Script" path="res://scripts/utils/pause_confirmation_panel.gd" id="19_21xuv"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
@@ -484,13 +484,14 @@ autostart = true
 [node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
 script = ExtResource("25_5o8nl")
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 browser_director = NodePath("BrowserDirector")
 bank_director = NodePath("BankDirector")
 randomness_director = NodePath("RandomnessDirector")
+events_director = NodePath("EventsDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
