@@ -16,15 +16,21 @@ const DEFAULT_LOGO =  preload("res://assets/projeto enigma.png")
 var logo_by_enum = {
 	GameData.App.REVIEWSSITE: preload("res://assets/icons/shops/square_logos/elogie_la_logo_fundo.png"),
 	GameData.App.BROWSERAMAZONIASHOP: preload("res://assets/icons/shops/square_logos/amazonia_fundo.png"),
+	GameData.App.BROWSEREMPORIOBOLOSSHOP: preload("res://assets/icons/shops/square_logos/empório_dos_bolos_logo_fundo.png"),
+	GameData.App.BROWSERAECSHOP: preload("res://assets/icons/shops/square_logos/a&c_fundo.png"),
+	GameData.App.BROWSERLIBREMERCADOSHOP: preload("res://assets/icons/shops/square_logos/libre_mercado_logo_fundo.png"),
 	GameData.App.BROWSEREMILIASHOP: preload("res://assets/icons/shops/square_logos/emilia_bolos_fundo.png"),
-	GameData.App.BROWSERAECSHOP: preload("res://assets/icons/shops/square_logos/a&c_fundo.png")
+	GameData.App.BROWSERZORASHOP: preload("res://assets/icons/shops/square_logos/zora_logo_fundo.png"),
 }
 
 var sites_names_by_enum = {
 	GameData.App.REVIEWSSITE: "ElogieLÁ",
 	GameData.App.BROWSERAMAZONIASHOP: "Amazônia",
+	GameData.App.BROWSERLIBREMERCADOSHOP: "Libre Mercado",
 	GameData.App.BROWSEREMILIASHOP: "Emília Bolos",
-	GameData.App.BROWSERAECSHOP: "A&C"
+	GameData.App.BROWSEREMPORIOBOLOSSHOP: "Empório dos Bolos",
+	GameData.App.BROWSERAECSHOP: "A&C",
+	GameData.App.BROWSERZORASHOP: "Zora",
 }
 
 func _ready() -> void:
