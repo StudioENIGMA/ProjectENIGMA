@@ -3,9 +3,39 @@
   "sender": "TI",
   "entry_points": [
 	{
-	  "day": 0,
-	  "branch": "d0_start",
-	  "relative_due_time": 60
+		"day": 0,
+		"branch": "d0_start",
+		"relative_due_time": 222
+	},
+	{
+		"day": 1,
+		"branch": "d1_start",
+		"relative_due_time": 120
+	},
+	{
+		"day": 1,
+		"branch": "d1_task",
+		"relative_due_time": 300
+	},
+	{
+		"day": 2,
+		"branch": "d2_start",
+		"relative_due_time": 344
+	},
+	{
+		"day": 3,
+		"branch": "d3_start",
+		"relative_due_time": 100
+	},
+	{
+		"day": 3,
+		"branch": "d3_phishing",
+		"relative_due_time": 255
+	},
+	{
+		"day": 3,
+		"branch": "d3_spoofing",
+		"relative_due_time": 360
 	}
   ],
   "branches": {
@@ -24,14 +54,18 @@
 	  },
 	  {
 		"id": "ti_0_3",
-		"text": "vou ta te passando umas paradas aqui do ti pra vc resolver"
+		"text": "vou ta te ensinando sobre umas paradas e meu time vai te passar umas paradas do TI pra vc fzr"
 	  },
 	  {
 		"id": "ti_0_4",
-		"text": "mas n agora aproveita o banana kkkk",
+		"text": "qm tá no meu time é o Artur (sem h mesmo kkkkkk) e a Carolina"
+	  },
+	  {
+		"id": "ti_0_5",
+		"text": "mas n vamo passar nadas agora, só aproveita o banana kkkk",
 		"choices": [
 		  {
-			"id": "ti_0_4a_0",
+			"id": "ti_0_5a_0",
 			"player_text": "suave",
 			"npc_reply": {
 			  "goto_branch": "from_ti_0_5",
@@ -39,7 +73,7 @@
 			}
 		  },
 		  {
-			"id": "ti_0_4a_1",
+			"id": "ti_0_5a_1",
 			"player_text": "Tudo certo, prazer te conhecer!",
 			"npc_reply": {
 			  "goto_branch": "from_ti_0_6",
@@ -60,6 +94,362 @@
 		"id": "ti_0_6",
 		"text": "kkkkkkk tamo junto"
 	  }
+	],
+	"d1_start": [
+		{
+			"id": "ti_1_0",
+			"text": "entao, estagio"
+		},
+		{
+			"id": "ti_1_1",
+			"text": "vc ja deve ter notado q alguns aplicativos q vc usa aqui precisa de senha"
+		},
+		{
+			"id": "ti_1_2",
+			"text": "eh por seguranca"
+		},
+		{
+			"id": "ti_1_3",
+			"text": "da uma olhada no Gerenciador de Senhas nos ajustes"
+		},
+		{
+			"id": "ti_1_4",
+			"text": "da uma olhada no Gerenciador de Senhas nos ajustes"
+		},
+		{
+			"id": "ti_1_5",
+			"text": "qnd voltar me da um toque",
+			"choices": [
+				{
+					"id": "ti_0_6a_0",
+					"player_text": "opa voltei",
+					"npc_reply": {
+						"goto_branch": "from_ti_1_7",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_0_6a_1",
+					"player_text": "Muito interessante, ele armazena pra mim as senhas…",
+					"npc_reply": {
+						"goto_branch": "from_ti_1_9",
+						"delay_ticks": 2
+					}
+				}
+			]
+		},
+	],
+	"from_ti_1_7": [
+		{
+			"id": "ti_1_7",
+			"text": "entao eh isso papo simples"
+		},
+		{
+			"id": "ti_1_8",
+			"text": "soh n esquecer de trocar a senha todo dia, pq isso pode deixar seu sistema vulneravel para os hackers"
+		}
+	],
+	"from_ti_1_9": [
+		{
+			"id": "ti_1_9",
+			"text": "eh pra vc n ter q ficar botando de novo o tempo todo muito util"
+		},
+		{
+			"id": "ti_1_10",
+			"text": "soh n esquecer de trocar a senha todo dia, pq isso pode deixar seu sistema vulneravel para os hackers"
+		}
+	],
+	"d1_task": [
+		{
+			"id": "ti_1_11",
+			"text": "falando em senha"
+		},
+		{
+			"id": "ti_1_12",
+			"text": "senhas com diferentes caracteres combinando numeros, letras e especiais (/, #, @ e uns outros ai kkkkk) são mais fortes do q senhas soh com numero ou letra"
+		},
+		{
+			"id": "ti_1_13",
+			"text": "o numero de caracteres tbm importa, senhas grandes sao mais seguras"
+		},
+		{
+			"id": "ti_1_14",
+			"text": "mas entre duas com qtd de caracteres proximas eh melhor a q tiver os diferentes caracteres"
+		},
+		{
+			"id": "ti_1_15",
+			"text": "vou fazer um teste com vc agr fala qual dessas é mais segura",
+			"choices": [
+				{
+					"id": "ti_1_15a_0",
+					"player_text": "1234jpwv5",
+					"npc_reply": {
+						"goto_branch": "from_ti_1_16",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_1_15a_1",
+					"player_text": "L6s*(23v@",
+					"npc_reply": {
+						"goto_branch": "from_ti_1_19",
+						"delay_ticks": 2
+					}
+				}
+			]
+		}
+	],
+	"from_ti_1_16": [
+		{
+			"id": "ti_1_16",
+			"text": "era a outra como expliquei dos caracteres diferentes kkkkkkkk"
+		},
+		{
+			"id": "ti_1_17",
+			"text": "vc vai aprendendo kkkkkkkk"
+		},
+		{
+			"id": "ti_1_18",
+			"text": "tem q completar TODOS os requisitos"
+		}
+	],
+	"from_ti_1_19": [
+		{
+			"id": "ti_1_19",
+			"text": "voa mlk entendeu oq eu expliquei"
+		}
+	],
+	"d2_start": [
+		{
+			"id": "ti_2_0",
+			"text": "ou vc viu a noticia do bananaOS???",
+			"choices": [
+				{
+					"id": "ti_2_0a_0",
+					"player_text": "Sim",
+					"npc_reply": {
+						"goto_branch": "from_ti_2_1",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_2_0a_1",
+					"player_text": "Não",
+					"npc_reply": {
+						"goto_branch": "from_ti_2_5",
+						"delay_ticks": 2
+					}
+				}
+			]
+		}
+	],
+	"from_ti_2_1": [
+		{
+			"id": "ti_2_1",
+			"text": "da uma olhada ent e dps volta aqui",
+			"choices": [
+				{
+					"id": "ti_2_0a_0",
+					"player_text": "voltei",
+					"npc_reply": {
+						"goto_branch": "from_ti_2_2",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_2_0a_1",
+					"player_text": "Sobre a nova versão do bananaOS, com mais proteção e tal. Muito interessante…",
+					"npc_reply": {
+						"goto_branch": "from_ti_2_1",
+						"delay_ticks": 2
+					}
+				}
+			]
+		}
+	],
+	"from_ti_2_2": [
+		{
+			"id": "ti_2_2",
+			"text": "agora atualiza essa joça eh bom pra evitar virus e hackers"
+		},
+		{
+			"id": "ti_2_3",
+			"text": "fica atento que diariamente tem atualização do sistema e dos aplicativos"
+		},
+		{
+			"id": "ti_2_4",
+			"text": "ambos te deixam menos vulnerável aos hackers"
+		}
+	],
+	"from_ti_2_5": [
+		{
+			"id": "ti_2_5",
+			"text": "se ainda n atualizou vai logo atualizar essa budega kkkkkkkk"
+		},
+		{
+			"id": "ti_2_6",
+			"text": "questao de segurança ajuda a evitar virus e falha e etc"
+		},
+		{
+			"id": "ti_2_7",
+			"text": "fica atento que diariamente tem atualização do sistema e dos aplicativos"
+		},
+		{
+			"id": "ti_2_8",
+			"text": "ambos te deixam menos vulnerável aos hackers"
+		}
+	],
+	"d3_start": [
+		{
+			"id": "t1_3_0",
+			"text": "fala estgaio"
+		},
+		{
+			"id": "ti_3_1",
+			"text": "eu liberei para vc um scanner anti-virus nas configuraçoes"
+		},
+		{
+			"id": "ti_3_2",
+			"text": "qnd sentir q tem parada errada com seu celular"
+		},
+		{
+			"id": "ti_3_3",
+			"text": "provavelmente vc foi hackeado"
+		},
+		{
+			"id": "ti_3_4",
+			"text": "é só clicar em fzr uma varredura"
+		},
+		{
+			"id": "ti_3_5",
+			"text": "remover os hack e dps virus"
+		},
+		{
+			"id": "ti_3_6",
+			"text": "mas nossa versão tem um problema pra vc resolver e dps realmente remover"
+		}
+	],
+	"d3_phishing": [
+		{
+			"id": "ti_3_7",
+			"text": "fala estagio"
+		},
+		{
+			"id": "ti_3_7",
+			"text": "seguinte tu sabe qq eh Phishing?",
+			"choices": [
+				{
+					"id": "ti_3_7a_0",
+					"player_text": "Não sei, poderia me explicar?",
+					"npc_reply": {
+						"goto_branch": "from_ti_3_8",
+						"delay_ticks": 2
+					}
+				},
+				{
+					"id": "ti_3_7a_1",
+					"player_text": "to ligado",
+					"npc_reply": {
+						"goto_branch": "from_ti_3_13",
+						"delay_ticks": 2
+					}
+				}
+			]
+		}
+	],
+	"from_ti_3_8": [
+		{
+			"id": "ti_3_8",
+			"text": "se liga ent"
+		},
+		{
+			"id": "ti_3_9",
+			"text": "Phishing eh qnd tentam te dar um golpe"
+		},
+		{
+			"id": "ti_3_10",
+			"text": "alguem te manda mensagem falsa com oferta ou fingindo ser alguem"
+		},
+		{
+			"id": "ti_3_11",
+			"text": "e ai a pessoa tenta te pedir dinheiro ou roubar seus dados"
+		},
+		{
+			"id": "ti_3_12",
+			"text": "tem q ficar ligado"
+		}
+	],
+	"from_ti_3_13": [
+		{
+			"id": "ti_3_13",
+			"text": "po perfeito ent"
+		},
+		{
+			"id": "ti_3_14",
+			"text": "fica ligado q tamo tendo caso aq na empresa disso"
+		},
+		{
+			"id": "ti_3_15",
+			"text": "n confia em nmro estranho n"
+		},
+		{
+			"id": "ti_3_16",
+			"text": "nem em nmro q tu conhece mas ta falando diferente"
+		},
+		{
+			"id": "ti_3_17",
+			"text": "tipo se eu falar com pontuação kkkk"
+		}
+	],
+	"d3_spoofing": [
+		{
+			"id": "ti_3_18",
+			"text": "ou se liga"
+		},
+		{
+			"id": "ti_3_19",
+			"text": "ja te expliquei qq eh phishing"
+		},
+		{
+			"id": "ti_3_20",
+			"text": "tem uma parada parecida"
+		},
+		{
+			"id": "ti_3_21",
+			"text": "eh mais especifico"
+		},
+		{
+			"id": "ti_3_22",
+			"text": "eh qnd tentam se passar por alguem conhecido ou confiavel"
+		},
+		{
+			"id": "ti_3_23",
+			"text": "tipo banco, ou site imitando outro"
+		},
+		{
+			"id": "ti_3_24",
+			"text": "tem q ficar atento com esses lugares pedindo coisa estranha"
+		},
+		{
+			"id": "ti_3_25",
+			"text": "banco n pede senha nunca nem gnt da empresada"
+		},
+		{
+			"id": "ti_3_26",
+			"text": "ah"
+		},
+		{
+			"id": "ti_3_27",
+			"text": "um jeito bom de perceber eh ver no nome ou link"
+		},
+		{
+			"id": "ti_3_28",
+			"text": "sempre tem algo diferente"
+		},
+		{
+			"id": "ti_3_29",
+			"text": "tipo amazoni4.com no lugar de amazonia.com"
+		}
 	]
   }
 }
