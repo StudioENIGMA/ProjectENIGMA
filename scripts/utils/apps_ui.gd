@@ -10,6 +10,7 @@ const APP_BUTTON_SCENE = preload("res://scenes/tools/AppButton.tscn")
 
 #region APP BUTTONS REFERENCES
 func _ready() -> void:
+	update_apps()
 	for child in get_children():
 		if child is not Control:
 			continue
@@ -49,4 +50,15 @@ func on_app_uninstalled(app:GameData.App) -> void:
 		if child.app == app:
 			child.visible = false
 			break
+
+func update_apps() -> void:
+	var to_download = GameData.downloaded_apps.duplicate(true)
+	for child in get_children():
+		if child is not Control:
+			continue
+		if GameData.downloaded_apps.has(child.app) and child.visible == true:
+			to_download.erase(child.app)
+
+	for app in to_download:
+		on_app_installed(app)
 #endregion INSTALLATION HELPERS

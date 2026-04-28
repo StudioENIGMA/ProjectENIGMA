@@ -8,7 +8,7 @@ const TYPE_TO_RP = {
 	"random-task": 15,
 	"main-task": 20,
 	"scam": -10,
-} 
+}
 
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
