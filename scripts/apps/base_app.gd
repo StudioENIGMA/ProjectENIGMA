@@ -12,6 +12,9 @@ signal pause_game_requested()
 ## Reference to the apps buttons (to manage app opening/closing)
 @export var apps_ui:Control
 
+## Reference to the pause menu button
+@export var pause_button: TextureButton
+
 ## Reference to the controller that holds specific app controls
 @export var app_specific_screen:Control
 @export var hack_screen: Control
@@ -121,6 +124,7 @@ func _ready() -> void:
 
 	# Connect to apps UI app opened signal
 	apps_ui.app_opened.connect(_on_app_opened)
+	pause_button.open_pause_menu.connect(_on_app_opened)
 
 	# Messages app home (Messages app)
 	messages_app_home.visible = false

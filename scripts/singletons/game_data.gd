@@ -430,3 +430,14 @@ func load_game() -> void:
 
 	for saved_thread in raw_saved_email_threads:
 		saved_email_threads.append(saved_thread.duplicate(true))
+
+func reset_to_defaults():
+	var fresh_instance = load(get_script().resource_path).new()
+
+	# Get a list of all variables you defined in the script
+	for prop in get_script().get_script_property_list():
+		var prop_name = prop.name
+		# Copy the default value from the fresh instance to this one
+		self.set(prop_name, fresh_instance.get(prop_name))
+
+	fresh_instance.free() # Clean up the temporary instance
