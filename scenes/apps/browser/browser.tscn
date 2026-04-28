@@ -85,9 +85,3 @@ label_settings = SubResource("LabelSettings_53ija")
 
 [node name="NewsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1269479065]
 layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/NewsContainer" unique_id=1715783317]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0, 0, 0, 1)

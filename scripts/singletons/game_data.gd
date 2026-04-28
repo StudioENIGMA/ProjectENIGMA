@@ -100,7 +100,7 @@ var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
 var max_hours_minutes:int = 960 # End at 16:00
-var current_day:int = 0
+var current_day:int = 2
 var reputation_points:int = 0
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {

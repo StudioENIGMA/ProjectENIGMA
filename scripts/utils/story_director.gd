@@ -10,6 +10,7 @@ signal request_answer_option(
 )
 
 signal news_ready(day_news_data: Dictionary)
+signal update_news
 
 #region CHILDREN NODES REFERENCES
 @export var messages_director: Node
@@ -82,6 +83,9 @@ func reload_and_setup_today() -> void:
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
+
+	#Update Browser News
+	_on_update_news()
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -288,5 +292,8 @@ func _load_news_data() -> Dictionary:
 	var data = JSON.parse_string(json_text)
 	var day_key = "day_%d" % current_day
 	return data[day_key] if data.has(day_key) else {}
+
+func _on_update_news() -> void:
+	update_news.emit()
 
 #endregion REQUIREMENTS
