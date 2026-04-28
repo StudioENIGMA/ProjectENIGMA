@@ -46,25 +46,46 @@ func evaluate_requirements(event: Dictionary) -> bool:
 			var app_id = requirement.get("app_id", "")
 			var app = GameData.apps_name.get(app_id, null)
 			return GameData.downloaded_apps.has(app)
-		if flag == "purchase":
+		elif flag == "purchase":
 			var items = requirement.get("items", [])
 			for item in items:
 				var item_id = item.get("item_id", "")
 				var quantity = int(item.get("quantity", 0))
-				var store_id = item.get("store", "")
-				var store = GameData.apps_name.get(store_id, null)
+				var store_ids = item.get("store", [])
 
-				if not GameData.purchased_items.has(store):
-					return false
-				var store_purchases = GameData.purchased_items[store]
-				if not store_purchases.has(item_id):
-					return false
-				if store_purchases[item_id] < quantity:
-					return false
+				if typeof(store_ids == TYPE_STRING):
+					store_ids = [store_ids]
 
-				return true
-		if flag == "payment":
+				var is_item_valid = false
+
+				for store_name in store_ids:
+					var store = GameData.shop_string_to_enum.get(store_name, null)
+
+					if not GameData.purchased_items.has(store):
+						continue
+					var store_purchases = GameData.purchased_items[store]
+					if not store_purchases.has(item_id):
+						continue
+					if store_purchases[item_id] < quantity:
+						continue
+					is_item_valid = true
+				
+				if not is_item_valid:
+					return false
+			return true
+		elif flag == "payment":
 			var payment_id = requirement.get("payment_id", "")
 			return GameData.completed_payments.has(payment_id)
+		elif flag == "payment_multitype":
+			var payment_array = requirement.get("payment_array", [])
+			for code in payment_array:
+				if GameData.completed_payments.has(code):
+					return true
+			return false
+		elif flag == "option":
+			var choice = requirement.get("choice", "")
+			var was_chosen = GameData.options_chose.get(choice, false)
+			GameData.options_chose[choice] = false
+			return was_chosen
 	return false
 #endregion FUNCTIONS

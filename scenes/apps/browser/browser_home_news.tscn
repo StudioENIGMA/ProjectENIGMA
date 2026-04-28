@@ -3,41 +3,39 @@
 [ext_resource type="Script" uid="uid://4o4l8fux5uc3" path="res://scripts/apps/browser/browser_home_news.gd" id="1_sm52b"]
 
 [node name="BrowserHomeNews" type="HBoxContainer" unique_id=750613476 node_paths=PackedStringArray("news_content", "news_metadata")]
-offset_right = 360.0
-offset_bottom = 110.0
+offset_right = 346.0
+offset_bottom = 64.0
 script = ExtResource("1_sm52b")
 news_content = NodePath("VBoxContainer/NewsContent")
 news_metadata = NodePath("VBoxContainer/NewsMetaData")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=873469115]
-custom_minimum_size = Vector2(10, 0)
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2006426638]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="NewsContent" type="Label" parent="VBoxContainer" unique_id=1773874338]
-custom_minimum_size = Vector2(10, 0)
+custom_minimum_size = Vector2(332, 37)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est tincidunt fringilla lobortis."
-horizontal_alignment = 3
 autowrap_mode = 3
+autowrap_trim_flags = 64
+justification_flags = 227
+text_overrun_behavior = 5
 
 [node name="NewsMetaData" type="Label" parent="VBoxContainer" unique_id=212627695]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "BCC  •  3 horas atrás"
 autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1971091754]
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1494042173]
-custom_minimum_size = Vector2(10, 0)
+custom_minimum_size = Vector2(0, 3)
 layout_mode = 2

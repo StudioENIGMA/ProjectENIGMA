@@ -116,8 +116,8 @@
         "description": "descrição da task",
         "requires": [
             {
-                "flag": "password",
-                "password": "89kj.fs2"
+                "flag": "option",
+                "choice": "89kj.fs2"
             }
         ]
     },
@@ -343,8 +343,8 @@
         "description": "descrição da task",
         "requires": [
             {
-                "flag": "password",
-                "password": "s2s2s2s2"
+                "flag": "option",
+                "choice": "s2s2s2s2"
             }
         ]
     },
@@ -557,8 +557,8 @@
         "description": "descrição da task",
         "requires": [
             {
-                "flag": "password",
-                "password": "j89asd72nca43ds"
+                "flag": "option",
+                "choice": "j89asd72nca43ds"
             }
         ]
     },
@@ -614,8 +614,8 @@
         "description": "descrição da task",
         "requires": [
             {
-                "flag": "password",
-                "password": "k7.i3@m2"
+                "flag": "option",
+                "choice": "k7.i3@m2"
             }
         ]
     },

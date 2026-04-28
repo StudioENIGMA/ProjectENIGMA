@@ -24,10 +24,16 @@ enum App {
 	BROWSERNEWS,
 	BROWSERAMAZONIASHOP,
 	BROWSERAMAZONIACART,
+	BROWSERLIBREMERCADOSHOP,
+	BROWSERLIBREMERCADOCART,
 	BROWSEREMILIASHOP,
 	BROWSEREMILIACART,
+	BROWSEREMPORIOBOLOSSHOP,
+	BROWSEREMPORIOBOLOSCART,
 	BROWSERAECSHOP,
 	BROWSERAECCART,
+	BROWSERZORASHOP,
+	BROWSERZORACART,
 	BROWSERPAYMENTSCREEN,
 	BROWSERFAKESHOP,
 	REVIEWSSITE,
@@ -77,23 +83,39 @@ class ShoppingInfo:
 
 var shops_names = {
 	App.BROWSERAMAZONIASHOP: "Amazônia",
+	App.BROWSERLIBREMERCADOSHOP: "Libre Mercado",
 	App.BROWSEREMILIASHOP: "Emília Bolos",
-	App.BROWSERAECSHOP: "A&C"
+	App.BROWSEREMPORIOBOLOSSHOP: "Empório dos Bolos",
+	App.BROWSERAECSHOP: "A&C",
+	App.BROWSERZORASHOP: "Zora",
+}
+
+var shop_string_to_enum = {
+	"amazonia": GameData.App.BROWSERAMAZONIASHOP,
+	"libre_mercado": GameData.App.BROWSERLIBREMERCADOSHOP,
+	"emilia_bolos": GameData.App.BROWSEREMILIASHOP,
+	"emporio_bolos": GameData.App.BROWSEREMPORIOBOLOSSHOP,
+	"aec": GameData.App.BROWSERAECSHOP,
+	"zora": GameData.App.BROWSERZORASHOP
 }
 
 var cart_enum_to_shop_enum = {
 	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
+	App.BROWSERLIBREMERCADOCART: App.BROWSERLIBREMERCADOSHOP,
 	App.BROWSEREMILIACART: App.BROWSEREMILIASHOP,
-	App.BROWSERAECCART: App.BROWSERAECSHOP
+	App.BROWSEREMPORIOBOLOSCART: App.BROWSEREMPORIOBOLOSSHOP,
+	App.BROWSERAECCART: App.BROWSERAECSHOP,
+	App.BROWSERZORACART: App.BROWSERZORASHOP
 }
 
-var verified_contacts = []
+var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
 
 var bank_balance: float = 200
 
 var completed_payments = []
 var purchased_items = {}
-
+var options_chose = {}
+ 
 var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
@@ -141,10 +163,16 @@ var apps_name: Dictionary = {
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
+	"BrowserLibreMercadoShop": App.BROWSERLIBREMERCADOSHOP,
+	"BrowserLibreMercadoCart": App.BROWSERLIBREMERCADOCART,
 	"BrowserEmiliaShop": App.BROWSEREMILIASHOP,
 	"BrowserEmiliaCart": App.BROWSEREMILIACART,
+	"BrowserEmporioBolosShop": App.BROWSEREMPORIOBOLOSSHOP,
+	"BrowserEmporioBolosCart": App.BROWSEREMPORIOBOLOSCART,
 	"BrowserAeCShop": App.BROWSERAECSHOP,
 	"BrowserAeCCart": App.BROWSERAECCART,
+	"BrowserZoraShop": App.BROWSERZORASHOP,
+	"BrowserZoraCart": App.BROWSERZORACART,
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
@@ -423,4 +451,15 @@ func load_game() -> void:
 	var raw_random_events_history: Array = game_state.get("random_events_history", [])
 	random_events_history.clear()
 	for thread in raw_random_events_history:
-		raw_random_events_history.append(thread.duplicate(true))
+		random_events_history.append(thread)
+
+func reset_to_defaults():
+	var fresh_instance = load(get_script().resource_path).new()
+
+	# Get a list of all variables you defined in the script
+	for prop in get_script().get_script_property_list():
+		var prop_name = prop.name
+		# Copy the default value from the fresh instance to this one
+		self.set(prop_name, fresh_instance.get(prop_name))
+
+	fresh_instance.free() # Clean up the temporary instance
