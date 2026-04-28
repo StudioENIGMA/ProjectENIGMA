@@ -27,7 +27,7 @@
                         "quantity": 10,
                         "store": "amazonia"
                     }
-				]
+                ]
             }
         ]
     },
@@ -138,7 +138,7 @@
                         "quantity": 10,
                         "store": "emilia_bolos"
                     }
-                ] 
+                ]
             }
         ]
     },
@@ -154,7 +154,7 @@
                         "quantity": 6,
                         "store": "emilia_bolos"
                     }
-                ] 
+                ]
             }
         ]
     },
@@ -641,7 +641,10 @@
         "requires": [
             {
                 "flag": "payment_multitype",
-                "payment_array": ["7E111", "274665"]
+                "payment_array": [
+                    "7E111",
+                    "274665"
+                ]
             }
         ]
     },
@@ -651,7 +654,10 @@
         "requires": [
             {
                 "flag": "payment_multitype",
-                "payment_array": ["66M5K", "098471"]
+                "payment_array": [
+                    "66M5K",
+                    "098471"
+                ]
             }
         ]
     },
@@ -728,6 +734,801 @@
                     {
                         "item_id": 34,
                         "quantity": 5,
+                        "store": "aec"
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_arthur": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 32,
+                        "quantity": 3,
+                        "store": [
+                            "aec",
+                            "zora"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_arthur": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "09FK0"
+            }
+        ]
+    },
+    "scan0_carolinda": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "$bank_password"
+            }
+        ]
+    },
+    "scan1_carolinda": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "45RTT"
+            }
+        ]
+    },
+    "scan2_carolinda": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "X8U77"
+            }
+        ]
+    },
+    "scan0_false_px_investment": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "9922A"
+            }
+        ]
+    },
+    "scan1_false_px_investment": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "$bank_password"
+            }
+        ]
+    },
+    "scan0_gilrnar": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "789623"
+            }
+        ]
+    },
+    "scan1_gilrnar": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "FD56Z"
+            }
+        ]
+    },
+    "scan0_giumar": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "R6K3S"
+            }
+        ]
+    },
+    "scan0_guilherrne": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "6AF50"
+            }
+        ]
+    },
+    "scan0_guillherme": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 26,
+                        "quantity": 1,
+                        "store": [
+                            "emilia_bolos",
+                            "emporio_dos_bolos"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_jescica": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "556382"
+            }
+        ]
+    },
+    "scan1_jescica": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "7G25A"
+            }
+        ]
+    },
+    "scan2_jescica": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "MKB7U"
+            }
+        ]
+    },
+    "scan0_jilmar": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "SD3A4"
+            }
+        ]
+    },
+    "scan0_joseh": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 15,
+                        "quantity": 5,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_joseh": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 12,
+                        "quantity": 3,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_josue": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 15,
+                        "quantity": 5,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_josue": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 11,
+                        "quantity": 5,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_jouse": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 11,
+                        "quantity": 10,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_jouse": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 11,
+                        "quantity": 10,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan2_jouse": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 15,
+                        "quantity": 10,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_mancia": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 26,
+                        "quantity": 10,
+                        "store": [
+                            "emilia_bolos",
+                            "emporio_dos_bolos"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan2_mancia": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 25,
+                        "quantity": 22,
+                        "store": [
+                            "emilia_bolos",
+                            "emporio_dos_bolos"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_marcaao": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "234567"
+            }
+        ]
+    },
+    "scan1_marcaao": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "468431"
+            }
+        ]
+    },
+    "scan0_marçao": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 12,
+                        "quantity": 5,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_marcaon": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 11,
+                        "quantity": 20,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_marciia": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 31,
+                        "quantity": 5,
+                        "store": [
+                            "aec",
+                            "zora"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_marciia": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 33,
+                        "quantity": 5,
+                        "store": [
+                            "aec",
+                            "zora"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_marrta": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "I83G9"
+            }
+        ]
+    },
+    "scan0_martha": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 21,
+                        "quantity": 40,
+                        "store": [
+                            "emilia_bolos",
+                            "emporio_dos_bolos"
+                        ]
+                    },
+                    {
+                        "item_id": 22,
+                        "quantity": 40,
+                        "store": [
+                            "emilia_bolos",
+                            "emporio_dos_bolos"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_martha": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 31,
+                        "quantity": 3,
+                        "store": [
+                            "aec",
+                            "zora"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan0_non_px_investment": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "7F35U"
+            }
+        ]
+    },
+    "scan0_px_investrnent": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "586934"
+            }
+        ]
+    },
+    "scan1_px_investrnent": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "536944"
+            }
+        ]
+    },
+    "scan2_px_investrnent": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "586054"
+            }
+        ]
+    },
+    "scan0_ricarudo": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 12,
+                        "quantity": 2,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    },
+                    {
+                        "item_id": 11,
+                        "quantity": 16,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    },
+                    {
+                        "item_id": 15,
+                        "quantity": 32,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    },
+                    {
+                        "item_id": 13,
+                        "quantity": 4,
+                        "store": [
+                            "amazonia",
+                            "libre_mercado"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "scan1_ricarudo": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "KO4HQ"
+            }
+        ]
+    },
+    "scan2_ricarudo": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "$bank_password"
+            }
+        ]
+    },
+    "false_negativa_scan_payment0": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "53045"
+            }
+        ]
+    },
+    "Viva_scan_payment0": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "432789"
+            }
+        ]
+    },
+    "Viva_scan_payment1": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "483234"
+            }
+        ]
+    },
+    "Viva_scan_payment2": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "896108"
+            }
+        ]
+    },
+    "Viva_scan_payment3": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "896100"
+            }
+        ]
+    },
+    "Viva_scan_payment4": {
+        "type": "scam",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "896118"
+            }
+        ]
+    },
+    "mariana_purchase0": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 11,
+                        "quantity": 20,
+                        "store": "amazonia"
+                    },
+                    {
+                        "item_id": 15,
+                        "quantity": 5,
+                        "store": "amazonia"
+                    },
+                    {
+                        "item_id": 13,
+                        "quantity": 3,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "mariana_purchase1": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 14,
+                        "quantity": 7,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "mariana_payment0": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "097341"
+            }
+        ]
+    },
+    "yago_purchase0": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 25,
+                        "quantity": 4,
+                        "store": "emilia_bolos"
+                    },
+                    {
+                        "item_id": 21,
+                        "quantity": 20,
+                        "store": "emilia_bolos"
+                    }
+                ]
+            }
+        ]
+    },
+    "yago_purchase1": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 14,
+                        "quantity": 9,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "yago_payment0": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "056128"
+            }
+        ]
+    },
+    "artur_purchase0": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 16,
+                        "quantity": 3,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "artur_purchase1": {
+        "type": "random-task",
+        "description": "descrição da task",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 35,
+                        "quantity": 4,
                         "store": "aec"
                     }
                 ]

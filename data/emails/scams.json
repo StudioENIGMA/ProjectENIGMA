@@ -61,5 +61,14 @@
 		"content": "λemβrete:\n\nΘ veηcimentθ da δua φaτura referente αo plαnθ de Internet dos ηlτimos τrintα diαδ é hθje. Estαηos enviando υma segunda viα do boletθ para facilitar seu pagamento. Pague o boleto 896118\n\n- © Viva",
 		"attachments": [],
 		"requires": []
+	},
+	{
+		"thread_id": "false_negativa_scan0",
+		"email_id": "false_negativa_scan_payment0",
+		"sender": "valterg@imail.com",
+		"subject": "Pagamento computadores",
+		"content": "Olá Senhor estagiário\n\nComo combinado com seu gerente você deve realizar o pagamento dos últimos computadores enviados a sua empresa\n\nCódigo pix: 53045",
+		"attachments": [],
+		"requires": []
 	}
 ]
