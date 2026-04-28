@@ -90,6 +90,15 @@ var shops_names = {
 	App.BROWSERZORASHOP: "Zora",
 }
 
+var shop_string_to_enum = {
+	"amazonia": GameData.App.BROWSERAMAZONIASHOP,
+	"libre_mercado": GameData.App.BROWSERLIBREMERCADOSHOP,
+	"emilia_bolos": GameData.App.BROWSEREMILIASHOP,
+	"emporio_bolos": GameData.App.BROWSEREMPORIOBOLOSSHOP,
+	"aec": GameData.App.BROWSERAECSHOP,
+	"zora": GameData.App.BROWSERZORASHOP
+}
+
 var cart_enum_to_shop_enum = {
 	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
 	App.BROWSERLIBREMERCADOCART: App.BROWSERLIBREMERCADOSHOP,
@@ -105,7 +114,8 @@ var bank_balance: float = 200
 
 var completed_payments = []
 var purchased_items = {}
-
+var options_chose = {}
+ 
 var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
