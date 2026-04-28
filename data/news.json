@@ -2,22 +2,88 @@
 	"day_2": {
 		"news": [
 			{
-				"id": "d1n1",
+				"id": "d2n1",
 				"title": "Maior vazamento de senhas da história",
-				"content": "As maiores empresas do mundo e as principais redes sociais tiveram suas senhas expostas. Segundo os pesquisadores Cybermeaning, foram vazadas bilhões de senhas coletadas por malwares especializados em roubo de dados.",
-				"metadata": "i1  •  3 horas atrás"
+				"content": "As maiores empresas do mundo e as principais redes sociais tiveram suas senhas expostas. Segundo os pesquisadores Cybermeaning, foram vazadas bilhões de senhas coletadas por malwares especializados em roubo de dados.\n\n",
+				"metadata": "knn  •  3 horas atrás"
 			},
 			{
-				"id": "d1n2",
+				"id": "d2n2",
 				"title": "São Saulo vence Bot’água e avança para semifinal",
-				"content": "Nesta última quarta-feira (10/09/2025), São Saulo venceu por 4x1 o Bot’água no agregado e avançou para a semifinal da Copa Vibertadores.",
-				"metadata": "knn  •  2 horas atrás"
+				"content": "Nesta última quarta-feira (10/09/2025), São Saulo venceu por 4x1 o Bot’água no agregado e avançou para a semifinal da Copa Vibertadores.\n\n",
+				"metadata": "i1  •  2 horas atrás"
 			},
 			{
-				"id": "d1n3",
-				"title": "IA vai substituir os programadores?",
-				"content": "As dúvidas sobre o futuro de diversas profissões só aumentam com o avanço da inteligência artificial. Porém, para o CEO e engenheiro Jeff Doors, a profissão de programador continuará sendo 100% gerenciada por seres humanos. Para ele, a IA será uma ferramenta para aumentar a produtividade, mas não irá roubar as capacidades humanas de criação, julgamento e raciocínio lógico.",
+				"id": "d2n3",
+				"title": "Atualização BananaOS",
+				"content": "A empresa MirrorSoftware acabou de disponibilizar uma nova versão para seu sistema operacional mobile BananaOS. De acordo com o engenheiro líder da empresa havia uma vulnerabilidade crítica que foi consertada, além de outros pequenos bugs.\n\nPorém não houve mudanças na interface gráfica do sistema, a empresa pretende manter a atual por mais alguns meses.\n\n",
 				"metadata": "BCC  •  5 horas atrás"
+			}
+		]
+	},
+	"day_3": {
+		"news": [
+			{
+				"id": "d3n1",
+				"title": "Empresa anuncia nova política de bem-estar para funcionários",
+				"content": "O departamento de Recursos Humanos da empresa NovaTech anunciou nesta semana uma nova política voltada ao bem-estar dos colaboradores. A iniciativa inclui a possibilidade de trabalho remoto até dois dias por semana para equipes administrativas, além da criação de um programa de acompanhamento de saúde mental.\n\nSegundo o RH, o objetivo é melhorar a qualidade de vida dos funcionários e reduzir o estresse no ambiente de trabalho. A empresa também informou que gestores receberão treinamento para lidar melhor com equilíbrio entre produtividade e bem-estar da equipe\n\nA nova política começará a valer no próximo mês, inicialmente como projeto piloto.\n\n",
+				"metadata": "i1  •  18 horas atrás"
+			},
+			{
+				"id": "d3n2",
+				"title": "Aumento de arquivos .apk infectados",
+				"content": "A Security Intelligence of Internet (Inteligencia de Segunrça da Internet), principal agente de monitoramento da rede de Internet, registrou um aumento no compartilhamento de arquivos com extensão .apk infectados por vírus. Os golpistas enviam um link de download externo do aplicativo, juntamente de uma a promessa que o aplicativo irá facilitar o trabalho da pessoa ou permitir que ela consiga jogos gratuitos.\n\nAlgumas questões  sobre os perigos de instalar esses aplicativos são explicadas pela Inteligencia.\n\n\"É muito comum que esse aplicativos sejam apenas spyware, que apenas fica monitorando seu uso do dispositivo e até roubando dados. Mas esse tipo de vírus também pode mudar configurações, facilitando outros tipos de invasão\". Eles também comentam\n\n\"Esses aplicativos podem ser vírus mais fortes como malwares que comprometem completamente o sistema ou ransomware que bloqueiam todos seus dados. Geralmente esse último acompanha de extorsão para devolução dos dados\".\n\n",
+				"metadata": "knn  •  7 horas atrás"
+			},
+			{
+				"id": "d3n3",
+				"title": "IA vai substituir os programadores?",
+				"content": "As dúvidas sobre o futuro de diversas profissões só aumentam com o avanço da inteligência artificial. Porém, para o CEO e engenheiro Jeff Doors, a profissão de programador continuará sendo 100% gerenciada por seres humanos. Para ele, a IA será uma ferramenta para aumentar a produtividade, mas não irá roubar as capacidades humanas de criação, julgamento e raciocínio lógico.\n\n",
+				"metadata": "BCC  •  1 hora atrás"
+			}
+		]
+	},
+	"day_4": {
+		"news": [
+			{
+				"id": "d4n1",
+				"title": "Baixa na criptomoeda ZetoCoin",
+				"content": "A principal criptomoeda do mundo tem a maior baixa dos últimos 7 anos chegando no valor de apenas 42 mil reais. Especialistas do mercado financeiro acreditam que esse evento está ocorrendo devido às tensões políticas internacionais que tem diminuído a produção de chips.\n\n",
+				"metadata": "i1  •  22 horas atrás"
+			},
+			{
+				"id": "d4n2",
+				"title": "Aumento de arquivos .apk infectados",
+				"content": "A Security Intelligence of Internet (Inteligencia de Segunrça da Internet), principal agente de monitoramento da rede de Internet, registrou um aumento no compartilhamento de arquivos com extensão .apk infectados por vírus. Os golpistas enviam um link de download externo do aplicativo, juntamente de uma a promessa que o aplicativo irá facilitar o trabalho da pessoa ou permitir que ela consiga jogos gratuitos.\n\nAlgumas questões  sobre os perigos de instalar esses aplicativos são explicadas pela Inteligencia.\n\n\"É muito comum que esse aplicativos sejam apenas spyware, que apenas fica monitorando seu uso do dispositivo e até roubando dados. Mas esse tipo de vírus também pode mudar configurações, facilitando outros tipos de invasão\". Eles também comentam\n\n\"Esses aplicativos podem ser vírus mais fortes como malwares que comprometem completamente o sistema ou ransomware que bloqueiam todos seus dados. Geralmente esse último acompanha de extorsão para devolução dos dados\".\n\n",
+				"metadata": "knn  •  13 horas atrás"
+			},
+			{
+				"id": "d4n3",
+				"title": "RH implementa novo programa de integração para novos funcionários",
+				"content": "O departamento de Recursos Humanos da empresa AlphaLog anunciou um novo programa de integração para funcionários recém-contratados. A iniciativa inclui um treinamento inicial de três dias, no qual os novos colaboradores recebem orientações sobre a cultura da empresa, políticas internas e ferramentas utilizadas no trabalho.\n\nDe acordo com o RH, a mudança foi feita porque muitos novos funcionários relataram dificuldade para entender os processos da empresa nas primeiras semanas. Com o novo programa, a empresa espera facilitar a adaptação dos novos colaboradores e melhorar a comunicação entre as equipes.\n\nO programa começará a ser aplicado a partir das próximas contratações.\n\n",
+				"metadata": "BCC  •  4 horas atrás"
+			}
+		]
+	},
+	"day_5": {
+		"news": [
+			{
+				"id": "d5n1",
+				"title": "Baixa na criptomoeda ZetoCoin",
+				"content": "A principal criptomoeda do mundo tem a maior baixa dos últimos 7 anos chegando no valor de apenas 42 mil reais. Especialistas do mercado financeiro acreditam que esse evento está ocorrendo devido às tensões políticas internacionais que tem diminuído a produção de chips.\n\n",
+				"metadata": "i1  •  22 horas atrás"
+			},
+			{
+				"id": "d5n2",
+				"title": "Aumento de arquivos .apk infectados",
+				"content": "A Security Intelligence of Internet (Inteligencia de Segunrça da Internet), principal agente de monitoramento da rede de Internet, registrou um aumento no compartilhamento de arquivos com extensão .apk infectados por vírus. Os golpistas enviam um link de download externo do aplicativo, juntamente de uma a promessa que o aplicativo irá facilitar o trabalho da pessoa ou permitir que ela consiga jogos gratuitos.\n\nAlgumas questões  sobre os perigos de instalar esses aplicativos são explicadas pela Inteligencia.\n\n\"É muito comum que esse aplicativos sejam apenas spyware, que apenas fica monitorando seu uso do dispositivo e até roubando dados. Mas esse tipo de vírus também pode mudar configurações, facilitando outros tipos de invasão\". Eles também comentam\n\n\"Esses aplicativos podem ser vírus mais fortes como malwares que comprometem completamente o sistema ou ransomware que bloqueiam todos seus dados. Geralmente esse último acompanha de extorsão para devolução dos dados.\".\n\n",
+				"metadata": "knn  •  13 horas atrás"
+			},
+			{
+				"id": "d5n3",
+				"title": "RH implementa novo programa de integração para novos funcionários",
+				"content": "O departamento de Recursos Humanos da empresa AlphaLog anunciou um novo programa de integração para funcionários recém-contratados. A iniciativa inclui um treinamento inicial de três dias, no qual os novos colaboradores recebem orientações sobre a cultura da empresa, políticas internas e ferramentas utilizadas no trabalho.\n\nDe acordo com o RH, a mudança foi feita porque muitos novos funcionários relataram dificuldade para entender os processos da empresa nas primeiras semanas. Com o novo programa, a empresa espera facilitar a adaptação dos novos colaboradores e melhorar a comunicação entre as equipes.\n\nO programa começará a ser aplicado a partir das próximas contratações.\n\n",
+				"metadata": "BCC  •  4 horas atrás"
 			}
 		]
 	}
