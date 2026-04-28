@@ -1,0 +1,51 @@
+{
+  "thread_id": "marcaao",
+  "sender": "Marcaao",
+
+  	"branches": {
+		"scan0_marcaao": [
+			{
+				"id": "marcaao_payment0_0",
+				"text": "Olá estagiário",
+			},
+			{
+				"id": "marcaao_payment0_1",
+				"text": "pode pagar esse boleto de materiais por favor o boleto é UKC212"
+			},
+			{
+				"id": "marcaao_payment0_2",
+				"text": "mUiT0 oBrIGAdo",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "UKC212"
+					}
+				]
+			}
+		],
+		"scan1_marcaao": [
+			{
+				"id": "marcaao_payment1_0",
+				"text": "Fala meu camarada"
+			},
+			{
+				"id": "marcaao_payment1_1",
+				"text": "quero ajuda com uns materiais paga o boleto"
+			},
+			{
+				"id": "marcaao_payment1_2",
+				"text": "paga o boleto: HY2W26"
+			},
+			{
+				"id": "marcaao_payment1_3",
+				"text": "obrqigadon",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "HY2W26"
+					}
+				]
+			}
+		]
+	}
+}

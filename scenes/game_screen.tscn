@@ -172,10 +172,12 @@ layout_mode = 2
 app = 29
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 30
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+visible = false
 layout_mode = 2
 app = 27
 
@@ -351,12 +353,13 @@ autostart = true
 [node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
 script = ExtResource("25_5o8nl")
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
 browser_director = NodePath("BrowserDirector")
 bank_director = NodePath("BankDirector")
+randomness_director = NodePath("RandomnessDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 

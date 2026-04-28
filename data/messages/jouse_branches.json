@@ -1,0 +1,61 @@
+{
+  "thread_id": "jouse",
+  "sender": "Jousé",
+  
+	"branches": {
+		"scan0_jouse": [
+			{
+				"id": "jouse_purchase0_0",
+				"text": "vc pode ir compra 10 barra de aco?",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 11, "quantity": 10, "store": "amazonia" }]
+					}
+				]
+			},
+			{
+				"id": "jouse_purchase0_1",
+				"text": "Vlw mano",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 11, "quantity": 10, "store": "amazonia" }]
+					}
+				]
+			}
+		],
+		"scan1_jouse": [
+			{
+				"id": "jouse_purchase1_0",
+				"text": "Boa tarde, encomende 1 Monitor no Libre Mercado"
+			},
+			{
+				"id": "jouse_purchase1_1",
+				"text": "Salvou estagiário!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 14, "quantity": 1, "store": "amazonia" }]
+					}
+				]
+			}
+		],
+		"scan2_jouse": [
+			{
+				"id": "jouse_purchase2_0",
+				"text": "Boa tarde, você poderia encomendar 10L de Nitrogênio Líquido (N2), por favor? Use o site Libre Mercado pelos melhores preços."
+			},
+			{
+				"id": "jouse_purchase2_1",
+				"text": "Tamo junto kkkkkkkkkk",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 15, "quantity": 10, "store": "amazonia" }]
+					}
+				]
+			}
+		]
+	}
+}

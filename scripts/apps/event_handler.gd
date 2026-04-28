@@ -65,12 +65,19 @@ func _on_day_over_timeout() -> void:
 func reset_data_for_new_day() -> void:
 	start_new_day.emit()
 
-	if GameData.current_day == 1:
-		GameData.apps_in_store.append(GameData.App.BROWSER)
+	set_shop_by_date()
 
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes
 
 	# Restart timers
 	clock_timer.start()
+
+func set_shop_by_date() -> void:
+	match GameData.current_day:
+		1:
+			GameData.apps_in_store.append(GameData.App.BANK)
+		2:
+			GameData.apps_in_store.append(GameData.App.BROWSER)
+			GameData.apps_in_store.append(GameData.App.EMAIL)
 #endregion DAY CYCLE MANAGEMENT
