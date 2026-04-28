@@ -64,7 +64,7 @@
 	},
 	{
 		"thread_id": "yago_task3",
-		"email_id": "yago_purchase3",
+		"email_id": "yago_payment0",
 		"sender": "yagob@enigma.fin.com.br",
 		"subject": "Pagamento de Compra de Utensílios",
 		"content": "Olá, estagiário,\n\nO processo seletivo de emprego que faremos precisará de alguns utensílios para melhorar a experiência dos candidatos. O pedido dos utensílios já foi feito, o Chefe me orientou que você deveria fazer o pagamento. Segue o código do boleto: 056128\n\nCordialmente, Yago.",
