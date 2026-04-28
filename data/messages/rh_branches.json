@@ -84,7 +84,27 @@
 			},
 			{
 				"id": "rh_3_1",
-				"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?"
+				"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?",
+				"event_id": "rh_news0",
+				"choices": [
+					{
+						"id": "rh_3_1a_0",
+						"player_text": "Os arquivos facilitam o pirateamento de outros aplicativos",
+						"npc_reply": {
+							"goto_branch": "from_rh_3_2",
+							"delay_ticks": 2.0
+						}
+						
+					},
+					{
+						"id": "rh_3_1a_1",
+						"player_text": "Os arquivos podem possuir diferentes tipos de vírus",
+						"npc_reply": {
+							"goto_branch": "from_b_3_3",
+							"delay_ticks": 2.0
+						}
+					}
+				]
 			}
 		],
 		"from_rh_2_2": [
@@ -97,6 +117,18 @@
 			{
 				"id": "rh_2_3",
 				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Eu sempre compro por lá."
+			}
+		],
+		"from_rh_3_2": [
+			{
+				"id": "rh_3_2",
+				"text": "Isso pode ser verdade também, mas não é o foco da notícia."
+			}
+		],
+		"from_rh_3_3": [
+			{
+				"id": "rh_3_3",
+				"text": "Exatamente! Podemos ver como pode ser perigoso baixar .apk desconhecidos."
 			}
 		]
 	}
