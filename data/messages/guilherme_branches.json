@@ -82,7 +82,7 @@
 			},
 			{
 				"id": "guilherme_payment0_2",
-				"text": "Segue o código do boleto: 9IO34F"
+				"text": "Segue o código do boleto: 769623"
 			}, 
 			{
 				"id": "guilherme_payment0_3",
@@ -90,7 +90,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "9IO34F"
+						"payment_id": "769623"
 					}
 				]
 			}
@@ -106,7 +106,7 @@
 			},
 			{
 				"id": "guilherme_purchase1_2",
-				"text": "Por favor, faça esse pagamento pelo código FT61A"
+				"text": "Por favor, faça esse pagamento pelo código 760623"
 			}
 		]
 	}
