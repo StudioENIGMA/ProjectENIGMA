@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
 [ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Script" uid="uid://xaccuwl3nujq" path="res://scripts/utils/pause_button.gd" id="6_q7j5u"]
 [ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
 [ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
@@ -18,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://tfos8eqtx3j3" path="res://scenes/tools/AppButton.tscn" id="16_5o8nl"]
 [ext_resource type="Script" uid="uid://b4nfvsrqm1lpn" path="res://scripts/pause_game_ui.gd" id="16_51grn"]
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="19_1vcyb"]
+[ext_resource type="Script" uid="uid://dayquwr7wsoce" path="res://scripts/utils/pause_confirmation_panel.gd" id="19_21xuv"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
@@ -28,6 +32,39 @@
 [ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
 [ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xuv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lctrs"]
+bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhiww"]
+bg_color = Color(0.6064064, 0.06568552, 4.813075e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gopqt"]
+bg_color = Color(0.4457847, 0.036952697, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qca60"]
+bg_color = Color(0.7918716, 0.100445725, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omb3v"]
+bg_color = Color(0, 0.36959997, 0.107734896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pur81"]
+bg_color = Color(0.104712255, 0.2792548, 0.15956783, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8n22"]
+bg_color = Color(0.17046908, 0.41386926, 0.24258903, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8e4ax"]
 shader = ExtResource("1_8e4ax")
@@ -96,6 +133,21 @@ expand_mode = 1
 stream = ExtResource("2_bd51b")
 autoplay = true
 bus = &"Music"
+
+[node name="PauseContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=1437380376]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+
+[node name="PauseButton" type="TextureButton" parent="UI/DesktopUI/PauseContainer" unique_id=1606311021]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("5_5o8nl")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("6_q7j5u")
 
 [node name="ClockContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=2049360299]
 layout_mode = 1
@@ -169,31 +221,28 @@ app = 9
 [node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-app = 23
+app = 29
 
 [node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-app = 24
+app = 30
 
 [node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
 visible = false
 layout_mode = 2
-app = 21
-
-[node name="PauseQuit" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=316207228 instance=ExtResource("16_5o8nl")]
-layout_mode = 2
-app = 31
+app = 27
 
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
 
-[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui", "notification_ui") instance=ExtResource("3_qca60")]
+[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui", "pause_button", "notification_ui") instance=ExtResource("3_qca60")]
 visible = false
 layout_mode = 1
 apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
+pause_button = NodePath("../DesktopUI/PauseContainer/PauseButton")
 notification_ui = NodePath("../NotificationUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
@@ -273,7 +322,7 @@ theme_override_font_sizes/font_size = 30
 text = "Dia"
 icon_alignment = 1
 
-[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button")]
+[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel")]
 process_mode = 3
 visible = false
 layout_mode = 1
@@ -285,6 +334,8 @@ grow_vertical = 2
 script = ExtResource("16_51grn")
 resume_button = NodePath("CenterContainer/TextDayOverContainer/ResumeButton")
 quit_button = NodePath("CenterContainer/TextDayOverContainer/QuitButton")
+menu_button = NodePath("CenterContainer/TextDayOverContainer/MainButton")
+confirmation_panel = NodePath("ConfirmationPanel")
 
 [node name="DayOverBackground" type="TextureRect" parent="UI/PauseGameUI" unique_id=1458791751]
 modulate = Color(1, 1, 1, 0.835294)
@@ -330,8 +381,19 @@ theme_override_font_sizes/font_size = 30
 text = "Despausar"
 icon_alignment = 1
 
+[node name="CentralMargin3" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=702040738]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1380288142]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_font_sizes/font_size = 30
+text = "Voltar ao Menu"
+icon_alignment = 1
+
 [node name="CentralMargin2" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1776495103]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="QuitButton" type="Button" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=2047760964]
@@ -340,6 +402,74 @@ theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_font_sizes/font_size = 30
 text = "Sair do Jogo"
 icon_alignment = 1
+
+[node name="ConfirmationPanel" type="PanelContainer" parent="UI/PauseGameUI" unique_id=418022796]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_21xuv")
+script = ExtResource("19_21xuv")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/PauseGameUI/ConfirmationPanel" unique_id=556334700]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lctrs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer" unique_id=1514467922]
+custom_minimum_size = Vector2(280, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Warn" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=421046966]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "ATENÇÃO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1674088028]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/normal_font = ExtResource("19_1vcyb")
+theme_override_fonts/bold_font = ExtResource("19_1vcyb")
+theme_override_font_sizes/normal_font_size = 22
+text = "Ao realizar essa ação, todo o progresso do dia atual será perdido."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1881545363]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=491858092]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhiww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gopqt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qca60")
+text = "Cancelar"
+
+[node name="ContinueButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=936949493]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_omb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pur81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8n22")
+text = "Continuar"
 
 [node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("clock_timer", "hack_handler")]
 visible = false
@@ -400,4 +530,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[connection signal="pressed" from="UI/DesktopUI/PauseContainer/PauseButton" to="UI/DesktopUI/PauseContainer/PauseButton" method="_on_pressed"]
 [connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
+[connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_continue_button_pressed"]

@@ -14,8 +14,11 @@ enum SiteType{
 var app_to_site_type = {
 	GameData.App.REVIEWSSITE : SiteType.REVIEW,
 	GameData.App.BROWSERAMAZONIASHOP : SiteType.SHOP,
+	GameData.App.BROWSERLIBREMERCADOSHOP : SiteType.SHOP,
 	GameData.App.BROWSEREMILIASHOP : SiteType.SHOP,
-	GameData.App.BROWSERAECSHOP: SiteType.SHOP
+	GameData.App.BROWSEREMPORIOBOLOSSHOP : SiteType.SHOP,
+	GameData.App.BROWSERAECSHOP: SiteType.SHOP,
+	GameData.App.BROWSERZORASHOP: SiteType.SHOP,
 }
 #endregion DEFINITIONS
 
