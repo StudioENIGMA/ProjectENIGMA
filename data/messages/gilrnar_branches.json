@@ -1,0 +1,42 @@
+{
+  "thread_id": "gilrnar",
+  "sender": "Gilrnar",
+	  "branches": {
+		"scan0_gilrnar": [
+		 	{
+				"id": "gilrnar_payment0_0",
+				"text": "olá tem que pagar esse negócio aqui, chefe mandou, nesse boleto 789623"
+		  	},
+			{
+				"id": "gilrnar_payment0_1",
+				"text": "valeu.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "789623"
+					}
+				]
+			}
+		],
+		"scan1_gilrnar": [
+			{
+				"id": "gilrnar_payment1_0",
+				"text": "oi cara"
+			},
+			{
+				"id": "gilrnar_payment1_0",
+				"text": "descobri um jeito de ganhar um dinheiro fácil, me manda 800 reais que eu vou jogar e transformar em 4000 meu pix é: FD56Z"
+			},
+			{
+				"id": "gilrnar_payment0_1",
+				"text": "voce não vai se arrepender",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FD56Z"
+					}
+				]
+			}
+		]
+	}
+}

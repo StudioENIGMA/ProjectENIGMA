@@ -1,0 +1,251 @@
+{
+  "thread_id": "marcão",
+  "sender": "Marcão",
+
+	"branches": {
+		"task0_marcao": [
+			{
+				"id": "marcao_purchase0_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "preciso que você compre 15kg de aço"
+			},
+			{
+				"id": "marcao_purchase0_1",
+				"text": "Valeu!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 15,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task1_marcao": [
+			{
+				"id": "marcao_purchase1_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "marcao_purchase1_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "marcao_purchase1_2",
+				"text": "preciso que você compre 7 furadeiras"
+			}
+		],
+		"task2_marcao": [
+			{
+				"id": "marcao_purchase2_0",
+				"text": "Cara você não vai acreditar"
+			},
+			{
+				"id": "marcao_purchase2_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "marcao_purchase2_2",
+				"text": "tamo precisando trocar o nitrogênio do equipamento compra 12 litros de N2 faz o favor"
+			},
+			{
+				"id": "marcao_purchase2_3",
+				"text": "Me salvou estgiário",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 12,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task3_marcao": [
+			{
+				"id": "marcao_purchase3_0",
+				"text": "Bom dia meu camarada"
+			},
+			{
+				"id": "marcao_purchase3_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_purchase3_2",
+				"text": "o dia tá bonito, mas a situação dos martelos está osso"
+			},
+			{
+				"id": "marcao_purchase3_3",
+				"text": "chefe deixou comprar meia dúzia de martelo"
+			},
+			{
+				"id": "marcao_purchase3_4",
+				"text": "faz esse favor para mim"
+			},
+			{
+				"id": "marcao_purchase3_5",
+				"text": "obrigado camarada",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 13,
+								"quantity": 6,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task4_marcao": [
+			{
+				"id": "marcao_purchase4_0",
+				"text": "Camarada deixa eu te falar"
+			},
+			{
+				"id": "marcao_purchase4_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "marcao_purchase4_2",
+				"text": "rolou um vazamento de gás"
+			},
+			{
+				"id": "marcao_purchase4_3",
+				"text": "temos que repor isso o mais rápido possível"
+			},
+			{
+				"id": "marcao_purchase4_4",
+				"text": "compra 8 litros de N2 por favor"
+			}
+		],
+		"task5_marcao": [
+			{
+				"id": "marcao_payment0_0",
+				"text": "Opa estagiário"
+			},
+			{
+				"id": "marcao_payment0_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "marcao_payment0_2",
+				"text": "chefe pediu para solicitar a você o pagamento de um boleto de alguns materiais"
+			},
+			{
+				"id": "marcao_payment0_3",
+				"text": "586098"
+			},
+			{
+				"id": "marcao_payment0_3",
+				"text": "Valeu!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "586098"
+					}
+				]
+			}
+		],
+		"task6_marcao": [
+			{
+				"id": "marcao_payment1_0",
+				"text": "Cara me ajuda ai kkkkkkkkkkk"
+			},
+			{
+				"id": "marcao_payment1_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "marcao_payment1_2",
+				"text": "tamo precisando de uns materiais"
+			},
+			{
+				"id": "marcao_payment1_3",
+				"text": "paga o boleto por favor"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "o boleto é 586092"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "Salvou o projeto!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "586092"
+					}
+				]
+			}
+		],
+		"task7_marcao": [
+			{
+				"id": "marcao_payment2_0",
+				"text": "Preciso de um ajuda sua camarada"
+			},
+			{
+				"id": "marcao_payment2_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "marcao_payment2_2",
+				"text": "paga esses materiais necessários, chefe permitiu"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "897340"
+			},
+			{
+				"id": "marcao_payment1_4",
+				"text": "obrigado camarada",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "897340"
+					}
+				]
+			}
+		],
+		"task8_marcao": [
+			{
+				"id": "marcao_payment3_0",
+				"text": "Fala meu bom"
+			},
+			{
+				"id": "marcao_payment3_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "marcao_payment3_2",
+				"text": "fiz o pedido de um equipamento para montagem novo"
+			},
+			{
+				"id": "marcao_payment3_3",
+				"text": "sobrou para você fazer esse pagamento kkkkkk "
+			},
+			{
+				"id": "marcao_payment3_4",
+				"text": "o boleto tem código 897341"
+			}
+		]
+	}                                        
+}

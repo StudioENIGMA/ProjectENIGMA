@@ -1,0 +1,99 @@
+{
+  "thread_id": "carolina",
+  "sender": "Carolina",
+
+	"branches": {
+		"task0_carolina": [
+			{
+				"id": "carolina_purchase0_0",
+				"text": "Oii, vamos fzr uma confraternização do nosso time nos próximos dias e queria que vc me ajudasse comprando um bolo de cobertura de morango e um de cobertura de maracujá"
+			}
+		],
+		"task1_carolina": [
+			{
+				"id": "carolina_purchase1_0",
+				"text": "Oi, meu monitor queimou hahaha"
+			},
+			{
+				"id": "carolina_purchase1_1",
+				"text": "o chefe quer q isso seja resolvido o mais rápido possível, ent ficou pra vc comprar 1 monitor pra mim"
+			},
+			{
+				"id": "carolina_purchase1_2",
+				"text": "Obgdaa",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_carolina": [
+			{
+				"id": "carolina_payment0_0",
+				"text": "Oi estagiário"
+			},
+			{
+				"id": "carolina_purchase0_1",
+				"text": "eu preciso pagar a internet hahahaha chefe falou pra eu pedir pra vc fzr isso por mim"
+			},
+			{
+				"id": "carolina_purchase0_2",
+				"text": "o boleto é 569721"
+			},
+			{
+				"id": "carolina_payment0_3",
+				"text": "Obirigada!!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "569721"
+					}
+				]
+			}
+		],
+		"task3_carolina": [
+			{
+				"id": "carolina_password0_0",
+				"text": "Oi estagiário, vc pode me ajudar a entender melhor sobre senhas? Quero trocar a minha, mas n sei qual modelo é mais seguro, estou em duvida entre 6721839812 ou k7.i3@m2",
+				"choices": [
+					{
+						"id": "carolina_password0_0a_0",
+						"player_text": "k7.i3@m2",
+						"npc_reply": {
+							"goto_branch": "from_carolina_password0_1",
+							"delay_ticks": 15
+						}
+					},
+					{
+						"id": "carolina_password0_0a_1",
+						"player_text": "6721839812",
+						"npc_reply": {
+							"goto_branch": "from_carolina_password0_2",
+							"delay_ticks": 15
+						}
+					}
+				]
+			}
+		],
+		"from_carolina_password0_1": [
+		  	{
+				"id": "carolina_password0_1",
+				"text": "Obrigadaa agora eu aprendi"
+			}
+		],
+		"from_carolina_password0_2": [
+			{
+				"id": "carolina_password0_2",
+				"text": "O sistema disse q ela é fraca :("
+			}
+		]
+	}
+}

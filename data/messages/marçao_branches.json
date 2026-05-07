@@ -1,0 +1,27 @@
+{
+  "thread_id": "marçao",
+  "sender": "Marção",
+
+	"branches": {
+		"scan0_marçao": [
+			{
+				"id": "marçao_purchase0_0",
+				"text": "eaei meu cvamarada, blz?"
+			},
+			{
+				"id": "marçao_purchase0_1",
+				"text": "fiquei sabehndo de um de um jeito de conseghuir desconto na proxima compra dop Libre Mercado. Ja q estou preciandof de uasm fuderaadeiras compra 5 I nele pra mim"
+			},
+			{
+				"id": "marçao_purchase0_1",
+				"text": "bouaa agohra vpamos trabcalhar",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 12, "quantity": 5, "store": "libre_mercado" }]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "thread_id": "arthur",
+  "sender": "Arthur",
+  "branches": {
+	"scan0_arthur": [
+		{
+			"id": "arthur_purchase0_0",
+			"text": "Ei meu querido, meu uniforme rasgou e o chefe quer q eu troque logo, disse pra eu pedir pra tu, faz a boa ai de 3 camisas sociais vermelhas da Zora"
+		},
+		{
+			"id": "arthur_purchase0_1",
+			"text": "Muito obrigado kkkkk",
+			"requires": [
+			  {
+				"flag": "purchase",
+				"items": [{ "item_id": 32, "quantity": 3, "store": "zora" }]
+			  }
+			]
+		}
+	],
+	"scan1_arthur": [
+		{
+			"id": "arthur_payment0_0",
+			"text": "me faz esde pagamento por favor, é importante foi o chepe q pediu 09FK0"
+		},
+		{
+			"id": "arthur_payment0_1",
+			"text": "obrigado tamo junto",
+			"requires": [
+			  {
+				"flag": "payment",
+				"payment_id": "09FK0"
+			  }
+			]
+		}
+	]
+  }
+}

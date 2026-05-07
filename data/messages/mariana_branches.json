@@ -1,0 +1,50 @@
+{
+	"thread_id": "mariana",
+	"sender": "Mariana",
+	"branches": {
+		"task0_mariana": [
+			{
+				"id": "mariana_password0_0",
+				"text": "Olá estagiário, é a Mariana pelo celular"
+			},
+			{
+				"id": "mariana_password0_1",
+				"text": "Me falaram que você pode me ajudar com meu problema em criar senhas seguras, costumo colocar senhas bem parecidas e o chefe já me deu bronca por isso :("
+			},
+			{
+				"id": "mariana_password0_2",
+				"text": "Qual é melhor? 89kj.fs2 ou 58lcws142",
+				"choices": [
+					{
+						"id": "mariana_password0_1a_0",
+						"player_text": "89kj.fs2",
+						"npc_reply": {
+							"goto_branch": "from_mariana_password0_3",
+							"delay_ticks": 29
+						}
+					},
+					{
+						"id": "mariana_password0_1a_1",
+						"player_text": "58lcws142",
+						"npc_reply": {
+							"goto_branch": "from_mariana_password0_4",
+							"delay_ticks": 29
+						}
+					}
+				]
+			}
+		],
+		"from_mariana_password0_3": [
+			{
+				"id": "mariana_password0_3",
+				"text": "Ótima senha, abrigada"
+			}
+		],
+		"from_mariana_password0_4": [
+			{
+				"id": "mariana_password0_4",
+				"text": "Me foi sugerido pelo sistema uma senha melhor parecida com a primeira"
+			}
+		]
+	}
+}

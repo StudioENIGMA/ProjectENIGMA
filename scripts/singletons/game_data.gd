@@ -90,6 +90,15 @@ var shops_names = {
 	App.BROWSERZORASHOP: "Zora",
 }
 
+var shop_string_to_enum = {
+	"amazonia": GameData.App.BROWSERAMAZONIASHOP,
+	"libre_mercado": GameData.App.BROWSERLIBREMERCADOSHOP,
+	"emilia_bolos": GameData.App.BROWSEREMILIASHOP,
+	"emporio_bolos": GameData.App.BROWSEREMPORIOBOLOSSHOP,
+	"aec": GameData.App.BROWSERAECSHOP,
+	"zora": GameData.App.BROWSERZORASHOP
+}
+
 var cart_enum_to_shop_enum = {
 	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
 	App.BROWSERLIBREMERCADOCART: App.BROWSERLIBREMERCADOSHOP,
@@ -99,18 +108,24 @@ var cart_enum_to_shop_enum = {
 	App.BROWSERZORACART: App.BROWSERZORASHOP
 }
 
-var verified_contacts = []
+var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
 
 var bank_balance: float = 200
 
 var completed_payments = []
+var purchased_items = {}
+var options_chose = {}
+ 
+var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 600	# Start at 10:00
 var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 635 # End at 16:00
-var current_day:int = 0
-var reputation_points:int = 0
+var max_hours_minutes:int = 960 # End at 16:00
+var current_day:int = 1
+var daily_reputation_points:int = 0
+var total_reputation_points:int = 0
+var events_log = []
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
@@ -263,7 +278,7 @@ var apps_chinese_operations = {
 	"open": "阿布里爾"
 }
 
-var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
+var apps_in_store: Array[App] = [App.MESSAGESHOME]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 
 func _ready() -> void:
@@ -365,12 +380,14 @@ func save_game() -> void:
 	var game_state = {
 		"start_date_dict": start_date_dict,
 		"current_day": current_day,
-		"reputation_points": reputation_points,
+		"total_reputation_points": total_reputation_points,
 		"passwords": passwords,
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
 		"saved_messages_conversations": saved_messages_conversations,
 		"saved_email_threads": saved_email_threads,
+		"random_events_history": random_events_history,
+		"bank_balance": bank_balance,
 	}
 
 	save_file.store_string(JSON.stringify(game_state))
@@ -398,7 +415,8 @@ func load_game() -> void:
 
 	start_date_dict = game_state.get("start_date_dict")
 	current_day = int(game_state.get("current_day"))
-	reputation_points = int(game_state.get("reputation_points"))
+	total_reputation_points = int(game_state.get("total_reputation_points"))
+	bank_balance = float(bank_balance)
 
 	var game_state_passwords = game_state.get("passwords", {})
 	var saved_passwords: Dictionary = {}
@@ -427,9 +445,13 @@ func load_game() -> void:
 
 	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
 	saved_email_threads.clear()
-
 	for saved_thread in raw_saved_email_threads:
 		saved_email_threads.append(saved_thread.duplicate(true))
+
+	var raw_random_events_history: Array = game_state.get("random_events_history", [])
+	random_events_history.clear()
+	for thread in raw_random_events_history:
+		random_events_history.append(thread)
 
 func reset_to_defaults():
 	var fresh_instance = load(get_script().resource_path).new()
@@ -437,6 +459,8 @@ func reset_to_defaults():
 	# Get a list of all variables you defined in the script
 	for prop in get_script().get_script_property_list():
 		var prop_name = prop.name
+		if prop_name == "start_date_dict":
+			continue
 		# Copy the default value from the fresh instance to this one
 		self.set(prop_name, fresh_instance.get(prop_name))
 

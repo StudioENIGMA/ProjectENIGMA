@@ -35,6 +35,7 @@ func _ready() -> void:
   event_handler.hack_handler.send_hack_notification.connect(
 	ui.notifications_control.send_hack_notification
   )
+  event_handler.set_shop_by_date()
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -49,6 +50,7 @@ func _ready() -> void:
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
   #Story Director Browser
   story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
+  story_director.update_news.connect(ui.base_app.browser_app.update_news)
   #Story Director Reviews Website
   ui.base_app.browser_app.open_site_requested.connect(
 	browser_director._on_open_website_requested
