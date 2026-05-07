@@ -1,0 +1,45 @@
+{
+  "thread_id": "false_px_investment",
+  "sender": "Gerente Px Investment ☑️",
+
+	"branches": {
+		"scan0_false_px_investment": [
+			{
+				"id": "false_px_investment_payment0_0",
+				"text": "Sua conta do PX Investment foi selecionada como vencedora da promoção Multiplica, na qual multiplicamos o seu dinheiro."
+			},
+			{
+				"id": "false_px_investment_payment0_1",
+				"text": "Para participar é preciso apenas enviar R$7000,00 que devolveremos em triplo!"
+			},
+			{
+				"id": "false_px_investment_payment0_2",
+				"text": "Código Pix: 9922A"
+			}
+		],
+		"scan1_false_px_investment": [
+			{
+				"id": "false_px_investment_password0_0",
+				"text": "Olá, sou o gerente responsável pela conta da empresa em nosso banco."
+			},
+			{
+				"id": "false_px_investment_password0_1",
+				"text": "Verificamos uma compra suspeita feita pela conta com o CNPJ da sua empresa. "
+			},
+			{
+				"id": "false_px_investment_password0_2",
+				"text": "Por favor, informe a senha do banco para que possamos investigar melhor o ocorrido e assim podermos proteger sua conta",
+				"choices": [
+					{
+						"id": "carolina_password0_2a_0",
+						"player_text": "$bank_password",
+						"npc_reply": {
+							"goto_branch": "from_carolina_password0_1",
+							"delay_ticks": 15
+						}
+					}
+				]
+			}
+		]
+	}
+}

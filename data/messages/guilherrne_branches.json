@@ -1,0 +1,26 @@
+{
+  "thread_id": "guilherrne",
+  "sender": "Guilherrne",
+	  "branches": {
+		"scan0_guilherrne": [
+			{
+				"id": "guilherrne_payment0_0",
+				"text": "Caro estagiário "
+			},
+			{
+				"id": "guilherrne_payment0_1",
+				"text": "Precisamos de um pagamento de umas coisas aqui, para melhorar o departamento faz o favor código do pix: 6AF50"
+			},
+			{
+				"id": "guilherrne_falso0_2",
+				"text": "tmj nessa irmão, fortalecendo o corre",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "6AF50"
+					}
+				]
+			}
+		]
+	}
+}

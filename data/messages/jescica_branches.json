@@ -1,0 +1,67 @@
+{
+  "thread_id": "jescica",
+  "sender": "Jescica",
+
+	"branches": {
+		"scan0_jescica": [
+			{
+				"id": "jescica_payment0_0",
+				"text": "Oi, é a Jessica, mudei de número, paga esse boleto ai pra mim, o chefe que pediu"
+			},
+			{
+				"id": "jescica_payment0_1",
+				"text": "Código boleto: 556382"
+			},
+			{
+				"id": "jescica_payment0_2",
+				"text": "Valeu kkkkkkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "556382"
+					}
+				]
+			}
+		],
+		"scan1_jescica": [
+			{
+				"id": "jescica_payment1_0",
+				"text": "Oi, tava precisando de um pix pra comprar uns doces pra galera aqui, me manda ai!pediu"
+			},
+			{
+				"id": "jescica_payment1_1",
+				"text": "Código é 7G25A"
+			},
+			{
+				"id": "jescica_payment1_2",
+				"text": "tmj kkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "7G25A"
+					}
+				]
+			}
+		],
+		"scan2_jescica": [
+			{
+				"id": "jescica_payment2_0",
+				"text": "Opa estagiário, é a jéssica, descobri um negócio legal aqui pra gente, me manda 500 reais nesse pix que jaja vai cair 1000 na sua conta, pode confiar, testei e deu certo.ra aqui, me manda ai!pediu"
+			},
+			{
+				"id": "jescica_payment2_1",
+				"text": "Me manda os 500 no pix MKB7U"
+			},
+			{
+				"id": "jescica_payment2_2",
+				"text": "boa vai ganhar mto mais kkkkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MKB7U"
+					}
+				]
+			}
+		]
+	}
+}

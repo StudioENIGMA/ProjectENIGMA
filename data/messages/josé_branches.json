@@ -6,7 +6,11 @@
 		"task0_jose": [
 			{
 				"id": "jose_purchase0_0",
-				"text": "Boa tarde, você poderia encomendar 5L de Nitrogênio Líquido (N2), por favor?",
+				"text": "Boa tarde, você poderia encomendar 5L de Nitrogênio Líquido (N2), por favor?"
+			},
+			{
+				"id": "jose_purchase0_1",
+				"text": "Obrigado 👍",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -24,7 +28,11 @@
 		"task1_jose": [
 			{
 				"id": "jose_purchase1_0",
-				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 10 Barras de Aço?",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 10 Barras de Aço?"
+			},
+			{
+				"id": "jose_purchase1_1",
+				"text": "Valeu!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -42,7 +50,11 @@
 		"task2_jose": [
 			{
 				"id": "jose_purchase2_0",
-				"text": "Boa tarde, você poderia, por favor, acessar um site e encomendar 2 martelos?",
+				"text": "Boa tarde, você poderia, por favor, acessar um site e encomendar 2 martelos?"
+			},
+			{
+				"id": "jose_purchase2_1",
+				"text": "Obrigado!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -60,7 +72,11 @@
 		"task3_jose": [
 			{
 				"id": "jose_purchase3_0",
-				"text": "Boa tarde, você poderia encomendar 2 Monitores, por favor?",
+				"text": "Boa tarde, você poderia encomendar 2 Monitores, por favor?"
+			},
+			{
+				"id": "jose_purchase3_1",
+				"text": "Obrigado 👍",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -78,7 +94,11 @@
 		"task4_jose": [
 			{
 				"id": "jose_purchase4_0",
-				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 1 Furadeira Elétrica?",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 1 Furadeira Elétrica?"
+			},
+			{
+				"id": "jose_purchase4_1",
+				"text": "Obrigado!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -96,7 +116,11 @@
 		"task5_jose": [
 			{
 				"id": "jose_purchase5_0",
-				"text": "Boa tarde, você poderia encomendar 8L de Nitrogênio Líquido (N2), por favor?",
+				"text": "Boa tarde, você poderia encomendar 8L de Nitrogênio Líquido (N2), por favor?"
+			},
+			{
+				"id": "jose_purchase5_1",
+				"text": "Valeu!",
 				"requires": [
 					{
 						"flag": "purchase",
@@ -114,7 +138,11 @@
 		"task6_jose": [
 			{
 				"id": "jose_purchase6_0",
-				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 5 Barras de Aço?",
+				"text": "Boa tarde, você poderia, por favor, acessar o site Amazônia para encomendar 5 Barras de Aço?"
+			},
+			{
+				"id": "jose_purchase6_1",
+				"text": "Obrigado 👍",
 				"requires": [
 					{
 						"flag": "purchase",

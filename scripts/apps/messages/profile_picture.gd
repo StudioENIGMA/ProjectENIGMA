@@ -47,8 +47,8 @@ func set_color_values(npc_name: String) -> void:
 	
 func update_ui() -> void:
 	var font_size
-	if self.custom_minimum_size.x == 64:
+	if self.custom_minimum_size.x >= 64:
 		font_size = 45
-	elif self.custom_minimum_size.x == 40:
+	else:
 		font_size = 30
 	panel_label.add_theme_font_size_override("font_size", font_size)

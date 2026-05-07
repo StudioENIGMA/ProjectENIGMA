@@ -3,16 +3,49 @@
   "sender": "Financeiro",
   "entry_points": [
 	{
-	  "day": 0,
-	  "branch": "d0_start",
-	  "relative_due_time": 30
+		"day": 0,
+		"branch": "d0_start",
+		"relative_due_time": 100
+	},
+	{
+		"day": 1,
+		"branch": "d1_start",
+		"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "Bank",
+					"is": true
+				}
+	  	],
+		"relative_due_time": 60
+	},
+	{
+		"day": 1,
+		"branch": "d1_tip",
+		"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "Bank",
+					"is": true
+				}
+	  	],
+		"relative_due_time": 220
+	},
+	{
+		"day": 2,
+		"branch": "d2_start",
+		"relative_due_time": 288
 	}
   ],
   "branches": {
 	"d0_start": [
 	  {
 		"id": "f_0_0",
-		"text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá me ajudar em algumas tarefas.",
+		"text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá minha equipe em algumas tarefas."
+	  },
+	  {
+		"id": "f_0_1",
+		"text": "As pessoas que compõe minha equipe são o Guilherme, a Marta e o Yago",
 		"choices": [
 		  {
 			"id": "f_0_0a_0",
@@ -24,6 +57,44 @@
 		  }
 		]
 	  }
+	],
+	"d1_start": [
+		{
+			"id": "f_1_0",
+			"text": "Bom dia. Como vocẽ deve imaginar, boa parte das suas tarefas envolvem pagamentos pelo aplicativo de banco, por isso você deve entender seu funcionamento de imediato."
+		},
+		{
+			"id": "f_1_1",
+			"text": "Por favor, efetue este pagamento por PIX inserindo o código AAAAA na área de pagamento PIX do banco. Agradeço desde já."
+		}
+	],
+	"d1_tip": [
+		{
+			"id": "f_1_2",
+			"text": "Antes de você começar seu trabalho, gostaria que soubesse que deve tomar cuidado com mensagens de multiplicar dinheiro."
+		},
+		{
+			"id": "f_1_3",
+			"text": "Nenhum banco ou pessoa irá distribuir dinheiro."
+		}
+	],
+	"d2_start": [
+		{
+			"id": "f_2_0",
+			"text": "Tenho outro importante aviso para você."
+		},
+		{
+			"id": "f_2_1",
+			"text": "Saiba que nenhum banco irá solicitar informações sensíveis da sua conta como: senhas, documentos ou códigos de segurança."
+		},
+		{
+			"id": "f_2_2",
+			"text": "Fique atento a esse tipo de mensagem!"
+		},
+		{
+			"id": "f_2_3",
+			"text": "Irei aproveitar o contato com você para solicitar a compra de 3 camisas sociais, para o seu uniforme, por uma das lojas que você encontra no navegador."
+		}
 	]
   }
 }

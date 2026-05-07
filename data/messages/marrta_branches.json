@@ -1,0 +1,23 @@
+{
+  "thread_id": "marrta",
+  "sender": "Marrta",
+
+ 	"branches": {
+		"scan0_marrta": [
+			{
+				"id": "marrta_payment0_0",
+				"text": "Oiiee, novo estagiário Paga essa conta aqui pra mim por favor eu sei que você é legal e vai pagar código: I83G9"
+			},
+			{
+				"id": "marrta_payment0_1",
+				"text": "obrigadaaaaaa",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "I83G9"
+					}
+				]
+			}
+		]
+	}
+}

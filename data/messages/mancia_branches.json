@@ -1,0 +1,30 @@
+{
+  "thread_id": "mancia",
+  "sender": "Mancia",
+
+	"branches": {
+		"scan0_mancia": [
+			{
+				"id": "mancia_purchase0_0",
+				"text": "boa tarde! :] acabaram as rosquinha. Você pode encomendar 10 tiramisu no emporio dos bolos, por favor? ;))))"
+			}
+		],
+		"scan2_mancia": [
+			{
+				"id": "mancia_purchase1_0",
+				"text": "vvocê poderïa encomend4ŕ 22 bolos decorados pro próximó aniversário da empr3sä?"
+			},
+			{
+				"id": "mancia_purchase1_1",
+				"text": "vvlaeu",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{ "item_id": 25, "quantity": 22, "store": "emilia_bolos" }]
+					}
+				]
+			}
+		]
+	}
+}

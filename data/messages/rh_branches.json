@@ -5,7 +5,17 @@
 	{
 	  "day": 0,
 	  "branch": "d0_start",
-	  "relative_due_time": 45
+	  "relative_due_time": 160
+	},
+	{
+		"day": 2,
+		"branch": "d2_start",
+		"relative_due_time": 152
+	},
+	{
+		"day": 3,
+		"branch": "d3_start",
+		"relative_due_time": 10
 	}
   ],
   "branches": {
@@ -21,7 +31,11 @@
 	  },
 	  {
 		"id": "rh_0_1",
-		"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias eu vou te passando mais tarefas da minha área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
+		"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)"
+	  },
+	  {
+		"id": "rh_0_2",
+		"text": "A membro da minha equipe é a Marcia",
 		"choices": [
 		  {
 			"id": "rh_0_1a_0",
@@ -33,6 +47,26 @@
 		  }
 		]
 	  }
+	], 
+	"d2_start": [
+		{
+			"id": "rh_2_0",
+			"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Fique atento!"
+		},
+		{
+			"id": "rh_2_1",
+			"text": "Aproveitando, por favor, entre no Elogie Lá e me diga q reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ."
+		}
+	],
+	"d3_start": [
+		{
+			"id": "rh_3_0",
+			"text": "Olá! fiquei sabendo de uma importante noticia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
+		},
+		{
+			"id": "rh_3_1",
+			"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?"
+		}
 	]
   }
 }
