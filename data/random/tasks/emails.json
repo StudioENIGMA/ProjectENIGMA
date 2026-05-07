@@ -38,5 +38,10 @@
 		"thread_id": "artur_task1",
 		"email_id": "artur_purchase1",
 		"required_app": "browser"
+	},
+	{
+		"thread_id": "mariana_task2",
+		"email_id": "mariana_payment0",
+		"required_app": "Bank"
 	}
 ]

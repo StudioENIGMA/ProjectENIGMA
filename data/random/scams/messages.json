@@ -43,12 +43,12 @@
 		"thread_id": "guilherrne",
 		"branch": "scan0_guilherrne",
 		"required_app": "Bank"
-  	},
+	},
 	{
 		"thread_id": "guillherme",
 		"branch": "scan0_guillherme",
 		"required_app": "browser"
-  	},
+	},
 	{
 		"thread_id": "jilmar",
 		"branch": "scan0_jilmar",

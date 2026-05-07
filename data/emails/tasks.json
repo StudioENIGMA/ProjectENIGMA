@@ -31,7 +31,16 @@
 		"email_id": "mariana_purchase1",
 		"sender": "mariana@enigma.com.br",
 		"subject": "Compra de Materiais",
-		"content": "Bom dia, Estagiário,\n\nEssa semana temos uma entrega muito importante para um grande cliente. Iremos precisar de mais materiais para a construção dos nossos produtos. Por favor, faça a compra de 20kg de aço, 5 litros de N2 e 3 martelos.\n\nAtenciosamente,\n\nMariana",
+		"content": "Bom dia, Estagiário,\n\nQueremos fazer uma melhoria nos monitores do time de produção. Gostaria que você fizesse a compra de 7 monitores. Desde já agradeço!\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_task2",
+		"email_id": "mariana_payment0",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Compra de Materiais",
+		"content": "Olá Estagiário, bom dia!\n\nEstamos fazendo o fechamento de algumas contas do mês anterior e a carga está alta. Por favor, nos ajude realizando o pagamento deste boleto.\n\nSegue o código: 097341\n\nAtenciosamente,\n\nMariana",
 		"attachments": [],
 		"requires": []
 	},
@@ -58,7 +67,7 @@
 		"email_id": "yago_purchase2",
 		"sender": "yagob@enigma.fin.com.br",
 		"subject": "Compra de Camisas",
-		"content": "Olá, estagiário,\n\nPrecisamos melhorar os computadores dos nossos recrutadores, e os computadores já foram comprados, mas também precisamos de monitores novos. Assim gostaria que você comprasse 9 monitores.\n\nCordialmente, Yago.",
+		"content": "Olá, estagiário,\n\nCom a chegada de novos estagiários precisaremos de novos uniformes. O Chefe me permitiu te pedir para comprar 3 camisetas azuis, 4 camisas sociais azuis e 5 camisas polo vermelhas.\n\nCordialmente, Yago.",
 		"attachments": [],
 		"requires": []
 	},
@@ -85,7 +94,7 @@
 		"email_id": "artur_purchase1",
 		"sender": "artur@enigma.ti.com.br",
 		"subject": "Compra de Frigobar",
-		"content": "Fala cara,\n\nO chefe quer que nós do TI usemos todos camisa polo azul da empresa em um evento de tecnologia, é mole? kkkkkkkk. Enfim, para não atrasarmos com o projeto, faz o pedido ai pra gente por favor.\n\nAtenciosamente,\n\nArtur",
+		"content": "Fala cara,\n\nO chefe quer que nós do TI usemos todos camisa polo azul da empresa em um evento de tecnologia, é mole? kkkkkkkk. Enfim, para não atrasarmos com o projeto, faz o pedido ai pra gente por favor. Somos em 4\n\nAtenciosamente,\n\nArtur",
 		"attachments": [],
 		"requires": []
 	}

@@ -1,16 +1,15 @@
 {
-  "thread_id": "marcaao",
-  "sender": "Marcaao",
-
-  	"branches": {
+	"thread_id": "marcaao",
+	"sender": "Marcaao",
+	"branches": {
 		"scan0_marcaao": [
 			{
 				"id": "marcaao_payment0_0",
-				"text": "Olá estagiário",
+				"text": "Olá estagiário"
 			},
 			{
 				"id": "marcaao_payment0_1",
-				"text": "pode pagar esse boleto de materiais por favor o boleto é UKC212"
+				"text": "pode pagar esse boleto de materiais por favor o boleto é 234567"
 			},
 			{
 				"id": "marcaao_payment0_2",
@@ -18,7 +17,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "UKC212"
+						"payment_id": "234567"
 					}
 				]
 			}
@@ -34,7 +33,7 @@
 			},
 			{
 				"id": "marcaao_payment1_2",
-				"text": "paga o boleto: HY2W26"
+				"text": "paga o boleto: 468431"
 			},
 			{
 				"id": "marcaao_payment1_3",
@@ -42,7 +41,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "HY2W26"
+						"payment_id": "468431"
 					}
 				]
 			}

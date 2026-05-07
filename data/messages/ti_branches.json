@@ -15,7 +15,7 @@
 	{
 		"day": 1,
 		"branch": "d1_task",
-		"relative_due_time": 300
+		"relative_due_time": 500
 	},
 	{
 		"day": 2,
@@ -23,19 +23,19 @@
 		"relative_due_time": 344
 	},
 	{
-		"day": 3,
+		"day": 1,
 		"branch": "d3_start",
 		"relative_due_time": 100
 	},
 	{
-		"day": 3,
+		"day": 4,
 		"branch": "d3_phishing",
-		"relative_due_time": 255
+		"relative_due_time": 190
 	},
 	{
-		"day": 3,
+		"day": 4,
 		"branch": "d3_spoofing",
-		"relative_due_time": 360
+		"relative_due_time": 290
 	}
   ],
   "branches": {
@@ -62,7 +62,7 @@
 	  },
 	  {
 		"id": "ti_0_5",
-		"text": "mas n vamo passar nadas agora, só aproveita o banana kkkk",
+		"text": "mas n vamo passar nada agora, só aproveita o banana kkkk",
 		"choices": [
 		  {
 			"id": "ti_0_5a_0",
@@ -114,14 +114,10 @@
 		},
 		{
 			"id": "ti_1_4",
-			"text": "da uma olhada no Gerenciador de Senhas nos ajustes"
-		},
-		{
-			"id": "ti_1_5",
 			"text": "qnd voltar me da um toque",
 			"choices": [
 				{
-					"id": "ti_0_6a_0",
+					"id": "ti_0_4a_0",
 					"player_text": "opa voltei",
 					"npc_reply": {
 						"goto_branch": "from_ti_1_7",
@@ -129,7 +125,7 @@
 					}
 				},
 				{
-					"id": "ti_0_6a_1",
+					"id": "ti_0_4a_1",
 					"player_text": "Muito interessante, ele armazena pra mim as senhas…",
 					"npc_reply": {
 						"goto_branch": "from_ti_1_9",
@@ -137,7 +133,7 @@
 					}
 				}
 			]
-		},
+		}
 	],
 	"from_ti_1_7": [
 		{
@@ -170,15 +166,16 @@
 		},
 		{
 			"id": "ti_1_13",
-			"text": "o numero de caracteres tbm importa, senhas grandes sao mais seguras"
+			"text": "o numero de caracteres tbm importa, senhas maiores sao mais seguras"
 		},
 		{
 			"id": "ti_1_14",
-			"text": "mas entre duas com qtd de caracteres proximas eh melhor a q tiver os diferentes caracteres"
+			"text": "mas entre duas com qtd de caracteres iguais eh melhor a q tiver os diferentes caracteres"
 		},
 		{
 			"id": "ti_1_15",
 			"text": "vou fazer um teste com vc agr fala qual dessas é mais segura",
+			"event_id": "ti_password0",
 			"choices": [
 				{
 					"id": "ti_1_15a_0",

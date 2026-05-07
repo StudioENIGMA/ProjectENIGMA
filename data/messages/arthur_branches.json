@@ -13,7 +13,7 @@
 			"requires": [
 			  {
 				"flag": "purchase",
-				"items": [{ "item_id": 32, "quantity": 3, "store": "aec" }]
+				"items": [{ "item_id": 32, "quantity": 3, "store": "zora" }]
 			  }
 			]
 		}

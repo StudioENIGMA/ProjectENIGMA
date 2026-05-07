@@ -1,7 +1,6 @@
 {
-  "thread_id": "false_px_investment",
-  "sender": "Gerente Px Investment ☑️",
-
+	"thread_id": "false_px_investment",
+	"sender": "Gerente Px Investment ☑️",
 	"branches": {
 		"scan0_false_px_investment": [
 			{
@@ -31,12 +30,8 @@
 				"text": "Por favor, informe a senha do banco para que possamos investigar melhor o ocorrido e assim podermos proteger sua conta",
 				"choices": [
 					{
-						"id": "carolina_password0_2a_0",
-						"player_text": "$bank_password",
-						"npc_reply": {
-							"goto_branch": "from_carolina_password0_1",
-							"delay_ticks": 15
-						}
+						"id": "false_px_investment_password0_2a_0",
+						"player_text": "$bank_password"
 					}
 				]
 			}

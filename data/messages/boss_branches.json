@@ -39,7 +39,7 @@
 					"flag": "app_installed",
 					"app_id": "fake_store",
 					"is": false
-				},
+				}
 		],
 		"relative_due_time": 0
 	},
@@ -122,10 +122,6 @@
 			{
 				"id": "boss_0_5",
 				"text": "Nossas empresas parceiras são a Viva, a PX Investment e a Negativa"
-			},
-			{
-				"id": "boss_0_6",
-				"text": "A PX Investment irá oferecer investimentos, e você poder aceitar todas"
 			}
 		],
 		"d1_start_1": [
@@ -142,11 +138,24 @@
 			},
 			{
 				"id": "b_1_1",
-				"text": "Eu pedi para o TI liberar a instalação do Banco na sua loja de aplicativos."
+				"text": "Eu pedi para o TI liberar a instalação do Banco na sua loja de aplicativos.",
+				"event_id": "boss_install0"
 			},
 			{
 				"id": "b_1_6",
 				"text": "Muito bem. Agora que você tem acesso ao Banco, o pessoal já pode te pedir ajuda com pagamentos",
+				"requires": [
+					{
+						"flag": "app_installed",
+						"app_id": "Bank",
+						"is": true
+					}
+				]
+			},
+			{
+				
+				"id": "b_1_7",
+				"text": "Um importante aviso. A PX Investment irá oferecer propostas de investimentos, e você deverá aceitar todas até o final do período de estágio",
 				"requires": [
 					{
 						"flag": "app_installed",
@@ -224,7 +233,39 @@
 			},
 			{
 				"id": "b_2_10",
-				"text": "Aproveitando, abra as notícias e depois volte aqui para me contar o que elas dizem."
+				"text": "Aproveitando, abra as notícias e depois volte aqui para me contar o que alguma diz.",
+				"event_id": "boss_news0",
+				"choices": [
+					{
+						"id": "b_2_10a_0",
+						"player_text": "Houve vazamento de bilhõs de senhas",
+						"npc_reply": {
+							"goto_branch": "from_b_2_11",
+							"delay_ticks": 2.0
+						}
+						
+					},
+					{
+						"id": "b_2_10a_1",
+						"player_text": "O São Saulo perdeu o jogo",
+						"npc_reply": {
+							"goto_branch": "from_b_2_12",
+							"delay_ticks": 2.0
+						}
+					}
+				]
+			}
+		],
+		"from_b_2_11": [
+			{
+				"id": "b_2_11",
+				"text": "É importante possuir uma informação dessas, agora podemos trocar nossas senhas."
+			}
+		],
+		"from_b_2_12": [
+			{
+				"id": "b_2_12",
+				"text": "Não foi isso, eu assisti ao jogo. Você deve ler melhor as notícias e buscar as mais interessantes."
 			}
 		]
 	}

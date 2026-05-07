@@ -10,6 +10,7 @@ signal request_answer_option(
 )
 
 signal news_ready(day_news_data: Dictionary)
+signal update_news
 
 #region CHILDREN NODES REFERENCES
 @export var messages_director: Node
@@ -17,6 +18,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var browser_director: Node
 @export var bank_director: Node
 @export var randomness_director: Node
+@export var events_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -29,6 +31,7 @@ signal news_ready(day_news_data: Dictionary)
 @export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
 @export var tasks_dir_path: String = "res://data/random/tasks"
 @export var scams_dir_path: String = "res://data/random/scams"
+@export var events_dir_path: String = "res://data/events/events.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -74,6 +77,7 @@ func reload_and_setup_today() -> void:
 	var shops_dictionary = _read_json_root(shops_items_dir_path)
 	var pix_dictionary = _read_json_root(pix_codes_dir_path)
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
+	var events_dictionary = _read_json_root(events_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
@@ -82,6 +86,9 @@ func reload_and_setup_today() -> void:
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
+
+	#Update Browser News
+	_on_update_news()
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -114,6 +121,7 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> v
 ## Called by Clock every tick to process due story entries
 func on_clock_tick(current_minutes: int) -> void:
 	randomness_director._on_clock_tick()
+	events_director._on_clock_tick()
 
 	# If no entries, nothing to do
 	if story_queue.is_empty():
@@ -150,6 +158,7 @@ func on_clock_tick(current_minutes: int) -> void:
 		story_queue.remove_at(entry_index)
 		var channel_name := str(story_entry["channel"])
 		var controller: Node = channel_director_by_name[channel_name]
+		events_director._on_event_initiated(story_entry["payload"].get("event_id", ""))
 		controller.deliver_scheduled_entry(story_entry["payload"], current_minutes)
 		return # Only one delivery per tick
 #endregion CLOCK
@@ -255,8 +264,10 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 			var item_id = item.get("item_id", "")
 			var quantity = int(item.get("quantity", 0))
 			var store_id = item.get("store", "")
-			var store = GameData.apps_name.get(store_id, null)
+			var store = GameData.shop_string_to_enum.get(store_id, null)
 
+			if store == null:
+				return false
 			if not GameData.purchased_items.has(store):
 				return false
 			var store_purchases = GameData.purchased_items[store]
@@ -265,7 +276,7 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 			if store_purchases[item_id] < quantity:
 				return false
 
-			return true
+		return true
 	if flag == "payment":
 		var payment_id = requirement.get("payment_id", "")
 		return GameData.completed_payments.has(payment_id)
@@ -288,5 +299,8 @@ func _load_news_data() -> Dictionary:
 	var data = JSON.parse_string(json_text)
 	var day_key = "day_%d" % current_day
 	return data[day_key] if data.has(day_key) else {}
+
+func _on_update_news() -> void:
+	update_news.emit()
 
 #endregion REQUIREMENTS
