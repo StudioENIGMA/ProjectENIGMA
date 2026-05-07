@@ -78,7 +78,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="Notification" type="Control" unique_id=1003812012 node_paths=PackedStringArray("notification_content_label", "notification_title_label", "app_icon", "background")]
-custom_minimum_size = Vector2(0, 64)
+custom_minimum_size = Vector2(0, 86)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -119,13 +119,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="MarginLeft" type="MarginContainer" parent="NotificationVisuals/HBoxContainer" unique_id=1583648335]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
 [node name="AppIcon" type="TextureRect" parent="NotificationVisuals/HBoxContainer" unique_id=2088501250]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("1_6euxv")
@@ -144,14 +145,14 @@ layout_mode = 2
 [node name="NotificationTitleLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=1312883590]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_uiujy")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 text = "Chefinho"
 clip_text = true
 
 [node name="NotificationContentLabel" type="Label" parent="NotificationVisuals/HBoxContainer/VBoxContainer" unique_id=1358316469]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_y4pw6")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Olá, seja bem vindo à Enigma!"
 clip_text = true
 text_overrun_behavior = 3

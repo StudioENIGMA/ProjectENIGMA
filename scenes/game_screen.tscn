@@ -34,6 +34,35 @@
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
 [ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jpl5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 5
+border_color = Color(0.65882355, 0.047058824, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3pqv"]
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhiww"]
+font = ExtResource("19_1vcyb")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_e8n22"]
+font = ExtResource("19_1vcyb")
+font_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_5jpl5"]
+font = ExtResource("19_1vcyb")
+font_size = 19
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_040sx"]
+bg_color = Color(0.2901961, 0.2901961, 0.2901961, 0.5568628)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xuv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -247,11 +276,13 @@ pause_button = NodePath("../DesktopUI/PauseContainer/PauseButton")
 notification_ui = NodePath("../NotificationUI")
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
-custom_minimum_size = Vector2(256, 64)
+custom_minimum_size = Vector2(350, 86)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_left = -175.0
+offset_right = 175.0
 offset_bottom = 64.0
 grow_horizontal = 2
 mouse_filter = 2
@@ -268,7 +299,7 @@ bus = &"SFX"
 wait_time = 2.5
 one_shot = true
 
-[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button")]
+[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_rich_text")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -277,7 +308,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_bd51b")
-next_day_button = NodePath("CenterContainer/TextDayOverContainer/NextDayButton")
+next_day_button = NodePath("MarginContainer/TextDayOverContainer/NextDayButton")
+events_container = NodePath("MarginContainer/TextDayOverContainer/EventsContainer")
+reputation_points_label = NodePath("MarginContainer/TextDayOverContainer/HBoxContainer/Label2")
+result_rich_text = NodePath("MarginContainer/TextDayOverContainer/ResultRichText")
 
 [node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1905301528]
 modulate = Color(1, 1, 1, 0.835294)
@@ -289,21 +323,27 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_87fqc")
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/DayOverUI" unique_id=1163380987]
+[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI" unique_id=492753194]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 35
 
-[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/CenterContainer" unique_id=1593008203]
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer" unique_id=1593008203]
 layout_mode = 2
+alignment = 1
 
-[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=1334004570]
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1334004570]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jpl5")
 bbcode_enabled = true
 text = "FIM DO DIA"
 fit_content = true
@@ -312,14 +352,71 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=116572443]
-custom_minimum_size = Vector2(0, 80)
+[node name="CentralMargin2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=859760902]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="NextDayButton" type="Button" parent="UI/DayOverUI/CenterContainer/TextDayOverContainer" unique_id=327593996]
+[node name="ResultRichText" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1494740372]
 layout_mode = 2
-theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_colors/default_color = Color(1, 0.015686275, 0.2784314, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "REPROVADO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=116572443]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1269220909]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s3pqv")
+
+[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=588053004]
+layout_mode = 2
+text = "Eventos de Hoje"
+label_settings = SubResource("LabelSettings_lhiww")
+
+[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=2010453970]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Pontos de Reputação"
+label_settings = SubResource("LabelSettings_lhiww")
+
+[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1915681026]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1209983138]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=2018848574]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=286216195]
+layout_mode = 2
+text = "Pontos de Reputação Diários"
+label_settings = SubResource("LabelSettings_e8n22")
+
+[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=1898905068]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "110/220"
+label_settings = SubResource("LabelSettings_5jpl5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1979685532]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=327593996]
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_040sx")
 text = "Dia"
 icon_alignment = 1
 
