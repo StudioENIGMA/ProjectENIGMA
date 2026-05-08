@@ -70,65 +70,80 @@ func define_events_list() -> void:
 	if (GameData.current_day == 0):
 		return
 
-	const MAX_ATTEMPTS = 200
-	var attempts = 0
+	var randomized_tasks = tasks_list.duplicate(true)
+	var randomized_scams = scams_list.duplicate(true)
 
-	var random_tasks = get_random_list(tasks_list.duplicate(true), number_of_events[GameData.current_day].tasks)
-	var random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
+	randomized_tasks.shuffle()
+	randomized_scams.shuffle()
 
-	var is_task_valid = evaluate_requirements(random_tasks)
-	var is_scams_valid = evaluate_requirements(random_scams)
+	var number_of_tasks_required = number_of_events[GameData.current_day].tasks
+	var number_of_scams_required = number_of_events[GameData.current_day].scams
 
-	while ((!is_task_valid or !is_scams_valid) and attempts <= MAX_ATTEMPTS):
-		if (!is_task_valid):
-			random_tasks = get_random_list(tasks_list.duplicate(true), number_of_events[GameData.current_day].tasks)
-			is_task_valid = evaluate_requirements(random_tasks)
-		if (!is_scams_valid):
-			random_scams = get_random_list(scams_list.duplicate(true), number_of_events[GameData.current_day].scams)
-			is_scams_valid = evaluate_requirements(random_scams)
-		attempts += 1
+	if GameData.downloaded_apps.has(GameData.App.FAKESTORE):
+		number_of_scams_required *= 1.4
+		number_of_tasks_required *= 1.4
 
-	if (!is_task_valid or !is_scams_valid):
-		push_warning("It wasn't possible to generate random events, trying again in 10 seconds")
+	var chosen_tasks = []
+	var tasks_sender_ids = {}
+	for task in randomized_tasks:
+		if len(chosen_tasks) >= number_of_tasks_required:
+			break
+
+		if not evaluate_requirements(task):
+			continue
+
+		var thread_id = task.get("thread_id")
+		if tasks_sender_ids.has(thread_id):
+			continue
+
+		tasks_sender_ids.set(thread_id, true)
+		chosen_tasks.append(task)
+	
+	var chosen_scams = []
+	var scams_sender_ids = {}
+	for scam in randomized_scams:
+		if len(chosen_scams) >= number_of_scams_required:
+			break
+
+		if not evaluate_requirements(scam):
+			continue
+
+		var thread_id = scam.get("thread_id")
+		if scams_sender_ids.has(thread_id):
+			continue
+
+		scams_sender_ids.set(thread_id, true)
+		chosen_scams.append(scam)
+
+	if (len(chosen_tasks) != number_of_tasks_required or len(chosen_scams) != number_of_scams_required):
+		push_warning("It wasn't possible to pick random events, trying again in 10 seconds")
 		return
 
-	var events_list = random_tasks + random_scams
+	var events_list = chosen_tasks + chosen_scams
 	schedule_events(events_list)
 
-func get_random_list(events_list, number_of_elements) -> Array:
-	var elements_factor = 1.4 if GameData.downloaded_apps.has(GameData.App.FAKESTORE) else 1.0
-	events_list.shuffle()
-	return events_list.slice(0, ceili(number_of_elements * elements_factor))
+func evaluate_requirements(event) -> bool:
+	var event_id = null
 
-func evaluate_requirements(events_list) -> bool:
-	var senders_ids = {}
+	if event.has("branch"):
+		event_id = event.get("branch")
+	elif event.has("email_id"):
+		event_id = event.get("email_id")
+		event["is_email"] = true
+	assert(event_id != null)
 
-	for event in events_list:
-		var event_id = null
+	if (GameData.random_events_history.has(event_id)):
+		return false
 
-		if event.has("branch"):
-			event_id = event.get("branch")
-		elif event.has("email_id"):
-			event_id = event.get("email_id")
-			event["is_email"] = true
-		assert(event_id != null)
+	var app_id = event.get("required_app", "")
+	var app = GameData.apps_name.get(app_id, null)
 
-		if (GameData.random_events_history.has(event_id)):
-			return false
+	if (!GameData.downloaded_apps.has(app)):
+		return false
 
-		var app_id = event.get("required_app", "")
-		var app = GameData.apps_name.get(app_id, null)
+	if (event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
+		return false
 
-		if (!GameData.downloaded_apps.has(app)):
-			return false
-		
-		if (event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
-			return false
-		
-		var thread_id = event.get("thread_id")
-		if senders_ids.has(thread_id):
-			return false
-		senders_ids[thread_id] = true
 	return true
 
 func schedule_events(events_list: Array) -> void:
