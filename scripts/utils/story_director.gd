@@ -86,6 +86,7 @@ func reload_and_setup_today() -> void:
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
+	events_director.setup_from_json_file(events_dictionary)
 
 	#Update Browser News
 	_on_update_news()
