@@ -67,6 +67,12 @@ func reset_data_for_new_day() -> void:
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes
 
+	# Select random apps to receive updates (50% chance for each downloaded app)
+	GameData.apps_with_available_updates.clear()
+	for app in GameData.downloaded_apps:
+		if randi() % 100 < 50: # 50% chance
+			GameData.apps_with_available_updates.append(app)
+
 	# Restart timers
 	clock_timer.start()
 

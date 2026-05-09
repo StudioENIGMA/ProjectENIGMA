@@ -115,7 +115,7 @@ var bank_balance: float = 200
 var completed_payments = []
 var purchased_items = {}
 var options_chose = {}
- 
+
 var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
@@ -134,6 +134,8 @@ var passwords: Dictionary = {
 var updated_password_today: bool = false
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
+
+var apps_with_available_updates: Array[App] = []
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
 var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks

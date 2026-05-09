@@ -14,6 +14,7 @@ var is_fake_app: bool = false
 
 func setup(app_name: GameData.App, is_installed: bool, is_fake: bool) -> void:
 	var app_info = GameData.apps_data[app_name]
+	var has_available_updates: bool = GameData.apps_with_available_updates.has(app_name)
 
 	current_app_name = app_name
 	is_fake_app = is_fake
@@ -23,21 +24,31 @@ func setup(app_name: GameData.App, is_installed: bool, is_fake: bool) -> void:
 	if is_fake:
 		app_name_label.text = app_info.chinese_name
 		app_description_label.text = app_info.description_in_chinese
-		if is_installed:
+		if has_available_updates:
+			interact_button.text = GameData.apps_chinese_operations["update"]
+		elif is_installed:
 			interact_button.text = GameData.apps_chinese_operations["open"]
 		else:
 			interact_button.text = GameData.apps_chinese_operations["install"]
 	else:
 		app_name_label.text = app_info.name
 		app_description_label.text = app_info.description
-		if is_installed:
+		if has_available_updates:
+			interact_button.text = "Atualizar"
+		elif is_installed:
 			interact_button.text = "Abrir"
 		else:
 			interact_button.text = "Instalar"
 
 func _on_app_button_pressed() -> void:
 	var is_installed: bool = GameData.downloaded_apps.has(current_app_name)
-	if is_installed:
+	var has_available_updates: bool = GameData.apps_with_available_updates.has(current_app_name)
+
+	if has_available_updates:
+		interact_button.text = "Atualizando..."
+		await get_tree().create_timer(3.0).timeout
+		GameData.apps_with_available_updates.erase(current_app_name)
+	elif is_installed:
 		subscreen_open_requested.emit(current_app_name)
 	else:
 		if is_fake_app:
