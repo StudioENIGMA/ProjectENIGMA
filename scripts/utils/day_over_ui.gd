@@ -8,7 +8,7 @@ const TYPE_TO_RP = {
 	"random-task": 15,
 	"main-task": 20,
 	"scam": -10,
-} 
+}
 
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
@@ -28,16 +28,10 @@ func show_day_over() -> void:
 
 	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
 
-	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
-		result_rich_text.text = "APROVADO"
-		result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))
-		next_day_button.text = "Iniciar Dia " + str(GameData.current_day + 1)
-		next_day_button.pressed.connect(_on_next_day_button_pressed)
-	else:
-		result_rich_text.text = "REPROVADO"
-		result_rich_text.add_theme_color_override("default_color", Color("#ff0447"))
-		next_day_button.text = "Recomeçar Dia " + str(GameData.current_day)
-		next_day_button.pressed.connect(_on_previous_day_button_pressed)
+	result_rich_text.text = "APROVADO"
+	result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))
+	next_day_button.text = "Iniciar Dia " + str(GameData.current_day + 1)
+	next_day_button.pressed.connect(_on_next_day_button_pressed)
 	self.show()
 
 func hide_day_over() -> void:
@@ -46,6 +40,13 @@ func hide_day_over() -> void:
 func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
 	GameData.total_reputation_points += GameData.daily_reputation_points
+
+	# Select random apps to receive updates (50% chance for each downloaded app)
+	GameData.apps_with_available_updates.clear()
+	for app in GameData.downloaded_apps:
+		if randi() % 100 < 50: # 50% chance
+			GameData.apps_with_available_updates.append(app)
+
 	GameData.save_game()
 	day_over_clicked.emit()
 

@@ -390,6 +390,7 @@ func save_game() -> void:
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
+		"apps_with_available_updates": apps_with_available_updates,
 	}
 
 	save_file.store_string(JSON.stringify(game_state))
@@ -454,6 +455,11 @@ func load_game() -> void:
 	random_events_history.clear()
 	for thread in raw_random_events_history:
 		random_events_history.append(thread)
+
+	var raw_apps_with_available_updates: Array = game_state.get("apps_with_available_updates", [])
+	apps_with_available_updates.clear()
+	for app in raw_apps_with_available_updates:
+		apps_with_available_updates.append(int(app))
 
 func reset_to_defaults():
 	var fresh_instance = load(get_script().resource_path).new()
