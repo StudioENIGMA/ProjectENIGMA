@@ -70,11 +70,14 @@ func _queue_today_emails() -> void:
 			var absolute_due_time := int(relative_due_time) + int(GameData.starting_hours_minutes)
 			var requires: Array = email.get("requires", [])
 
+			var event_id = email.get("event_id", "")
+
 			schedule_entry_requested.emit({
 				"thread_id": id,
 				"email_id": email_id,
 				"due_at": absolute_due_time,
 				"requires": requires,
+				"event_id": event_id,
 			})
 #endregion SCHEDULING TODAY
 
