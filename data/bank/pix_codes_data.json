@@ -184,5 +184,17 @@
 		"cpf": "666.777.888.99",
 		"email": "marta@eningma.net.br",
 		"value": 1000.00
+	},
+	"JPO64": {
+		"name" : "Yago oliveira",
+		"cpf": "568-884-987-12",
+		"email": "Yago@enigma.con.br",
+		"value": 5000.00
+	},
+	"JPA24": {
+		"name" : "Caio Machado",
+		"cpf": "841.457.933-12",
+		"email": "caiom@tempo-mail.com",
+		"value": 7500.00
 	}
 }

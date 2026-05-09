@@ -1,0 +1,23 @@
+{
+  "thread_id": "iago",
+  "sender": "Iago",
+
+    "branches": {
+        "scam0_iago": [
+			{
+				"id": "iago_payment0_0",
+				"text": "Fala chefe, é o Yago da sua empresa. To pelo celular. Preciso de um pagamento. É de uma prestadora de serviço nossa. Faz nesse pix ae JPA24."
+			},
+			{
+				"id": "iago_payment0_1",
+				"text": "Valeu chefe",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JPA24"
+					}
+				]
+			}
+		]
+    }
+}

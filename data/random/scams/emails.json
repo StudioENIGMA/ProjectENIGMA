@@ -58,5 +58,20 @@
 		"thread_id": "false_marta_scam0",
 		"email_id": "false_marta_payment0",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_yago_scam0",
+		"email_id": "false_yago_payment0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_yago_scam1",
+		"email_id": "false_yago_payment1",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_yago_scam2",
+		"email_id": "false_yago_purchase0",
+		"required_app": "browser"
 	}
 ]

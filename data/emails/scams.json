@@ -106,5 +106,32 @@
 		"content": "Olá, novo Estagiário\n\nFiquei sabendo que o chefe encontrou um jeito de aumentar os lucros da empresa. Ele disse que vai dividir com a gente se colaborarmos. Me manda 1000 reais que eu vou transformar em 10 mil, te devolvo 7 mil e fico com 3, pode ser? Meu PIX é L1P5K",
 		"attachments": [],
 		"requires": []
+	},
+	{
+		"thread_id": "false_yago_scam0",
+		"email_id": "false_yago_payment0",
+		"sender": "Yago@enigma.con.net",
+		"subject": "PAGAMENTO IMPORTANTE! RISCO DE DEMISSÃO.",
+		"content": "Bom dia! Aqui é o Yago, sabe, da sua empresa. O supervisor geral precisa de um pagamento de um boleto pra ontem!!!\n\nO risco de demissão existe caso a gente não consiga realizar essa task, então agiliza aí tá. JPO64. (PIX)",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "false_yago_scam1",
+		"email_id": "false_yago_payment1",
+		"sender": "yag0@enigma.net",
+		"subject": "Pagamento para negativa",
+		"content": "Olá, estagiário,\n\nAcabamos de contratar novos funcionários para o nosso setor e fizemos contato com a Negativa para providenciar novos notebooks. O chefe pediu para você fazer esse pagamento no boleto 554433\n\nAtenciosamente, Yago",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "false_yago_scam2",
+		"email_id": "false_yago_purchase0",
+		"sender": "yagob@emigma.fin.com.br",
+		"subject": "Doces para processo seletivo",
+		"content": "Olá, estagiário,\n\nEstamos fazendo um processo seletivo de emprego para todas as áreas, e assim para nossa primeira dinâmica em grupo com os vários participantes queremos proporcionar uma ótima experiência com doces de coffee break. Por favor, compre para nós 6 tiramisu no empório dos bolos.\n\nAtenciosamente, Yago",
+		"attachments": [],
+		"requires": []
 	}
 ]

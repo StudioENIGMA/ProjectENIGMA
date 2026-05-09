@@ -173,5 +173,10 @@
 		"thread_id": "jescica",
 		"branch": "scan2_jescica",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "iago",
+		"branch": "scam0_iago",
+		"required_app": "Bank"
 	}
 ]

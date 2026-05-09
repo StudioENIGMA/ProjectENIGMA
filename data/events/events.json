@@ -1751,5 +1751,51 @@
                 "payment_id": "L1P5K"
             }
         ]
+    },
+    "false_yago_payment0": {
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "JPO64"
+            }
+        ]
+    },
+    "false_yago_payment1": {
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "554433"
+            }
+        ]
+    },
+    "false_yago_purchase0": {
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 26,
+                        "quantity": 6,
+                        "store": "emporio_bolos"
+                    }
+                ]
+            }
+        ]
+    },
+    "scam0_iago": {
+        "type": "scam",
+        "description": "Contato de funcionário falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "JPA24"
+            }
+        ]
     }
 }
