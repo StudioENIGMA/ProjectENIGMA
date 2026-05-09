@@ -1704,5 +1704,42 @@
                 "payment_id": "I9W2V"
             }
         ]
+    },
+    "marcia_purchase4":{
+        "type": "random-task",
+        "description": "Compra para mudança de política",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 35,
+                        "quantity": 7,
+                        "store": "aec"
+                    }
+                ]
+            }
+        ]
+    },
+    "false_marcia_purchase0":{
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 34,
+                        "quantity": 7,
+                        "store": "zora"
+                    },
+                    {
+                        "item_id": 33,
+                        "quantity": 5,
+                        "store": "zora"
+                    }
+                ]
+            }
+        ]
     }
 }
