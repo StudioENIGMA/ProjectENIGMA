@@ -1,0 +1,50 @@
+{
+	"thread_id": "marciia",
+	"sender": "Marciia",
+	"branches": {
+		"scan0_marciia": [
+			{
+				"id": "marciia_purchase0_0",
+				"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas azuis, pf"
+			},
+			{
+				"id": "marciia_purchase0_1",
+				"text": "valeu",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 33,
+								"quantity": 5,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		],
+		"scan1_marciia": [
+			{
+				"id": "marcia_purchase1_0",
+				"text": "camiseta vermelha 5 compre chefe pediu agora"
+			},
+			{
+				"id": "marcia_purchase1_1",
+				"text": "valeu tmj",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 33,
+								"quantity": 5,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

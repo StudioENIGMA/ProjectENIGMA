@@ -1,0 +1,113 @@
+{
+  "thread_id": "guilherme",
+  "sender": "Guilherme",
+
+	"branches": {
+		"task0_guilherme": [
+			{
+				"id": "guilherme_purchase0_0",
+				"text": "Olá estagiário, boa jornada!"
+			},
+			{
+				"id": "guilherme_purchase0_1",
+				"text": "A Simone me orientou em pedir sua ajuda."
+			},
+			{
+				"id": "guilherme_purchase0_2",
+				"text": "Estou responsável por organizar um encontro importante com um cliente."
+			},
+			{
+				"id": "guilherme_purchase0_3",
+				"text": "Preciso de um bolo de cobertura morango para entrega rápida."
+			},
+			{
+				"id": "guilherme_purchase0_4",
+				"text": "Você poderia fazer a compra para mim? Por favor."
+			},
+			{
+				"id": "guilherme_purchase0_5",
+				"text": "Valeu cara",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 23,
+								"quantity": 1,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task1_guilherme": [
+			{
+				"id": "guilherme_purchase1_0",
+				"text": "Boa jornada, estagiário."
+			},
+			{
+				"id": "guilherme_purchase1_1",
+				"text": "Preciso de uma ajuda para melhorar os monitores da minha equipe."
+			},
+			{
+				"id": "guilherme_purchase1_2",
+				"text": "Por favor, compre 4 monitores."
+			},
+			{
+				"id": "guilherme_purchase1_3",
+				"text": "Valeu estagiário",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 4,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"task2_guilherme": [
+			{
+				"id": "guilherme_payment0_0",
+				"text": "Olá, a Simone pediu para solicitar sua ajuda para alguns dos pagamentos de contas da empresa."
+			},
+			{
+				"id": "guilherme_payment0_1",
+				"text": "Estamos com uma carga muito alta."
+			},
+			{
+				"id": "guilherme_payment0_2",
+				"text": "Segue o código do boleto: 769623"
+			}, 
+			{
+				"id": "guilherme_payment0_3",
+				"text": "Valeu cara",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "769623"
+					}
+				]
+			}
+		],
+		"task3_guilherme": [
+			{
+				"id": "guilherme_payment1_0",
+				"text": "Oi estagiário."
+			},
+			{
+				"id": "guilherme_purchase1_1",
+				"text": "Estamos fazendo uma melhoria no departamento do financeiro, e precisamos de uma ajuda com alguns pagamentos."
+			},
+			{
+				"id": "guilherme_purchase1_2",
+				"text": "Por favor, faça esse pagamento pelo código 760623"
+			}
+		]
+	}
+}

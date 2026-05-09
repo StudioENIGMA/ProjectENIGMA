@@ -1,7 +1,177 @@
 [
-    {
-        "thread_id": "",
-        "branch": "",
-        "required_app": ""
-    }
+	{
+		"thread_id": "arthur",
+		"branch": "scan0_arthur",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "arthur",
+		"branch": "scan1_arthur",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolinda",
+		"branch": "scan0_carolinda",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolinda",
+		"branch": "scan1_carolinda",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolinda",
+		"branch": "scan2_carolinda",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilrnar",
+		"branch": "scan0_gilrnar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilrnar",
+		"branch": "scan1_gilrnar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "giumar",
+		"branch": "scan0_giumar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherrne",
+		"branch": "scan0_guilherrne",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guillherme",
+		"branch": "scan0_guillherme",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "jilmar",
+		"branch": "scan0_jilmar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "joseh",
+		"branch": "scan0_joseh",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "joseh",
+		"branch": "scan1_joseh",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josue",
+		"branch": "scan0_josue",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "josue",
+		"branch": "scan1_josue",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "jouse",
+		"branch": "scan0_jouse",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "jouse",
+		"branch": "scan1_jouse",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "jouse",
+		"branch": "scan2_jouse",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "mancia",
+		"branch": "scan0_mancia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "mancia",
+		"branch": "scan2_mancia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcaao",
+		"branch": "scan0_marcaao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcaao",
+		"branch": "scan1_marcaao",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcaon",
+		"branch": "scan0_marcaon",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marciia",
+		"branch": "scan0_marciia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marciia",
+		"branch": "scan1_marciia",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marrta",
+		"branch": "scan0_marrta",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "martha",
+		"branch": "scan0_martha",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "martha",
+		"branch": "scan1_martha",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marçao",
+		"branch": "scan0_marçao",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricarudo",
+		"branch": "scan0_ricarudo",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "ricarudo",
+		"branch": "scan1_ricarudo",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "ricarudo",
+		"branch": "scan2_ricarudo",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan0_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan1_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jescica",
+		"branch": "scan2_jescica",
+		"required_app": "Bank"
+	}
 ]

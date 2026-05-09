@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cdtap844fc2jo"]
 
-[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_23rg2"]
 [ext_resource type="Script" uid="uid://4k8bswival24" path="res://scripts/apps/email/email_message_instance.gd" id="1_tskvh"]
+[ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="2_tskvh"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_23rg2"]
 color = Color(0.41981313, 0.41981313, 0.4198131, 1)
 thickness = 2
 
-[node name="EmailMessageInstance" type="VBoxContainer" unique_id=324249404 node_paths=PackedStringArray("sender_icon", "sender_label", "hour_received_label", "content_label")]
+[node name="EmailMessageInstance" type="VBoxContainer" unique_id=324249404 node_paths=PackedStringArray("profile_picture", "sender_label", "hour_received_label", "content_label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,7 +16,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_tskvh")
-sender_icon = NodePath("SenderBarContainer/SenderIconContainer/SenderIcon")
+profile_picture = NodePath("SenderBarContainer/SenderIconContainer/ProfilePicture")
 sender_label = NodePath("SenderBarContainer/SenderLabel")
 hour_received_label = NodePath("SenderBarContainer/HourReceivedContainer/HourReceivedLabel")
 content_label = NodePath("ContentContainer/ContentLabel")
@@ -33,10 +33,9 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="SenderIcon" type="TextureRect" parent="SenderBarContainer/SenderIconContainer" unique_id=1152017814]
+[node name="ProfilePicture" parent="SenderBarContainer/SenderIconContainer" unique_id=233740664 instance=ExtResource("2_tskvh")]
+custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
-texture = ExtResource("1_23rg2")
-expand_mode = 3
 
 [node name="SenderLabel" type="Label" parent="SenderBarContainer" unique_id=569291859]
 layout_mode = 2

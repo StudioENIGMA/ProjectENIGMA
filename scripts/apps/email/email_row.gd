@@ -5,13 +5,14 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
-@export var email_sender_icon: TextureRect
+@export var profile_picture:Control
 @export var email_sender_label: Label
 @export var email_subject_label: Label
 @export var email_content_label: Label
 @export var email_date_label: Label
 @export var annex_section: HBoxContainer
 @export var annex_name_label: Label
+@export var to_read_bubble: MarginContainer
 #endregion CHILDREN NODES REFERENCES
 
 # The data of the email is an array os individual email messages
@@ -19,7 +20,7 @@ var email_data: Array
 
 #region SETUP
 ## Sets up the email instance with the provided email data
-func setup(p_email_data) -> void:
+func setup(p_email_data, is_to_read: bool) -> void:
 	email_data = p_email_data
 
 	# Setup UI content using most recent email (last in the array)
@@ -28,7 +29,7 @@ func setup(p_email_data) -> void:
 	var npc_name := str(last_email.get("sender", ""))
 	var photo_path := "res://assets/avatars/%s.png" % npc_name
 
-	email_sender_icon.texture = load(photo_path)
+	profile_picture.setup(photo_path, npc_name)
 	email_sender_label.text = npc_name
 	email_subject_label.text = last_email.get("subject", "")
 	email_content_label.text = last_email.get("content", "")
@@ -42,6 +43,8 @@ func setup(p_email_data) -> void:
 			annex_section.visible = true
 			annex_name_label.text = str(annex.get("name", ""))
 			break
+
+	to_read_bubble.visible = is_to_read
 #endregion SETUP
 
 #region INPUT

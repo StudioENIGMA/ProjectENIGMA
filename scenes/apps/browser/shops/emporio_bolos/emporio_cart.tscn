@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bb0ejv1e6n1d8"]
+
+[ext_resource type="Script" uid="uid://b4igmrycuaxjc" path="res://scripts/apps/browser/shop-site/shop_cart.gd" id="1_7hqwp"]
+[ext_resource type="Texture2D" uid="uid://ccde0djyywpjb" path="res://assets/icons/shops/png_logos/empório_dos_bolos_logo.png" id="2_fyutn"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_mu5li"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="4_73nf7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
+bg_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwe4i"]
+draw_center = false
+border_width_top = 1
+border_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwe4i"]
+font = ExtResource("3_mu5li")
+font_size = 14
+font_color = Color(0.09803922, 0.16078432, 0.21176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0ola"]
+content_margin_left = 85.0
+content_margin_top = 9.0
+content_margin_right = 85.0
+content_margin_bottom = 9.0
+bg_color = Color(0.18431373, 0.5254902, 0.77254903, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp37k"]
+content_margin_left = 250.0
+content_margin_top = 25.0
+content_margin_right = 250.0
+content_margin_bottom = 25.0
+bg_color = Color(0.118144594, 0.40584043, 0.6092402, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0ola"]
+font = ExtResource("3_mu5li")
+font_size = 12
+font_color = Color(0.039115418, 0.05697029, 0.11616606, 1)
+
+[node name="EmiliaCart" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_v_box", "total_price_label", "finish_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hqwp")
+items_v_box = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer")
+total_price_label = NodePath("VBoxContainer/TotalPriceLabel")
+finish_button = NodePath("VBoxContainer/FinishButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=1083530601]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -36.0
+offset_right = 94.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=279131630]
+custom_minimum_size = Vector2(119, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_fyutn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=2068547487]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gwe4i")
+text = "Carrinho de Compras"
+label_settings = SubResource("LabelSettings_gwe4i")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="FinishButton" type="Button" parent="VBoxContainer" unique_id=941589167]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.08235294, 0.03529412, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("3_mu5li")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0ola")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s0ola")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gp37k")
+text = "Fechar Pedido"
+
+[node name="TotalPriceLabel" type="Label" parent="VBoxContainer" unique_id=26153793]
+layout_mode = 2
+text = "Total do Pedido:"
+label_settings = SubResource("LabelSettings_s0ola")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=2062398315]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1445909475]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 4
+horizontal_scroll_mode = 3
+scroll_hint_mode = 2
+script = ExtResource("4_73nf7")
+size_x = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=1467825990]
+custom_minimum_size = Vector2(355, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/FinishButton" to="." method="_on_finish_button_pressed"]
