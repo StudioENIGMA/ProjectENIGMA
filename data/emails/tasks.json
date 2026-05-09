@@ -97,5 +97,23 @@
 		"content": "Fala cara,\n\nO chefe quer que nós do TI usemos todos camisa polo azul da empresa em um evento de tecnologia, é mole? kkkkkkkk. Enfim, para não atrasarmos com o projeto, faz o pedido ai pra gente por favor. Somos em 4\n\nAtenciosamente,\n\nArtur",
 		"attachments": [],
 		"requires": []
+	},
+	{
+		"thread_id": "ricardo_task5",
+		"email_id": "ricardo_purchase4",
+		"sender": "ricardo@enigma.com.br",
+		"subject": "Compra de doces para cliente importante",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. Acabei de lembrar que amanhã eu e a Mariana iremos fazer uma reunião com um de nossos principais clientes. Você pode encomendar 30 brigadeiros gourmet, por favor. \n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_task4",
+		"email_id": "marcia_purchase4",
+		"sender": "marcia@enigma.rh.com.br ",
+		"subject": "Compra de doces para cliente importante",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. Acabei de lembrar que amanhã eu e a Mariana iremos fazer uma reunião com um de nossos principais clientes. Você pode encomendar 30 brigadeiros gourmet, por favor. \n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
 	}
 ]

@@ -1636,5 +1636,73 @@
                 ]
             }
         ]
+    },
+    "ricardo_purchase4": {
+        "type": "random-task",
+        "description": "Compra de doces para cliente importante",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 21,
+                        "quantity": 30,
+                        "store": "emilia_bolos"
+                    }
+                ]
+            }
+        ]
+    },
+    "false_mariana_purchase0":{
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 16,
+                        "quantity": 6,
+                        "store": "amazonia"
+                    }
+                ]
+            }
+        ]
+    },
+    "marie_payment0":{
+        "type": "scam",
+        "description": "Contato externo à empresa\n\nEmail da empresa falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "I9W2V"
+            }
+        ]
+    },
+    "marinana_purchase1":{
+        "type": "scam",
+        "description": "Contato externo à empresa",
+        "requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 36,
+                        "quantity": 10,
+                        "store": "zora"
+                    }
+                ]
+            }
+        ]
+    },
+    "false_mariana_payment1":{
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "I9W2V"
+            }
+        ]
     }
 }

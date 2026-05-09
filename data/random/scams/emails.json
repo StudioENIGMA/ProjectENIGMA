@@ -28,5 +28,25 @@
 		"thread_id": "false_negativa_scan0",
 		"email_id": "false_negativa_scan_payment0",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_mariana_scam0",
+		"email_id": "false_mariana_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marie_scam1",
+		"email_id": "marie_payment0",
+		"required_app": "Bank" 
+	},
+	{
+		"thread_id": "marinana_scam2",
+		"email_id": "marinana_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "false_mariana_scam3",
+		"email_id": "false_mariana_payment1",
+		"required_app": "Bank"
 	}
 ]
