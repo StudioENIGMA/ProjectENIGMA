@@ -1741,5 +1741,15 @@
                 ]
             }
         ]
+    },
+    "false_marta_payment0":{
+        "type": "scam",
+        "description": "Email da empresa falso",
+        "requires": [
+            {
+                "flag": "payment",
+                "payment_id": "L1P5K"
+            }
+        ]
     }
 }
