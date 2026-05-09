@@ -133,6 +133,11 @@ func on_delete_answers(npc_name:String) -> void:
 	_update_list_of_chats(idx)
 	_sync_conversations_to_game_data()
 
+func _on_start_new_day() -> void:
+	for conversation in conversations_data:
+		conversation["options"].clear()
+	_sync_conversations_to_game_data()
+
 func _sync_conversations_to_game_data() -> void:
 	GameData.saved_messages_conversations = conversations_data.duplicate(true)
 

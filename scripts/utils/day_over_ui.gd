@@ -46,8 +46,8 @@ func hide_day_over() -> void:
 func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
 	GameData.total_reputation_points += GameData.daily_reputation_points
-	GameData.save_game()
 	day_over_clicked.emit()
+	GameData.save_game()
 
 func _on_previous_day_button_pressed() -> void:
 	GameData.reset_to_defaults()
