@@ -80,8 +80,8 @@ func define_events_list() -> void:
 	var number_of_scams_required = number_of_events[GameData.current_day].scams
 
 	if GameData.downloaded_apps.has(GameData.App.FAKESTORE):
-		number_of_scams_required *= 1.4
-		number_of_tasks_required *= 1.4
+		number_of_scams_required = ceili(number_of_scams_required * 1.4)
+		number_of_tasks_required = ceili(number_of_tasks_required * 1.4)
 
 	var chosen_tasks = []
 	var tasks_sender_ids = {}
