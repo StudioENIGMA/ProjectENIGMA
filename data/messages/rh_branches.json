@@ -100,7 +100,7 @@
 						"id": "rh_3_1a_1",
 						"player_text": "Os arquivos podem possuir diferentes tipos de vírus",
 						"npc_reply": {
-							"goto_branch": "from_b_3_3",
+							"goto_branch": "from_rh_3_3",
 							"delay_ticks": 2.0
 						}
 					}
