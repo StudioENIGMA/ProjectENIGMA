@@ -31,8 +31,12 @@ func show_day_over() -> void:
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_rich_text.text = "APROVADO"
 		result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))
-		next_day_button.text = "Iniciar Dia " + str(GameData.current_day + 1)
-		next_day_button.pressed.connect(_on_next_day_button_pressed)
+		if GameData.current_day + 1 == 7:
+			next_day_button.text = "Continuar"
+			next_day_button.pressed.connect(_on_final_day_button_pressed)
+		else:
+			next_day_button.text = "Iniciar Dia " + str(GameData.current_day + 1)
+			next_day_button.pressed.connect(_on_next_day_button_pressed)
 	else:
 		result_rich_text.text = "REPROVADO"
 		result_rich_text.add_theme_color_override("default_color", Color("#ff0447"))
@@ -42,6 +46,13 @@ func show_day_over() -> void:
 
 func hide_day_over() -> void:
 	self.visible = false
+
+func _on_final_day_button_pressed() -> void:
+	GameData.current_day += 1
+	GameData.total_reputation_points += GameData.daily_reputation_points
+	GameData.starting_hours_minutes = 1080
+	GameData.max_hours_minutes = 1320
+	day_over_clicked.emit()
 
 func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
