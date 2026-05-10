@@ -77,7 +77,7 @@
     },
     "task0_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -93,7 +93,7 @@
     },
     "task1_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -109,7 +109,7 @@
     },
     "task2_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de martelos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -125,7 +125,7 @@
     },
     "task3_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitores para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -141,7 +141,7 @@
     },
     "task4_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de furadeira para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -157,7 +157,7 @@
     },
     "task5_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -173,7 +173,7 @@
     },
     "task6_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -189,7 +189,7 @@
     },
     "task0_mariana": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Ajudar na escolha de senha",
         "requires": [
             {
                 "flag": "option",
@@ -199,7 +199,7 @@
     },
     "task0_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de doces para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -220,7 +220,7 @@
     },
     "task1_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -236,7 +236,7 @@
     },
     "task2_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de bolos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -252,7 +252,7 @@
     },
     "task3_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
