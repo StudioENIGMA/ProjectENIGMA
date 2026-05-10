@@ -5,7 +5,7 @@
 	{
 		"day": 0,
 		"branch": "d0_start",
-		"relative_due_time": 222
+		"relative_due_time": 135
 	},
 	{
 		"day": 1,
@@ -23,7 +23,7 @@
 		"relative_due_time": 344
 	},
 	{
-		"day": 1,
+		"day": 3,
 		"branch": "d3_start",
 		"relative_due_time": 100
 	},

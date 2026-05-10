@@ -41,6 +41,9 @@ func _update_in_game_time() -> void:
 	var clock_nodes = get_tree().get_nodes_in_group("clock_display")
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
+
+	if GameData.hours_minutes >= GameData.max_hours_minutes_tutorial and GameData.current_day == 0:
+		_on_day_over_timeout()
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
 		_on_day_over_timeout()
 
