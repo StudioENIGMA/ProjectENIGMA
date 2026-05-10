@@ -33,11 +33,12 @@ func _on_change_password_pressed() -> void:
 
 ## Toggles the visibility of the current password label between masked and actual password
 func _on_toggle_visibility_pressed() -> void:
+	var current_password = GameData.passwords.get(gated_app)
 	# Toggle the visibility of the current password label
 	if password_visible:
-		current_password_label.text = "Senha atual: ****"
+		var asterisk: String = "*"
+		current_password_label.text = "Senha atual: " + asterisk.repeat(len(current_password)) 
 		password_visible = false
 	else:
-		var current_password = GameData.passwords.get(gated_app)
 		current_password_label.text = "Senha atual: %s" % current_password
 		password_visible = true

@@ -289,7 +289,7 @@ func _ready() -> void:
 
 	# Password Change Dialog (Password)
 	password_change_dialog.visible = false
-	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
+	password_change_dialog.password_changed.connect(func(): _on_back_button_pressed(); passwords_manager_app.refresh_passwords_list())
 	app_specific_screen.add_child(password_change_dialog)
 
 	# Hack minigame fast type (Hack minigames)
