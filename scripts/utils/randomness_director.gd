@@ -58,7 +58,7 @@ func setup_from_json_roots(random_tasks: Array, random_scams: Array) -> void:
 
 #region FUNCTIONS
 func _on_clock_tick() -> void:
-	if (events_scheduled or GameData.current_day == 0):
+	if (events_scheduled or GameData.current_day == 0 or GameData.current_day == 7):
 		return
 
 	clock_counter += 1
@@ -67,7 +67,7 @@ func _on_clock_tick() -> void:
 		define_events_list()
 
 func define_events_list() -> void:
-	if (GameData.current_day == 0):
+	if (GameData.current_day == 0 or GameData.current_day == 7):
 		return
 
 	var randomized_tasks = tasks_list.duplicate(true)
