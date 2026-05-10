@@ -69,7 +69,7 @@
 	},
 	{
 		"day": 7,
-		"branch": "d6_good_end_game",
+		"branch": "d7_good_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
@@ -77,18 +77,19 @@
 				"is": false
 			}
 		],
-		"relative_due_time": 620
+		"relative_due_time": 0
 	},
 	{
 		"day": 7,
-		"branch": "d6_bad_end_game",
+		"branch": "d7_bad_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
 				"app_id": "fake_store",
 				"is": true
 			}
-		]
+		],
+		"relative_due_time": 0
 	}
   ],
 	"branches": {
@@ -266,6 +267,18 @@
 			{
 				"id": "b_2_12",
 				"text": "Não foi isso, eu assisti ao jogo. Você deve ler melhor as notícias e buscar as mais interessantes."
+			}
+		],
+		"d7_good_ending": [
+			{
+				"id": "b_7_11",
+				"text": "Boa mano, se ganhou!"
+			}
+		],
+		"d7_bad_ending": [
+			{
+				"id": "b_7_11",
+				"text": "Epa mano, se perdeu!"
 			}
 		]
 	}
