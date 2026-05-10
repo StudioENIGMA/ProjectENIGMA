@@ -8,7 +8,7 @@ const TYPE_TO_RP = {
 	"random-task": 15,
 	"main-task": 20,
 	"scam": -10,
-} 
+}
 
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
@@ -46,6 +46,13 @@ func hide_day_over() -> void:
 func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
 	GameData.total_reputation_points += GameData.daily_reputation_points
+
+	# Select random apps to receive updates (50% chance for each downloaded app)
+	GameData.apps_with_available_updates.clear()
+	for app in GameData.downloaded_apps:
+		if randi() % 100 < 50: # 50% chance
+			GameData.apps_with_available_updates.append(app)
+
 	GameData.save_game()
 	day_over_clicked.emit()
 
