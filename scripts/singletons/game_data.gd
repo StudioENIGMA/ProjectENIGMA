@@ -122,6 +122,7 @@ var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
 var max_hours_minutes:int = 1080 # End at 18:00
+var max_hours_minutes_tutorial:int = 720 # End at 12:00
 var current_day:int = 0
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
@@ -138,7 +139,7 @@ var breaches_immunity_ticks: int = 45
 var current_hack_probability: float = 0 # Probability of being hacked every tick
 var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
-var hack_immunity_ticks: int = 10 # Number of ticks of immunity after being hacked
+var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
