@@ -62,6 +62,12 @@ func _apply_annex(annex: Dictionary) -> void:
 		annex_button.icon = load(annex["image"])
 	if annex.has("caption"):
 		annex_button.text = annex["caption"]
+	if annex.has("due_day"):
+		var due_day = annex["due_day"]
+		var current_day = GameData.current_day
+		if due_day != current_day:
+			annex_button.disabled = true
+			annex_button.text = "Anexo expirado"
 
 	# If annex type is apk, connect download action
 	if annex.get("type", "") == "apk":
