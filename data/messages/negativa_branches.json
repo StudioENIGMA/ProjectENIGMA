@@ -88,7 +88,7 @@
 		"from_negativa_payment0_3":[
 			{
 				"id": "negativa_payment0_3",
-				"text": "Código pix: 7E111"
+				"text": "Código pix: 7EE11"
 			},
 			{
 				"id": "negativa_payment0_4",
@@ -96,7 +96,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "7E111"
+						"payment_id": "7EE11"
 					}
 				]
 			}
