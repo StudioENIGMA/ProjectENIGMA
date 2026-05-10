@@ -115,14 +115,14 @@ var bank_balance: float = 200
 var completed_payments = []
 var purchased_items = {}
 var options_chose = {}
- 
+
 var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
-var starting_hours_minutes:int = 600	# Start at 10:00
-var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 960 # End at 16:00
-var current_day:int = 1
+var starting_hours_minutes:int = 480	# Start at 08:00
+var hours_minutes:int = 480 # This one will increase with time
+var max_hours_minutes:int = 1080 # End at 18:00
+var current_day:int = 0
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
 var events_log = []
