@@ -68,7 +68,7 @@
 		"relative_due_time": 30
 	},
 	{
-		"day": 6,
+		"day": 7,
 		"branch": "d6_good_end_game",
 		"requires": [
 			{
@@ -80,7 +80,7 @@
 		"relative_due_time": 620
 	},
 	{
-		"day": 6,
+		"day": 7,
 		"branch": "d6_bad_end_game",
 		"requires": [
 			{

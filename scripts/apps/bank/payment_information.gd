@@ -21,7 +21,7 @@ func setup(code:GameData.PaymentCode) -> void:
 
 	var code_informations = codes_dict.get(payment_code.code)
 
-	if code_informations == null:
+	if code_informations == null or not _is_valid_information_for_payment_type(code_informations):
 		not_found_container.setup(payment_code.code);
 		not_found_container.visible = true;
 		confirm_button.visible = false;
@@ -60,6 +60,23 @@ func setup(code:GameData.PaymentCode) -> void:
 		transaction_value_field.setup("Valor", GameData.format_brl(code_informations["value"]))
 		informations_container.add_child(transaction_value_field)
 		informations_container.move_child(transaction_value_field, 1)
+
+func _is_valid_information_for_payment_type(code_informations: Dictionary) -> bool:
+	if payment_code.type == GameData.PaymentType.PIX:
+		return (
+			code_informations.has("name")
+			and code_informations.has("cpf")
+			and code_informations.has("email")
+			and code_informations.has("value")
+		)
+
+	if payment_code.type == GameData.PaymentType.TICKET:
+		return (
+			code_informations.has("institution")
+			and code_informations.has("value")
+		)
+
+	return false
 
 func _on_codes_dict_updated(new_dict: Dictionary) -> void:
 	codes_dict = new_dict
