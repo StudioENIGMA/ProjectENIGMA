@@ -77,7 +77,7 @@
     },
     "task0_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -93,7 +93,7 @@
     },
     "task1_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -109,7 +109,7 @@
     },
     "task2_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de martelos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -125,7 +125,7 @@
     },
     "task3_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitores para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -141,7 +141,7 @@
     },
     "task4_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de furadeira para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -157,7 +157,7 @@
     },
     "task5_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -173,7 +173,7 @@
     },
     "task6_jose": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -189,7 +189,7 @@
     },
     "task0_mariana": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Ajudar na escolha de senha",
         "requires": [
             {
                 "flag": "option",
@@ -199,7 +199,7 @@
     },
     "task0_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de doces para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -220,7 +220,7 @@
     },
     "task1_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -236,7 +236,7 @@
     },
     "task2_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de bolos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -252,7 +252,7 @@
     },
     "task3_marta": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -262,7 +262,7 @@
     },
     "task0_px_investment": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de empréstimo",
         "requires": [
             {
                 "flag": "payment",
@@ -272,7 +272,7 @@
     },
     "task1_px_investment": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Investimento da PX",
         "requires": [
             {
                 "flag": "payment",
@@ -282,7 +282,7 @@
     },
     "task2_px_investment": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Investimento da PX",
         "requires": [
             {
                 "flag": "payment",
@@ -292,7 +292,7 @@
     },
     "task3_px_investment": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de funcionário",
         "requires": [
             {
                 "flag": "payment",
@@ -302,7 +302,7 @@
     },
     "task4_px_investment": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de funcionário",
         "requires": [
             {
                 "flag": "payment",
@@ -312,7 +312,7 @@
     },
     "task0_ricardo": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de materiais para Ricardo",
         "requires": [
             {
                 "flag": "purchase",
@@ -333,7 +333,7 @@
     },
     "task1_ricardo": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitor para Ricardo",
         "requires": [
             {
                 "flag": "purchase",
@@ -349,7 +349,7 @@
     },
     "task2_ricardo": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de uniforme para Ricardo",
         "requires": [
             {
                 "flag": "purchase",
@@ -365,7 +365,7 @@
     },
     "task3_ricardo": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de materiais para Ricardo",
         "requires": [
             {
                 "flag": "purchase",
@@ -396,7 +396,7 @@
     },
     "task4_ricardo": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de materiais para Ricardo",
         "requires": [
             {
                 "flag": "payment",
@@ -406,7 +406,7 @@
     },
     "task0_artur": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de fatura",
         "requires": [
             {
                 "flag": "payment",
@@ -416,7 +416,7 @@
     },
     "task1_artur": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Ajudar na escolha de senha",
         "requires": [
             {
                 "flag": "option",
@@ -426,7 +426,7 @@
     },
     "task0_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -442,7 +442,7 @@
     },
     "task1_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de furadeiras para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -458,7 +458,7 @@
     },
     "task2_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -474,7 +474,7 @@
     },
     "task3_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de martelos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -490,7 +490,7 @@
     },
     "task4_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de nitrogênio para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -506,7 +506,7 @@
     },
     "task5_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -516,7 +516,7 @@
     },
     "task6_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -526,7 +526,7 @@
     },
     "task7_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -536,7 +536,7 @@
     },
     "task8_marcao": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -546,7 +546,7 @@
     },
     "task0_guilherme": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de bolo",
         "requires": [
             {
                 "flag": "purchase",
@@ -562,7 +562,7 @@
     },
     "task1_guilherme": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitores para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -578,7 +578,7 @@
     },
     "task2_guilherme": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -588,7 +588,7 @@
     },
     "task3_guilherme": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -598,7 +598,7 @@
     },
     "task0_gilmar": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de aço para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -614,7 +614,7 @@
     },
     "task1_gilmar": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de martelos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -630,7 +630,7 @@
     },
     "task2_gilmar": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Ajudar na escolha de senha",
         "requires": [
             {
                 "flag": "option",
@@ -640,7 +640,7 @@
     },
     "task0_carolina": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de bolos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -661,7 +661,7 @@
     },
     "task1_carolina": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitor para Carolina",
         "requires": [
             {
                 "flag": "purchase",
@@ -677,7 +677,7 @@
     },
     "task2_carolina": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -687,7 +687,7 @@
     },
     "task3_carolina": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Ajudar na escolha de senha",
         "requires": [
             {
                 "flag": "option",
@@ -697,7 +697,7 @@
     },
     "task0_negativa": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitores para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -713,7 +713,7 @@
     },
     "task1_negativa": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento pendente negativa",
         "requires": [
             {
                 "flag": "payment_multitype",
@@ -726,7 +726,7 @@
     },
     "task2_negativa": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment_multitype",
@@ -739,7 +739,7 @@
     },
     "task0_marcia": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -755,7 +755,7 @@
     },
     "task1_marcia": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de doces para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -776,7 +776,7 @@
     },
     "task2_marcia": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de bolos para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -797,7 +797,7 @@
     },
     "task3_marcia": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -818,7 +818,7 @@
     },
     "scan0_arthur": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Identificar mensagens de scam",
         "requires": [
             {
                 "flag": "purchase",
@@ -837,7 +837,7 @@
     },
     "scan1_arthur": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -847,7 +847,7 @@
     },
     "scan0_carolinda": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Não compartilhar senhas",
         "requires": [
             {
                 "flag": "option",
@@ -857,7 +857,7 @@
     },
     "scan1_carolinda": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -867,7 +867,7 @@
     },
     "scan2_carolinda": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -877,7 +877,7 @@
     },
     "scan0_false_px_investment": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -887,7 +887,7 @@
     },
     "scan1_false_px_investment": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "option",
@@ -897,7 +897,7 @@
     },
     "scan0_gilrnar": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -907,7 +907,7 @@
     },
     "scan1_gilrnar": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -917,7 +917,7 @@
     },
     "scan0_giumar": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -927,7 +927,7 @@
     },
     "scan0_guilherrne": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -937,7 +937,7 @@
     },
     "scan0_guillherme": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -956,7 +956,7 @@
     },
     "scan0_jescica": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -966,7 +966,7 @@
     },
     "scan1_jescica": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -976,7 +976,7 @@
     },
     "scan2_jescica": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -986,7 +986,7 @@
     },
     "scan0_jilmar": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -996,7 +996,7 @@
     },
     "scan0_joseh": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1015,7 +1015,7 @@
     },
     "scan1_joseh": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1034,7 +1034,7 @@
     },
     "scan0_josue": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1053,7 +1053,7 @@
     },
     "scan1_josue": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1072,7 +1072,7 @@
     },
     "scan0_jouse": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1091,7 +1091,7 @@
     },
     "scan1_jouse": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1110,7 +1110,7 @@
     },
     "scan2_jouse": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1129,7 +1129,7 @@
     },
     "scan0_mancia": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1148,7 +1148,7 @@
     },
     "scan2_mancia": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1167,7 +1167,7 @@
     },
     "scan0_marcaao": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -1177,7 +1177,7 @@
     },
     "scan1_marcaao": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -1187,7 +1187,7 @@
     },
     "scan0_marçao": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1206,7 +1206,7 @@
     },
     "scan0_marcaon": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1225,7 +1225,7 @@
     },
     "scan0_marciia": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1244,7 +1244,7 @@
     },
     "scan1_marciia": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1263,7 +1263,7 @@
     },
     "scan0_marrta": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -1273,7 +1273,7 @@
     },
     "scan0_martha": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1300,7 +1300,7 @@
     },
     "scan1_martha": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1319,7 +1319,7 @@
     },
     "scan0_non_px_investment": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1329,7 +1329,7 @@
     },
     "scan0_px_investrnent": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1339,7 +1339,7 @@
     },
     "scan1_px_investrnent": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1349,7 +1349,7 @@
     },
     "scan2_px_investrnent": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1359,7 +1359,7 @@
     },
     "scan0_ricarudo": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "purchase",
@@ -1402,7 +1402,7 @@
     },
     "scan1_ricarudo": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "payment",
@@ -1412,7 +1412,7 @@
     },
     "scan2_ricarudo": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Contato de funcionário falso",
         "requires": [
             {
                 "flag": "option",
@@ -1422,7 +1422,7 @@
     },
     "false_negativa_scan_payment0": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1432,7 +1432,7 @@
     },
     "Viva_scan_payment0": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1442,7 +1442,7 @@
     },
     "Vivas_scan_payment1": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1452,7 +1452,7 @@
     },
     "Vivaa_scan_payment2": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1462,7 +1462,7 @@
     },
     "Viiva_scan_payment3": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1472,7 +1472,7 @@
     },
     "Viva_scan_payment4": {
         "type": "scam",
-        "description": "descrição da task",
+        "description": "Instituição falsa",
         "requires": [
             {
                 "flag": "payment",
@@ -1482,7 +1482,7 @@
     },
     "mariana_purchase0": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de materiais para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1508,7 +1508,7 @@
     },
     "mariana_purchase1": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de materiais para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1524,7 +1524,7 @@
     },
     "mariana_payment0": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -1534,7 +1534,7 @@
     },
     "yago_purchase0": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de doces para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1555,7 +1555,7 @@
     },
     "yago_purchase1": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de monitores para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1571,7 +1571,7 @@
     },
     "yago_purchase2": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1597,7 +1597,7 @@
     },
     "yago_payment0": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Pagamento de contas da empresa",
         "requires": [
             {
                 "flag": "payment",
@@ -1607,7 +1607,7 @@
     },
     "artur_purchase0": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de frigobares para empresa",
         "requires": [
             {
                 "flag": "purchase",
@@ -1623,7 +1623,7 @@
     },
     "artur_purchase1": {
         "type": "random-task",
-        "description": "descrição da task",
+        "description": "Compra de camisas para empresa",
         "requires": [
             {
                 "flag": "purchase",
