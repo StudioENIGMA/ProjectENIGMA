@@ -6,7 +6,7 @@ signal schedule_email(story_entry: Dictionary)
 #endregion SIGNALS
 
 #region CONSTANTS
-const random_tasks_delay = [0, 60, 30, 30, 30, 30, 30]
+const random_tasks_delay = [0, 120, 60, 30, 30, 30, 30]
 
 const number_of_events = [
 	{
@@ -14,11 +14,11 @@ const number_of_events = [
 		"scams": 0
 	},
 	{
-		"tasks": 2,
+		"tasks": 5,
 		"scams": 2
 	},
 	{
-		"tasks": 3,
+		"tasks": 6,
 		"scams": 4
 	},
 	{
@@ -26,15 +26,15 @@ const number_of_events = [
 		"scams": 5
 	},
 	{
-		"tasks": 10,
+		"tasks": 9,
 		"scams": 6
 	},
 	{
-		"tasks": 11,
+		"tasks": 10,
 		"scams": 8
 	},
 	{
-		"tasks": 12,
+		"tasks": 11,
 		"scams": 9
 	},
 ]

@@ -2,7 +2,7 @@ extends Control
 
 signal day_over_clicked()
 
-const MIN_RP_DAY = [10,75,85,95,120,125,140]
+const MIN_RP_DAY = [10,90,115,95,105,110,140]
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const TYPE_TO_RP = {
 	"conversation": 10,
@@ -28,6 +28,9 @@ func show_day_over() -> void:
 		events_container.add_child(event_instance)
 
 	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
+
+	for connection in next_day_button.pressed.get_connections():
+		next_day_button.pressed.disconnect(connection["callable"])
 
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_rich_text.text = "APROVADO"
