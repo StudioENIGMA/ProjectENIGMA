@@ -108,6 +108,7 @@ func _queue_today_entry_points() -> void:
 				"index": 0,
 				"due_at": absolute_due_time,
 				"requires": combined_requires,
+				"event_id": event_id,
 			})
 #endregion SCHEDULING TODAY
 
