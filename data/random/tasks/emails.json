@@ -53,5 +53,15 @@
 		"thread_id": "marcia_task4",
 		"email_id": "marcia_purchase4",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina_task4",
+		"email_id": "carolina_payment1",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_task4",
+		"email_id": "jessica_purchase1",
+		"required_app": "browser"
 	}
 ]

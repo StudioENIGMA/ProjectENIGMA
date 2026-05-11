@@ -1817,5 +1817,31 @@
 				"choice": "\\aFovfd%#_A(FG"
 			}
 		]
+	},
+	"carolina_payment1": {
+		"type": "random-task",
+		"description": "Pagamento de assinatura Firewall",
+		"requires": [
+            {
+                "flag": "payment",
+                "payment_id": "063299"
+            }
+        ]
+	},
+	"jessica_purchase1": {
+		"type": "random-task",
+		"description": "Bolo de Aniverśario da Helena",
+		"requires": [
+            {
+                "flag": "purchase",
+                "items": [
+                    {
+                        "item_id": 25,
+                        "quantity": 1,
+                        "store": "emilia_bolos"
+                    }
+                ]
+            }
+        ]
 	}
 }
