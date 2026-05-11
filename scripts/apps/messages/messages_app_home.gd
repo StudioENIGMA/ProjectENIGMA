@@ -155,3 +155,15 @@ func load_conversations(saved_conversations: Array) -> void:
 		conversation_row.setup(restored_conversation)
 		conversation_row.open_chat_requested.connect(_on_open_chat)
 		list_of_chats.add_child(conversation_row)
+
+func on_delete_conversation(sender: String) -> void:
+	var idx = conversations_data.find_custom(func(c): return c["name"] == sender)
+	if idx == -1:
+		return
+	conversations_data.remove_at(idx)
+	_sync_conversations_to_game_data()
+
+	for child in list_of_chats.get_children():
+		if child.contact_label.text == sender:
+			child.queue_free()
+			return

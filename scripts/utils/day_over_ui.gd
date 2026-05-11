@@ -5,6 +5,7 @@ signal day_over_clicked()
 const MIN_RP_DAY = [10,75,85,95,120,125,140]
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const TYPE_TO_RP = {
+	"conversation": 10,
 	"random-task": 15,
 	"main-task": 20,
 	"scam": -10,
@@ -26,16 +27,10 @@ func show_day_over() -> void:
 		event_instance.setup(event.get("description", ""), event_rp)
 		events_container.add_child(event_instance)
 
-	# Handle day 0 (tutorial) separately since it doesn't follow the same rules as the other days
-	if GameData.current_day == 0:
-		result_rich_text.text = "Dia 0 - Tutorial"
-		result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))
-		next_day_button.text = "Iniciar Dia 1"
-		next_day_button.pressed.connect(_on_next_day_button_pressed)
-		self.show()
-		return
-
 	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
+
+	for connection in next_day_button.pressed.get_connections():
+		next_day_button.pressed.disconnect(connection["callable"])
 
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_rich_text.text = "APROVADO"
