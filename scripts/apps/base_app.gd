@@ -493,6 +493,9 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 		_:
 			_on_app_opened(GameData.App.LINECONNECT)
 
+func on_delete_conversation(_sender: String) -> void:
+	_on_back_button_pressed()
+
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {

@@ -39,7 +39,9 @@
 		  },
 		  {
 			"id": "fs_0_2a_1",
-			"player_text": "Bloquear e Denunciar"
+			"player_text": "Bloquear e Denunciar",
+			"event_id": "block_and_report",
+			"sender": "numero_desconhecido"
 		  }
 		]
 	  }
