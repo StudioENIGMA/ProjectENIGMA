@@ -107,21 +107,40 @@
 				"choices": [
 					{
 						"id": "boss_0_2a_0",
-						"player_text": "Obrigado, farei isso."
+						"player_text": "Obrigado, farei isso.",
+						"npc_reply": {
+							"goto_branch": "from_boss_0_2a_0",
+							"delay_ticks": 2.0
+						}
 					}
 				]
-			},
+			}
+		],
+		"from_boss_0_2a_0": [
+			
 			{
 				"id": "boss_0_3",
-				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
+				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores que ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
 			},
 			{
 				"id": "boss_0_4",
-				"text": "Eu fico responsável por te apresentar os funcionários do setor industrial e nossos parceiros que entrarão em contato com você. LEIA COM ATENÇÃO: Os funcionários do setor insutrial são o José, o Marcão, o Gilmar, o Ricardo e a Mariana."
+				"text": "Eu fico responsável por te apresentar os funcionários do setor industrial e nossos parceiros que entrarão em contato com você. LEIA COM ATENÇÃO: Os funcionários do setor industrial são o José, o Marcão, o Gilmar, o Ricardo e a Mariana."
 			},
 			{
 				"id": "boss_0_5",
 				"text": "Nossas empresas parceiras são a Viva, a PX Investment e a Negativa"
+			},
+			{
+				"id": "boss_0_6",
+				"text": "Tente explorar um pouco seu novo celular, o banana Phone, o restante do pessoal deve te enviar uma mensagem de apresentação nos próximos minutos, isso se já não tiverem enviado!"
+			},
+			{
+				"id": "boss_0_7",
+				"text": "Ah, e como hoje é seu primeiro dia, não se preocupe em realizar tarefas, pode trabalhar somente até 12:00. A partir de amanhã, o expediente começa às 8:00 e termina às 18:00, então se organize para realizar suas tarefas dentro desse horário, ok? Bom trabalho!"
+			},
+			{
+				"id": "boss_0_8",
+				"text": "No final de cada dia você receberá um resumo do seu desempenho diário"
 			}
 		],
 		"d1_start_1": [
@@ -138,7 +157,7 @@
 			},
 			{
 				"id": "b_1_1",
-				"text": "Eu pedi para o TI liberar a instalação do Banco na sua loja de aplicativos.",
+				"text": "Eu pedi para o TI liberar a instalação do Banco na sua loja de aplicativos, peço que instale assim que possível para podermos dar sequência nas suas tarefas.",
 				"event_id": "boss_install0"
 			},
 			{
