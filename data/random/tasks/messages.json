@@ -186,6 +186,11 @@
 		"required_app": "Bank"
 	},
 	{
+		"thread_id": "guilherme",
+		"branch": "task4_guilherme",
+		"required_app": "MessagesHome"
+	},
+	{
 		"thread_id": "gilmar",
 		"branch": "task0_gilmar",
 		"required_app": "browser"
@@ -254,6 +259,11 @@
 		"thread_id": "marcia",
 		"branch": "task3_marcia",
 		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago",
+		"branch": "task0_yago",
+		"required_app": "MessagesHome"
 	}
 
 ]

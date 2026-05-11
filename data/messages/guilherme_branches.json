@@ -82,7 +82,7 @@
 			},
 			{
 				"id": "guilherme_payment0_2",
-				"text": "Segue o código do boleto: 769623"
+				"text": "Segue o código do boleto: 769623."
 			}, 
 			{
 				"id": "guilherme_payment0_3",
@@ -106,7 +106,51 @@
 			},
 			{
 				"id": "guilherme_purchase1_2",
-				"text": "Por favor, faça esse pagamento pelo código 760623"
+				"text": "Por favor, faça esse pagamento pelo código 760623."
+			}
+		],
+		"task4_guilherme": [
+			{
+				"id": "guilherme_password0_0",
+				"text": "Oi estagiário."
+			},
+			{
+				"id": "guilherme_password0_1",
+				"text": "Você pode me ajudar a entender melhor sobre senhas?"
+			},
+			{
+				"id": "guilherme_password0_2",
+				"text": "Quero trocar a minha, mas não sei qual modelo é mais seguro, estou em duvida entre ?wRF924%qerF+AF^ ou a987652fl",
+				"choices": [
+					{
+						"id": "guilherme_password0_2a_0",
+						"player_text": "?wRF924%qerF+AF^",
+						"npc_reply": {
+							"goto_branch": "from_guilherme_password0_3",
+							"delay_ticks": 12
+						}
+					},
+					{
+						"id": "guilherme_password0_2a_1",
+						"player_text": "a987652fl",
+						"npc_reply": {
+							"goto_branch": "from_guilherme_password0_4",
+							"delay_ticks": 15
+						}
+					}
+				]
+			}
+		],
+		"from_guilherme_password0_3": [
+			{
+				"id": "guilherme_password0_3",
+				"text": "O sistema reconheceu, é realmente forte!"
+			}
+		],
+		"from_guilherme_password0_4": [
+			{
+				"id": "guilherme_password0_4",
+				"text": "O sistema que eu coloquei afirmou ser uma senha mediana"
 			}
 		]
 	}

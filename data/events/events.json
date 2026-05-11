@@ -695,6 +695,16 @@
             }
         ]
     },
+	"task4_guilherme": {
+        "type": "random-task",
+        "description": "Ajudar na escolha de senha",
+        "requires": [
+            {
+                "flag": "option",
+                "choice": "?wRF924%qerF+AF^"
+            }
+        ]
+    },
     "task0_negativa": {
         "type": "random-task",
         "description": "Compra de monitores para empresa",
@@ -1797,5 +1807,15 @@
                 "payment_id": "JPA24"
             }
         ]
-    }
+    },
+	"task0_yago": {
+		"type": "random-task",
+		"description": "Ajudar na escolha de senha",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "\\aFovfd%#_A(FG"
+			}
+		]
+	}
 }
