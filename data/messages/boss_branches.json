@@ -303,7 +303,38 @@
 		"d3_start1": [
 			{
 				"id": "b_3_0",
-				"text": "Bom trabalho, vejo que você já está pegando o jeito! Conseguiu entender o funcionamento de todos os aplicativos?"
+				"text": "Bom trabalho, vejo que você já está pegando o jeito! Conseguiu entender o funcionamento de todos os aplicativos?",
+				"choices": [
+					{
+						"id": "b_3_0a_0",
+						"player_text": "Entendi o sistema completamente!",
+						"npc_reply": {
+							"goto_branch": "from_b_3_1",
+							"delay_ticks": 2.0
+						}
+						
+					},
+					{
+						"id": "b_3_0a_1",
+						"player_text": "acho que preciso de mais tempo",
+						"npc_reply": {
+							"goto_branch": "from_b_3_2",
+							"delay_ticks": 2.0
+						}
+					}
+				]
+			}
+		],
+		"from_b_3_1": [
+			{
+				"id": "b_3_1",
+				"text": "Muito bom, você está demonstrando um grande potencial. Amanhâ eu volto para te atualizar sobre o andamento dos trabalhos e comento um pouco sobre o seu desempenho."
+			}
+		],
+		"from_b_3_2": [
+			{
+				"id": "b_3_2",
+				"text": "Não desanime, você ainda está no começo, tenho certeza que amanhã estará entendendo tudo. Agora ao trabalho."
 			}
 		]
 	}
