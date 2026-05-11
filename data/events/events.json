@@ -1,4 +1,15 @@
 {
+
+"tutorial_boss": {
+		"type": "conversation",
+		"description": "Responder mensagem do chefe",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Obrigado, farei isso."
+			}
+		]
+	},
 	"boss_install0": {
 		"type": "main-task",
 		"description": "Instalação do Banco",
