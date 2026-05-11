@@ -47,6 +47,9 @@ func _ready() -> void:
   answers_director.request_answer_option.connect(
 	messages_app_chat.on_request_answer_option
   )
+  # Answers Director blocked someone, notify the UI to update the messages accordingly
+  answers_director.delete_conversation.connect(messages_app_home.on_delete_conversation)
+  answers_director.delete_conversation.connect(ui.base_app.on_delete_conversation)
   # Story Director new email to UI
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
   #Story Director Browser
