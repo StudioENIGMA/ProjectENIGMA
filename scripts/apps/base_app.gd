@@ -379,6 +379,11 @@ func _on_back_button_pressed() -> void:
 	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
 	var current_app = _get_app_by_enum(current_app_enum)
+
+	# If it is messages_app_chat, unset conversation_name
+	if current_app_dict["MainApp"] == GameData.App.MESSAGESHOME:
+		messages_app_chat.conversation_name = ""
+
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
 	]
@@ -440,6 +445,10 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 
 ## Closes all open apps with the specified main app enum
 func _close_main_app(main_app_enum: GameData.App) -> void:
+	# If it is messages_app_chat, unset conversation_name
+	if main_app_enum == GameData.App.MESSAGESHOME:
+		messages_app_chat.conversation_name = ""
+
 	# Close all open apps with same main_app
 	for i in range(open_apps.size() - 1, -1, -1):
 		var app_dict: Dictionary = open_apps[i]
