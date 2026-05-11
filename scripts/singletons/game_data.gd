@@ -238,9 +238,9 @@ var apps_data = {
 	},
 
 	App.FAKESTORE: {
-		"name": "Loja Falsa",
+		"name": "Loja Desbloqueada",
 		"chinese_name": "假商店",
-		"description": "Uma loja falsa para testar se o jogador sabe identificar golpes!",
+		"description": "Uma loja sem a supervisão do seu chefe!",
 		"description_in_chinese": "Chinese",
 		"icon_path": "res://assets/icons/fake-app-store.png",
 	},
