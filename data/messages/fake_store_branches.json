@@ -5,7 +5,7 @@
 	{
 	  "day": 0,
 	  "branch": "d0_start",
-	  "relative_due_time": 166
+	  "relative_due_time": 100
 	}
   ],
   "branches": {
@@ -26,7 +26,8 @@
 		  "type": "apk",
 		  "app_name": "fake_store",
 		  "image": "res://assets/icons/fake-app-store.png",
-		  "caption": "Loja de Aplicativos Corporativa.apk"
+		  "caption": "Loja de Aplicativos Corporativa.apk",
+			"due_day": 0
 		},
 		"choices": [
 		  {

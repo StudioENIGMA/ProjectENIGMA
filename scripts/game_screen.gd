@@ -86,6 +86,7 @@ func _ready() -> void:
   # UI start new day
   ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
   ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
+  ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
   # UI game paused
   ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
 #endregion INITIALIZATION

@@ -13,6 +13,12 @@ func _ready() -> void:
 	for child in get_children():
 		if child is not Control:
 			continue
+
+		# We need to do it this way to avoid setting default apps as invisible
+		var is_downloaded = GameData.downloaded_apps.has(child.app)
+		if is_downloaded:
+			child.visible = true
+
 		child.gui_input.connect(_on_app_gui_input.bind(child))
 
 func _on_app_gui_input(event: InputEvent, app_node: Node) -> void:

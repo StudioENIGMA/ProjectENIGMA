@@ -115,14 +115,15 @@ var bank_balance: float = 200
 var completed_payments = []
 var purchased_items = {}
 var options_chose = {}
- 
+
 var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
-var starting_hours_minutes:int = 600	# Start at 10:00
-var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 960 # End at 16:00
-var current_day:int = 1
+var starting_hours_minutes:int = 480	# Start at 08:00
+var hours_minutes:int = 480 # This one will increase with time
+var max_hours_minutes:int = 1080 # End at 18:00
+var max_hours_minutes_tutorial:int = 720 # End at 12:00
+var current_day:int = 0
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
 var events_log = []
@@ -135,10 +136,12 @@ var updated_password_today: bool = false
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
+var apps_with_available_updates: Array[App] = []
+
 var current_hack_probability: float = 0 # Probability of being hacked every tick
 var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
-var hack_immunity_ticks: int = 10 # Number of ticks of immunity after being hacked
+var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
@@ -388,6 +391,7 @@ func save_game() -> void:
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
+		"apps_with_available_updates": apps_with_available_updates,
 	}
 
 	save_file.store_string(JSON.stringify(game_state))
@@ -452,6 +456,11 @@ func load_game() -> void:
 	random_events_history.clear()
 	for thread in raw_random_events_history:
 		random_events_history.append(thread)
+
+	var raw_apps_with_available_updates: Array = game_state.get("apps_with_available_updates", [])
+	apps_with_available_updates.clear()
+	for app in raw_apps_with_available_updates:
+		apps_with_available_updates.append(int(app))
 
 func reset_to_defaults():
 	var fresh_instance = load(get_script().resource_path).new()
