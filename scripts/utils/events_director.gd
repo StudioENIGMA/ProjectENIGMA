@@ -2,6 +2,7 @@ extends Node
 
 #region CONSTANTS
 const TYPE_TO_RP = {
+	"conversation": 10,
 	"random-task": 15,
 	"main-task": 20,
 	"scam": - 10,
