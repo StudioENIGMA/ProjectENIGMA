@@ -1,0 +1,39 @@
+{
+    "thread_id": "yago",
+    "sender": "Yago",
+    
+    "branches": {
+        "task0_yago": [
+            {
+                "id": "yago_password0_0",
+                "text": "Olá estagiário, como procedimento de segurança da empresa, gostaria de te perguntar algumas coisas sobre segurança na web. Se eu quisesse escolher uma senha, qual seria a mais segura?"
+            },
+            {
+                "id": "yago_password0_1",
+                "text": "f??Aerg ou \\aFovfd%#_A(FG",
+                "choices": [
+					{
+						"id": "yago_password0_1a_0",
+						"player_text": "\\aFovfd%#_A(FG",
+						"npc_reply": {
+							"goto_branch": "from_yago_password0_2",
+							"delay_ticks": 12
+						}
+					},
+					{
+						"id": "yago_password0_1a_1",
+						"player_text": "f??Aerg",
+						"npc_reply": {
+						}
+					}
+				]
+            }
+        ],
+        "from_yago_password0_2": [
+            {
+                "id": "yago_password0_2",
+                "text": "Obrigado."
+            }
+        ]
+    }
+}

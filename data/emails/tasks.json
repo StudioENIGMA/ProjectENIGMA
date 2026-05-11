@@ -1,22 +1,4 @@
 [
-	{    
-		"thread_id": "marta-3",
-		"email_id": "marta-3x1",
-		"sender": "Marta",
-		"subject": "Bem-vindo ao Estágio",
-		"content": "Olá!\n\nÉ um prazer dar-lhe as boas-vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!).\n\nDurante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens.\n\nPara realizar suas tarefas você precisará instalar alguns aplicativos nos próximos dias. A loja de aplicativos corporativa já está instalada no seu dispositivo, irei lhe avisar sempre que um novo app for liberado, mas peço que visite a loja e verifique os apps e atualizações disponíveis regularmente.\n\nObrigado, e bom trabalho!\n\n- Chefinho",
-		"attachments": [],
-		"requires": []
-	},
-	{    
-		"thread_id": "marta-4",
-		"email_id": "marta-4x1",
-		"sender": "Marta",
-		"subject": "Bem-vindo ao Estágio",
-		"content": "Olá!\n\nÉ um prazer dar-lhe as boas-vindas ao nosso programa de Estágio. Enquanto você estiver trabalhando para a Corporação ENIGMA ltda., você terá acesso ao nosso telefone empresarial (este mesmo que você está usando agora!).\n\nDurante os próximos 8 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens.\n\nPara realizar suas tarefas você precisará instalar alguns aplicativos nos próximos dias. A loja de aplicativos corporativa já está instalada no seu dispositivo, irei lhe avisar sempre que um novo app for liberado, mas peço que visite a loja e verifique os apps e atualizações disponíveis regularmente.\n\nObrigado, e bom trabalho!\n\n- Chefinho",
-		"attachments": [],
-		"requires": []
-	},
 	{
 		"thread_id": "mariana_task0",
 		"email_id": "mariana_purchase0",
@@ -95,6 +77,42 @@
 		"sender": "artur@enigma.ti.com.br",
 		"subject": "Compra de Frigobar",
 		"content": "Fala cara,\n\nO chefe quer que nós do TI usemos todos camisa polo azul da empresa em um evento de tecnologia, é mole? kkkkkkkk. Enfim, para não atrasarmos com o projeto, faz o pedido ai pra gente por favor. Somos em 4\n\nAtenciosamente,\n\nArtur",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "ricardo_task5",
+		"email_id": "ricardo_purchase4",
+		"sender": "ricardo@enigma.com.br",
+		"subject": "Compra de doces para cliente importante",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. Acabei de lembrar que amanhã eu e a Mariana iremos fazer uma reunião com um de nossos principais clientes. Você pode encomendar 30 brigadeiros gourmet, por favor. \n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_task4",
+		"email_id": "marcia_purchase4",
+		"sender": "marcia@enigma.rh.com.br ",
+		"subject": "Política do uso de uniforme",
+		"content": "Oie!\n\nEstamos oficializando uma nova política da empresa. Prestadores de serviço terceirizados deverão usar um uniforme da empresa em serviços dentro da empresa. Nosso estoque de camisetas polo para fazer os uniformes está pequeno. Pode comprar para gente 7 camisetas polo azuis, por favor!\n\nAtenciosamente,\n\nMarcia",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_task4",
+		"email_id": "carolina_payment1",
+		"sender": "carolina@enigma.ti.com.br",
+		"subject": "Pagamento assinatura do Firewall",
+		"content": "Bom dia,\n\nEstou enviando por email por ser uma demanda mais importante. Preciso renovar a assinatura do Firewall, um sistema de defase à hackers. Ele impede que os hackers conectem em nossos computadores, mas nem sempre funciona, mesmo assim sempre obm prevenir né kakakaka. Nunca deixe o seu desativado, a não ser que saiba exatamente o que está fazendo. Faz o pagamento do boleto, por favor\n\nCódigo: 063299\n\nObrigada, Carolina",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_task4",
+		"email_id": "jessica_purchase1",
+		"sender": "jessica@enigma.rh.com.br",
+		"subject": "Bolo de aniversário",
+		"content": "Oi, tudo bem?\n\nAmanhã é aniversário da Helena, minha chefe aqui do rh. O chefe quer que compremos um bolo, mas estou trabalhando em outra tarefa. Você poderia comprar um bolo decorado?\n\nAtenciosamente,\n\nJéssica",
 		"attachments": [],
 		"requires": []
 	}
