@@ -100,13 +100,14 @@ func _queue_today_entry_points() -> void:
 
 			var event_id = entry.get("event_id", "")
 			# Signal upward to StoryDirector to schedule this entry point
+			var combined_requires := _combine_requires(entry_requires, first_node_requires)
+			combined_requires = _combine_requires(combined_requires, [_requires_no_pending_response_for_thread(thread_id)])
 			schedule_entry_requested.emit({
 				"thread_id": thread_id,
 				"branch": branch,
 				"index": 0,
 				"due_at": absolute_due_time,
-				"requires": _combine_requires(entry_requires, first_node_requires),
-				"event_id": event_id,
+				"requires": combined_requires,
 			})
 #endregion SCHEDULING TODAY
 
@@ -159,6 +160,7 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 		var delay_minutes = message_node.get("delay_minutes", 2) # Default delay
 
 		var next_node_requires := _get_node_requires(thread, branch, next_index)
+		next_node_requires = _combine_requires(next_node_requires, [_requires_no_pending_response_for_thread(thread_id)])
 
 		var event_id := _get_event_id(thread, branch, next_index)
 
@@ -219,6 +221,12 @@ func _get_event_id(thread: Dictionary, branch: String, index: int) -> String:
 
 	var node: Dictionary = nodes[index]
 	return node.get("event_id", "")	
+
+func _requires_no_pending_response_for_thread(thread_id: String) -> Dictionary:
+	return {
+		"flag": "no_pending_response_for_thread",
+		"thread_id": thread_id,
+	}
 
 ## Combines two requires arrays into one
 func _combine_requires(left: Array, right: Array) -> Array:
