@@ -199,65 +199,65 @@ var apps_name_reverse: Dictionary = {}
 var apps_data = {
 	App.MESSAGESHOME: {
 		"name": "Mensagens",
-		"chinese_name": "訊息和對話",
+		"chinese_name": "Tluzhnluz",
 		"description": "Receba e Envie Mensagens!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Yljlih l Lucpl Tluzhnluz!",
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
 	App.BROWSER: {
 		"name": "Navegador",
-		"chinese_name": "導航和搜尋",
+		"chinese_name": "Uhclnhkvy",
 		"description": "Acesse seus sites favoritos!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Hjlzzl zlbz zpalz mhcvypavz!",
 		"icon_path": "res://assets/icons/browser.png",
 	},
 
 	App.EMAIL: {
 		"name": "Email",
-		"chinese_name": "電子郵件",
+		"chinese_name": "Lthps",
 		"description": "Receba e envie emails aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Yljlih l lucpl lthpsz hxbp!",
 		"icon_path": "res://assets/icons/email.png",
 	},
 
 	App.SETTINGS: {
 		"name": "Configurações",
-		"chinese_name": "設定和個人化",
+		"chinese_name": "Jvumpnbyhçõlz",
 		"description": "Ajuste as configurações do seu dispositivo!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Hqbzal hz jvumpnbyhçõlz kv zlb kpzwvzpapcv!",
 		"icon_path": "res://assets/icons/settings.png",
 	},
 
 	App.STORE: {
 		"name": "Loja",
-		"chinese_name": "應用程式商店",
+		"chinese_name": "Svqh",
 		"description": "Baixe novos aplicativos para o seu dispositivo!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Ihpel uvcvz hwspjhapcvz whyh v zlb kpzwvzpapcv!",
 		"icon_path": "res://assets/icons/app-store.png",
 	},
 
 	App.FAKESTORE: {
-		"name": "Loja Falsa",
-		"chinese_name": "假商店",
-		"description": "Uma loja falsa para testar se o jogador sabe identificar golpes!",
-		"description_in_chinese": "Chinese",
+		"name": "Loja Desbloqueada",
+		"chinese_name": "Svqh Klzisvxblhkh",
+		"description": "Uma loja sem a supervisão do seu chefe!",
+		"description_in_chinese": "Bth svqh zlt h zbwlycpzãv kv zlb jolml!",
 		"icon_path": "res://assets/icons/fake-app-store.png",
 	},
 
 	App.AUTHENTICATOR: {
 		"name": "Autenticador",
-		"chinese_name": "身份驗證器",
+		"chinese_name": "Hbaluapjhkvy",
 		"description": "Gerencie seus códigos de autenticação de dois fatores aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Nlylujpl zlbz jókpnvz kl hbaluapjhçãv kl kvpz mhavylz hxbp!",
 		"icon_path": "res://assets/icons/default-app.png",
 	},
 
 	App.BANK: {
 		"name": "Banco",
-		"chinese_name": "銀行和財務",
+		"chinese_name": "Ihujv",
 		"description": "Gerencie suas finanças e faça pagamentos aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Nlylujpl zbhz mpuhuçhz l mhçh whnhtluavz hxbp!",
 		"icon_path": "res://assets/icons/utai.png",
 	},
 
@@ -275,10 +275,10 @@ var apps_data = {
 }
 
 var apps_chinese_operations = {
-	"install": "開始安裝",
-	"installing": "正在安裝...",
-	"update": "應用程式更新",
-	"open": "阿布里爾"
+	"install": "puzahss",
+	"installing": "puzahsspun...",
+	"update": "bwkhal",
+	"open": "vwlu"
 }
 
 var apps_in_store: Array[App] = [App.MESSAGESHOME]

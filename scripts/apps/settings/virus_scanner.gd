@@ -121,7 +121,6 @@ func _on_remove_virus_button_pressed() -> void:
 func _on_remove_apps_button_pressed() -> void:
 	for unsafe_app in GameData.unsafe_apps:
 		if GameData.downloaded_apps.has(unsafe_app):
-			GameData.downloaded_apps.erase(unsafe_app)
 			app_uninstalled.emit(unsafe_app)
 	minigame_request.emit()
 
