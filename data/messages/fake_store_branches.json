@@ -6,6 +6,18 @@
 	  "day": 0,
 	  "branch": "d0_start",
 	  "relative_due_time": 166
+	},
+	{
+		"day": 7,
+		"branch": "d7_bad_ending",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": true
+			}
+		],
+		"relative_due_time": 30
 	}
   ],
   "branches": {
@@ -48,6 +60,28 @@
 		"id": "fs_0_3",
 		"text": "Você não vai se arrepender."
 	  }
+	],
+	"d7_bad_ending": [
+		{
+			"id": "fs_7_11",
+			"text": "Muito obrigado kkkkkkkkkkkkkkkkkk"
+		},
+		{
+			"id": "fs_7_12",
+			"text": "Você abriu a backdoor perfeita pros dados da Enigma"
+		},
+		{
+			"id": "fs_7_13",
+			"text": "Parece que alguém não ouviu o supervisor sobre baixar APKs desconehcidos"
+		},
+		{
+			"id": "fs_7_14",
+			"text": "Acontece que você baijou um Cavalo de Tróia, um vírus disfarçado de programa não-malicioso, e com isso eu consegui roubar as chaves SSH que vocês usam nos seus servidores"
+		},
+		{
+			"id": "fs_7_15",
+			"text": "Muito obrigado por me fazer muito rico 🤣"
+		}
 	]
   }
 }

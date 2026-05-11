@@ -272,13 +272,33 @@
 		"d7_good_ending": [
 			{
 				"id": "b_7_11",
-				"text": "Boa mano, se ganhou!"
+				"text": "Parabéns, estagiário! Ao longo desse seu tempo trabalhando para a Enigma, você encontrou diversos desafios, tanto aqueles pensados para te testar, quanto aqueles imprevisíveis, mas que também são parte do dia a dia em um trabalho como esse."
+			},
+			{
+				"id": "b_7_12",
+				"text": "Você demonstrou um domínio exemplar sobre os conceitos de cibersegurança, se desviando de diversas tentativas golpes, hackers, e vírus ao longo do caminho."
+			},
+			{
+				"id": "b_7_13",
+				"text": "Seu ótimo desempenho, perseverança e confiabilidade lhe ganharam um cargo na Enigma. Meus parabéns, você mais que mereceu esta efetivação."
 			}
 		],
 		"d7_bad_ending": [
 			{
-				"id": "b_7_11",
-				"text": "Epa mano, se perdeu!"
+				"id": "b_7_21",
+				"text": "nfelizmente devo lhe trazer más notícias neste seu último dia estagiando aqui. Nossos servidores internos foram comprometidos e centenas de gigabytes de dados foram vazados."
+			},
+			{
+				"id": "b_7_22",
+				"text": "Nossa API interna caiu, e até os sensores de incêndio falharam e tocaram sem motivo."
+			},
+			{
+				"id": "b_7_23",
+				"text": "Nós rastreamos essa falha através de todos os nossos sistemas internos até você, até este celular que você usa. Tem sete dias que ele envia sinais maliciosos e intercepta dados sigilosos da empresa e os libera na darkweb."
+			},
+			{
+				"id": "b_7_24",
+				"text": "Ainda estamos apurando exatamente o que ocorreu, mas eu lhe recomendaria contratar um advogado."
 			}
 		]
 	}
