@@ -47,7 +47,7 @@
 				"is": false
 			}
 		],
-		"relative_due_time": 40
+		"relative_due_time": 70
 	},
 	{
 		"day": 7,
@@ -488,7 +488,31 @@
 		},
 		{
 			"id": "ti_7_14",
-			"text": "tamo junto muito sucesso"
+			"text": "tamo junto muito sucesso",
+			"choices": [
+			{
+				"id": "ti_7_5a_0",
+				"player_text": "Valeuuu",
+				"npc_reply": {
+				"goto_branch": "from_ti_7_0",
+				"delay_ticks": 2
+				}
+			},
+			{
+				"id": "ti_7_5a_1",
+				"player_text": "É nóis Lorenzzz!",
+				"npc_reply": {
+				"goto_branch": "from_ti_7_0",
+				"delay_ticks": 2
+				}
+			}
+			]
+		}
+	],
+	"from_ti_7_0":[
+		{
+			"id": "ti_7_15",
+			"text": "voaaa mlk!!"
 		}
 	],
 	"d7_bad_ending":

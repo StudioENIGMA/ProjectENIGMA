@@ -27,7 +27,7 @@
 					"is": false
 				}
 			],
-			"relative_due_time": 40
+			"relative_due_time": 50
 		},
 		{
 			"day": 7,
@@ -39,7 +39,7 @@
 					"is": true
 				}
 			],
-			"relative_due_time": 40
+			"relative_due_time": 70
 		}
 	],
 	"branches": {
@@ -162,7 +162,17 @@
 			},
 			{
 				"id": "rh_7_12",
-				"text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro na nessa equipe de primeira que é a Enigma ( ˶ˆᗜˆ˵ )"
+				"text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro nessa equipe de primeira que é a Enigma ( ˶ˆᗜˆ˵ )",
+				"choices": [
+					{
+						"id": "rh_7_1a_0",
+						"player_text": "Que incrível! (ᵔ◡ᵔ)"
+					},
+					{
+						"id": "rh_7_1a_1",
+						"player_text": "Obrigado Helena."
+					}
+				]
 			}
 		],
 		"d7_bad_ending": [
