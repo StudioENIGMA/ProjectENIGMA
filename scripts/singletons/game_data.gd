@@ -281,6 +281,7 @@ var apps_chinese_operations = {
 	"open": "vwlu"
 }
 
+var potential_apps_in_store = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
 var apps_in_store: Array[App] = [App.MESSAGESHOME]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 
