@@ -28,6 +28,7 @@ func _ready() -> void:
   event_handler.day_ended.connect(ui.base_app.close_all_apps)
   # Event Handler new day start to UI
   event_handler.start_new_day.connect(ui.day_over_ui.hide_day_over)
+  event_handler.start_new_day.connect(answers_director.clear_pending_answers)
   # Event Handler takes care of clock ticks, warn those who need to know
   event_handler.clock_tick.connect(_on_clock_tick)
   # Event handler hack event to UI

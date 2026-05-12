@@ -77,6 +77,12 @@ func on_message_answered(answer_id: int) -> void:
 func clear_pending_answers() -> void:
 	answer_state_by_id.clear()
 	next_answer_id = 1
+
+func has_pending_response(thread_id: String) -> bool:
+	for state in answer_state_by_id.values():
+		if str(state.get("thread_id", "")) == thread_id:
+			return true
+	return false
 #endregion PUBLIC API
 
 

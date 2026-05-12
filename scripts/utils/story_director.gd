@@ -282,6 +282,12 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 		var payment_id = requirement.get("payment_id", "")
 		return GameData.completed_payments.has(payment_id)
 
+	if flag == "no_pending_response_for_thread":
+		var thread_id = str(requirement.get("thread_id", ""))
+		if thread_id == "":
+			return true
+		return not messages_director.answers_director.has_pending_response(thread_id)
+
 	return false
 
 func _on_browser_request_news() -> void:
