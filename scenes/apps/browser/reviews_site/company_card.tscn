@@ -41,6 +41,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 113.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhigj")
 script = ExtResource("1_bh8fw")
 score_label = NodePath("HBoxContainer2/ScoreLabel")

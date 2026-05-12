@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
 [ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
-[ext_resource type="PackedScene" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
+[ext_resource type="PackedScene" uid="uid://cctt7lf1neuv" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)
@@ -42,17 +42,10 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=399654397]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="MinigameTimer" parent="MarginContainer/VBoxContainer" unique_id=743981125 instance=ExtResource("2_w44rq")]
 layout_mode = 2
-
-[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
-layout_mode = 2
-size_flags_vertical = 6
-
-[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
-layout_mode = 2
-size_flags_vertical = 2
 
 [node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1535581066]
 layout_mode = 2
@@ -63,12 +56,21 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_colors/caret_color = Color(0.16862746, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
-placeholder_text = "Digite as frases acima"
+placeholder_text = "Digite as frases abaixo"
 keep_editing_on_text_submit = true
 context_menu_enabled = false
 shortcut_keys_enabled = false
 middle_mouse_paste_enabled = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
+virtual_keyboard_type = 1
 caret_blink = true
 caret_force_displayed = true
+
+[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
+layout_mode = 2
+size_flags_vertical = 2
