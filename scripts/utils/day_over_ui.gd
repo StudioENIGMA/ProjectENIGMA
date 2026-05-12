@@ -3,7 +3,7 @@ extends Control
 signal day_over_clicked()
 signal end_game()
 
-const MIN_RP_DAY = [10,75,85,95,120,125,140]
+const MIN_RP_DAY = [10, 55, 70, 75, 80, 90,100]
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const CREDIT_ROLL_PATH = "res://scenes/rolling_credits.tscn"
 const TYPE_TO_RP = {
