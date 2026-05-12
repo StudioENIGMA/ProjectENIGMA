@@ -110,7 +110,7 @@ var cart_enum_to_shop_enum = {
 
 var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
 
-var bank_balance: float = 200
+var bank_balance: float = 150000
 
 var completed_payments = []
 var purchased_items = {}

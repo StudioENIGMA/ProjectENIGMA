@@ -70,6 +70,9 @@ func reset_data_for_new_day() -> void:
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes
 
+	# Reset Bank Balance
+	GameData.bank_balance = 150000
+
 	# Restart timers
 	clock_timer.start()
 
