@@ -5,10 +5,13 @@ signal hack_concluded
 const PHRASE_SCENE = preload("res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn")
 const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew"]
 
+const DEFAULT_BOTTOM_PADDING := 0.0
+
 #region CHILDREN NODES REFERENCES
 @export var line_edit: LineEdit
 @export var phrases_vbox: VBoxContainer
 @export var minigame_timer: ProgressBar
+@export var keyboard_spacer: Control
 #endregion
 
 var current_phrases = []
@@ -20,6 +23,9 @@ var time = 0
 func _ready() -> void:
 	line_edit.text_changed.connect(_user_typed)
 	minigame_timer.timer_finished.connect(_on_time_finished)
+
+func _process(_delta: float) -> void:
+	update_keyboard_safe_area()
 
 ## Means hack minigame started
 func setup() -> void:
@@ -111,3 +117,15 @@ func reset_minigame() -> void:
 	minigame_timer.setup(time) # 60 seconds for the minigame
 
 	update_display()
+
+func update_keyboard_safe_area() -> void:
+	if not DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+		return
+
+	var keyboard_height := DisplayServer.virtual_keyboard_get_height()
+
+	if line_edit.has_focus() and keyboard_height > 0:
+		var scale_factor := get_window().content_scale_factor
+		keyboard_spacer.custom_minimum_size.y = keyboard_height / scale_factor
+	else:
+		keyboard_spacer.custom_minimum_size.y = DEFAULT_BOTTOM_PADDING
