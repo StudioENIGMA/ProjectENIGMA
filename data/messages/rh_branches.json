@@ -16,6 +16,30 @@
 			"day": 3,
 			"branch": "d3_start",
 			"relative_due_time": 10
+		},
+		{
+			"day": 7,
+			"branch": "d7_good_ending",
+			"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "fake_store",
+					"is": false
+				}
+			],
+			"relative_due_time": 50
+		},
+		{
+			"day": 7,
+			"branch": "d7_bad_ending",
+			"requires": [
+				{
+					"flag": "app_installed",
+					"app_id": "fake_store",
+					"is": true
+				}
+			],
+			"relative_due_time": 70
 		}
 	],
 	"branches": {
@@ -129,6 +153,40 @@
 			{
 				"id": "rh_3_3",
 				"text": "Exatamente! Podemos ver como pode ser perigoso baixar .apk desconhecidos."
+			}
+		],
+		"d7_good_ending": [
+			{
+				"id": "rh_7_11",
+				"text": "Meus parabéns por sua promoção! (˶ᵔ ᵕ ᵔ˶)"
+			},
+			{
+				"id": "rh_7_12",
+				"text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro nessa equipe de primeira que é a Enigma ( ˶ˆᗜˆ˵ )",
+				"choices": [
+					{
+						"id": "rh_7_1a_0",
+						"player_text": "Que incrível! (ᵔ◡ᵔ)"
+					},
+					{
+						"id": "rh_7_1a_1",
+						"player_text": "Obrigado Helena."
+					}
+				]
+			}
+		],
+		"d7_bad_ending": [
+			{
+				"id": "rh_7_21",
+				"text": "É com muita tristeza que eu venho te informar do seu desligamento de nossa empresa."
+			},
+			{
+				"id": "rh_7_22",
+				"text": "Nós agradecemos por sua contribuição para a Enigma e por seu tempo nela mas, depois deste período probatório, percebemos que não houve um encaixe com o fit cultural de nossa empresa."
+			},
+			{
+				"id": "rh_7_23",
+				"text": "Nossas portas sempre estarão abertas para oportunidades futuras, e seu currículo será mantido em nosso banco de talentos caso abra uma vaga que seja melhor de seu perfil."
 			}
 		]
 	}
