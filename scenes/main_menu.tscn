@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://vkfy3aw4upiu" path="res://scripts/conscent_panel.gd" id="7_oa1go"]
 [ext_resource type="Script" uid="uid://pm0hm7reoo87" path="res://scripts/confirmation_panel.gd" id="8_tbmy8"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="10_5dd4i"]
+[ext_resource type="Script" uid="uid://dig6gn875gn2d" path="res://scripts/utils/post_game_panel.gd" id="11_lgwnu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
@@ -36,15 +37,15 @@ bg_color = Color(0.4457847, 0.036952697, 0, 1)
 bg_color = Color(0.7918716, 0.100445725, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
-bg_color = Color(0, 0.36959997, 0.107734896, 1)
+bg_color = Color(0, 0.35686275, 0.2784314, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
-bg_color = Color(0.104712255, 0.2792548, 0.15956783, 1)
+bg_color = Color(3.6098064e-07, 0.25827616, 0.19861877, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.17046908, 0.41386926, 0.24258903, 1)
+bg_color = Color(0, 0.42383793, 0.33265236, 1)
 
-[node name="Main Menu" type="Control" unique_id=668069274 node_paths=PackedStringArray("new_game_button", "confirmation_panel")]
+[node name="Main Menu" type="Control" unique_id=668069274 node_paths=PackedStringArray("new_game_button", "confirmation_panel", "post_game_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +55,7 @@ grow_vertical = 2
 script = ExtResource("1_jk1qb")
 new_game_button = NodePath("ButtonsMargin/MainVBoxContainer/New Game Button")
 confirmation_panel = NodePath("ConfirmationPanel")
+post_game_panel = NodePath("PostGamePanel")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2074772363]
 layout_mode = 1
@@ -235,5 +237,63 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
 text = "Continuar"
 
+[node name="PostGamePanel" type="PanelContainer" parent="." unique_id=905926202]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_lgwnu")
+
+[node name="PanelContainer" type="PanelContainer" parent="PostGamePanel" unique_id=1728255827]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PostGamePanel/PanelContainer" unique_id=1340499675]
+custom_minimum_size = Vector2(280, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Warn" type="RichTextLabel" parent="PostGamePanel/PanelContainer/VBoxContainer" unique_id=464688254]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.015686275, 0.2784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "OBRIGADO POR JOGAR!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="PostGamePanel/PanelContainer/VBoxContainer" unique_id=588497843]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/normal_font = ExtResource("10_5dd4i")
+theme_override_fonts/bold_font = ExtResource("10_5dd4i")
+theme_override_font_sizes/normal_font_size = 22
+text = "Seu arquivo de salvamento registra o início do Dia 6"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PostGamePanel/PanelContainer/VBoxContainer" unique_id=249265854]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="PostGamePanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1719235383]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+text = "Fechar"
+
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
+[connection signal="pressed" from="PostGamePanel/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="PostGamePanel" method="_on_close_button_pressed"]

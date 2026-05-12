@@ -89,6 +89,7 @@ func _ready() -> void:
   ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
   # UI game paused
   ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
+  ui.day_over_ui.end_game.connect(_on_end_game)
 #endregion INITIALIZATION
 
 ## Handles the clock tick event from the event handler
@@ -114,3 +115,7 @@ func _update_blur() -> void:
 
   var blur_material:ShaderMaterial = progressive_blur.material
   blur_material.set_shader_parameter("blur_scale", blur_scale)
+
+func _on_end_game() -> void:
+  var tween = create_tween()
+  tween.tween_property(self, "modulate:a", 0.0, 1.0) # 1 second fade
