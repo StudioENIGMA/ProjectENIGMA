@@ -73,6 +73,13 @@ func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
 	GameData.total_reputation_points += GameData.daily_reputation_points
 
+	if GameData.current_day == 1:
+		GameData.max_hours_minutes = 840
+	elif GameData.current_day == 2:
+		GameData.max_hours_minutes = 960
+	else:
+		GameData.max_hours_minutes = 1080
+
 	# Select random apps to receive updates (50% chance for each downloaded app)
 	GameData.apps_with_available_updates.clear()
 	for app in GameData.downloaded_apps:
