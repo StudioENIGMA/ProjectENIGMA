@@ -145,7 +145,7 @@ var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hack
 var is_hacked: bool = false
 var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
-var number_of_viruses: int = 1
+var number_of_viruses: int = 0
 var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 var saved_messages_conversations: Array[Dictionary] = []
