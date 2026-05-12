@@ -121,7 +121,7 @@
 				"choices": [
 					{
 						"id": "rh_3_1a_0",
-						"player_text": "Os arquivos facilitam o pirateamento de outros aplicativos",
+						"player_text": "Pirateamento de outros aplicativos",
 						"npc_reply": {
 							"goto_branch": "from_rh_3_2",
 							"delay_ticks": 2.0
@@ -130,7 +130,7 @@
 					},
 					{
 						"id": "rh_3_1a_1",
-						"player_text": "Os arquivos podem possuir diferentes tipos de vírus",
+						"player_text": "Diferentes tipos de vírus",
 						"npc_reply": {
 							"goto_branch": "from_rh_3_3",
 							"delay_ticks": 2.0

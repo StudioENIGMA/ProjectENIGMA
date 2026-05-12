@@ -139,7 +139,7 @@ var breaches_immunity_ticks: int = 45
 var apps_with_available_updates: Array[App] = []
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 180 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
 var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
@@ -179,7 +179,7 @@ var apps_name: Dictionary = {
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
-	"Banco Utaí" : App.BANK,
+	"Bank" : App.BANK,
 	"PaymentCode" : App.PAYMENTCODE,
 	"PaymentInformation" : App.PAYMENTINFORMATION,
 	# Email app
@@ -281,7 +281,7 @@ var apps_chinese_operations = {
 	"open": "vwlu"
 }
 
-var potential_apps_in_store = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
+var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
 var apps_in_store: Array[App] = [App.MESSAGESHOME]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 

@@ -65,7 +65,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "Os arquivos podem possuir diferentes tipos de vírus"
+				"choice": "Diferentes tipos de vírus"
 			}
 		]
 	},
