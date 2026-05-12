@@ -59,6 +59,10 @@
 			},
 			{
 				"id": "rh_2_1",
+				"text": "E outra coisa, desconfie de lojas com o preço muito baixo do mercado. Muitas lojas falsas fazem promoções muito grandes para atrair consumidores desatentos."
+			},
+			{
+				"id": "rh_2_1",
 				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga que reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ.",
 				"event_id": "rh_check0",
 				"choices": [
