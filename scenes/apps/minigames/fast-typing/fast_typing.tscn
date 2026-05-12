@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dlougih6ppbnw" path="res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn" id="1_6v8xt"]
 [ext_resource type="Script" uid="uid://ck20f71me74m3" path="res://scripts/apps/minigames/fast-typing/fast_typing.gd" id="1_j12ft"]
-[ext_resource type="PackedScene" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
+[ext_resource type="PackedScene" uid="uid://cctt7lf1neuv" path="res://scenes/apps/minigames/minigame_timer.tscn" id="2_w44rq"]
+[ext_resource type="Script" uid="uid://dlpwdk1xb3f0p" path="res://scenes/apps/minigames/fast-typing/virtual_keyboard_spacer.gd" id="4_3r1p2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcuuw"]
 bg_color = Color(0.16862746, 1, 0, 1)
@@ -23,7 +24,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 script = ExtResource("1_j12ft")
-line_edit = NodePath("MarginContainer/VBoxContainer/LineEditContainer/LineEdit")
+line_edit = NodePath("MarginContainer/VBoxContainer/VirtualKeyboardSpacer/LineEditContainer/LineEdit")
 phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhrasesContainer")
 minigame_timer = NodePath("MarginContainer/VBoxContainer/MinigameTimer")
 
@@ -54,11 +55,15 @@ size_flags_vertical = 6
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1535581066]
+[node name="VirtualKeyboardSpacer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=25732284]
+layout_mode = 2
+script = ExtResource("4_3r1p2")
+
+[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VirtualKeyboardSpacer" unique_id=1535581066]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mcuuw")
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/LineEditContainer" unique_id=1677715837]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VirtualKeyboardSpacer/LineEditContainer" unique_id=1677715837]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_colors/caret_color = Color(0.16862746, 1, 0, 1)
@@ -70,5 +75,6 @@ shortcut_keys_enabled = false
 middle_mouse_paste_enabled = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
+virtual_keyboard_type = 1
 caret_blink = true
 caret_force_displayed = true
