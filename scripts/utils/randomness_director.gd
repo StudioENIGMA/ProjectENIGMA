@@ -14,7 +14,7 @@ const number_of_events = [
         "scams": 0
     },
     {
-        "tasks": 2,
+        "tasks": 1,
         "scams": 1
     },
     {
