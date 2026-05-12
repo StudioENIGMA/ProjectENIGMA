@@ -2,6 +2,7 @@ extends Node
 
 #region CONSTANTS
 const TYPE_TO_RP = {
+	"conversation": 10,
 	"random-task": 15,
 	"main-task": 20,
 	"scam": - 10,
@@ -31,6 +32,9 @@ func _on_event_initiated(event_id: String) -> void:
 func _on_clock_tick() -> void:
 	for event_id in events_to_check:
 		var event = events_dict.get(event_id, null)
+		if event == null:
+			events_to_check.erase(event_id)
+			continue
 		var is_event_completed: bool = evaluate_requirements(event)
 		if is_event_completed:
 			GameData.events_log.append(event)

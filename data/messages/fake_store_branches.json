@@ -5,7 +5,7 @@
 	{
 	  "day": 0,
 	  "branch": "d0_start",
-	  "relative_due_time": 166
+	  "relative_due_time": 100
 	},
 	{
 		"day": 7,
@@ -38,7 +38,8 @@
 		  "type": "apk",
 		  "app_name": "fake_store",
 		  "image": "res://assets/icons/fake-app-store.png",
-		  "caption": "Loja de Aplicativos Corporativa.apk"
+		  "caption": "Loja de Aplicativos Corporativa.apk",
+			"due_day": 0
 		},
 		"choices": [
 		  {
@@ -50,7 +51,9 @@
 		  },
 		  {
 			"id": "fs_0_2a_1",
-			"player_text": "Bloquear e Denunciar"
+			"player_text": "Bloquear e Denunciar",
+			"event_id": "block_and_report",
+			"sender": "numero_desconhecido"
 		  }
 		]
 	  }

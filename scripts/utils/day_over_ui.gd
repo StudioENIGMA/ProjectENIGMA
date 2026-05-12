@@ -7,10 +7,11 @@ const MIN_RP_DAY = [10,75,85,95,120,125,140]
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const CREDIT_ROLL_PATH = "res://scenes/rolling_credits.tscn"
 const TYPE_TO_RP = {
+	"conversation": 10,
 	"random-task": 15,
 	"main-task": 20,
 	"scam": -10,
-} 
+}
 
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
@@ -33,6 +34,9 @@ func show_day_over() -> void:
 		events_container.add_child(event_instance)
 
 	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
+
+	for connection in next_day_button.pressed.get_connections():
+		next_day_button.pressed.disconnect(connection["callable"])
 
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_rich_text.text = "APROVADO"
@@ -68,6 +72,13 @@ func _on_final_day_button_pressed() -> void:
 func _on_next_day_button_pressed() -> void:
 	GameData.current_day += 1
 	GameData.total_reputation_points += GameData.daily_reputation_points
+
+	# Select random apps to receive updates (50% chance for each downloaded app)
+	GameData.apps_with_available_updates.clear()
+	for app in GameData.downloaded_apps:
+		if randi() % 100 < 50: # 50% chance
+			GameData.apps_with_available_updates.append(app)
+
 	day_over_clicked.emit()
 	GameData.save_game()
 

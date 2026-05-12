@@ -1,20 +1,32 @@
 [
 	{
-		"name": "Asiáticas",
-		"logo": "res://icon.svg",
+		"name": "Amazônia",
+		"logo": "res://assets/icons/shops/png_logos/amazonia_logo.png",
 		"summary": "Líder em satisfação com suporte ágil e reembolsos simplificados. Operação transparente e pós-venda exemplar.",
-		"score": 78
+		"score": 87
 	},
 	{
-		"name": "Pizza Queen",
-		"logo": "res://icon.svg",
+		"name": "Zora",
+		"logo": "res://assets/icons/shops/png_logos/zora_logo.png",
 		"summary": "Alto risco. Histórico de atrasos severos, falta de resposta e descumprimento de estornos.",
-		"score": 34
+		"score": 12
+	},
+	{
+		"name": "Libre Mercado",
+		"logo": "res://assets/icons/shops/png_logos/libre_mercado_logo.png",
+		"summary": "Muitas reclamações sobre não recebimento dos produtos. A loja também não responde.",
+		"score": 26
 	},
 	{
 		"name": "A&C",
-		"logo": "res://icon.svg",
+		"logo": "res://assets/icons/shops/png_logos/aec_logo.png",
 		"summary": "Entrega garantida, mas com rastreio impreciso e suporte burocrático. Estabilidade média em prazos.",
-		"score": 57
+		"score": 94
+	},
+	{
+		"name": "Emília Bolos",
+		"logo": "res://assets/icons/shops/png_logos/emilia_bolos_logo.png",
+		"summary": "A loja é relativamente demorada para responder o suporte. Alguns pedidos chegam atrasados. Garantia de qualidade nos produtos",
+		"score": 73
 	}
 ]

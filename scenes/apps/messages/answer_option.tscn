@@ -15,10 +15,11 @@ corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1963626535 node_paths=PackedStringArray("option_button", "option_label")]
+custom_minimum_size = Vector2(0, 55)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 4
 mouse_default_cursor_shape = 7
 script = ExtResource("1_yd6bq")
 option_button = NodePath("Button")
@@ -38,7 +39,7 @@ mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_krejh")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=1438114561]
-custom_minimum_size = Vector2(1, 0)
+custom_minimum_size = Vector2(1, 55)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_krejh")
 theme_override_font_sizes/font_size = 16
@@ -46,5 +47,6 @@ text = "Teste de Resposta"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+text_overrun_behavior = 4
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

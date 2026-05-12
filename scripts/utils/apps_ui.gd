@@ -13,6 +13,12 @@ func _ready() -> void:
 	for child in get_children():
 		if child is not Control:
 			continue
+
+		# We need to do it this way to avoid setting default apps as invisible
+		var is_downloaded = GameData.downloaded_apps.has(child.app)
+		if is_downloaded:
+			child.visible = true
+
 		child.gui_input.connect(_on_app_gui_input.bind(child))
 
 func _on_app_gui_input(event: InputEvent, app_node: Node) -> void:
@@ -33,10 +39,11 @@ func on_app_installed(app:GameData.App) -> void:
 		GameData.downloaded_apps.append(app)
 
 	# Show the icon on the home screen
-	var app_button = APP_BUTTON_SCENE.instantiate()
-	app_button.app = app
-	app_button.gui_input.connect(_on_app_gui_input.bind(app_button))
-	add_child(app_button)
+	for child in get_children():
+		if not child.get("app") or child.app != app:
+			continue
+		child.visible = true
+		break
 
 ## Handles the app uninstalled event from the store app
 func on_app_uninstalled(app:GameData.App) -> void:
@@ -46,7 +53,8 @@ func on_app_uninstalled(app:GameData.App) -> void:
 
 	# Remove the icon from the home screen
 	for child in get_children():
-		if child.app == app:
-			child.visible = false
-			break
+		if not child.get("app") or child.app != app:
+			continue
+		child.visible = false
+		break
 #endregion INSTALLATION HELPERS

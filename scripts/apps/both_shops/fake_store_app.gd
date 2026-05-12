@@ -12,7 +12,7 @@ func setup() -> void:
 	refresh_store()
 
 func refresh_store() -> void:
-	var available_apps = GameData.apps_in_store
+	var available_apps = GameData.potential_apps_in_store
 	var downloaded_apps = GameData.downloaded_apps
 
 	# Clear existing app items

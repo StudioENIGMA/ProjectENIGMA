@@ -173,5 +173,40 @@
 		"thread_id": "jescica",
 		"branch": "scan2_jescica",
 		"required_app": "Bank"
+	},
+	{
+		"thread_id": "iago",
+		"branch": "scam0_iago",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_px_investment",
+		"branch": "scan0_false_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "false_px_investment",
+		"branch": "scan1_false_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investrnent",
+		"branch": "scan0_px_investrnent",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investrnent",
+		"branch": "scan1_px_investrnent",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "px_investrnent",
+		"branch": "scan2_px_investrnent",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "non_px_investment",
+		"branch": "scan0_non_px_investment",
+		"required_app": "Bank"
 	}
 ]

@@ -5,7 +5,7 @@
 		{
 			"day": 0,
 			"branch": "d0_start",
-			"relative_due_time": 160
+			"relative_due_time": 115
 		},
 		{
 			"day": 2,
@@ -59,7 +59,7 @@
 			},
 			{
 				"id": "rh_0_2",
-				"text": "A membro da minha equipe é a Marcia",
+				"text": "O único membro da minha equipe além de mim é a Marcia",
 				"choices": [
 					{
 						"id": "rh_0_1a_0",
@@ -104,7 +104,7 @@
 		"d3_start": [
 			{
 				"id": "rh_3_0",
-				"text": "Olá! fiquei sabendo de uma importante noticia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
+				"text": "Olá! fiquei sabendo de uma importante notícia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
 			},
 			{
 				"id": "rh_3_1",
@@ -124,7 +124,7 @@
 						"id": "rh_3_1a_1",
 						"player_text": "Os arquivos podem possuir diferentes tipos de vírus",
 						"npc_reply": {
-							"goto_branch": "from_b_3_3",
+							"goto_branch": "from_rh_3_3",
 							"delay_ticks": 2.0
 						}
 					}

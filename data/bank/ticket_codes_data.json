@@ -186,5 +186,13 @@
 	"097341": {
 		"institution": "Industrials",
 		"value": 8670.12
+	},
+	"554433":{
+		"institution": "Eros Company",
+		"value": 8999.99
+	},
+	"063299": {
+		"institution": "Pagamentos Kospenski",
+		"value": 1700.00
 	}
 }
