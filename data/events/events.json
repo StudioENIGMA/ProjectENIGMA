@@ -1,6 +1,5 @@
 {
-
-"tutorial_boss": {
+	"tutorial_boss": {
 		"type": "conversation",
 		"description": "Responder mensagem do chefe",
 		"requires": [
@@ -22,7 +21,7 @@
 	},
 	"boss_news0": {
 		"type": "main-task",
-		"description": "Teste de Senha",
+		"description": "Notícia para o Chefe",
 		"requires": [
 			{
 				"flag": "option",
@@ -46,7 +45,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "AAAAA"
+				"payment_id": "ABCDE"
 			}
 		]
 	},
@@ -56,7 +55,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "L6s*(23v@"
+				"choice": "94"
 			}
 		]
 	},
@@ -204,7 +203,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "89kj.fs2"
+				"choice": "58lcws142q"
 			}
 		]
 	},
@@ -702,7 +701,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "k7.i3@m2"
+				"choice": "k7.i3@m2t"
 			}
 		]
 	},

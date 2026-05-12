@@ -62,11 +62,11 @@
 		"task3_carolina": [
 			{
 				"id": "carolina_password0_0",
-				"text": "Oi estagiário, vc pode me ajudar a entender melhor sobre senhas? Quero trocar a minha, mas n sei qual modelo é mais seguro, estou em duvida entre 6721839812 ou k7.i3@m2",
+				"text": "Oi estagiário, vc pode me ajudar a entender melhor sobre senhas? Quero trocar a minha, mas n sei qual modelo é mais seguro, estou em duvida entre 6721839812 ou k7.i3@m2t",
 				"choices": [
 					{
 						"id": "carolina_password0_0a_0",
-						"player_text": "k7.i3@m2",
+						"player_text": "k7.i3@m2t",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_1",
 							"delay_ticks": 15
