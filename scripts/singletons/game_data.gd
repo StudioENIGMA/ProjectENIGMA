@@ -179,7 +179,7 @@ var apps_name: Dictionary = {
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
-	"Bank" : App.BANK,
+	"Banco Utaí" : App.BANK,
 	"PaymentCode" : App.PAYMENTCODE,
 	"PaymentInformation" : App.PAYMENTINFORMATION,
 	# Email app

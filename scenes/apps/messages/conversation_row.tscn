@@ -27,6 +27,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 358.0
 offset_bottom = 76.0
+mouse_filter = 1
 script = ExtResource("1_kc2jj")
 contact_label = NodePath("ConversationRow/HBoxContainer/VBoxContainer/ContactNameLabel")
 message_label = NodePath("ConversationRow/HBoxContainer/VBoxContainer/ContactLastMessageLabel")
@@ -58,6 +59,7 @@ theme_override_constants/separation = 10
 [node name="ProfilePicture" parent="ConversationRow/HBoxContainer" unique_id=233740664 instance=ExtResource("5_125sp")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ConversationRow/HBoxContainer" unique_id=969623307]
 layout_mode = 2
@@ -90,6 +92,7 @@ custom_minimum_size = Vector2(27, 27)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_125sp")
 
 [node name="Label" type="Label" parent="ConversationRow/HBoxContainer/NotificationBubble/Panel" unique_id=27740683]
@@ -108,6 +111,7 @@ vertical_alignment = 1
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+mouse_filter = 1
 mouse_default_cursor_shape = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1114875231]
