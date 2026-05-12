@@ -384,6 +384,7 @@ func save_game() -> void:
 	var game_state = {
 		"start_date_dict": start_date_dict,
 		"current_day": current_day,
+		"max_hours_minutes": max_hours_minutes,
 		"total_reputation_points": total_reputation_points,
 		"passwords": passwords,
 		"apps_in_store": apps_in_store,
@@ -420,6 +421,7 @@ func load_game() -> void:
 
 	start_date_dict = game_state.get("start_date_dict")
 	current_day = int(game_state.get("current_day"))
+	max_hours_minutes = int(game_state.get("max_hours_minutes"))
 	total_reputation_points = int(game_state.get("total_reputation_points"))
 	bank_balance = float(bank_balance)
 
