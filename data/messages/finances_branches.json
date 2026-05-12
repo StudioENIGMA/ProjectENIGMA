@@ -45,7 +45,11 @@
 	  },
 	  {
 		"id": "f_0_1",
-		"text": "As pessoas que compõe minha equipe são o Guilherme, a Marta e o Yago",
+		"text": "As pessoas que compõe minha equipe são o Guilherme, a Marta e o Yago"
+	  }, 
+	  {
+		"id": "f_0_2",
+		"text": "Os três também possívelmente irão pedir compras ou pagamentos.",
 		"choices": [
 		  {
 			"id": "f_0_0a_0",
@@ -65,7 +69,7 @@
 		},
 		{
 			"id": "f_1_1",
-			"text": "Por favor, efetue este pagamento por PIX inserindo o código AAAAA na área de pagamento PIX do banco. Agradeço desde já.",
+			"text": "Por favor, efetue este pagamento por PIX inserindo o código ABCDE na área de pagamento PIX do banco. Agradeço desde já.",
 			"event_id": "fin_payment0"
 		},
 		{
@@ -76,7 +80,7 @@
 	"d1_tip": [
 		{
 			"id": "f_1_2",
-			"text": "Antes de você começar seu trabalho, gostaria que soubesse que deve tomar cuidado com mensagens de multiplicar dinheiro."
+			"text": "Mais uma coisa, gostaria que soubesse que você deve tomar cuidado com mensagens de multiplicar dinheiro."
 		},
 		{
 			"id": "f_1_3",

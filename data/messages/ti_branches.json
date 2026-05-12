@@ -62,7 +62,15 @@
 	  },
 	  {
 		"id": "ti_0_5",
-		"text": "mas n vamo passar nada agora, só aproveita o banana kkkk",
+		"text": "eles vao te pedir pra comprar coisas ou fazer pagamentos"
+	  },
+	  {
+		"id": "ti_0_5",
+		"text": "eles vao te pedir pra comprar coisas ou fazer pagamentos"
+	  },
+	  {
+		"id": "ti_0_5",
+		"text": "mas n vamo passar nada agora, só aproveita pra entender o bananaPhone kkkk",
 		"choices": [
 		  {
 			"id": "ti_0_5a_0",
@@ -170,11 +178,11 @@
 		},
 		{
 			"id": "ti_1_14",
-			"text": "mas entre duas com qtd de caracteres iguais eh melhor a q tiver os diferentes caracteres"
+			"text": "mas entre duas com qtd de caracteres iguais, eh melhor a q tiver mais caratecteres"
 		},
 		{
 			"id": "ti_1_15",
-			"text": "vou fazer um teste com vc agr fala qual dessas é mais segura",
+			"text": "vou fazer um teste com vc agr fala qual dessas é mais segura 1234jpwv5 ou L6s*(23v@",
 			"event_id": "ti_password0",
 			"choices": [
 				{
@@ -246,7 +254,7 @@
 			"text": "da uma olhada ent e dps volta aqui",
 			"choices": [
 				{
-					"id": "ti_2_0a_0",
+					"id": "ti_2_1a_0",
 					"player_text": "voltei",
 					"npc_reply": {
 						"goto_branch": "from_ti_2_2",
@@ -254,10 +262,10 @@
 					}
 				},
 				{
-					"id": "ti_2_0a_1",
+					"id": "ti_2_1a_1",
 					"player_text": "Sobre a nova versão do bananaOS, com mais proteção e tal. Muito interessante…",
 					"npc_reply": {
-						"goto_branch": "from_ti_2_1",
+						"goto_branch": "from_ti_2_6",
 						"delay_ticks": 2
 					}
 				}
@@ -271,29 +279,37 @@
 		},
 		{
 			"id": "ti_2_3",
-			"text": "fica atento que diariamente tem atualização do sistema e dos aplicativos"
+			"text": "fica atento que diariamente tem atualizaçao do sistema e dos aplicativos"
 		},
 		{
 			"id": "ti_2_4",
-			"text": "ambos te deixam menos vulnerável aos hackers"
-		}
-	],
-	"from_ti_2_5": [
+			"text": "as dos aplicativos vc vai encontrar na loja, eh bom ver todo dia"
+		},
 		{
 			"id": "ti_2_5",
+			"text": "ambos te deixam menos vulneravel aos hackers"
+		}
+	],
+	"from_ti_2_6": [
+		{
+			"id": "ti_2_6",
 			"text": "se ainda n atualizou vai logo atualizar essa budega kkkkkkkk"
 		},
 		{
-			"id": "ti_2_6",
+			"id": "ti_2_7",
 			"text": "questao de segurança ajuda a evitar virus e falha e etc"
 		},
 		{
-			"id": "ti_2_7",
-			"text": "fica atento que diariamente tem atualização do sistema e dos aplicativos"
+			"id": "ti_2_8",
+			"text": "fica atento que diariamente tem atualizaçao do sistema e dos aplicativos"
 		},
 		{
-			"id": "ti_2_8",
-			"text": "ambos te deixam menos vulnerável aos hackers"
+			"id": "ti_2_9",
+			"text": "as dos aplicativos vc vai encontrar na loja, eh bom ver todo dia"
+		},
+		{
+			"id": "ti_2_10",
+			"text": "ambos te deixam menos vulneravel aos hackers"
 		}
 	],
 	"d3_start": [
@@ -315,7 +331,7 @@
 		},
 		{
 			"id": "ti_3_4",
-			"text": "é só clicar em fzr uma varredura"
+			"text": "eh soh clicar em fzr uma varredura"
 		},
 		{
 			"id": "ti_3_5",
@@ -323,7 +339,7 @@
 		},
 		{
 			"id": "ti_3_6",
-			"text": "mas nossa versão tem um problema pra vc resolver e dps realmente remover"
+			"text": "mas nossa versao tem um problema pra vc resolver e dps realmente remover"
 		}
 	],
 	"d3_phishing": [
@@ -365,11 +381,11 @@
 		},
 		{
 			"id": "ti_3_10",
-			"text": "alguem te manda mensagem falsa com oferta ou fingindo ser alguem"
+			"text": "alguem te manda mensagem falsa com oferta ou fingindo ser outra pessoa"
 		},
 		{
 			"id": "ti_3_11",
-			"text": "e ai a pessoa tenta te pedir dinheiro ou roubar seus dados"
+			"text": "e ai a pessoa tenta te tirar dinheiro ou roubar seus dados"
 		},
 		{
 			"id": "ti_3_12",
@@ -387,15 +403,15 @@
 		},
 		{
 			"id": "ti_3_15",
-			"text": "n confia em nmro estranho n"
+			"text": "n confia em qqr mensagem estranha n, verifica se eh ela de vdd"
 		},
 		{
 			"id": "ti_3_16",
-			"text": "nem em nmro q tu conhece mas ta falando diferente"
+			"text": "nem em contato q tu conhece mas ta falando diferente"
 		},
 		{
 			"id": "ti_3_17",
-			"text": "tipo se eu falar com pontuação kkkk"
+			"text": "tipo se eu falar com ascento kkkk"
 		}
 	],
 	"d3_spoofing": [

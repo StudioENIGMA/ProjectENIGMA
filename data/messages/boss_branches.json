@@ -73,6 +73,11 @@
 		"relative_due_time": 0
 	},
 	{
+		"day": 4,
+		"branch": "d4_start1",
+		"relative_due_time": 0
+	},
+	{
 		"day": 7,
 		"branch": "d6_good_end_game",
 		"requires": [
@@ -104,7 +109,7 @@
 			},
 			{
 				"id": "boss_0_1",
-				"text": "Durante os próximos 6 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+				"text": "Durante os próximos 6 dias eu lhe supervisionarei durante seu período de trabalho. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
 			},
 			{
 				"id": "boss_0_2",
@@ -126,7 +131,7 @@
 			
 			{
 				"id": "boss_0_3",
-				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores que ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
+				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores deles, que ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
 			},
 			{
 				"id": "boss_0_4",
@@ -142,7 +147,7 @@
 			},
 			{
 				"id": "boss_0_7",
-				"text": "Qualquer pagamento ou compra solicitado para essas pessoas podem ser feitas. Apenas verifique se realmente são elas, já tivemos pessoas tentnado se passar por fuincionários. Não deve ser difícil notar, eles sempre erram em algo."
+				"text": "Qualquer pagamento ou compra solicitado por essas pessoas ou empresas podem ser realizados. Apenas verifique se realmente são eles de verdade, já tivemos pessoas tentando se passar por fuincionários. Não deve ser difícil notar, eles sempre erram em algo."
 			},
 			{
 				"id": "boss_0_8",
@@ -188,7 +193,7 @@
 			{
 				
 				"id": "b_1_7",
-				"text": "Um importante aviso. A PX Investment irá oferecer propostas de investimentos, e você deverá aceitar todas até o final do período de estágio",
+				"text": "Apenas um importante aviso. A PX Investment irá oferecer propostas de investimentos, o que pode parecer estranho. Mas fique tranquilo! Está tudo alinhado comigo, você deverá pode todas até o final do período de estágio.",
 				"requires": [
 					{
 						"flag": "app_installed",
@@ -336,6 +341,12 @@
 			{
 				"id": "b_3_2",
 				"text": "Não desanime, você ainda está no começo, tenho certeza que amanhã estará entendendo tudo. Agora ao trabalho."
+			}
+		],
+		"d4_start1": [
+			{
+				"id": "b_4_1",
+				"text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
 			}
 		]
 	}

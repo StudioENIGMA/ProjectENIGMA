@@ -31,11 +31,7 @@
 			},
 			{
 				"id": "rh_0_1",
-				"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)"
-			},
-			{
-				"id": "rh_0_2",
-				"text": "O único membro da minha equipe além de mim é a Marcia",
+				"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
 				"choices": [
 					{
 						"id": "rh_0_1a_0",
@@ -46,16 +42,24 @@
 						"player_text": "Beleza."
 					}
 				]
+			},
+			{
+				"id": "rh_0_2",
+				"text": "As membros da minha equipe além de mim são a Marcia e a Jéssica"
+			},
+			{
+				"id": "rh_0_3",
+				"text": "Elas podem pedir tarefas como pagementos, compras ou alguma outra ajuda. Você pode voltar nessa parte da nossa conversa para lembrar que os nomes delas (o˘◡˘o)."
 			}
 		],
 		"d2_start": [
 			{
 				"id": "rh_2_0",
-				"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Fique atento!"
+				"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Se um site não estiver uma página no Elogie Lá, com certeza ele é falso!. Fique atento!"
 			},
 			{
 				"id": "rh_2_1",
-				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga q reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ.",
+				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga que reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ.",
 				"event_id": "rh_check0",
 				"choices": [
 					{
@@ -116,7 +120,7 @@
 		"from_rh_2_3": [
 			{
 				"id": "rh_2_3",
-				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Eu sempre compro por lá."
+				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Nós sempre compramos por lá."
 			}
 		],
 		"from_rh_3_2": [

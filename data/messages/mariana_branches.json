@@ -19,15 +19,15 @@
 						"id": "mariana_password0_1a_0",
 						"player_text": "89kj.fs2",
 						"npc_reply": {
-							"goto_branch": "from_mariana_password0_3",
+							"goto_branch": "from_mariana_password0_4",
 							"delay_ticks": 29
 						}
 					},
 					{
 						"id": "mariana_password0_1a_1",
-						"player_text": "58lcws142",
+						"player_text": "58lcws142q",
 						"npc_reply": {
-							"goto_branch": "from_mariana_password0_4",
+							"goto_branch": "from_mariana_password0_3",
 							"delay_ticks": 29
 						}
 					}
