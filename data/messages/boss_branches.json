@@ -156,7 +156,7 @@
 			},
 			{
 				"id": "boss_0_9",
-				"text": "Ah, e como hoje é seu primeiro dia, não se preocupe em realizar tarefas, pode trabalhar somente até 12:00. A partir de amanhã, o expediente começa às 8:00 e termina às 18:00, então se organize para realizar suas tarefas dentro desse horário, ok? Bom trabalho!"
+				"text": "Ah, e como hoje é seu primeiro dia, não se preocupe em realizar tarefas, pode trabalhar somente até 12:00. Amanhã, no seu primeir dia focialmente, o expediente termina às 14:00. O segundo dia irá até as 16:00. E a partir do terceiro dia você trabalha até as 18:00 horas, então se organize para realizar suas tarefas dentro desses horários, ok? Bom trabalho!"
 			},
 			{
 				"id": "boss_0_10",
@@ -345,9 +345,9 @@
 			}
 		],
 		"d4_start1": [
-            {
-                "id": "b_4_1",
-                "text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
+			{
+				"id": "b_4_1",
+				"text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
 			}
 		],
 		"d7_good_ending": [

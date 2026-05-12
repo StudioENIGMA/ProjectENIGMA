@@ -17,7 +17,7 @@
 					"is": true
 				}
 	  	],
-		"relative_due_time": 60
+		"relative_due_time": 45
 	},
 	{
 		"day": 1,
@@ -29,12 +29,12 @@
 					"is": true
 				}
 	  	],
-		"relative_due_time": 220
+		"relative_due_time": 140
 	},
 	{
 		"day": 2,
 		"branch": "d2_start",
-		"relative_due_time": 288
+		"relative_due_time": 222
 	}
   ],
   "branches": {

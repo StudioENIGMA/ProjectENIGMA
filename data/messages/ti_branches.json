@@ -15,12 +15,12 @@
 	{
 		"day": 1,
 		"branch": "d1_task",
-		"relative_due_time": 500
+		"relative_due_time": 250
 	},
 	{
 		"day": 2,
 		"branch": "d2_start",
-		"relative_due_time": 344
+		"relative_due_time": 212
 	},
 	{
 		"day": 3,
