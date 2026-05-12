@@ -344,6 +344,12 @@
 				"text": "Não desanime, você ainda está no começo, tenho certeza que amanhã estará entendendo tudo. Agora ao trabalho."
 			}
 		],
+		"d4_start1": [
+            {
+                "id": "b_4_1",
+                "text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
+			}
+		],
 		"d7_good_ending": [
 			{
 				"id": "b_7_11",
