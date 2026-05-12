@@ -29,6 +29,9 @@ func show_day_over() -> void:
 
 	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
 
+	for connection in next_day_button.pressed.get_connections():
+		next_day_button.pressed.disconnect(connection["callable"])
+
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_rich_text.text = "APROVADO"
 		result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))

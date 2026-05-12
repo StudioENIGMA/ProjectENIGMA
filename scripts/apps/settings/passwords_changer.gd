@@ -35,17 +35,12 @@ func _user_typed(entered_password: String) -> void:
 	if entered_password.is_empty():
 		confirm_button.disabled = true
 		return
-		
-	# Check if the new text is a valid number
-	if !entered_password.is_valid_float():
-			line_edit.text = line_edit.text.substr(0, line_edit.text.length() - 1)
-			line_edit.set_caret_column(line_edit.text.length())  # Move caret to the end
-	
-	if entered_password.length() > 4:
-		line_edit.text = entered_password.substr(0, 4)
+
+	if entered_password.length() > 20:
+		line_edit.text = entered_password.substr(0, 20)
 		line_edit.set_caret_column(line_edit.text.length())  # Move caret to the end
-	
-	if line_edit.text.length() == 4:
+
+	if line_edit.text.length() >= 4:
 		confirm_button.disabled = false
 	else:
 		confirm_button.disabled = true
@@ -58,5 +53,6 @@ func _on_confirm_button_pressed() -> void:
 	line_edit.text = ""
 	instruction_label.text = "Senha alterada com sucesso!"
 	GameData.updated_password_today = true
+	await get_tree().create_timer(1.0).timeout
 	emit_signal("password_changed")
 #endregion
