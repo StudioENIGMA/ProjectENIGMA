@@ -18,7 +18,7 @@ func _ready() -> void:
 ## and updating the instruction label accordingly
 func setup(data: Dictionary) -> void:
 	gated_app = data["GatedApp"]
-	var app_name = GameData.apps_name_reverse.get(gated_app, "Desconhecido")
+	var app_name = GameData.apps_name_reverse.get(gated_app, "")
 	instruction_label.text = "Insira a nova senha para %s:" % app_name
 
 	line_edit.text = ""
