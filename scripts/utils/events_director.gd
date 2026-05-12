@@ -19,6 +19,9 @@ func setup_from_json_file(events_json: Variant) -> void:
 	assert(typeof(events_json) == TYPE_DICTIONARY)
 	events_dict = events_json
 	events_to_check = []
+	GameData.events_log.clear()
+	GameData.daily_reputation_points = 0
+	GameData.options_chose.clear()
 #endregion SETUP
 
 #region FUNCTIONS

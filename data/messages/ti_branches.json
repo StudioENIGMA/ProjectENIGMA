@@ -36,6 +36,30 @@
 		"day": 4,
 		"branch": "d3_spoofing",
 		"relative_due_time": 290
+	},
+	{
+		"day": 7,
+		"branch": "d7_good_ending",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": false
+			}
+		],
+		"relative_due_time": 70
+	},
+	{
+		"day": 7,
+		"branch": "d7_bad_ending",
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "fake_store",
+				"is": true
+			}
+		],
+		"relative_due_time": 40
 	}
   ],
   "branches": {
@@ -462,6 +486,72 @@
 		{
 			"id": "ti_3_29",
 			"text": "tipo amazoni4.com no lugar de amazonia.com"
+		}
+	],
+	"d7_good_ending":
+	[
+		{
+			"id": "ti_7_11",
+			"text": "parabens estagio"
+		},
+		{
+			"id": "ti_7_12",
+			"text": "vai trabalhar de verdade aqui agr"
+		},
+		{
+			"id": "ti_7_13",
+			"text": "boa sorte kkkkkk"
+		},
+		{
+			"id": "ti_7_14",
+			"text": "tamo junto muito sucesso",
+			"choices": [
+			{
+				"id": "ti_7_5a_0",
+				"player_text": "Valeuuu",
+				"npc_reply": {
+				"goto_branch": "from_ti_7_0",
+				"delay_ticks": 2
+				}
+			},
+			{
+				"id": "ti_7_5a_1",
+				"player_text": "É nóis Lorenzzz!",
+				"npc_reply": {
+				"goto_branch": "from_ti_7_0",
+				"delay_ticks": 2
+				}
+			}
+			]
+		}
+	],
+	"from_ti_7_0":[
+		{
+			"id": "ti_7_15",
+			"text": "voaaa mlk!!"
+		}
+	],
+	"d7_bad_ending":
+	[
+		{
+			"id": "ti_7_21",
+			"text": "estagio tu errou feio"
+		},
+		{
+			"id": "ti_7_22",
+			"text": "eu te falei pra ter cuidado com apk"
+		},
+		{
+			"id": "ti_7_23",
+			"text": "tu baixou um cavalo te troia"
+		},
+		{
+			"id": "ti_7_24",
+			"text": "vacilou muito"
+		},
+		{
+			"id": "ti_7_25",
+			"text": "n fosse por isso tlvz vc tivesse uma efetivação..."
 		}
 	]
   }

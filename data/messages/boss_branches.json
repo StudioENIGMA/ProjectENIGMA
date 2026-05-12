@@ -79,7 +79,7 @@
 	},
 	{
 		"day": 7,
-		"branch": "d6_good_end_game",
+		"branch": "d7_good_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
@@ -87,18 +87,19 @@
 				"is": false
 			}
 		],
-		"relative_due_time": 620
+		"relative_due_time": 10
 	},
 	{
 		"day": 7,
-		"branch": "d6_bad_end_game",
+		"branch": "d7_bad_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
 				"app_id": "fake_store",
 				"is": true
 			}
-		]
+		],
+		"relative_due_time": 10
 	}
   ],
 	"branches": {
@@ -343,10 +344,61 @@
 				"text": "Não desanime, você ainda está no começo, tenho certeza que amanhã estará entendendo tudo. Agora ao trabalho."
 			}
 		],
-		"d4_start1": [
+		"d7_good_ending": [
 			{
-				"id": "b_4_1",
-				"text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
+				"id": "b_7_11",
+				"text": "Parabéns, estagiário! Ao longo desse seu tempo trabalhando para a Enigma, você encontrou diversos desafios, tanto aqueles pensados para te testar, quanto aqueles imprevisíveis, mas que também são parte do dia a dia em um trabalho como esse."
+			},
+			{
+				"id": "b_7_12",
+				"text": "Você demonstrou um domínio exemplar sobre os conceitos de cibersegurança, se desviando de diversas tentativas golpes, hackers, e vírus ao longo do caminho."
+			},
+			{
+				"id": "b_7_13",
+				"text": "Seu ótimo desempenho, perseverança e confiabilidade lhe ganharam um cargo na Enigma. Meus parabéns, você mais que mereceu esta efetivação.",
+				"choices": [
+					{
+						"id": "b_7_13a_0",
+						"player_text": "Muito Obrigado, Chefe!",
+						"npc_reply": {
+							"goto_branch": "from_b_7_14",
+							"delay_ticks": 2.0
+						}
+
+					},
+					{
+						"id": "b_7_13a_1",
+						"player_text": "Que incrível!",
+						"npc_reply": {
+							"goto_branch": "from_b_7_14",
+							"delay_ticks": 2.0
+						}
+					}
+				]
+			}
+		],
+		"from_b_7_14": [
+			{
+				"id": "b_7_14",
+				"text": "Parabéns meu caro."
+			}
+		],
+		"d7_bad_ending": [
+			{
+				"id": "b_7_21",
+				"text": "Infelizmente devo lhe trazer más notícias neste seu último dia estagiando aqui. Nossos servidores internos foram comprometidos e centenas de gigabytes de dados foram vazados."
+			},
+			{
+				"id": "b_7_22",
+				"text": "Nossa API interna caiu, e até os sensores de incêndio falharam e tocaram sem motivo."
+			},
+			{
+				"id": "b_7_23",
+				"text": "Nós rastreamos essa falha através de todos os nossos sistemas internos até você, até este celular que você usa. Tem sete dias que ele envia sinais maliciosos e intercepta dados sigilosos da empresa e os libera na darkweb."
+			},
+			{
+				"id": "b_7_24",
+				"text": "Ainda estamos apurando exatamente o que ocorreu, mas eu lhe recomendaria contratar um advogado."
 			}
 		]
 	}
