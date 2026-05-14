@@ -12,7 +12,7 @@
 
 <div align="center">
   
-  [![Godot Engine](https://img.shields.io/badge/Godot%204.4--stable-%23FFFFFF.svg?logo=godot-engine)](#)
+  [![Godot Engine](https://img.shields.io/badge/Godot%204.6--stable-%23FFFFFF.svg?logo=godot-engine)](#)
   [![GitHub last commit](https://img.shields.io/github/last-commit/dino460/ProjectENIGMA)](#)
 </div>
 
