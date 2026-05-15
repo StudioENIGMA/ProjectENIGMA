@@ -1,201 +1,200 @@
 {
-	"thread_id": "rh",
-	"sender": "RH",
-	"entry_points": [
-		{
-			"day": 0,
-			"branch": "d0_start",
-			"relative_due_time": 115
-		},
-		{
-			"day": 2,
-			"branch": "d2_start",
-			"relative_due_time": 112
-		},
-		{
-			"day": 3,
-			"branch": "d3_start",
-			"relative_due_time": 10
-		},
-		{
-			"day": 7,
-			"branch": "d7_good_ending",
-			"requires": [
-				{
-					"flag": "app_installed",
-					"app_id": "fake_store",
-					"is": false
-				}
-			],
-			"relative_due_time": 50
-		},
-		{
-			"day": 7,
-			"branch": "d7_bad_ending",
-			"requires": [
-				{
-					"flag": "app_installed",
-					"app_id": "fake_store",
-					"is": true
-				}
-			],
-			"relative_due_time": 70
-		}
-	],
-	"branches": {
-		"d0_start": [
-			{
-				"id": "rh_0_0",
-				"text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores ٩(◕‿◕｡)۶ ",
-				"effects": [
-					{
-						"task_type": "daily"
-					}
-				]
-			},
-			{
-				"id": "rh_0_1",
-				"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! (o˘◡˘o)",
-				"choices": [
-					{
-						"id": "rh_0_1a_0",
-						"player_text": "Pode contar comigo! (ᵔ◡ᵔ)"
-					},
-					{
-						"id": "rh_0_1a_1",
-						"player_text": "Beleza."
-					}
-				]
-			},
-			{
-				"id": "rh_0_2",
-				"text": "As membros da minha equipe além de mim são a Marcia e a Jéssica"
-			},
-			{
-				"id": "rh_0_3",
-				"text": "Elas podem pedir tarefas como pagementos, compras ou alguma outra ajuda. Você pode voltar nessa parte da nossa conversa para lembrar que os nomes delas (o˘◡˘o)."
-			}
-		],
-		"d2_start": [
-			{
-				"id": "rh_2_0",
-				"text": "Olá! Acho importante te contar sobre o Elogie Lá (✿◠‿◠). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Se um site não estiver uma página no Elogie Lá, com certeza ele é falso!. Fique atento!"
-			},
-			{
-				"id": "rh_2_1",
-				"text": "E outra coisa, desconfie de lojas com o preço muito baixo do mercado. Muitas lojas falsas fazem promoções muito grandes para atrair consumidores desatentos."
-			},
-			{
-				"id": "rh_2_1",
-				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga que reputação da loja A&C, estamos pensando em fazer algumas compras nela (づ ◕‿◕ )づ.",
-				"event_id": "rh_check0",
-				"choices": [
-					{
-						"id": "rh_2_1a_0",
-						"player_text": "94",
-						"npc_reply": {
-							"goto_branch": "from_rh_2_2",
-							"delay_ticks": 0.0
-						}
-					},
-					{
-						"id": "rh_2_1a_1",
-						"player_text": "27",
-						"npc_reply": {
-							"goto_branch": "from_rh_2_3",
-							"delay_ticks": 0.0
-						}
-					}
-				]
-			}
-		],
-		"d3_start": [
-			{
-				"id": "rh_3_0",
-				"text": "Olá! fiquei sabendo de uma importante notícia em relação aos aplicativos de celular chamados de apk (ㅇㅅㅇ)"
-			},
-			{
-				"id": "rh_3_1",
-				"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?",
-				"event_id": "rh_news0",
-				"choices": [
-					{
-						"id": "rh_3_1a_0",
-						"player_text": "Pirateamento de outros aplicativos",
-						"npc_reply": {
-							"goto_branch": "from_rh_3_2",
-							"delay_ticks": 2.0
-						}
-						
-					},
-					{
-						"id": "rh_3_1a_1",
-						"player_text": "Diferentes tipos de vírus",
-						"npc_reply": {
-							"goto_branch": "from_rh_3_3",
-							"delay_ticks": 2.0
-						}
-					}
-				]
-			}
-		],
-		"from_rh_2_2": [
-			{
-				"id": "rh_2_2",
-				"text": "Isso mesmo! Ela é uma loja muito confiável."
-			}
-		],
-		"from_rh_2_3": [
-			{
-				"id": "rh_2_3",
-				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Nós sempre compramos por lá."
-			}
-		],
-		"from_rh_3_2": [
-			{
-				"id": "rh_3_2",
-				"text": "Isso pode ser verdade também, mas não é o foco da notícia."
-			}
-		],
-		"from_rh_3_3": [
-			{
-				"id": "rh_3_3",
-				"text": "Exatamente! Podemos ver como pode ser perigoso baixar .apk desconhecidos."
-			}
-		],
-		"d7_good_ending": [
-			{
-				"id": "rh_7_11",
-				"text": "Meus parabéns por sua promoção! (˶ᵔ ᵕ ᵔ˶)"
-			},
-			{
-				"id": "rh_7_12",
-				"text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro nessa equipe de primeira que é a Enigma ( ˶ˆᗜˆ˵ )",
-				"choices": [
-					{
-						"id": "rh_7_1a_0",
-						"player_text": "Que incrível! (ᵔ◡ᵔ)"
-					},
-					{
-						"id": "rh_7_1a_1",
-						"player_text": "Obrigado Helena."
-					}
-				]
-			}
-		],
-		"d7_bad_ending": [
-			{
-				"id": "rh_7_21",
-				"text": "É com muita tristeza que eu venho te informar do seu desligamento de nossa empresa."
-			},
-			{
-				"id": "rh_7_22",
-				"text": "Nós agradecemos por sua contribuição para a Enigma e por seu tempo nela mas, depois deste período probatório, percebemos que não houve um encaixe com o fit cultural de nossa empresa."
-			},
-			{
-				"id": "rh_7_23",
-				"text": "Nossas portas sempre estarão abertas para oportunidades futuras, e seu currículo será mantido em nosso banco de talentos caso abra uma vaga que seja melhor de seu perfil."
-			}
-		]
-	}
+    "thread_id": "rh",
+    "sender": "RH",
+    "entry_points": [
+        {
+            "day": 0,
+            "branch": "d0_start",
+            "relative_due_time": 115
+        },
+        {
+            "day": 2,
+            "branch": "d2_start",
+            "relative_due_time": 112
+        },
+        {
+            "day": 3,
+            "branch": "d3_start",
+            "relative_due_time": 10
+        },
+        {
+            "day": 7,
+            "branch": "d7_good_ending",
+            "requires": [
+                {
+                    "flag": "app_installed",
+                    "app_id": "fake_store",
+                    "is": false
+                }
+            ],
+            "relative_due_time": 50
+        },
+        {
+            "day": 7,
+            "branch": "d7_bad_ending",
+            "requires": [
+                {
+                    "flag": "app_installed",
+                    "app_id": "fake_store",
+                    "is": true
+                }
+            ],
+            "relative_due_time": 70
+        }
+    ],
+    "branches": {
+        "d0_start": [
+            {
+                "id": "rh_0_0",
+                "text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores \\(*^ o ^*)/ ",
+                "effects": [
+                    {
+                        "task_type": "daily"
+                    }
+                ]
+            },
+            {
+                "id": "rh_0_1",
+                "text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! ( * ^ _ ^ * )",
+                "choices": [
+                    {
+                        "id": "rh_0_1a_0",
+                        "player_text": "Pode contar comigo! (^ - ^)"
+                    },
+                    {
+                        "id": "rh_0_1a_1",
+                        "player_text": "Beleza."
+                    }
+                ]
+            },
+            {
+                "id": "rh_0_2",
+                "text": "As membros da minha equipe além de mim são a Marcia e a Jéssica"
+            },
+            {
+                "id": "rh_0_3",
+                "text": "Elas podem pedir tarefas como pagementos, compras ou alguma outra ajuda. Você pode voltar nessa parte da nossa conversa para lembrar que os nomes delas ( * ^ . ^ * )."
+            }
+        ],
+        "d2_start": [
+            {
+                "id": "rh_2_0",
+                "text": "Olá! Acho importante te contar sobre o Elogie Lá (@ ^ _ ^ @). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Se um site não estiver uma página no Elogie Lá, com certeza ele é falso!. Fique atento!"
+            },
+            {
+                "id": "rh_2_1",
+                "text": "E outra coisa, desconfie de lojas com o preço muito baixo do mercado. Muitas lojas falsas fazem promoções muito grandes para atrair consumidores desatentos."
+            },
+            {
+                "id": "rh_2_1",
+                "text": "Aproveitando, por favor, entre no Elogie Lá e me diga que reputação da loja A&C, estamos pensando em fazer algumas compras nela ( > ^ _ ^ )>.",
+                "event_id": "rh_check0",
+                "choices": [
+                    {
+                        "id": "rh_2_1a_0",
+                        "player_text": "94",
+                        "npc_reply": {
+                            "goto_branch": "from_rh_2_2",
+                            "delay_ticks": 0.0
+                        }
+                    },
+                    {
+                        "id": "rh_2_1a_1",
+                        "player_text": "27",
+                        "npc_reply": {
+                            "goto_branch": "from_rh_2_3",
+                            "delay_ticks": 0.0
+                        }
+                    }
+                ]
+            }
+        ],
+        "d3_start": [
+            {
+                "id": "rh_3_0",
+                "text": "Olá! fiquei sabendo de uma importante notícia em relação aos aplicativos de celular chamados de apk ( = ^ w ^ = )"
+            },
+            {
+                "id": "rh_3_1",
+                "text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?",
+                "event_id": "rh_news0",
+                "choices": [
+                    {
+                        "id": "rh_3_1a_0",
+                        "player_text": "Pirateamento de outros aplicativos",
+                        "npc_reply": {
+                            "goto_branch": "from_rh_3_2",
+                            "delay_ticks": 2.0
+                        }
+                    },
+                    {
+                        "id": "rh_3_1a_1",
+                        "player_text": "Diferentes tipos de vírus",
+                        "npc_reply": {
+                            "goto_branch": "from_rh_3_3",
+                            "delay_ticks": 2.0
+                        }
+                    }
+                ]
+            }
+        ],
+        "from_rh_2_2": [
+            {
+                "id": "rh_2_2",
+                "text": "Isso mesmo! Ela é uma loja muito confiável."
+            }
+        ],
+        "from_rh_2_3": [
+            {
+                "id": "rh_2_3",
+                "text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Nós sempre compramos por lá."
+            }
+        ],
+        "from_rh_3_2": [
+            {
+                "id": "rh_3_2",
+                "text": "Isso pode ser verdade também, mas não é o foco da notícia."
+            }
+        ],
+        "from_rh_3_3": [
+            {
+                "id": "rh_3_3",
+                "text": "Exatamente! Podemos ver como pode ser perigoso baixar .apk desconhecidos."
+            }
+        ],
+        "d7_good_ending": [
+            {
+                "id": "rh_7_11",
+                "text": "Meus parabéns por sua promoção! ( * ^ _ ^ * )"
+            },
+            {
+                "id": "rh_7_12",
+                "text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro nessa equipe de primeira que é a Enigma \\(*^ O ^*)/",
+                "choices": [
+                    {
+                        "id": "rh_7_1a_0",
+                        "player_text": "Que incrível! (^ w ^)"
+                    },
+                    {
+                        "id": "rh_7_1a_1",
+                        "player_text": "Obrigado Helena."
+                    }
+                ]
+            }
+        ],
+        "d7_bad_ending": [
+            {
+                "id": "rh_7_21",
+                "text": "É com muita tristeza que eu venho te informar do seu desligamento de nossa empresa."
+            },
+            {
+                "id": "rh_7_22",
+                "text": "Nós agradecemos por sua contribuição para a Enigma e por seu tempo nela mas, depois deste período probatório, percebemos que não houve um encaixe com o fit cultural de nossa empresa."
+            },
+            {
+                "id": "rh_7_23",
+                "text": "Nossas portas sempre estarão abertas para oportunidades futuras, e seu currículo será mantido em nosso banco de talentos caso abra uma vaga que seja melhor de seu perfil."
+            }
+        ]
+    }
 }
