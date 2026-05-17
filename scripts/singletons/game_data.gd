@@ -118,6 +118,7 @@ var options_chose = {}
 
 var random_events_history = []
 
+var clock_tick_interval: float = 1.0 # Time between clock ticks in seconds
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
