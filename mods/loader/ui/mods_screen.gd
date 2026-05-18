@@ -50,30 +50,28 @@ func _populate_list() -> void:
 func _build_mod_row(desc) -> Control:
 	var row := PanelContainer.new()
 	row.mouse_filter = Control.MOUSE_FILTER_PASS
+	row.custom_minimum_size = Vector2(0, 56)
 
 	var hbox := HBoxContainer.new()
 	hbox.add_theme_constant_override("separation", 8)
 	row.add_child(hbox)
 
-	var checkbox := CheckBox.new()
-	checkbox.button_pressed = ModLoader.is_enabled(desc.id)
-	checkbox.toggled.connect(_on_mod_toggled.bind(desc.id))
-	_checkbox_by_id[desc.id] = checkbox
-	hbox.add_child(checkbox)
-
 	var info_btn := Button.new()
 	info_btn.flat = true
 	info_btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	info_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	info_btn.text = "%s\n%s • v%s" % [desc.display_name, _format_authors(desc), desc.version]
+	info_btn.clip_text = true
+	var meta_suffix := " • built-in" if desc.is_builtin else ""
+	info_btn.text = "%s\n%s • v%s%s" % [desc.display_name, _format_authors(desc), desc.version, meta_suffix]
 	info_btn.pressed.connect(_on_row_pressed.bind(desc))
 	hbox.add_child(info_btn)
 
-	if desc.is_builtin:
-		var badge := Label.new()
-		badge.text = "built-in"
-		badge.modulate = Color(0.7, 0.9, 1.0, 1.0)
-		hbox.add_child(badge)
+	var toggle := CheckButton.new()
+	toggle.button_pressed = ModLoader.is_enabled(desc.id)
+	toggle.custom_minimum_size = Vector2(64, 40)
+	toggle.toggled.connect(_on_mod_toggled.bind(desc.id))
+	_checkbox_by_id[desc.id] = toggle
+	hbox.add_child(toggle)
 
 	return row
 
