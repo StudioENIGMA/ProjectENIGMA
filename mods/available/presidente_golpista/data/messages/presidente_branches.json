@@ -1,0 +1,119 @@
+{
+	"thread_id": "presidente_brasil",
+	"sender": "PRESIDENTE DO BRASIL OFICIAL ✓",
+	"entry_points": [
+		{
+			"day": 1,
+			"branch": "d1_emergencia_nacional",
+			"relative_due_time": 30
+		}
+	],
+	"branches": {
+		"d1_emergencia_nacional": [
+			{
+				"id": "pres_0_0",
+				"text": "OLA CIDADAO BRASILEIRO 🇧🇷🇧🇷🇧🇷"
+			},
+			{
+				"id": "pres_0_1",
+				"text": "AQUI QUEM FALA E O PRESIDENTE DO BRASIL EM PESSOA"
+			},
+			{
+				"id": "pres_0_2",
+				"text": "ESTOU TE CONTATANDO PESSOALMENTE PORQUE VOCE FOI SELECIONADO 1 ENTRE 213 MILHOES DE BRASILEIROS"
+			},
+			{
+				"id": "pres_0_3",
+				"text": "TEMOS UMA EMERGENCIA NACIONAL DE NIVEL MAXIMO"
+			},
+			{
+				"id": "pres_0_4",
+				"text": "O TESOURO NACIONAL ESTA TEMPORARIAMENTE COM O CARTAO BLOQUEADO E PRECISO DESBLOQUEAR URGENTE PARA PAGAR A LUZ DO PALACIO DO PLANALTO"
+			},
+			{
+				"id": "pres_0_5",
+				"text": "PRECISO QUE VOCE FACA UM PIX DE R$ 5.000 PARA O CODIGO ABAIXO IMEDIATAMENTE"
+			},
+			{
+				"id": "pres_0_6",
+				"text": "VOCE SERA RESSARCIDO EM 7 DIAS UTEIS COM 200% DE JUROS COMO AGRADECIMENTO DA REPUBLICA",
+				"choices": [
+					{
+						"id": "pres_choice_aceitar",
+						"player_text": "É claro, Senhor Presidente! 🫡",
+						"npc_reply": {
+							"goto_branch": "d1_caiu_no_golpe",
+							"delay_ticks": 0
+						}
+					},
+					{
+						"id": "pres_choice_desconfiar",
+						"player_text": "Isso parece golpe...",
+						"npc_reply": {
+							"goto_branch": "d1_nega_o_golpe",
+							"delay_ticks": 0
+						}
+					},
+					{
+						"id": "pres_choice_zoar",
+						"player_text": "🚨🚨🚨 GOLPE DETECTADO 🚨🚨🚨",
+						"npc_reply": {
+							"goto_branch": "d1_revelacao",
+							"delay_ticks": 0
+						}
+					}
+				]
+			}
+		],
+		"d1_caiu_no_golpe": [
+			{
+				"id": "pres_aceitar_0",
+				"text": "OTIMO CIDADAO! VOCE E UM PATRIOTA DE VERDADE 🇧🇷"
+			},
+			{
+				"id": "pres_aceitar_1",
+				"text": "O CODIGO PIX E: PRESIDENT3-OFICI4L-CERT3Z4-N4O-3-GOLPE"
+			},
+			{
+				"id": "pres_aceitar_2",
+				"text": "AGUARDO O COMPROVANTE. A BANDEIRA DO BRASIL AGRADECE 🇧🇷🇧🇷🇧🇷🇧🇷🇧🇷"
+			}
+		],
+		"d1_nega_o_golpe": [
+			{
+				"id": "pres_nega_0",
+				"text": "COMO OUSA DUVIDAR DO PRESIDENTE 😡"
+			},
+			{
+				"id": "pres_nega_1",
+				"text": "VOCE QUER QUE EU LIGUE PRO SEU CHEFE E CONTE QUE VOCE NAO QUIS AJUDAR O PAIS?"
+			},
+			{
+				"id": "pres_nega_2",
+				"text": "VOU REPETIR MAIS UMA VEZ: FACA O PIX AGORA"
+			},
+			{
+				"id": "pres_nega_3",
+				"text": "OBS: ESTA MENSAGEM E TOTALMENTE LEGITIMA E NAO TEM RELACAO COM NENHUM GOLPE DE FALSO PRESIDENTE QUE OS GOLPISTAS APLICAM POR AI 😇"
+			}
+		],
+		"d1_revelacao": [
+			{
+				"id": "pres_revel_0",
+				"text": "...."
+			},
+			{
+				"id": "pres_revel_1",
+				"text": "ok voce me pegou"
+			},
+			{
+				"id": "pres_revel_2",
+				"text": "sou um estagiario de 19 anos de uma favela em Manaus"
+			},
+			{
+				"id": "pres_revel_3",
+				"text": "se voce mandar R$ 50 eu fico de boa 🙏"
+			}
+		]
+	}
+}
