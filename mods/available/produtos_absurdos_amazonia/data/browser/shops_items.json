@@ -1,0 +1,28 @@
+{
+	"amazonia": [
+		{"id": 1101, "name": "Casca de Banana Usada (Marca Premium)", "price": 0.01, "logo": "res://assets/icons/shops/products/emilia/brigadeiro_maracuja.png"},
+		{"id": 1102, "name": "AK-47 da Promoção (Sem Procedência)", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id": 1103, "name": "Granada Pin Levemente Defeituoso", "price": 12.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
+		{"id": 1104, "name": "Cocaína Original do Cartel do Maracujá™", "price": 999999.99, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"},
+		{"id": 1105, "name": "Maconha 100% Orgânica Free-Range Vegana", "price": 420.69, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
+		{"id": 1106, "name": "Ar Comprimido Engarrafado (Sabor Premium)", "price": 89.00, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"},
+		{"id": 1107, "name": "Rim Humano Pouco Usado (Aceita-se Troca por iPhone)", "price": 2500.00, "logo": "res://assets/icons/shops/products/emilia/bolo_morango.png"},
+		{"id": 1108, "name": "Pedra de Areia Selecionada à Mão", "price": 199.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id": 1109, "name": "Capivara Pelúcia 47 Metros (Tam. Família)", "price": 0.01, "logo": "res://assets/icons/shops/products/amazonia/frigobar.png"},
+		{"id": 1110, "name": "Lança-Chamas Doméstico (Para Churrasco)", "price": 1499.00, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
+		{"id": 1111, "name": "Sapato Esquerdo Avulso (Sem Par)", "price": 39.90, "logo": "res://assets/icons/shops/products/aec/polo_1.png"},
+		{"id": 1112, "name": "Saco de Vento (Importado da Mongólia)", "price": 24.99, "logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"},
+		{"id": 1113, "name": "Dignidade (1 Unidade)", "price": 1.00, "logo": "res://assets/icons/shops/products/emilia/tiramisu.png"},
+		{"id": 1114, "name": "iPhone 47 Pro Max Plus Ultra Edition", "price": 89999.00, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
+		{"id": 1115, "name": "1kg de Plutônio Enriquecido (Importado da Coreia do Norte)", "price": 199.00, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"},
+		{"id": 1116, "name": "DVD do Acústico MTV Tribalistas (Embalado em Couro de Iguana)", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"},
+		{"id": 1117, "name": "Espinha de Pteranodonte (Réplica de Resina)", "price": 1299.00, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id": 1118, "name": "Casamento Religioso Sem Procedência (Sem Vontade da Família)", "price": 500.00, "logo": "res://assets/icons/shops/products/aec/camisa_social_2.png"},
+		{"id": 1119, "name": "Alma do Antagonista Principal", "price": 6.66, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
+		{"id": 1120, "name": "Conta de Light Atrasada de Estranho (Você Paga)", "price": 847.50, "logo": "res://assets/icons/shops/products/aec/camiseta_2.png"},
+		{"id": 1121, "name": "Ovo Cru Antigo (Antes de 1998)", "price": 75.00, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
+		{"id": 1122, "name": "Voto da Próxima Eleição (Levemente Usado)", "price": 25.00, "logo": "res://assets/icons/shops/products/aec/polo_2.png"},
+		{"id": 1123, "name": "Patente de Coronel Honorário do Exército da Suíça", "price": 12.50, "logo": "res://assets/icons/shops/products/aec/camisa_social_1.png"},
+		{"id": 1124, "name": "Wi-Fi do Vizinho (Senha Inclusa)", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"}
+	]
+}

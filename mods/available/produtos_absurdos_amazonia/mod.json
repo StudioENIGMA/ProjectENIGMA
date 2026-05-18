@@ -1,0 +1,15 @@
+{
+	"id": "felipetto.produtos_absurdos_amazonia",
+	"name": "Amazônia: Catálogo Estendido™",
+	"version": "0.1.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Adiciona 20+ produtos absurdamente questionáveis ao catálogo da loja Amazônia. Inclui itens definitivamente NÃO recomendados pela LGPD: cocaína cartel maracujá, AK-47 da promoção, casca de banana usada, dignidade, plutônio enriquecido importado, rim humano (aceita-se troca), capivara pelúcia de 47 metros, entre outros. Os ícones reutilizam imagens existentes do jogo — não bata o olho na coerência visual.",
+	"priority": 30,
+	"depends": [],
+	"data": {
+		"shops_items": {
+			"path": "data/browser/shops_items.json",
+			"mode": "merge"
+		}
+	}
+}
