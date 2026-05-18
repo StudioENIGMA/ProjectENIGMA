@@ -1,0 +1,27 @@
+{
+	"thread_id": "modsbot",
+	"sender": "ModsBot",
+	"entry_points": [
+		{
+			"day": 0,
+			"branch": "d0_intro",
+			"relative_due_time": 5
+		}
+	],
+	"branches": {
+		"d0_intro": [
+			{
+				"id": "modsbot_0_0",
+				"text": "Olá! Eu sou o ModsBot — esta mensagem foi injetada pelo mod 'Exemplo Básico'."
+			},
+			{
+				"id": "modsbot_0_1",
+				"text": "Se você está vendo isto, o sistema de mods está funcionando corretamente. ✓"
+			},
+			{
+				"id": "modsbot_0_2",
+				"text": "Você pode desativar este mod em MENU PRINCIPAL > MODS."
+			}
+		]
+	}
+}

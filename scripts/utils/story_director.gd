@@ -79,6 +79,15 @@ func reload_and_setup_today() -> void:
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
 	var events_dictionary = _read_json_root(events_dir_path)
 
+	# Allow mods to inspect/mutate loaded data before directors consume it
+	ModLoader.emit_hook("post_data_load", [{
+		"messages": message_roots, "emails": email_roots,
+		"tasks": tasks_roots, "scams": scams_roots,
+		"reviews": reviews_array, "shops": shops_dictionary,
+		"pix": pix_dictionary, "tickets": tickets_dictionary,
+		"events": events_dictionary,
+	}])
+
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
 	emails_director.setup_from_json_roots(email_roots)
@@ -192,15 +201,9 @@ func _insert_story_entry_sorted(story_entry: Dictionary) -> void:
 #endregion QUEUE OPS
 
 #region JSON LOADING
-## Loads all JSON roots from a given directory path
+## Loads all JSON roots from a given directory path (routed through ModLoader for mod overlays)
 func _load_json_roots_from_directory(directory_path: String) -> Array:
-	var file_paths := _list_json_file_paths(directory_path)
-	file_paths.sort()
-
-	var roots: Array = []
-	for file_path in file_paths:
-		roots.append(_read_json_root(file_path))
-	return roots
+	return ModLoader.load_directory_roots(directory_path)
 
 ## Lists all JSON file paths in a given directory
 func _list_json_file_paths(directory_path: String) -> Array[String]:
@@ -223,13 +226,9 @@ func _list_json_file_paths(directory_path: String) -> Array[String]:
 
 	return file_paths
 
-## Reads and parses a JSON file, returning the root Variant
+## Reads and parses a JSON file, returning the root Variant (routed through ModLoader for mod overlays)
 func _read_json_root(file_path: String) -> Variant:
-	var file := FileAccess.open(file_path, FileAccess.READ)
-	var parser := JSON.new()
-	var result := parser.parse(file.get_as_text())
-	assert(result == OK)
-	return parser.data
+	return ModLoader.read_json_root(file_path)
 
 func _read_json_array(file_path: String) -> Array:
 	var json_data = _read_json_root(file_path)

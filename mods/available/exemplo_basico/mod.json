@@ -1,0 +1,13 @@
+{
+	"id": "felipetto.exemplo_basico",
+	"name": "Exemplo Básico",
+	"version": "0.1.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Mod de exemplo que mostra as 3 capacidades do loader: (1) adiciona uma thread de mensagens nova com um NPC chamado ModsBot, (2) declara metadata no manifesto, (3) registra um hook GDScript que loga quando o jogo carrega dados.",
+	"priority": 100,
+	"depends": [],
+	"data": {
+		"messages_dir": "data/messages"
+	},
+	"main_script": "main.gd"
+}

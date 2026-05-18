@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://fowefagtagic"
 
 [autoload]
 
+ModLoader="*res://scripts/singletons/mod_loader.gd"
 GameData="*res://scripts/singletons/game_data.gd"
 
 [debug]
