@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://pm0hm7reoo87" path="res://scripts/confirmation_panel.gd" id="8_tbmy8"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="10_5dd4i"]
 [ext_resource type="Script" uid="uid://dig6gn875gn2d" path="res://scripts/utils/post_game_panel.gd" id="11_lgwnu"]
+[ext_resource type="Script" path="res://mods/loader/ui/mods_button_handler.gd" id="12_mods"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
@@ -116,6 +117,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 script = ExtResource("5_tbmy8")
+
+[node name="Mods Button" type="Button" parent="ButtonsMargin/MainVBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "MODS"
+script = ExtResource("12_mods")
 
 [node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
 

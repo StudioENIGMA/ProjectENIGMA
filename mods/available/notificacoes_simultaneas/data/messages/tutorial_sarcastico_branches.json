@@ -1,0 +1,43 @@
+{
+	"thread_id": "tutorial_sarcastico",
+	"sender": "Tutorial™",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_observacoes_construtivas",
+			"relative_due_time": 20
+		}
+	],
+	"branches": {
+		"d2_observacoes_construtivas": [
+			{
+				"id": "tut_0_0",
+				"text": "Olá! Eu sou o Tutorial™."
+			},
+			{
+				"id": "tut_0_1",
+				"text": "Notei que você está recebendo várias mensagens ao mesmo tempo."
+			},
+			{
+				"id": "tut_0_2",
+				"text": "Dica de Cibersegurança Nível 1: quando 4 pessoas te mandam mensagem ao mesmo tempo, provavelmente 3 delas são golpe."
+			},
+			{
+				"id": "tut_0_3",
+				"text": "Dica de Cibersegurança Nível 2: a quarta também."
+			},
+			{
+				"id": "tut_0_4",
+				"text": "Observação: sim, eu também posso ser golpe. Você nunca sabe."
+			},
+			{
+				"id": "tut_0_5",
+				"text": "Aliás, vou te mandar um link pra atualizar o Tutorial™: http://bit.ly/tutorial-real-juro-mesmo"
+			},
+			{
+				"id": "tut_0_6",
+				"text": "(é golpe)"
+			}
+		]
+	}
+}

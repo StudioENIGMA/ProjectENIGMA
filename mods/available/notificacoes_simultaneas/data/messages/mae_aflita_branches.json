@@ -1,0 +1,51 @@
+{
+	"thread_id": "mae_aflita",
+	"sender": "Mãe ❤️",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_audio_panic",
+			"relative_due_time": 20
+		}
+	],
+	"branches": {
+		"d2_audio_panic": [
+			{
+				"id": "mae_0_0",
+				"text": "FILHO"
+			},
+			{
+				"id": "mae_0_1",
+				"text": "ME LIGA"
+			},
+			{
+				"id": "mae_0_2",
+				"text": "🎤 [áudio: 2:34]"
+			},
+			{
+				"id": "mae_0_3",
+				"text": "🎤 [áudio: 4:12]"
+			},
+			{
+				"id": "mae_0_4",
+				"text": "🎤 [áudio: 0:03]"
+			},
+			{
+				"id": "mae_0_5",
+				"text": "🎤 [áudio: 8:47]"
+			},
+			{
+				"id": "mae_0_6",
+				"text": "POR QUE VC NAO RESPONDE"
+			},
+			{
+				"id": "mae_0_7",
+				"text": "AHHHHHHHH NAO É NADA. esquece"
+			},
+			{
+				"id": "mae_0_8",
+				"text": "🎤 [áudio: 11:23]"
+			}
+		]
+	}
+}

@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://mods/loader/ui/mods_screen.gd" id="1_modscript"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.12, 0.13, 0.18, 1)
+
+[node name="ModsScreen" type="Control" node_paths=PackedStringArray("list_container", "info_title", "info_meta", "info_description", "empty_label", "save_button", "back_button", "restart_hint")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_modscript")
+list_container = NodePath("Margin/Root/Scroll/ListContainer")
+info_title = NodePath("Margin/Root/InfoPanel/InfoTitle")
+info_meta = NodePath("Margin/Root/InfoPanel/InfoMeta")
+info_description = NodePath("Margin/Root/InfoPanel/InfoDescription")
+empty_label = NodePath("Margin/Root/EmptyLabel")
+save_button = NodePath("Margin/Root/Footer/SaveButton")
+back_button = NodePath("Margin/Root/Header/BackButton")
+restart_hint = NodePath("Margin/Root/Footer/RestartHint")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BackButton" type="Button" parent="Margin/Root/Header"]
+custom_minimum_size = Vector2(48, 40)
+layout_mode = 2
+text = "←"
+theme_override_font_sizes/font_size = 24
+
+[node name="Title" type="Label" parent="Margin/Root/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MODS"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="EmptyLabel" type="Label" parent="Margin/Root"]
+visible = false
+layout_mode = 2
+text = "Nenhum mod disponível.
+
+Coloque mods em:
+res://mods/available/  ou  user://mods/"
+horizontal_alignment = 1
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 14
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 220)
+horizontal_scroll_mode = 0
+
+[node name="ListContainer" type="VBoxContainer" parent="Margin/Root/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="InfoPanel" type="VBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="InfoTitle" type="Label" parent="Margin/Root/InfoPanel"]
+layout_mode = 2
+text = ""
+theme_override_font_sizes/font_size = 18
+
+[node name="InfoMeta" type="Label" parent="Margin/Root/InfoPanel"]
+layout_mode = 2
+text = ""
+modulate = Color(0.75, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 11
+
+[node name="InfoDescription" type="RichTextLabel" parent="Margin/Root/InfoPanel"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = true
+autowrap_mode = 2
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RestartHint" type="Label" parent="Margin/Root/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reinicie para aplicar mudanças"
+modulate = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="SaveButton" type="Button" parent="Margin/Root/Footer"]
+custom_minimum_size = Vector2(96, 40)
+layout_mode = 2
+text = "Salvar"
+theme_override_font_sizes/font_size = 16

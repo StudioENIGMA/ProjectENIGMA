@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.long_payment_codes",
+	"name": "Códigos de Transação Gigantescos",
+	"version": "0.1.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Transforma todos os códigos estáticos de PIX (5 chars) e boleto (6 chars) em códigos de 60 caracteres absurdamente longos. Atualiza automaticamente todas as referências nas mensagens dos NPCs para apontar para os novos códigos.\n\nAviso: os códigos dinâmicos gerados em compras dentro do jogo continuam com 5/6 caracteres — isso só afeta os códigos cravados no enredo. Para alongar TODOS, seria necessário um mod adicional que substitua o bank_director via pack.pck.",
+	"priority": 50,
+	"depends": [],
+	"main_script": "main.gd"
+}

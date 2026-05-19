@@ -1,0 +1,12 @@
+{
+	"id": "felipetto.presidente_golpista",
+	"name": "Presidente do Brasil te pede PIX",
+	"version": "0.1.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Adiciona uma conversa de WhatsApp com o 'PRESIDENTE DO BRASIL EM PESSOA' que precisa urgentemente de um PIX de R$ 5000 pra resolver uma crise nacional. Mensagem chega no dia 1 às 8:30 da manhã. Spoiler: o pix vai pra outro PIX.",
+	"priority": 30,
+	"depends": [],
+	"data": {
+		"messages_dir": "data/messages"
+	}
+}

@@ -291,6 +291,8 @@ func _ready() -> void:
 		var app_enum = apps_name[app_name]
 		apps_name_reverse[app_enum] = app_name
 
+	ModLoader.patch_apps_data(apps_data)
+
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
 

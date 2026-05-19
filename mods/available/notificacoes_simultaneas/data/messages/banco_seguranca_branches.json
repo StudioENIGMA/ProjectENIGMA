@@ -1,0 +1,43 @@
+{
+	"thread_id": "banco_seguranca",
+	"sender": "BancoBank Segurança",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_verificacao_urgente",
+			"relative_due_time": 20
+		}
+	],
+	"branches": {
+		"d2_verificacao_urgente": [
+			{
+				"id": "banco_0_0",
+				"text": "Prezado(a) Cliente, identificamos atividade SUSPEITA em sua conta."
+			},
+			{
+				"id": "banco_0_1",
+				"text": "Para sua segurança, precisamos validar sua identidade IMEDIATAMENTE."
+			},
+			{
+				"id": "banco_0_2",
+				"text": "Por favor, envie uma SELFIE segurando seu documento RG."
+			},
+			{
+				"id": "banco_0_3",
+				"text": "Envie também uma selfie segurando seu CPF."
+			},
+			{
+				"id": "banco_0_4",
+				"text": "E uma selfie segurando seu CARTÃO DE CRÉDITO (frente e verso, com o CVV visível)."
+			},
+			{
+				"id": "banco_0_5",
+				"text": "E sua senha do banco escrita em um papel."
+			},
+			{
+				"id": "banco_0_6",
+				"text": "Isso É um procedimento padrão de segurança e definitivamente não É um golpe. 🏦"
+			}
+		]
+	}
+}

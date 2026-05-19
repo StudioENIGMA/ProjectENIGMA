@@ -1,0 +1,47 @@
+{
+	"thread_id": "agiota_sereno",
+	"sender": "Jorginho 🦈",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_lembrete_amigavel",
+			"relative_due_time": 20
+		}
+	],
+	"branches": {
+		"d2_lembrete_amigavel": [
+			{
+				"id": "agi_0_0",
+				"text": "e aí"
+			},
+			{
+				"id": "agi_0_1",
+				"text": "beleza"
+			},
+			{
+				"id": "agi_0_2",
+				"text": "se lembra de mim"
+			},
+			{
+				"id": "agi_0_3",
+				"text": "beleza"
+			},
+			{
+				"id": "agi_0_4",
+				"text": "então"
+			},
+			{
+				"id": "agi_0_5",
+				"text": "beleza"
+			},
+			{
+				"id": "agi_0_6",
+				"text": "voce tem 47 minutos"
+			},
+			{
+				"id": "agi_0_7",
+				"text": "beleza"
+			}
+		]
+	}
+}
