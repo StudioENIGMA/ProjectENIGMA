@@ -1,6 +1,6 @@
 extends Node
 
-const TARGET_LENGTH := 30
+const TARGET_LENGTH := 120
 const CHARSET := "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 var api: ModLoaderAPI

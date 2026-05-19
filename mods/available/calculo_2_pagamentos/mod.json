@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.calculo_2_pagamentos",
+	"name": "Cálculo II™ — Pagamentos",
+	"version": "0.1.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Substitui TODOS os valores monetários (R$ X,XX) que aparecem em mensagens de NPCs por expressões matemáticas equivalentes ONDE O NÚMERO ORIGINAL NÃO APARECE LITERALMENTE EM LUGAR NENHUM. O jogador TEM QUE calcular pra saber quanto vai pagar.\n\nUsa números 'salgados' deterministicamente derivados via hash do valor: somas, diferenças, produtos descompostos, integrais ∫_a^b dx (onde b−a = valor), somatórios. A parte dos centavos é preservada (escrever decimais em integrais seria crueldade desnecessária).\n\nExemplo: 'pague R$ 100,00' não vira '(100+π−π),00' (óbvio) — vira algo como '(∫_413^513 dx),00' (calcule 513−413 pra descobrir).\n\nFunciona junto com long_payment_codes (operam em capturas regex disjuntas).",
+	"priority": 25,
+	"depends": [],
+	"main_script": "main.gd"
+}
