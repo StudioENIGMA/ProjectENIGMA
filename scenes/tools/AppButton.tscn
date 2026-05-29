@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://tfos8eqtx3j3"]
 
-[ext_resource type="Script" path="res://scripts/tools/app_button.gd" id="1_wh6kl"]
+[ext_resource type="Script" uid="uid://ddh67j0ymux7c" path="res://scripts/tools/app_button.gd" id="1_wh6kl"]
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="1_wjthx"]
-[ext_resource type="Script" path="res://scripts/tools/app_icon.gd" id="3_qhiuw"]
-[ext_resource type="Script" path="res://scripts/tools/app_name.gd" id="4_nw0xf"]
+[ext_resource type="Script" uid="uid://b17eiem34kqyg" path="res://scripts/tools/app_icon.gd" id="3_qhiuw"]
+[ext_resource type="Script" uid="uid://cilc6iidnfhns" path="res://scripts/tools/app_name.gd" id="4_nw0xf"]
 
 [node name="AppButton" type="VBoxContainer" unique_id=369145603 node_paths=PackedStringArray("app_icon", "app_name_label")]
 custom_minimum_size = Vector2(80, 80)

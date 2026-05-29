@@ -101,6 +101,9 @@ var line_connect = preload(
 var update_os_screen = preload(
 	"res://scenes/settings/update_os.tscn"
 ).instantiate()
+var notes_app = preload(
+	"res://scenes/apps/notes/notes_app.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -309,6 +312,10 @@ func _ready() -> void:
 	line_connect.hack_concluded.connect(_on_back_button_pressed)
 	line_connect.hack_concluded.connect(virus_scanner._on_video_stream_finished)
 	hack_screen.add_child(line_connect)
+	
+	# Notes
+	notes_app.visible = false
+	app_specific_screen.add_child(notes_app)
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
@@ -544,6 +551,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.FASTTYPING: fast_typing,
 		GameData.App.LINECONNECT: line_connect,
 		GameData.App.MAZE: maze,
+		# Notes
+		GameData.App.NOTES: notes_app
 	}
 	return app_map.get(app_enum, null)
 
@@ -595,6 +604,8 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.LINECONNECT: GameData.App.LINECONNECT,
 		GameData.App.MAZE: GameData.App.MAZE,
 		GameData.App.PAUSEMENU: GameData.App.PAUSEMENU,
+		
+		GameData.App.NOTES: GameData.App.NOTES,
 	}
 	return main_app_map.get(subscreen_enum, null)
 

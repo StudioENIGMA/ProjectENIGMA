@@ -53,6 +53,8 @@ enum App {
 	MAZE,
 	# Pause
 	PAUSEMENU,
+	#Notes,
+	NOTES
 }
 
 enum HackMinigame {
@@ -191,6 +193,8 @@ var apps_name: Dictionary = {
 	"PasswordCheck": App.PASSWORDCHECK,
 	# Pause Menu
 	"PauseMenu": App.PAUSEMENU,
+	# Notes
+	"Notes": App.NOTES,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -270,6 +274,14 @@ var apps_data = {
 	App.PAUSEMENU: {
 		"name": "Pause Menu",
 		"icon_path": "res://assets/icons/default-app.png",
+	},
+	
+	App.NOTES: {
+		"name": "Notas",
+		"chinese_name": "Iaqbuz",
+		"description": "Notas de ajuda ao funcionário",
+		"description_in_chinese": "Nqjanzy qnb l mhçh qubba hxbp!",
+		"icon_path": "res://assets/icons/notes.png",
 	}
 
 }
@@ -281,9 +293,9 @@ var apps_chinese_operations = {
 	"open": "vwlu"
 }
 
-var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
-var apps_in_store: Array[App] = [App.MESSAGESHOME]
-var downloaded_apps: Array[App] = [App.MESSAGESHOME]
+var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.NOTES, App.BROWSER, App.EMAIL, App.BANK]
+var apps_in_store: Array[App] = [App.MESSAGESHOME, App.NOTES]
+var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.NOTES]
 
 func _ready() -> void:
 	# Create reverse mapping for apps_name
