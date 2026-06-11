@@ -9,34 +9,34 @@ signal schedule_email(story_entry: Dictionary)
 const random_tasks_delay = [0, 60, 30, 30, 30, 30, 30]
 
 const number_of_events = [
-	{
-		"tasks": 0,
-		"scams": 0
-	},
-	{
-		"tasks": 2,
-		"scams": 2
-	},
-	{
-		"tasks": 3,
-		"scams": 4
-	},
-	{
-		"tasks": 7,
-		"scams": 5
-	},
-	{
-		"tasks": 10,
-		"scams": 6
-	},
-	{
-		"tasks": 11,
-		"scams": 8
-	},
-	{
-		"tasks": 12,
-		"scams": 9
-	},
+    {
+        "tasks": 0,
+        "scams": 0
+    },
+    {
+        "tasks": 1,
+        "scams": 1
+    },
+    {
+        "tasks": 1,
+        "scams": 3
+    },
+    {
+        "tasks": 4,
+        "scams": 4
+    },
+    {
+        "tasks": 7,
+        "scams": 5
+    },
+    {
+        "tasks": 8,
+        "scams": 8
+    },
+    {
+        "tasks": 8,
+        "scams": 13
+    },
 ]
 #endregion CONSTANTS
 
@@ -58,7 +58,7 @@ func setup_from_json_roots(random_tasks: Array, random_scams: Array) -> void:
 
 #region FUNCTIONS
 func _on_clock_tick() -> void:
-	if (events_scheduled or GameData.current_day == 0):
+	if (events_scheduled or GameData.current_day == 0 or GameData.current_day == 7):
 		return
 
 	clock_counter += 1
@@ -67,7 +67,7 @@ func _on_clock_tick() -> void:
 		define_events_list()
 
 func define_events_list() -> void:
-	if (GameData.current_day == 0):
+	if (GameData.current_day == 0 or GameData.current_day == 7):
 		return
 
 	var randomized_tasks = tasks_list.duplicate(true)
@@ -179,35 +179,52 @@ func schedule_events(events_list: Array) -> void:
 
 func get_spaced_times(number_of_times: int) -> Array:
 	var times = []
-	var attempts = 0
-	var max_attempts = number_of_times * 200
 
 	var start_of_range = GameData.starting_hours_minutes + random_tasks_delay[GameData.current_day]
-	var end_of_range = GameData.max_hours_minutes - 30
+	var end_of_range = GameData.max_hours_minutes - 45
 
 	var min_dist = 30
 	# Verifies if min distance at 30s is possible
-	if (number_of_times * min_dist >= end_of_range - start_of_range):
-		min_dist = floori(((end_of_range - start_of_range) / number_of_times) * 0.8)
+	var interval_length = end_of_range - start_of_range
+	var minimum_acceptable_interval = number_of_times * min_dist
 
-	while times.size() < number_of_times and attempts < max_attempts:
-		var num = randi_range(start_of_range, end_of_range)
-		var is_valid = true
+	var average_length = (interval_length / number_of_times)
+	const CORRECTING_FACTOR = 0.8
+	if (minimum_acceptable_interval >= interval_length):
+		push_warning("Quantidade mínima inalcalçável")
+		min_dist = floori(average_length * CORRECTING_FACTOR)
 
-		for existing_num in times:
-			if abs(num - existing_num) < min_dist:
-				is_valid = false
-				break
+	for delta_idx in range(number_of_times):
+		times.append(start_of_range + average_length * (delta_idx + 1))
 
-		if is_valid:
-			times.append(num)
-
-		attempts += 1
-
-	if times.size() < number_of_times:
-		push_warning("Não foi possível encontrar números espaçados o suficiente.")
-		return []
+	print(times)
+	for time_idx in range(len(times)):
+		var unadjusted_time = times[time_idx]
+		var time_delta = randfn(0.0, average_length/10)
+		time_delta = clamp(time_delta, -average_length * CORRECTING_FACTOR, average_length * CORRECTING_FACTOR)
+		var time = unadjusted_time + time_delta
+		time = clamp(time, start_of_range, end_of_range)
+		times[time_idx] = time
 
 	times.sort()
+
+	var base_times = times.duplicate(true)
+	# Adjust for better rebalancing
+	for time_idx in range(1, len(base_times) - 1):
+		var unadjusted_time = base_times[time_idx]
+
+		var previous_time = base_times[time_idx - 1]
+		var subsequent_time = base_times[time_idx + 1]
+
+		var previous_interval = unadjusted_time - previous_time
+		var subsequent_interval = subsequent_time - unadjusted_time
+
+		var interval_proportions = subsequent_interval / max(previous_interval, 0.001)
+		var adjusted_proportion = pow(interval_proportions, 0.3)
+
+		var new_time = (previous_time + subsequent_time) / (1 + adjusted_proportion)
+		times[time_idx] = new_time
+
+	print(times)
 	return times
 #endregion FUNCTION

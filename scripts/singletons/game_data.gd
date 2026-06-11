@@ -110,7 +110,7 @@ var cart_enum_to_shop_enum = {
 
 var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
 
-var bank_balance: float = 200
+var bank_balance: float = 150000
 
 var completed_payments = []
 var purchased_items = {}
@@ -139,13 +139,13 @@ var breaches_immunity_ticks: int = 45
 var apps_with_available_updates: Array[App] = []
 
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 180 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
 var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
-var number_of_viruses: int = 1
+var number_of_viruses: int = 0
 var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 var saved_messages_conversations: Array[Dictionary] = []
@@ -281,7 +281,7 @@ var apps_chinese_operations = {
 	"open": "vwlu"
 }
 
-var potential_apps_in_store = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
+var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
 var apps_in_store: Array[App] = [App.MESSAGESHOME]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
 
@@ -384,6 +384,7 @@ func save_game() -> void:
 	var game_state = {
 		"start_date_dict": start_date_dict,
 		"current_day": current_day,
+		"max_hours_minutes": max_hours_minutes,
 		"total_reputation_points": total_reputation_points,
 		"passwords": passwords,
 		"apps_in_store": apps_in_store,
@@ -420,6 +421,7 @@ func load_game() -> void:
 
 	start_date_dict = game_state.get("start_date_dict")
 	current_day = int(game_state.get("current_day"))
+	max_hours_minutes = int(game_state.get("max_hours_minutes"))
 	total_reputation_points = int(game_state.get("total_reputation_points"))
 	bank_balance = float(bank_balance)
 

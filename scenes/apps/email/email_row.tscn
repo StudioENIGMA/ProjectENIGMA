@@ -33,7 +33,6 @@ anchor_right = 1.0
 offset_bottom = 240.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-mouse_filter = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -58,6 +57,7 @@ layout_mode = 2
 [node name="ProfilePicture" parent="VBoxContainer/EmailContainer" unique_id=233740664 instance=ExtResource("2_duhoi")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="EmailContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer" unique_id=165264987]
 layout_mode = 2
@@ -130,6 +130,7 @@ layout_mode = 2
 [node name="AnnexPanel" type="PanelContainer" parent="VBoxContainer/AnnexContainer" unique_id=12971788]
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 1
 theme = SubResource("Theme_hpj05")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel" unique_id=67652396]

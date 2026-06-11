@@ -70,14 +70,16 @@ func reset_data_for_new_day() -> void:
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes
 
+	# Reset Bank Balance
+	GameData.bank_balance = 150000
+
 	# Restart timers
 	clock_timer.start()
 
 func set_shop_by_date() -> void:
 	match GameData.current_day:
 		1:
-			GameData.apps_in_store.append(GameData.App.BANK)
+			GameData.apps_in_store = [GameData.App.MESSAGESHOME, GameData.App.BANK]
 		2:
-			GameData.apps_in_store.append(GameData.App.BROWSER)
-			GameData.apps_in_store.append(GameData.App.EMAIL)
+			GameData.apps_in_store = GameData.potential_apps_in_store.duplicate(true)
 #endregion DAY CYCLE MANAGEMENT

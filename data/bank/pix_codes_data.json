@@ -161,7 +161,7 @@
 		"email": "jescica@neutron.me",
 		"value": 17893.86
 	},
-	"A1B2C" : {
+	"ABCDE" : {
 		"name" : "Simone Financeiro",
 		"cpf" : "456.776.208-47",
 		"email" : "simone@enigma.fin.com.br",
@@ -196,5 +196,11 @@
 		"cpf": "841.457.933-12",
 		"email": "caiom@tempo-mail.com",
 		"value": 7500.00
+	},
+	"T27DX": {
+		"name" : "Luxos Serviços",
+		"cpf": "390.753.124-51",
+		"email": "pagamentos@luxos-servicos.com.br",
+		"value": 15667.90
 	}
 }

@@ -73,8 +73,13 @@
 		"relative_due_time": 0
 	},
 	{
+		"day": 4,
+		"branch": "d4_start1",
+		"relative_due_time": 0
+	},
+	{
 		"day": 7,
-		"branch": "d6_good_end_game",
+		"branch": "d7_good_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
@@ -82,18 +87,19 @@
 				"is": false
 			}
 		],
-		"relative_due_time": 620
+		"relative_due_time": 10
 	},
 	{
 		"day": 7,
-		"branch": "d6_bad_end_game",
+		"branch": "d7_bad_ending",
 		"requires": [
 			{
 				"flag": "app_installed",
 				"app_id": "fake_store",
 				"is": true
 			}
-		]
+		],
+		"relative_due_time": 10
 	}
   ],
 	"branches": {
@@ -104,7 +110,7 @@
 			},
 			{
 				"id": "boss_0_1",
-				"text": "Durante os próximos 6 dias eu lhe supervisionarei durante seu período probatório. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
+				"text": "Durante os próximos 6 dias eu lhe supervisionarei durante seu período de trabalho. Você deverá realizar diversas atividades para nossos setores, então aproveite para se familiarizar com nossa plataforma de mensagens."
 			},
 			{
 				"id": "boss_0_2",
@@ -126,7 +132,7 @@
 			
 			{
 				"id": "boss_0_3",
-				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores que ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
+				"text": "Ao longo dos dias, funcionários da nossa empresa de diferentes setores irão te pedir ajuda com diferentes tarefas. Cada setor possui um gerente, todos eles te apresentarão os funcionários dos setores deles, que ajudarão em sua jornada de trabalho. Preste muita atenção nos nomes dos nossos funcionários!"
 			},
 			{
 				"id": "boss_0_4",
@@ -142,7 +148,7 @@
 			},
 			{
 				"id": "boss_0_7",
-				"text": "Qualquer pagamento ou compra solicitado para essas pessoas podem ser feitas. Apenas verifique se realmente são elas, já tivemos pessoas tentnado se passar por fuincionários. Não deve ser difícil notar, eles sempre erram em algo."
+				"text": "Qualquer pagamento ou compra solicitado por essas pessoas ou empresas podem ser realizados. Apenas verifique se realmente são eles de verdade, já tivemos pessoas tentando se passar por fuincionários. Não deve ser difícil notar, eles sempre erram em algo."
 			},
 			{
 				"id": "boss_0_8",
@@ -150,7 +156,7 @@
 			},
 			{
 				"id": "boss_0_9",
-				"text": "Ah, e como hoje é seu primeiro dia, não se preocupe em realizar tarefas, pode trabalhar somente até 12:00. A partir de amanhã, o expediente começa às 8:00 e termina às 18:00, então se organize para realizar suas tarefas dentro desse horário, ok? Bom trabalho!"
+				"text": "Ah, e como hoje é seu primeiro dia, não se preocupe em realizar tarefas, pode trabalhar somente até 12:00. Amanhã, no seu primeir dia focialmente, o expediente termina às 14:00. O segundo dia irá até as 16:00. E a partir do terceiro dia você trabalha até as 18:00 horas, então se organize para realizar suas tarefas dentro desses horários, ok? Bom trabalho!"
 			},
 			{
 				"id": "boss_0_10",
@@ -188,7 +194,7 @@
 			{
 				
 				"id": "b_1_7",
-				"text": "Um importante aviso. A PX Investment irá oferecer propostas de investimentos, e você deverá aceitar todas até o final do período de estágio",
+				"text": "Apenas um importante aviso. A PX Investment irá oferecer propostas de investimentos, o que pode parecer estranho. Mas fique tranquilo! Está tudo alinhado comigo, você deverá pode todas até o final do período de estágio.",
 				"requires": [
 					{
 						"flag": "app_installed",
@@ -336,6 +342,69 @@
 			{
 				"id": "b_3_2",
 				"text": "Não desanime, você ainda está no começo, tenho certeza que amanhã estará entendendo tudo. Agora ao trabalho."
+			}
+		],
+		"d4_start1": [
+			{
+				"id": "b_4_1",
+				"text": "Parabéns por estar fazendo um trabalho explêndido. Você está sendo falado entre o funcionários da empresa. A partir de hoje seu trabalho pode ficar mais requisitado, mas acredito que você dá conta!"
+			}
+		],
+		"d7_good_ending": [
+			{
+				"id": "b_7_11",
+				"text": "Parabéns, estagiário! Ao longo desse seu tempo trabalhando para a Enigma, você encontrou diversos desafios, tanto aqueles pensados para te testar, quanto aqueles imprevisíveis, mas que também são parte do dia a dia em um trabalho como esse."
+			},
+			{
+				"id": "b_7_12",
+				"text": "Você demonstrou um domínio exemplar sobre os conceitos de cibersegurança, se desviando de diversas tentativas golpes, hackers, e vírus ao longo do caminho."
+			},
+			{
+				"id": "b_7_13",
+				"text": "Seu ótimo desempenho, perseverança e confiabilidade lhe ganharam um cargo na Enigma. Meus parabéns, você mais que mereceu esta efetivação.",
+				"choices": [
+					{
+						"id": "b_7_13a_0",
+						"player_text": "Muito Obrigado, Chefe!",
+						"npc_reply": {
+							"goto_branch": "from_b_7_14",
+							"delay_ticks": 2.0
+						}
+
+					},
+					{
+						"id": "b_7_13a_1",
+						"player_text": "Que incrível!",
+						"npc_reply": {
+							"goto_branch": "from_b_7_14",
+							"delay_ticks": 2.0
+						}
+					}
+				]
+			}
+		],
+		"from_b_7_14": [
+			{
+				"id": "b_7_14",
+				"text": "Parabéns meu caro."
+			}
+		],
+		"d7_bad_ending": [
+			{
+				"id": "b_7_21",
+				"text": "Infelizmente devo lhe trazer más notícias neste seu último dia estagiando aqui. Nossos servidores internos foram comprometidos e centenas de gigabytes de dados foram vazados."
+			},
+			{
+				"id": "b_7_22",
+				"text": "Nossa API interna caiu, e até os sensores de incêndio falharam e tocaram sem motivo."
+			},
+			{
+				"id": "b_7_23",
+				"text": "Nós rastreamos essa falha através de todos os nossos sistemas internos até você, até este celular que você usa. Tem sete dias que ele envia sinais maliciosos e intercepta dados sigilosos da empresa e os libera na darkweb."
+			},
+			{
+				"id": "b_7_24",
+				"text": "Ainda estamos apurando exatamente o que ocorreu, mas eu lhe recomendaria contratar um advogado."
 			}
 		]
 	}

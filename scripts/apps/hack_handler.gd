@@ -4,7 +4,7 @@ signal open_hack_minigame(hack_minigame: GameData.HackMinigame)
 signal send_hack_notification()
 
 func on_clock_tick() -> void:
-	if GameData.current_day < 3:
+	if GameData.current_day < 3 or GameData.current_day == 7:
 		return # Hacking system starts on day 3, no need to check before that
 
 	var current_minutes = GameData.hours_minutes

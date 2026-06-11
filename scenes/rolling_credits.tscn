@@ -1,0 +1,401 @@
+[gd_scene format=3 uid="uid://drmse2bi4emfq"]
+
+[ext_resource type="Script" uid="uid://dlx8p57id0xeq" path="res://scripts/utils/rolling_credits.gd" id="1_n2g7t"]
+[ext_resource type="Texture2D" uid="uid://wglt524gwmet" path="res://assets/projeto enigma.png" id="1_qvx5m"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_1xhfy"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_ojlof"]
+[ext_resource type="Texture2D" uid="uid://c046ywceglcxu" path="res://assets/icons/logo_usp_branco.png" id="5_4hr5a"]
+[ext_resource type="Texture2D" uid="uid://bje7vc64jn21e" path="res://assets/studio enigma.png" id="6_cmwfl"]
+[ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="7_oeq0i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvx5m"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xhfy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2g7t"]
+font = ExtResource("3_ojlof")
+font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmwfl"]
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmwfl"]
+font = ExtResource("3_ojlof")
+font_size = 14
+font_color = Color(1, 1, 1, 0.7529412)
+
+[sub_resource type="Animation" id="Animation_qvx5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1xhfy"]
+resource_name = "credit_roll"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3, 29),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2000]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojlof"]
+_data = {
+&"RESET": SubResource("Animation_qvx5m"),
+&"credit_roll": SubResource("Animation_1xhfy")
+}
+
+[node name="RollingCredits" type="Control" unique_id=1611188411]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n2g7t")
+
+[node name="Panel" type="Panel" parent="." unique_id=753987826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qvx5m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=797947814]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=376870638]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BeginMargin" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=723822121]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=1618996279]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_qvx5m")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1863941748]
+custom_minimum_size = Vector2(250, 3)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_1xhfy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=184028726]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=868166834]
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer3" unique_id=1253276382]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.4, 0.05882353, 0.19215687, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Planejamento"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer3" unique_id=969634560]
+layout_mode = 2
+text = "Lorenzo Dutra 
+Natália Prata Leone"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=9911025]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer2" unique_id=1457792728]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer2" unique_id=1057863546]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Game Design"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer2" unique_id=1150717481]
+layout_mode = 2
+text = "Daniel Natan dos Santos Brito
+Erick Oda Coulter
+João Roberto de Moraes Neto
+Lorenzo Dutra de Oliveira Sales Decari Vicentin 
+Lucas Gomes Inacio
+Natália Prata Leone
+Raphael Zoega Cali Gomes"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=511753477]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer" unique_id=1331796091]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer" unique_id=422847219]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.4, 0.05882353, 0.19215687, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Programação"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer" unique_id=1807740426]
+layout_mode = 2
+text = "Daniel Natan dos Santos Brito
+João Roberto de Moraes Neto
+Lorenzo Dutra de Oliveira Sales Decari Vicentin
+Lucas Gomes Inacio"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1258508496]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer4" unique_id=477795514]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer4" unique_id=1285922968]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Design Visual"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer4" unique_id=1338076331]
+layout_mode = 2
+text = "Erick Oda Coulter
+Natália Prata Leone"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=800871222]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer5" unique_id=65460302]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer5" unique_id=1094551589]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.4, 0.05882353, 0.19215687, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Música"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer5" unique_id=1340871251]
+layout_mode = 2
+text = "Raphael Zoega Cali Gomes"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=250429846]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer6" unique_id=694876144]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer6" unique_id=1860062777]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Narrativa"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer6" unique_id=2015557687]
+layout_mode = 2
+text = "Lorenzo Dutra de Oliveira Sales Decari Vicentin 
+Natália Prata Leone
+Raphael Zoega Cali Gomes"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=284192138]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer7" unique_id=705982920]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="DesignedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VBoxContainer7" unique_id=518615961]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.4, 0.05882353, 0.19215687, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Agradecimentos Especiais"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer7" unique_id=2065668590]
+layout_mode = 2
+text = "Prof. Dr. Clever Ricardo Guareis de Farias
+Gabriel Carvalho Silva
+Helena Della Torre Baptista
+Ian Marcos Gomes e Freitas
+Mel Marcelly Valvano"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="OrientedBy" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1293539378]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/VBoxContainer/OrientedBy" unique_id=1890952328]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="OrientedByLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/OrientedBy" unique_id=1398911457]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_1xhfy")
+text = "Orientação"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/OrientedBy" unique_id=1105143107]
+layout_mode = 2
+text = "Prof. Dr. Clever Ricardo Guareis de Farias"
+label_settings = SubResource("LabelSettings_n2g7t")
+horizontal_alignment = 1
+
+[node name="MiddleMargin" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=200143443]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=222708614]
+custom_minimum_size = Vector2(250, 3)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_1xhfy")
+
+[node name="MiddleMargin2" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=895089102]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=547124945]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmwfl")
+text = "Organizações:"
+label_settings = SubResource("LabelSettings_cmwfl")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1364338444]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1865664294]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_4hr5a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2114534659]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture = ExtResource("6_cmwfl")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EndMargin" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=1154226061]
+custom_minimum_size = Vector2(0, 640)
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=384950655]
+libraries/ = SubResource("AnimationLibrary_ojlof")
+autoplay = &"credit_roll"
+
+[node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("7_oeq0i")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

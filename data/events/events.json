@@ -1,4 +1,14 @@
 {
+	"tutorial_boss": {
+		"type": "conversation",
+		"description": "Responder mensagem do chefe",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Obrigado, farei isso."
+			}
+		]
+	},
 	"boss_install0": {
 		"type": "main-task",
 		"description": "Instalação do Banco",
@@ -11,7 +21,7 @@
 	},
 	"boss_news0": {
 		"type": "main-task",
-		"description": "Teste de Senha",
+		"description": "Notícia para o Chefe",
 		"requires": [
 			{
 				"flag": "option",
@@ -35,7 +45,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "AAAAA"
+				"payment_id": "ABCDE"
 			}
 		]
 	},
@@ -45,7 +55,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "L6s*(23v@"
+				"choice": "94"
 			}
 		]
 	},
@@ -55,7 +65,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "Os arquivos podem possuir diferentes tipos de vírus"
+				"choice": "Diferentes tipos de vírus"
 			}
 		]
 	},
@@ -193,7 +203,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "89kj.fs2"
+				"choice": "58lcws142q"
 			}
 		]
 	},
@@ -691,7 +701,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "k7.i3@m2"
+				"choice": "k7.i3@m2t"
 			}
 		]
 	},

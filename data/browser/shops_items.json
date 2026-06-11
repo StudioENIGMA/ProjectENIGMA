@@ -1,6 +1,6 @@
 {
 	"amazonia":[
-		{"id" : 11, "name": "Barra de Aço", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id" : 11, "name": "Barra de Aço (Kg)", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
 		{"id" : 12, "name": "Furadeira Elétrica", "price": 249.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
 		{"id" : 13, "name": "Martelo", "price": 59.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
 		{"id" : 14, "name": "Monitor 4K 144HZ", "price": 1249.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
@@ -8,30 +8,30 @@
 		{"id" : 16, "name": "Frigo Bar", "price": 679.00, "logo": "res://assets/icons/shops/products/amazonia/frigobar.png"}
 	],
 	"libre_mercado":[
-		{"id" : 11, "name": "Barra de Aço", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
-		{"id" : 12, "name": "Furadeira Elétrica", "price": 249.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
-		{"id" : 13, "name": "Martelo", "price": 59.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
-		{"id" : 14, "name": "Monitor 4K 144HZ", "price": 1249.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
-		{"id" : 15, "name": "Nitrogênio Líquido 1L", "price": 19.90, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"},
-		{"id" : 16, "name": "Frigo Bar", "price": 339.00, "logo": "res://assets/icons/shops/products/amazonia/frigobar.png"}
+		{"id" : 11, "name": "Barra de Aço (Kg)", "price": 15.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id" : 12, "name": "Furadeira Elétrica", "price": 110.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
+		{"id" : 13, "name": "Martelo", "price": 20.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
+		{"id" : 14, "name": "Monitor 4K 144HZ", "price": 590.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
+		{"id" : 15, "name": "Nitrogênio Líquido 1L", "price": 5.90, "logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"},
+		{"id" : 16, "name": "Frigo Bar", "price": 133.00, "logo": "res://assets/icons/shops/products/amazonia/frigobar.png"}
 	],
 	"emilia_bolos" : [
 		{"id" : 21, "name": "Brigadeiro Gourmet", "price": 4.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
 		{"id" : 22, "name": "Brigadeiro Maracujá", "price": 4.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro_maracuja.png"},
 		{"id" : 23, "name": "Bolo com Cobertura de Morango", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_morango.png"},
-		{"id" : 24, "name": "Bolo com Cobertura de Morango", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_maracuja.png"},
+		{"id" : 24, "name": "Bolo com Cobertura de Maracujá", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_maracuja.png"},
 		{"id" : 25, "name": "Bolo Decorado", "price": 60.00, "logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"},
 		{"id" : 26, "name": "Tiramisu", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/tiramisu.png"},
 		{"id" : 27, "name": "Bolo com Cobertura de Chocolate", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"}
 	],
 	"emporio_bolos":[
-		{"id" : 21, "name": "Brigadeiro Gourmet", "price": 4.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
-		{"id" : 22, "name": "Brigadeiro Maracujá", "price": 4.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro_maracuja.png"},
-		{"id" : 23, "name": "Bolo com Cobertura de Morango", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_morango.png"},
-		{"id" : 24, "name": "Bolo com Cobertura de Morango", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_maracuja.png"},
-		{"id" : 25, "name": "Bolo Decorado", "price": 60.00, "logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"},
-		{"id" : 26, "name": "Tiramisu", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/tiramisu.png"},
-		{"id" : 27, "name": "Bolo com Cobertura de Chocolate", "price": 49.90, "logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"}
+		{"id" : 21, "name": "Brigadeiro Gourmet", "price": 1.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"},
+		{"id" : 22, "name": "Brigadeiro Maracujá", "price": 1.5, "logo": "res://assets/icons/shops/products/emilia/brigadeiro_maracuja.png"},
+		{"id" : 23, "name": "Bolo com Cobertura de Morango", "price": 17.90, "logo": "res://assets/icons/shops/products/emilia/bolo_morango.png"},
+		{"id" : 24, "name": "Bolo com Cobertura de Maracujá", "price": 17.90, "logo": "res://assets/icons/shops/products/emilia/bolo_maracuja.png"},
+		{"id" : 25, "name": "Bolo Decorado", "price": 20.00, "logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"},
+		{"id" : 26, "name": "Tiramisu", "price": 15.90, "logo": "res://assets/icons/shops/products/emilia/tiramisu.png"},
+		{"id" : 27, "name": "Bolo com Cobertura de Chocolate", "price": 20.90, "logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"}
 	],
 	"aec":[
 		{"id" : 31, "name": "Camisa Social Azul", "price": 119.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_1.png"},
@@ -42,11 +42,11 @@
 		{"id" : 36, "name": "Camisa Polo Vermelha", "price": 89.9, "logo": "res://assets/icons/shops/products/aec/polo_2.png"}
 	],
 	"zora":[
-		{"id" : 31, "name": "Camisa Social Azul", "price": 119.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_1.png"},
-		{"id" : 32, "name": "Camisa Social Vermelha", "price": 119.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_2.png"},
-		{"id" : 33, "name": "Camiseta Azul", "price": 59.90, "logo": "res://assets/icons/shops/products/aec/camiseta_1.png"},
-		{"id" : 34, "name": "Camiseta Vermelha", "price": 59.90, "logo": "res://assets/icons/shops/products/aec/camiseta_2.png"},
-		{"id" : 35, "name": "Camisa Polo Azul", "price": 89.9, "logo": "res://assets/icons/shops/products/aec/polo_1.png"},
-		{"id" : 36, "name": "Camisa Polo Vermelha", "price": 89.9, "logo": "res://assets/icons/shops/products/aec/polo_2.png"}
+		{"id" : 31, "name": "Camisa Social Azul", "price": 59.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_1.png"},
+		{"id" : 32, "name": "Camisa Social Vermelha", "price": 59.9, "logo": "res://assets/icons/shops/products/aec/camisa_social_2.png"},
+		{"id" : 33, "name": "Camiseta Azul", "price": 29.90, "logo": "res://assets/icons/shops/products/aec/camiseta_1.png"},
+		{"id" : 34, "name": "Camiseta Vermelha", "price": 29.90, "logo": "res://assets/icons/shops/products/aec/camiseta_2.png"},
+		{"id" : 35, "name": "Camisa Polo Azul", "price": 49.9, "logo": "res://assets/icons/shops/products/aec/polo_1.png"},
+		{"id" : 36, "name": "Camisa Polo Vermelha", "price": 49.9, "logo": "res://assets/icons/shops/products/aec/polo_2.png"}
 	]
 }
