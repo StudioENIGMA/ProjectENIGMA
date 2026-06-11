@@ -24,10 +24,16 @@ enum App {
 	BROWSERNEWS,
 	BROWSERAMAZONIASHOP,
 	BROWSERAMAZONIACART,
+	BROWSERLIBREMERCADOSHOP,
+	BROWSERLIBREMERCADOCART,
 	BROWSEREMILIASHOP,
 	BROWSEREMILIACART,
+	BROWSEREMPORIOBOLOSSHOP,
+	BROWSEREMPORIOBOLOSCART,
 	BROWSERAECSHOP,
 	BROWSERAECCART,
+	BROWSERZORASHOP,
+	BROWSERZORACART,
 	BROWSERPAYMENTSCREEN,
 	BROWSERFAKESHOP,
 	REVIEWSSITE,
@@ -45,6 +51,8 @@ enum App {
 	FASTTYPING,
 	LINECONNECT,
 	MAZE,
+	# Pause
+	PAUSEMENU,
 }
 
 enum HackMinigame {
@@ -75,26 +83,50 @@ class ShoppingInfo:
 
 var shops_names = {
 	App.BROWSERAMAZONIASHOP: "Amazônia",
+	App.BROWSERLIBREMERCADOSHOP: "Libre Mercado",
 	App.BROWSEREMILIASHOP: "Emília Bolos",
-	App.BROWSERAECSHOP: "A&C"
+	App.BROWSEREMPORIOBOLOSSHOP: "Empório dos Bolos",
+	App.BROWSERAECSHOP: "A&C",
+	App.BROWSERZORASHOP: "Zora",
+}
+
+var shop_string_to_enum = {
+	"amazonia": GameData.App.BROWSERAMAZONIASHOP,
+	"libre_mercado": GameData.App.BROWSERLIBREMERCADOSHOP,
+	"emilia_bolos": GameData.App.BROWSEREMILIASHOP,
+	"emporio_bolos": GameData.App.BROWSEREMPORIOBOLOSSHOP,
+	"aec": GameData.App.BROWSERAECSHOP,
+	"zora": GameData.App.BROWSERZORASHOP
 }
 
 var cart_enum_to_shop_enum = {
 	App.BROWSERAMAZONIACART: App.BROWSERAMAZONIASHOP,
+	App.BROWSERLIBREMERCADOCART: App.BROWSERLIBREMERCADOSHOP,
 	App.BROWSEREMILIACART: App.BROWSEREMILIASHOP,
-	App.BROWSERAECCART: App.BROWSERAECSHOP
+	App.BROWSEREMPORIOBOLOSCART: App.BROWSEREMPORIOBOLOSSHOP,
+	App.BROWSERAECCART: App.BROWSERAECSHOP,
+	App.BROWSERZORACART: App.BROWSERZORASHOP
 }
 
-var verified_contacts = []
+var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
 
-var bank_balance: float = 200
+var bank_balance: float = 150000
+
+var completed_payments = []
+var purchased_items = {}
+var options_chose = {}
+
+var random_events_history = []
 
 var start_date_dict: Dictionary # {year, month, day, weekday}
-var starting_hours_minutes:int = 600	# Start at 10:00
-var hours_minutes:int = 600 # This one will increase with time
-var max_hours_minutes:int = 635 # End at 16:00
+var starting_hours_minutes:int = 480	# Start at 08:00
+var hours_minutes:int = 480 # This one will increase with time
+var max_hours_minutes:int = 1080 # End at 18:00
+var max_hours_minutes_tutorial:int = 720 # End at 12:00
 var current_day:int = 0
-var reputation_points:int = 0
+var daily_reputation_points:int = 0
+var total_reputation_points:int = 0
+var events_log = []
 var authentication_codes: Dictionary = {} # GameData.App as key, code as value
 var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
@@ -104,15 +136,20 @@ var updated_password_today: bool = false
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
+var apps_with_available_updates: Array[App] = []
+
 var current_hack_probability: float = 0 # Probability of being hacked every tick
-var expected_ticks_between_hacks: int = 90 # Desired average number of ticks between hacks
+var expected_ticks_between_hacks: int = 180 # Desired average number of ticks between hacks
 var decrement_due_breach: int = 30
-var hack_immunity_ticks: int = 10 # Number of ticks of immunity after being hacked
+var hack_immunity_ticks: int = 60 # Number of ticks of immunity after being hacked
 var is_hacked: bool = false
 var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
-var number_of_viruses: int = 1
+var number_of_viruses: int = 0
 var unsafe_apps: Array[App] = [App.FAKESTORE]
+
+var saved_messages_conversations: Array[Dictionary] = []
+var saved_email_threads: Array = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -129,10 +166,16 @@ var apps_name: Dictionary = {
 	"BrowserNews": App.BROWSERNEWS,
 	"BrowserAmazoniaShop": App.BROWSERAMAZONIASHOP,
 	"BrowserAmazoniaCart": App.BROWSERAMAZONIACART,
+	"BrowserLibreMercadoShop": App.BROWSERLIBREMERCADOSHOP,
+	"BrowserLibreMercadoCart": App.BROWSERLIBREMERCADOCART,
 	"BrowserEmiliaShop": App.BROWSEREMILIASHOP,
 	"BrowserEmiliaCart": App.BROWSEREMILIACART,
+	"BrowserEmporioBolosShop": App.BROWSEREMPORIOBOLOSSHOP,
+	"BrowserEmporioBolosCart": App.BROWSEREMPORIOBOLOSCART,
 	"BrowserAeCShop": App.BROWSERAECSHOP,
 	"BrowserAeCCart": App.BROWSERAECCART,
+	"BrowserZoraShop": App.BROWSERZORASHOP,
+	"BrowserZoraCart": App.BROWSERZORACART,
 	"BrowserFakeShop": App.BROWSERFAKESHOP,
 	"ReviewsSite": App.REVIEWSSITE,
 	# Bank app
@@ -146,6 +189,8 @@ var apps_name: Dictionary = {
 	"Authenticator": App.AUTHENTICATOR,
 	# Password app
 	"PasswordCheck": App.PASSWORDCHECK,
+	# Pause Menu
+	"PauseMenu": App.PAUSEMENU,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -154,65 +199,65 @@ var apps_name_reverse: Dictionary = {}
 var apps_data = {
 	App.MESSAGESHOME: {
 		"name": "Mensagens",
-		"chinese_name": "訊息和對話",
+		"chinese_name": "Tluzhnluz",
 		"description": "Receba e Envie Mensagens!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Yljlih l Lucpl Tluzhnluz!",
 		"icon_path": "res://assets/icons/messages.png",
 	},
 
 	App.BROWSER: {
 		"name": "Navegador",
-		"chinese_name": "導航和搜尋",
+		"chinese_name": "Uhclnhkvy",
 		"description": "Acesse seus sites favoritos!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Hjlzzl zlbz zpalz mhcvypavz!",
 		"icon_path": "res://assets/icons/browser.png",
 	},
 
 	App.EMAIL: {
 		"name": "Email",
-		"chinese_name": "電子郵件",
+		"chinese_name": "Lthps",
 		"description": "Receba e envie emails aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Yljlih l lucpl lthpsz hxbp!",
 		"icon_path": "res://assets/icons/email.png",
 	},
 
 	App.SETTINGS: {
 		"name": "Configurações",
-		"chinese_name": "設定和個人化",
+		"chinese_name": "Jvumpnbyhçõlz",
 		"description": "Ajuste as configurações do seu dispositivo!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Hqbzal hz jvumpnbyhçõlz kv zlb kpzwvzpapcv!",
 		"icon_path": "res://assets/icons/settings.png",
 	},
 
 	App.STORE: {
 		"name": "Loja",
-		"chinese_name": "應用程式商店",
+		"chinese_name": "Svqh",
 		"description": "Baixe novos aplicativos para o seu dispositivo!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Ihpel uvcvz hwspjhapcvz whyh v zlb kpzwvzpapcv!",
 		"icon_path": "res://assets/icons/app-store.png",
 	},
 
 	App.FAKESTORE: {
-		"name": "Loja Falsa",
-		"chinese_name": "假商店",
-		"description": "Uma loja falsa para testar se o jogador sabe identificar golpes!",
-		"description_in_chinese": "Chinese",
+		"name": "Loja Desbloqueada",
+		"chinese_name": "Svqh Klzisvxblhkh",
+		"description": "Uma loja sem a supervisão do seu chefe!",
+		"description_in_chinese": "Bth svqh zlt h zbwlycpzãv kv zlb jolml!",
 		"icon_path": "res://assets/icons/fake-app-store.png",
 	},
 
 	App.AUTHENTICATOR: {
 		"name": "Autenticador",
-		"chinese_name": "身份驗證器",
+		"chinese_name": "Hbaluapjhkvy",
 		"description": "Gerencie seus códigos de autenticação de dois fatores aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Nlylujpl zlbz jókpnvz kl hbaluapjhçãv kl kvpz mhavylz hxbp!",
 		"icon_path": "res://assets/icons/default-app.png",
 	},
 
 	App.BANK: {
 		"name": "Banco",
-		"chinese_name": "銀行和財務",
+		"chinese_name": "Ihujv",
 		"description": "Gerencie suas finanças e faça pagamentos aqui!",
-		"description_in_chinese": "Chinese",
+		"description_in_chinese": "Nlylujpl zbhz mpuhuçhz l mhçh whnhtluavz hxbp!",
 		"icon_path": "res://assets/icons/utai.png",
 	},
 
@@ -220,19 +265,25 @@ var apps_data = {
 		"name": "Hack",
 		"icon_path": "res://assets/icons/utai.png",
 		"is_bad": true,
+	},
+
+	App.PAUSEMENU: {
+		"name": "Pause Menu",
+		"icon_path": "res://assets/icons/default-app.png",
 	}
+
 }
 
 var apps_chinese_operations = {
-	"install": "開始安裝",
-	"installing": "正在安裝...",
-	"update": "應用程式更新",
-	"open": "阿布里爾"
+	"install": "puzahss",
+	"installing": "puzahsspun...",
+	"update": "bwkhal",
+	"open": "vwlu"
 }
 
-var apps_in_store: Array[App] = [App.MESSAGESHOME, App.EMAIL]
+var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.BROWSER, App.EMAIL, App.BANK]
+var apps_in_store: Array[App] = [App.MESSAGESHOME]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME]
-var available_updates: Array[App] = []
 
 func _ready() -> void:
 	# Create reverse mapping for apps_name
@@ -292,6 +343,10 @@ func hours_minutes_as_string(relative_time: int) -> String:
 func get_current_date_dict() -> Dictionary:
 	var current_date_dict: Dictionary = start_date_dict.duplicate(true)
 
+	# convert all values to int to avoid issues with JSON parsing
+	for key in current_date_dict.keys():
+		current_date_dict[key] = int(current_date_dict[key])
+
 	# Gets the current system timezone offset (in minutes)
 	var tz = Time.get_time_zone_from_system()
 	var offset_seconds = tz.bias * 60
@@ -318,3 +373,107 @@ func export_game_data_for_tools() -> void:
 	if save_file:
 		save_file.store_string(json_string)
 		save_file.close()
+
+func save_game() -> void:
+	var file_path = "user://saved_game.json"
+	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
+	if save_file == null:
+		push_error("Could not open save file for writing")
+		return
+
+	var game_state = {
+		"start_date_dict": start_date_dict,
+		"current_day": current_day,
+		"max_hours_minutes": max_hours_minutes,
+		"total_reputation_points": total_reputation_points,
+		"passwords": passwords,
+		"apps_in_store": apps_in_store,
+		"downloaded_apps": downloaded_apps,
+		"saved_messages_conversations": saved_messages_conversations,
+		"saved_email_threads": saved_email_threads,
+		"random_events_history": random_events_history,
+		"bank_balance": bank_balance,
+		"apps_with_available_updates": apps_with_available_updates,
+	}
+
+	save_file.store_string(JSON.stringify(game_state))
+	save_file.close()
+
+func load_game() -> void:
+	var file_path := "user://saved_game.json"
+	if not FileAccess.file_exists(file_path):
+		return
+
+	var load_file := FileAccess.open(file_path, FileAccess.READ)
+	if load_file == null:
+		return
+
+	var json_string := load_file.get_as_text()
+	load_file.close()
+
+	var json := JSON.new()
+	var err := json.parse(json_string)
+	if err != OK:
+		push_error("Failed to parse save file")
+		return
+
+	var game_state: Dictionary = json.data
+
+	start_date_dict = game_state.get("start_date_dict")
+	current_day = int(game_state.get("current_day"))
+	max_hours_minutes = int(game_state.get("max_hours_minutes"))
+	total_reputation_points = int(game_state.get("total_reputation_points"))
+	bank_balance = float(bank_balance)
+
+	var game_state_passwords = game_state.get("passwords", {})
+	var saved_passwords: Dictionary = {}
+	for app_number in game_state_passwords.keys():
+		var app_enum = int(app_number)
+		saved_passwords[app_enum] = str(game_state_passwords[app_number])
+	passwords = saved_passwords
+
+	var raw_apps_in_store: Array = game_state.get("apps_in_store", [])
+	var restored_apps_in_store: Array[App] = []
+	for value in raw_apps_in_store:
+		restored_apps_in_store.append(int(value))
+	apps_in_store = restored_apps_in_store
+
+	var raw_downloaded_apps: Array = game_state.get("downloaded_apps", [])
+	var restored_downloaded_apps: Array[App] = []
+	for value in raw_downloaded_apps:
+		restored_downloaded_apps.append(int(value))
+	downloaded_apps = restored_downloaded_apps
+
+	var raw_saved_conversations: Array = game_state.get("saved_messages_conversations", [])
+	saved_messages_conversations.clear()
+	for saved_conversation in raw_saved_conversations:
+		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
+		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
+	saved_email_threads.clear()
+	for saved_thread in raw_saved_email_threads:
+		saved_email_threads.append(saved_thread.duplicate(true))
+
+	var raw_random_events_history: Array = game_state.get("random_events_history", [])
+	random_events_history.clear()
+	for thread in raw_random_events_history:
+		random_events_history.append(thread)
+
+	var raw_apps_with_available_updates: Array = game_state.get("apps_with_available_updates", [])
+	apps_with_available_updates.clear()
+	for app in raw_apps_with_available_updates:
+		apps_with_available_updates.append(int(app))
+
+func reset_to_defaults():
+	var fresh_instance = load(get_script().resource_path).new()
+
+	# Get a list of all variables you defined in the script
+	for prop in get_script().get_script_property_list():
+		var prop_name = prop.name
+		if prop_name == "start_date_dict":
+			continue
+		# Copy the default value from the fresh instance to this one
+		self.set(prop_name, fresh_instance.get(prop_name))
+
+	fresh_instance.free() # Clean up the temporary instance

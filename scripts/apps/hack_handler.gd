@@ -4,6 +4,9 @@ signal open_hack_minigame(hack_minigame: GameData.HackMinigame)
 signal send_hack_notification()
 
 func on_clock_tick() -> void:
+	if GameData.current_day < 3 or GameData.current_day == 7:
+		return # Hacking system starts on day 3, no need to check before that
+
 	var current_minutes = GameData.hours_minutes
 	if GameData.is_in_minigame:
 		return # Don't progress hack while in minigame
@@ -22,9 +25,16 @@ func on_clock_tick() -> void:
 			breaches += 1
 		if not GameData.updated_os_today:
 			breaches += 1
+		if GameData.apps_with_available_updates.size() > 0:
+			breaches += 1
+
+	var expected_ticks = GameData.expected_ticks_between_hacks - GameData.decrement_due_breach * breaches
+
+	# Ensure expected ticks is at least minimal to avoid too much probability
+	var fixed_expected_ticks = max(expected_ticks, 30)
 
 	var hack_probability_increment = calculate_hack_probability_increment(
-	GameData.expected_ticks_between_hacks - GameData.decrement_due_breach * breaches
+		fixed_expected_ticks
 	)
 
 	GameData.current_hack_probability += hack_probability_increment

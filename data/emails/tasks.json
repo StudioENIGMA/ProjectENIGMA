@@ -1,0 +1,119 @@
+[
+	{
+		"thread_id": "mariana_task0",
+		"email_id": "mariana_purchase0",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Compra de Materiais",
+		"content": "Bom dia, Estagiário,\n\nEssa semana temos uma entrega muito importante para um grande cliente. Iremos precisar de mais materiais para a construção dos nossos produtos. Por favor, faça a compra de 20kg de aço, 5 litros de N2 e 3 martelos.\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_task1",
+		"email_id": "mariana_purchase1",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Compra de Materiais",
+		"content": "Bom dia, Estagiário,\n\nQueremos fazer uma melhoria nos monitores do time de produção. Gostaria que você fizesse a compra de 7 monitores. Desde já agradeço!\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_task2",
+		"email_id": "mariana_payment0",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Compra de Materiais",
+		"content": "Olá Estagiário, bom dia!\n\nEstamos fazendo o fechamento de algumas contas do mês anterior e a carga está alta. Por favor, nos ajude realizando o pagamento deste boleto.\n\nSegue o código: 097341\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_task0",
+		"email_id": "yago_purchase0",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Compra de Doces",
+		"content": "Olá, estagiário,\n\nEstamos fazendo um processo seletivo de emprego para todas as áreas, e assim para nossa primeira dinâmica em grupo com os vários participantes queremos proporcionar uma ótima experiência com doces de coffee break. Por favor, compre para nós 4 bolos decorados e 20 brigadeiros gourmet.\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_task1",
+		"email_id": "yago_purchase1",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Compra de Monitores",
+		"content": "Olá, estagiário,\n\nPrecisamos melhorar os computadores dos nossos recrutadores, e os computadores já foram comprados, mas também precisamos de monitores novos. Assim gostaria que você comprasse 9 monitores.\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_task2",
+		"email_id": "yago_purchase2",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Compra de Camisas",
+		"content": "Olá, estagiário,\n\nCom a chegada de novos estagiários precisaremos de novos uniformes. O Chefe me permitiu te pedir para comprar 3 camisetas azuis, 4 camisas sociais azuis e 5 camisas polo vermelhas.\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_task3",
+		"email_id": "yago_payment0",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Pagamento de Compra de Utensílios",
+		"content": "Olá, estagiário,\n\nO processo seletivo de emprego que faremos precisará de alguns utensílios para melhorar a experiência dos candidatos. O pedido dos utensílios já foi feito, o Chefe me orientou que você deveria fazer o pagamento. Segue o código do boleto: 056128\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "artur_task0",
+		"email_id": "artur_purchase0",
+		"sender": "artur@enigma.ti.com.br",
+		"subject": "Compra de Frigobar",
+		"content": "Fala estagiário,\n\nO Lorenz pediu pro chefe e ele autorizou que colocássemos 3 Frigobares nas salas que nós do TI utilizamos, mas tamo com muito trabalho nesse momento pra ir atrás disso. Compra ai pra gente fazendo um favor, tamo junto!\n\nAtenciosamente,\n\nArtur",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "artur_task1",
+		"email_id": "artur_purchase1",
+		"sender": "artur@enigma.ti.com.br",
+		"subject": "Compra de Frigobar",
+		"content": "Fala cara,\n\nO chefe quer que nós do TI usemos todos camisa polo azul da empresa em um evento de tecnologia, é mole? kkkkkkkk. Enfim, para não atrasarmos com o projeto, faz o pedido ai pra gente por favor. Somos em 4\n\nAtenciosamente,\n\nArtur",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "ricardo_task5",
+		"email_id": "ricardo_purchase4",
+		"sender": "ricardo@enigma.com.br",
+		"subject": "Compra de doces para cliente importante",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. Acabei de lembrar que amanhã eu e a Mariana iremos fazer uma reunião com um de nossos principais clientes. Você pode encomendar 30 brigadeiros gourmet, por favor. \n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_task4",
+		"email_id": "marcia_purchase4",
+		"sender": "marcia@enigma.rh.com.br ",
+		"subject": "Política do uso de uniforme",
+		"content": "Oie!\n\nEstamos oficializando uma nova política da empresa. Prestadores de serviço terceirizados deverão usar um uniforme da empresa em serviços dentro da empresa. Nosso estoque de camisetas polo para fazer os uniformes está pequeno. Pode comprar para gente 7 camisetas polo azuis, por favor!\n\nAtenciosamente,\n\nMarcia",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_task4",
+		"email_id": "carolina_payment1",
+		"sender": "carolina@enigma.ti.com.br",
+		"subject": "Pagamento assinatura do Firewall",
+		"content": "Bom dia,\n\nEstou enviando por email por ser uma demanda mais importante. Preciso renovar a assinatura do Firewall, um sistema de defase à hackers. Ele impede que os hackers conectem em nossos computadores, mas nem sempre funciona, mesmo assim sempre obm prevenir né kakakaka. Nunca deixe o seu desativado, a não ser que saiba exatamente o que está fazendo. Faz o pagamento do boleto, por favor\n\nCódigo: 063299\n\nObrigada, Carolina",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_task4",
+		"email_id": "jessica_purchase1",
+		"sender": "jessica@enigma.rh.com.br",
+		"subject": "Bolo de aniversário",
+		"content": "Oi, tudo bem?\n\nAmanhã é aniversário da Helena, minha chefe aqui do rh. O chefe quer que compremos um bolo, mas estou trabalhando em outra tarefa. Você poderia comprar um bolo decorado?\n\nAtenciosamente,\n\nJéssica",
+		"attachments": [],
+		"requires": []
+	}
+]

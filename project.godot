@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Project ENIGMA"
 run/main_scene="uid://bl30assw3y4mn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://wglt524gwmet"
 
 [audio]
 
@@ -42,6 +42,7 @@ window/handheld/orientation=1
 [global_group]
 
 clock_display="Nodes related to displaying time"
+Persist="Nodes to save and load"
 
 [input]
 

@@ -1,0 +1,153 @@
+{
+  "thread_id": "negativa",
+  "sender": "Negativa",
+
+	"branches": {
+		"task0_negativa": [
+			{
+				"id": "negativa_purchase0_0",
+				"text": "Bom dia, aqui é o Gerente do Departamento de TelasCaro cliente"
+			},
+			{
+				"id": "negativa_purchase0_1",
+				"text": "Estamos com uma nova parceria com a Amazônia, então precisamos que a compra de 4 monitores seja completada nela."
+			},
+			{
+				"id": "negativa_purchase0_2",
+				"text": "Isso fazia parte do contrato de compra dos monitores."
+			},
+			{
+				"id": "negativa_purchase0_3",
+				"text": "Muito Obrigado pela atenção."
+			}
+		],
+		"task1_negativa": [
+			{
+				"id": "negativa_payment0_0",
+				"text": "Caro cliente"
+			},
+			{
+				"id": "negativa_payment0_1",
+				"text": "Estamos entrando em contato para avisar sobre o pagamento pendente de um dispositivo celular que ficou para o dia de hoje, conforme combinado com o Gerente."
+			},
+			{
+				"id": "negativa_payment0_2",
+				"text": "Escolha uma forma de pagamento: Pix ou Boleto",
+				"choices": [
+					{
+						"id": "negativa_payment0_2a_0",
+						"player_text": "Pix",
+						"npc_reply": {
+							"goto_branch": "from_negativa_payment0_3",
+							"delay_ticks": 0
+						}
+					},
+					{
+						"id": "negativa_payment0_2a_1",
+						"player_text": "Boleto",
+						"npc_reply": {
+							"goto_branch": "from_negativa_payment0_5",
+							"delay_ticks": 0
+						}
+					}
+				]
+			}
+		],
+		"task2_negativa": [
+			{
+				"id": "negativa_payment1_0",
+				"text": "Caro cliente"
+			},
+			{
+				"id": "negativa_payment1_1",
+				"text": "Como combinado, o pagamento referente a compra de 10 Notebooks tem vencimento para hoje. Solicitamos que seja feita o pagamento para não haver cobrança de multa."
+			},
+			{
+				"id": "negativa_payment1_2",
+				"text": "Escolha uma forma de pagamento: Pix ou Boleto",
+				"choices": [
+					{
+						"id": "negativa_payment1_2a_0",
+						"player_text": "Pix",
+						"npc_reply": {
+							"goto_branch": "from_negativa_payment1_3",
+							"delay_ticks": 0
+						}
+					},
+					{
+						"id": "negativa_payment1_2a_1",
+						"player_text": "Boleto",
+						"npc_reply": {
+							"goto_branch": "from_negativa_payment1_5",
+							"delay_ticks": 0
+						}
+					}
+				]
+			}
+		],
+		"from_negativa_payment0_3":[
+			{
+				"id": "negativa_payment0_3",
+				"text": "Código pix: 7EE11"
+			},
+			{
+				"id": "negativa_payment0_4",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "7EE11"
+					}
+				]
+			}
+		],
+		"from_negativa_payment0_5":[
+			{
+				"id": "negativa_password0_5",
+				"text": "Código boleto: 274665"
+			},
+			{
+				"id": "negativa_password0_6",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "274665"
+					}
+				]
+			}
+		],
+		"from_negativa_payment1_3":[
+			{
+				"id": "negativa_payment1_3",
+				"text": "Código pix: 66MM5"
+			},
+			{
+				"id": "negativa_payment1_4",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "66MM5"
+					}
+				]
+			}
+		],
+		"from_negativa_payment1_5":[
+			{
+				"id": "negativa_payment1_5",
+				"text": "Código boleto: 098471"
+			},
+			{
+				"id": "negativa_payment1_6",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "098471"
+					}
+				]
+			}
+		]
+	}
+}

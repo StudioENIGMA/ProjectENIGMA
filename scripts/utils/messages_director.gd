@@ -98,6 +98,7 @@ func _queue_today_entry_points() -> void:
 			var entry_requires: Array = entry.get("requires", [])
 			var first_node_requires := _get_node_requires(thread, branch, 0)
 
+			var event_id = entry.get("event_id", "")
 			# Signal upward to StoryDirector to schedule this entry point
 			schedule_entry_requested.emit({
 				"thread_id": thread_id,
@@ -105,6 +106,7 @@ func _queue_today_entry_points() -> void:
 				"index": 0,
 				"due_at": absolute_due_time,
 				"requires": _combine_requires(entry_requires, first_node_requires),
+				"event_id": event_id,
 			})
 #endregion SCHEDULING TODAY
 
@@ -158,12 +160,15 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 
 		var next_node_requires := _get_node_requires(thread, branch, next_index)
 
+		var event_id := _get_event_id(thread, branch, next_index)
+
 		schedule_entry_requested.emit({
 			"thread_id": thread_id,
 			"branch": branch,
 			"index": next_index,
 			"due_at": current_minutes + delay_minutes,
 			"requires": next_node_requires,
+			"event_id": event_id
 		})
 #endregion DELIVERY
 
@@ -206,6 +211,14 @@ func _get_node_requires(thread: Dictionary, branch: String, index: int) -> Array
 
 	var node: Dictionary = nodes[index]
 	return node.get("requires", [])
+
+func _get_event_id(thread: Dictionary, branch: String, index: int) -> String:
+	var branches: Dictionary = thread.get("branches", {})
+	var nodes: Array = branches.get(branch, [])
+	assert(index >= 0 and index < nodes.size())
+
+	var node: Dictionary = nodes[index]
+	return node.get("event_id", "")	
 
 ## Combines two requires arrays into one
 func _combine_requires(left: Array, right: Array) -> Array:

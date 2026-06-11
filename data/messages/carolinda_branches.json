@@ -1,0 +1,48 @@
+{
+	"thread_id": "carolinda",
+	"sender": "Carolinda",
+	"branches": {
+		"scan0_carolinda": [
+			{
+				"id": "carolinda_password0_0",
+				"text": "Oii meu amigo, queria ajuda para mudar a senha do meu banco, você pode falar qual é a sua só para eu entender melhor como escolher uma boa?",
+				"choices": [
+					{
+						"id": "carlinda_password0_1a_0",
+						"player_text": "acho melhor não"
+					},
+					{
+						"id": "carolinda_password0_1a_1",
+						"player_text": "$bank_password"
+					}
+				]
+			}
+		],
+		"scan1_carolinda": [
+			{
+				"id": "carolinda_payment0_0",
+				"text": "Precisooooo de ajuda para pagar um negócio aqui agorinha me ajuda fazendo esse pix 45RTT"
+			}
+		],
+		"scan2_carolinda": [
+			{
+				"id": "carolinda_payment1_0",
+				"text": "Ei estagiario, roubaram dados da empresa e falaram que so vao devolver se pagarmos 10 mil reais para eles"
+			},
+			{
+				"id": "carolinda_payment1_1",
+				"text": "O chefe tá desesperado e mandou voce pagar logo nesse pix aqui X8U77"
+			},
+			{
+				"id": "carolinda_payment1_2",
+				"text": "Obgdaaaa",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "X8U77"
+					}
+				]
+			}
+		]
+	}
+}

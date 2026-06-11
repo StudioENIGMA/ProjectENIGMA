@@ -21,17 +21,7 @@ func _on_open_browser(subscreen_name:GameData.App) -> void:
 	subscreen_open_requested.emit(subscreen_name, null)
 
 func _ready():
-	request_news.emit()
-	call_deferred("emit_signal", "request_news")
-	await news_received
-	for news in day_news_data["news"]:
-
-		var browser_home_news = load("res://scenes/apps/browser/browser_home_news.tscn").instantiate()
-
-		browser_home_news.set_news_data(news["title"], news["content"], news["metadata"])
-		browser_home_news.open_news.connect(_on_open_news)
-		news_container.add_child(browser_home_news)
-
+	update_news()
 	for quick_site in quick_sites_containier.get_children():
 		quick_site.open_site_requested.connect(_on_open_site_requested)
 
@@ -45,3 +35,20 @@ func _on_open_news(news_data : Dictionary):
 
 func _on_open_site_requested(app: GameData.App):
 	open_site_requested.emit(app)
+
+func update_news():
+	if news_container:
+		for child in news_container.get_children():
+			child.queue_free()
+	request_news.emit()
+	call_deferred("emit_signal", "request_news")
+	await news_received
+
+	if day_news_data.has("news"):
+		for news in day_news_data["news"]:
+
+			var browser_home_news = load("res://scenes/apps/browser/browser_home_news.tscn").instantiate()
+
+			browser_home_news.set_news_data(news["title"], news["content"], news["metadata"])
+			browser_home_news.open_news.connect(_on_open_news)
+			news_container.add_child(browser_home_news)

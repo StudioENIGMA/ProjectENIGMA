@@ -2,6 +2,12 @@ extends Control
 
 #region SIGNALS
 signal subscreen_open_requested(subscreen_name:String, email_data:Dictionary)
+signal request_email_notification(
+	app:GameData.App,
+  content:String,
+  title:String,
+  time:int
+)
 #endregion SIGNALS
 
 const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
@@ -14,51 +20,77 @@ const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
 # Each array represents a conversation
 # Each dictionary represents an email message
 var emails_data:Array
+var emails_to_read: Array
+
+func _ready() -> void:
+	load_emails(GameData.saved_email_threads)
 
 #region SIGNALS HANDLERS
-func on_receive_email(email_data:Dictionary) -> void:
-	# Find if email with same subject already exists
+func on_receive_email(email_data: Dictionary) -> void:
 	var email_index = emails_data.find_custom(
-		# Email is an array of messages, consider only the first one (all have same subjects)
-		func(email:Array):return email[0]["subject"] == email_data["subject"]
+		func(email_thread: Array): return email_thread[0]["thread_id"] == email_data["thread_id"]
 	)
 
-	# If email doesn't exist, add it to the list
 	if email_index == -1:
-		# Append as an array to represent a new conversation
-		emails_data.append([email_data])
-
-		# Move email to the top of the list
-		emails_data.push_front(emails_data.pop_at(email_index))
-	else: # Append new email data to existing email
+		emails_data.push_front([email_data])
+	else:
 		emails_data[email_index].append(email_data)
-
-		# Move email to the top of the list
 		emails_data.push_front(emails_data.pop_at(email_index))
 
-	# Refresh the list of emails in the UI
+	if not emails_to_read.has(email_data["thread_id"]):
+		emails_to_read.append(email_data["thread_id"])
+
+	request_email_notification.emit(
+		GameData.App.EMAIL,
+		email_data["subject"],
+		email_data["sender"],
+		GameData.hours_minutes
+	)
 	_update_list_of_emails(email_index)
+	_sync_emails_to_game_data()
 
 ## Handles the request to open a specific email
 func _on_open_email(app: GameData.App, email_data:Array) -> void:
+	emails_to_read.erase(email_data[0]["thread_id"])
 	subscreen_open_requested.emit(app, email_data)
 #endregion SIGNALS HANDLERS
 
 #region UI UPDATES
 ## Updates the list of emails in the UI
-func _update_list_of_emails(updated_email_index) -> void:
+func _update_list_of_emails(updated_email_index: int) -> void:
 	var email_row
+	var is_to_read = emails_to_read.has(emails_data[0][0]["thread_id"])
 
 	if updated_email_index == -1:
 		email_row = EMAIL_ROW_SCENE.instantiate()
-		email_row.setup(emails_data[0])
+		email_row.setup(emails_data[0], is_to_read)
 		email_row.subscreen_open_requested.connect(_on_open_email)
 		list_of_emails.add_child(email_row)
 	else:
 		email_row = list_of_emails.get_child(updated_email_index)
-		email_row.setup(emails_data[0])
+		email_row.setup(emails_data[0], is_to_read)
 
 	list_of_emails.move_child(email_row, 0)
-
-
 #endregion UI UPDATES
+
+func _sync_emails_to_game_data() -> void:
+	GameData.saved_email_threads = emails_data.duplicate(true)
+
+func load_emails(saved_threads: Array) -> void:
+	emails_data.clear()
+
+	for child in list_of_emails.get_children():
+		child.queue_free()
+
+	for saved_thread in saved_threads:
+		var restored_thread = saved_thread.duplicate(true)
+		emails_data.append(restored_thread)
+
+		var is_to_read = emails_to_read.has(restored_thread[0]["thread_id"])
+		var email_row = EMAIL_ROW_SCENE.instantiate()
+		email_row.setup(restored_thread, is_to_read)
+		email_row.subscreen_open_requested.connect(_on_open_email)
+		list_of_emails.add_child(email_row)
+
+func _on_visibility_changed() -> void:
+	load_emails(emails_data.duplicate(true))

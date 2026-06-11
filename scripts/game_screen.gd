@@ -25,6 +25,7 @@ func _ready() -> void:
   # EVENT HANDLER
   # Event Handler day end Timer to UI
   event_handler.day_ended.connect(ui.day_over_ui.show_day_over)
+  event_handler.day_ended.connect(ui.base_app.close_all_apps)
   # Event Handler new day start to UI
   event_handler.start_new_day.connect(ui.day_over_ui.hide_day_over)
   # Event Handler takes care of clock ticks, warn those who need to know
@@ -34,6 +35,7 @@ func _ready() -> void:
   event_handler.hack_handler.send_hack_notification.connect(
 	ui.notifications_control.send_hack_notification
   )
+  event_handler.set_shop_by_date()
 
   # STORY DIRECTOR
   # Story Director new npc message to UI
@@ -44,10 +46,14 @@ func _ready() -> void:
   answers_director.request_answer_option.connect(
 	messages_app_chat.on_request_answer_option
   )
+  # Answers Director blocked someone, notify the UI to update the messages accordingly
+  answers_director.delete_conversation.connect(messages_app_home.on_delete_conversation)
+  answers_director.delete_conversation.connect(ui.base_app.on_delete_conversation)
   # Story Director new email to UI
   emails_director.email_received.connect(ui.base_app.email_app_home.on_receive_email)
   #Story Director Browser
   story_director.news_ready.connect(ui.base_app.browser_app._on_news_received)
+  story_director.update_news.connect(ui.base_app.browser_app.update_news)
   #Story Director Reviews Website
   ui.base_app.browser_app.open_site_requested.connect(
 	browser_director._on_open_website_requested
@@ -83,7 +89,10 @@ func _ready() -> void:
   # UI start new day
   ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
   ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
-
+  ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
+  # UI game paused
+  ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
+  ui.day_over_ui.end_game.connect(_on_end_game)
 #endregion INITIALIZATION
 
 ## Handles the clock tick event from the event handler
@@ -109,3 +118,7 @@ func _update_blur() -> void:
 
   var blur_material:ShaderMaterial = progressive_blur.material
   blur_material.set_shader_parameter("blur_scale", blur_scale)
+
+func _on_end_game() -> void:
+  var tween = create_tween()
+  tween.tween_property(self, "modulate:a", 0.0, 1.0) # 1 second fade

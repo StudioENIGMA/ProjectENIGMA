@@ -41,6 +41,9 @@ func _update_in_game_time() -> void:
 	var clock_nodes = get_tree().get_nodes_in_group("clock_display")
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
+
+	if GameData.hours_minutes >= GameData.max_hours_minutes_tutorial and GameData.current_day == 0:
+		_on_day_over_timeout()
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
 		_on_day_over_timeout()
 
@@ -61,16 +64,22 @@ func _on_day_over_timeout() -> void:
 ## Resets game data for the new day
 func reset_data_for_new_day() -> void:
 	start_new_day.emit()
-	GameData.current_day += 1
 
-	if GameData.current_day == 1:
-		GameData.apps_in_store.append(GameData.App.BROWSER)
-
-	print("current day: ", GameData.current_day)
+	set_shop_by_date()
 
 	# Reset in-game time
 	GameData.hours_minutes = GameData.starting_hours_minutes
 
+	# Reset Bank Balance
+	GameData.bank_balance = 150000
+
 	# Restart timers
 	clock_timer.start()
+
+func set_shop_by_date() -> void:
+	match GameData.current_day:
+		1:
+			GameData.apps_in_store = [GameData.App.MESSAGESHOME, GameData.App.BANK]
+		2:
+			GameData.apps_in_store = GameData.potential_apps_in_store.duplicate(true)
 #endregion DAY CYCLE MANAGEMENT

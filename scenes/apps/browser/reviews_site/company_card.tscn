@@ -41,6 +41,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 113.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhigj")
 script = ExtResource("1_bh8fw")
 score_label = NodePath("HBoxContainer2/ScoreLabel")
@@ -89,7 +90,7 @@ layout_mode = 2
 text = "Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. "
 label_settings = SubResource("LabelSettings_rf6y2")
 horizontal_alignment = 3
-autowrap_mode = 2
+autowrap_mode = 3
 text_overrun_behavior = 4
 
 [node name="LeftMargin2" type="MarginContainer" parent="HBoxContainer2/VBoxContainer" unique_id=690265833]

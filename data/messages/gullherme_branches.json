@@ -1,0 +1,28 @@
+{
+  "thread_id": "guillherme",
+  "sender": "Guillherme",
+	  "branches": {
+		"scan0_guillherme": [
+			{
+				"id": "guillherme_purchase0_0",
+				"text": "ESTAGIÁRIO comprar Tiramisu do Empório dos Bolos para receber cliente na firma"
+			},
+			{
+				"id": "guillherme_purchase0_1",
+				"text": "OBRIGADO",
+				"requires": [
+				  {
+					"flag": "purchase",
+					"items": [
+						{ 
+						"item_id": 26, 
+						"quantity": 1, 
+						"store": "emporio_dos_bolos" 
+						}
+					]
+				  }
+				]
+			}
+		]
+	}
+}

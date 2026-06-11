@@ -4,11 +4,16 @@ signal message_answered(answer_id:int)
 
 signal apk_installation_requested(app: GameData.App)
 
+signal pause_game_requested()
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
 ## Reference to the apps buttons (to manage app opening/closing)
 @export var apps_ui:Control
+
+## Reference to the pause menu button
+@export var pause_button: TextureButton
 
 ## Reference to the controller that holds specific app controls
 @export var app_specific_screen:Control
@@ -30,17 +35,35 @@ var browser_app_amazonia_shop = preload(
 var browser_app_amazonia_cart = preload(
 	"res://scenes/apps/browser/shops/amazonia/amazonia_cart.tscn"
 ).instantiate()
+var browser_app_libre_mercado_shop = preload(
+	"res://scenes/apps/browser/shops/libre_mercado/libre_shop.tscn"
+).instantiate()
+var browser_app_libre_mercado_cart = preload(
+	"res://scenes/apps/browser/shops/libre_mercado/libre_cart.tscn"
+).instantiate()
 var browser_app_emilia_shop = preload(
 	"res://scenes/apps/browser/shops/emilia_bolos/emilia_shop.tscn"
 ).instantiate()
 var browser_app_emilia_cart = preload(
 	"res://scenes/apps/browser/shops/emilia_bolos/emilia_cart.tscn"
 ).instantiate()
+var browser_app_emporio_bolos_shop = preload(
+	"res://scenes/apps/browser/shops/emporio_bolos/emporio_shop.tscn"
+).instantiate()
+var browser_app_emporio_bolos_cart = preload(
+	"res://scenes/apps/browser/shops/emporio_bolos/emporio_cart.tscn"
+).instantiate()
 var browser_app_aec_shop = preload(
 	"res://scenes/apps/browser/shops/aec/aec_shop.tscn"
 ).instantiate()
 var browser_app_aec_cart = preload(
 	"res://scenes/apps/browser/shops/aec/aec_cart.tscn"
+).instantiate()
+var browser_app_zora_shop = preload(
+	"res://scenes/apps/browser/shops/zora/zora_shop.tscn"
+).instantiate()
+var browser_app_zora_cart = preload(
+	"res://scenes/apps/browser/shops/zora/zora_cart.tscn"
 ).instantiate()
 var browser_app_shop_payment_screen = preload(
 "res://scenes/apps/browser/shops/payment_screen.tscn"
@@ -101,6 +124,7 @@ func _ready() -> void:
 
 	# Connect to apps UI app opened signal
 	apps_ui.app_opened.connect(_on_app_opened)
+	pause_button.open_pause_menu.connect(_on_app_opened)
 
 	# Messages app home (Messages app)
 	messages_app_home.visible = false
@@ -176,6 +200,15 @@ func _ready() -> void:
 	browser_app_amazonia_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_amazonia_cart)
 
+	#Libre Mercado
+	browser_app_libre_mercado_shop.visible = false
+	browser_app_libre_mercado_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_libre_mercado_shop)
+
+	browser_app_libre_mercado_cart.visible = false
+	browser_app_libre_mercado_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_libre_mercado_cart)
+
 	#Emilia_Bolos
 	browser_app_emilia_shop.visible = false
 	browser_app_emilia_shop.subscreen_open_requested.connect(_on_app_opened)
@@ -185,6 +218,15 @@ func _ready() -> void:
 	browser_app_emilia_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_emilia_cart)
 
+	#Emporio dos Bolos
+	browser_app_emporio_bolos_shop.visible = false
+	browser_app_emporio_bolos_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_emporio_bolos_shop)
+
+	browser_app_emporio_bolos_cart.visible = false
+	browser_app_emporio_bolos_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_emporio_bolos_cart)
+
 	#A&C
 	browser_app_aec_shop.visible = false
 	browser_app_aec_shop.subscreen_open_requested.connect(_on_app_opened)
@@ -193,6 +235,15 @@ func _ready() -> void:
 	browser_app_aec_cart.visible = false
 	browser_app_aec_cart.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(browser_app_aec_cart)
+
+	#Zora
+	browser_app_zora_shop.visible = false
+	browser_app_zora_shop.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_zora_shop)
+
+	browser_app_zora_cart.visible = false
+	browser_app_zora_cart.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(browser_app_zora_cart)
 
 	#Payment_Screen
 	browser_app_shop_payment_screen.visible = false
@@ -238,7 +289,7 @@ func _ready() -> void:
 
 	# Password Change Dialog (Password)
 	password_change_dialog.visible = false
-	password_change_dialog.password_changed.connect(passwords_manager_app.refresh_passwords_list)
+	password_change_dialog.password_changed.connect(func(): _on_back_button_pressed(); passwords_manager_app.refresh_passwords_list())
 	app_specific_screen.add_child(password_change_dialog)
 
 	# Hack minigame fast type (Hack minigames)
@@ -261,6 +312,10 @@ func _ready() -> void:
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
+	if app == GameData.App.PAUSEMENU:
+		pause_game()
+		return
+
 	# Show top bar when an app is opened
 	self.visible = true
 
@@ -324,6 +379,11 @@ func _on_back_button_pressed() -> void:
 	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
 	var current_app = _get_app_by_enum(current_app_enum)
+
+	# If it is messages_app_chat, unset conversation_name
+	if current_app_dict["MainApp"] == GameData.App.MESSAGESHOME:
+		messages_app_chat.conversation_name = ""
+
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
 	]
@@ -385,6 +445,10 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 
 ## Closes all open apps with the specified main app enum
 func _close_main_app(main_app_enum: GameData.App) -> void:
+	# If it is messages_app_chat, unset conversation_name
+	if main_app_enum == GameData.App.MESSAGESHOME:
+		messages_app_chat.conversation_name = ""
+
 	# Close all open apps with same main_app
 	for i in range(open_apps.size() - 1, -1, -1):
 		var app_dict: Dictionary = open_apps[i]
@@ -413,6 +477,10 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	if previous_node:
 		previous_node.visible = true
 
+func close_all_apps() -> void:
+	while not open_apps.is_empty():
+		_on_close_app_button_pressed()
+
 ## Starts the hack minigame
 func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 	match hack_minigame:
@@ -424,6 +492,9 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 			_on_app_opened(GameData.App.LINECONNECT)
 		_:
 			_on_app_opened(GameData.App.LINECONNECT)
+
+func on_delete_conversation(_sender: String) -> void:
+	_on_back_button_pressed()
 
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
@@ -445,10 +516,16 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.BROWSERNEWS: browser_app_news,
 		GameData.App.BROWSERAMAZONIASHOP: browser_app_amazonia_shop,
 		GameData.App.BROWSERAMAZONIACART: browser_app_amazonia_cart,
+		GameData.App.BROWSERLIBREMERCADOSHOP: browser_app_libre_mercado_shop,
+		GameData.App.BROWSERLIBREMERCADOCART: browser_app_libre_mercado_cart,
 		GameData.App.BROWSEREMILIASHOP: browser_app_emilia_shop,
 		GameData.App.BROWSEREMILIACART: browser_app_emilia_cart,
+		GameData.App.BROWSEREMPORIOBOLOSSHOP: browser_app_emporio_bolos_shop,
+		GameData.App.BROWSEREMPORIOBOLOSCART: browser_app_emporio_bolos_cart,
 		GameData.App.BROWSERAECSHOP: browser_app_aec_shop,
 		GameData.App.BROWSERAECCART: browser_app_aec_cart,
+		GameData.App.BROWSERZORASHOP: browser_app_zora_shop,
+		GameData.App.BROWSERZORACART: browser_app_zora_cart,
 		GameData.App.BROWSERFAKESHOP: browser_app_fake_shop,
 		GameData.App.BROWSERPAYMENTSCREEN: browser_app_shop_payment_screen,
 		GameData.App.REVIEWSSITE: browser_reviews_site,
@@ -489,10 +566,16 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.BROWSERNEWS: GameData.App.BROWSER,
 		GameData.App.BROWSERAMAZONIASHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERAMAZONIACART: GameData.App.BROWSER,
+		GameData.App.BROWSERLIBREMERCADOSHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERLIBREMERCADOCART: GameData.App.BROWSER,
 		GameData.App.BROWSEREMILIASHOP: GameData.App.BROWSER,
 		GameData.App.BROWSEREMILIACART: GameData.App.BROWSER,
+		GameData.App.BROWSEREMPORIOBOLOSSHOP: GameData.App.BROWSER,
+		GameData.App.BROWSEREMPORIOBOLOSCART: GameData.App.BROWSER,
 		GameData.App.BROWSERAECSHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERAECCART: GameData.App.BROWSER,
+		GameData.App.BROWSERZORASHOP: GameData.App.BROWSER,
+		GameData.App.BROWSERZORACART: GameData.App.BROWSER,
 		GameData.App.BROWSERFAKESHOP: GameData.App.BROWSER,
 		GameData.App.BROWSERPAYMENTSCREEN: GameData.App.BROWSER,
 		GameData.App.REVIEWSSITE: GameData.App.BROWSER,
@@ -511,5 +594,9 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.FASTTYPING: GameData.App.FASTTYPING,
 		GameData.App.LINECONNECT: GameData.App.LINECONNECT,
 		GameData.App.MAZE: GameData.App.MAZE,
+		GameData.App.PAUSEMENU: GameData.App.PAUSEMENU,
 	}
 	return main_app_map.get(subscreen_enum, null)
+
+func pause_game() -> void:
+	pause_game_requested.emit()

@@ -1,0 +1,62 @@
+[
+	{
+		"day": 2,
+		"thread_id": "Viva_task0",
+		"email_id": "Viva_payment0",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Sua fatura fecha hoje!\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 2ª via do boleto para facilitar seu pagamento.\n\nCódigo: 120958\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"relative_due_time": 269,
+		"append": false
+	},
+	{
+		"day": 3,
+		"thread_id": "Viva_task2",
+		"email_id": "Viva_payment2",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Devido à problemas ocasionados por desastres naturais, uma taxa de emergência foi adicionada. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\nCódigo: 568493\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"relative_due_time": 448,
+		"append": false
+	},
+	{
+		"day": 4,
+		"thread_id": "Viva_task3",
+		"email_id": "Viva_payment3",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\nCódigo: 684936\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"relative_due_time": 138,
+		"append": false
+	},
+	{
+		"day": 5,
+		"thread_id": "Viva_task4",
+		"email_id": "Viva_payment4",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Com a implementação de segurança na rede solicitada pelo gerente de sua empresa, foi adicionada uma taxa ao valor padrão da fatura. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\nCódigo: 203948\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"relative_due_time": 512,
+		"append": false
+	},
+	{
+		"day": 6,
+		"thread_id": "Viva_task5",
+		"email_id": "Viva_payment5",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\nCódigo: 238172\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"relative_due_time": 67,
+		"append": false
+	}
+]

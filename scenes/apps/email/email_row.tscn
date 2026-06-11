@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://ulxoabk2xr6m"]
 
 [ext_resource type="Script" uid="uid://c515uccnvwtsg" path="res://scripts/apps/email/email_row.gd" id="1_tb307"]
-[ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="1_vh7fo"]
+[ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="2_duhoi"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_tb307"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_duhoi"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_duhoi"]
 [ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="4_vmk7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duhoi"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.4, 0.05882353, 0.19215687, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spvvf"]
 corner_radius_top_left = 25
@@ -15,25 +27,25 @@ corner_radius_bottom_left = 25
 [sub_resource type="Theme" id="Theme_hpj05"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_spvvf")
 
-[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("email_sender_icon", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label")]
+[node name="EmailRow" type="MarginContainer" unique_id=1893684801 node_paths=PackedStringArray("profile_picture", "email_sender_label", "email_subject_label", "email_content_label", "email_date_label", "annex_section", "annex_name_label", "to_read_bubble")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 240.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-mouse_filter = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_tb307")
-email_sender_icon = NodePath("VBoxContainer/EmailContainer/SenderIcon")
+profile_picture = NodePath("VBoxContainer/EmailContainer/ProfilePicture")
 email_sender_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/SenderNameLabel")
 email_subject_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailSubjectLabel")
 email_content_label = NodePath("VBoxContainer/EmailContainer/EmailContentContainer/EmailContentLabel")
-email_date_label = NodePath("VBoxContainer/EmailContainer/EmailDateLabel")
+email_date_label = NodePath("VBoxContainer/EmailContainer/HBoxContainer/EmailDateLabel")
 annex_section = NodePath("VBoxContainer/AnnexContainer")
 annex_name_label = NodePath("VBoxContainer/AnnexContainer/AnnexPanel/HBoxContainer/AnnexNameLabel")
+to_read_bubble = NodePath("VBoxContainer/EmailContainer/HBoxContainer/ToReadBubble")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=671330463]
 layout_mode = 2
@@ -42,11 +54,10 @@ size_flags_horizontal = 3
 [node name="EmailContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1824903356]
 layout_mode = 2
 
-[node name="SenderIcon" type="TextureRect" parent="VBoxContainer/EmailContainer" unique_id=1678984217]
+[node name="ProfilePicture" parent="VBoxContainer/EmailContainer" unique_id=233740664 instance=ExtResource("2_duhoi")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_vh7fo")
-expand_mode = 1
+mouse_filter = 1
 
 [node name="EmailContentContainer" type="VBoxContainer" parent="VBoxContainer/EmailContainer" unique_id=165264987]
 layout_mode = 2
@@ -58,14 +69,15 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tb307")
-theme_override_font_sizes/font_size = 16
-text = "Chefinho"
+theme_override_font_sizes/font_size = 17
+text = "Chefinho penis grande veiudo"
+text_overrun_behavior = 4
 
 [node name="EmailSubjectLabel" type="Label" parent="VBoxContainer/EmailContainer/EmailContentContainer" unique_id=1281041694]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_duhoi")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("4_duhoi")
+theme_override_font_sizes/font_size = 13
 text = "Reunião importante"
 text_overrun_behavior = 3
 
@@ -73,12 +85,17 @@ text_overrun_behavior = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_duhoi")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 11
 text = "Hoje, às 8h, precisaremos fazer uma reunião"
 text_overrun_behavior = 3
 max_lines_visible = 1
 
-[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer" unique_id=779343190]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContainer" unique_id=346940088]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="EmailDateLabel" type="Label" parent="VBoxContainer/EmailContainer/HBoxContainer" unique_id=779343190]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_duhoi")
@@ -86,6 +103,17 @@ theme_override_font_sizes/font_size = 12
 text = "04/01/2026"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToReadBubble" type="MarginContainer" parent="VBoxContainer/EmailContainer/HBoxContainer" unique_id=1028656989]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/EmailContainer/HBoxContainer/ToReadBubble" unique_id=1466996453]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_duhoi")
 
 [node name="MarginRight" type="MarginContainer" parent="VBoxContainer/EmailContainer" unique_id=395857113]
 custom_minimum_size = Vector2(8, 0)
@@ -102,6 +130,7 @@ layout_mode = 2
 [node name="AnnexPanel" type="PanelContainer" parent="VBoxContainer/AnnexContainer" unique_id=12971788]
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 1
 theme = SubResource("Theme_hpj05")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AnnexContainer/AnnexPanel" unique_id=67652396]

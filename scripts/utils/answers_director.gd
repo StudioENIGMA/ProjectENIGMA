@@ -15,6 +15,8 @@ signal answer_committed(
 	thread_id: String,
 	choice: Dictionary,
 )
+
+signal delete_conversation(sender: String)
 #endregion SIGNALS
 
 
@@ -101,4 +103,16 @@ func _apply_choice_effects(choice: Dictionary) -> void:
 	var rep_points := int(choice.get("reputation_points", 0))
 	if rep_points != 0:
 		GameData.reputation_points += rep_points
+
+	var player_text := str(choice.get("player_text", ""))
+	GameData.options_chose[player_text] = true
+
+	# If choice has an event_id, do what is expected from it
+	var event_id = choice.get("event_id", null)
+	if event_id != null:
+		match event_id:
+			"block_and_report":
+				# Delete the blocked conversation
+				var blocked_thread_id = str(choice.get("sender", ""))
+				delete_conversation.emit(blocked_thread_id)
 #endregion EFFECTS

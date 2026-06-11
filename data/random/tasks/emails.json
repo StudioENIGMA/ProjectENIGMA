@@ -1,0 +1,67 @@
+[    
+	{
+		"thread_id": "mariana_task0",
+		"email_id": "mariana_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "mariana_task1",
+		"email_id": "mariana_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task0",
+		"email_id": "yago_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task1",
+		"email_id": "yago_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task2",
+		"email_id": "yago_purchase2",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "yago_task3",
+		"email_id": "yago_payment0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "artur_task0",
+		"email_id": "artur_purchase0",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "artur_task1",
+		"email_id": "artur_purchase1",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "mariana_task2",
+		"email_id": "mariana_payment0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "ricardo_task5",
+		"email_id": "ricardo_purchase4",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "marcia_task4",
+		"email_id": "marcia_purchase4",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina_task4",
+		"email_id": "carolina_payment1",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_task4",
+		"email_id": "jessica_purchase1",
+		"required_app": "browser"
+	}
+]

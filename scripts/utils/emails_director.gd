@@ -6,13 +6,13 @@ signal email_received(email_data: Dictionary)
 #endregion SIGNALS
 
 #region STATE
-var emails_by_subject: Dictionary = {}
+var emails_by_id: Dictionary = {}
 #endregion STATE
 
 #region SETUP
 ## Sets up emails from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
-	emails_by_subject.clear()
+	emails_by_id.clear()
 
 	for root in json_roots:
 		_register_emails_from_root(root)
@@ -33,65 +33,70 @@ func _register_emails_from_root(root: Variant) -> void:
 
 ## Registers a single email given its dictionary
 func _register_one_email(email_dict: Dictionary) -> void:
-	var subject := str(email_dict["subject"]).strip_edges()
-	assert(subject != "")
+	var thread_id := str(email_dict["thread_id"]).strip_edges()
+	assert(thread_id != "")
 
 	# If an email with this subject already exists, we can only append to its thread
 	# This allow us to consider one email as head of a thread, and subsequent emails as replies
 	var allow_append := bool(email_dict.get("append", false))
 
 	## If no append flag, it will fail fast on duplicates
-	if emails_by_subject.has(subject):
+	if emails_by_id.has(thread_id):
 		assert(allow_append)
-		var thread: Array = emails_by_subject[subject]
+		var thread: Array = emails_by_id[thread_id]
 		thread.append(email_dict)
-		emails_by_subject[subject] = thread
+		emails_by_id[thread_id] = thread
 		return
 
-	emails_by_subject[subject] = [email_dict]
+	emails_by_id[thread_id] = [email_dict]
 #endregion REGISTER EMAILS
 
 #region SCHEDULING TODAY
 ## Queues today's emails for all registered email threads
 func _queue_today_emails() -> void:
-	for subject in emails_by_subject.keys():
-		var thread: Array = emails_by_subject[subject]
+	for id in emails_by_id.keys():
+		var thread: Array = emails_by_id[id]
 
-		for thread_index in range(thread.size()):
-			var email_dict: Dictionary = thread[thread_index]
+		for email in thread:
+			var email_id = email.get("email_id", "")
+			assert(email_id != "")
 
-			if int(email_dict.get("day", -999)) != int(GameData.current_day):
+			if int(email.get("day", -999)) != int(GameData.current_day):
 				continue
 
-			var relative_due_time: float = float(email_dict.get("relative_due_time", INF))
+			var relative_due_time: float = float(email.get("relative_due_time", INF))
 			assert(relative_due_time != INF)
 
 			var absolute_due_time := int(relative_due_time) + int(GameData.starting_hours_minutes)
-			var requires: Array = email_dict.get("requires", [])
+			var requires: Array = email.get("requires", [])
+
+			var event_id = email.get("event_id", "")
 
 			schedule_entry_requested.emit({
-				"subject": subject,
-				"thread_index": thread_index,
+				"thread_id": id,
+				"email_id": email_id,
 				"due_at": absolute_due_time,
 				"requires": requires,
+				"event_id": event_id,
 			})
 #endregion SCHEDULING TODAY
 
 #region DELIVERY (CALLED DOWN BY STORYDIRECTOR)
 ## Delivers a scheduled email entry
 func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) -> void:
-	var subject := str(schedule_entry["subject"])
-	var thread_index := int(schedule_entry["thread_index"])
+	var thread_id := str(schedule_entry["thread_id"])
+	var email_id := str(schedule_entry["email_id"])
 
-	var thread: Array = emails_by_subject[subject]
-	var email_dict: Dictionary = thread[thread_index]
+	var thread: Array = emails_by_id[thread_id]
+	var email_dict: Dictionary = thread.filter(func(email): return email.get("email_id") == email_id)[0]
 
 	var attachments: Array = email_dict.get("attachments", [])
 
 	var delivered_email: Dictionary = {
 		# payload
+		"thread_id": thread_id,
 		"sender": email_dict.get("sender"),
-		"subject": subject,
+		"subject": email_dict.get("subject"),
 		"content": email_dict.get("content"),
 		"attachments": attachments,
 		"day": email_dict.get("day"),

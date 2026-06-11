@@ -32,7 +32,6 @@ var heigth_index
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	minigame_timer.timer_finished.connect(_on_time_finished)
-	maze_player.position_changed.connect(_check_finish)
 	heigth_index = 5
 	setup()
 
@@ -41,6 +40,8 @@ func setup() -> void:
 	reset_minigame()
 
 func reset_minigame() -> void:
+	maze_player.position_changed.connect(_check_finish)
+	
 	tilemap.clear()
 	define_maze_difficult()
 	generate_maze_size()

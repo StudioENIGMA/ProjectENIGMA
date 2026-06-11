@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c3vudh8hb8ys2"]
+
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_kerc5"]
+[ext_resource type="Script" uid="uid://dpgmbg2a0f2u" path="res://scripts/utils/event_description.gd" id="1_yrjqk"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_yrjqk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gopqt"]
+font = ExtResource("1_kerc5")
+font_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qca60"]
+font = ExtResource("2_yrjqk")
+font_size = 20
+font_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+
+[node name="EventDescription" type="HBoxContainer" unique_id=376401861 node_paths=PackedStringArray("description_label", "rp_label")]
+script = ExtResource("1_yrjqk")
+description_label = NodePath("DescriptionLabel")
+rp_label = NodePath("RPLabel")
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=843371085]
+layout_mode = 2
+text = "Compra de materiais - Gilmar"
+label_settings = SubResource("LabelSettings_gopqt")
+
+[node name="RPLabel" type="Label" parent="." unique_id=96964361]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "+10"
+label_settings = SubResource("LabelSettings_qca60")
