@@ -167,6 +167,7 @@ script = ExtResource("3_1gj6j")
 
 [node name="Timer" type="Timer" parent="." unique_id=567904977]
 wait_time = 2.5
+one_shot = true
 
 [connection signal="timer_finished" from="Panel/RemainingTimeBar" to="." method="_on_time_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

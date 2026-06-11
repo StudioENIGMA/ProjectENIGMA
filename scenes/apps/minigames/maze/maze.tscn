@@ -119,3 +119,6 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=435428858]
 wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
