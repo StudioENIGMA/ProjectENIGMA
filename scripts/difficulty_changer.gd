@@ -4,6 +4,13 @@ signal difficulty_changed()
 
 func _ready() -> void:
   item_selected.connect(_on_option_button_item_selected)
+  match GameData.clock_tick_interval:
+    2.0:
+      self.selected = 0 # Easy
+    1.5:
+      self.selected = 1 # Normal
+    1.0:
+      self.selected = 2 # Difícil
 
 func _on_option_button_item_selected(index: int) -> void:
   match index:
