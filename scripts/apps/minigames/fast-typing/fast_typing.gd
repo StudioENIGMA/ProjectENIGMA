@@ -3,7 +3,7 @@ extends Control
 signal hack_concluded
 
 const PHRASE_SCENE = preload("res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn")
-const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew"]
+const RANDOM_WORDS = ["maçã", "banana", "uva", "figo", "morango", "mirtilo", "laranja", "limão"]
 
 #region CHILDREN NODES REFERENCES
 @export var line_edit: LineEdit
