@@ -106,6 +106,7 @@ anchors_preset = 0
 offset_right = 340.0
 offset_bottom = 170.0
 size_flags_horizontal = 3
+mouse_filter = 1
 script = ExtResource("1_ig55w")
 unit_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/UnitContainer/UnitPriceLabel")
 total_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/TotalContainer/TotalPriceLabel")
@@ -127,6 +128,7 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=1483474221]
 custom_minimum_size = Vector2(340, 170)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_btjjm")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel" unique_id=1652962323]
@@ -269,6 +271,7 @@ theme_override_constants/separation = 0
 [node name="RemoveButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1997089078]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("4_6sr1t")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_hf56t")
@@ -290,6 +293,7 @@ vertical_alignment = 1
 [node name="AddButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1162247535]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 2
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("4_6sr1t")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_713ls")
@@ -301,6 +305,7 @@ text = "+
 [node name="DeleteButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=86017067]
 layout_mode = 2
 size_flags_horizontal = 10
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_6sr1t")
 theme_override_font_sizes/font_size = 12
