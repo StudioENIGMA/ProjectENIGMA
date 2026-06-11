@@ -13,7 +13,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.16862746, 1, 0, 1)
 
-[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "phrases_vbox", "minigame_timer")]
+[node name="BackgroundColor" type="ColorRect" unique_id=1797498864 node_paths=PackedStringArray("line_edit", "external_container", "phrase_input_container", "phrases_vbox", "minigame_timer")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,8 +23,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 script = ExtResource("1_j12ft")
-line_edit = NodePath("MarginContainer/VBoxContainer/LineEditContainer/LineEdit")
-phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhrasesContainer")
+line_edit = NodePath("MarginContainer/VBoxContainer/PhraseInputContainer/LineEditContainer/LineEdit")
+external_container = NodePath("MarginContainer/VBoxContainer")
+phrase_input_container = NodePath("MarginContainer/VBoxContainer/PhraseInputContainer")
+phrases_vbox = NodePath("MarginContainer/VBoxContainer/PhraseInputContainer/PhrasesContainer")
 minigame_timer = NodePath("MarginContainer/VBoxContainer/MinigameTimer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=559793884]
@@ -47,13 +49,19 @@ theme_override_constants/separation = 24
 [node name="MinigameTimer" parent="MarginContainer/VBoxContainer" unique_id=743981125 instance=ExtResource("2_w44rq")]
 layout_mode = 2
 
-[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1535581066]
+[node name="PhraseInputContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1322173262]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 150
+
+[node name="LineEditContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/PhraseInputContainer" unique_id=1535581066]
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_mcuuw")
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/LineEditContainer" unique_id=1677715837]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PhraseInputContainer/LineEditContainer" unique_id=1677715837]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 6
 theme_override_colors/caret_color = Color(0.16862746, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Digite as frases abaixo"
@@ -67,10 +75,10 @@ virtual_keyboard_type = 1
 caret_blink = true
 caret_force_displayed = true
 
-[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=49471451]
+[node name="PhrasesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PhraseInputContainer" unique_id=49471451]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 4
 
-[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
+[node name="Phrase1Border" parent="MarginContainer/VBoxContainer/PhraseInputContainer/PhrasesContainer" unique_id=1831462153 instance=ExtResource("1_6v8xt")]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 0

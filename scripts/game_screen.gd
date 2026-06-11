@@ -98,13 +98,26 @@ func _ready() -> void:
 #endregion INITIALIZATION
 
 func _process(_delta: float) -> void:
-  var keyboard_height : int = DisplayServer.virtual_keyboard_get_height()
+  var keyboard_height : float = 0.0
+
+  if OS.has_feature("web"):
+    var window_interface = JavaScriptBridge.get_interface("window")
+    if window_interface and window_interface.visualViewport:
+      var visual_viewport = window_interface.visualViewport
+
+      var window_height = window_interface.innerHeight
+      var viewport_height = visual_viewport.height
+
+      if window_height - viewport_height > 50: 
+        keyboard_height = window_height - viewport_height
+  else:
+    keyboard_height = float(DisplayServer.virtual_keyboard_get_height())
 
   if keyboard_height > 0:
     var window_size : Vector2i = DisplayServer.window_get_size()
     var scale_factor : float = float(base_window_height) / float(window_size.y)
 
-    var scaled_keyboard_height : float = keyboard_height * scale_factor
+    var scaled_keyboard_height : float = keyboard_height * 1.2 * scale_factor
 
     position.y = -scaled_keyboard_height
   else:
