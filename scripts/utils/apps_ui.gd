@@ -16,6 +16,7 @@ func _ready() -> void:
 
 		# We need to do it this way to avoid setting default apps as invisible
 		var is_downloaded = GameData.downloaded_apps.has(child.app)
+
 		if is_downloaded:
 			child.visible = true
 

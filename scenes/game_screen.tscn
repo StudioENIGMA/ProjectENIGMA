@@ -272,6 +272,11 @@ visible = false
 layout_mode = 2
 app = 10
 
+[node name="Notes" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1913046901 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 38
+
 [node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
