@@ -11,12 +11,16 @@ signal hack_concluded
 @export var lr_hex : TextureButton
 @export var path_generator : Node
 @export var minigame_timer : ProgressBar
+@export var timer : Timer
+@export var failure_panel : Panel
+@export var success_panel : Panel
 
 
 var hexagons = []
 var hexagons_node = []
 var hexagons_positions = [1, 1, 1, 1, 1, 1, 1]
 var time
+var check = true
 
 func _ready() -> void:
 	path_generator.hexagons_generated.connect(get_hexagon_path)
@@ -102,7 +106,7 @@ func get_rotation_period(vertex_positions: Array) -> int:
 	return 6
 
 func check_rotations():
-	var check = true
+	check = true
 
 	for i in range(7):
 
@@ -118,8 +122,25 @@ func check_rotations():
 	if check:
 		time = 15
 		minigame_timer.stop_timer()
-		hack_concluded.emit()
+		timer.wait_time = 2.5
+		timer.start()
+		success_panel.visible = true
+		# hack_concluded.emit()
 
 func _on_time_finished() -> void:
-	time += 5
-	reset_minigame()
+	# time += 5
+	# reset_minigame()
+	failure_panel.visible = true
+	timer.wait_time = 2.5
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	success_panel.visible = false
+	failure_panel.visible = false
+
+	if check:
+		hack_concluded.emit()
+	else:
+		time += 5
+		reset_minigame()

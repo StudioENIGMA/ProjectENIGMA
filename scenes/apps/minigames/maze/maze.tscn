@@ -8,13 +8,30 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf5cy"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="Maze" type="Control" unique_id=1413399530 node_paths=PackedStringArray("tilemap", "maze_player", "minigame_timer")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j01df"]
+bg_color = Color(0, 0.14901961, 0, 0.68235296)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6ksh"]
+bg_color = Color(0.24753556, 0, 0.033684433, 0.68235296)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Maze" type="Control" unique_id=1413399530 node_paths=PackedStringArray("tilemap", "maze_player", "minigame_timer", "timer", "failure_panel", "success_panel")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ug48i")
 tilemap = NodePath("MazeMap")
 maze_player = NodePath("Player")
 minigame_timer = NodePath("RemainingTimeBar")
+timer = NodePath("Timer")
+failure_panel = NodePath("FailurePanel")
+success_panel = NodePath("SuccessPanel")
 
 [node name="Panel" type="Panel" parent="." unique_id=1948714654]
 layout_mode = 0
@@ -39,3 +56,66 @@ offset_top = 22.0
 offset_right = -16.0
 offset_bottom = 54.0
 grow_horizontal = 1
+
+[node name="SuccessPanel" type="Panel" parent="." unique_id=103206949]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j01df")
+
+[node name="Label" type="Label" parent="SuccessPanel" unique_id=1710388649]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -11.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42689228, 0.92436445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/font_size = 60
+text = "SUCESSO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailurePanel" type="Panel" parent="." unique_id=2099569954]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6ksh")
+
+[node name="Label" type="Label" parent="FailurePanel" unique_id=1568019514]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -11.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9441714, 0, 0.012158213, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/font_size = 60
+text = "FALHOU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=435428858]
+wait_time = 2.5

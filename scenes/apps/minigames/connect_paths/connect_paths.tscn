@@ -3,12 +3,26 @@
 [ext_resource type="Script" uid="uid://dk7hf4ywo2mbh" path="res://scripts/apps/minigames/connect_paths/connect_paths.gd" id="1_3v8es"]
 [ext_resource type="PackedScene" uid="uid://w4o7dcm8pify" path="res://scenes/apps/minigames/connect_paths/hex_tile.tscn" id="1_qs3w8"]
 [ext_resource type="Script" uid="uid://c0rkiklahpm4c" path="res://scripts/apps/minigames/connect_paths/generate_path.gd" id="3_1gj6j"]
-[ext_resource type="PackedScene" uid="uid://cpc47dpgdkxt8" path="res://scenes/apps/minigames/minigame_timer.tscn" id="3_4ifqg"]
+[ext_resource type="PackedScene" uid="uid://cctt7lf1neuv" path="res://scenes/apps/minigames/minigame_timer.tscn" id="3_4ifqg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gj6j"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="ConnectPaths" type="Control" unique_id=1377028313 node_paths=PackedStringArray("mid_hex", "ul_hex", "ur_hex", "l_hex", "r_hex", "ll_hex", "lr_hex", "path_generator", "minigame_timer")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ifqg"]
+bg_color = Color(0, 0.14901961, 0, 0.68235296)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q41ov"]
+bg_color = Color(0.24753556, 0, 0.033684433, 0.68235296)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="ConnectPaths" type="Control" unique_id=1377028313 node_paths=PackedStringArray("mid_hex", "ul_hex", "ur_hex", "l_hex", "r_hex", "ll_hex", "lr_hex", "path_generator", "minigame_timer", "timer", "failure_panel", "success_panel")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3v8es")
@@ -21,6 +35,9 @@ ll_hex = NodePath("Panel/LlHex")
 lr_hex = NodePath("Panel/LrHex")
 path_generator = NodePath("PathGenerator")
 minigame_timer = NodePath("Panel/RemainingTimeBar")
+timer = NodePath("Timer")
+failure_panel = NodePath("FailurePanel")
+success_panel = NodePath("SuccessPanel")
 
 [node name="Panel" type="Panel" parent="." unique_id=255285473]
 layout_mode = 0
@@ -85,7 +102,71 @@ offset_top = 18.0
 offset_right = -16.0
 offset_bottom = 50.0
 
+[node name="SuccessPanel" type="Panel" parent="." unique_id=1885086873]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ifqg")
+
+[node name="Label" type="Label" parent="SuccessPanel" unique_id=2036982927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -11.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42689228, 0.92436445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/font_size = 60
+text = "SUCESSO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailurePanel" type="Panel" parent="." unique_id=1754608738]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q41ov")
+
+[node name="Label" type="Label" parent="FailurePanel" unique_id=184423641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -11.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9441714, 0, 0.012158213, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/font_size = 60
+text = "FALHOU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PathGenerator" type="Node" parent="." unique_id=371390664]
 script = ExtResource("3_1gj6j")
 
+[node name="Timer" type="Timer" parent="." unique_id=567904977]
+wait_time = 2.5
+
 [connection signal="timer_finished" from="Panel/RemainingTimeBar" to="." method="_on_time_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
