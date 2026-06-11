@@ -17,6 +17,11 @@ var has_wrong_char = false
 var completed_phrases = 0
 var time = 0
 
+@export var timer : Timer
+@export var failure_panel : Panel
+@export var success_panel : Panel
+
+
 func _ready() -> void:
 	line_edit.text_changed.connect(_user_typed)
 	minigame_timer.timer_finished.connect(_on_time_finished)
@@ -80,15 +85,21 @@ func _conclude_phrase() -> void:
 		# Hack minigame completed, emit signal to notify the main app and stop timer
 		time = 60
 		minigame_timer.stop_timer()
-		hack_concluded.emit()
+		# hack_concluded.emit()
+		timer.wait_time = 2.5
+		timer.start()
+		success_panel.visible = true
 	else:
 		# Mark current phrase as completed and update display
 		update_display()
 
 func _on_time_finished() -> void:
-	time += 15
-	# Time's up, reset the minigame
-	reset_minigame()
+	# time += 15
+	# # Time's up, reset the minigame
+	# reset_minigame()
+	failure_panel.visible = true
+	timer.wait_time = 2.5
+	timer.start()
 
 func reset_minigame() -> void:
 	# Generate phrases
@@ -111,3 +122,14 @@ func reset_minigame() -> void:
 	minigame_timer.setup(time) # 60 seconds for the minigame
 
 	update_display()
+
+func _on_timer_timeout() -> void:
+	success_panel.visible = false
+	failure_panel.visible = false
+
+	if completed_phrases >= current_phrases.size():
+		hack_concluded.emit()
+	else:
+		time += 15
+		# Time's up, reset the minigame
+		reset_minigame()

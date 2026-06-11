@@ -29,6 +29,12 @@ var maze_end_point: Vector2
 
 var heigth_index
 
+@export var timer : Timer
+@export var failure_panel : Panel
+@export var success_panel : Panel
+
+var source_id
+
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	minigame_timer.timer_finished.connect(_on_time_finished)
@@ -41,7 +47,7 @@ func setup() -> void:
 
 func reset_minigame() -> void:
 	maze_player.position_changed.connect(_check_finish)
-	
+
 	tilemap.clear()
 	define_maze_difficult()
 	generate_maze_size()
@@ -164,14 +170,31 @@ func _check_finish():
 	var player_global_pos = maze_player.player_body.global_position
 	var cell = tilemap.local_to_map(tilemap.to_local(player_global_pos))
 
-	var source_id = tilemap.get_cell_source_id(cell)
+	source_id = tilemap.get_cell_source_id(cell)
 
 	if source_id == HIDDEN_PATH_ID:
 		heigth_index = 5
-		hack_concluded.emit()
+		# hack_concluded.emit()
+		timer.wait_time = 2.5
+		timer.start()
+		success_panel.visible = true
 		maze_player.position_changed.disconnect(_check_finish)
 
 func _on_time_finished() -> void:
-	if heigth_index > 0:
-		heigth_index -= 1
-	reset_minigame()
+	failure_panel.visible = true
+	timer.wait_time = 2.5
+	timer.start()
+	# if heigth_index > 0:
+	# 	heigth_index -= 1
+	# reset_minigame()
+
+func _on_timer_timeout() -> void:
+	success_panel.visible = false
+	failure_panel.visible = false
+
+	if source_id == HIDDEN_PATH_ID:
+		hack_concluded.emit()
+	else:
+		if heigth_index > 0:
+			heigth_index -= 1
+		reset_minigame()
