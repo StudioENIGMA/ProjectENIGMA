@@ -12,6 +12,8 @@ extends Control
 @export var clock_timer: Timer
 #endregion CHILDREN NODES REFERENCES
 
+@onready var base_window_height : int = int(ProjectSettings.get_setting("display/window/size/viewport_height"))
+
 #region INITIALIZATION
 ## Setup signal connections to redirect events to each app
 func _ready() -> void:
@@ -101,6 +103,32 @@ func _ready() -> void:
   ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
   ui.day_over_ui.end_game.connect(_on_end_game)
 #endregion INITIALIZATION
+
+func _process(_delta: float) -> void:
+  var keyboard_height : float = 0.0
+
+  if OS.has_feature("web"):
+    var window_interface = JavaScriptBridge.get_interface("window")
+    if window_interface and window_interface.visualViewport:
+      var visual_viewport = window_interface.visualViewport
+
+      var window_height = window_interface.innerHeight
+      var viewport_height = visual_viewport.height
+
+      if window_height - viewport_height > 50: 
+        keyboard_height = window_height - viewport_height
+  else:
+    keyboard_height = float(DisplayServer.virtual_keyboard_get_height())
+
+  if keyboard_height > 0:
+    var window_size : Vector2i = DisplayServer.window_get_size()
+    var scale_factor : float = float(base_window_height) / float(window_size.y)
+
+    var scaled_keyboard_height : float = keyboard_height * 1.2 * scale_factor
+
+    position.y = -scaled_keyboard_height
+  else:
+    position.y = 0
 
 func _on_difficulty_changed(_value: int = -1) -> void:
   # Adjust clock tick interval according to the difficulty level
