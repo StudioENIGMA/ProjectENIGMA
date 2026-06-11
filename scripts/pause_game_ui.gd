@@ -4,6 +4,7 @@ extends Control
 @export var quit_button: Button
 @export var menu_button: Button
 @export var confirmation_panel: PanelContainer
+@export var difficulty_changer: OptionButton
 
 const SETTINGS_SCENE_PATH = "res://scenes/game_settings.tscn"
 

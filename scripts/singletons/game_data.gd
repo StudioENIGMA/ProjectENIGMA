@@ -118,6 +118,7 @@ var options_chose = {}
 
 var random_events_history = []
 
+var clock_tick_interval: float = 1.5 # Time between clock ticks in seconds
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
@@ -394,6 +395,7 @@ func save_game() -> void:
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
 		"apps_with_available_updates": apps_with_available_updates,
+		"clock_tick_interval": clock_tick_interval,
 	}
 
 	save_file.store_string(JSON.stringify(game_state))
@@ -424,6 +426,7 @@ func load_game() -> void:
 	max_hours_minutes = int(game_state.get("max_hours_minutes"))
 	total_reputation_points = int(game_state.get("total_reputation_points"))
 	bank_balance = float(bank_balance)
+	clock_tick_interval = float(game_state.get("clock_tick_interval"))
 
 	var game_state_passwords = game_state.get("passwords", {})
 	var saved_passwords: Dictionary = {}

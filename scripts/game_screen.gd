@@ -9,11 +9,18 @@ extends Control
 @export var event_handler: Node2D
 @export var story_director: Node2D
 @export var progressive_blur: ColorRect
+@export var clock_timer: Timer
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
 ## Setup signal connections to redirect events to each app
 func _ready() -> void:
+  # Set timer according to the difficulty level
+  clock_timer.wait_time = GameData.clock_tick_interval
+  var difficulty_changer = ui.pause_game_ui.difficulty_changer
+  difficulty_changer.connect("difficulty_changed", _on_difficulty_changed)
+  difficulty_changer.connect("item_selected", _on_difficulty_changed)
+
   # Relevant children nodes references
   var answers_director = story_director.messages_director.answers_director
   var emails_director = story_director.emails_director
@@ -69,7 +76,7 @@ func _ready() -> void:
 	ui.base_app.bank_payment_info._on_codes_dict_updated, ConnectFlags.CONNECT_DEFERRED
   )
   ui.base_app.browser_app_shop_payment_screen.create_code.connect(
-   bank_director._on_code_created
+	bank_director._on_code_created
   )
   bank_director.send_new_code.connect(
 	ui.base_app.browser_app_shop_payment_screen._on_code_received
@@ -94,6 +101,10 @@ func _ready() -> void:
   ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
   ui.day_over_ui.end_game.connect(_on_end_game)
 #endregion INITIALIZATION
+
+func _on_difficulty_changed(_value: int = -1) -> void:
+  # Adjust clock tick interval according to the difficulty level
+  clock_timer.wait_time = GameData.clock_tick_interval
 
 ## Handles the clock tick event from the event handler
 ##
