@@ -1,6 +1,6 @@
 {
 	"amazonia":[
-		{"id" : 11, "name": "Barra de Aço", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id" : 11, "name": "Barra de Aço (Kg)", "price": 49.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
 		{"id" : 12, "name": "Furadeira Elétrica", "price": 249.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
 		{"id" : 13, "name": "Martelo", "price": 59.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
 		{"id" : 14, "name": "Monitor 4K 144HZ", "price": 1249.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},
@@ -8,7 +8,7 @@
 		{"id" : 16, "name": "Frigo Bar", "price": 679.00, "logo": "res://assets/icons/shops/products/amazonia/frigobar.png"}
 	],
 	"libre_mercado":[
-		{"id" : 11, "name": "Barra de Aço", "price": 15.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
+		{"id" : 11, "name": "Barra de Aço (Kg)", "price": 15.90, "logo": "res://assets/icons/shops/products/amazonia/aco.png"},
 		{"id" : 12, "name": "Furadeira Elétrica", "price": 110.90, "logo": "res://assets/icons/shops/products/amazonia/furadeira.png"},
 		{"id" : 13, "name": "Martelo", "price": 20.90, "logo": "res://assets/icons/shops/products/amazonia/martelo.png"},
 		{"id" : 14, "name": "Monitor 4K 144HZ", "price": 590.90, "logo": "res://assets/icons/shops/products/amazonia/monitor.png"},

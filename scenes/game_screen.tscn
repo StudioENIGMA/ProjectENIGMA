@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="19_1vcyb"]
 [ext_resource type="Script" uid="uid://dayquwr7wsoce" path="res://scripts/utils/pause_confirmation_panel.gd" id="19_21xuv"]
+[ext_resource type="Script" uid="uid://de5hmb2wcw3iq" path="res://scripts/difficulty_changer.gd" id="20_lhiww"]
 [ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
 [ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
 [ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
@@ -105,11 +106,13 @@ shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 2.0
 
-[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur")]
+[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur", "clock_timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -120,6 +123,7 @@ ui = NodePath("UI")
 event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
+clock_timer = NodePath("EventHandler/ClockTimer")
 
 [node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui", "pause_game_ui")]
 layout_mode = 1
@@ -430,7 +434,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_040sx")
 text = "Dia"
 icon_alignment = 1
 
-[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel")]
+[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel", "difficulty_changer")]
 process_mode = 3
 visible = false
 layout_mode = 1
@@ -444,6 +448,7 @@ resume_button = NodePath("CenterContainer/TextDayOverContainer/ResumeButton")
 quit_button = NodePath("CenterContainer/TextDayOverContainer/QuitButton")
 menu_button = NodePath("CenterContainer/TextDayOverContainer/MainButton")
 confirmation_panel = NodePath("ConfirmationPanel")
+difficulty_changer = NodePath("CenterContainer/TextDayOverContainer/HBoxContainer/OptionButton")
 
 [node name="DayOverBackground" type="TextureRect" parent="UI/PauseGameUI" unique_id=1458791751]
 modulate = Color(1, 1, 1, 0.835294)
@@ -480,6 +485,31 @@ vertical_alignment = 1
 
 [node name="CentralMargin" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=1898125437]
 custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=873244278]
+layout_mode = 2
+text = "Dificuldade"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=118579995]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionButton" type="OptionButton" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer/HBoxContainer" unique_id=1453208260]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 3
+popup/item_0/text = "Fácil"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Difícil"
+popup/item_2/id = 2
+script = ExtResource("20_lhiww")
+
+[node name="CentralMargin4" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=112911248]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="UI/PauseGameUI/CenterContainer/TextDayOverContainer" unique_id=924523502]

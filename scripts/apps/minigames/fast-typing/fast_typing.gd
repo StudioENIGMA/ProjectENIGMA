@@ -3,10 +3,12 @@ extends Control
 signal hack_concluded
 
 const PHRASE_SCENE = preload("res://scenes/apps/minigames/fast-typing/phrase_to_type.tscn")
-const RANDOM_WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew"]
+const RANDOM_WORDS = ["maçã", "banana", "uva", "figo", "morango", "mirtilo", "laranja", "limão"]
 
 #region CHILDREN NODES REFERENCES
 @export var line_edit: LineEdit
+@export var external_container: VBoxContainer
+@export var phrase_input_container: VBoxContainer
 @export var phrases_vbox: VBoxContainer
 @export var minigame_timer: ProgressBar
 #endregion
@@ -20,6 +22,35 @@ var time = 0
 func _ready() -> void:
 	line_edit.text_changed.connect(_user_typed)
 	minigame_timer.timer_finished.connect(_on_time_finished)
+
+func _process(_delta: float) -> void:
+	var keyboard_height : float = 0.0
+
+	if OS.has_feature("web"):
+		var window_interface = JavaScriptBridge.get_interface("window")
+		if window_interface and window_interface.visualViewport:
+			var visual_viewport = window_interface.visualViewport
+
+			var window_height = window_interface.innerHeight
+			var viewport_height = visual_viewport.height
+
+			if window_height - viewport_height > 50: 
+				keyboard_height = window_height - viewport_height
+	else:
+		keyboard_height = float(DisplayServer.virtual_keyboard_get_height())
+
+	if keyboard_height > 0:
+		define_mobile_interface()
+	else:
+		define_computer_interface()
+
+func define_computer_interface() -> void:
+	external_container.add_theme_constant_override("separation", 24)
+	phrase_input_container.add_theme_constant_override("separation", 150)
+
+func define_mobile_interface() -> void:
+	external_container.add_theme_constant_override("separation", 150)
+	phrase_input_container.add_theme_constant_override("separation", 20)
 
 ## Means hack minigame started
 func setup() -> void:

@@ -18,8 +18,8 @@ func add_notification_to_queue(
   title:String,
   time:int
 ) -> void:
-	# Check if app is installed before adding the notification
-	if not GameData.downloaded_apps.has(app):
+	
+	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
 		return
 
 	# Append the notification to the queue
