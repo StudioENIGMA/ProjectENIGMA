@@ -80,14 +80,14 @@ shadow_offset = Vector2(0, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popuphover"]
 content_margin_left = 14.0
-content_margin_top = 8.0
+content_margin_top = 6.0
 content_margin_right = 14.0
-content_margin_bottom = 8.0
+content_margin_bottom = 6.0
 bg_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popuppanel"]
 content_margin_left = 8.0
@@ -104,7 +104,7 @@ shadow_size = 14
 shadow_offset = Vector2(0, 3)
 
 [sub_resource type="Theme" id="Theme_pausepopup"]
-PopupMenu/colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+PopupMenu/colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
 PopupMenu/colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
 PopupMenu/constants/item_end_padding = 14
 PopupMenu/constants/item_start_padding = 14
@@ -174,12 +174,7 @@ content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -190,7 +185,7 @@ content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-bg_color = Color(0.92156863, 0.03921569, 0.27058825, 0)
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -209,7 +204,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 0), Color(0.30980393, 0.79607844, 0.68235296, 0.18)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_main_press"]
@@ -225,7 +220,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.08),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 0), Color(0.30980393, 0.79607844, 0.68235296, 0.3)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_quit_hover"]
@@ -241,7 +236,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.92156863, 0.03921569, 0.27058825, 0), Color(0.92156863, 0.03921569, 0.27058825, 0.12)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_quit_press"]
@@ -257,7 +252,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.08),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.92156863, 0.03921569, 0.27058825, 0), Color(0.92156863, 0.03921569, 0.27058825, 0.22)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_resume_hover"]
@@ -273,7 +268,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.44705883, 0.8745098, 0.7294118, 1)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_resume_press"]
@@ -289,7 +284,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.08),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.2745098, 0.70980394, 0.6901961, 1)]
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pausebtns"]
@@ -306,134 +301,34 @@ _data = {
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lctrs"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 20.0
-bg_color = Color(0.79607844, 0.92156863, 0.827451, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_color = Color(0.11764706, 0.18823528, 0.27843136, 0.22)
-shadow_size = 20
-shadow_offset = Vector2(0, 8)
+bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhiww"]
-content_margin_left = 14.0
-content_margin_top = 8.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
-bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+bg_color = Color(0.6064064, 0.06568552, 4.813075e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gopqt"]
+bg_color = Color(0.4457847, 0.036952697, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qca60"]
+bg_color = Color(0.7918716, 0.100445725, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omb3v"]
-content_margin_left = 14.0
-content_margin_top = 8.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5686275, 0.10196078, 0.21960784, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+bg_color = Color(0, 0.36959997, 0.107734896, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pur81"]
-content_margin_left = 14.0
-content_margin_top = 8.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
-bg_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+bg_color = Color(0.104712255, 0.2792548, 0.15956783, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8n22"]
-content_margin_left = 14.0
-content_margin_top = 8.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
-bg_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="Animation" id="Animation_cancel_hover"]
-resource_name = "cancel_hover"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer/CancelButton:theme_override_styles/normal:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.44705883, 0.8745098, 0.7294118, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_cancel_press"]
-resource_name = "cancel_press"
-length = 0.08
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer/CancelButton:theme_override_styles/normal:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.2745098, 0.70980394, 0.6901961, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_continue_hover"]
-resource_name = "continue_hover"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer/ContinueButton:theme_override_styles/normal:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.5686275, 0.10196078, 0.21960784, 1), Color(0.92156863, 0.03921569, 0.27058825, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_continue_press"]
-resource_name = "continue_press"
-length = 0.08
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer/ContinueButton:theme_override_styles/normal:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.5686275, 0.10196078, 0.21960784, 1), Color(0.38431373, 0.07058824, 0.19215687, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_confirmbtns"]
-_data = {
-&"cancel_hover": SubResource("Animation_cancel_hover"),
-&"cancel_press": SubResource("Animation_cancel_press"),
-&"continue_hover": SubResource("Animation_continue_hover"),
-&"continue_press": SubResource("Animation_continue_press")
-}
+bg_color = Color(0.17046908, 0.41386926, 0.24258903, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8e4ax"]
 shader = ExtResource("1_8e4ax")
@@ -774,7 +669,6 @@ icon_alignment = 1
 
 [node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel", "difficulty_changer")]
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -828,14 +722,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CentralMargin" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1898125437]
-custom_minimum_size = Vector2(0, 14)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=873244278]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
-theme_override_font_sizes/font_size = 14
 text = "Dificuldade"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=118579995]
@@ -843,13 +736,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="OptionButton" type="OptionButton" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/HBoxContainer" unique_id=1453208260]
-custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_pausepopup")
-theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("20_gopqt")
@@ -875,21 +767,16 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=924523502]
-custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_fonts/font = ExtResource("20_gopqt")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_26bax")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_26bax")
-theme_override_styles/hover = SubResource("StyleBoxFlat_26bax")
-theme_override_styles/focus = SubResource("StyleBoxFlat_26bax")
 text = "Despausar"
 icon_alignment = 1
 
@@ -898,21 +785,16 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="MainButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1380288142]
-custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_fonts/font = ExtResource("20_gopqt")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_mainbtn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mainbtn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mainbtn")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mainbtn")
 text = "Voltar ao Menu"
 icon_alignment = 1
 
@@ -921,21 +803,16 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="QuitButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=2047760964]
-custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
-theme_override_colors/font_focus_color = Color(0.7372549, 0.03137255, 0.22352941, 1)
-theme_override_colors/font_pressed_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
-theme_override_colors/font_hover_color = Color(0.7372549, 0.03137255, 0.22352941, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
-theme_override_colors/icon_normal_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
 theme_override_fonts/font = ExtResource("20_gopqt")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_quitbtn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_quitbtn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_quitbtn")
-theme_override_styles/focus = SubResource("StyleBoxFlat_quitbtn")
 text = "Sair do Jogo"
 icon_alignment = 1
 
@@ -955,14 +832,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_21xuv")
 script = ExtResource("19_21xuv")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/PauseGameUI/ConfirmationPanel" unique_id=556334700]
-custom_minimum_size = Vector2(300, 160)
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lctrs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer" unique_id=1514467922]
-custom_minimum_size = Vector2(280, 140)
+custom_minimum_size = Vector2(280, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -970,21 +847,21 @@ size_flags_vertical = 4
 [node name="Warn" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=421046966]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-theme_override_colors/default_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
-theme_override_fonts/normal_font = ExtResource("19_1vcyb")
-theme_override_fonts/bold_font = ExtResource("19_1vcyb")
-theme_override_font_sizes/normal_font_size = 18
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
 text = "ATENÇÃO!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Content" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1674088028]
-custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_colors/default_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
-theme_override_fonts/normal_font = ExtResource("20_gopqt")
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/normal_font = ExtResource("19_1vcyb")
 theme_override_fonts/bold_font = ExtResource("19_1vcyb")
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 22
 text = "Ao realizar essa ação, todo o progresso do dia atual será perdido."
 horizontal_alignment = 1
 
@@ -992,42 +869,24 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="CancelButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=491858092]
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
-theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
-theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
-theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
-theme_override_fonts/font = ExtResource("20_gopqt")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_lhiww")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lhiww")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lhiww")
-theme_override_styles/focus = SubResource("StyleBoxFlat_lhiww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gopqt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qca60")
 text = "Cancelar"
 
 [node name="ContinueButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=936949493]
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
-theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
-theme_override_colors/font_pressed_color = Color(0.79607844, 0.92156863, 0.827451, 1)
-theme_override_colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
-theme_override_fonts/font = ExtResource("20_gopqt")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_omb3v")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pur81")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e8n22")
-theme_override_styles/focus = SubResource("StyleBoxFlat_omb3v")
 text = "Continuar"
-
-[node name="ConfirmButtonFeedback" type="AnimationPlayer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer" unique_id=837194625]
-libraries/ = SubResource("AnimationLibrary_confirmbtns")
-playback_default_blend_time = 0.15
 
 [node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("clock_timer", "hack_handler")]
 visible = false
@@ -1106,13 +965,5 @@ mouse_filter = 2
 [connection signal="button_up" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["quit_press"]]
 [connection signal="mouse_entered" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["quit_hover"]]
 [connection signal="mouse_exited" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["quit_hover"]]
-[connection signal="button_down" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_press"]]
-[connection signal="button_up" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["cancel_press"]]
-[connection signal="mouse_entered" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_hover"]]
-[connection signal="mouse_exited" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["cancel_hover"]]
 [connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_cancel_button_pressed"]
-[connection signal="button_down" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["continue_press"]]
-[connection signal="button_up" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_press"]]
-[connection signal="mouse_entered" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["continue_hover"]]
-[connection signal="mouse_exited" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_hover"]]
 [connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_continue_button_pressed"]
