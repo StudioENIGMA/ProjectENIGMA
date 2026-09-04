@@ -1,6 +1,182 @@
 [gd_scene format=3 uid="uid://c61njhp2co37l"]
 
-[ext_resource type="Script" uid="uid://7pq25a7amaxx" path="res://scripts/settings_back_button.gd" id="1_4spmm"]
+[ext_resource type="Script" uid="uid://7pq25a7amaxx" path="res://scripts/settings_back_button.gd" id="1_back"]
+[ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="2_bg"]
+[ext_resource type="Shader" uid="uid://l2hjotfj7twq" path="res://shaders/menu_button.gdshader" id="3_plate"]
+[ext_resource type="Shader" uid="uid://cvysxvx3xn10e" path="res://shaders/menu_button_text.gdshader" id="4_platetext"]
+[ext_resource type="Script" uid="uid://do5w7m1qcltk4" path="res://scripts/main_menu/menu_button_label.gd" id="5_platelabel"]
+[ext_resource type="Script" uid="uid://d3edkecectqqd" path="res://scripts/game_settings/volume_row.gd" id="6_row"]
+[ext_resource type="FontFile" uid="uid://ctyaow7x014x1" path="res://assets/fonts/Droid 1997.otf" id="7_droid"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="8_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="9_semibold"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="10_medium"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_backplate"]
+shader = ExtResource("3_plate")
+shader_parameter/base_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+shader_parameter/band_color = Color(0.44705883, 0.8745098, 0.7294118, 1)
+shader_parameter/corner_radius = 14.0
+shader_parameter/band_top = 0.99
+shader_parameter/band_bottom = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_backtext"]
+shader = ExtResource("4_platetext")
+shader_parameter/base_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
+shader_parameter/band_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
+shader_parameter/rect_size = Vector2(56, 56)
+shader_parameter/band_top = 0.99
+shader_parameter/band_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_backhover"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_backpressed"]
+bg_color = Color(0, 0, 0, 0.2)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 18.0
+content_margin_top = 16.0
+content_margin_right = 18.0
+content_margin_bottom = 16.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.101960786, 0.1254902, 0.2, 0.35)
+shadow_size = 12
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 0.22)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fillhover"]
+content_margin_left = 0.0
+content_margin_top = 5.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+bg_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_grabber"]
+offsets = PackedFloat32Array(0, 0.58, 0.64, 0.8, 0.88)
+colors = PackedColorArray(0.79607844, 0.92156863, 0.827451, 1, 0.79607844, 0.92156863, 0.827451, 1, 0.11764706, 0.18823529, 0.2784314, 1, 0.11764706, 0.18823529, 0.2784314, 1, 0.11764706, 0.18823529, 0.2784314, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grabber"]
+gradient = SubResource("Gradient_grabber")
+width = 28
+height = 28
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_grabberhl"]
+offsets = PackedFloat32Array(0, 0.58, 0.64, 0.86, 0.94)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.11764706, 0.18823529, 0.2784314, 1, 0.11764706, 0.18823529, 0.2784314, 1, 0.11764706, 0.18823529, 0.2784314, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grabberhl"]
+gradient = SubResource("Gradient_grabberhl")
+width = 30
+height = 30
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mute"]
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 12.0
+content_margin_bottom = 7.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mutehover"]
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 12.0
+content_margin_bottom = 7.0
+bg_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muteon"]
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 12.0
+content_margin_bottom = 7.0
+bg_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muteonhover"]
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 12.0
+content_margin_bottom = 7.0
+bg_color = Color(0.7176471, 0.078431375, 0.24705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="GameSettings" type="Control" unique_id=44018652]
 layout_mode = 3
@@ -10,93 +186,345 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1038363500]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-
-[node name="SettingsBackButton" type="Button" parent="MarginContainer" unique_id=2004333547]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "<"
-script = ExtResource("1_4spmm")
-
-[node name="SettingsVBoxContainer" type="VBoxContainer" parent="." unique_id=87154663]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -167.5
-offset_top = -200.5
-offset_right = 167.5
-offset_bottom = 200.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
 
-[node name="MasterLabel" type="Label" parent="SettingsVBoxContainer" unique_id=793399517]
+[node name="Scrim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101960786, 0.1254902, 0.2, 0.62)
+
+[node name="ScreenMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="ScreenMargin"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 32
-text = "Volume Geral"
+theme_override_constants/separation = 18
 
-[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1139492380]
+[node name="AppBar" type="HBoxContainer" parent="ScreenMargin/Content"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
-[node name="MasterVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=1768791635]
-custom_minimum_size = Vector2(0, 80)
+[node name="SettingsBackButton" type="Button" parent="ScreenMargin/Content/AppBar"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_backhover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_backpressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flat")
+script = ExtResource("1_back")
+
+[node name="Plate" type="ColorRect" parent="ScreenMargin/Content/AppBar/SettingsBackButton"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_backplate")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackLabel" type="Label" parent="ScreenMargin/Content/AppBar/SettingsBackButton"]
+material = SubResource("ShaderMaterial_backtext")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("7_droid")
+theme_override_font_sizes/font_size = 34
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_platelabel")
+
+[node name="TitleBlock" type="VBoxContainer" parent="ScreenMargin/Content/AppBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+size_flags_vertical = 4
+theme_override_constants/separation = 2
 
-[node name="MuteMasterCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MasterVolumeHBoxContainer" unique_id=670951558]
+[node name="Title" type="Label" parent="ScreenMargin/Content/AppBar/TitleBlock"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_fonts/font = ExtResource("7_droid")
+theme_override_font_sizes/font_size = 30
+text = "CONFIGURAÇÕES"
+
+[node name="Subtitle" type="Label" parent="ScreenMargin/Content/AppBar/TitleBlock"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 0.75)
+theme_override_fonts/font = ExtResource("10_medium")
 theme_override_font_sizes/font_size = 12
-text = "Silenciar"
-expand_icon = true
+text = "Ajuste os níveis de áudio do jogo"
 
-[node name="MusicLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2088218196]
+[node name="Divider" type="ColorRect" parent="ScreenMargin/Content"]
+custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 32
-text = "Volume da Música"
+mouse_filter = 2
+color = Color(0.30980393, 0.79607844, 0.68235296, 0.28)
 
-[node name="MusicVolumeHBoxContainer2" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=1159322637]
+[node name="SectionLabel" type="Label" parent="ScreenMargin/Content"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 12
+text = "Á U D I O"
 
-[node name="MusicVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=1384072290]
-custom_minimum_size = Vector2(0, 80)
+[node name="AudioCard" type="PanelContainer" parent="ScreenMargin/Content"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Rows" type="VBoxContainer" parent="ScreenMargin/Content/AudioCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MasterRow" type="VBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows" node_paths=PackedStringArray("slider", "value_label", "mute_button")]
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("6_row")
+bus_name = &"Master"
+slider = NodePath("ControlRow/Slider")
+value_label = NodePath("ControlRow/ValueLabel")
+mute_button = NodePath("HeaderRow/MuteButton")
+
+[node name="HeaderRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow/HeaderRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("9_semibold")
+theme_override_font_sizes/font_size = 16
+text = "Geral"
 
-[node name="MuteMusicCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer2" unique_id=374218314]
+[node name="MuteButton" type="Button" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow/HeaderRow"]
+custom_minimum_size = Vector2(108, 32)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Silenciar"
-expand_icon = true
+size_flags_vertical = 4
+focus_mode = 0
+toggle_mode = true
+theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_pressed_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_mute")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mutehover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muteon")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_muteonhover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+text = "SILENCIAR"
 
-[node name="SFXLabel" type="Label" parent="SettingsVBoxContainer" unique_id=2031282743]
+[node name="ControlRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 26
-text = "Volume de Efeitos Sonoros"
+theme_override_constants/separation = 12
 
-[node name="MusicVolumeHBoxContainer3" type="HBoxContainer" parent="SettingsVBoxContainer" unique_id=32729890]
-layout_mode = 2
-
-[node name="SFXVolumeHSlider" type="HSlider" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=2088189801]
-custom_minimum_size = Vector2(0, 80)
+[node name="Slider" type="HSlider" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow/ControlRow"]
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 value = 50.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = SubResource("GradientTexture2D_grabber")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_grabberhl")
+theme_override_styles/slider = SubResource("StyleBoxFlat_track")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fillhover")
 
-[node name="MuteSFXCheckBox" type="CheckBox" parent="SettingsVBoxContainer/MusicVolumeHBoxContainer3" unique_id=1942551776]
+[node name="ValueLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/MasterRow/ControlRow"]
+custom_minimum_size = Vector2(46, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Silenciar"
-expand_icon = true
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 15
+text = "50%"
+horizontal_alignment = 2
+
+[node name="MusicRowDivider" type="ColorRect" parent="ScreenMargin/Content/AudioCard/Rows"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.11764706, 0.18823529, 0.2784314, 0.22)
+
+[node name="MusicRow" type="VBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows" node_paths=PackedStringArray("slider", "value_label", "mute_button")]
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("6_row")
+bus_name = &"Music"
+slider = NodePath("ControlRow/Slider")
+value_label = NodePath("ControlRow/ValueLabel")
+mute_button = NodePath("HeaderRow/MuteButton")
+
+[node name="HeaderRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("9_semibold")
+theme_override_font_sizes/font_size = 16
+text = "Música"
+
+[node name="MuteButton" type="Button" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow/HeaderRow"]
+custom_minimum_size = Vector2(108, 32)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+toggle_mode = true
+theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_pressed_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_mute")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mutehover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muteon")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_muteonhover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+text = "SILENCIAR"
+
+[node name="ControlRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Slider" type="HSlider" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow/ControlRow"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = SubResource("GradientTexture2D_grabber")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_grabberhl")
+theme_override_styles/slider = SubResource("StyleBoxFlat_track")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fillhover")
+
+[node name="ValueLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/MusicRow/ControlRow"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 15
+text = "50%"
+horizontal_alignment = 2
+
+[node name="SfxRowDivider" type="ColorRect" parent="ScreenMargin/Content/AudioCard/Rows"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.11764706, 0.18823529, 0.2784314, 0.22)
+
+[node name="SfxRow" type="VBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows" node_paths=PackedStringArray("slider", "value_label", "mute_button")]
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("6_row")
+bus_name = &"SFX"
+slider = NodePath("ControlRow/Slider")
+value_label = NodePath("ControlRow/ValueLabel")
+mute_button = NodePath("HeaderRow/MuteButton")
+
+[node name="HeaderRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("9_semibold")
+theme_override_font_sizes/font_size = 16
+text = "Efeitos Sonoros"
+
+[node name="MuteButton" type="Button" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow/HeaderRow"]
+custom_minimum_size = Vector2(108, 32)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+toggle_mode = true
+theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_pressed_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_mute")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mutehover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muteon")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_muteonhover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+text = "SILENCIAR"
+
+[node name="ControlRow" type="HBoxContainer" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Slider" type="HSlider" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow/ControlRow"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = SubResource("GradientTexture2D_grabber")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_grabberhl")
+theme_override_styles/slider = SubResource("StyleBoxFlat_track")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fillhover")
+
+[node name="ValueLabel" type="Label" parent="ScreenMargin/Content/AudioCard/Rows/SfxRow/ControlRow"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.11764706, 0.18823529, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 15
+text = "50%"
+horizontal_alignment = 2
+
+[node name="Spacer" type="Control" parent="ScreenMargin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
