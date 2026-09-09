@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://7pq25a7amaxx" path="res://scripts/settings_back_button.gd" id="1_back"]
 [ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="2_bg"]
 [ext_resource type="Shader" uid="uid://l2hjotfj7twq" path="res://shaders/menu_button.gdshader" id="3_plate"]
-[ext_resource type="Shader" uid="uid://cvysxvx3xn10e" path="res://shaders/menu_button_text.gdshader" id="4_platetext"]
-[ext_resource type="Script" uid="uid://do5w7m1qcltk4" path="res://scripts/main_menu/menu_button_label.gd" id="5_platelabel"]
+[ext_resource type="Texture2D" uid="uid://cywg1bclbag71" path="res://assets/icons/back.svg" id="4_backicon"]
 [ext_resource type="Script" uid="uid://d3edkecectqqd" path="res://scripts/game_settings/volume_row.gd" id="6_row"]
 [ext_resource type="FontFile" uid="uid://ctyaow7x014x1" path="res://assets/fonts/Droid 1997.otf" id="7_droid"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="8_bold"]
@@ -16,14 +15,6 @@ shader = ExtResource("3_plate")
 shader_parameter/base_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
 shader_parameter/band_color = Color(0.44705883, 0.8745098, 0.7294118, 1)
 shader_parameter/corner_radius = 14.0
-shader_parameter/band_top = 0.99
-shader_parameter/band_bottom = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_backtext"]
-shader = ExtResource("4_platetext")
-shader_parameter/base_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
-shader_parameter/band_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
-shader_parameter/rect_size = Vector2(56, 56)
 shader_parameter/band_top = 0.99
 shader_parameter/band_bottom = 0.0
 
@@ -250,22 +241,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BackLabel" type="Label" parent="ScreenMargin/Content/AppBar/SettingsBackButton"]
-material = SubResource("ShaderMaterial_backtext")
+[node name="BackIcon" type="TextureRect" parent="ScreenMargin/Content/AppBar/SettingsBackButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_colors/font_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("7_droid")
-theme_override_font_sizes/font_size = 34
-text = "<"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_platelabel")
+texture = ExtResource("4_backicon")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TitleBlock" type="VBoxContainer" parent="ScreenMargin/Content/AppBar"]
 layout_mode = 2

@@ -108,6 +108,9 @@ var notes_app = preload(
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
 
+## Opening/closing animations of the window and the apps inside it
+var _transitions:AppTransitions
+
 ## Called when the node enters the scene tree for the first time.
 ##
 ## Initializes the app top bar and connects necessary signals
@@ -121,6 +124,9 @@ var open_apps:Array = []
 ## Sets up settings app and passwords manager app
 ## Sets up store app and fake store app
 func _ready() -> void:
+	_transitions = AppTransitions.new(self, apps_ui)
+	_transitions.is_node_open = _is_app_node_open
+
 	# Connect close app button signal
 	back_button.pressed.connect(_on_back_button_pressed)
 	close_app_button.pressed.connect(_on_close_app_button_pressed)
@@ -323,6 +329,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		pause_game()
 		return
 
+	# When nothing was open, the whole phone window (top bar included) is what animates in
+	var is_first_app:bool = open_apps.is_empty()
+
 	# Show top bar when an app is opened
 	self.visible = true
 
@@ -359,6 +368,10 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		specific_app.setup()
 		hack_screen.move_child(specific_app, hack_screen.get_child_count() - 1)
 		notification_ui.visible = false
+		if is_first_app:
+			_transitions.open_window(main_app)
+		else:
+			_transitions.reveal_app(specific_app)
 		return
 
 	# Pull specific app to front
@@ -366,16 +379,25 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	# Show back button if more than one app is open and hide previous app
 	# Also, do not show back button if the current app is the password check dialog
+	var replaced_apps:Array = []
 	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
 		back_button.visible = true
 		close_app_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		var previous_app = _get_app_by_enum(previous_app_enum)
-		previous_app.visible = false
+		# It stays on screen until the push has carried it off to the left
+		replaced_apps.append(previous_app)
 	else:
 		back_button.visible = false
 		close_app_button.visible = true
+
+	# The window grows out of the tapped icon, an app opened inside it is pushed in from the right
+	if is_first_app:
+		_transitions.open_window(main_app)
+	else:
+		_transitions.push_app(specific_app, replaced_apps)
+
 	# Open password check dialog if the app is password protected
 	if app in GameData.passwords.keys(): # Single source of truth
 		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
@@ -396,15 +418,9 @@ func _on_back_button_pressed() -> void:
 	]
 	var was_hack_minigame = current_app_enum in hack_minigames
 
-	# Hide the current app
-	current_app.visible = false
 	open_apps.erase(current_app_dict)
 
 	var number_of_open_apps:int = open_apps.size()
-
-	# If no apps are open, hide the top bar
-	if number_of_open_apps == 0:
-		self.visible = false
 
 	# Show back button if more than one app is still open and show previous app
 	if number_of_open_apps > 1:
@@ -415,11 +431,21 @@ func _on_back_button_pressed() -> void:
 		close_app_button.visible = number_of_open_apps == 1
 
 	# Show previous app if any
+	var previous_app:Control = null
 	if number_of_open_apps > 0:
 		var previous_app_dict:Dictionary = open_apps[number_of_open_apps - 1]
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
-		var previous_app = _get_app_by_enum(previous_app_enum)
+		previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
+
+	# Put the current app away. If it was the last one, the whole window shrinks back into its icon,
+	# otherwise it slides out to the right and lets the screen it had covered back in
+	if number_of_open_apps == 0:
+		_transitions.close_window(current_app_dict["MainApp"], [current_app])
+	elif _is_overlay(current_app):
+		_transitions.conceal_app(current_app)
+	else:
+		_transitions.pop_app(current_app, previous_app)
 
 	# Hack minigames hide notification UI while active. Restore it when minigame closes.
 	if was_hack_minigame:
@@ -457,6 +483,7 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 		messages_app_chat.conversation_name = ""
 
 	# Close all open apps with same main_app
+	var visible_closed_apps: Array = []
 	for i in range(open_apps.size() - 1, -1, -1):
 		var app_dict: Dictionary = open_apps[i]
 		if app_dict.get("MainApp") != main_app_enum:
@@ -465,14 +492,18 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 		var subscreen_enum: GameData.App = app_dict["SubScreen"]
 		var subscreen_node := _get_app_by_enum(subscreen_enum)
 		if subscreen_node:
-			subscreen_node.visible = false
+			# Only the topmost one is on screen, the others are already hidden
+			if subscreen_node.visible:
+				visible_closed_apps.append(subscreen_node)
+			else:
+				subscreen_node.visible = false
 
 		open_apps.remove_at(i)
 
 	# Update top bar + show previous if any
 	if open_apps.is_empty():
-		self.visible = false
 		back_button.visible = false
+		_transitions.close_window(main_app_enum, visible_closed_apps)
 		return
 
 	self.visible = true
@@ -483,6 +514,12 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 	var previous_node := _get_app_by_enum(previous_enum)
 	if previous_node:
 		previous_node.visible = true
+
+	for closed_app in visible_closed_apps:
+		if _is_overlay(closed_app):
+			_transitions.conceal_app(closed_app)
+		else:
+			_transitions.pop_app(closed_app, previous_node)
 
 func close_all_apps() -> void:
 	while not open_apps.is_empty():
@@ -611,3 +648,25 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 
 func pause_game() -> void:
 	pause_game_requested.emit()
+
+## Draws the rounded window while it is growing out of (or shrinking back into) its icon
+func _draw() -> void:
+	_transitions.draw_window()
+
+## Tells whether the given node sits over the screen below instead of replacing it
+##
+## Only the hack minigames do: they live in their own screen, on top of whatever app is open
+func _is_overlay(node:Control) -> bool:
+	return node.get_parent() == hack_screen
+
+## Tells whether the given node is (still) one of the open apps
+##
+## Used by the transitions to leave alone an app that was reopened mid animation
+func _is_app_node_open(node:Control) -> bool:
+	if node == self:
+		return not open_apps.is_empty()
+
+	for app_dict in open_apps:
+		if _get_app_by_enum(app_dict["SubScreen"]) == node:
+			return true
+	return false
