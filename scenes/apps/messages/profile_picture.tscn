@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://31wcb74vemhw" path="res://assets/avatars/Chefinho.png" id="2_875b6"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_v06dn"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mask"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6h6t"]
 bg_color = Color(0.06560712, 0.2726395, 0.22955495, 1)
 corner_radius_top_left = 30
@@ -22,9 +30,20 @@ grow_vertical = 2
 script = ExtResource("1_dxxu6")
 default_panel = NodePath("DefaultPanel")
 panel_label = NodePath("DefaultPanel/Label")
-photo_rect = NodePath("TextureRect")
+photo_rect = NodePath("PhotoMask/TextureRect")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=854137703]
+[node name="PhotoMask" type="Panel" parent="." unique_id=1854137703]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="TextureRect" type="TextureRect" parent="PhotoMask" unique_id=854137703]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -32,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_875b6")
 expand_mode = 1
 stretch_mode = 5
@@ -43,6 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a6h6t")
 
 [node name="Label" type="Label" parent="DefaultPanel" unique_id=542033521]
@@ -52,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_color = Color(0.17663777, 0.576024, 0.4929816, 1)
 theme_override_fonts/font = ExtResource("3_v06dn")
 theme_override_font_sizes/font_size = 30
