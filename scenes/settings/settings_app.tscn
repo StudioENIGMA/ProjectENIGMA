@@ -1,76 +1,344 @@
 [gd_scene format=3 uid="uid://cmft24jq1687n"]
 
 [ext_resource type="Script" uid="uid://xkw1m56bgjfk" path="res://scripts/apps/settings/settings_app.gd" id="1_i6x2j"]
-[ext_resource type="Texture2D" uid="uid://dbc6aruv4aj27" path="res://assets/icons/pass_manager_card.png" id="2_rm6uv"]
-[ext_resource type="Texture2D" uid="uid://1y51mylpkn2n" path="res://assets/icons/pass_manager_card_hover.png" id="3_rl4m7"]
-[ext_resource type="Texture2D" uid="uid://yujda0l8v82d" path="res://assets/icons/pass_manager_unlocked_card.png" id="4_aoiuy"]
-[ext_resource type="Texture2D" uid="uid://du5y002buv8hx" path="res://assets/icons/update_os_card.png" id="5_pcpul"]
-[ext_resource type="Texture2D" uid="uid://dpbkxwx548q3p" path="res://assets/icons/update_os_card_hover.png" id="6_0hejv"]
-[ext_resource type="Texture2D" uid="uid://bdcg5wfbi7wss" path="res://assets/icons/update_os_locked_card.png" id="7_bwi6s"]
-[ext_resource type="Texture2D" uid="uid://bnah8ag7r22rr" path="res://assets/icons/bug_card.png" id="8_w4oym"]
-[ext_resource type="Texture2D" uid="uid://ds4ujq4asv5v8" path="res://assets/icons/bug_card_hover.png" id="9_tunpi"]
-[ext_resource type="Texture2D" uid="uid://dlt52akfwk4c1" path="res://assets/icons/bug_unlocked_card.png" id="10_k5mib"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="Texture2D" uid="uid://ccsgfir8uqixe" path="res://assets/icons/lock_icon.png" id="5_lock"]
+[ext_resource type="Texture2D" uid="uid://chnyuj27jnqi4" path="res://assets/icons/gear_icon.png" id="6_gear"]
+[ext_resource type="Texture2D" uid="uid://boygn81kgm0ev" path="res://assets/icons/bug_icon.png" id="7_bug"]
 
-[node name="SettingsApp" type="Control" unique_id=2127877474 node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_active"]
+bg_color = Color(0.27450982, 0.70980394, 0.6901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_disabled"]
+bg_color = Color(0.6392157, 0.9254902, 0.7607843, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="SettingsApp" type="Control" node_paths=PackedStringArray("passwords_manager_button", "update_os_button", "virus_scanner_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_i6x2j")
-passwords_manager_button = NodePath("HBoxContainer/VBoxContainer/PasswordManager")
-update_os_button = NodePath("HBoxContainer/VBoxContainer/UpdateOS")
-virus_scanner_button = NodePath("HBoxContainer/VBoxContainer/VirusScanner")
+passwords_manager_button = NodePath("OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager")
+update_os_button = NodePath("OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS")
+virus_scanner_button = NodePath("OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=47553879]
+[node name="OptionsScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
 
-[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer" unique_id=587829397]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=252474445]
+[node name="OptionsMargin" type="MarginContainer" parent="OptionsScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 55
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 18
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1812738925]
-custom_minimum_size = Vector2(0, 15)
+[node name="OptionsContainer" type="VBoxContainer" parent="OptionsScrollContainer/OptionsMargin"]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 18
 
-[node name="PasswordManager" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=2028246426]
+[node name="PasswordManager" type="Button" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_rm6uv")
-texture_hover = ExtResource("3_rl4m7")
-texture_disabled = ExtResource("4_aoiuy")
-ignore_texture_size = true
+size_flags_horizontal = 3
+tooltip_text = "Gerencie as senhas guardadas neste aparelho"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_card_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+
+[node name="Content" type="MarginContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Row" type="HBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Icon" type="TextureRect" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_lock")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="UpdateOS" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=2100572624]
+[node name="TextColumn" type="VBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 16
+text = "Gerenciador de Senhas"
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/PasswordManager/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Gerencie, atualize e verifique suas senhas aqui!"
+autowrap_mode = 2
+
+[node name="UpdateOS" type="Button" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("5_pcpul")
-texture_hover = ExtResource("6_0hejv")
-texture_disabled = ExtResource("7_bwi6s")
-ignore_texture_size = true
+size_flags_horizontal = 3
+tooltip_text = "Atualize o sistema operacional do aparelho"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_card_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+
+[node name="Content" type="MarginContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Row" type="HBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Icon" type="TextureRect" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_gear")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="VirusScanner" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=1931336353]
+[node name="TextColumn" type="VBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 16
+text = "Atualizar Sistema Operacional"
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/UpdateOS/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Irá atualizar o sistema operacional do seu dispositivo para a versão mais recente disponível."
+autowrap_mode = 2
+
+[node name="VirusScanner" type="Button" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("8_w4oym")
-texture_hover = ExtResource("9_tunpi")
-texture_disabled = ExtResource("10_k5mib")
-ignore_texture_size = true
+size_flags_horizontal = 3
+tooltip_text = "Procure vírus no aparelho"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_card_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+
+[node name="Content" type="MarginContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Row" type="HBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Icon" type="TextureRect" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_bug")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="RightMargin" type="MarginContainer" parent="HBoxContainer" unique_id=545724357]
-custom_minimum_size = Vector2(10, 0)
+[node name="TextColumn" type="VBoxContainer" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 16
+text = "Verificar Presença de Vírus"
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="OptionsScrollContainer/OptionsMargin/OptionsContainer/VirusScanner/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Este programa irá verificar a presença de vírus em seu dispositivo."
+autowrap_mode = 2
