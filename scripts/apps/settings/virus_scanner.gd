@@ -3,10 +3,15 @@ extends Control
 signal minigame_request()
 signal app_uninstalled(app_name: GameData.App)
 
+#region PALETTE
+const THREAT_COLOR := Color(0.5686275, 0.101960786, 0.21960784)
+const CLEAR_COLOR := Color(0.13333334, 0.28235295, 0.38431373)
+#endregion
+
 #region CHILDREN NODES REFERENCES
-@export var virus_panel: Panel
-@export var apps_panel: Panel
-@export var hack_panel: Panel
+@export var virus_panel: PanelContainer
+@export var apps_panel: PanelContainer
+@export var hack_panel: PanelContainer
 @export var virus_result: VBoxContainer
 @export var apps_result: VBoxContainer
 @export var hack_result: VBoxContainer
@@ -61,7 +66,7 @@ func _on_video_stream_finished() -> void:
 	apps_panel.visible = true
 	hack_panel.visible = true
 	scan_button.disabled = false
-	scan_button.text = "INICIAR VARREDURA"
+	scan_button.text = "INICIAR\nVARREDURA"
 
 	var has_viruses = GameData.number_of_viruses > 0
 	virus_result_label.text = "Vírus detectados: " + str(GameData.number_of_viruses)
@@ -69,11 +74,11 @@ func _on_video_stream_finished() -> void:
 
 	if has_viruses:
 		remove_virus_button.disabled = false
-		virus_result_label.add_theme_color_override("font_color", Color.RED)
+		virus_result_label.add_theme_color_override("font_color", THREAT_COLOR)
 		virus_panel.add_theme_stylebox_override("panel", red_style)
 	else:
 		remove_virus_button.disabled = true
-		virus_result_label.add_theme_color_override("font_color", Color.GREEN)
+		virus_result_label.add_theme_color_override("font_color", CLEAR_COLOR)
 		virus_panel.add_theme_stylebox_override("panel", green_style)
 
 
@@ -86,11 +91,11 @@ func _on_video_stream_finished() -> void:
 
 	if has_unsafe_apps:
 		remove_apps_button.disabled = false
-		apps_result_label.add_theme_color_override("font_color", Color.RED)
+		apps_result_label.add_theme_color_override("font_color", THREAT_COLOR)
 		apps_panel.add_theme_stylebox_override("panel", red_style)
 	else:
 		remove_apps_button.disabled = true
-		apps_result_label.add_theme_color_override("font_color", Color.GREEN)
+		apps_result_label.add_theme_color_override("font_color", CLEAR_COLOR)
 		apps_panel.add_theme_stylebox_override("panel", green_style)
 
 	
@@ -99,7 +104,7 @@ func _on_video_stream_finished() -> void:
 	if has_hack:
 		hack_result.visible = true
 		hack_result_label.text = "Sistema comprometido!"
-		hack_result_label.add_theme_color_override("font_color", Color.RED)
+		hack_result_label.add_theme_color_override("font_color", THREAT_COLOR)
 		hack_panel.add_theme_stylebox_override("panel", red_style)
 		remove_hack_button.disabled = false
 
@@ -111,7 +116,7 @@ func _on_video_stream_finished() -> void:
 	else:
 		remove_hack_button.disabled = true
 		hack_result_label.text = "Nenhuma ameaça detectada"
-		hack_result_label.add_theme_color_override("font_color", Color.GREEN)
+		hack_result_label.add_theme_color_override("font_color", CLEAR_COLOR)
 		hack_panel.add_theme_stylebox_override("panel", green_style)
 
 func _on_remove_virus_button_pressed() -> void:
