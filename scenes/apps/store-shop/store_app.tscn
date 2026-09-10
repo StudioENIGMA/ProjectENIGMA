@@ -1,21 +1,141 @@
 [gd_scene format=3 uid="uid://bofm0wpgowhx6"]
 
 [ext_resource type="Script" uid="uid://dl655633tv0fm" path="res://scripts/apps/both_shops/store_app.gd" id="1_ncjuv"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
+[ext_resource type="Texture2D" uid="uid://dg538esstxeq3" path="res://assets/icons/verified.svg" id="6_verif"]
 
-[node name="StoreApp" type="Control" unique_id=1076540786 node_paths=PackedStringArray("available_apps_container")]
+[node name="StoreApp" type="Control" node_paths=PackedStringArray("available_apps_container", "empty_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ncjuv")
-available_apps_container = NodePath("AvailableApps")
+available_apps_container = NodePath("Screen/ListArea/AppsScrollContainer/AvailableApps")
+empty_state = NodePath("Screen/ListArea/EmptyState")
 
-[node name="AvailableApps" type="VBoxContainer" parent="." unique_id=83016202]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="MarginContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="HeaderColumn" type="VBoxContainer" parent="Screen/Header"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="TitleLine" type="HBoxContainer" parent="Screen/Header/HeaderColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="Screen/Header/HeaderColumn/TitleLine"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 20
+text = "Loja"
+
+[node name="VerifiedBadge" type="TextureRect" parent="Screen/Header/HeaderColumn/TitleLine"]
+custom_minimum_size = Vector2(17, 17)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+tooltip_text = "Loja oficial da empresa"
+texture = ExtResource("6_verif")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubtitleLabel" type="Label" parent="Screen/Header/HeaderColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Aplicativos liberados pela empresa para o seu aparelho."
+autowrap_mode = 2
+
+[node name="HeaderDivider" type="ColorRect" parent="Screen"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="ListArea" type="Control" parent="Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="AppsScrollContainer" type="ScrollContainer" parent="Screen/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
+
+[node name="AvailableApps" type="VBoxContainer" parent="Screen/ListArea/AppsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="EmptyState" type="CenterContainer" parent="Screen/ListArea"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmptyStateColumn" type="VBoxContainer" parent="Screen/ListArea/EmptyState"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="EmptyStateTitle" type="Label" parent="Screen/ListArea/EmptyState/EmptyStateColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("4_semi")
+theme_override_font_sizes/font_size = 15
+text = "Nenhum aplicativo disponível"
+horizontal_alignment = 1
+
+[node name="EmptyStateHint" type="Label" parent="Screen/ListArea/EmptyState/EmptyStateColumn"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Novos aplicativos vão aparecer aqui em breve."
+horizontal_alignment = 1
+autowrap_mode = 2

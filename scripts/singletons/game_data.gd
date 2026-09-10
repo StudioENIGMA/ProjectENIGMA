@@ -291,6 +291,7 @@ var apps_chinese_operations = {
 	"install": "puzahss",
 	"installing": "puzahsspun...",
 	"update": "bwkhal",
+	"updating": "bwkhapun...",
 	"open": "vwlu"
 }
 
