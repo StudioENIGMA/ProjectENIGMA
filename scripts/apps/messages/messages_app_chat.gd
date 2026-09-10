@@ -134,7 +134,16 @@ func on_create_message(
 	if npc_name != conversation_name:
 		return
 
+	# Remember whether the reader was already following the conversation
+	var was_at_bottom:bool = scroll_container.is_at_bottom()
+
 	_add_typing_indicator()
+
+	# The indicator takes room at the end, so a reader that was following the
+	# conversation keeps seeing it, and still counts as being at the bottom when
+	# the message it announces arrives
+	if was_at_bottom:
+		scroll_container.scroll_to_bottom()
 
 func on_send_message(
 	npc_name:String,
@@ -172,7 +181,7 @@ func on_send_message(
 
 	# Scroll to the bottom to show the new message if it's from the player or if already in the bottom
 	if sender == GameData.Sender.PLAYER or was_at_bottom:
-		scroll_container.call_deferred("scroll_to_bottom")
+		scroll_container.scroll_to_bottom()
 
 func on_request_answer_option(
 	npc_name:String,
