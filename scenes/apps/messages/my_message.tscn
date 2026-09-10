@@ -2,33 +2,90 @@
 
 [ext_resource type="Script" uid="uid://fg28xe40njsg" path="res://scripts/apps/messages/message_instance.gd" id="1_2u343"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_yluvu"]
-[ext_resource type="FontFile" uid="uid://famge14wt6yw" path="res://assets/fonts/IBMPlexSans-Light.ttf" id="3_080el"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="3_080el"]
 [ext_resource type="Texture2D" uid="uid://d26hthmec6ajc" path="res://assets/icons/fake-app-store.png" id="3_e64tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq22m"]
-content_margin_left = 8.0
-content_margin_top = 5.0
-content_margin_right = 6.0
-content_margin_bottom = 5.0
-bg_color = Color(0.266667, 0.811765, 0.698039, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_left = 20
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 18
+corner_detail = 10
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.07)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e64tx"]
 content_margin_left = 2.0
-content_margin_top = 3.0
+content_margin_top = 1.0
 content_margin_right = 2.0
+content_margin_bottom = 0.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_03dd2"]
 font = ExtResource("3_080el")
 font_size = 10
+font_color = Color(0.039215688, 0.23137255, 0.19215687, 0.7019608)
 
-[node name="MyMessage" type="HBoxContainer" unique_id=1707791925 node_paths=PackedStringArray("label", "panel_container", "time_label", "left_margin", "right_margin", "annex_container", "annex_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_annex_normal"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 0.972549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.07)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_annex_hover"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9019608, 0.9647059, 0.9411765, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_annex_disabled"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 0.07)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+
+[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "time_label", "left_margin", "right_margin", "annex_container", "annex_button")]
 offset_right = 133.0
 offset_bottom = 5136.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_2u343")
 label = NodePath("VBoxContainer/MessageBackground/VBoxContainer/MessageContent")
@@ -39,57 +96,74 @@ right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
 annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
 
-[node name="MarginLeft" type="MarginContainer" parent="." unique_id=1124050800]
+[node name="MarginLeft" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1859824023]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 16
-theme_override_constants/separation = 32
+mouse_filter = 2
+theme_override_constants/separation = 6
 
-[node name="MessageBackground" type="PanelContainer" parent="VBoxContainer" unique_id=1925040422]
+[node name="MessageBackground" type="PanelContainer" parent="VBoxContainer"]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 16
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_wq22m")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MessageBackground" unique_id=1091044580]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MessageBackground"]
 layout_mode = 2
-theme_override_constants/separation = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
 
-[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1917943482]
-custom_minimum_size = Vector2(0, 30)
+[node name="MessageContent" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 16
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
+theme_override_constants/line_spacing = 3
 theme_override_fonts/font = ExtResource("1_yluvu")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_e64tx")
 text = "Lorem"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="TimeLabel" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer" unique_id=1494808288]
+[node name="TimeLabel" type="Label" parent="VBoxContainer/MessageBackground/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_filter = 2
 text = "14:03"
 label_settings = SubResource("LabelSettings_03dd2")
 horizontal_alignment = 2
 
-[node name="AnnexContainer" type="CenterContainer" parent="VBoxContainer" unique_id=95574192]
+[node name="AnnexContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer" unique_id=1102248027]
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
+theme_override_colors/font_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("3_080el")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_annex_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_annex_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_annex_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_annex_disabled")
 text = "Fake App.apk"
 icon = ExtResource("3_e64tx")
 autowrap_mode = 2
@@ -97,7 +171,8 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="MarginRight" type="MarginContainer" parent="." unique_id=2086457402]
+[node name="MarginRight" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 2

@@ -4,19 +4,111 @@
 [ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="2_bgtwl"]
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_ir5vx"]
 [ext_resource type="Script" uid="uid://dvcgfeo4ji8e8" path="res://scripts/apps/messages/answers_control.gd" id="2_wcops"]
-[ext_resource type="Script" path="res://scripts/utils/max_size_label.gd" id="3_f5yby"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_u5pol"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
 [ext_resource type="Texture2D" uid="uid://dg538esstxeq3" path="res://assets/icons/verified.svg" id="5_tjy8d"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_semib"]
+[ext_resource type="Texture2D" path="res://assets/icons/send.svg" id="7_send"]
+[ext_resource type="Texture2D" path="res://assets/icons/reply_bubble.svg" id="8_reply"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf2si"]
-bg_color = Color(0.015686275, 0.105882354, 0.22745098, 0.9137255)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+bg_color = Color(0.27451, 0.709804, 0.690196, 1)
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir5vx"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 2
-border_color = Color(0.12156863, 0.14117648, 0.19607843, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ring"]
+bg_color = Color(1, 1, 0.972549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 8
 
-[node name="MessagesAppChat" type="Control" unique_id=1068585976 node_paths=PackedStringArray("messages_list", "answers_bar", "scroll_container", "profile_picture", "name_label", "verified_rect")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_answers"]
+bg_color = Color(1, 1, 0.972549, 1)
+border_width_top = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 4
+shadow_offset = Vector2(0, -4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_draft"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 21
+corner_radius_bottom_left = 21
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send_normal"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.17663777, 0.576024, 0.4929816, 1)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 21
+corner_radius_bottom_left = 21
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send_hover"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.21568628, 0.6784314, 0.5803922, 1)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 21
+corner_radius_bottom_left = 21
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send_pressed"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.06560712, 0.2726395, 0.22955495, 1)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 21
+corner_radius_bottom_left = 21
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_send_disabled"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 0.10196079)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 21
+corner_radius_bottom_left = 21
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_send_focus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_choose"]
+font = ExtResource("6_semib")
+font_size = 12
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+
+[node name="MessagesAppChat" type="Control" node_paths=PackedStringArray("messages_list", "answers_panel", "scroll_container", "profile_picture", "name_label", "verified_badge")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,102 +116,233 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qunmr")
-messages_list = NodePath("MessagesScrollContainer/MarginContainer/MessagesList")
-answers_bar = NodePath("CenterContainer/AnswersBar")
-scroll_container = NodePath("MessagesScrollContainer")
-profile_picture = NodePath("PanelContainer/HBoxContainer/ProfilePicture")
-name_label = NodePath("PanelContainer/HBoxContainer/NameLabel")
-verified_rect = NodePath("PanelContainer/HBoxContainer/VerifiedRect")
+messages_list = NodePath("Screen/MessagesScrollContainer/MessagesMargin/MessagesList")
+answers_panel = NodePath("Screen/AnswersPanel")
+scroll_container = NodePath("Screen/MessagesScrollContainer")
+profile_picture = NodePath("Screen/Header/HeaderContent/HeaderRow/Avatar/ProfilePicture")
+name_label = NodePath("Screen/Header/HeaderContent/HeaderRow/NameLabel")
+verified_badge = NodePath("Screen/Header/HeaderContent/HeaderRow/Avatar/VerifiedBadge")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1480692123]
+[node name="ChatCanvas" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 50.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nf2si")
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 0.972549, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1813561622]
+[node name="Screen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
+
+[node name="HeaderContent" type="MarginContainer" parent="Screen/Header"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 8
+
+[node name="HeaderRow" type="HBoxContainer" parent="Screen/Header/HeaderContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="Screen/Header/HeaderContent/HeaderRow"]
+custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 0
-alignment = 1
+mouse_filter = 2
 
-[node name="ProfilePicture" parent="PanelContainer/HBoxContainer" unique_id=233740664 instance=ExtResource("2_bgtwl")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+[node name="ProfilePicture" parent="Screen/Header/HeaderContent/HeaderRow/Avatar" instance=ExtResource("2_bgtwl")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=481527146]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
+[node name="VerifiedBadge" type="Panel" parent="Screen/Header/HeaderContent/HeaderRow/Avatar"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ring")
 
-[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer" unique_id=540056861]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_u5pol")
-theme_override_font_sizes/font_size = 29
-text = "Nome"
-vertical_alignment = 1
-script = ExtResource("3_f5yby")
-max_width = 130.0
-
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=277448958]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
-[node name="VerifiedRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=512255077]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
+[node name="VerifiedIcon" type="TextureRect" parent="Screen/Header/HeaderContent/HeaderRow/Avatar/VerifiedBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_tjy8d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MessagesScrollContainer" type="ScrollContainer" parent="." unique_id=1928195733]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.90000004
-offset_top = 50.0
-offset_right = -2.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NameLabel" type="Label" parent="Screen/Header/HeaderContent/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 20
+text = "Nome"
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="MessagesScrollContainer" type="ScrollContainer" parent="Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 scroll_hint_mode = 1
 script = ExtResource("2_ir5vx")
 size_x = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MessagesScrollContainer" unique_id=1878788171]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="MessagesList" type="VBoxContainer" parent="MessagesScrollContainer/MarginContainer" unique_id=289766915]
+[node name="MessagesMargin" type="MarginContainer" parent="Screen/MessagesScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 12
 
-[node name="CenterContainer" type="PanelContainer" parent="." unique_id=340443307]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.90000004
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -14.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ir5vx")
-
-[node name="AnswersBar" type="HBoxContainer" parent="CenterContainer" unique_id=1570615758]
-custom_minimum_size = Vector2(340, 55)
+[node name="MessagesList" type="VBoxContainer" parent="Screen/MessagesScrollContainer/MessagesMargin"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="AnswersPanel" type="PanelContainer" parent="Screen" node_paths=PackedStringArray("options_list", "choices_section", "draft_label", "send_button")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_answers")
 script = ExtResource("2_wcops")
+options_list = NodePath("AnswersMargin/AnswersColumn/ChoicesSection/OptionsList")
+choices_section = NodePath("AnswersMargin/AnswersColumn/ChoicesSection")
+draft_label = NodePath("AnswersMargin/AnswersColumn/ComposerRow/DraftPill/DraftLabel")
+send_button = NodePath("AnswersMargin/AnswersColumn/ComposerRow/SendButton")
+
+[node name="AnswersMargin" type="MarginContainer" parent="Screen/AnswersPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 12
+
+[node name="AnswersColumn" type="VBoxContainer" parent="Screen/AnswersPanel/AnswersMargin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="ComposerRow" type="HBoxContainer" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="DraftPill" type="PanelContainer" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ComposerRow"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_draft")
+
+[node name="DraftLabel" type="Label" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ComposerRow/DraftPill"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = ExtResource("6_semib")
+theme_override_font_sizes/font_size = 13
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SendButton" type="Button" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ComposerRow"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+theme_override_colors/icon_normal_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 0.6)
+theme_override_constants/icon_max_width = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_send_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_send_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_send_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_send_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_send_disabled")
+icon = ExtResource("7_send")
+expand_icon = true
+
+[node name="ChoicesSection" type="VBoxContainer" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="ChooseRow" type="HBoxContainer" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ChoicesSection"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="ChooseIcon" type="TextureRect" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ChoicesSection/ChooseRow"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+modulate = Color(0.43137255, 0.44313726, 0.5019608, 1)
+texture = ExtResource("8_reply")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ChooseLabel" type="Label" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ChoicesSection/ChooseRow"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+text = "Escolha uma resposta"
+label_settings = SubResource("LabelSettings_choose")
+
+[node name="OptionsList" type="VBoxContainer" parent="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ChoicesSection"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[connection signal="pressed" from="Screen/AnswersPanel/AnswersMargin/AnswersColumn/ComposerRow/SendButton" to="Screen/AnswersPanel" method="_on_send_button_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blgv12ypdllvw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtcs3"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
