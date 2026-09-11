@@ -23,7 +23,7 @@ const CLEAR_COLOR := Color(0.13333334, 0.28235295, 0.38431373)
 @export var apps_result_label: Label
 @export var hack_result_label: Label
 @export var scanner_animation: Control
-@export var scanner_video_stream: VideoStreamPlayer
+@export var scan_animation: ScanAnimation
 @export var scanner_audio_stream: AudioStreamPlayer
 #endregion
 
@@ -37,7 +37,7 @@ func _ready() -> void:
 	red_style = virus_panel.get_theme_stylebox("panel").duplicate()
 	green_style = apps_panel.get_theme_stylebox("panel").duplicate()
 	scan_button.pressed.connect(_on_scan_button_pressed)
-	scanner_video_stream.finished.connect(_on_video_stream_finished)
+	scan_animation.finished.connect(_on_scan_finished)
 
 	remove_apps_button.pressed.connect(_on_remove_apps_button_pressed)
 	remove_virus_button.pressed.connect(_on_remove_virus_button_pressed)
@@ -47,18 +47,12 @@ func _on_scan_button_pressed() -> void:
 	scan_button.disabled = true
 	scanner_animation.visible = true
 
-	var has_viruses = GameData.number_of_viruses > 0
-	var video_stream
-	if has_viruses or GameData.is_hacked:
-		video_stream = load("res://assets/videos/scanner-virus.ogv")
-	else:
-		video_stream = load("res://assets/videos/scanner-no-virus.ogv")
-
-	scanner_video_stream.stream = video_stream
+	# Only tints the sweep: a clean device scans in mint, anything found turns it crimson.
+	var threat_count = GameData.number_of_viruses + (1 if GameData.is_hacked else 0)
 	scanner_audio_stream.play()
-	scanner_video_stream.play()
+	scan_animation.start(threat_count)
 
-func _on_video_stream_finished() -> void:
+func _on_scan_finished() -> void:
 	scanner_audio_stream.stop()
 	scanner_animation.visible = false
 	await get_tree().process_frame # Ensure UI updates before showing results

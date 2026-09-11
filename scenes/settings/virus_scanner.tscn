@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bt7a2lnrb0to"]
 
 [ext_resource type="Script" uid="uid://b8pn58ikrbqu0" path="res://scripts/apps/settings/virus_scanner.gd" id="1_sa0sr"]
-[ext_resource type="Shader" uid="uid://dori4q68p863g" path="res://shaders/virus_scanner.gdshader" id="2_2ymon"]
+[ext_resource type="Script" path="res://scripts/apps/settings/scan_animation.gd" id="8_scan"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_m62g1"]
-[ext_resource type="VideoStream" uid="uid://d07x467tfkssb" path="res://assets/videos/scanner-virus.ogv" id="3_2ymon"]
 [ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="4_06fvf"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_semi"]
 [ext_resource type="AudioStream" uid="uid://cnl1kvlrw424o" path="res://assets/sounds/sfx/scan.mp3" id="6_8hb8s"]
@@ -113,12 +112,6 @@ corner_detail = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_06fvf"]
-shader = ExtResource("2_2ymon")
-shader_parameter/key_color = Vector3(0.07, 0, 1)
-shader_parameter/sensitivity = 0.3890000184775
-shader_parameter/smoothness = 0.4090000194275
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m62g1"]
 shader = ExtResource("4_06fvf")
 shader_parameter/blur_radius = 8
@@ -129,9 +122,9 @@ shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 0.10000000149012
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06fvf"]
-bg_color = Color(0.101960786, 0.1254902, 0.2, 0.88)
+bg_color = Color(0.101960786, 0.1254902, 0.2, 0.95)
 
-[node name="Virus Scanner" type="Control" node_paths=PackedStringArray("virus_panel", "apps_panel", "hack_panel", "virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "virus_result_label", "apps_result_label", "hack_result_label", "scanner_animation", "scanner_video_stream", "scanner_audio_stream")]
+[node name="Virus Scanner" type="Control" node_paths=PackedStringArray("virus_panel", "apps_panel", "hack_panel", "virus_result", "apps_result", "hack_result", "remove_virus_button", "remove_apps_button", "remove_hack_button", "scan_button", "virus_result_label", "apps_result_label", "hack_result_label", "scanner_animation", "scan_animation", "scanner_audio_stream")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,7 +147,7 @@ virus_result_label = NodePath("Screen/Column/ResultsColumn/VirusPanel/Content/Vi
 apps_result_label = NodePath("Screen/Column/ResultsColumn/AppsPanel/Content/AppsResult/AppsLabel")
 hack_result_label = NodePath("Screen/Column/ResultsColumn/HackPanel/Content/HackResult/UnhackLabel")
 scanner_animation = NodePath("ScannerAnimation")
-scanner_video_stream = NodePath("ScannerAnimation/VideoStreamPlayer")
+scan_animation = NodePath("ScannerAnimation/ScanAnimation")
 scanner_audio_stream = NodePath("ScannerAnimation/AudioStreamPlayer")
 
 [node name="Screen" type="MarginContainer" parent="."]
@@ -403,19 +396,15 @@ offset_top = 0.040008545
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ScannerAnimation"]
+[node name="ScanAnimation" type="Control" parent="ScannerAnimation"]
 z_index = 3
-material = SubResource("ShaderMaterial_06fvf")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-audio_track = 2
-stream = ExtResource("3_2ymon")
-volume_db = 23.999998
-expand = true
+script = ExtResource("8_scan")
 
 [node name="Blur" type="Panel" parent="ScannerAnimation"]
 z_index = 1
