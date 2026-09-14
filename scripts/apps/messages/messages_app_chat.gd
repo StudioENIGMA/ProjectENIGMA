@@ -15,6 +15,12 @@ signal request_message_notification(
 
 signal message_answered(answer_id:int)
 
+## Asks the top bar to show the contact of the conversation being opened
+##
+## npc_name: The name of the contact
+## is_verified: Whether the contact carries the verified badge
+signal header_changed(npc_name: String, is_verified: bool)
+
 signal request_message_creation_on_answer(
 	name:String,
 	message:String,
@@ -51,10 +57,6 @@ const NO_UNREAD = -1
 @export var answers_panel:PanelContainer
 @export var scroll_container:ScrollContainer
 
-@export var profile_picture: Control
-@export var name_label: Label
-@export var verified_badge: Panel
-
 var conversation_dict: Dictionary
 var conversation_name:String = ""
 var messages_typing: Dictionary = {}
@@ -82,7 +84,7 @@ func setup(conversation_data:Dictionary) -> void:
 
 	conversation_dict = conversation_data
 	conversation_name = conversation_data["name"]
-	set_header_panel(conversation_data["verified"])
+	_announce_contact(conversation_data["verified"])
 
 	answers_panel.set_active_conversation(conversation_name)
 	answers_panel.clear_ui()
@@ -200,11 +202,8 @@ func on_request_answer_option(
 		answer_id
 	)
 
-func set_header_panel(is_verified: bool) -> void:
-	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
-	profile_picture.setup(photo_path, conversation_name)
-	name_label.text = conversation_name
-	verified_badge.visible = is_verified
+func _announce_contact(is_verified: bool) -> void:
+	header_changed.emit(conversation_name, is_verified)
 
 ## Renders a message bubble at the end of the conversation
 ##
