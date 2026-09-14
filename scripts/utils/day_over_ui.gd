@@ -14,15 +14,15 @@ const TYPE_TO_RP = {
 }
 
 const SUCCESS_COLOR = Color(0.30980393, 0.79607844, 0.68235296)
-const SUCCESS_COLOR_ACTIVE = Color(0.27450982, 0.70980394, 0.6901961)
 const FAILURE_COLOR = Color(0.92156863, 0.039215688, 0.27058825)
-const FAILURE_COLOR_ACTIVE = Color(0.5686275, 0.101960786, 0.21960784)
+## Tallest the events list grows before it starts scrolling
+const MAX_EVENTS_HEIGHT = 300.0
 
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
 @export var reputation_points_label: Label
 @export var result_label: Label
-@export var result_badge: PanelContainer
+@export var events_scroll: ScrollContainer
 
 func show_day_over() -> void:
 	if GameData.current_day == 7:
@@ -46,8 +46,8 @@ func show_day_over() -> void:
 
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
 		result_label.text = "APROVADO"
-		_style_badge(SUCCESS_COLOR)
-		_style_button(SUCCESS_COLOR, SUCCESS_COLOR_ACTIVE)
+		result_label.add_theme_color_override("font_color", SUCCESS_COLOR)
+		reputation_points_label.add_theme_color_override("font_color", SUCCESS_COLOR)
 		if GameData.current_day + 1 == 7:
 			next_day_button.text = "Continuar"
 			next_day_button.pressed.connect(_on_final_day_button_pressed)
@@ -56,39 +56,19 @@ func show_day_over() -> void:
 			next_day_button.pressed.connect(_on_next_day_button_pressed)
 	else:
 		result_label.text = "REPROVADO"
-		_style_badge(FAILURE_COLOR)
-		_style_button(FAILURE_COLOR, FAILURE_COLOR_ACTIVE)
+		result_label.add_theme_color_override("font_color", FAILURE_COLOR)
+		reputation_points_label.add_theme_color_override("font_color", FAILURE_COLOR)
 		next_day_button.text = "Recomeçar Dia " + str(GameData.current_day)
 		next_day_button.pressed.connect(_on_previous_day_button_pressed)
 	self.show()
+	_fit_events_scroll()
 
-func _style_badge(color: Color) -> void:
-	var style = StyleBoxFlat.new()
-	style.bg_color = color
-	style.content_margin_left = 18.0
-	style.content_margin_right = 18.0
-	style.content_margin_top = 6.0
-	style.content_margin_bottom = 6.0
-	style.corner_radius_top_left = 100
-	style.corner_radius_top_right = 100
-	style.corner_radius_bottom_right = 100
-	style.corner_radius_bottom_left = 100
-	result_badge.add_theme_stylebox_override("panel", style)
-
-func _style_button(color: Color, active_color: Color) -> void:
-	var normal_style = StyleBoxFlat.new()
-	normal_style.bg_color = color
-	normal_style.corner_radius_top_left = 100
-	normal_style.corner_radius_top_right = 100
-	normal_style.corner_radius_bottom_right = 100
-	normal_style.corner_radius_bottom_left = 100
-
-	var active_style = normal_style.duplicate()
-	active_style.bg_color = active_color
-
-	next_day_button.add_theme_stylebox_override("normal", normal_style)
-	next_day_button.add_theme_stylebox_override("hover", active_style)
-	next_day_button.add_theme_stylebox_override("pressed", active_style)
+## Sizes the events list to its rows (capped), so the summary stays one compact centered block
+func _fit_events_scroll() -> void:
+	# Freed rows linger until the end of the frame, so measure after it
+	await get_tree().process_frame
+	var rows_height = events_container.get_combined_minimum_size().y
+	events_scroll.custom_minimum_size.y = min(rows_height, MAX_EVENTS_HEIGHT)
 
 func handle_credit_scene() -> void:
 	end_game.emit()
