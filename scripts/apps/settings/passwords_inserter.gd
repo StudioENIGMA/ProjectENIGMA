@@ -2,6 +2,9 @@ extends Control
 
 signal password_correct()
 
+const INK_COLOR := Color(0.09019608, 0.10980392, 0.18039216)
+const ERROR_COLOR := Color(0.5686275, 0.101960786, 0.21960784)
+
 #region CHILDREN NODES REFERENCES
 @export var instruction_label: Label
 @export var line_edit: LineEdit
@@ -18,6 +21,7 @@ func setup(data: Dictionary) -> void:
 	gated_app = data["GatedApp"]
 	var app_name = GameData.apps_name_reverse.get(gated_app, "Desconhecido")
 	instruction_label.text = "Insira a senha para %s:" % app_name
+	instruction_label.add_theme_color_override("font_color", INK_COLOR)
 
 	line_edit.text = ""
 
@@ -35,4 +39,5 @@ func _user_typed(entered_password: String) -> void:
 		else:
 			line_edit.text = ""
 			instruction_label.text = "Senha incorreta"
+			instruction_label.add_theme_color_override("font_color", ERROR_COLOR)
 #endregion
