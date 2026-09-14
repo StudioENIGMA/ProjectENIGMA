@@ -35,35 +35,29 @@
 [ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
 [ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
 [ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="33_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="34_reg"]
+[ext_resource type="Shader" uid="uid://jtbma8vm1hxv" path="res://shaders/frosted_glass.gdshader" id="35_frosted"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="36_scroll"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jpl5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 5
-border_color = Color(0.65882355, 0.047058824, 0.078431375, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
+shader = ExtResource("35_frosted")
+shader_parameter/blur_radius = 40.0
+shader_parameter/blur_lod = 3.0
+shader_parameter/tint = Color(0.101960786, 0.1254902, 0.2, 0.62)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3pqv"]
-content_margin_bottom = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dayover_card"]
+bg_color = Color(1, 1, 0.972549, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.16)
+shadow_size = 16
+shadow_offset = Vector2(0, 6)
 
-[sub_resource type="LabelSettings" id="LabelSettings_lhiww"]
-font = ExtResource("19_1vcyb")
-font_size = 14
-
-[sub_resource type="LabelSettings" id="LabelSettings_e8n22"]
-font = ExtResource("19_1vcyb")
-font_size = 17
-
-[sub_resource type="LabelSettings" id="LabelSettings_5jpl5"]
-font = ExtResource("19_1vcyb")
-font_size = 19
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_040sx"]
-bg_color = Color(0.2901961, 0.2901961, 0.2901961, 0.5568628)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dayover_focus"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0pff"]
 content_margin_left = 30.0
@@ -651,7 +645,7 @@ bus = &"SFX"
 wait_time = 2.5
 one_shot = true
 
-[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_rich_text")]
+[node name="DayOverUI" type="Control" parent="UI" node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_label", "result_badge")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -660,117 +654,145 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_bd51b")
-next_day_button = NodePath("MarginContainer/TextDayOverContainer/NextDayButton")
-events_container = NodePath("MarginContainer/TextDayOverContainer/EventsContainer")
-reputation_points_label = NodePath("MarginContainer/TextDayOverContainer/HBoxContainer/Label2")
-result_rich_text = NodePath("MarginContainer/TextDayOverContainer/ResultRichText")
+next_day_button = NodePath("Margin/Card/CardMargin/Content/NextDayButton")
+events_container = NodePath("Margin/Card/CardMargin/Content/EventsScroll/EventsContainer")
+reputation_points_label = NodePath("Margin/Card/CardMargin/Content/TotalRow/ValueLabel")
+result_label = NodePath("Margin/Card/CardMargin/Content/ResultBadge/ResultLabel")
+result_badge = NodePath("Margin/Card/CardMargin/Content/ResultBadge")
 
-[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1905301528]
-modulate = Color(1, 1, 1, 0.835294)
+[node name="Blur" type="ColorRect" parent="UI/DayOverUI"]
+material = SubResource("ShaderMaterial_dayover_blur")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("22_87fqc")
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI" unique_id=492753194]
+[node name="Margin" type="MarginContainer" parent="UI/DayOverUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 35
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 64
 
-[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer" unique_id=1593008203]
+[node name="Card" type="PanelContainer" parent="UI/DayOverUI/Margin"]
 layout_mode = 2
-alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dayover_card")
 
-[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1334004570]
+[node name="CardMargin" type="MarginContainer" parent="UI/DayOverUI/Margin/Card"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_5jpl5")
-bbcode_enabled = true
-text = "FIM DO DIA"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="Content" type="VBoxContainer" parent="UI/DayOverUI/Margin/Card/CardMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+theme_override_font_sizes/font_size = 20
+text = "Fim do Dia"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="CentralMargin2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=859760902]
-custom_minimum_size = Vector2(0, 20)
+[node name="ResultBadge" type="PanelContainer" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="ResultRichText" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1494740372]
+[node name="ResultLabel" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/ResultBadge"]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 0.015686275, 0.2784314, 1)
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "REPROVADO"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+theme_override_font_sizes/font_size = 16
+text = "APROVADO"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=116572443]
-custom_minimum_size = Vector2(0, 30)
+[node name="Divider1" type="ColorRect" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="ListHeaderRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1269220909]
+[node name="EventsLabel" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/ListHeaderRow"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_s3pqv")
-
-[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=588053004]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 12
 text = "Eventos de Hoje"
-label_settings = SubResource("LabelSettings_lhiww")
 
-[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=2010453970]
+[node name="PointsLabel" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/ListHeaderRow"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "Pontos de Reputação"
-label_settings = SubResource("LabelSettings_lhiww")
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 12
+text = "Pontos"
+horizontal_alignment = 2
 
-[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1915681026]
+[node name="EventsScroll" type="ScrollContainer" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("36_scroll")
+size_x = 4
+
+[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/EventsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1209983138]
-custom_minimum_size = Vector2(0, 15)
+[node name="Divider2" type="ColorRect" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="TotalRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=2018848574]
+[node name="LabelTotal" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/TotalRow"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=286216195]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 13
 text = "Pontos de Reputação Diários"
-label_settings = SubResource("LabelSettings_e8n22")
+autowrap_mode = 2
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=1898905068]
+[node name="ValueLabel" type="Label" parent="UI/DayOverUI/Margin/Card/CardMargin/Content/TotalRow"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "110/220"
-label_settings = SubResource("LabelSettings_5jpl5")
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+theme_override_font_sizes/font_size = 16
+text = "10/10"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1979685532]
-custom_minimum_size = Vector2(0, 15)
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/Margin/Card/CardMargin/Content"]
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-
-[node name="NextDayButton" type="Button" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=327593996]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_040sx")
-text = "Dia"
-icon_alignment = 1
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dayover_focus")
+text = "Iniciar Dia 1"
 
 [node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel", "difficulty_changer")]
 process_mode = 3

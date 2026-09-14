@@ -1,30 +1,47 @@
 [gd_scene format=3 uid="uid://c3vudh8hb8ys2"]
 
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_kerc5"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_reg"]
 [ext_resource type="Script" uid="uid://dpgmbg2a0f2u" path="res://scripts/utils/event_description.gd" id="1_yrjqk"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_yrjqk"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_gopqt"]
-font = ExtResource("1_kerc5")
-font_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pill"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.18)
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
-[sub_resource type="LabelSettings" id="LabelSettings_qca60"]
-font = ExtResource("2_yrjqk")
-font_size = 20
-font_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
-
-[node name="EventDescription" type="HBoxContainer" unique_id=376401861 node_paths=PackedStringArray("description_label", "rp_label")]
+[node name="EventDescription" type="HBoxContainer" node_paths=PackedStringArray("description_label", "rp_pill", "rp_label")]
+layout_mode = 2
+theme_override_constants/separation = 12
 script = ExtResource("1_yrjqk")
 description_label = NodePath("DescriptionLabel")
-rp_label = NodePath("RPLabel")
+rp_pill = NodePath("RPPill")
+rp_label = NodePath("RPPill/RPLabel")
 
-[node name="DescriptionLabel" type="Label" parent="." unique_id=843371085]
+[node name="DescriptionLabel" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("1_reg")
+theme_override_font_sizes/font_size = 13
 text = "Compra de materiais - Gilmar"
-label_settings = SubResource("LabelSettings_gopqt")
+autowrap_mode = 3
+text_overrun_behavior = 4
 
-[node name="RPLabel" type="Label" parent="." unique_id=96964361]
+[node name="RPPill" type="PanelContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_pill")
+
+[node name="RPLabel" type="Label" parent="RPPill"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_yrjqk")
+theme_override_font_sizes/font_size = 13
 text = "+10"
-label_settings = SubResource("LabelSettings_qca60")
