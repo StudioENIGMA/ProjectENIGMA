@@ -21,6 +21,12 @@ signal pause_game_requested()
 
 @export var notification_ui: Control
 
+@export var app_title: Control
+@export var app_title_avatar: Control
+@export var app_title_picture: Control
+@export var app_title_label: Label
+@export var app_title_badge: Panel
+
 var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
 var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
@@ -156,6 +162,7 @@ func _ready() -> void:
 		apk_installation_requested.emit # Propagate signal to desktop UI
 	)
 	app_specific_screen.add_child(messages_app_chat)
+	messages_app_chat.header_changed.connect(_on_chat_header_changed)
 
 	# Settings app home (Settings app)
 	settings_app.visible = false
@@ -356,6 +363,8 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	specific_app.visible = true
 	notification_ui.visible = true
+	
+	_update_app_title()
 
 	# If is a hack minigame, do not show back or close buttons
 	var hack_minigames = [
@@ -419,6 +428,8 @@ func _on_back_button_pressed() -> void:
 	var was_hack_minigame = current_app_enum in hack_minigames
 
 	open_apps.erase(current_app_dict)
+	
+	_update_app_title()
 
 	var number_of_open_apps:int = open_apps.size()
 
@@ -469,6 +480,34 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 	if _has_open_main_app(main_app):
 		_close_main_app(main_app)
 
+## Fills the top bar title with the opened conversation contact
+func _on_chat_header_changed(npc_name: String, is_verified: bool) -> void:
+	app_title_picture.setup(str("res://assets/avatars/", npc_name, ".png"), npc_name)
+	app_title_label.text = npc_name
+	app_title_badge.visible = is_verified
+
+## Names the screen that is open: the contact on a chat, the app it belongs to everywhere else
+func _update_app_title() -> void:
+	if open_apps.is_empty():
+		app_title.visible = false
+		return
+
+	var current_app_dict: Dictionary = open_apps[open_apps.size() - 1]
+
+	# A chat keeps the header the conversation itself asked for (avatar, name and badge)
+	if current_app_dict["SubScreen"] == GameData.App.MESSAGESCHAT:
+		app_title_avatar.visible = true
+		app_title.visible = true
+		return
+
+	# Everything else is titled with its main app, so the bar is never a bare row of icons
+	var main_app: GameData.App = current_app_dict["MainApp"]
+	var app_name: String = GameData.apps_data.get(main_app, {}).get("name", "")
+	app_title_avatar.visible = false
+	app_title_badge.visible = false
+	app_title_label.text = app_name
+	app_title.visible = not app_name.is_empty()
+
 ## Checks if there is any open app with the specified main app enum
 func _has_open_main_app(main_app: GameData.App) -> bool:
 	for app_dict in open_apps:
@@ -499,6 +538,8 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 				subscreen_node.visible = false
 
 		open_apps.remove_at(i)
+		
+	_update_app_title()
 
 	# Update top bar + show previous if any
 	if open_apps.is_empty():
