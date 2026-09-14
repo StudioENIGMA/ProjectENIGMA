@@ -45,6 +45,10 @@ func send_notification(notification_parameter:Dictionary) -> void:
 		notification_parameter.content,
 		notification_parameter.title
 	)
+	
+	notification_instance.dismissed.connect(_on_notification_dismissed)
+	notification_instance.drag_started.connect(notification_timer.stop)
+	notification_instance.drag_cancelled.connect(notification_timer.start)
 
 	# Add the notification to the scene tree and play sound & animation
 	self.add_child(notification_instance)
@@ -60,14 +64,22 @@ func send_notification(notification_parameter:Dictionary) -> void:
 ## Plays the disappear animation and removes the notification from the queue
 ## Also, sends the next notification if available
 func _on_notification_timer_timeout() -> void:
+	notification_instance.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	# Play disappear animation and remove the notification from the queue
 	animation_player = notification_instance.get_child(0)
 	animation_player.play("disappear")
 	await animation_player.animation_finished
-	notification_instance.queue_free()
-	notification_array.erase(notification_array[0])
+	
+	_advance_queue()
+		
+func _on_notification_dismissed() -> void:
+	notification_timer.stop()
+	_advance_queue()
 
-	# If other notifications are in the queue, send the next one
+func _advance_queue() -> void:
+	notification_instance.queue_free()
+	notification_array.remove_at(0)
 	if notification_array.size() > 0:
 		send_notification(notification_array[0])
 
