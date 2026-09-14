@@ -1082,6 +1082,9 @@ script = ExtResource("26_51grn")
 [node name="EventsDirector" type="Node2D" parent="StoryDirector" unique_id=1141190310]
 script = ExtResource("28_5o8nl")
 
+[node name="BlurBackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
 [node name="progressiveBlur" type="ColorRect" parent="." unique_id=1481049179]
 material = SubResource("ShaderMaterial_8e4ax")
 layout_mode = 1
