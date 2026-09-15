@@ -16,7 +16,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status_running"]
 content_margin_left = 12.0
@@ -28,7 +27,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status_done"]
 content_margin_left = 12.0
@@ -40,7 +38,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
 bg_color = Color(0.09019608, 0.10980392, 0.18039216, 0.08)
@@ -68,7 +65,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7oopa"]
 content_margin_left = 16.0
@@ -80,7 +76,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt8am"]
 content_margin_left = 16.0
@@ -92,7 +87,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
 
@@ -157,7 +151,7 @@ _data = {
 &"update_os": SubResource("Animation_plx2x")
 }
 
-[node name="UpdateOs" type="Control" node_paths=PackedStringArray("update_button", "animator", "progress_bar", "status_pill", "status_label", "percent_label")]
+[node name="UpdateOs" type="Control" unique_id=716187367 node_paths=PackedStringArray("update_button", "animator", "progress_bar", "status_pill", "status_label", "percent_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,7 +170,7 @@ pending_status_style = SubResource("StyleBoxFlat_status_pending")
 running_status_style = SubResource("StyleBoxFlat_status_running")
 done_status_style = SubResource("StyleBoxFlat_status_done")
 
-[node name="Screen" type="MarginContainer" parent="."]
+[node name="Screen" type="MarginContainer" parent="." unique_id=508589614]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,23 +183,23 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Column" type="VBoxContainer" parent="Screen"]
+[node name="Column" type="VBoxContainer" parent="Screen" unique_id=621261614]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 12
 
-[node name="TopSpacer" type="Control" parent="Screen/Column"]
+[node name="TopSpacer" type="Control" parent="Screen/Column" unique_id=961575836]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="GearWrap" type="Control" parent="Screen/Column"]
+[node name="GearWrap" type="Control" parent="Screen/Column" unique_id=2045349720]
 custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="GearIcon" type="TextureRect" parent="Screen/Column/GearWrap"]
+[node name="GearIcon" type="TextureRect" parent="Screen/Column/GearWrap" unique_id=982324416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,33 +212,29 @@ texture = ExtResource("2_cinje")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="Screen/Column"]
+[node name="TitleLabel" type="Label" parent="Screen/Column" unique_id=1929831319]
 layout_mode = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("3_bold")
 theme_override_font_sizes/font_size = 18
-text = "Sistema operacional"
+text = "EnigmaOS"
 horizontal_alignment = 1
 
-[node name="StatusPill" type="PanelContainer" parent="Screen/Column"]
+[node name="StatusPill" type="PanelContainer" parent="Screen/Column" unique_id=1876312829]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_status_pending")
 
-[node name="StatusLabel" type="Label" parent="Screen/Column/StatusPill"]
+[node name="StatusLabel" type="Label" parent="Screen/Column/StatusPill" unique_id=1140689350]
 layout_mode = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("4_semi")
 theme_override_font_sizes/font_size = 11
 text = "Atualização disponível"
 
-[node name="NoteLabel" type="Label" parent="Screen/Column"]
-custom_minimum_size = Vector2(0, 0)
+[node name="NoteLabel" type="Label" parent="Screen/Column" unique_id=2046007201]
 layout_mode = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("5_reg")
 theme_override_font_sizes/font_size = 12
@@ -252,17 +242,17 @@ text = "Atualizações fecham falhas que invasores já conhecem."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ActionSpacer" type="Control" parent="Screen/Column"]
+[node name="ActionSpacer" type="Control" parent="Screen/Column" unique_id=985907130]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressColumn" type="VBoxContainer" parent="Screen/Column"]
+[node name="ProgressColumn" type="VBoxContainer" parent="Screen/Column" unique_id=462637859]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="ProgressBar" type="ProgressBar" parent="Screen/Column/ProgressColumn"]
+[node name="ProgressBar" type="ProgressBar" parent="Screen/Column/ProgressColumn" unique_id=1153383930]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 mouse_filter = 2
@@ -270,40 +260,39 @@ theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cinje")
 show_percentage = false
 
-[node name="PercentLabel" type="Label" parent="Screen/Column/ProgressColumn"]
+[node name="PercentLabel" type="Label" parent="Screen/Column/ProgressColumn" unique_id=647234543]
 visible = false
 layout_mode = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("4_semi")
 theme_override_font_sizes/font_size = 12
 text = "0%"
 horizontal_alignment = 1
 
-[node name="UpdateButton" type="Button" parent="Screen/Column"]
+[node name="UpdateButton" type="Button" parent="Screen/Column" unique_id=878790657]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("4_semi")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_plx2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7oopa")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7oopa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7oopa")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gt8am")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
-text = "Atualizar OS"
+text = "Atualizar EnigmaOS"
 
-[node name="BottomSpacer" type="Control" parent="Screen/Column"]
+[node name="BottomSpacer" type="Control" parent="Screen/Column" unique_id=1071314399]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=443543084]
 libraries/ = SubResource("AnimationLibrary_7oopa")
 
 [connection signal="value_changed" from="Screen/Column/ProgressColumn/ProgressBar" to="." method="_on_progress_bar_value_changed"]
