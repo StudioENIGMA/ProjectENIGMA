@@ -29,4 +29,7 @@ func _ready() -> void:
   base_app.apk_installation_requested.connect(apps_ui.on_app_installed)
   base_app.store_app.app_installed.connect(apps_ui.on_app_installed)
   base_app.fake_store_app.app_installed.connect(apps_ui.on_app_installed)
+
+  notifications_control.notification_added.connect(apps_ui.on_notification_added)
+  base_app.main_app_opened.connect(apps_ui.on_app_opened)
 #endregion INITIALIZATION

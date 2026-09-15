@@ -1,5 +1,8 @@
 extends Control
 
+## Emitted for every notification accepted into the queue, so the home screen can badge the app
+signal notification_added(app: GameData.App)
+
 const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
 
 @export var notification_timer:Timer
@@ -29,6 +32,7 @@ func add_notification_to_queue(
 		"title": title,
 		"time": time
 	})
+	notification_added.emit(app)
 
 	# If it's the only notification in the queue, send it immediately
 	if notification_array.size() == 1:
