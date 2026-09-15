@@ -1,0 +1,969 @@
+[gd_scene format=3 uid="uid://t733xktji2q8"]
+
+[ext_resource type="Texture2D" uid="uid://dbmhpb8fx6ss2" path="res://assets/background.jpeg" id="1_3a7ej"]
+[ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
+[ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="1_8e4ax"]
+[ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
+[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
+[ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
+[ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
+[ext_resource type="Script" uid="uid://xaccuwl3nujq" path="res://scripts/utils/pause_button.gd" id="6_q7j5u"]
+[ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
+[ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
+[ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
+[ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
+[ext_resource type="Script" uid="uid://ceklftgii3mfk" path="res://scripts/notifications/notifications_control.gd" id="14_5o8nl"]
+[ext_resource type="Script" uid="uid://clxmjnuujpjq5" path="res://scripts/sounds/play_touch_sound.gd" id="14_yc1wb"]
+[ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="15_q7j5u"]
+[ext_resource type="Script" uid="uid://boa23kdm60cp1" path="res://scripts/utils/time_clock.gd" id="16_1vcyb"]
+[ext_resource type="PackedScene" uid="uid://tfos8eqtx3j3" path="res://scenes/tools/AppButton.tscn" id="16_5o8nl"]
+[ext_resource type="Script" uid="uid://b4nfvsrqm1lpn" path="res://scripts/pause_game_ui.gd" id="16_51grn"]
+[ext_resource type="Script" uid="uid://fdt35345xfj3" path="res://scripts/utils/story_director.gd" id="18_oknyi"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="19_1vcyb"]
+[ext_resource type="Script" uid="uid://dayquwr7wsoce" path="res://scripts/utils/pause_confirmation_panel.gd" id="19_21xuv"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="20_gopqt"]
+[ext_resource type="Script" uid="uid://de5hmb2wcw3iq" path="res://scripts/difficulty_changer.gd" id="20_lhiww"]
+[ext_resource type="Texture2D" uid="uid://drvxjqqu5ywls" path="res://assets/300X400 BLACK.jpg" id="22_87fqc"]
+[ext_resource type="Script" uid="uid://k72phvij2vqx" path="res://scripts/utils/messages_director.gd" id="22_f2213"]
+[ext_resource type="Script" uid="uid://cd6ggq0kyoneo" path="res://scripts/utils/answers_director.gd" id="24_8e4ax"]
+[ext_resource type="Script" uid="uid://djku052mnrbym" path="res://scripts/apps/hack_handler.gd" id="25_5o8nl"]
+[ext_resource type="Script" uid="uid://o4kgwpak3c18" path="res://scripts/utils/emails_director.gd" id="26_8e4ax"]
+[ext_resource type="Script" uid="uid://dhl4ydl1jo0ac" path="res://scripts/utils/randomness_director.gd" id="26_51grn"]
+[ext_resource type="Script" uid="uid://w75ry4o6y24x" path="res://scripts/utils/events_director.gd" id="28_5o8nl"]
+[ext_resource type="Script" uid="uid://csy7b4qf21mj7" path="res://scripts/utils/browser_director.gd" id="29_1vcyb"]
+[ext_resource type="Script" uid="uid://cltp18s7nmxrj" path="res://scripts/utils/reviews_director.gd" id="29_5o8nl"]
+[ext_resource type="Script" uid="uid://dgg3axuyke6ti" path="res://scripts/utils/shops_director.gd" id="30_q7j5u"]
+[ext_resource type="Script" uid="uid://djfg2a20m8m0i" path="res://scripts/utils/bank_director.gd" id="32_21xuv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jpl5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 5
+border_color = Color(0.65882355, 0.047058824, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3pqv"]
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhiww"]
+font = ExtResource("19_1vcyb")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_e8n22"]
+font = ExtResource("19_1vcyb")
+font_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_5jpl5"]
+font = ExtResource("19_1vcyb")
+font_size = 19
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_040sx"]
+bg_color = Color(0.2901961, 0.2901961, 0.2901961, 0.5568628)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0pff"]
+content_margin_left = 30.0
+content_margin_top = 32.0
+content_margin_right = 30.0
+content_margin_bottom = 28.0
+bg_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_size = 26
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popuphover"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+bg_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popuppanel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 14
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="Theme" id="Theme_pausepopup"]
+PopupMenu/colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+PopupMenu/colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+PopupMenu/constants/item_end_padding = 14
+PopupMenu/constants/item_start_padding = 14
+PopupMenu/constants/v_separation = 6
+PopupMenu/font_sizes/font_size = 14
+PopupMenu/fonts/font = ExtResource("20_gopqt")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_popuphover")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_popuppanel")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_accm4"]
+content_margin_left = 30.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5tky"]
+content_margin_left = 30.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ox6c"]
+content_margin_left = 30.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rejs6"]
+content_margin_left = 30.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26bax"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mainbtn"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quitbtn"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Animation" id="Animation_main_hover"]
+resource_name = "main_hover"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_main_press"]
+resource_name = "main_press"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_quit_hover"]
+resource_name = "quit_hover"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuitButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_quit_press"]
+resource_name = "quit_press"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuitButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_resume_hover"]
+resource_name = "resume_hover"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ResumeButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.3647059, 0.85490197, 0.7372549, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_resume_press"]
+resource_name = "resume_press"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ResumeButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.22745098, 0.6117647, 0.5254902, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pausebtns"]
+_data = {
+&"main_hover": SubResource("Animation_main_hover"),
+&"main_press": SubResource("Animation_main_press"),
+&"quit_hover": SubResource("Animation_quit_hover"),
+&"quit_press": SubResource("Animation_quit_press"),
+&"resume_hover": SubResource("Animation_resume_hover"),
+&"resume_press": SubResource("Animation_resume_press")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xuv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lctrs"]
+bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhiww"]
+bg_color = Color(0.6064064, 0.06568552, 4.813075e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gopqt"]
+bg_color = Color(0.4457847, 0.036952697, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qca60"]
+bg_color = Color(0.7918716, 0.100445725, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omb3v"]
+bg_color = Color(0, 0.36959997, 0.107734896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pur81"]
+bg_color = Color(0.104712255, 0.2792548, 0.15956783, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8n22"]
+bg_color = Color(0.17046908, 0.41386926, 0.24258903, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8e4ax"]
+shader = ExtResource("1_8e4ax")
+shader_parameter/blur_radius = 8
+shader_parameter/blur_scale = 0.0
+shader_parameter/darkness = 1.0000000475
+shader_parameter/fade_direction = 0
+shader_parameter/fade_cutoff = 1.0
+shader_parameter/fade_intensity = 2.0
+
+[node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur", "clock_timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_8imdr")
+ui = NodePath("UI")
+event_handler = NodePath("EventHandler")
+story_director = NodePath("StoryDirector")
+progressive_blur = NodePath("progressiveBlur")
+clock_timer = NodePath("EventHandler/ClockTimer")
+
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui", "pause_game_ui")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_5o8nl")
+base_app = NodePath("BaseApp")
+day_over_ui = NodePath("DayOverUI")
+notifications_control = NodePath("NotificationUI")
+apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
+pause_game_ui = NodePath("PauseGameUI")
+
+[node name="DesktopUI" type="Control" parent="UI" unique_id=541633836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="UI/DesktopUI" unique_id=74826303]
+z_index = -100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_3a7ej")
+expand_mode = 1
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
+stream = ExtResource("2_bd51b")
+autoplay = true
+bus = &"Music"
+
+[node name="PauseContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=1437380376]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+
+[node name="PauseButton" type="TextureButton" parent="UI/DesktopUI/PauseContainer" unique_id=1606311021]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("5_5o8nl")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("6_q7j5u")
+
+[node name="ClockContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=2049360299]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -229.0
+offset_bottom = 148.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 16
+
+[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/ClockContainer" unique_id=1868654397 node_paths=PackedStringArray("time_label", "weekday_label") groups=["clock_display"]]
+layout_mode = 2
+script = ExtResource("16_1vcyb")
+time_label = NodePath("Hour")
+weekday_label = NodePath("WeekDay")
+
+[node name="Hour" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=1389524436]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("7_yc1wb")
+theme_override_font_sizes/font_size = 80
+text = "18:32"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WeekDay" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=299553706]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("7_yc1wb")
+theme_override_font_sizes/font_size = 30
+text = "Tue 17, April"
+horizontal_alignment = 2
+
+[node name="BottomMargin" type="MarginContainer" parent="UI/DesktopUI" unique_id=1166920329]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -177.0
+offset_right = 170.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="AppsUI" type="GridContainer" parent="UI/DesktopUI/BottomMargin" unique_id=1935745718 node_paths=PackedStringArray("touch_sound_player")]
+layout_mode = 2
+columns = 4
+script = ExtResource("8_h0j4g")
+touch_sound_player = NodePath("AppTouchSound")
+
+[node name="Messages" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=369145603 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+
+[node name="Settings" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=93658187 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+app = 2
+
+[node name="Shop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1060404952 instance=ExtResource("16_5o8nl")]
+layout_mode = 2
+app = 8
+
+[node name="FakeShop" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=177805895 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 9
+
+[node name="Authenticator" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2075618527 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 29
+
+[node name="Bank" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1042632069 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 30
+
+[node name="Email" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2124812713 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 27
+
+[node name="browser" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=383631718 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 10
+
+[node name="Notes" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=1913046901 instance=ExtResource("16_5o8nl")]
+visible = false
+layout_mode = 2
+app = 38
+
+[node name="AppTouchSound" type="AudioStreamPlayer2D" parent="UI/DesktopUI/BottomMargin/AppsUI" unique_id=2129706902]
+position = Vector2(-9.5, -231.5)
+stream = ExtResource("13_51grn")
+script = ExtResource("14_yc1wb")
+
+[node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui", "pause_button", "notification_ui") instance=ExtResource("3_qca60")]
+visible = false
+layout_mode = 1
+apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
+pause_button = NodePath("../DesktopUI/PauseContainer/PauseButton")
+notification_ui = NodePath("../NotificationUI")
+
+[node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
+custom_minimum_size = Vector2(350, 86)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 64.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("14_5o8nl")
+notification_timer = NodePath("NotificationTimer")
+audio_stream_player = NodePath("NotificationSoundPlayer")
+
+[node name="NotificationSoundPlayer" type="AudioStreamPlayer2D" parent="UI/NotificationUI" unique_id=663275218]
+stream = ExtResource("15_q7j5u")
+volume_db = -3.0
+bus = &"SFX"
+
+[node name="NotificationTimer" type="Timer" parent="UI/NotificationUI" unique_id=495132933]
+wait_time = 2.5
+one_shot = true
+
+[node name="DayOverUI" type="Control" parent="UI" unique_id=968700396 node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_rich_text")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_bd51b")
+next_day_button = NodePath("MarginContainer/TextDayOverContainer/NextDayButton")
+events_container = NodePath("MarginContainer/TextDayOverContainer/EventsContainer")
+reputation_points_label = NodePath("MarginContainer/TextDayOverContainer/HBoxContainer/Label2")
+result_rich_text = NodePath("MarginContainer/TextDayOverContainer/ResultRichText")
+
+[node name="DayOverBackground" type="TextureRect" parent="UI/DayOverUI" unique_id=1905301528]
+modulate = Color(1, 1, 1, 0.835294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_87fqc")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI" unique_id=492753194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 35
+
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer" unique_id=1593008203]
+layout_mode = 2
+alignment = 1
+
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1334004570]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.811765, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jpl5")
+bbcode_enabled = true
+text = "FIM DO DIA"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=859760902]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResultRichText" type="RichTextLabel" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1494740372]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.015686275, 0.2784314, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "REPROVADO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=116572443]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1269220909]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s3pqv")
+
+[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=588053004]
+layout_mode = 2
+text = "Eventos de Hoje"
+label_settings = SubResource("LabelSettings_lhiww")
+
+[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/PanelContainer" unique_id=2010453970]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Pontos de Reputação"
+label_settings = SubResource("LabelSettings_lhiww")
+
+[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1915681026]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1209983138]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=2018848574]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=286216195]
+layout_mode = 2
+text = "Pontos de Reputação Diários"
+label_settings = SubResource("LabelSettings_e8n22")
+
+[node name="Label2" type="Label" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer/HBoxContainer" unique_id=1898905068]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "110/220"
+label_settings = SubResource("LabelSettings_5jpl5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=1979685532]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/MarginContainer/TextDayOverContainer" unique_id=327593996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_040sx")
+text = "Dia"
+icon_alignment = 1
+
+[node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel", "difficulty_changer")]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_51grn")
+resume_button = NodePath("CenterContainer/PauseCard/TextDayOverContainer/ResumeButton")
+quit_button = NodePath("CenterContainer/PauseCard/TextDayOverContainer/QuitButton")
+menu_button = NodePath("CenterContainer/PauseCard/TextDayOverContainer/MainButton")
+confirmation_panel = NodePath("ConfirmationPanel")
+difficulty_changer = NodePath("CenterContainer/PauseCard/TextDayOverContainer/HBoxContainer/OptionButton")
+
+[node name="DayOverBackground" type="TextureRect" parent="UI/PauseGameUI" unique_id=1458791751]
+modulate = Color(1, 1, 1, 0.835294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_87fqc")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseGameUI" unique_id=654835507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseCard" type="PanelContainer" parent="UI/PauseGameUI/CenterContainer" unique_id=1908849238]
+custom_minimum_size = Vector2(272, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t0pff")
+
+[node name="TextDayOverContainer" type="VBoxContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard" unique_id=191638452]
+layout_mode = 2
+
+[node name="DayOverRichTextLabel" type="RichTextLabel" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1650474698]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+theme_override_fonts/normal_font = ExtResource("19_1vcyb")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "JOGO PAUSADO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CentralMargin" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1898125437]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=873244278]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+text = "Dificuldade"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=118579995]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionButton" type="OptionButton" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/HBoxContainer" unique_id=1453208260]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_pausepopup")
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("20_gopqt")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_accm4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v5tky")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ox6c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rejs6")
+theme_override_constants/modulate_arrow = 1
+alignment = 1
+selected = 1
+item_count = 3
+popup/item_0/text = "Fácil"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Difícil"
+popup/item_2/id = 2
+script = ExtResource("20_lhiww")
+
+[node name="CentralMargin4" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=112911248]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=924523502]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_fonts/font = ExtResource("20_gopqt")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_26bax")
+text = "Despausar"
+icon_alignment = 1
+
+[node name="CentralMargin3" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=702040738]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1380288142]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_fonts/font = ExtResource("20_gopqt")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_mainbtn")
+text = "Voltar ao Menu"
+icon_alignment = 1
+
+[node name="CentralMargin2" type="MarginContainer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=1776495103]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=2047760964]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/icon_normal_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_fonts/font = ExtResource("20_gopqt")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_quitbtn")
+text = "Sair do Jogo"
+icon_alignment = 1
+
+[node name="ButtonFeedback" type="AnimationPlayer" parent="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer" unique_id=-1168268725]
+libraries/ = SubResource("AnimationLibrary_pausebtns")
+playback_default_blend_time = 0.15
+
+[node name="ConfirmationPanel" type="PanelContainer" parent="UI/PauseGameUI" unique_id=418022796]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_21xuv")
+script = ExtResource("19_21xuv")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/PauseGameUI/ConfirmationPanel" unique_id=556334700]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lctrs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer" unique_id=1514467922]
+custom_minimum_size = Vector2(280, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Warn" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=421046966]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "ATENÇÃO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1674088028]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/normal_font = ExtResource("19_1vcyb")
+theme_override_fonts/bold_font = ExtResource("19_1vcyb")
+theme_override_font_sizes/normal_font_size = 22
+text = "Ao realizar essa ação, todo o progresso do dia atual será perdido."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1881545363]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=491858092]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhiww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gopqt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qca60")
+text = "Cancelar"
+
+[node name="ContinueButton" type="Button" parent="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=936949493]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_omb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pur81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8n22")
+text = "Continuar"
+
+[node name="EventHandler" type="Node2D" parent="." unique_id=2012594275 node_paths=PackedStringArray("clock_timer", "hack_handler")]
+visible = false
+script = ExtResource("6_pur81")
+clock_timer = NodePath("ClockTimer")
+hack_handler = NodePath("HackHandler")
+
+[node name="ClockTimer" type="Timer" parent="EventHandler" unique_id=854887560]
+autostart = true
+
+[node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
+script = ExtResource("25_5o8nl")
+
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "ui", "event_handler")]
+script = ExtResource("18_oknyi")
+messages_director = NodePath("MessagesDirector")
+emails_director = NodePath("EmailsDirector")
+browser_director = NodePath("BrowserDirector")
+bank_director = NodePath("BankDirector")
+randomness_director = NodePath("RandomnessDirector")
+events_director = NodePath("EventsDirector")
+ui = NodePath("../UI")
+event_handler = NodePath("../EventHandler")
+
+[node name="MessagesDirector" type="Node2D" parent="StoryDirector" unique_id=12625708 node_paths=PackedStringArray("answers_director")]
+script = ExtResource("22_f2213")
+answers_director = NodePath("AnswersDirector")
+
+[node name="AnswersDirector" type="Node2D" parent="StoryDirector/MessagesDirector" unique_id=1434115663]
+script = ExtResource("24_8e4ax")
+
+[node name="EmailsDirector" type="Node2D" parent="StoryDirector" unique_id=1412889098]
+script = ExtResource("26_8e4ax")
+
+[node name="BrowserDirector" type="Node2D" parent="StoryDirector" unique_id=1009951536 node_paths=PackedStringArray("reviews_director", "shops_director")]
+script = ExtResource("29_1vcyb")
+reviews_director = NodePath("ReviewsDirector")
+shops_director = NodePath("ShopsDirector")
+
+[node name="ReviewsDirector" type="Node2D" parent="StoryDirector/BrowserDirector" unique_id=1137316225]
+script = ExtResource("29_5o8nl")
+
+[node name="ShopsDirector" type="Node2D" parent="StoryDirector/BrowserDirector" unique_id=1391960317]
+script = ExtResource("30_q7j5u")
+
+[node name="BankDirector" type="Node2D" parent="StoryDirector" unique_id=1479037282]
+script = ExtResource("32_21xuv")
+
+[node name="RandomnessDirector" type="Node2D" parent="StoryDirector" unique_id=1772428547]
+script = ExtResource("26_51grn")
+
+[node name="EventsDirector" type="Node2D" parent="StoryDirector" unique_id=1141190310]
+script = ExtResource("28_5o8nl")
+
+[node name="progressiveBlur" type="ColorRect" parent="." unique_id=1481049179]
+material = SubResource("ShaderMaterial_8e4ax")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="UI/DesktopUI/PauseContainer/PauseButton" to="UI/DesktopUI/PauseContainer/PauseButton" method="_on_pressed"]
+[connection signal="timeout" from="UI/NotificationUI/NotificationTimer" to="UI/NotificationUI" method="_on_notification_timer_timeout"]
+[connection signal="button_down" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ResumeButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["resume_press"]]
+[connection signal="button_up" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ResumeButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["resume_press"]]
+[connection signal="mouse_entered" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ResumeButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["resume_hover"]]
+[connection signal="mouse_exited" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ResumeButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["resume_hover"]]
+[connection signal="button_down" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/MainButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["main_press"]]
+[connection signal="button_up" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/MainButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["main_press"]]
+[connection signal="mouse_entered" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/MainButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["main_hover"]]
+[connection signal="mouse_exited" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/MainButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["main_hover"]]
+[connection signal="button_down" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["quit_press"]]
+[connection signal="button_up" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["quit_press"]]
+[connection signal="mouse_entered" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play" binds= ["quit_hover"]]
+[connection signal="mouse_exited" from="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/QuitButton" to="UI/PauseGameUI/CenterContainer/PauseCard/TextDayOverContainer/ButtonFeedback" method="play_backwards" binds= ["quit_hover"]]
+[connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="UI/PauseGameUI/ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="UI/PauseGameUI/ConfirmationPanel" method="_on_continue_button_pressed"]

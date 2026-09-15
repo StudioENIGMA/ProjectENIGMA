@@ -1,109 +1,123 @@
 [gd_scene format=3 uid="uid://1qfm0rk4ahe5"]
 
 [ext_resource type="Script" uid="uid://dgjx6w2dl8b6y" path="res://scripts/apps/both_shops/application_instance.gd" id="1_c7dlv"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_5uj2r"]
-[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_ygwm0"]
-[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="4_1a3t7"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="5_icon"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjihv"]
-bg_color = Color(0.921569, 0.0392157, 0.270588, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_primary"]
+content_margin_left = 14.0
+content_margin_top = 9.0
+content_margin_right = 14.0
+content_margin_bottom = 9.0
+bg_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+corner_detail = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1p0b"]
-bg_color = Color(0.568627, 0.101961, 0.219608, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_primary_active"]
+content_margin_left = 14.0
+content_margin_top = 9.0
+content_margin_right = 14.0
+content_margin_bottom = 9.0
+bg_color = Color(0.5686275, 0.101960786, 0.21960784, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+corner_detail = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7dlv"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 1
-border_color = Color(0.05882353, 0.047058824, 0.08235294, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary"]
+content_margin_left = 14.0
+content_margin_top = 9.0
+content_margin_right = 14.0
+content_margin_bottom = 9.0
+bg_color = Color(0.26666668, 0.8117647, 0.69803923, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
 
-[node name="ApplicationInstance" type="Control" unique_id=681096564 node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button")]
-custom_minimum_size = Vector2(0, 87)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary_active"]
+content_margin_left = 14.0
+content_margin_top = 9.0
+content_margin_right = 14.0
+content_margin_bottom = 9.0
+bg_color = Color(0.26666668, 0.8117647, 0.69803923, 0.45)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_disabled"]
+content_margin_left = 14.0
+content_margin_top = 9.0
+content_margin_right = 14.0
+content_margin_bottom = 9.0
+bg_color = Color(0.09019608, 0.10980392, 0.18039216, 0.1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.09019608, 0.10980392, 0.18039216, 0.08)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[node name="ApplicationInstance" type="Control" node_paths=PackedStringArray("app_icon", "app_name_label", "app_description_label", "interact_button", "install_progress")]
+custom_minimum_size = Vector2(360, 84)
 layout_mode = 3
-anchor_right = 1.0
-anchor_bottom = 0.136
-offset_bottom = -87.04001
-grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-script = ExtResource("1_c7dlv")
-app_icon = NodePath("HBoxContainer/AppIcon")
-app_name_label = NodePath("HBoxContainer/TextDescription/AppNameLabel")
-app_description_label = NodePath("HBoxContainer/TextDescription/AppDescriptionLabel")
-interact_button = NodePath("HBoxContainer/AppButton")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1897928754]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1211746212]
-custom_minimum_size = Vector2(8, 16)
-layout_mode = 2
-
-[node name="AppIcon" type="TextureRect" parent="HBoxContainer" unique_id=372036378]
-custom_minimum_size = Vector2(65, 40)
-layout_mode = 2
-texture = ExtResource("4_1a3t7")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MidMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1206103741]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
-[node name="TextDescription" type="VBoxContainer" parent="HBoxContainer" unique_id=1920478587]
-layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_constants/separation = -4
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_c7dlv")
+app_icon = NodePath("Content/Row/Avatar/AppIcon")
+app_name_label = NodePath("Content/Row/TextColumn/AppNameLabel")
+app_description_label = NodePath("Content/Row/TextColumn/AppDescriptionLabel")
+interact_button = NodePath("Content/Row/AppButton")
+install_progress = NodePath("InstallProgress")
+primary_style = SubResource("StyleBoxFlat_primary")
+primary_active_style = SubResource("StyleBoxFlat_primary_active")
+secondary_style = SubResource("StyleBoxFlat_secondary")
+secondary_active_style = SubResource("StyleBoxFlat_secondary_active")
 
-[node name="AppNameLabel" type="Label" parent="HBoxContainer/TextDescription" unique_id=1827286809]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 16
-text = "Nome do Aplicativo"
-
-[node name="AppDescriptionLabel" type="Label" parent="HBoxContainer/TextDescription" unique_id=1028123814]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("3_ygwm0")
-theme_override_font_sizes/font_size = 12
-text = "Descrição Do Aplicativo"
-autowrap_mode = 3
-
-[node name="AppButton" type="Button" parent="HBoxContainer" unique_id=882987288]
-custom_minimum_size = Vector2(80, 45)
-layout_mode = 2
-size_flags_vertical = 4
-focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_5uj2r")
-theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_fjihv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o1p0b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o1p0b")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fjihv")
-text = "Abrir
-"
-
-[node name="RightMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1184436804]
-custom_minimum_size = Vector2(8, 16)
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="." unique_id=352821594]
+[node name="Content" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,6 +125,124 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_c7dlv")
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
 
-[connection signal="pressed" from="HBoxContainer/AppButton" to="." method="_on_app_button_pressed"]
+[node name="Row" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="Content/Row"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="AppIcon" type="TextureRect" parent="Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextColumn" type="VBoxContainer" parent="Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="AppNameLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 16
+text = "Nome do Aplicativo"
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="AppDescriptionLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Descrição Do Aplicativo"
+autowrap_mode = 3
+text_overrun_behavior = 4
+max_lines_visible = 2
+
+[node name="AppButton" type="Button" parent="Content/Row"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("3_semi")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_primary")
+theme_override_styles/hover = SubResource("StyleBoxFlat_primary_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_primary_active")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Abrir"
+
+[node name="InstallProgress" type="ProgressBar" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -4.0
+offset_right = -14.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+value = 40.0
+show_percentage = false
+
+[node name="Divider" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -1.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[connection signal="pressed" from="Content/Row/AppButton" to="." method="_on_app_button_pressed"]

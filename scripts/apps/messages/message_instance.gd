@@ -5,7 +5,9 @@ signal apk_installation_requested(app: GameData.App)
 
 enum Align { LEFT, RIGHT }
 
-const MAX_BUBBLE_WIDTH := 200.0
+const MAX_BUBBLE_WIDTH := 250.0
+## Slack kept so a text that just fits is not wrapped by a rounding difference
+const BUBBLE_WIDTH_SLACK := 2.0
 
 @export var align: Align = Align.RIGHT
 
@@ -96,7 +98,7 @@ func _reflow() -> void:
 	var padding_x := _get_panel_horizontal_padding(panel_container)
 
 	var natural_text_width := _measure_text_width(label.text)
-	var natural_bubble_width := natural_text_width + padding_x
+	var natural_bubble_width := natural_text_width + padding_x + BUBBLE_WIDTH_SLACK
 
 	var should_wrap := natural_bubble_width > max_width
 
@@ -134,7 +136,7 @@ func _compute_max_bubble_width() -> float:
 	if row_width <= 0.0:
 		return MAX_BUBBLE_WIDTH
 
-	var reserved_edge := 8
+	var reserved_edge := 8.0
 	if align == Align.RIGHT and right_margin:
 		reserved_edge = max(0.0, right_margin.custom_minimum_size.x)
 	elif align == Align.LEFT and left_margin:
@@ -147,7 +149,7 @@ func _get_panel_horizontal_padding(panel: PanelContainer) -> float:
 	var sb := panel.get_theme_stylebox("panel")
 	if sb == null:
 		return 0.0
-	return sb.get_content_margin(SIDE_LEFT) + sb.get_content_margin(SIDE_RIGHT)
+	return sb.get_margin(SIDE_LEFT) + sb.get_margin(SIDE_RIGHT)
 
 
 func _measure_text_width(text: String) -> float:

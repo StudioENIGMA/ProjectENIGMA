@@ -1,52 +1,92 @@
 [gd_scene format=3 uid="uid://dcgdl11goxbn0"]
 
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="1_krejh"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="1_krejh"]
 [ext_resource type="Script" uid="uid://c2cfv7dhhry1k" path="res://scripts/apps/messages/answer_option.gd" id="1_yd6bq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krejh"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.189702, 0.611906, 0.524131, 1)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.07)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
 
-[node name="MarginContainer" type="MarginContainer" unique_id=1963626535 node_paths=PackedStringArray("option_button", "option_label")]
-custom_minimum_size = Vector2(0, 55)
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9019608, 0.9647059, 0.9411765, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6156863, 0.8666667, 0.8117647, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.07)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selected"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.8352941, 0.9647059, 0.93, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="AnswerOption" type="Button"]
+offset_right = 340.0
+offset_bottom = 44.0
 size_flags_horizontal = 3
-size_flags_vertical = 4
-mouse_default_cursor_shape = 7
-script = ExtResource("1_yd6bq")
-option_button = NodePath("Button")
-option_label = NodePath("PanelContainer/Label")
-
-[node name="Button" type="Button" parent="." unique_id=1388014950]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-z_index = -1
-layout_mode = 2
 mouse_default_cursor_shape = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1973129186]
-layout_mode = 2
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_krejh")
-
-[node name="Label" type="Label" parent="PanelContainer" unique_id=1438114561]
-custom_minimum_size = Vector2(1, 55)
-layout_mode = 2
+toggle_mode = true
+focus_mode = 0
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
+theme_override_constants/line_spacing = 3
 theme_override_fonts/font = ExtResource("1_krejh")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_selected")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_selected")
 text = "Teste de Resposta"
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 0
 autowrap_mode = 3
-text_overrun_behavior = 4
+script = ExtResource("1_yd6bq")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
