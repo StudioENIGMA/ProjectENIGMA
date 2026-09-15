@@ -6,6 +6,9 @@ signal apk_installation_requested(app: GameData.App)
 
 signal pause_game_requested()
 
+## Emitted whenever a screen opens, carrying the main app it belongs to
+signal main_app_opened(main_app: GameData.App)
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
@@ -351,6 +354,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
+	main_app_opened.emit(main_app)
 
 	# Get specific app that should be opened
 	var specific_app = _get_app_by_enum(app)
