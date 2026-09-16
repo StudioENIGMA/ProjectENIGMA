@@ -52,6 +52,7 @@ expand_mode = 1
 script = ExtResource("3_qhiuw")
 
 [node name="NotificationBadge" type="PanelContainer" parent="AppIcon" unique_id=235197421]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
