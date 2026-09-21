@@ -3,9 +3,12 @@ extends Control
 signal dismissed
 signal drag_started
 signal drag_cancelled
+signal tapped
 
 const SWIPE_THRESHOLD: float = 100.0
 const SLIDE_DURATION: float = 0.4
+## Drag distance (px) under which a release counts as a tap
+const TAP_SLOP: float = 8.0
 
 @export var notification_content_label: Label
 @export var notification_title_label: Label
@@ -62,7 +65,10 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 
 func _check_swipe(total_drag: float) -> void:
-	if total_drag >= SWIPE_THRESHOLD:
+	if absf(total_drag) < TAP_SLOP:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		tapped.emit()  # parent frees us
+	elif total_drag >= SWIPE_THRESHOLD:
 		_slide_out()
 	else:
 		_reset_position()

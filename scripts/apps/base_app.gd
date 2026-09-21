@@ -566,6 +566,23 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 		else:
 			_transitions.pop_app(closed_app, previous_node)
 
+## Jumps into the app a notification came from, closing whatever else was open
+##
+## Hack alerts ask the player to run the scanner, so they lead to Settings
+func open_app_from_notification(app:GameData.App) -> void:
+	var target_app:GameData.App = GameData.App.SETTINGS if app == GameData.App.HACK else app
+	# The app may have been uninstalled since the notification arrived
+	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+		return
+
+	if not open_apps.is_empty():
+		if open_apps.back()["MainApp"] == target_app:
+			main_app_opened.emit(target_app)
+			return
+		close_all_apps()
+
+	_on_app_opened(target_app)
+
 func close_all_apps() -> void:
 	while not open_apps.is_empty():
 		_on_close_app_button_pressed()

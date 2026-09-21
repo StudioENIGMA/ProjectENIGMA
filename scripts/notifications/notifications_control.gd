@@ -2,6 +2,10 @@ extends Control
 
 ## Emitted for every notification accepted into the queue, so the home screen can badge the app
 signal notification_added(app: GameData.App)
+## Emitted with the full notification so the notification center can keep it
+signal notification_posted(app: GameData.App, content: String, title: String)
+## Emitted when the player taps a banner to jump into its app
+signal notification_tapped(app: GameData.App)
 
 const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
 
@@ -33,6 +37,7 @@ func add_notification_to_queue(
 		"time": time
 	})
 	notification_added.emit(app)
+	notification_posted.emit(app, content, title)
 
 	# If it's the only notification in the queue, send it immediately
 	if notification_array.size() == 1:
@@ -53,6 +58,9 @@ func send_notification(notification_parameter:Dictionary) -> void:
 	notification_instance.dismissed.connect(_on_notification_dismissed)
 	notification_instance.drag_started.connect(notification_timer.stop)
 	notification_instance.drag_cancelled.connect(notification_timer.start)
+	notification_instance.tapped.connect(
+		_on_notification_tapped.bind(notification_parameter.app)
+	)
 
 	# Add the notification to the scene tree and play sound & animation
 	self.add_child(notification_instance)
@@ -80,6 +88,11 @@ func _on_notification_timer_timeout() -> void:
 func _on_notification_dismissed() -> void:
 	notification_timer.stop()
 	_advance_queue()
+
+func _on_notification_tapped(app: GameData.App) -> void:
+	notification_timer.stop()
+	_advance_queue()
+	notification_tapped.emit(app)
 
 func _advance_queue() -> void:
 	notification_instance.queue_free()

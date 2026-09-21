@@ -39,6 +39,7 @@
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="34_reg"]
 [ext_resource type="Shader" uid="uid://jtbma8vm1hxv" path="res://shaders/frosted_glass.gdshader" id="35_frosted"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="36_scroll"]
+[ext_resource type="PackedScene" path="res://scenes/notifications/notification_center.tscn" id="37_center"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
 shader = ExtResource("35_frosted")
@@ -470,7 +471,7 @@ story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
 
-[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "apps_ui", "pause_game_ui")]
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "notification_center", "apps_ui", "pause_game_ui")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -484,6 +485,7 @@ script = ExtResource("1_5o8nl")
 base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
+notification_center = NodePath("NotificationCenter")
 apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
 pause_game_ui = NodePath("PauseGameUI")
 
@@ -633,6 +635,9 @@ layout_mode = 1
 apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 pause_button = NodePath("../DesktopUI/PauseContainer/PauseButton")
 notification_ui = NodePath("../NotificationUI")
+
+[node name="NotificationCenter" parent="UI" instance=ExtResource("37_center")]
+layout_mode = 1
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
 custom_minimum_size = Vector2(350, 86)
