@@ -9,6 +9,7 @@ signal message_answered(answer_id:int)
 @export var day_over_ui:Control
 @export var notifications_control:Control
 @export var notification_center:Control
+@export var notification_widget:Control
 @export var apps_ui:Control
 @export var pause_game_ui:Control
 #endregion CHILDREN NODES REFERENCES
@@ -39,6 +40,10 @@ func _ready() -> void:
   notifications_control.notification_tapped.connect(base_app.open_app_from_notification)
   notification_center.app_open_requested.connect(base_app.open_app_from_notification)
   base_app.main_app_opened.connect(notification_center.on_app_opened)
+  # The home-screen widget mirrors the center's list
+  notification_center.entries_changed.connect(notification_widget.show_entries)
+  notification_widget.app_open_requested.connect(base_app.open_app_from_notification)
+  notification_widget.center_open_requested.connect(notification_center.open)
   # Hack minigames hide the banners, the center must not be pulled over them either
   notifications_control.visibility_changed.connect(
 	func(): notification_center.set_enabled(notifications_control.is_visible_in_tree())

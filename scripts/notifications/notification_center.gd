@@ -9,6 +9,8 @@ extends Control
 
 ## Emitted when the player taps a notification to jump into its app
 signal app_open_requested(app: GameData.App)
+## Emitted whenever the list changes, with every entry newest first (feeds the home-screen widget)
+signal entries_changed(entries: Array)
 
 const NOTIFICATION_CARD = preload("res://scenes/notifications/notification_card.tscn")
 
@@ -165,6 +167,7 @@ func _rebuild() -> void:
 			count_label.text = "1 notificação"
 		_:
 			count_label.text = "%d notificações" % _entries.size()
+	entries_changed.emit(_entries.duplicate())
 
 func _on_entry_pressed(entry: Dictionary) -> void:
 	close()

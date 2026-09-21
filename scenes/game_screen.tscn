@@ -40,6 +40,7 @@
 [ext_resource type="Shader" uid="uid://jtbma8vm1hxv" path="res://shaders/frosted_glass.gdshader" id="35_frosted"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="36_scroll"]
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_center.tscn" id="37_center"]
+[ext_resource type="PackedScene" path="res://scenes/notifications/notification_widget.tscn" id="38_widget"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
 shader = ExtResource("35_frosted")
@@ -452,6 +453,37 @@ shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widget_card"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.101960786, 0.1254902, 0.2, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_track"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_fill"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur", "clock_timer")]
 layout_mode = 3
 anchors_preset = 15
@@ -471,7 +503,7 @@ story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
 
-[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "notification_center", "apps_ui", "pause_game_ui")]
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -486,6 +518,7 @@ base_app = NodePath("BaseApp")
 day_over_ui = NodePath("DayOverUI")
 notifications_control = NodePath("NotificationUI")
 notification_center = NodePath("NotificationCenter")
+notification_widget = NodePath("DesktopUI/WidgetsMargin/Widgets/NotificationWidget")
 apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
 pause_game_ui = NodePath("PauseGameUI")
 
@@ -530,38 +563,107 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_q7j5u")
 
-[node name="ClockContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=2049360299]
+[node name="WidgetsMargin" type="MarginContainer" parent="UI/DesktopUI"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -229.0
-offset_bottom = 148.0
-grow_horizontal = 0
-theme_override_constants/margin_right = 16
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.5
+offset_right = 170.5
+offset_bottom = 232.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 78
+theme_override_constants/margin_right = 9
 
-[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/ClockContainer" unique_id=1868654397 node_paths=PackedStringArray("time_label", "weekday_label") groups=["clock_display"]]
+[node name="Widgets" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin"]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="NotificationWidget" parent="UI/DesktopUI/WidgetsMargin/Widgets" instance=ExtResource("38_widget")]
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="ClockCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_widget_card")
+
+[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard" node_paths=PackedStringArray("time_label", "weekday_label", "workday_bar", "workday_label") groups=["clock_display"]]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -6
+alignment = 1
 script = ExtResource("16_1vcyb")
 time_label = NodePath("Hour")
 weekday_label = NodePath("WeekDay")
+workday_bar = NodePath("../../WorkdayCard/Workday/Bar")
+workday_label = NodePath("../../WorkdayCard/Workday/Labels/Remaining")
 
-[node name="Hour" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=1389524436]
+[node name="Hour" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock"]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("7_yc1wb")
-theme_override_font_sizes/font_size = 80
-text = "18:32"
-horizontal_alignment = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 42
+text = "08:00"
+horizontal_alignment = 1
+
+[node name="WeekDay" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 0.85)
+theme_override_fonts/font = ExtResource("34_reg")
+theme_override_font_sizes/font_size = 12
+text = "Quinta, 1 Janeiro"
+horizontal_alignment = 1
+
+[node name="WorkdayCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_widget_card")
+
+[node name="Workday" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Labels" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 11
+text = "Expediente"
 vertical_alignment = 1
 
-[node name="WeekDay" type="Label" parent="UI/DesktopUI/ClockContainer/Clock" unique_id=299553706]
+[node name="Remaining" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels"]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("7_yc1wb")
-theme_override_font_sizes/font_size = 30
-text = "Tue 17, April"
+theme_override_colors/font_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+theme_override_fonts/font = ExtResource("33_semi")
+theme_override_font_sizes/font_size = 11
+text = "restam 10h"
 horizontal_alignment = 2
+
+[node name="Bar" type="ProgressBar" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_workday_track")
+theme_override_styles/fill = SubResource("StyleBoxFlat_workday_fill")
+max_value = 1.0
+step = 0.0
+show_percentage = false
 
 [node name="BottomMargin" type="MarginContainer" parent="UI/DesktopUI" unique_id=1166920329]
 layout_mode = 1
