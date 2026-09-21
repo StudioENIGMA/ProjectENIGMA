@@ -1,59 +1,83 @@
 [gd_scene format=3 uid="uid://cub8cp50gdyyn"]
 
 [ext_resource type="Script" uid="uid://dnix86uclwn06" path="res://scripts/apps/browser/browser_news.gd" id="1_0arqi"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
 
-[node name="news_page" type="Control" unique_id=156952088 node_paths=PackedStringArray("news_title", "news_metadata", "news_content")]
+[node name="news_page" type="Control" node_paths=PackedStringArray("news_title", "news_metadata", "news_content")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_0arqi")
-news_title = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_title")
-news_metadata = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_metadata")
-news_content = NodePath("MarginContainer/ScrollContainer/VBoxContainer/news_text")
+news_title = NodePath("ScrollContainer/ArticleMargin/Article/news_title")
+news_metadata = NodePath("ScrollContainer/ArticleMargin/Article/news_metadata")
+news_content = NodePath("ScrollContainer/ArticleMargin/Article/news_text")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=314263896]
-layout_mode = 0
-offset_right = 360.0
-offset_bottom = 612.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1567950295]
-layout_mode = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
+script = ExtResource("2_scroll")
+size_x = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1970221380]
+[node name="ArticleMargin" type="MarginContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 18
+mouse_filter = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 24
 
-[node name="news_title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=905218139]
+[node name="Article" type="VBoxContainer" parent="ScrollContainer/ArticleMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="news_title" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 22
 text = "Atualização BananaOS"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
 
-[node name="news_metadata" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1863864797]
+[node name="news_metadata" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
 text = "BCC  •  5 horas atrás"
 
-[node name="news_text" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1599963861]
+[node name="DividerMargin" type="MarginContainer" parent="ScrollContainer/ArticleMargin/Article"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Divider" type="ColorRect" parent="ScrollContainer/ArticleMargin/Article/DividerMargin"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="news_text" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "A empresa MirrorSoftware acabou de disponibilizar uma nova versão para seu sistema operacional mobile BananaOS. De acordo com o engenheiro líder da empresa havia uma vulnerabilidade crítica que foi consertada, além de outros pequenos bugs.\\n\\nPorém não houve mudanças na interface gráfica do sistema, a empresa pretende manter a atual por mais alguns meses.
-Teste teste teste"
-autowrap_mode = 3
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 15
+text = "A empresa MirrorSoftware acabou de disponibilizar uma nova versão para seu sistema operacional mobile BananaOS."
+autowrap_mode = 2

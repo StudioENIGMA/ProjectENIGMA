@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 signal open_news(news_data: Dictionary)
 

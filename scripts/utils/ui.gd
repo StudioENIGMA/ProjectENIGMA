@@ -41,6 +41,6 @@ func _ready() -> void:
   base_app.main_app_opened.connect(notification_center.on_app_opened)
   # Hack minigames hide the banners, the center must not be pulled over them either
   notifications_control.visibility_changed.connect(
-    func(): notification_center.set_enabled(notifications_control.is_visible_in_tree())
+	func(): notification_center.set_enabled(notifications_control.is_visible_in_tree())
   )
 #endregion INITIALIZATION

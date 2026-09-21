@@ -13,6 +13,7 @@ signal open_site_requested(
 )
 
 @export var news_container : VBoxContainer
+@export var news_empty_state: Control
 @export var quick_sites_containier: GridContainer
 
 var day_news_data : Dictionary
@@ -52,3 +53,5 @@ func update_news():
 			browser_home_news.set_news_data(news["title"], news["content"], news["metadata"])
 			browser_home_news.open_news.connect(_on_open_news)
 			news_container.add_child(browser_home_news)
+
+	news_empty_state.visible = day_news_data.get("news", []).is_empty()

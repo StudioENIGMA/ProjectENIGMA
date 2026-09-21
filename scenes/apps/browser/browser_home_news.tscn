@@ -1,41 +1,70 @@
 [gd_scene format=3 uid="uid://cr151pqe4jihj"]
 
 [ext_resource type="Script" uid="uid://4o4l8fux5uc3" path="res://scripts/apps/browser/browser_home_news.gd" id="1_sm52b"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_reg"]
 
-[node name="BrowserHomeNews" type="HBoxContainer" unique_id=750613476 node_paths=PackedStringArray("news_content", "news_metadata")]
-offset_right = 346.0
-offset_bottom = 64.0
+[node name="BrowserHomeNews" type="VBoxContainer" node_paths=PackedStringArray("news_content", "news_metadata")]
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 0
 script = ExtResource("1_sm52b")
-news_content = NodePath("VBoxContainer/NewsContent")
-news_metadata = NodePath("VBoxContainer/NewsMetaData")
+news_content = NodePath("Content/Row/TextColumn/NewsContent")
+news_metadata = NodePath("Content/Row/TextColumn/NewsMetaData")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=873469115]
-custom_minimum_size = Vector2(5, 0)
+[node name="Content" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2006426638]
+[node name="Row" type="HBoxContainer" parent="Content"]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
 
-[node name="NewsContent" type="Label" parent="VBoxContainer" unique_id=1773874338]
-custom_minimum_size = Vector2(332, 37)
+[node name="Accent" type="ColorRect" parent="Content/Row"]
+custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies est tincidunt fringilla lobortis."
-autowrap_mode = 3
-autowrap_trim_flags = 64
-justification_flags = 227
-text_overrun_behavior = 5
+mouse_filter = 2
+color = Color(0.30980393, 0.79607844, 0.68235296, 1)
 
-[node name="NewsMetaData" type="Label" parent="VBoxContainer" unique_id=212627695]
+[node name="TextColumn" type="VBoxContainer" parent="Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="NewsContent" type="Label" parent="Content/Row/TextColumn"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "BCC  •  3 horas atrás"
-autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_semi")
+theme_override_font_sizes/font_size = 13
+text = "Maior vazamento de senhas da história"
+autowrap_mode = 2
+max_lines_visible = 2
+text_overrun_behavior = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1971091754]
-custom_minimum_size = Vector2(0, 3)
+[node name="NewsMetaData" type="Label" parent="Content/Row/TextColumn"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_reg")
+theme_override_font_sizes/font_size = 11
+text = "knn  •  3 horas atrás"
+
+[node name="DividerMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 26
+
+[node name="Divider" type="ColorRect" parent="DividerMargin"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)

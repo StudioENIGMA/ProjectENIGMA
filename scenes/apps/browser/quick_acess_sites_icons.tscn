@@ -2,45 +2,117 @@
 
 [ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/apps/browser/quick_acess_icon.gd" id="1_h124j"]
 [ext_resource type="Texture2D" uid="uid://dcpk4mebjjg15" path="res://assets/icons/shops/square_logos/elogie_la_logo_fundo.png" id="2_v1pv2"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_v1pv2"]
-font_size = 18
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_normal"]
 
-[node name="quick_acess_sites_icons" type="Control" unique_id=1379295309 node_paths=PackedStringArray("logo_button", "site_label")]
-custom_minimum_size = Vector2(180, 142.8)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 180.0
-offset_bottom = 142.8
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.12)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mask"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 8
+
+[node name="quick_acess_sites_icons" type="Button" node_paths=PackedStringArray("logo_rect", "site_label")]
+custom_minimum_size = Vector2(0, 116)
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
 script = ExtResource("1_h124j")
 site = 20
-logo_button = NodePath("VBoxContainer/TextureButton")
-site_label = NodePath("VBoxContainer/SiteLabel")
+logo_rect = NodePath("Content/Column/Logo/Mask/LogoTexture")
+site_label = NodePath("Content/Column/SiteLabel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1713104016]
+[node name="Content" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 180.0
-offset_bottom = 142.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 6
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=818044856]
-custom_minimum_size = Vector2(90, 90)
+[node name="Column" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 7
+
+[node name="Logo" type="Control" parent="Content/Column"]
+custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_v1pv2")
-ignore_texture_size = true
-stretch_mode = 4
+mouse_filter = 2
 
-[node name="SiteLabel" type="Label" parent="VBoxContainer" unique_id=1822662016]
+[node name="IconShadow" type="Panel" parent="Content/Column/Logo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Mask" type="Panel" parent="Content/Column/Logo"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="LogoTexture" type="TextureRect" parent="Content/Column/Logo/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_v1pv2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="SiteLabel" type="Label" parent="Content/Column"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_semi")
 theme_override_font_sizes/font_size = 12
 text = "ElogieLÁ"
-label_settings = SubResource("LabelSettings_v1pv2")
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 2
 
-[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_texture_button_pressed"]
