@@ -4,40 +4,30 @@
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_semi"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_reg"]
 
-[node name="BrowserHomeNews" type="VBoxContainer" node_paths=PackedStringArray("news_content", "news_metadata")]
+[node name="BrowserHomeNews" type="VBoxContainer" node_paths=PackedStringArray("news_content", "news_metadata", "divider")]
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_sm52b")
-news_content = NodePath("Content/Row/TextColumn/NewsContent")
-news_metadata = NodePath("Content/Row/TextColumn/NewsMetaData")
+news_content = NodePath("Content/TextColumn/NewsContent")
+news_metadata = NodePath("Content/TextColumn/NewsMetaData")
+divider = NodePath("DividerMargin")
 
 [node name="Content" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 14
+theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 14
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 10
 
-[node name="Row" type="HBoxContainer" parent="Content"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 10
-
-[node name="Accent" type="ColorRect" parent="Content/Row"]
-custom_minimum_size = Vector2(2, 0)
-layout_mode = 2
-mouse_filter = 2
-color = Color(0.30980393, 0.79607844, 0.68235296, 1)
-
-[node name="TextColumn" type="VBoxContainer" parent="Content/Row"]
+[node name="TextColumn" type="VBoxContainer" parent="Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 2
 
-[node name="NewsContent" type="Label" parent="Content/Row/TextColumn"]
+[node name="NewsContent" type="Label" parent="Content/TextColumn"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 mouse_filter = 2
@@ -49,7 +39,7 @@ autowrap_mode = 2
 max_lines_visible = 2
 text_overrun_behavior = 3
 
-[node name="NewsMetaData" type="Label" parent="Content/Row/TextColumn"]
+[node name="NewsMetaData" type="Label" parent="Content/TextColumn"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 mouse_filter = 2
@@ -61,10 +51,11 @@ text = "knn  •  3 horas atrás"
 [node name="DividerMargin" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 26
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
 
 [node name="Divider" type="ColorRect" parent="DividerMargin"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+color = Color(0.11764706, 0.1882353, 0.2784314, 0.1)

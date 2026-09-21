@@ -2,83 +2,77 @@
 
 [ext_resource type="Script" uid="uid://ceyd6unkld2n4" path="res://scripts/apps/browser/browser.gd" id="1_y4bje"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
 [ext_resource type="PackedScene" uid="uid://bhmxsqe60mptf" path="res://scenes/apps/browser/quick_acess_sites_icons.tscn" id="4_k30y1"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_semib"]
 [ext_resource type="Texture2D" uid="uid://dcovmpxv8dwlb" path="res://assets/icons/send.svg" id="7_send"]
 [ext_resource type="Texture2D" path="res://assets/icons/search.svg" id="8_search"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
-bg_color = Color(1, 1, 0.972549, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 16.0
+bg_color = Color(0.27450982, 0.70980394, 0.6901961, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_address"]
-content_margin_left = 12.0
-content_margin_top = 6.0
-content_margin_right = 14.0
-content_margin_bottom = 6.0
-bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
-corner_radius_top_left = 21
-corner_radius_top_right = 21
-corner_radius_bottom_right = 21
-corner_radius_bottom_left = 21
-corner_detail = 12
-shadow_color = Color(0.11764706, 0.18823528, 0.2784314, 0.12)
-shadow_size = 3
-shadow_offset = Vector2(0, 2)
+content_margin_left = 14.0
+content_margin_top = 4.0
+content_margin_right = 5.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_news_card"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go_normal"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.17663777, 0.576024, 0.4929816, 1)
-corner_radius_top_left = 21
-corner_radius_top_right = 21
-corner_radius_bottom_right = 21
-corner_radius_bottom_left = 21
-corner_detail = 12
-shadow_color = Color(0.11764706, 0.18823528, 0.2784314, 0.12)
-shadow_size = 3
-shadow_offset = Vector2(0, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go_pressed"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.06560712, 0.2726395, 0.22955495, 1)
-corner_radius_top_left = 21
-corner_radius_top_right = 21
-corner_radius_bottom_right = 21
-corner_radius_bottom_left = 21
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go_hover"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.21568628, 0.6784314, 0.5803922, 1)
-corner_radius_top_left = 21
-corner_radius_top_right = 21
-corner_radius_bottom_right = 21
-corner_radius_bottom_left = 21
+bg_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 corner_detail = 12
-shadow_color = Color(0.11764706, 0.18823528, 0.2784314, 0.12)
-shadow_size = 3
-shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go_pressed"]
+bg_color = Color(0.22352941, 0.5647059, 0.62352943, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go_disabled"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.11764706, 0.18823528, 0.2784314, 0.10196079)
-corner_radius_top_left = 21
-corner_radius_top_right = 21
-corner_radius_bottom_right = 21
-corner_radius_bottom_left = 21
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 corner_detail = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
@@ -92,11 +86,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_y4bje")
-news_container = NodePath("Screen/ScrollContainer/Page/NewsContainer")
-news_empty_state = NodePath("Screen/ScrollContainer/Page/NewsEmptyState")
-quick_sites_containier = NodePath("Screen/ScrollContainer/Page/SitesMargin/GridContainer")
-address_label = NodePath("Screen/AddressBar/AddressMargin/AddressRow/AddressPill/PillRow/AddressLabel")
-go_button = NodePath("Screen/AddressBar/AddressMargin/AddressRow/GoButton")
+news_container = NodePath("Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard/NewsColumn/NewsContainer")
+news_empty_state = NodePath("Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard/NewsColumn/NewsEmptyState")
+quick_sites_containier = NodePath("Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList")
+address_label = NodePath("Screen/HeaderPanel/AddressPill/PillRow/AddressLabel")
+go_button = NodePath("Screen/HeaderPanel/AddressPill/PillRow/GoButton")
 
 [node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -108,38 +102,24 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="AddressBar" type="PanelContainer" parent="Screen"]
+[node name="HeaderPanel" type="PanelContainer" parent="Screen"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="AddressMargin" type="MarginContainer" parent="Screen/AddressBar"]
+[node name="AddressPill" type="PanelContainer" parent="Screen/HeaderPanel"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 8
-
-[node name="AddressRow" type="HBoxContainer" parent="Screen/AddressBar/AddressMargin"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 8
-
-[node name="AddressPill" type="PanelContainer" parent="Screen/AddressBar/AddressMargin/AddressRow"]
-custom_minimum_size = Vector2(0, 34)
-layout_mode = 2
-size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_address")
 
-[node name="PillRow" type="HBoxContainer" parent="Screen/AddressBar/AddressMargin/AddressRow/AddressPill"]
+[node name="PillRow" type="HBoxContainer" parent="Screen/HeaderPanel/AddressPill"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="SearchIcon" type="TextureRect" parent="Screen/AddressBar/AddressMargin/AddressRow/AddressPill/PillRow"]
-modulate = Color(0.039215688, 0.23137255, 0.19215687, 0.7)
+[node name="SearchIcon" type="TextureRect" parent="Screen/HeaderPanel/AddressPill/PillRow"]
+modulate = Color(0.43137255, 0.44313726, 0.5019608, 1)
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_vertical = 4
@@ -148,26 +128,27 @@ texture = ExtResource("8_search")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AddressLabel" type="Label" parent="Screen/AddressBar/AddressMargin/AddressRow/AddressPill/PillRow"]
+[node name="AddressLabel" type="Label" parent="Screen/HeaderPanel/AddressPill/PillRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
-theme_override_fonts/font = ExtResource("6_semib")
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("5_reg")
 theme_override_font_sizes/font_size = 13
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="GoButton" type="Button" parent="Screen/AddressBar/AddressMargin/AddressRow"]
-custom_minimum_size = Vector2(34, 34)
+[node name="GoButton" type="Button" parent="Screen/HeaderPanel/AddressPill/PillRow"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_colors/icon_normal_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_normal_color = Color(0.101960786, 0.1254902, 0.2, 1)
 theme_override_colors/icon_pressed_color = Color(1, 1, 0.972549, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 0.972549, 1)
-theme_override_colors/icon_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 0.6)
-theme_override_constants/icon_max_width = 14
+theme_override_colors/icon_hover_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_disabled_color = Color(0.22352941, 0.5647059, 0.62352943, 0.55)
+theme_override_constants/icon_max_width = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_go_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_go_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_go_hover")
@@ -175,6 +156,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_go_disabled")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
 disabled = true
 icon = ExtResource("7_send")
+icon_alignment = 1
 expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
@@ -184,93 +166,127 @@ horizontal_scroll_mode = 0
 script = ExtResource("2_scroll")
 size_x = 4
 
-[node name="Page" type="VBoxContainer" parent="Screen/ScrollContainer"]
+[node name="Margin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/separation = 0
-
-[node name="SitesMargin" type="MarginContainer" parent="Screen/ScrollContainer/Page"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 10
-
-[node name="GridContainer" type="GridContainer" parent="Screen/ScrollContainer/Page/SitesMargin"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = 2
-columns = 4
-
-[node name="ReviewsSite" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 26
-
-[node name="AmazoniaShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 12
-
-[node name="EmporioBolosShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 18
-
-[node name="AECShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 20
-
-[node name="LibreMercadoShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 14
-
-[node name="EmiliaShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 16
-
-[node name="ZoraShop" parent="Screen/ScrollContainer/Page/SitesMargin/GridContainer" instance=ExtResource("4_k30y1")]
-layout_mode = 2
-site = 22
-
-[node name="SectionDivider" type="ColorRect" parent="Screen/ScrollContainer/Page"]
-custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
-mouse_filter = 2
-color = Color(0.85882354, 0.84705883, 0.8117647, 1)
-
-[node name="NewsHeader" type="MarginContainer" parent="Screen/ScrollContainer/Page"]
-layout_mode = 2
+size_flags_vertical = 0
 mouse_filter = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_bottom = 18
 
-[node name="NewsLabel" type="Label" parent="Screen/ScrollContainer/Page/NewsHeader"]
+[node name="Column" type="VBoxContainer" parent="Screen/ScrollContainer/Margin"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_fonts/font = ExtResource("3_bold")
-theme_override_font_sizes/font_size = 16
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 18
+
+[node name="SitesSection" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="SitesHeader" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/SitesSection"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SitesLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesHeader"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("6_semib")
+theme_override_font_sizes/font_size = 12
+size_flags_horizontal = 3
+text = "Acesso rápido"
+
+[node name="SitesHint" type="Label" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesHeader"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 11
+text = "Toque para preencher a busca"
+
+[node name="SitesCard" type="MarginContainer" parent="Screen/ScrollContainer/Margin/Column/SitesSection"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = -12
+theme_override_constants/margin_right = -12
+
+[node name="SitesList" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ReviewsSite" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 26
+
+[node name="AmazoniaShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 12
+
+[node name="EmporioBolosShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 18
+
+[node name="AECShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 20
+
+[node name="LibreMercadoShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 14
+
+[node name="EmiliaShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 16
+
+[node name="ZoraShop" parent="Screen/ScrollContainer/Margin/Column/SitesSection/SitesCard/SitesList" instance=ExtResource("4_k30y1")]
+layout_mode = 2
+site = 22
+
+[node name="NewsSection" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="NewsLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/NewsSection"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("6_semib")
+theme_override_font_sizes/font_size = 12
 text = "Notícias"
 
-[node name="NewsContainer" type="VBoxContainer" parent="Screen/ScrollContainer/Page"]
+[node name="NewsCard" type="PanelContainer" parent="Screen/ScrollContainer/Margin/Column/NewsSection"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_news_card")
+
+[node name="NewsColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="NewsContainer" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard/NewsColumn"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="NewsEmptyState" type="MarginContainer" parent="Screen/ScrollContainer/Page"]
+[node name="NewsEmptyState" type="MarginContainer" parent="Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard/NewsColumn"]
 visible = false
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 18
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
 
-[node name="NewsEmptyHint" type="Label" parent="Screen/ScrollContainer/Page/NewsEmptyState"]
+[node name="NewsEmptyHint" type="Label" parent="Screen/ScrollContainer/Margin/Column/NewsSection/NewsCard/NewsColumn/NewsEmptyState"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_reg")
 theme_override_font_sizes/font_size = 12
 text = "Nenhuma notícia por enquanto. Volte mais tarde!"

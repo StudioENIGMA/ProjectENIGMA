@@ -12,23 +12,14 @@ signal open_site_requested(
 	app: GameData.App
 )
 
-## Address written on the search bar when a quick access site is picked
-const SITE_ADDRESSES = {
-	GameData.App.REVIEWSSITE: "elogiela.com.br",
-	GameData.App.BROWSERAMAZONIASHOP: "amazonia.com.br",
-	GameData.App.BROWSERLIBREMERCADOSHOP: "libremercado.com.br",
-	GameData.App.BROWSEREMILIASHOP: "emiliabolos.com.br",
-	GameData.App.BROWSEREMPORIOBOLOSSHOP: "emporiodosbolos.com.br",
-	GameData.App.BROWSERAECSHOP: "aec.com.br",
-	GameData.App.BROWSERZORASHOP: "zora.com.br",
-}
+const QuickSite = preload("res://scripts/apps/browser/quick_acess_icon.gd")
 const PLACEHOLDER_TEXT = "Escolha um site abaixo"
-const ADDRESS_COLOR = Color(0.039215688, 0.23137255, 0.19215687, 1)
-const PLACEHOLDER_COLOR = Color(0.039215688, 0.23137255, 0.19215687, 0.55)
+const ADDRESS_COLOR = Color(0.09019608, 0.10980392, 0.18039216, 1)
+const PLACEHOLDER_COLOR = Color(0.43137255, 0.44313726, 0.5019608, 1)
 
 @export var news_container : VBoxContainer
 @export var news_empty_state: Control
-@export var quick_sites_containier: GridContainer
+@export var quick_sites_containier: Container
 @export var address_label: Label
 @export var go_button: Button
 
@@ -49,6 +40,9 @@ func _ready():
 		quick_site.toggle_mode = true
 		quick_site.button_group = _site_group
 		quick_site.open_site_requested.connect(_on_site_picked)
+	var sites = quick_sites_containier.get_children()
+	if not sites.is_empty():
+		sites[-1].divider.visible = false
 	go_button.pressed.connect(_on_go_button_pressed)
 	visibility_changed.connect(func(): if not visible: _clear_address())
 	_clear_address()
@@ -62,7 +56,7 @@ func _on_site_picked(app: GameData.App) -> void:
 		_clear_address()
 		return
 	_picked_site = app
-	address_label.text = SITE_ADDRESSES.get(app, "")
+	address_label.text = QuickSite.SITE_ADDRESSES.get(app, "")
 	address_label.add_theme_color_override("font_color", ADDRESS_COLOR)
 	go_button.disabled = false
 
@@ -78,7 +72,8 @@ func _clear_address() -> void:
 	_picked_site = null
 	var picked = _site_group.get_pressed_button()
 	if picked:
-		picked.set_pressed_no_signal(false)
+		# Emits toggled (not pressed), so the row puts its badge back without picking itself again
+		picked.button_pressed = false
 	address_label.text = PLACEHOLDER_TEXT
 	address_label.add_theme_color_override("font_color", PLACEHOLDER_COLOR)
 	go_button.disabled = true
@@ -113,4 +108,7 @@ func update_news():
 			browser_home_news.open_news.connect(_on_open_news)
 			news_container.add_child(browser_home_news)
 
+	var rows = news_container.get_children().filter(func(row): return not row.is_queued_for_deletion())
+	if not rows.is_empty():
+		rows[-1].divider.visible = false
 	news_empty_state.visible = day_news_data.get("news", []).is_empty()
