@@ -138,7 +138,9 @@ _data = {
 &"download_animation": SubResource("Animation_erget")
 }
 
-[node name="OthersMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "time_label", "message_animation", "left_margin", "right_margin", "annex_container", "annex_button", "progress_bar", "animation_player")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_annex_card"]
+
+[node name="OthersMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "time_label", "message_animation", "left_margin", "right_margin", "annex_container", "annex_button", "annex_icon", "annex_label", "progress_bar", "animation_player")]
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
@@ -151,7 +153,9 @@ message_animation = NodePath("VBoxContainer/MessageBackground/VBoxContainer/Mess
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
-annex_button = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/AnnexButton")
+annex_button = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexButton")
+annex_icon = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexContent/Column/AnnexIcon")
+annex_label = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexContent/Column/AnnexLabel")
 progress_bar = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/ProgressBar")
 animation_player = NodePath("VBoxContainer/AnnexContainer/VBoxContainer/ProgressBar/AnimationPlayer")
 
@@ -216,28 +220,53 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer/VBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="AnnexCard" type="PanelContainer" parent="VBoxContainer/AnnexContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_annex_card")
+
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_colors/font_pressed_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
-theme_override_colors/font_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
-theme_override_fonts/font = ExtResource("4_qubeq")
-theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_puwxd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h7bqq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7bqq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_12h3o")
+
+[node name="AnnexContent" type="MarginContainer" parent="VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Column" type="VBoxContainer" parent="VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="AnnexIcon" type="TextureRect" parent="VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexContent/Column"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_0thuc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnnexLabel" type="Label" parent="VBoxContainer/AnnexContainer/VBoxContainer/AnnexCard/AnnexContent/Column"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("4_qubeq")
+theme_override_font_sizes/font_size = 11
 text = "Fake App.apk"
-icon = ExtResource("3_0thuc")
-autowrap_mode = 2
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/AnnexContainer/VBoxContainer"]
 visible = false

@@ -81,7 +81,9 @@ corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 corner_detail = 8
 
-[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "time_label", "left_margin", "right_margin", "annex_container", "annex_button")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_annex_card"]
+
+[node name="MyMessage" type="HBoxContainer" node_paths=PackedStringArray("label", "panel_container", "time_label", "left_margin", "right_margin", "annex_container", "annex_button", "annex_icon", "annex_label")]
 offset_right = 133.0
 offset_bottom = 5136.0
 size_flags_horizontal = 3
@@ -94,7 +96,9 @@ time_label = NodePath("VBoxContainer/MessageBackground/VBoxContainer/TimeLabel")
 left_margin = NodePath("MarginLeft")
 right_margin = NodePath("MarginRight")
 annex_container = NodePath("VBoxContainer/AnnexContainer")
-annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexButton")
+annex_button = NodePath("VBoxContainer/AnnexContainer/AnnexCard/AnnexButton")
+annex_icon = NodePath("VBoxContainer/AnnexContainer/AnnexCard/AnnexContent/Column/AnnexIcon")
+annex_label = NodePath("VBoxContainer/AnnexContainer/AnnexCard/AnnexContent/Column/AnnexLabel")
 
 [node name="MarginLeft" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(16, 0)
@@ -148,28 +152,53 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="AnnexCard" type="PanelContainer" parent="VBoxContainer/AnnexContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_annex_card")
+
+[node name="AnnexButton" type="Button" parent="VBoxContainer/AnnexContainer/AnnexCard"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_colors/font_pressed_color = Color(0.039215688, 0.23137255, 0.19215687, 1)
-theme_override_colors/font_disabled_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
-theme_override_fonts/font = ExtResource("3_080el")
-theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_annex_normal")
 theme_override_styles/hover = SubResource("StyleBoxFlat_annex_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_annex_hover")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_annex_disabled")
+
+[node name="AnnexContent" type="MarginContainer" parent="VBoxContainer/AnnexContainer/AnnexCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Column" type="VBoxContainer" parent="VBoxContainer/AnnexContainer/AnnexCard/AnnexContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="AnnexIcon" type="TextureRect" parent="VBoxContainer/AnnexContainer/AnnexCard/AnnexContent/Column"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_e64tx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnnexLabel" type="Label" parent="VBoxContainer/AnnexContainer/AnnexCard/AnnexContent/Column"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_080el")
+theme_override_font_sizes/font_size = 11
 text = "Fake App.apk"
-icon = ExtResource("3_e64tx")
-autowrap_mode = 2
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="MarginRight" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(16, 0)
