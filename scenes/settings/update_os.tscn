@@ -217,7 +217,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("3_bold")
 theme_override_font_sizes/font_size = 18
-text = "EnigmaOS"
+text = "Banana OS"
 horizontal_alignment = 1
 
 [node name="StatusPill" type="PanelContainer" parent="Screen/Column" unique_id=1876312829]
@@ -285,7 +285,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7oopa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7oopa")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gt8am")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
-text = "Atualizar EnigmaOS"
+text = "Atualizar Banana OS"
 
 [node name="BottomSpacer" type="Control" parent="Screen/Column" unique_id=1071314399]
 layout_mode = 2

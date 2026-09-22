@@ -40,7 +40,7 @@ func _refresh() -> void:
 		update_button.disabled = true
 	else:
 		_set_status(PENDING_STATUS_TEXT, pending_status_style, PENDING_STATUS_COLOR)
-		update_button.text = "Atualizar OS"
+		update_button.text = "Atualizar Banana OS"
 		update_button.disabled = false
 
 ## Applies one of the three pill looks (pending, running, done) to the status chip
