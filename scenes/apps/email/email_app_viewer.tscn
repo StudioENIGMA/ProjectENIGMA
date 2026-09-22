@@ -2,41 +2,67 @@
 
 [ext_resource type="Script" uid="uid://cshfukqkunwsp" path="res://scripts/apps/email/email_app_viewer.gd" id="1_xxlyd"]
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_654my"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
 
-[node name="EmailAppViewer" type="VBoxContainer" unique_id=1667623916 node_paths=PackedStringArray("subject_label", "email_messages_container", "scroll_container")]
+[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "thread_size_label", "email_messages_container", "scroll_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xxlyd")
-subject_label = NodePath("ScrollContainer/FullEmailContainer/SubjectMarginContainer/EmailSubjectLabel")
+subject_label = NodePath("ScrollContainer/FullEmailContainer/Header/HeaderColumn/EmailSubjectLabel")
+thread_size_label = NodePath("ScrollContainer/FullEmailContainer/Header/HeaderColumn/ThreadSizeLabel")
 email_messages_container = NodePath("ScrollContainer/FullEmailContainer/EmailMessagesContainer")
 scroll_container = NodePath("ScrollContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=676213411]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 script = ExtResource("2_654my")
+size_x = 4
 
-[node name="FullEmailContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1438873677]
+[node name="FullEmailContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
-[node name="SubjectMarginContainer" type="MarginContainer" parent="ScrollContainer/FullEmailContainer" unique_id=718184111]
+[node name="Header" type="MarginContainer" parent="ScrollContainer/FullEmailContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
 
-[node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/FullEmailContainer/SubjectMarginContainer" unique_id=1303075668]
-custom_minimum_size = Vector2(0, 64)
+[node name="HeaderColumn" type="VBoxContainer" parent="ScrollContainer/FullEmailContainer/Header"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 24
-text = "Reunião Emergencial"
-vertical_alignment = 1
+theme_override_constants/separation = 2
 
-[node name="EmailMessagesContainer" type="VBoxContainer" parent="ScrollContainer/FullEmailContainer" unique_id=940795817]
+[node name="EmailSubjectLabel" type="Label" parent="ScrollContainer/FullEmailContainer/Header/HeaderColumn"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 20
+text = "Compra de Materiais"
+autowrap_mode = 3
+
+[node name="ThreadSizeLabel" type="Label" parent="ScrollContainer/FullEmailContainer/Header/HeaderColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Caixa de entrada · 1 mensagem"
+
+[node name="Divider" type="ColorRect" parent="ScrollContainer/FullEmailContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="EmailMessagesContainer" type="VBoxContainer" parent="ScrollContainer/FullEmailContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
