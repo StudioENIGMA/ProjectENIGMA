@@ -14,6 +14,7 @@ const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
 
 #region CHILDREN NODES REFERENCES
 @export var list_of_emails: VBoxContainer
+@export var empty_state: CenterContainer
 #endregion CHILDREN NODES REFERENCES
 
 # Emails data is an array of arrays of dictionaries
@@ -71,6 +72,11 @@ func _update_list_of_emails(updated_email_index: int) -> void:
 		email_row.setup(emails_data[0], is_to_read)
 
 	list_of_emails.move_child(email_row, 0)
+	_refresh_empty_state()
+
+## Shows the empty state while the inbox has no email
+func _refresh_empty_state() -> void:
+	empty_state.visible = emails_data.is_empty()
 #endregion UI UPDATES
 
 func _sync_emails_to_game_data() -> void:
@@ -91,6 +97,8 @@ func load_emails(saved_threads: Array) -> void:
 		email_row.setup(restored_thread, is_to_read)
 		email_row.subscreen_open_requested.connect(_on_open_email)
 		list_of_emails.add_child(email_row)
+
+	_refresh_empty_state()
 
 func _on_visibility_changed() -> void:
 	load_emails(emails_data.duplicate(true))

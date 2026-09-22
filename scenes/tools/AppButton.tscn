@@ -4,8 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="1_wjthx"]
 [ext_resource type="Script" uid="uid://b17eiem34kqyg" path="res://scripts/tools/app_icon.gd" id="3_qhiuw"]
 [ext_resource type="Script" uid="uid://cilc6iidnfhns" path="res://scripts/tools/app_name.gd" id="4_nw0xf"]
+[ext_resource type="Texture2D" uid="uid://bdxmhc8a70dxt" path="res://assets/icons/notification_bell.png" id="5_bell"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="6_bold"]
 
-[node name="AppButton" type="VBoxContainer" unique_id=369145603 node_paths=PackedStringArray("app_icon", "app_name_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 6.0
+content_margin_bottom = 1.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color(0.11764706, 0.18823528, 0.2784314, 0.25)
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
+
+[node name="AppButton" type="VBoxContainer" unique_id=369145603 node_paths=PackedStringArray("app_icon", "app_name_label", "notification_badge", "notification_count_label")]
 custom_minimum_size = Vector2(80, 80)
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,6 +39,8 @@ size_flags_vertical = 6
 script = ExtResource("1_wh6kl")
 app_icon = NodePath("AppIcon")
 app_name_label = NodePath("AppName")
+notification_badge = NodePath("AppIcon/NotificationBadge")
+notification_count_label = NodePath("AppIcon/NotificationBadge/Row/Count")
 
 [node name="AppIcon" type="TextureRect" parent="." unique_id=1549305057]
 custom_minimum_size = Vector2(64, 64)
@@ -32,6 +50,42 @@ size_flags_vertical = 6
 texture = ExtResource("1_wjthx")
 expand_mode = 1
 script = ExtResource("3_qhiuw")
+
+[node name="NotificationBadge" type="PanelContainer" parent="AppIcon" unique_id=235197421]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = -7.0
+offset_right = 8.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="Row" type="HBoxContainer" parent="AppIcon/NotificationBadge" unique_id=1117321969]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Bell" type="TextureRect" parent="AppIcon/NotificationBadge/Row" unique_id=1208977359]
+custom_minimum_size = Vector2(11, 13)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_bell")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="AppIcon/NotificationBadge/Row" unique_id=1527186810]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+theme_override_fonts/font = ExtResource("6_bold")
+theme_override_font_sizes/font_size = 11
+text = "1"
 
 [node name="AppName" type="Label" parent="." unique_id=942977704]
 layout_mode = 2

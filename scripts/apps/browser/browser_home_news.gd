@@ -1,9 +1,11 @@
-extends HBoxContainer
+extends VBoxContainer
 
 signal open_news(news_data: Dictionary)
 
 @export var news_content: Label
 @export var news_metadata: Label
+## Line under the row, hidden on the last row of the list
+@export var divider: Control
 
 var _news_data: Dictionary
 

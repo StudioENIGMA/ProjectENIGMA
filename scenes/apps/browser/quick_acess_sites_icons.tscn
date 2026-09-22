@@ -2,45 +2,206 @@
 
 [ext_resource type="Script" uid="uid://bveos8ib7nsyr" path="res://scripts/apps/browser/quick_acess_icon.gd" id="1_h124j"]
 [ext_resource type="Texture2D" uid="uid://dcpk4mebjjg15" path="res://assets/icons/shops/square_logos/elogie_la_logo_fundo.png" id="2_v1pv2"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="Texture2D" uid="uid://bftmiuh84pmke" path="res://assets/icons/fill_search.svg" id="5_fill"]
+[ext_resource type="Texture2D" uid="uid://bmeso8cp8kgtb" path="res://assets/icons/check.svg" id="6_check"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_v1pv2"]
-font_size = 18
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_normal"]
 
-[node name="quick_acess_sites_icons" type="Control" unique_id=1379295309 node_paths=PackedStringArray("logo_button", "site_label")]
-custom_minimum_size = Vector2(180, 142.8)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 180.0
-offset_bottom = 142.8
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.2)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mask"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge_idle"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge_picked"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[node name="quick_acess_sites_icons" type="Button" node_paths=PackedStringArray("logo_rect", "site_label", "address_label", "badge", "badge_icon", "divider")]
+custom_minimum_size = Vector2(0, 54)
+size_flags_horizontal = 3
+tooltip_text = "Preencher a busca com este site"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
 script = ExtResource("1_h124j")
-site = 20
-logo_button = NodePath("VBoxContainer/TextureButton")
-site_label = NodePath("VBoxContainer/SiteLabel")
+site = 26
+logo_rect = NodePath("Content/Row/Logo/Mask/LogoTexture")
+site_label = NodePath("Content/Row/TextColumn/SiteLabel")
+address_label = NodePath("Content/Row/TextColumn/AddressLabel")
+badge = NodePath("Content/Row/Badge")
+badge_icon = NodePath("Content/Row/Badge/BadgeIcon")
+divider = NodePath("Divider")
+fill_icon = ExtResource("5_fill")
+picked_icon = ExtResource("6_check")
+idle_badge_style = SubResource("StyleBoxFlat_badge_idle")
+picked_badge_style = SubResource("StyleBoxFlat_badge_picked")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1713104016]
+[node name="Content" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 180.0
-offset_bottom = 142.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=818044856]
-custom_minimum_size = Vector2(90, 90)
+[node name="Row" type="HBoxContainer" parent="Content"]
 layout_mode = 2
-size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Logo" type="Control" parent="Content/Row"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("2_v1pv2")
-ignore_texture_size = true
-stretch_mode = 4
+mouse_filter = 2
 
-[node name="SiteLabel" type="Label" parent="VBoxContainer" unique_id=1822662016]
+[node name="IconShadow" type="Panel" parent="Content/Row/Logo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Mask" type="Panel" parent="Content/Row/Logo"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="LogoTexture" type="TextureRect" parent="Content/Row/Logo/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_v1pv2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextColumn" type="VBoxContainer" parent="Content/Row"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "ElogieLÁ"
-label_settings = SubResource("LabelSettings_v1pv2")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="SiteLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_semi")
+theme_override_font_sizes/font_size = 13
+text = "ElogieLÁ"
+text_overrun_behavior = 3
+
+[node name="AddressLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 11
+text = "elogiela.com.br"
+text_overrun_behavior = 3
+
+[node name="Badge" type="Panel" parent="Content/Row"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge_idle")
+
+[node name="BadgeIcon" type="TextureRect" parent="Content/Row/Badge"]
+modulate = Color(0.13333334, 0.28235295, 0.38431373, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_fill")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Divider" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -1.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.11764706, 0.1882353, 0.2784314, 0.1)
+
+[connection signal="pressed" from="." to="." method="_on_texture_button_pressed"]
