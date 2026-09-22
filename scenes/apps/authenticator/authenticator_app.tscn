@@ -1,11 +1,78 @@
 [gd_scene format=3 uid="uid://bqdo7vb231hqt"]
 
 [ext_resource type="Script" uid="uid://cjfcakkk01xe0" path="res://scripts/apps/authenticator/authenticator_app.gd" id="1_6mfd3"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
 
-[node name="ListOfAuthenticators" type="VBoxContainer" unique_id=1635970018]
+[node name="AuthenticatorApp" type="Control" node_paths=PackedStringArray("authenticators_container")]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_6mfd3")
+authenticators_container = NodePath("Screen/ListArea/AuthenticatorsScrollContainer/AuthenticatorsContainer")
+
+[node name="Screen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="MarginContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="HeaderColumn" type="VBoxContainer" parent="Screen/Header"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="SubtitleLabel" type="Label" parent="Screen/Header/HeaderColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Códigos de verificação em duas etapas. Nunca compartilhe um código com ninguém."
+autowrap_mode = 2
+
+[node name="HeaderDivider" type="ColorRect" parent="Screen"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="ListArea" type="Control" parent="Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="AuthenticatorsScrollContainer" type="ScrollContainer" parent="Screen/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
+
+[node name="AuthenticatorsContainer" type="VBoxContainer" parent="Screen/ListArea/AuthenticatorsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 0
