@@ -1,193 +1,381 @@
 [gd_scene format=3 uid="uid://wy42f82fl24"]
 
-[ext_resource type="Script" uid="uid://dxnk0um1gynhf" path="res://scripts/apps/browser/shop-site/payment_screen.gd" id="1_6s46i"]
-[ext_resource type="Texture2D" uid="uid://b4uxas62fiyhr" path="res://assets/icons/shops/shopping-bag.svg" id="1_sgibi"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_no0r8"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_qgw7n"]
-[ext_resource type="Texture2D" uid="uid://cxgmxje44735y" path="res://assets/icons/shops/barcode.png" id="4_no0r8"]
+[ext_resource type="Script" uid="uid://dxnk0um1gynhf" path="res://scripts/apps/browser/shop-site/payment_screen.gd" id="s_payment"]
+[ext_resource type="Texture2D" uid="uid://b4uxas62fiyhr" path="res://assets/icons/shops/shopping-bag.svg" id="t_bag"]
+[ext_resource type="Texture2D" uid="uid://cxgmxje44735y" path="res://assets/icons/shops/barcode.png" id="t_barcode"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="s_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
-bg_color = Color(0.35686275, 0.72156864, 0.18039216, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bag"]
+bg_color = Color(0.30980392, 0.79607843, 0.68235294, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgibi"]
-bg_color = Color(0.35686275, 0.72156864, 0.18039216, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_2md3q"]
-font = ExtResource("2_no0r8")
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("f_bold")
 font_size = 20
-font_color = Color(0.039215688, 0.05882353, 0.11764706, 1)
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgw7n"]
-bg_color = Color(0.6, 0.6, 0.6, 0.54901963)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 4.0
-expand_margin_top = 1.0
-expand_margin_right = 4.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_no0r8"]
-font = ExtResource("3_qgw7n")
-font_color = Color(0.039215688, 0.05882353, 0.11764706, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no0r8"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_6s46i"]
-line_spacing = 0.0
-font = ExtResource("2_no0r8")
-font_size = 40
-font_color = Color(0.35686275, 0.72156864, 0.18039216, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1h7sn"]
-font = ExtResource("2_no0r8")
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font = ExtResource("f_reg")
 font_size = 12
-font_color = Color(0.039215688, 0.05882353, 0.11764706, 1)
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s46i"]
-content_margin_left = 85.0
-content_margin_top = 9.0
-content_margin_right = 85.0
-content_margin_bottom = 9.0
-bg_color = Color(0.90681136, 0.14523757, 0.2593188, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h7sn"]
-content_margin_left = 85.0
-content_margin_top = 9.0
-content_margin_right = 85.0
-content_margin_bottom = 9.0
-bg_color = Color(0.90681136, 0.14523757, 0.2593188, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="LabelSettings" id="LabelSettings_caption"]
+font = ExtResource("f_semib")
+font_size = 11
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0h71"]
-content_margin_left = 250.0
-content_margin_top = 25.0
-content_margin_right = 250.0
-content_margin_bottom = 25.0
-bg_color = Color(0.9792022, 0.3160953, 0.36360455, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="FontVariation" id="FontVariation_code"]
+base_font = ExtResource("f_bold")
+spacing_glyph = 6
 
-[node name="PaymentScreen" type="Control" unique_id=1932523554 node_paths=PackedStringArray("price_label", "code_label")]
+[sub_resource type="LabelSettings" id="LabelSettings_code"]
+font = SubResource("FontVariation_code")
+font_size = 36
+font_color = Color(0.10196078, 0.1254902, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_row_key"]
+font = ExtResource("f_reg")
+font_size = 13
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_price"]
+font = ExtResource("f_bold")
+font_size = 18
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_section"]
+font = ExtResource("f_bold")
+font_size = 15
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_step"]
+bg_color = Color(0.30980392, 0.79607843, 0.68235294, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_step_number"]
+font = ExtResource("f_bold")
+font_size = 12
+font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_step"]
+font = ExtResource("f_reg")
+font_size = 13
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cancel_normal"]
+content_margin_left = 16.0
+content_margin_top = 11.0
+content_margin_right = 16.0
+content_margin_bottom = 11.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cancel_pressed"]
+content_margin_left = 16.0
+content_margin_top = 11.0
+content_margin_right = 16.0
+content_margin_bottom = 11.0
+bg_color = Color(0.92156863, 0.039215686, 0.27058824, 0.12)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92156863, 0.039215686, 0.27058824, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="PaymentScreen" type="Control" node_paths=PackedStringArray("price_label", "code_label", "store_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6s46i")
-price_label = NodePath("VBoxContainer/PriceLabel")
-code_label = NodePath("VBoxContainer/Code Container/CodeLabel")
+mouse_filter = 2
+script = ExtResource("s_payment")
+price_label = NodePath("Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn/TotalRow/PriceLabel")
+code_label = NodePath("Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn/CodeLabel")
+store_label = NodePath("Screen/ScrollContainer/Margin/Column/Header/HeaderText/StoreLabel")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 12
-
-[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=318946451]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_sgibi")
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel" unique_id=929593037]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -32.5
-offset_right = 32.5
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_sgibi")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=2083558438]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="PaymentLabel" type="Label" parent="VBoxContainer" unique_id=1280893474]
-layout_mode = 2
-text = "Pagamento via Boleto Bancário"
-label_settings = SubResource("LabelSettings_2md3q")
-horizontal_alignment = 1
-
-[node name="PriceLabel" type="Label" parent="VBoxContainer" unique_id=1065081963]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_qgw7n")
-text = "Valor total do Pedido: R$XX,XX"
-label_settings = SubResource("LabelSettings_no0r8")
-horizontal_alignment = 1
-
-[node name="Code Container" type="VBoxContainer" parent="VBoxContainer" unique_id=264665620]
-layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="CodeLabel" type="Label" parent="VBoxContainer/Code Container" unique_id=1530231232]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_no0r8")
-text = "412513"
-label_settings = SubResource("LabelSettings_6s46i")
-horizontal_alignment = 1
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("s_scroll")
+size_x = 4
 
-[node name="CodeMessage" type="Label" parent="VBoxContainer/Code Container" unique_id=147497228]
+[node name="Margin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
-text = "CÓDIGO"
-label_settings = SubResource("LabelSettings_1h7sn")
-horizontal_alignment = 1
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1391786103]
-custom_minimum_size = Vector2(0, 60)
+[node name="Column" type="VBoxContainer" parent="Screen/ScrollContainer/Margin"]
 layout_mode = 2
-texture = ExtResource("4_no0r8")
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="BagCircle" type="PanelContainer" parent="Screen/ScrollContainer/Margin/Column/Header"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bag")
+
+[node name="TextureRect" type="TextureRect" parent="Screen/ScrollContainer/Margin/Column/Header/BagCircle"]
+modulate = Color(0.13333334, 0.28235295, 0.38431373, 1)
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("t_bag")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CancelButton" type="Button" parent="VBoxContainer" unique_id=1897419501]
+[node name="HeaderText" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/Header"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.08235294, 0.03529412, 0.078431375, 1)
-theme_override_fonts/font = ExtResource("2_no0r8")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_6s46i")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1h7sn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_w0h71")
-text = "Cancelar Pedido"
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[connection signal="pressed" from="VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[node name="PaymentLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/Header/HeaderText"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+text = "Aguardando pagamento"
+label_settings = SubResource("LabelSettings_title")
+autowrap_mode = 3
+
+[node name="StoreLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/Header/HeaderText"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+text = "Loja  •  Boleto bancário"
+label_settings = SubResource("LabelSettings_subtitle")
+autowrap_mode = 3
+
+[node name="CodeCard" type="PanelContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="CodeColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/CodeCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="CodeMessage" type="Label" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn"]
+layout_mode = 2
+text = "CÓDIGO DO BOLETO"
+label_settings = SubResource("LabelSettings_caption")
+horizontal_alignment = 1
+
+[node name="CodeLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn"]
+layout_mode = 2
+text = "412513"
+label_settings = SubResource("LabelSettings_code")
+horizontal_alignment = 1
+
+[node name="Barcode" type="TextureRect" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn"]
+modulate = Color(0.10196078, 0.1254902, 0.2, 1)
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("t_barcode")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DividerMargin" type="MarginContainer" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Divider" type="ColorRect" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn/DividerMargin"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="TotalRow" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TotalKey" type="Label" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn/TotalRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Valor total"
+label_settings = SubResource("LabelSettings_row_key")
+
+[node name="PriceLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/CodeCard/CodeColumn/TotalRow"]
+layout_mode = 2
+text = "R$ 0,00"
+label_settings = SubResource("LabelSettings_price")
+horizontal_alignment = 2
+
+[node name="StepsCard" type="PanelContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="StepsColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/StepsCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="StepsTitle" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn"]
+layout_mode = 2
+text = "Como pagar"
+label_settings = SubResource("LabelSettings_section")
+
+[node name="Step1" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Number" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step1"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_step")
+text = "1"
+label_settings = SubResource("LabelSettings_step_number")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step1"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Abra o app do Banco"
+label_settings = SubResource("LabelSettings_step")
+autowrap_mode = 3
+
+[node name="Step2" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Number" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step2"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_step")
+text = "2"
+label_settings = SubResource("LabelSettings_step_number")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Toque em Boleto e digite o código acima"
+label_settings = SubResource("LabelSettings_step")
+autowrap_mode = 3
+
+[node name="Step3" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Number" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step3"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_step")
+text = "3"
+label_settings = SubResource("LabelSettings_step_number")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Screen/ScrollContainer/Margin/Column/StepsCard/StepsColumn/Step3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Confira o valor e confirme o pagamento"
+label_settings = SubResource("LabelSettings_step")
+autowrap_mode = 3
+
+[node name="Footer" type="MarginContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CancelButton" type="Button" parent="Screen/Footer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.56862745, 0.10196078, 0.21960784, 1)
+theme_override_colors/font_hover_color = Color(0.56862745, 0.10196078, 0.21960784, 1)
+theme_override_colors/font_pressed_color = Color(0.56862745, 0.10196078, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("f_semib")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cancel_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cancel_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cancel_pressed")
+text = "Cancelar pedido"
+
+[connection signal="pressed" from="Screen/Footer/CancelButton" to="." method="_on_cancel_button_pressed"]

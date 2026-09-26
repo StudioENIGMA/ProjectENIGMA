@@ -4,8 +4,46 @@
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_semi"]
 
-[node name="news_page" type="Control" node_paths=PackedStringArray("news_title", "news_metadata", "news_content")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_masthead"]
+content_margin_left = 18.0
+content_margin_top = 14.0
+content_margin_right = 18.0
+content_margin_bottom = 16.0
+bg_color = Color(0.11764706, 0.1882353, 0.2784314, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="FontVariation" id="FontVariation_masthead"]
+base_font = ExtResource("3_bold")
+spacing_glyph = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_live"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_accent"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[node name="news_page" type="Control" node_paths=PackedStringArray("news_title", "news_metadata", "news_content", "outlet_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,69 +52,112 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0arqi")
-news_title = NodePath("ScrollContainer/ArticleMargin/Article/news_title")
-news_metadata = NodePath("ScrollContainer/ArticleMargin/Article/news_metadata")
-news_content = NodePath("ScrollContainer/ArticleMargin/Article/news_text")
+news_title = NodePath("Screen/ScrollContainer/ArticleMargin/Article/news_title")
+news_metadata = NodePath("Screen/ScrollContainer/ArticleMargin/Article/news_metadata")
+news_content = NodePath("Screen/ScrollContainer/ArticleMargin/Article/news_text")
+outlet_label = NodePath("Screen/Masthead/MastheadRow/OutletLabel")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Masthead" type="PanelContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_masthead")
+
+[node name="MastheadRow" type="HBoxContainer" parent="Screen/Masthead"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="OutletLabel" type="Label" parent="Screen/Masthead/MastheadRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_masthead")
+theme_override_font_sizes/font_size = 24
+text = "BCC"
+
+[node name="SectionChip" type="Label" parent="Screen/Masthead/MastheadRow"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+theme_override_fonts/font = ExtResource("5_semi")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_live")
+text = "Notícias"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 script = ExtResource("2_scroll")
 size_x = 4
 
-[node name="ArticleMargin" type="MarginContainer" parent="ScrollContainer"]
+[node name="ArticleMargin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 18
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 18
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 28
 
-[node name="Article" type="VBoxContainer" parent="ScrollContainer/ArticleMargin"]
+[node name="Article" type="VBoxContainer" parent="Screen/ScrollContainer/ArticleMargin"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 10
 
-[node name="news_title" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
+[node name="AccentBar" type="Panel" parent="Screen/ScrollContainer/ArticleMargin/Article"]
+custom_minimum_size = Vector2(36, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_accent")
+
+[node name="news_title" type="Label" parent="Screen/ScrollContainer/ArticleMargin/Article"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_bold")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 24
 text = "Atualização BananaOS"
 autowrap_mode = 2
 
-[node name="news_metadata" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
+[node name="news_metadata" type="Label" parent="Screen/ScrollContainer/ArticleMargin/Article"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 12
-text = "BCC  •  5 horas atrás"
+text = "5 horas atrás  •  Leitura de 1 min"
 
-[node name="DividerMargin" type="MarginContainer" parent="ScrollContainer/ArticleMargin/Article"]
+[node name="DividerMargin" type="MarginContainer" parent="Screen/ScrollContainer/ArticleMargin/Article"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 6
 
-[node name="Divider" type="ColorRect" parent="ScrollContainer/ArticleMargin/Article/DividerMargin"]
+[node name="Divider" type="ColorRect" parent="Screen/ScrollContainer/ArticleMargin/Article/DividerMargin"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.85882354, 0.84705883, 0.8117647, 1)
 
-[node name="news_text" type="Label" parent="ScrollContainer/ArticleMargin/Article"]
+[node name="news_text" type="Label" parent="Screen/ScrollContainer/ArticleMargin/Article"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
-theme_override_constants/line_spacing = 4
+theme_override_constants/line_spacing = 7
 theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 15
 text = "A empresa MirrorSoftware acabou de disponibilizar uma nova versão para seu sistema operacional mobile BananaOS."
