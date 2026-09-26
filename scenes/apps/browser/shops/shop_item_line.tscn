@@ -1,322 +1,295 @@
 [gd_scene format=3 uid="uid://bhbl2k14eug3k"]
 
-[ext_resource type="Script" uid="uid://4w8166dmqbne" path="res://scripts/apps/browser/shop-site/shop_item_line.gd" id="1_ig55w"]
-[ext_resource type="Texture2D" uid="uid://d22hlgtgtjums" path="res://assets/icons/shops/products/camiseta-placeholder.png" id="2_hf56t"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_hf56t"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_6sr1t"]
-[ext_resource type="Script" uid="uid://wqwfnmp0m5d2" path="res://scripts/utils/one_line_label.gd" id="4_dixt6"]
+[ext_resource type="Script" uid="uid://4w8166dmqbne" path="res://scripts/apps/browser/shop-site/shop_item_line.gd" id="s_line"]
+[ext_resource type="Texture2D" uid="uid://d22hlgtgtjums" path="res://assets/icons/shops/products/camiseta-placeholder.png" id="t_product"]
+[ext_resource type="Script" uid="uid://wqwfnmp0m5d2" path="res://scripts/utils/one_line_label.gd" id="s_one_line"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btjjm"]
-bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0.109804, 0.109804, 0.109804, 0.0745098)
-shadow_size = 4
-shadow_offset = Vector2(3, 3)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6q6x"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_image"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
 bg_color = Color(1, 1, 0.972549, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_5vx8r"]
-font = ExtResource("3_hf56t")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_name"]
+resource_local_to_scene = true
+font = ExtResource("f_bold")
+font_size = 15
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ig55w"]
-font = ExtResource("3_hf56t")
+[sub_resource type="LabelSettings" id="LabelSettings_caption"]
+font = ExtResource("f_reg")
+font_size = 11
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_unit"]
+font = ExtResource("f_semib")
 font_size = 13
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.13333333, 0.28235294, 0.38431373, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_713ls"]
-font = ExtResource("4_6sr1t")
+[sub_resource type="LabelSettings" id="LabelSettings_total"]
+font = ExtResource("f_bold")
 font_size = 13
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig55w"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_dixt6"]
-font = ExtResource("3_hf56t")
-font_size = 13
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf56t"]
-bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_left = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6xbk"]
-bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_left = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sr1t"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hf56t"]
-font = ExtResource("4_6sr1t")
-font_size = 19
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_713ls"]
-bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa58a"]
-bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dixt6"]
-content_margin_left = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stepper"]
+content_margin_left = 2.0
 content_margin_top = 2.0
-content_margin_right = 5.0
+content_margin_right = 2.0
 content_margin_bottom = 2.0
-bg_color = Color(0.7433166, 0.69575363, 0.6972537, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkw64"]
-content_margin_left = 5.0
-content_margin_top = 2.0
-content_margin_right = 5.0
-content_margin_bottom = 2.0
-bg_color = Color(0.80784315, 0.47843137, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_step_hover"]
+bg_color = Color(0.11764706, 0.18823529, 0.27843137, 0.08)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[node name="shop_item_line" type="Control" unique_id=1587774648 node_paths=PackedStringArray("unit_price_label", "total_price_label", "item_name_label", "item_quantity_label", "item_icon_rect", "delete_button")]
-custom_minimum_size = Vector2(340, 170)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 340.0
-offset_bottom = 170.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_step_pressed"]
+bg_color = Color(0.11764706, 0.18823529, 0.27843137, 0.16)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_step"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_quantity"]
+font = ExtResource("f_bold")
+font_size = 14
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_delete_normal"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_delete_pressed"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(0.92156863, 0.039215686, 0.27058824, 0.12)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92156863, 0.039215686, 0.27058824, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="shop_item_line" type="PanelContainer" node_paths=PackedStringArray("unit_price_label", "total_price_label", "item_name_label", "item_quantity_label", "item_icon_rect")]
 size_flags_horizontal = 3
 mouse_filter = 1
-script = ExtResource("1_ig55w")
-unit_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/UnitContainer/UnitPriceLabel")
-total_price_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/TotalContainer/TotalPriceLabel")
-item_name_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/ItemNameLabel")
-item_quantity_label = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ItemQuantity")
-item_icon_rect = NodePath("CenterContainer/Panel/HBoxContainer/Panel/Control/ItemIcon")
-delete_button = NodePath("CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/DeleteButton")
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("s_line")
+unit_price_label = NodePath("Row/Info/Prices/UnitContainer/UnitPriceLabel")
+total_price_label = NodePath("Row/Info/Prices/TotalContainer/TotalPriceLabel")
+item_name_label = NodePath("Row/Info/ItemNameLabel")
+item_quantity_label = NodePath("Row/Info/Actions/Stepper/StepperRow/ItemQuantity")
+item_icon_rect = NodePath("Row/ImagePanel/ItemIcon")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=362315748]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -15.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1483474221]
-custom_minimum_size = Vector2(340, 170)
+[node name="Row" type="HBoxContainer" parent="."]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_btjjm")
+mouse_filter = 2
+theme_override_constants/separation = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel" unique_id=1652962323]
+[node name="ImagePanel" type="PanelContainer" parent="Row"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -161.5
-offset_top = -77.5
-offset_right = 161.5
-offset_bottom = 77.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="Panel" type="Panel" parent="CenterContainer/Panel/HBoxContainer" unique_id=602828687]
-custom_minimum_size = Vector2(136, 153)
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_j6q6x")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_image")
 
-[node name="Control" type="Control" parent="CenterContainer/Panel/HBoxContainer/Panel" unique_id=1780139486]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 6.0
-offset_right = -5.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ItemIcon" type="TextureRect" parent="CenterContainer/Panel/HBoxContainer/Panel/Control" unique_id=238673017]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture = ExtResource("2_hf56t")
+[node name="ItemIcon" type="TextureRect" parent="Row/ImagePanel"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("t_product")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/HBoxContainer" unique_id=68997308]
-custom_minimum_size = Vector2(170, 0)
+[node name="Info" type="VBoxContainer" parent="Row"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 8
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 6
 
-[node name="ItemNameLabel" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer" unique_id=546356179]
-custom_minimum_size = Vector2(10, 10)
+[node name="ItemNameLabel" type="Label" parent="Row/Info"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
 text = "Nome do item"
-label_settings = SubResource("LabelSettings_5vx8r")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_name")
 autowrap_mode = 3
-script = ExtResource("4_dixt6")
+script = ExtResource("s_one_line")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer" unique_id=198598592]
+[node name="Prices" type="HBoxContainer" parent="Row/Info"]
 layout_mode = 2
-theme_override_constants/separation = 5
+mouse_filter = 2
+theme_override_constants/separation = 12
 
-[node name="UnitContainer" type="VBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1827305193]
+[node name="UnitContainer" type="VBoxContainer" parent="Row/Info/Prices"]
 layout_mode = 2
-
-[node name="UnitLabel" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/UnitContainer" unique_id=941872000]
-custom_minimum_size = Vector2(88, 5)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Valor Unitário"
-label_settings = SubResource("LabelSettings_ig55w")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="UnitPriceLabel" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/UnitContainer" unique_id=411765660]
-custom_minimum_size = Vector2(3.5, 3.5)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "R$130,00"
-label_settings = SubResource("LabelSettings_713ls")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Panel" type="Panel" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1407284673]
-custom_minimum_size = Vector2(1.5, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ig55w")
-
-[node name="TotalContainer" type="VBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=935518158]
-layout_mode = 2
-
-[node name="TotalLabel" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/TotalContainer" unique_id=402958927]
-custom_minimum_size = Vector2(68, 3.5)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Valor Total"
-label_settings = SubResource("LabelSettings_dixt6")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="TotalPriceLabel" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/TotalContainer" unique_id=2054271924]
-custom_minimum_size = Vector2(78, 3.5)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "R$130,00"
-label_settings = SubResource("LabelSettings_713ls")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer" unique_id=2141554037]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-
-[node name="LeftContainer" type="MarginContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1141964291]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2061739393]
-custom_minimum_size = Vector2(0, 22)
-layout_mode = 2
-size_flags_horizontal = 0
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="RemoveButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1997089078]
-custom_minimum_size = Vector2(22, 22)
+[node name="UnitLabel" type="Label" parent="Row/Info/Prices/UnitContainer"]
 layout_mode = 2
-mouse_filter = 1
-theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hf56t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hf56t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s6xbk")
-text = "-"
+text = "Valor Unitário"
+label_settings = SubResource("LabelSettings_caption")
 
-[node name="ItemQuantity" type="Label" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=337419749]
-custom_minimum_size = Vector2(22, 22)
+[node name="UnitPriceLabel" type="Label" parent="Row/Info/Prices/UnitContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_6sr1t")
+text = "R$ 130,00"
+label_settings = SubResource("LabelSettings_unit")
+
+[node name="Divider" type="ColorRect" parent="Row/Info/Prices"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="TotalContainer" type="VBoxContainer" parent="Row/Info/Prices"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TotalLabel" type="Label" parent="Row/Info/Prices/TotalContainer"]
+layout_mode = 2
+text = "Valor Total"
+label_settings = SubResource("LabelSettings_caption")
+
+[node name="TotalPriceLabel" type="Label" parent="Row/Info/Prices/TotalContainer"]
+layout_mode = 2
+text = "R$ 130,00"
+label_settings = SubResource("LabelSettings_total")
+
+[node name="Actions" type="HBoxContainer" parent="Row/Info"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Stepper" type="PanelContainer" parent="Row/Info/Actions"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_stepper")
+
+[node name="StepperRow" type="HBoxContainer" parent="Row/Info/Actions/Stepper"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RemoveButton" type="Button" parent="Row/Info/Actions/Stepper/StepperRow"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("f_bold")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_step")
+theme_override_styles/hover = SubResource("StyleBoxFlat_step_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_step_pressed")
+text = "−"
+
+[node name="ItemQuantity" type="Label" parent="Row/Info/Actions/Stepper/StepperRow"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 text = "1"
-label_settings = SubResource("LabelSettings_hf56t")
+label_settings = SubResource("LabelSettings_quantity")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AddButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1162247535]
-custom_minimum_size = Vector2(22, 22)
+[node name="AddButton" type="Button" parent="Row/Info/Actions/Stepper/StepperRow"]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+focus_mode = 0
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_713ls")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_713ls")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wa58a")
-text = "+
-"
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("f_bold")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_step")
+theme_override_styles/hover = SubResource("StyleBoxFlat_step_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_step_pressed")
+text = "+"
 
-[node name="DeleteButton" type="Button" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=86017067]
+[node name="DeleteButton" type="Button" parent="Row/Info/Actions"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 4
+focus_mode = 0
 mouse_filter = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_6sr1t")
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_colors/font_hover_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_colors/font_pressed_color = Color(0.56862745, 0.10196078, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("f_semib")
 theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_dixt6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nkw64")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_delete_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_delete_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_delete_pressed")
 text = "Excluir"
 
-[node name="RightContainer" type="MarginContainer" parent="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=432502830]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer2/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Row/Info/Actions/Stepper/StepperRow/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="Row/Info/Actions/Stepper/StepperRow/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Row/Info/Actions/DeleteButton" to="." method="_on_delete_button_pressed"]

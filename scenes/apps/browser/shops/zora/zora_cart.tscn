@@ -1,148 +1,222 @@
 [gd_scene format=3 uid="uid://k07vic2j8kc"]
 
-[ext_resource type="Script" uid="uid://b4igmrycuaxjc" path="res://scripts/apps/browser/shop-site/shop_cart.gd" id="1_dd7u5"]
-[ext_resource type="Texture2D" uid="uid://g12neyl6fguu" path="res://assets/icons/shops/png_logos/zora_logo.png" id="2_kfwyn"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bwjt1"]
-[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="4_5jnl1"]
+[ext_resource type="Script" uid="uid://b4igmrycuaxjc" path="res://scripts/apps/browser/shop-site/shop_cart.gd" id="s_cart"]
+[ext_resource type="Texture2D" uid="uid://c3moq0x6fmidp" path="res://assets/icons/shops/square_logos/zora_logo_fundo.png" id="t_logo"]
+[ext_resource type="Texture2D" uid="uid://b4uxas62fiyhr" path="res://assets/icons/shops/shopping-bag.svg" id="t_cart"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="s_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
-bg_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.85490196, 0.85490196, 0.85490196, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwe4i"]
-draw_center = false
-border_width_top = 1
-border_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_logo"]
+atlas = ExtResource("t_logo")
+region = Rect2(19, 93, 242, 94)
 
-[sub_resource type="LabelSettings" id="LabelSettings_gwe4i"]
-font = ExtResource("3_bwjt1")
-font_size = 15
-font_color = Color(0.09803922, 0.16078432, 0.21176471, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_header"]
+font = ExtResource("f_semib")
+font_size = 13
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0ola"]
-content_margin_left = 85.0
-content_margin_top = 9.0
-content_margin_right = 85.0
-content_margin_bottom = 9.0
-bg_color = Color(0.1882353, 0.21176471, 0.27450982, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="LabelSettings" id="LabelSettings_empty_title"]
+font = ExtResource("f_bold")
+font_size = 16
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp37k"]
-content_margin_left = 250.0
-content_margin_top = 25.0
-content_margin_right = 250.0
-content_margin_bottom = 25.0
-bg_color = Color(0.15489659, 0.17535141, 0.22992599, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_s0ola"]
-font = ExtResource("3_bwjt1")
+[sub_resource type="LabelSettings" id="LabelSettings_empty_body"]
+font = ExtResource("f_reg")
 font_size = 12
-font_color = Color(0.039115418, 0.05697029, 0.11616606, 1)
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 
-[node name="AeCCart" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_v_box", "total_price_label", "finish_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_footer"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 1, 0.972549, 1)
+border_width_top = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_total"]
+font = ExtResource("f_bold")
+font_size = 16
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_finish_normal"]
+content_margin_left = 16.0
+content_margin_top = 11.0
+content_margin_right = 16.0
+content_margin_bottom = 11.0
+bg_color = Color(0.18823529, 0.21176471, 0.2745098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_finish_pressed"]
+content_margin_left = 16.0
+content_margin_top = 11.0
+content_margin_right = 16.0
+content_margin_bottom = 11.0
+bg_color = Color(0.10588235, 0.12156863, 0.16078431, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="AeCCart" type="Control" node_paths=PackedStringArray("items_v_box", "total_price_label", "finish_button", "empty_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dd7u5")
-items_v_box = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer")
-total_price_label = NodePath("VBoxContainer/TotalPriceLabel")
-finish_button = NodePath("VBoxContainer/FinishButton")
+mouse_filter = 2
+script = ExtResource("s_cart")
+items_v_box = NodePath("Screen/ListArea/ScrollContainer/Margin/ItemsColumn")
+total_price_label = NodePath("Screen/Footer/FooterColumn/TotalPriceLabel")
+finish_button = NodePath("Screen/Footer/FooterColumn/FinishButton")
+empty_state = NodePath("Screen/ListArea/EmptyState")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
-custom_minimum_size = Vector2(0, 85)
+[node name="HeaderPanel" type="PanelContainer" parent="Screen"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=1083530601]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -36.0
-offset_right = 94.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 7
-
-[node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=279131630]
-custom_minimum_size = Vector2(130, 50)
+[node name="HeaderColumn" type="VBoxContainer" parent="Screen/HeaderPanel"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_kfwyn")
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="LogoArea" type="CenterContainer" parent="Screen/HeaderPanel/HeaderColumn"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ShopLogo" type="TextureRect" parent="Screen/HeaderPanel/HeaderColumn/LogoArea"]
+custom_minimum_size = Vector2(88, 34)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_logo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=2068547487]
+[node name="Label" type="Label" parent="Screen/HeaderPanel/HeaderColumn"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_gwe4i")
 text = "Carrinho de Compras"
-label_settings = SubResource("LabelSettings_gwe4i")
+label_settings = SubResource("LabelSettings_header")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1200740216]
-custom_minimum_size = Vector2(0, 7)
+[node name="ListArea" type="MarginContainer" parent="Screen"]
 layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
 
-[node name="FinishButton" type="Button" parent="VBoxContainer" unique_id=941589167]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen/ListArea"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.7607843, 0.7294118, 0.7294118, 1)
-theme_override_fonts/font = ExtResource("3_bwjt1")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0ola")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s0ola")
-theme_override_styles/hover = SubResource("StyleBoxFlat_gp37k")
-text = "Fechar Pedido"
-
-[node name="TotalPriceLabel" type="Label" parent="VBoxContainer" unique_id=26153793]
-layout_mode = 2
-text = "Total do Pedido:"
-label_settings = SubResource("LabelSettings_s0ola")
-horizontal_alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=2093408353]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1686365655]
-custom_minimum_size = Vector2(0, 400)
-layout_mode = 2
-size_flags_vertical = 4
-horizontal_scroll_mode = 3
-scroll_hint_mode = 2
-script = ExtResource("4_5jnl1")
+horizontal_scroll_mode = 0
+script = ExtResource("s_scroll")
 size_x = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=1094467615]
-custom_minimum_size = Vector2(355, 0)
+[node name="Margin" type="MarginContainer" parent="Screen/ListArea/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 25
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 16
+
+[node name="ItemsColumn" type="VBoxContainer" parent="Screen/ListArea/ScrollContainer/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="EmptyState" type="VBoxContainer" parent="Screen/ListArea"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Icon" type="TextureRect" parent="Screen/ListArea/EmptyState"]
+modulate = Color(0.10196078, 0.1254902, 0.2, 0.25)
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("t_cart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Screen/ListArea/EmptyState"]
+layout_mode = 2
+text = "Seu carrinho está vazio"
+label_settings = SubResource("LabelSettings_empty_title")
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Screen/ListArea/EmptyState"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+text = "Adicione produtos na loja para vê-los aqui."
+label_settings = SubResource("LabelSettings_empty_body")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Footer" type="PanelContainer" parent="Screen"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_footer")
+
+[node name="FooterColumn" type="VBoxContainer" parent="Screen/Footer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TotalPriceLabel" type="Label" parent="Screen/Footer/FooterColumn"]
+layout_mode = 2
+text = "Total do Pedido: R$ 0,00"
+label_settings = SubResource("LabelSettings_total")
+horizontal_alignment = 1
+
+[node name="FinishButton" type="Button" parent="Screen/Footer/FooterColumn"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("f_bold")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_finish_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_finish_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_finish_pressed")
+text = "Fechar Pedido"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="VBoxContainer/FinishButton" to="." method="_on_finish_button_pressed"]
+[connection signal="pressed" from="Screen/Footer/FooterColumn/FinishButton" to="." method="_on_finish_button_pressed"]

@@ -1,88 +1,172 @@
 [gd_scene format=3 uid="uid://d0xpj0mg2nn3r"]
 
-[ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/shop_site.gd" id="1_noxrb"]
-[ext_resource type="Texture2D" uid="uid://2h3ngxtdbcnl" path="res://assets/icons/shops/png_logos/amazonia_logo.png" id="2_n4b0i"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_vmshr"]
-[ext_resource type="Texture2D" uid="uid://d1a60s68pr7o" path="res://assets/icons/shopping_cart.png" id="4_hn4db"]
-[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="5_noxrb"]
+[ext_resource type="Script" uid="uid://cx3r2ijmihorr" path="res://scripts/apps/browser/shop-site/shop_site.gd" id="s_shop"]
+[ext_resource type="Texture2D" uid="uid://cgvpvl8y3pp2f" path="res://assets/icons/shops/square_logos/amazonia_fundo.png" id="t_logo"]
+[ext_resource type="Texture2D" uid="uid://b4uxas62fiyhr" path="res://assets/icons/shops/shopping-bag.svg" id="t_cart"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="s_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4636w"]
-bg_color = Color(0.078431375, 0.43137255, 0.7058824, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.13333333, 0.28235294, 0.38431373, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1xjh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_logo"]
+atlas = ExtResource("t_logo")
+region = Rect2(18, 103, 244, 74)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cart_normal"]
+content_margin_left = 11.0
+content_margin_top = 11.0
+content_margin_right = 11.0
+content_margin_bottom = 11.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cart_pressed"]
+content_margin_left = 11.0
+content_margin_top = 11.0
+content_margin_right = 11.0
+content_margin_bottom = 11.0
+bg_color = Color(0.79607843, 0.92156863, 0.82745098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
 bg_color = Color(1, 0.6, 0, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[sub_resource type="LabelSettings" id="LabelSettings_y3ltg"]
-font = ExtResource("3_vmshr")
+[sub_resource type="LabelSettings" id="LabelSettings_badge"]
+font = ExtResource("f_bold")
 font_size = 10
+font_color = Color(0.10196078, 0.1254902, 0.2, 1)
 
-[node name="AmazoniaShop" type="Control" unique_id=1932523554 node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("f_bold")
+font_size = 18
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[node name="AmazoniaShop" type="Control" node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_noxrb")
-items_grid_container = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer/GridContainer")
-cart_circle_label = NodePath("VBoxContainer/HeaderPanel/CartCircle")
-cart_quantity_label = NodePath("VBoxContainer/HeaderPanel/CartCircle/CartQuantity")
+mouse_filter = 2
+script = ExtResource("s_shop")
+items_grid_container = NodePath("Screen/ScrollContainer/Margin/Column/GridContainer")
+cart_circle_label = NodePath("Screen/HeaderPanel/HeaderRow/CartButton/CartCircle")
+cart_quantity_label = NodePath("Screen/HeaderPanel/HeaderRow/CartButton/CartCircle/CartQuantity")
 shopping_cart_enum = 13
+accent_color = Color(1, 0.6, 0, 1)
+accent_pressed_color = Color(0.80784314, 0.47843137, 0, 1)
+accent_text_color = Color(0.10196078, 0.1254902, 0.2, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650961194]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=278545516]
-custom_minimum_size = Vector2(0, 85)
+[node name="HeaderPanel" type="PanelContainer" parent="Screen"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4636w")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="ShopLogo" type="TextureRect" parent="VBoxContainer/HeaderPanel" unique_id=279131630]
-custom_minimum_size = Vector2(170, 49)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_n4b0i")
+[node name="HeaderRow" type="HBoxContainer" parent="Screen/HeaderPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="LeftSpacer" type="Control" parent="Screen/HeaderPanel/HeaderRow"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LogoArea" type="CenterContainer" parent="Screen/HeaderPanel/HeaderRow"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ShopLogo" type="TextureRect" parent="Screen/HeaderPanel/HeaderRow/LogoArea"]
+custom_minimum_size = Vector2(141, 43)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_logo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CartCircle" type="Panel" parent="VBoxContainer/HeaderPanel" unique_id=1261955429]
-z_index = 1
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = 2.5
-offset_right = -53.0
-offset_bottom = 17.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g1xjh")
+[node name="CartButton" type="Button" parent="Screen/HeaderPanel/HeaderRow"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.10196078, 0.1254902, 0.2, 1)
+theme_override_colors/icon_hover_color = Color(0.10196078, 0.1254902, 0.2, 1)
+theme_override_colors/icon_pressed_color = Color(0.10196078, 0.1254902, 0.2, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cart_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cart_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cart_pressed")
+icon = ExtResource("t_cart")
+icon_alignment = 1
+expand_icon = true
 
-[node name="CartQuantity" type="Label" parent="VBoxContainer/HeaderPanel/CartCircle" unique_id=879610460]
+[node name="CartCircle" type="Panel" parent="Screen/HeaderPanel/HeaderRow/CartButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 16.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="CartQuantity" type="Label" parent="Screen/HeaderPanel/HeaderRow/CartButton/CartCircle"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,67 +174,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
-label_settings = SubResource("LabelSettings_y3ltg")
+label_settings = SubResource("LabelSettings_badge")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cart Container" type="HBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=1568494512]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = -25.0
-offset_bottom = 25.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="CartButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=686786243]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture_normal = ExtResource("4_hn4db")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HeaderPanel/Cart Container" unique_id=665588549]
-custom_minimum_size = Vector2(17, 0)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1240597014]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=1016461430]
-layout_mode = 2
-size_flags_vertical = 3
-scroll_hint_mode = 2
-script = ExtResource("5_noxrb")
+horizontal_scroll_mode = 0
+script = ExtResource("s_scroll")
 size_x = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=153643568]
+[node name="Margin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_top = 10
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer" unique_id=771682920]
+[node name="Column" type="VBoxContainer" parent="Screen/ScrollContainer/Margin"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 12
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2125060265]
+[node name="Title" type="Label" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+text = "Produtos"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="GridContainer" type="GridContainer" parent="Screen/ScrollContainer/Margin/Column"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 10
+mouse_filter = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 12
 columns = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="VBoxContainer/HeaderPanel/Cart Container/CartButton" to="." method="_on_cart_button_pressed"]
+[connection signal="pressed" from="Screen/HeaderPanel/HeaderRow/CartButton" to="." method="_on_cart_button_pressed"]

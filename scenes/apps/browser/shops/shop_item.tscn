@@ -1,248 +1,226 @@
 [gd_scene format=3 uid="uid://bcq5gqpyjjaem"]
 
-[ext_resource type="Script" uid="uid://b3bk0ouw038hr" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="1_fqwnt"]
-[ext_resource type="Texture2D" uid="uid://bcf6bvwsyon0" path="res://assets/icons/shops/products/emilia/brigadeiro.png" id="2_12gx6"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_hf56t"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_6sr1t"]
-[ext_resource type="Script" uid="uid://wqwfnmp0m5d2" path="res://scripts/utils/one_line_label.gd" id="4_elaqh"]
+[ext_resource type="Script" uid="uid://b3bk0ouw038hr" path="res://scripts/apps/browser/shop-site/shop_item.gd" id="s_item"]
+[ext_resource type="Texture2D" uid="uid://bcf6bvwsyon0" path="res://assets/icons/shops/products/emilia/brigadeiro.png" id="t_product"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btjjm"]
-bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0.109804, 0.109804, 0.109804, 0.0745098)
-shadow_size = 4
-shadow_offset = Vector2(3, 3)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6q6x"]
-bg_color = Color(1, 1, 0.972549, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_image"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.85882354, 0.84705883, 0.8117647, 0.3)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_5vx8r"]
-font = ExtResource("3_hf56t")
-font_size = 12
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_name"]
+font = ExtResource("f_semib")
+font_size = 13
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+line_spacing = 0.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_713ls"]
-font = ExtResource("4_6sr1t")
+[sub_resource type="LabelSettings" id="LabelSettings_price"]
+font = ExtResource("f_bold")
+font_size = 17
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stepper"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_step_hover"]
+bg_color = Color(0.11764706, 0.18823529, 0.27843137, 0.08)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_step_pressed"]
+bg_color = Color(0.11764706, 0.18823529, 0.27843137, 0.16)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_step"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_quantity"]
+font = ExtResource("f_bold")
 font_size = 14
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf56t"]
-bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_left = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_add_normal"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980392, 0.79607843, 0.68235294, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6xbk"]
-bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_left = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_add_pressed"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.22352941, 0.56470588, 0.62352941, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sr1t"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hf56t"]
-font = ExtResource("4_6sr1t")
-font_size = 19
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_713ls"]
-bg_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa58a"]
-bg_color = Color(0.20392157, 0.2627451, 0.34117648, 1)
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vx8r"]
-content_margin_left = 5.0
-content_margin_top = 4.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.7316002, 0.7047039, 0.6679198, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddim5"]
-content_margin_left = 5.0
-content_margin_top = 4.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.80733943, 0.4803862, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[node name="shop_item" type="Control" unique_id=1587774648 node_paths=PackedStringArray("item_name_label", "item_price_label", "item_icon_rect", "item_quantity_label", "add_button")]
-custom_minimum_size = Vector2(170, 230)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 170.0
-offset_bottom = 221.0
+[node name="shop_item" type="PanelContainer" node_paths=PackedStringArray("item_name_label", "item_price_label", "item_icon_rect", "item_quantity_label", "add_button")]
 size_flags_horizontal = 3
 mouse_filter = 1
-script = ExtResource("1_fqwnt")
-item_name_label = NodePath("CenterContainer/Panel/VBoxContainer/ItemNameLabel")
-item_price_label = NodePath("CenterContainer/Panel/VBoxContainer/ItemPriceLabel")
-item_icon_rect = NodePath("CenterContainer/Panel/VBoxContainer/Panel/Control/ItemIcon")
-item_quantity_label = NodePath("CenterContainer/Panel/VBoxContainer/HBoxContainer/ItemQuantity")
-add_button = NodePath("CenterContainer/Panel/VBoxContainer/AddButton")
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("s_item")
+item_name_label = NodePath("Column/ItemNameLabel")
+item_price_label = NodePath("Column/ItemPriceLabel")
+item_icon_rect = NodePath("Column/ImagePanel/ItemIcon")
+item_quantity_label = NodePath("Column/Stepper/StepperRow/ItemQuantity")
+add_button = NodePath("Column/AddToCartButton")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=362315748]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1483474221]
-custom_minimum_size = Vector2(170, 230)
+[node name="Column" type="VBoxContainer" parent="."]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_btjjm")
+mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=907710569]
+[node name="ImagePanel" type="PanelContainer" parent="Column"]
 clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -79.0
-offset_top = -111.0
-offset_right = 79.0
-offset_bottom = 111.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Panel" type="Panel" parent="CenterContainer/Panel/VBoxContainer" unique_id=602828687]
-clip_contents = true
-custom_minimum_size = Vector2(136, 119)
+custom_minimum_size = Vector2(0, 112)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_j6q6x")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_image")
 
-[node name="Control" type="Control" parent="CenterContainer/Panel/VBoxContainer/Panel" unique_id=665021605]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ItemIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/Panel/Control" unique_id=238673017]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture = ExtResource("2_12gx6")
+[node name="ItemIcon" type="TextureRect" parent="Column/ImagePanel"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("t_product")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=447374429]
-custom_minimum_size = Vector2(0, 3.5)
+[node name="ItemNameLabel" type="Label" parent="Column"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-
-[node name="ItemNameLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=546356179]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+size_flags_vertical = 3
 text = "Nome do Item"
-label_settings = SubResource("LabelSettings_5vx8r")
+label_settings = SubResource("LabelSettings_name")
 autowrap_mode = 3
-script = ExtResource("4_elaqh")
+text_overrun_behavior = 3
+max_lines_visible = 2
 
-[node name="ItemPriceLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=941872000]
-custom_minimum_size = Vector2(10, 10)
+[node name="ItemPriceLabel" type="Label" parent="Column"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "R$130,00"
-label_settings = SubResource("LabelSettings_713ls")
-autowrap_mode = 3
+text = "R$ 130,00"
+label_settings = SubResource("LabelSettings_price")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2085532695]
-custom_minimum_size = Vector2(0, 5)
+[node name="Stepper" type="PanelContainer" parent="Column"]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_stepper")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2061739393]
-clip_contents = true
-custom_minimum_size = Vector2(0, 15)
+[node name="StepperRow" type="HBoxContainer" parent="Column/Stepper"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="RemoveButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1997089078]
-custom_minimum_size = Vector2(15, 15)
+[node name="RemoveButton" type="Button" parent="Column/Stepper/StepperRow"]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+focus_mode = 0
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hf56t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hf56t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s6xbk")
-text = "-"
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("f_bold")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_step")
+theme_override_styles/hover = SubResource("StyleBoxFlat_step_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_step_pressed")
+text = "−"
 
-[node name="ItemQuantity" type="Label" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=337419749]
-custom_minimum_size = Vector2(15, 0)
+[node name="ItemQuantity" type="Label" parent="Column/Stepper/StepperRow"]
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_6sr1t")
+size_flags_horizontal = 3
 text = "1"
-label_settings = SubResource("LabelSettings_hf56t")
+label_settings = SubResource("LabelSettings_quantity")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AddButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1162247535]
-custom_minimum_size = Vector2(15, 15)
+[node name="AddButton" type="Button" parent="Column/Stepper/StepperRow"]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
+focus_mode = 0
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("4_6sr1t")
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_713ls")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_713ls")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wa58a")
-text = "+
-"
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("f_bold")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_step")
+theme_override_styles/hover = SubResource("StyleBoxFlat_step_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_step_pressed")
+text = "+"
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=183938448]
-custom_minimum_size = Vector2(0, 5)
+[node name="AddToCartButton" type="Button" parent="Column"]
 layout_mode = 2
-
-[node name="AddButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1339298584]
-clip_contents = true
-custom_minimum_size = Vector2(35, 0)
-layout_mode = 2
-size_flags_vertical = 8
+focus_mode = 0
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("3_hf56t")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_5vx8r")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5vx8r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ddim5")
-text = "Adicionar ao Carrinho"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("f_semib")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_add_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_add_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_add_pressed")
+text = "Adicionar"
 
-[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer/RemoveButton" to="." method="_on_remove_item_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_item_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/AddButton" to="." method="_on_add_to_cart_pressed"]
+[connection signal="pressed" from="Column/Stepper/StepperRow/RemoveButton" to="." method="_on_remove_item_pressed"]
+[connection signal="pressed" from="Column/Stepper/StepperRow/AddButton" to="." method="_on_add_item_pressed"]
+[connection signal="pressed" from="Column/AddToCartButton" to="." method="_on_add_to_cart_pressed"]
