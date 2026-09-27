@@ -1,7 +1,6 @@
 {
-  "conversation_id": "marcia_1",
-  "contact_name": "Marcia",
-
+	"conversation_id": "marcia_1",
+	"contact_name": "Marcia",
 	"branches": {
 		"task0_marcia": [
 			{

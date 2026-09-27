@@ -1,8 +1,7 @@
 {
-  "conversation_id": "martha_1",
-  "contact_name": "Martha",
-
- 	"branches": {
+	"conversation_id": "martha_1",
+	"contact_name": "Martha",
+	"branches": {
 		"scan0_martha": [
 			{
 				"id": "martha_purchase0_0",

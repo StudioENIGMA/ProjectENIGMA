@@ -1,7 +1,7 @@
 {
-  "conversation_id": "finances_1",
-  "contact_name": "Financeiro",
-  "entry_points": [
+	"conversation_id": "finances_1",
+	"contact_name": "Financeiro",
+	"entry_points": [
 	{
 		"day": 0,
 		"branch": "d0_start",
@@ -16,7 +16,7 @@
 					"app_id": "Bank",
 					"is": true
 				}
-	  	],
+			],
 		"relative_due_time": 45
 	},
 	{
@@ -28,7 +28,7 @@
 					"app_id": "Bank",
 					"is": true
 				}
-	  	],
+			],
 		"relative_due_time": 140
 	},
 	{
@@ -36,31 +36,31 @@
 		"branch": "d2_start",
 		"relative_due_time": 222
 	}
-  ],
-  "branches": {
+	],
+	"branches": {
 	"d0_start": [
-	  {
+			{
 		"id": "f_0_0",
 		"text": "Bom dia, seja bem-vindo. Sou a Simone do financeiro. Como parte do seu trabalho, você deverá auxiliar minha equipe em algumas tarefas."
-	  },
-	  {
+			},
+			{
 		"id": "f_0_1",
 		"text": "As pessoas que compõe minha equipe são o Guilherme, a Marta e o Yago"
-	  }, 
-	  {
+			}, 
+			{
 		"id": "f_0_2",
 		"text": "Os três também possívelmente irão pedir compras ou pagamentos.",
 		"choices": [
-		  {
+					{
 			"id": "f_0_0a_0",
 			"player_text": "Bom dia, pode contar comigo!"
-		  },
-		  {
+					},
+					{
 			"id": "f_0_0a_1",
 			"player_text": "Certo, estarei à disposição."
-		  }
+					}
 		]
-	  }
+			}
 	],
 	"d1_start": [
 		{
@@ -106,5 +106,5 @@
 			"event_id": "fin_purchase0"
 		}
 	]
-  }
+	}
 }

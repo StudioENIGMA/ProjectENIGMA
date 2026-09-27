@@ -1,22 +1,22 @@
 {
-  "conversation_id": "boss_1",
-  "contact_name": "Chefinho",
-  "entry_points": [
+	"conversation_id": "boss_1",
+	"contact_name": "Chefinho",
+	"entry_points": [
 	{
-	  "day": 0,
-	  "branch": "d0_start_1",
-	  "relative_due_time": 0
+			"day": 0,
+			"branch": "d0_start_1",
+			"relative_due_time": 0
 	},
 	{
-	  "day": 1,
-	  "branch": "d1_start_1",
-	  "requires": [
+			"day": 1,
+			"branch": "d1_start_1",
+			"requires": [
 				{
 					"flag": "app_installed",
 					"app_id": "fake_store",
 					"is": false
 				}
-	  	],
+			],
 		"relative_due_time": 0
 	},
 	{
@@ -101,7 +101,7 @@
 		],
 		"relative_due_time": 10
 	}
-  ],
+	],
 	"branches": {
 		"d0_start_1": [
 			{

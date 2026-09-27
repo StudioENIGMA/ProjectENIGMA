@@ -1,7 +1,6 @@
 {
-  "conversation_id": "gilmar_1",
-  "contact_name": "Gilmar",
-
+	"conversation_id": "gilmar_1",
+	"contact_name": "Gilmar",
 	"branches": {
 		"task0_gilmar": [
 			{
@@ -68,7 +67,7 @@
 			}
 		],
 		"from_gilmar_password0_2": [
-		  	{
+			{
 				"id": "gilmar_password0_2",
 				"text": "Eu tomaria cuidado com tanta certeza."
 			}

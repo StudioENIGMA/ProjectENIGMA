@@ -1,7 +1,7 @@
 {
-  "conversation_id": "guillherme_1",
-  "contact_name": "Guillherme",
-	  "branches": {
+	"conversation_id": "guillherme_1",
+	"contact_name": "Guillherme",
+	"branches": {
 		"scan0_guillherme": [
 			{
 				"id": "guillherme_purchase0_0",
@@ -11,7 +11,7 @@
 				"id": "guillherme_purchase0_1",
 				"text": "OBRIGADO",
 				"requires": [
-				  {
+					{
 					"flag": "purchase",
 					"items": [
 						{ 
@@ -20,7 +20,7 @@
 						"store": "emporio_dos_bolos" 
 						}
 					]
-				  }
+					}
 				]
 			}
 		]

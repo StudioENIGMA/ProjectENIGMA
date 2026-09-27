@@ -1,7 +1,7 @@
 {
-  "conversation_id": "arthur_1",
-  "contact_name": "Arthur",
-  "branches": {
+	"conversation_id": "arthur_1",
+	"contact_name": "Arthur",
+	"branches": {
 	"scan0_arthur": [
 		{
 			"id": "arthur_purchase0_0",
@@ -11,10 +11,10 @@
 			"id": "arthur_purchase0_1",
 			"text": "Muito obrigado kkkkk",
 			"requires": [
-			  {
+					{
 				"flag": "purchase",
 				"items": [{ "item_id": 32, "quantity": 3, "store": "zora" }]
-			  }
+					}
 			]
 		}
 	],
@@ -27,12 +27,12 @@
 			"id": "arthur_payment0_1",
 			"text": "obrigado tamo junto",
 			"requires": [
-			  {
+					{
 				"flag": "payment",
 				"payment_id": "09FK0"
-			  }
+					}
 			]
 		}
 	]
-  }
+	}
 }

@@ -1,7 +1,6 @@
 {
-  "conversation_id": "carolina_1",
-  "contact_name": "Carolina",
-
+	"conversation_id": "carolina_1",
+	"contact_name": "Carolina",
 	"branches": {
 		"task0_carolina": [
 			{
@@ -84,7 +83,7 @@
 			}
 		],
 		"from_carolina_password0_1": [
-		  	{
+			{
 				"id": "carolina_password0_1",
 				"text": "Obrigadaa agora eu aprendi"
 			}

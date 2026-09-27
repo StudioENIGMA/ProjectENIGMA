@@ -1,7 +1,7 @@
 {
-  "conversation_id": "negativa_1",
-  "contact_name": "Negativa",
-  "verified": true,
+	"conversation_id": "negativa_1",
+	"contact_name": "Negativa",
+	"verified": true,
 
 	"branches": {
 		"task0_negativa": [

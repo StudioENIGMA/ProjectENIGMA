@@ -1,7 +1,6 @@
 {
-  "conversation_id": "marta_1",
-  "contact_name": "Marta",
-
+	"conversation_id": "marta_1",
+	"contact_name": "Marta",
 	"branches": {
 		"task0_marta": [
 			{
@@ -19,7 +18,7 @@
 			{
 				"id": "marta_purchase0_3",
 				"text": "Obrigadaaaaaaa!",
-				"riquires": [
+				"requires": [
 					{
 						"flag": "purchase",
 						"items": [
@@ -54,7 +53,7 @@
 			{
 				"id": "marta_purchase1_3",
 				"text": "Obrigadaaaaaaa.",
-				"riquires": [
+				"requires": [
 					{
 						"flag": "purchase",
 						"items": [

@@ -1,7 +1,6 @@
 {
-  "conversation_id": "non_px_investment_1",
-  "contact_name": "Px Investment",
-
+	"conversation_id": "non_px_investment_1",
+	"contact_name": "Px Investment",
 	"branches": {
 		"scan0_non_px_investment": [
 			{

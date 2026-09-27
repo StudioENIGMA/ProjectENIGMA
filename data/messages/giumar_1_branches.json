@@ -1,7 +1,7 @@
 {
-  "conversation_id": "giumar_1",
-  "contact_name": "Giumar",
-	  "branches": {
+	"conversation_id": "giumar_1",
+	"contact_name": "Giumar",
+	"branches": {
 		"scan0_giumar": [
 			{
 				"id": "giumnar_payment0_0",

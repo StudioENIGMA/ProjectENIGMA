@@ -1,7 +1,6 @@
 {
-  "conversation_id": "marrta_1",
-  "contact_name": "Marrta",
-
+	"conversation_id": "marrta_1",
+	"contact_name": "Marrta",
 	"branches": {
 		"scan0_marrta": [
 			{
