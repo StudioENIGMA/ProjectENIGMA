@@ -3,7 +3,7 @@ extends HBoxContainer
 signal message_answered(answer_id:int)
 
 signal request_message_creation_on_answer(
-	name:String,
+	contact:Dictionary,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
@@ -11,22 +11,22 @@ signal request_message_creation_on_answer(
 )
 
 signal storage_answer(
-	name:String,
+	conversation_id:String,
 	message:String,
 	title:String,
 	reputation_points:int,
 	answer_id:int
 )
 
-signal delete_answers(npc_name:String)
+signal delete_answers(conversation_id:String)
 
 const ANSWER_OPTION_SCENE := preload("res://scenes/apps/messages/answer_option.tscn")
 
 var pending:Array[Dictionary] = []
-var active_conversation_name:String = ""
+var active_conversation_id:String = ""
 
-func set_active_conversation(npc_name:String) -> void:
-	active_conversation_name = npc_name
+func set_active_conversation(conversation_id:String) -> void:
+	active_conversation_id = conversation_id
 
 func clear_ui() -> void:
 	for child in get_children():
@@ -34,7 +34,7 @@ func clear_ui() -> void:
 		child.queue_free()
 
 func create_answer_option(
-	npc_name:String,
+	contact:Dictionary,
 	message:String,
 	title:String,
 	reputation_points:int,
@@ -45,7 +45,7 @@ func create_answer_option(
 	var due_at = GameData.hours_minutes if time < 0 else time
 
 	pending.append({
-		"name": npc_name,
+		"contact": contact,
 		"message": message,
 		"title": title,
 		"reputation_points": reputation_points,
@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 		# (your convention: -2 means “already stored, just render it”)
 		if opt["time"] >= -1:
 			storage_answer.emit(
-				opt["name"],
+				opt["contact"]["id"],
 				opt["message"],
 				opt["title"],
 				opt["reputation_points"],
@@ -78,7 +78,7 @@ func _process(_delta: float) -> void:
 			)
 
 		# Only render if this chat is currently open
-		if opt["name"] == active_conversation_name:
+		if opt["contact"]["id"] == active_conversation_id:
 			var node := ANSWER_OPTION_SCENE.instantiate()
 			node.message_answered.connect(message_answered.emit) # Propagate signal to chat app
 			node.request_message_creation_on_answer.connect(
@@ -87,16 +87,16 @@ func _process(_delta: float) -> void:
 			node.delete_answers.connect(_on_delete_answers)
 			node.delete_answers.connect(delete_answers.emit) # Propagate signal to app chat
 			add_child(node)
-			node.setup(opt["name"], opt["title"], opt["message"], opt["answer_id"])
+			node.setup(opt["contact"], opt["title"], opt["message"], opt["answer_id"])
 
 		pending.remove_at(i)
 
-func _on_delete_answers(npc_name:String) -> void:
-	# Remove pending options for this npc
+func _on_delete_answers(conversation_id:String) -> void:
+	# Remove pending options for this conversation
 	for i in range(pending.size() - 1, -1, -1):
-		if pending[i]["name"] == npc_name:
+		if pending[i]["contact"]["id"] == conversation_id:
 			pending.remove_at(i)
 
 	# Clear UI if this is the active conversation
-	if npc_name == active_conversation_name:
+	if conversation_id == active_conversation_id:
 		clear_ui()

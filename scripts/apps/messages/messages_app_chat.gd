@@ -15,8 +15,9 @@ signal request_message_notification(
 
 signal message_answered(answer_id:int)
 
+## contact: The conversation the message belongs to ("id", "name", "photo", "verified")
 signal request_message_creation_on_answer(
-	name:String,
+	contact:Dictionary,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
@@ -24,7 +25,7 @@ signal request_message_creation_on_answer(
 )
 
 signal storage_answer(
-	name:String,
+	conversation_id:String,
 	message:String,
 	title:String,
 	reputation_points:int,
@@ -33,7 +34,7 @@ signal storage_answer(
 
 signal apk_installation_requested(app: GameData.App)
 
-signal delete_answers(npc_name:String)
+signal delete_answers(conversation_id:String)
 
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
@@ -48,7 +49,9 @@ const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
 @export var verified_rect: TextureRect
 
 var conversation_dict: Dictionary
-var conversation_name:String = ""
+## The conversation_id of the open chat, empty while no chat is open
+var conversation_id:String = ""
+## conversation_id -> whether the NPC of that conversation is typing
 var messages_typing: Dictionary = {}
 
 func _ready() -> void:
@@ -69,10 +72,12 @@ func setup(conversation_data:Dictionary) -> void:
 		conversation_data["notification_count"] = 0
 
 	conversation_dict = conversation_data
-	conversation_name = conversation_data["name"]
-	set_header_panel(conversation_data["verified"])
+	conversation_id = conversation_data["id"]
+	set_header_panel(
+		conversation_data["name"], conversation_data["photo"], conversation_data["verified"]
+	)
 
-	answers_bar.set_active_conversation(conversation_name)
+	answers_bar.set_active_conversation(conversation_id)
 	answers_bar.clear_ui()
 
 	for child_node in messages_list.get_children():
@@ -104,14 +109,15 @@ func setup(conversation_data:Dictionary) -> void:
 			apk_installation_requested.emit # Propagate signal to base app
 		)
 
-	if messages_typing.get(conversation_name, false) == true:
+	if messages_typing.get(conversation_id, false) == true:
 		var message_typing_instance = OTHERS_MESSAGE.instantiate()
 		messages_list.add_child(message_typing_instance)
 		message_typing_instance.setup("", {}, 0, true)
 
+	var contact := _contact_of(conversation_data)
 	for option in conversation_data["options"]:
 		answers_bar.create_answer_option(
-			conversation_data["name"],
+			contact,
 			option["message"],
 			option["title"],
 			option["reputation_points"],
@@ -122,11 +128,9 @@ func setup(conversation_data:Dictionary) -> void:
 	scroll_container.scroll_vertical = int(scroll_container.get_v_scroll_bar().max_value)
 	scroll_container.call_deferred("scroll_to_bottom")
 
-func on_create_message(
-	npc_name:String,
-) -> void:
-	messages_typing[npc_name] = true
-	if npc_name != conversation_name:
+func on_create_message(contact:Dictionary) -> void:
+	messages_typing[contact["id"]] = true
+	if contact["id"] != conversation_id:
 		return
 
 	var message_typing_instance = OTHERS_MESSAGE.instantiate()
@@ -134,33 +138,33 @@ func on_create_message(
 	message_typing_instance.setup("", {}, 0, true)
 
 func on_send_message(
-	npc_name:String,
+	contact:Dictionary,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
 	time:int
 ) -> void:
 	# Check if the message belongs to the currently open conversation
-	if npc_name != conversation_name:
+	if contact["id"] != conversation_id:
 		# Notify new message received
 		if sender == GameData.Sender.NPC:
 			request_message_notification.emit(
 				GameData.App.MESSAGESHOME,
 				message,
-				npc_name,
+				contact["name"],
 				time
 			)
-		messages_typing[npc_name] = false
+		messages_typing[contact["id"]] = false
 		return
 
 	conversation_dict["notification_count"] = 0
 
-	if messages_typing.get(conversation_name, false):
+	if messages_typing.get(conversation_id, false):
 		# Free message typing instance
 		var typing_instance = messages_list.get_child(messages_list.get_child_count() - 1)
 		messages_list.remove_child(typing_instance)
 		typing_instance.queue_free()
-		messages_typing[npc_name] = false
+		messages_typing[conversation_id] = false
 
 	# Add the new message to the messages list
 	var message_instance:HBoxContainer;
@@ -180,7 +184,7 @@ func on_send_message(
 		scroll_container.call_deferred("scroll_to_bottom")
 
 func on_request_answer_option(
-	npc_name:String,
+	contact:Dictionary,
 	message:String,
 	title:String,
 	reputation_points:int,
@@ -188,7 +192,7 @@ func on_request_answer_option(
 	answer_id:int
 ) -> void:
 	answers_bar.create_answer_option(
-		npc_name,
+		contact,
 		message,
 		title,
 		reputation_points,
@@ -196,8 +200,18 @@ func on_request_answer_option(
 		answer_id
 	)
 
-func set_header_panel(is_verified: bool) -> void:
-	var photo_path = str("res://assets/avatars/", conversation_name, ".png")
-	profile_picture.setup(photo_path, conversation_name)
-	name_label.text = conversation_name
+func set_header_panel(npc_name: String, photo: String, is_verified: bool) -> void:
+	profile_picture.setup(photo, npc_name)
+	name_label.text = npc_name
 	verified_rect.visible = true if is_verified else false
+
+## The contact a stored conversation stands for, in the shape the story directors send it
+##
+## conversation_data: A conversation of messages_app_home
+func _contact_of(conversation_data:Dictionary) -> Dictionary:
+	return {
+		"id": conversation_data["id"],
+		"name": conversation_data["name"],
+		"photo": conversation_data["photo"],
+		"verified": conversation_data["verified"],
+	}

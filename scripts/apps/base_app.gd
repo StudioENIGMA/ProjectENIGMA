@@ -387,9 +387,9 @@ func _on_back_button_pressed() -> void:
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
 	var current_app = _get_app_by_enum(current_app_enum)
 
-	# If it is messages_app_chat, unset conversation_name
+	# If it is messages_app_chat, unset conversation_id
 	if current_app_dict["MainApp"] == GameData.App.MESSAGESHOME:
-		messages_app_chat.conversation_name = ""
+		messages_app_chat.conversation_id = ""
 
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
@@ -452,9 +452,9 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 
 ## Closes all open apps with the specified main app enum
 func _close_main_app(main_app_enum: GameData.App) -> void:
-	# If it is messages_app_chat, unset conversation_name
+	# If it is messages_app_chat, unset conversation_id
 	if main_app_enum == GameData.App.MESSAGESHOME:
-		messages_app_chat.conversation_name = ""
+		messages_app_chat.conversation_id = ""
 
 	# Close all open apps with same main_app
 	for i in range(open_apps.size() - 1, -1, -1):
@@ -500,7 +500,7 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 		_:
 			_on_app_opened(GameData.App.LINECONNECT)
 
-func on_delete_conversation(_sender: String) -> void:
+func on_delete_conversation(_conversation_id: String) -> void:
 	_on_back_button_pressed()
 
 ## Returns the app node by its name
