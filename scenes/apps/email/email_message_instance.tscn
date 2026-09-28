@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="5_med"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_semi"]
 [ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="7_clip"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="8_target"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chip"]
 content_margin_left = 12.0
@@ -20,16 +21,20 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 corner_detail = 8
 
-[node name="EmailMessageInstance" type="VBoxContainer" node_paths=PackedStringArray("profile_picture", "sender_label", "hour_received_label", "content_label", "attachments_container", "attachment_template")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_section"]
+
+[node name="EmailMessageInstance" type="VBoxContainer" node_paths=PackedStringArray("profile_picture", "sender_label", "hour_received_label", "content_label", "attachments_container", "attachment_template", "sender_target", "content_target")]
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_tskvh")
-profile_picture = NodePath("Body/Column/SenderBar/Avatar/ProfilePicture")
-sender_label = NodePath("Body/Column/SenderBar/SenderColumn/SenderLabel")
-hour_received_label = NodePath("Body/Column/SenderBar/HourReceivedLabel")
-content_label = NodePath("Body/Column/ContentLabel")
+profile_picture = NodePath("Body/Column/SenderSection/SenderBar/Avatar/ProfilePicture")
+sender_label = NodePath("Body/Column/SenderSection/SenderBar/SenderColumn/SenderLabel")
+hour_received_label = NodePath("Body/Column/SenderSection/SenderBar/HourReceivedLabel")
+content_label = NodePath("Body/Column/ContentSection/ContentLabel")
 attachments_container = NodePath("Body/Column/AttachmentsContainer")
 attachment_template = NodePath("Body/Column/AttachmentsContainer/AttachmentChip")
+sender_target = NodePath("Body/Column/SenderSection/SenderTarget")
+content_target = NodePath("Body/Column/ContentSection/ContentTarget")
 
 [node name="Body" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -42,16 +47,21 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="SenderBar" type="HBoxContainer" parent="Body/Column"]
+[node name="SenderSection" type="PanelContainer" parent="Body/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="SenderBar" type="HBoxContainer" parent="Body/Column/SenderSection"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Avatar" type="Control" parent="Body/Column/SenderBar"]
+[node name="Avatar" type="Control" parent="Body/Column/SenderSection/SenderBar"]
 custom_minimum_size = Vector2(38, 38)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ProfilePicture" parent="Body/Column/SenderBar/Avatar" instance=ExtResource("2_tskvh")]
+[node name="ProfilePicture" parent="Body/Column/SenderSection/SenderBar/Avatar" instance=ExtResource("2_tskvh")]
 custom_minimum_size = Vector2(38, 38)
 layout_mode = 1
 anchors_preset = 15
@@ -61,13 +71,13 @@ offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SenderColumn" type="VBoxContainer" parent="Body/Column/SenderBar"]
+[node name="SenderColumn" type="VBoxContainer" parent="Body/Column/SenderSection/SenderBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="SenderLabel" type="Label" parent="Body/Column/SenderBar/SenderColumn"]
+[node name="SenderLabel" type="Label" parent="Body/Column/SenderSection/SenderBar/SenderColumn"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("3_bold")
@@ -76,14 +86,14 @@ text = "mariana@enigma.com.br"
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="RecipientLabel" type="Label" parent="Body/Column/SenderBar/SenderColumn"]
+[node name="RecipientLabel" type="Label" parent="Body/Column/SenderSection/SenderBar/SenderColumn"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 12
 text = "para mim"
 
-[node name="HourReceivedLabel" type="Label" parent="Body/Column/SenderBar"]
+[node name="HourReceivedLabel" type="Label" parent="Body/Column/SenderSection/SenderBar"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
@@ -91,7 +101,18 @@ theme_override_fonts/font = ExtResource("5_med")
 theme_override_font_sizes/font_size = 11
 text = "08:14"
 
-[node name="ContentLabel" type="Label" parent="Body/Column"]
+[node name="SenderTarget" type="Control" parent="Body/Column/SenderSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("8_target")
+padding = Vector2(8, 5)
+
+[node name="ContentSection" type="PanelContainer" parent="Body/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="ContentLabel" type="Label" parent="Body/Column/ContentSection"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
@@ -102,6 +123,12 @@ text = "Bom dia, Estagiário,
 
 Essa semana temos uma entrega muito importante para um grande cliente."
 autowrap_mode = 3
+
+[node name="ContentTarget" type="Control" parent="Body/Column/ContentSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("8_target")
+padding = Vector2(8, 5)
 
 [node name="AttachmentsContainer" type="HFlowContainer" parent="Body/Column"]
 visible = false
@@ -133,6 +160,11 @@ theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("6_semi")
 theme_override_font_sizes/font_size = 12
 text = "anexo.pdf"
+
+[node name="AttachmentTarget" type="Control" parent="Body/Column/AttachmentsContainer/AttachmentChip"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("8_target")
 
 [node name="DividerMargin" type="MarginContainer" parent="."]
 layout_mode = 2

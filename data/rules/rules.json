@@ -1,0 +1,44 @@
+[
+	{
+		"id": "lookalike_sender",
+		"day": 0,
+		"title": "Remetente imitado",
+		"description": "O nome ou o endereço imita um contato conhecido, com letras trocadas, a mais ou faltando."
+	},
+	{
+		"id": "urgency",
+		"day": 0,
+		"title": "Pressa e ameaça",
+		"description": "Exige uma ação imediata, com prazo curto demais ou ameaça de punição."
+	},
+	{
+		"id": "suspicious_attachment",
+		"day": 1,
+		"title": "Anexo suspeito",
+		"description": "Envia um instalador (.apk) ou um arquivo que ninguém pediu."
+	},
+	{
+		"id": "unexpected_payment",
+		"day": 1,
+		"title": "Cobrança inesperada",
+		"description": "Pede um Pix ou boleto sem um pedido ou uma fatura que você reconheça."
+	},
+	{
+		"id": "secret_data",
+		"day": 2,
+		"title": "Pedido de dados sigilosos",
+		"description": "Pede senha, código do autenticador ou dados pessoais."
+	},
+	{
+		"id": "unverified_company",
+		"day": 2,
+		"title": "Empresa sem verificação",
+		"description": "Diz falar por uma empresa, mas a conta não tem o selo de verificado."
+	},
+	{
+		"id": "odd_writing",
+		"day": 3,
+		"title": "Escrita fora do padrão",
+		"description": "Erros, símbolos estranhos ou formatação que a empresa não usaria."
+	}
+]

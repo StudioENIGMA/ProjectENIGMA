@@ -27,6 +27,9 @@ const ANNEX_DISABLED_COLOR := Color(0.43137255, 0.44313726, 0.5019608)
 @export var annex_label: Label
 @export var progress_bar: ProgressBar
 @export var animation_player: AnimationPlayer
+## Lets the bubble and its annex be pointed at as a scam discrepancy (NPC messages only)
+@export var message_target: DiscrepancyTarget
+@export var annex_target: DiscrepancyTarget
 
 var _is_reflowing := false
 
