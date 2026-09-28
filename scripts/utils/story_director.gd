@@ -1,14 +1,5 @@
 extends Node2D
 
-signal request_answer_option(
-	npc_name: String,
-	message: String,
-	title: String,
-	reputation_points: int,
-	time: int,
-	answer_id: int
-)
-
 signal news_ready(day_news_data: Dictionary)
 signal update_news
 

@@ -92,11 +92,11 @@ func define_events_list() -> void:
 		if not evaluate_requirements(task):
 			continue
 
-		var thread_id = task.get("thread_id")
-		if tasks_sender_ids.has(thread_id):
+		var sender_id = _get_sender_id(task)
+		if tasks_sender_ids.has(sender_id):
 			continue
 
-		tasks_sender_ids.set(thread_id, true)
+		tasks_sender_ids.set(sender_id, true)
 		chosen_tasks.append(task)
 	
 	var chosen_scams = []
@@ -108,11 +108,11 @@ func define_events_list() -> void:
 		if not evaluate_requirements(scam):
 			continue
 
-		var thread_id = scam.get("thread_id")
-		if scams_sender_ids.has(thread_id):
+		var sender_id = _get_sender_id(scam)
+		if scams_sender_ids.has(sender_id):
 			continue
 
-		scams_sender_ids.set(thread_id, true)
+		scams_sender_ids.set(sender_id, true)
 		chosen_scams.append(scam)
 
 	if (len(chosen_tasks) != number_of_tasks_required or len(chosen_scams) != number_of_scams_required):
@@ -121,6 +121,12 @@ func define_events_list() -> void:
 
 	var events_list = chosen_tasks + chosen_scams
 	schedule_events(events_list)
+
+## Who sends a random event: the email thread_id or the messages conversation_id
+func _get_sender_id(event: Dictionary) -> String:
+	if event.has("email_id"):
+		return str(event.get("thread_id"))
+	return str(event.get("conversation_id"))
 
 func evaluate_requirements(event) -> bool:
 	var event_id = null
@@ -166,7 +172,7 @@ func schedule_events(events_list: Array) -> void:
 		else:
 			event_id = events_list[i].get("branch")
 			schedule_message.emit({
-					"thread_id": events_list[i].get("thread_id"),
+					"conversation_id": events_list[i].get("conversation_id"),
 					"branch": event_id,
 					"event_id": event_id,
 					"index": 0,

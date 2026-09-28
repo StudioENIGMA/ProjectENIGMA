@@ -110,8 +110,6 @@ var cart_enum_to_shop_enum = {
 	App.BROWSERZORACART: App.BROWSERZORASHOP
 }
 
-var verified_contacts = ["Viva", "Negativa", "Gerente PX Investment"]
-
 var bank_balance: float = 150000
 
 var completed_payments = []

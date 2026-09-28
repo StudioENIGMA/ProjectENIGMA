@@ -1,211 +1,211 @@
 [
 	{
-		"thread_id": "arthur",
+		"conversation_id": "arthur_1",
 		"branch": "scan0_arthur",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "arthur",
+		"conversation_id": "arthur_1",
 		"branch": "scan1_arthur",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "carolinda",
+		"conversation_id": "carolinda_1",
 		"branch": "scan0_carolinda",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "carolinda",
+		"conversation_id": "carolinda_1",
 		"branch": "scan1_carolinda",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "carolinda",
+		"conversation_id": "carolinda_1",
 		"branch": "scan2_carolinda",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "gilrnar",
+		"conversation_id": "gilrnar_1",
 		"branch": "scan0_gilrnar",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "gilrnar",
+		"conversation_id": "gilrnar_1",
 		"branch": "scan1_gilrnar",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "giumar",
+		"conversation_id": "giumar_1",
 		"branch": "scan0_giumar",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "guilherrne",
+		"conversation_id": "guilherrne_1",
 		"branch": "scan0_guilherrne",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "guillherme",
+		"conversation_id": "guillherme_1",
 		"branch": "scan0_guillherme",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "jilmar",
+		"conversation_id": "jilmar_1",
 		"branch": "scan0_jilmar",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "joseh",
+		"conversation_id": "joseh_1",
 		"branch": "scan0_joseh",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "joseh",
+		"conversation_id": "joseh_1",
 		"branch": "scan1_joseh",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josue",
+		"conversation_id": "josue_1",
 		"branch": "scan0_josue",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josue",
+		"conversation_id": "josue_1",
 		"branch": "scan1_josue",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "jouse",
+		"conversation_id": "jouse_1",
 		"branch": "scan0_jouse",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "jouse",
+		"conversation_id": "jouse_1",
 		"branch": "scan1_jouse",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "jouse",
+		"conversation_id": "jouse_1",
 		"branch": "scan2_jouse",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "mancia",
+		"conversation_id": "mancia_1",
 		"branch": "scan0_mancia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "mancia",
+		"conversation_id": "mancia_1",
 		"branch": "scan2_mancia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcaao",
+		"conversation_id": "marcaao_1",
 		"branch": "scan0_marcaao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcaao",
+		"conversation_id": "marcaao_1",
 		"branch": "scan1_marcaao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcaon",
+		"conversation_id": "marcaon_1",
 		"branch": "scan0_marcaon",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marciia",
+		"conversation_id": "marciia_1",
 		"branch": "scan0_marciia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marciia",
+		"conversation_id": "marciia_1",
 		"branch": "scan1_marciia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marrta",
+		"conversation_id": "marrta_1",
 		"branch": "scan0_marrta",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "martha",
+		"conversation_id": "martha_1",
 		"branch": "scan0_martha",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "martha",
+		"conversation_id": "martha_1",
 		"branch": "scan1_martha",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marçao",
+		"conversation_id": "marçao_1",
 		"branch": "scan0_marçao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricarudo",
+		"conversation_id": "ricarudo_1",
 		"branch": "scan0_ricarudo",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricarudo",
+		"conversation_id": "ricarudo_1",
 		"branch": "scan1_ricarudo",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "ricarudo",
+		"conversation_id": "ricarudo_1",
 		"branch": "scan2_ricarudo",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "jescica",
+		"conversation_id": "jescica_1",
 		"branch": "scan0_jescica",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "jescica",
+		"conversation_id": "jescica_1",
 		"branch": "scan1_jescica",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "jescica",
+		"conversation_id": "jescica_1",
 		"branch": "scan2_jescica",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "iago",
+		"conversation_id": "iago_1",
 		"branch": "scam0_iago",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "false_px_investment",
+		"conversation_id": "false_px_investment_1",
 		"branch": "scan0_false_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "false_px_investment",
+		"conversation_id": "false_px_investment_1",
 		"branch": "scan1_false_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investrnent",
+		"conversation_id": "px_investrnent_1",
 		"branch": "scan0_px_investrnent",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investrnent",
+		"conversation_id": "px_investrnent_1",
 		"branch": "scan1_px_investrnent",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investrnent",
+		"conversation_id": "px_investrnent_1",
 		"branch": "scan2_px_investrnent",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "non_px_investment",
+		"conversation_id": "non_px_investment_1",
 		"branch": "scan0_non_px_investment",
 		"required_app": "Bank"
 	}

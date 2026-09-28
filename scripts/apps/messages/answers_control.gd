@@ -3,7 +3,7 @@ extends PanelContainer
 signal message_answered(answer_id:int)
 
 signal request_message_creation_on_answer(
-	name:String,
+	contact:Dictionary,
 	message:String,
 	annex:Dictionary,
 	sender:GameData.Sender,
@@ -11,14 +11,14 @@ signal request_message_creation_on_answer(
 )
 
 signal storage_answer(
-	name:String,
+	conversation_id:String,
 	message:String,
 	title:String,
 	reputation_points:int,
 	answer_id:int
 )
 
-signal delete_answers(npc_name:String)
+signal delete_answers(conversation_id:String)
 
 ## Report that the bar changed height, so the host can make room for it
 ##
@@ -36,7 +36,7 @@ const ANSWER_OPTION_SCENE := preload("res://scenes/apps/messages/answer_option.t
 @export var send_button:Button
 
 var pending:Array[Dictionary] = []
-var active_conversation_name:String = ""
+var active_conversation_id:String = ""
 
 ## Keeps a single card picked at a time
 var _option_group := ButtonGroup.new()
@@ -46,8 +46,8 @@ var _draft:Dictionary = {}
 func _ready() -> void:
 	_clear_draft()
 
-func set_active_conversation(npc_name:String) -> void:
-	active_conversation_name = npc_name
+func set_active_conversation(conversation_id:String) -> void:
+	active_conversation_id = conversation_id
 
 func clear_ui() -> void:
 	for child in options_list.get_children():
@@ -59,7 +59,7 @@ func clear_ui() -> void:
 	options_changed.emit(false)
 
 func create_answer_option(
-	npc_name:String,
+	contact:Dictionary,
 	message:String,
 	title:String,
 	reputation_points:int,
@@ -70,7 +70,7 @@ func create_answer_option(
 	var due_at = GameData.hours_minutes if time < 0 else time
 
 	pending.append({
-		"name": npc_name,
+		"contact": contact,
 		"message": message,
 		"title": title,
 		"reputation_points": reputation_points,
@@ -99,7 +99,7 @@ func _process(_delta: float) -> void:
 		# (your convention: -2 means “already stored, just render it”)
 		if opt["time"] >= -1:
 			storage_answer.emit(
-				opt["name"],
+				opt["contact"]["id"],
 				opt["message"],
 				opt["title"],
 				opt["reputation_points"],
@@ -107,23 +107,23 @@ func _process(_delta: float) -> void:
 			)
 
 		# Only render if this chat is currently open
-		if opt["name"] == active_conversation_name:
+		if opt["contact"]["id"] == active_conversation_id:
 			var node := ANSWER_OPTION_SCENE.instantiate()
 			node.option_selected.connect(_on_option_selected)
 			options_list.add_child(node)
 			node.set_option_group(_option_group)
-			node.setup(opt["name"], opt["title"], opt["message"], opt["answer_id"])
+			node.setup(opt["contact"], opt["title"], opt["message"], opt["answer_id"])
 			choices_section.visible = true
 			options_changed.emit(true)
 
 ## Writes the reply the player picked on the composer, ready to be sent
 ##
-## npc_name: The NPC the answer is addressed to
+## contact: The conversation the answer belongs to
 ## message: The message that goes to the conversation once the answer is sent
 ## answer_id: The identifier of the answer, used to advance the story
-func _on_option_selected(npc_name:String, message:String, answer_id:int) -> void:
+func _on_option_selected(contact:Dictionary, message:String, answer_id:int) -> void:
 	_draft = {
-		"name": npc_name,
+		"contact": contact,
 		"message": message,
 		"answer_id": answer_id
 	}
@@ -138,10 +138,10 @@ func _on_send_button_pressed() -> void:
 	if _draft.is_empty():
 		return
 
-	var npc_name:String = _draft["name"]
+	var contact:Dictionary = _draft["contact"]
 
 	request_message_creation_on_answer.emit(
-		npc_name,
+		contact,
 		_draft["message"],
 		{},
 		GameData.Sender.PLAYER,
@@ -149,17 +149,17 @@ func _on_send_button_pressed() -> void:
 	)
 	message_answered.emit(_draft["answer_id"])
 
-	_on_delete_answers(npc_name)
-	delete_answers.emit(npc_name) # Propagate signal to app chat
+	_on_delete_answers(contact["id"])
+	delete_answers.emit(contact["id"]) # Propagate signal to app chat
 
-func _on_delete_answers(npc_name:String) -> void:
-	# Remove pending options for this npc
+func _on_delete_answers(conversation_id:String) -> void:
+	# Remove pending options for this conversation
 	for i in range(pending.size() - 1, -1, -1):
-		if pending[i]["name"] == npc_name:
+		if pending[i]["contact"]["id"] == conversation_id:
 			pending.remove_at(i)
 
 	# Clear UI if this is the active conversation
-	if npc_name == active_conversation_name:
+	if conversation_id == active_conversation_id:
 		clear_ui()
 
 ## Empties the composer, leaving the pill blank and nothing to send
