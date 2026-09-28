@@ -5,10 +5,12 @@ signal subscreen_open_requested(subscreen_name:String, conversation_data:Diction
 const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
 
 @export var list_of_chats:VBoxContainer
+@export var empty_state:CenterContainer
 
 var conversations_data:Array[Dictionary]
 
 func _ready() -> void:
+	self.visibility_changed.connect(_refresh_empty_state)
 	load_conversations(GameData.saved_messages_conversations)
 
 ## Handles the player's answer to an NPC's message
@@ -118,6 +120,7 @@ func _update_list_of_chats(index:int) -> void:
 		conversation_row.setup(conversations_data[0])
 
 	list_of_chats.move_child(conversation_row, 0)
+	_refresh_empty_state()
 
 ## Handles the request to open a chat conversation
 ##
@@ -156,6 +159,8 @@ func load_conversations(saved_conversations: Array) -> void:
 		conversation_row.open_chat_requested.connect(_on_open_chat)
 		list_of_chats.add_child(conversation_row)
 
+	_refresh_empty_state()
+
 func on_delete_conversation(sender: String) -> void:
 	var idx = conversations_data.find_custom(func(c): return c["name"] == sender)
 	if idx == -1:
@@ -166,4 +171,10 @@ func on_delete_conversation(sender: String) -> void:
 	for child in list_of_chats.get_children():
 		if child.contact_label.text == sender:
 			child.queue_free()
-			return
+			break
+
+	_refresh_empty_state()
+
+## Keeps the empty state in sync with the list
+func _refresh_empty_state() -> void:
+	empty_state.visible = conversations_data.is_empty()

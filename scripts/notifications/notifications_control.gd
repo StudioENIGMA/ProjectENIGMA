@@ -1,5 +1,12 @@
 extends Control
 
+## Emitted for every notification accepted into the queue, so the home screen can badge the app
+signal notification_added(app: GameData.App)
+## Emitted with the full notification so the notification center can keep it
+signal notification_posted(app: GameData.App, content: String, title: String)
+## Emitted when the player taps a banner to jump into its app
+signal notification_tapped(app: GameData.App)
+
 const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
 
 @export var notification_timer:Timer
@@ -29,6 +36,8 @@ func add_notification_to_queue(
 		"title": title,
 		"time": time
 	})
+	notification_added.emit(app)
+	notification_posted.emit(app, content, title)
 
 	# If it's the only notification in the queue, send it immediately
 	if notification_array.size() == 1:
@@ -45,6 +54,13 @@ func send_notification(notification_parameter:Dictionary) -> void:
 		notification_parameter.content,
 		notification_parameter.title
 	)
+	
+	notification_instance.dismissed.connect(_on_notification_dismissed)
+	notification_instance.drag_started.connect(notification_timer.stop)
+	notification_instance.drag_cancelled.connect(notification_timer.start)
+	notification_instance.tapped.connect(
+		_on_notification_tapped.bind(notification_parameter.app)
+	)
 
 	# Add the notification to the scene tree and play sound & animation
 	self.add_child(notification_instance)
@@ -60,14 +76,27 @@ func send_notification(notification_parameter:Dictionary) -> void:
 ## Plays the disappear animation and removes the notification from the queue
 ## Also, sends the next notification if available
 func _on_notification_timer_timeout() -> void:
+	notification_instance.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	# Play disappear animation and remove the notification from the queue
 	animation_player = notification_instance.get_child(0)
 	animation_player.play("disappear")
 	await animation_player.animation_finished
-	notification_instance.queue_free()
-	notification_array.erase(notification_array[0])
+	
+	_advance_queue()
+		
+func _on_notification_dismissed() -> void:
+	notification_timer.stop()
+	_advance_queue()
 
-	# If other notifications are in the queue, send the next one
+func _on_notification_tapped(app: GameData.App) -> void:
+	notification_timer.stop()
+	_advance_queue()
+	notification_tapped.emit(app)
+
+func _advance_queue() -> void:
+	notification_instance.queue_free()
+	notification_array.remove_at(0)
 	if notification_array.size() > 0:
 		send_notification(notification_array[0])
 

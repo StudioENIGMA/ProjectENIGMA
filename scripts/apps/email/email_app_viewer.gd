@@ -4,6 +4,7 @@ const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_mess
 
 #region CHILDREN NODES REFERENCES
 @export var subject_label: Label
+@export var thread_size_label: Label
 @export var email_messages_container: VBoxContainer
 @export var scroll_container: ScrollContainer
 #endregion CHILDREN NODES REFERENCES
@@ -17,6 +18,9 @@ func setup(email_data: Array) -> void:
 	# Set up the top bar with the first email data
 	var starting_email = email_data[0]
 	subject_label.text = starting_email.get("subject")
+	thread_size_label.text = "Caixa de entrada · %d %s" % [
+		email_data.size(), "mensagem" if email_data.size() == 1 else "mensagens"
+	]
 
 	# Iterate through emails and create email_message_instances
 	for email_message_data in email_data:
@@ -24,5 +28,6 @@ func setup(email_data: Array) -> void:
 		email_message_instance.setup(email_message_data)
 		email_messages_container.add_child(email_message_instance)
 
-	scroll_container.scroll_vertical = int(scroll_container.get_v_scroll_bar().max_value)
-	scroll_container.call_deferred("scroll_to_bottom")
+	# Opens the thread showing the latest email, once the messages just added are
+	# accounted for by the containers
+	scroll_container.jump_to_bottom()

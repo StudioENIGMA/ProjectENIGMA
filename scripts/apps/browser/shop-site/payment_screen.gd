@@ -5,6 +5,8 @@ signal cancel_order()
 
 @export var price_label: Label
 @export var code_label: Label
+## Names the shop the order was placed on, under the screen title
+@export var store_label: Label
 var code_by_enum: Dictionary
 var info_by_enum: Dictionary
 var cart_by_enum: Dictionary
@@ -13,12 +15,12 @@ var current_shop_enum: GameData.App
 func setup(shopping_info: GameData.ShoppingInfo) -> void:
 	current_shop_enum = shopping_info.shop_enum
 	info_by_enum[current_shop_enum] = shopping_info
-	price_label.text = "Valor total do Pedido: %s" % GameData.format_brl(shopping_info.total_price)
+	price_label.text = GameData.format_brl(shopping_info.total_price)
+	store_label.text = "%s  •  Boleto bancário" % GameData.shops_names.get(current_shop_enum, "")
 	cart_by_enum[current_shop_enum] = shopping_info.shopping_cart.duplicate(true)
 	shopping_info.shopping_cart.clear()
 
 	if !code_by_enum.has(current_shop_enum):
-		print(current_shop_enum)
 		var code_information = {
 			"type": GameData.PaymentType.TICKET,
 			"institution": GameData.shops_names[current_shop_enum],

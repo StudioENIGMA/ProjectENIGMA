@@ -5,7 +5,11 @@ signal apk_installation_requested(app: GameData.App)
 
 enum Align { LEFT, RIGHT }
 
-const MAX_BUBBLE_WIDTH := 200.0
+const MAX_BUBBLE_WIDTH := 250.0
+## Slack kept so a text that just fits is not wrapped by a rounding difference
+const BUBBLE_WIDTH_SLACK := 2.0
+## Caption color once the annex can no longer be tapped (expired, downloading, installed)
+const ANNEX_DISABLED_COLOR := Color(0.43137255, 0.44313726, 0.5019608)
 
 @export var align: Align = Align.RIGHT
 
@@ -19,6 +23,8 @@ const MAX_BUBBLE_WIDTH := 200.0
 @export var right_margin: MarginContainer
 @export var annex_container: CenterContainer
 @export var annex_button: Button
+@export var annex_icon: TextureRect
+@export var annex_label: Label
 @export var progress_bar: ProgressBar
 @export var animation_player: AnimationPlayer
 
@@ -59,15 +65,14 @@ func setup(message: String, annex: Dictionary, time : int, play_animation: bool 
 func _apply_annex(annex: Dictionary) -> void:
 	annex_container.visible = not annex.is_empty()
 	if annex.has("image"):
-		annex_button.icon = load(annex["image"])
+		annex_icon.texture = load(annex["image"])
 	if annex.has("caption"):
-		annex_button.text = annex["caption"]
+		annex_label.text = annex["caption"]
 	if annex.has("due_day"):
 		var due_day = annex["due_day"]
 		var current_day = GameData.current_day
 		if due_day != current_day:
-			annex_button.disabled = true
-			annex_button.text = "Anexo expirado"
+			_disable_annex("Anexo expirado")
 
 	# If annex type is apk, connect download action
 	if annex.get("type", "") == "apk":
@@ -75,11 +80,17 @@ func _apply_annex(annex: Dictionary) -> void:
 		var app_key := str(annex.get("app_name", ""))
 		var app: GameData.App = GameData.apps_name.get(app_key, GameData.App.MESSAGESHOME)
 		if GameData.downloaded_apps.has(app):
-			annex_button.disabled = true
-			annex_button.text = "Instalado"
+			_disable_annex("Instalado")
 		else:
 			annex_button.pressed.connect(_on_apk_annex_pressed.bind(annex))
 	# TODO: deal with images, may be used to payments
+
+
+## Stops the annex from being tapped again and replaces its caption with the given status
+func _disable_annex(status: String) -> void:
+	annex_button.disabled = true
+	annex_label.text = status
+	annex_label.add_theme_color_override("font_color", ANNEX_DISABLED_COLOR)
 
 
 func _reflow() -> void:
@@ -96,7 +107,7 @@ func _reflow() -> void:
 	var padding_x := _get_panel_horizontal_padding(panel_container)
 
 	var natural_text_width := _measure_text_width(label.text)
-	var natural_bubble_width := natural_text_width + padding_x
+	var natural_bubble_width := natural_text_width + padding_x + BUBBLE_WIDTH_SLACK
 
 	var should_wrap := natural_bubble_width > max_width
 
@@ -134,7 +145,7 @@ func _compute_max_bubble_width() -> float:
 	if row_width <= 0.0:
 		return MAX_BUBBLE_WIDTH
 
-	var reserved_edge := 8
+	var reserved_edge := 8.0
 	if align == Align.RIGHT and right_margin:
 		reserved_edge = max(0.0, right_margin.custom_minimum_size.x)
 	elif align == Align.LEFT and left_margin:
@@ -147,7 +158,7 @@ func _get_panel_horizontal_padding(panel: PanelContainer) -> float:
 	var sb := panel.get_theme_stylebox("panel")
 	if sb == null:
 		return 0.0
-	return sb.get_content_margin(SIDE_LEFT) + sb.get_content_margin(SIDE_RIGHT)
+	return sb.get_margin(SIDE_LEFT) + sb.get_margin(SIDE_RIGHT)
 
 
 func _measure_text_width(text: String) -> float:
@@ -170,12 +181,11 @@ func _on_apk_annex_pressed(annex: Dictionary) -> void:
 	apk_installation_requested.emit(app) # Warn desktop UI to add icon in game screen
 
 	# Disable the button to prevent multiple clicks
-	annex_button.disabled = true
-	annex_button.text = "BAIXANDO..."
+	_disable_annex("BAIXANDO...")
 	progress_bar.visible = true
 	animation_player.play("download_animation")
 
 	# Simulate download time
 	await get_tree().create_timer(2.5).timeout
 	progress_bar.visible = false
-	annex_button.text = "INSTALADO"
+	annex_label.text = "INSTALADO"

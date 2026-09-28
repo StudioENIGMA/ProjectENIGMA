@@ -1,63 +1,167 @@
 [gd_scene format=3 uid="uid://d1lpfjul378bs"]
 
-[ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="1_ssly2"]
 [ext_resource type="Script" uid="uid://imci5x5jme0p" path="res://scripts/apps/authenticator/authenticator_instance.gd" id="1_ub25m"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="Texture2D" uid="uid://ndj04rh60xfc" path="res://assets/icons/default-app.png" id="5_icon"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub25m"]
-bg_color = Color(0.6, 0.9490196, 0.09803922, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[node name="AuthenticatorInstance" type="MarginContainer" unique_id=1459475320 node_paths=PackedStringArray("app_icon", "code_label", "remaining_time_bar", "validity_label")]
-custom_minimum_size = Vector2(0, 64)
+[sub_resource type="FontVariation" id="FontVariation_code"]
+base_font = ExtResource("3_semi")
+spacing_glyph = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[node name="AuthenticatorInstance" type="Control" node_paths=PackedStringArray("app_icon", "app_name_label", "code_label", "remaining_time_bar", "validity_label")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 96.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+size_flags_vertical = 0
+mouse_filter = 2
 script = ExtResource("1_ub25m")
-app_icon = NodePath("HBoxContainer/AppIcon")
-code_label = NodePath("HBoxContainer/CodeLabel")
-remaining_time_bar = NodePath("HBoxContainer/RemainingTimeBar")
-validity_label = NodePath("HBoxContainer/ValidityLabel")
+app_icon = NodePath("Content/Row/Avatar/AppIcon")
+app_name_label = NodePath("Content/Row/TextColumn/AppNameLabel")
+code_label = NodePath("Content/Row/TextColumn/CodeLabel")
+remaining_time_bar = NodePath("Content/Row/TextColumn/TimerLine/RemainingTimeBar")
+validity_label = NodePath("Content/Row/TextColumn/TimerLine/ValidityLabel")
+progress_fill_style = SubResource("StyleBoxFlat_progress_fill")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=355402079]
-layout_mode = 2
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
 
-[node name="AppIcon" type="TextureRect" parent="HBoxContainer" unique_id=739443550]
-custom_minimum_size = Vector2(32, 32)
+[node name="Row" type="HBoxContainer" parent="Content"]
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("1_ssly2")
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="Content/Row"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="AppIcon" type="TextureRect" parent="Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_icon")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="CodeLabel" type="Label" parent="HBoxContainer" unique_id=2018181644]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 16
-text = "9542"
-vertical_alignment = 1
-
-[node name="RemainingTimeBar" type="ProgressBar" parent="HBoxContainer" unique_id=95712109]
-custom_minimum_size = Vector2(0, 16)
-layout_direction = 3
+[node name="TextColumn" type="VBoxContainer" parent="Content/Row"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_ub25m")
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="AppNameLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 15
+text = "Banco"
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="CodeLabel" type="Label" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = SubResource("FontVariation_code")
+theme_override_font_sizes/font_size = 28
+text = "9542"
+
+[node name="TimerLine" type="HBoxContainer" parent="Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="RemainingTimeBar" type="ProgressBar" parent="Content/Row/TextColumn/TimerLine"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
 max_value = 60.0
-fill_mode = 1
+value = 60.0
 show_percentage = false
 
-[node name="ValidityLabel" type="Label" parent="HBoxContainer" unique_id=1008822927]
+[node name="ValidityLabel" type="Label" parent="Content/Row/TextColumn/TimerLine"]
+custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.5
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 16
-text = "60"
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "60 s"
 horizontal_alignment = 2
-vertical_alignment = 1
+
+[node name="Divider" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -1.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)

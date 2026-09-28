@@ -1,113 +1,186 @@
 [gd_scene format=3 uid="uid://c1i8o0jve4ahu"]
 
-[ext_resource type="Script" uid="uid://psojlsnt2ep4" path="res://scripts/apps/browser/company_card.gd" id="1_bh8fw"]
-[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="1_ee6mc"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_ukd8c"]
-[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="3_g0lnl"]
+[ext_resource type="Script" uid="uid://psojlsnt2ep4" path="res://scripts/apps/browser/company_card.gd" id="s_card"]
+[ext_resource type="Texture2D" uid="uid://dkon78svv3gjr" path="res://icon.svg" id="t_logo"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhigj"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 1
-border_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_6lrvl"]
-font = ExtResource("2_ukd8c")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_logo_shadow"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_logo_mask"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_name"]
+font = ExtResource("f_bold")
 font_size = 15
-font_color = Color(0, 0.03529412, 0.14117648, 1)
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_rf6y2"]
-font = ExtResource("3_g0lnl")
-font_size = 10
-font_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_summary"]
+font = ExtResource("f_reg")
+font_size = 12
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+line_spacing = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vhbm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_verdict"]
 content_margin_left = 8.0
-content_margin_top = 4.0
+content_margin_top = 1.0
 content_margin_right = 8.0
-content_margin_bottom = 4.0
-bg_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+content_margin_bottom = 1.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-corner_detail = 9
+corner_detail = 12
 
-[sub_resource type="LabelSettings" id="LabelSettings_q207y"]
-font = ExtResource("2_ukd8c")
-font_size = 37
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score"]
+bg_color = Color(0.098039216, 0.38039216, 0.3254902, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
 
-[node name="CompanyCard" type="PanelContainer" unique_id=1823120764 node_paths=PackedStringArray("score_label", "name_label", "summary_label", "logo_texture_rect")]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 113.0
-grow_horizontal = 2
+[sub_resource type="LabelSettings" id="LabelSettings_score"]
+font = ExtResource("f_bold")
+font_size = 20
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_caption"]
+font = ExtResource("f_semib")
+font_size = 10
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+
+[node name="CompanyCard" type="PanelContainer" node_paths=PackedStringArray("score_label", "name_label", "summary_label", "logo_texture_rect", "verdict_label")]
+size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_fhigj")
-script = ExtResource("1_bh8fw")
-score_label = NodePath("HBoxContainer2/ScoreLabel")
-name_label = NodePath("HBoxContainer2/VBoxContainer/NameLabel")
-summary_label = NodePath("HBoxContainer2/VBoxContainer/SummaryLabel")
-logo_texture_rect = NodePath("HBoxContainer2/LogoTextureRect")
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("s_card")
+score_label = NodePath("Row/ScoreColumn/ScoreLabel")
+name_label = NodePath("Row/Info/NameLabel")
+summary_label = NodePath("Row/Info/SummaryLabel")
+logo_texture_rect = NodePath("Row/Logo/Mask/LogoTextureRect")
+verdict_label = NodePath("Row/Info/VerdictLabel")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1152595399]
+[node name="Row" type="HBoxContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
 
-[node name="LeftMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=1447865404]
-custom_minimum_size = Vector2(5, 0)
+[node name="Logo" type="Control" parent="Row"]
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LogoTextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1760041421]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("1_ee6mc")
+[node name="IconShadow" type="Panel" parent="Row/Logo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_logo_shadow")
+
+[node name="Mask" type="Panel" parent="Row/Logo"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_logo_mask")
+
+[node name="LogoTextureRect" type="TextureRect" parent="Row/Logo/Mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("t_logo")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 6
 
-[node name="LeftCenterMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=116352352]
-custom_minimum_size = Vector2(3, 0)
+[node name="Info" type="VBoxContainer" parent="Row"]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2" unique_id=2038256396]
+[node name="NameLabel" type="Label" parent="Row/Info"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+text = "Empresa Exemplo"
+label_settings = SubResource("LabelSettings_name")
+text_overrun_behavior = 3
 
-[node name="UpMargin" type="MarginContainer" parent="HBoxContainer2/VBoxContainer" unique_id=1454222734]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="HBoxContainer2/VBoxContainer" unique_id=62512005]
+[node name="VerdictLabel" type="Label" parent="Row/Info"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Empresa Exemplo"
-label_settings = SubResource("LabelSettings_6lrvl")
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("f_semib")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_verdict")
+text = "Confiável"
 
-[node name="SummaryLabel" type="Label" parent="HBoxContainer2/VBoxContainer" unique_id=1836412959]
-custom_minimum_size = Vector2(180, 50)
+[node name="SummaryLabel" type="Label" parent="Row/Info"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-text = "Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. "
-label_settings = SubResource("LabelSettings_rf6y2")
-horizontal_alignment = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+label_settings = SubResource("LabelSettings_summary")
 autowrap_mode = 3
-text_overrun_behavior = 4
 
-[node name="LeftMargin2" type="MarginContainer" parent="HBoxContainer2/VBoxContainer" unique_id=690265833]
-custom_minimum_size = Vector2(0, 5)
+[node name="ScoreColumn" type="VBoxContainer" parent="Row"]
 layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 2
 
-[node name="RightCenterMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=619461320]
-custom_minimum_size = Vector2(5, 0)
+[node name="ScoreLabel" type="Label" parent="Row/ScoreColumn"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="HBoxContainer2" unique_id=1573661522]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_7vhbm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_score")
 text = "93"
-label_settings = SubResource("LabelSettings_q207y")
+label_settings = SubResource("LabelSettings_score")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RightMargin" type="MarginContainer" parent="HBoxContainer2" unique_id=489272516]
-custom_minimum_size = Vector2(5, 0)
+[node name="ScoreCaption" type="Label" parent="Row/ScoreColumn"]
 layout_mode = 2
+text = "NOTA"
+label_settings = SubResource("LabelSettings_caption")
+horizontal_alignment = 1

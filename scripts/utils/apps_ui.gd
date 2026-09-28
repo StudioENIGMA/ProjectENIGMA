@@ -8,6 +8,9 @@ const APP_BUTTON_SCENE = preload("res://scenes/tools/AppButton.tscn")
 @export var touch_sound_player:AudioStreamPlayer2D
 #endregion
 
+## Pending notification count per app, cleared when the app is opened
+var _notification_counts: Dictionary = {}
+
 #region APP BUTTONS REFERENCES
 func _ready() -> void:
 	for child in get_children():
@@ -31,6 +34,27 @@ func _on_app_gui_input(event: InputEvent, app_node: Node) -> void:
 func _get_app_id(app_node: Node) -> GameData.App:
 	return app_node.app
 #endregion
+
+#region NOTIFICATION BADGES
+## Adds one pending notification to the app's home-screen badge
+func on_notification_added(app: GameData.App) -> void:
+	_notification_counts[app] = _notification_counts.get(app, 0) + 1
+	_update_badge(app)
+
+## Clears the app's badge once the player opens it
+func on_app_opened(app: GameData.App) -> void:
+	if not _notification_counts.has(app):
+		return
+	_notification_counts.erase(app)
+	_update_badge(app)
+
+func _update_badge(app: GameData.App) -> void:
+	for child in get_children():
+		if not child.has_method("set_notification_count") or child.app != app:
+			continue
+		child.set_notification_count(_notification_counts.get(app, 0))
+		break
+#endregion NOTIFICATION BADGES
 
 #region INSTALLATION HELPERS
 ## Handles the app installation request
