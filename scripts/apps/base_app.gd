@@ -458,9 +458,9 @@ func _on_back_button_pressed() -> void:
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
 	var current_app = _get_app_by_enum(current_app_enum)
 
-	# If it is messages_app_chat, unset conversation_name
+	# If it is messages_app_chat, unset conversation_id
 	if current_app_dict["MainApp"] == GameData.App.MESSAGESHOME:
-		messages_app_chat.conversation_name = ""
+		messages_app_chat.conversation_id = ""
 
 	var hack_minigames = [
 		GameData.App.FASTTYPING,
@@ -522,14 +522,14 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 		_close_main_app(main_app)
 
 ## Fills the top bar title with the opened conversation contact
-func _on_chat_header_changed(npc_name: String, is_verified: bool) -> void:
-	app_title_picture.setup(str("res://assets/avatars/", npc_name, ".png"), npc_name)
+func _on_chat_header_changed(npc_name: String, photo: String, is_verified: bool) -> void:
+	app_title_picture.setup(photo, npc_name)
 	app_title_label.text = npc_name
 	app_title_badge.visible = is_verified
 	title_target.section = {
 		"source": "messages",
 		"section": "contact",
-		"conversation": npc_name,
+		"conversation": messages_app_chat.conversation_id,
 		"excerpt": npc_name,
 	}
 
@@ -673,9 +673,9 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 func _close_main_app(main_app_enum: GameData.App) -> void:
 	_set_inspecting(false)
 
-	# If it is messages_app_chat, unset conversation_name
+	# If it is messages_app_chat, unset conversation_id
 	if main_app_enum == GameData.App.MESSAGESHOME:
-		messages_app_chat.conversation_name = ""
+		messages_app_chat.conversation_id = ""
 
 	# Close all open apps with same main_app
 	var visible_closed_apps: Array = []
@@ -752,7 +752,7 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 		_:
 			_on_app_opened(GameData.App.LINECONNECT)
 
-func on_delete_conversation(_sender: String) -> void:
+func on_delete_conversation(_conversation_id: String) -> void:
 	_on_back_button_pressed()
 
 ## Returns the app node by its name

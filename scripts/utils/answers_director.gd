@@ -1,8 +1,9 @@
 extends Node
 
 #region SIGNALS
+## contact: The conversation the answer belongs to, see messages_director._get_contact()
 signal request_answer_option(
-	npc_name: String,
+	contact: Dictionary,
 	message: String,
 	title: String,
 	reputation_points: int,
@@ -12,16 +13,16 @@ signal request_answer_option(
 
 # Emitted upward to MessagesDirector when an answer is chosen.
 signal answer_committed(
-	thread_id: String,
+	conversation_id: String,
 	choice: Dictionary,
 )
 
-signal delete_conversation(sender: String)
+signal delete_conversation(conversation_id: String)
 #endregion SIGNALS
 
 
 #region STATE
-# answer_id -> {"thread_id":..., "choice":...}
+# answer_id -> {"conversation_id":..., "choice":...}
 var answer_state_by_id: Dictionary = {}
 var next_answer_id: int = 1
 #endregion STATE
@@ -30,8 +31,7 @@ var next_answer_id: int = 1
 #region PUBLIC API
 ## Presents choice options for a message node. Creates answer_ids and emits request_answer_option.
 func present_choices(
-	thread_id: String,
-	npc_name: String,
+	contact: Dictionary,
 	choices: Array,
 	current_minutes: int
 ) -> void:
@@ -43,14 +43,14 @@ func present_choices(
 			continue
 
 		var answer_id := _new_answer_id()
-		_register_answer_state(answer_id, thread_id, choice)
+		_register_answer_state(answer_id, str(contact["id"]), choice)
 
 		var player_text := str(choice.get("player_text", ""))
 		var title := str(choice.get("title", player_text))
 		var rep_points := int(choice.get("reputation_points", 0))
 
 		request_answer_option.emit(
-			npc_name,
+			contact,
 			player_text,
 			title,
 			rep_points,
@@ -66,12 +66,12 @@ func on_message_answered(answer_id: int) -> void:
 	var state: Dictionary = answer_state_by_id[answer_id]
 	answer_state_by_id.erase(answer_id)
 
-	var thread_id := str(state.get("thread_id", ""))
+	var conversation_id := str(state.get("conversation_id", ""))
 	var choice: Dictionary = state.get("choice", {})
 
-	_apply_choice_effects(choice)
+	_apply_choice_effects(conversation_id, choice)
 
-	answer_committed.emit(thread_id, choice)
+	answer_committed.emit(conversation_id, choice)
 
 ## Useful when reloading messages/day to avoid stale UI answers.
 func clear_pending_answers() -> void:
@@ -88,18 +88,18 @@ func _new_answer_id() -> int:
 
 func _register_answer_state(
 	answer_id: int,
-	thread_id: String,
+	conversation_id: String,
 	choice: Dictionary,
 ) -> void:
 	answer_state_by_id[answer_id] = {
-		"thread_id": thread_id,
+		"conversation_id": conversation_id,
 		"choice": choice,
 	}
 #endregion INTERNAL HELPERS
 
 
 #region EFFECTS
-func _apply_choice_effects(choice: Dictionary) -> void:
+func _apply_choice_effects(conversation_id: String, choice: Dictionary) -> void:
 	var rep_points := int(choice.get("reputation_points", 0))
 	if rep_points != 0:
 		GameData.reputation_points += rep_points
@@ -112,7 +112,6 @@ func _apply_choice_effects(choice: Dictionary) -> void:
 	if event_id != null:
 		match event_id:
 			"block_and_report":
-				# Delete the blocked conversation
-				var blocked_thread_id = str(choice.get("sender", ""))
-				delete_conversation.emit(blocked_thread_id)
+				# Delete the conversation the choice was answered in
+				delete_conversation.emit(conversation_id)
 #endregion EFFECTS

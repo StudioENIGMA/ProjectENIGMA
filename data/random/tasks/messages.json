@@ -1,267 +1,267 @@
 [
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task0_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task1_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task2_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task3_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task4_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task5_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "josé",
+		"conversation_id": "josé_1",
 		"branch": "task6_jose",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "mariana",
+		"conversation_id": "mariana_1",
 		"branch": "task0_mariana",
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "marta",
+		"conversation_id": "marta_1",
 		"branch": "task0_marta",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marta",
+		"conversation_id": "marta_1",
 		"branch": "task1_marta",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marta",
+		"conversation_id": "marta_1",
 		"branch": "task2_marta",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marta",
+		"conversation_id": "marta_1",
 		"branch": "task3_marta",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investment",
+		"conversation_id": "px_investment_1",
 		"branch": "task0_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investment",
+		"conversation_id": "px_investment_1",
 		"branch": "task1_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investment",
+		"conversation_id": "px_investment_1",
 		"branch": "task2_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investment",
+		"conversation_id": "px_investment_1",
 		"branch": "task3_px_investment",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "px_investment",
+		"conversation_id": "px_investment_1",
 		"branch": "task4_px_investment",
 		"required_app": "Bank"
 	},
 
 	{
-		"thread_id": "ricardo",
+		"conversation_id": "ricardo_1",
 		"branch": "task0_ricardo",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricardo",
+		"conversation_id": "ricardo_1",
 		"branch": "task1_ricardo",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricardo",
+		"conversation_id": "ricardo_1",
 		"branch": "task2_ricardo",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricardo",
+		"conversation_id": "ricardo_1",
 		"branch": "task3_ricardo",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "ricardo",
+		"conversation_id": "ricardo_1",
 		"branch": "task4_ricardo",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "artur",
+		"conversation_id": "artur_1",
 		"branch": "task0_artur",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "artur",
+		"conversation_id": "artur_1",
 		"branch": "task1_artur",
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task0_marcao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task1_marcao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task2_marcao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task3_marcao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task4_marcao",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task5_marcao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task6_marcao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task7_marcao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcão",
+		"conversation_id": "marcão_1",
 		"branch": "task8_marcao",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "guilherme",
+		"conversation_id": "guilherme_1",
 		"branch": "task0_guilherme",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "guilherme",
+		"conversation_id": "guilherme_1",
 		"branch": "task1_guilherme",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "guilherme",
+		"conversation_id": "guilherme_1",
 		"branch": "task2_guilherme",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "guilherme",
+		"conversation_id": "guilherme_1",
 		"branch": "task3_guilherme",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "guilherme",
+		"conversation_id": "guilherme_1",
 		"branch": "task4_guilherme",
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "gilmar",
+		"conversation_id": "gilmar_1",
 		"branch": "task0_gilmar",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "gilmar",
+		"conversation_id": "gilmar_1",
 		"branch": "task1_gilmar",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "gilmar",
+		"conversation_id": "gilmar_1",
 		"branch": "task2_gilmar",
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "carolina",
+		"conversation_id": "carolina_1",
 		"branch": "task0_carolina",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "carolina",
+		"conversation_id": "carolina_1",
 		"branch": "task1_carolina",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "carolina",
+		"conversation_id": "carolina_1",
 		"branch": "task2_carolina",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "carolina",
+		"conversation_id": "carolina_1",
 		"branch": "task3_carolina",
 		"required_app": "MessagesHome"
 	},
 	{
-		"thread_id": "negativa",
+		"conversation_id": "negativa_1",
 		"branch": "task0_negativa",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "negativa",
+		"conversation_id": "negativa_1",
 		"branch": "task1_negativa",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "negativa",
+		"conversation_id": "negativa_1",
 		"branch": "task2_negativa",
 		"required_app": "Bank"
 	},
 	{
-		"thread_id": "marcia",
+		"conversation_id": "marcia_1",
 		"branch": "task0_marcia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcia",
+		"conversation_id": "marcia_1",
 		"branch": "task1_marcia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcia",
+		"conversation_id": "marcia_1",
 		"branch": "task2_marcia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "marcia",
+		"conversation_id": "marcia_1",
 		"branch": "task3_marcia",
 		"required_app": "browser"
 	},
 	{
-		"thread_id": "yago",
+		"conversation_id": "yago_1",
 		"branch": "task0_yago",
 		"required_app": "MessagesHome"
 	}

@@ -2,25 +2,25 @@ extends Button
 
 ## Report that the player picked this option as the answer to be sent
 ##
-## sender_name: The NPC the answer is addressed to
+## contact: The conversation the answer belongs to ("id", "name", "photo", "verified")
 ## message: The message that goes to the conversation once the answer is sent
 ## answer_id: The identifier of the answer, used to advance the story
-signal option_selected(sender_name:String, message:String, answer_id:int)
+signal option_selected(contact:Dictionary, message:String, answer_id:int)
 
-var _name:String
+var _contact:Dictionary
 var _message:String
 var _answer_id:int
 
 ## Fills the reply card with the text the player may send
 ##
-## sender_name: The NPC the answer is addressed to
+## contact: The conversation the answer belongs to
 ## title: The short text shown on the card
 ## message: The message sent to the conversation when the option is picked
 ## answer_id: The identifier of the answer, used to advance the story
-func setup(sender_name:String, title:String, message:String, answer_id:int) -> void:
+func setup(contact:Dictionary, title:String, message:String, answer_id:int) -> void:
 	var bank_password := str(GameData.passwords.get(GameData.App.BANK, ""))
 	text = title.replace("$bank_password", bank_password)
-	_name = sender_name
+	_contact = contact
 	_message = message.replace("$bank_password", bank_password)
 	_answer_id = answer_id
 
@@ -32,4 +32,4 @@ func set_option_group(group:ButtonGroup) -> void:
 
 func _on_pressed() -> void:
 	# The group already unpressed the card picked before, this one only reports itself
-	option_selected.emit(_name, _message, _answer_id)
+	option_selected.emit(_contact, _message, _answer_id)
