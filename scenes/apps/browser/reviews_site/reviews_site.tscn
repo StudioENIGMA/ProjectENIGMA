@@ -1,102 +1,141 @@
 [gd_scene format=3 uid="uid://dha101g56wy0v"]
 
-[ext_resource type="Script" uid="uid://coh88l3bsoq1p" path="res://scripts/apps/browser/reviews_site.gd" id="1_diiut"]
-[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_t15gq"]
-[ext_resource type="FontFile" uid="uid://dsdmug7ebmwf4" path="res://assets/fonts/IBMPlexSans-BoldItalic.ttf" id="3_cc67j"]
-[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_rf6y2"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_t15gq"]
+[ext_resource type="Script" uid="uid://coh88l3bsoq1p" path="res://scripts/apps/browser/reviews_site.gd" id="s_reviews"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="s_scroll"]
+[ext_resource type="FontFile" uid="uid://dsdmug7ebmwf4" path="res://assets/fonts/IBMPlexSans-BoldItalic.ttf" id="f_bold_italic"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="f_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="f_semib"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="f_reg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ebbpw"]
-font = ExtResource("4_rf6y2")
-font_size = 50
-font_color = Color(0.13333334, 0.52156866, 0.6117647, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 16.0
+bg_color = Color(0.79607843, 0.92156863, 0.82745098, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3uag7"]
-font = ExtResource("3_cc67j")
-font_size = 50
-font_color = Color(0.09803922, 0.38039216, 0.3254902, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_elogie"]
+font = ExtResource("f_bold")
+font_size = 42
+font_color = Color(0.13333333, 0.52156863, 0.61176471, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t15gq"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 2
-border_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_la"]
+font = ExtResource("f_bold_italic")
+font_size = 42
+font_color = Color(0.098039216, 0.38039216, 0.3254902, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf6y2"]
-content_margin_top = 10.0
-content_margin_bottom = 15.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="LabelSettings" id="LabelSettings_tagline"]
+font = ExtResource("f_reg")
+font_size = 12
+font_color = Color(0.13333333, 0.28235294, 0.38431373, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_haa8b"]
-font = ExtResource("4_t15gq")
-font_size = 22
-font_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("f_bold")
+font_size = 18
+font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[node name="ReviewsSite" type="Control" unique_id=963354837 node_paths=PackedStringArray("v_box_container")]
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font = ExtResource("f_reg")
+font_size = 12
+font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+
+[node name="ReviewsSite" type="Control" node_paths=PackedStringArray("v_box_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_diiut")
-v_box_container = NodePath("VBoxContainer/MarginContainer2/ScrollContainer/CardsContainer")
+mouse_filter = 2
+script = ExtResource("s_reviews")
+v_box_container = NodePath("Screen/ScrollContainer/Margin/Column/CardsContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210300150]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=214079755]
-custom_minimum_size = Vector2(0, 20)
+[node name="HeaderPanel" type="PanelContainer" parent="Screen"]
 layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1576738968]
+[node name="HeaderColumn" type="VBoxContainer" parent="Screen/HeaderPanel"]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -6
+
+[node name="Wordmark" type="HBoxContainer" parent="Screen/HeaderPanel/HeaderColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1837850493]
+[node name="Title" type="Label" parent="Screen/HeaderPanel/HeaderColumn/Wordmark"]
 layout_mode = 2
 text = "Elogie"
-label_settings = SubResource("LabelSettings_ebbpw")
+label_settings = SubResource("LabelSettings_elogie")
 
-[node name="Title2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1312027773]
+[node name="Title2" type="Label" parent="Screen/HeaderPanel/HeaderColumn/Wordmark"]
 layout_mode = 2
 text = "LÁ"
-label_settings = SubResource("LabelSettings_3uag7")
+label_settings = SubResource("LabelSettings_la")
 
-[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=688334165]
-custom_minimum_size = Vector2(340, 20)
+[node name="Tagline" type="Label" parent="Screen/HeaderPanel/HeaderColumn"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_t15gq")
+text = "Avaliações de lojas online"
+label_settings = SubResource("LabelSettings_tagline")
+horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1350766366]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rf6y2")
-text = "  Empresas"
-label_settings = SubResource("LabelSettings_haa8b")
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1271896791]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer2" unique_id=257895420]
-layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("2_t15gq")
+horizontal_scroll_mode = 0
+script = ExtResource("s_scroll")
 size_x = 4
 
-[node name="CardsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/ScrollContainer" unique_id=2048503295]
+[node name="Margin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 20
+
+[node name="Column" type="VBoxContainer" parent="Screen/ScrollContainer/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="SectionHeader" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Screen/ScrollContainer/Margin/Column/SectionHeader"]
+layout_mode = 2
+text = "Empresas"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="Subtitle" type="Label" parent="Screen/ScrollContainer/Margin/Column/SectionHeader"]
+layout_mode = 2
+text = "Nota de confiança de 0 a 100"
+label_settings = SubResource("LabelSettings_subtitle")
+
+[node name="CardsContainer" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 12

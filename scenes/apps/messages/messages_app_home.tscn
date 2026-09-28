@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene load_steps=6 format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app_home.gd" id="1_jwkj7"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_b2xfe"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
 
 [sub_resource type="GDScript" id="GDScript_h1xob"]
 script/source = "extends VBoxContainer
@@ -9,7 +11,7 @@ script/source = "extends VBoxContainer
 
 "
 
-[node name="MessagesAppHome" type="Control" unique_id=1164578380 node_paths=PackedStringArray("list_of_chats")]
+[node name="MessagesAppHome" type="Control" node_paths=PackedStringArray("list_of_chats", "empty_state")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,29 +19,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwkj7")
-list_of_chats = NodePath("MarginContainer/MessagesScrollContainer/ListOfChats")
+list_of_chats = NodePath("Screen/ListArea/MessagesScrollContainer/ListOfChats")
+empty_state = NodePath("Screen/ListArea/EmptyState")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=420721022]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[node name="MessagesScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1809766873]
-layout_mode = 2
-horizontal_scroll_mode = 0
-script = ExtResource("2_b2xfe")
-size_x = 4
-
-[node name="ListOfChats" type="VBoxContainer" parent="MarginContainer/MessagesScrollContainer" unique_id=1987720290]
+[node name="ListArea" type="Control" parent="Screen"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+
+[node name="MessagesScrollContainer" type="ScrollContainer" parent="Screen/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_b2xfe")
+size_x = 4
+
+[node name="ListOfChats" type="VBoxContainer" parent="Screen/ListArea/MessagesScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
 script = SubResource("GDScript_h1xob")
+
+[node name="EmptyState" type="CenterContainer" parent="Screen/ListArea"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmptyStateColumn" type="VBoxContainer" parent="Screen/ListArea/EmptyState"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="EmptyStateTitle" type="Label" parent="Screen/ListArea/EmptyState/EmptyStateColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("4_semi")
+theme_override_font_sizes/font_size = 15
+text = "Nenhuma conversa por aqui"
+horizontal_alignment = 1
+
+[node name="EmptyStateHint" type="Label" parent="Screen/ListArea/EmptyState/EmptyStateColumn"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "As mensagens dos seus contatos vão aparecer nesta tela."
+horizontal_alignment = 1
+autowrap_mode = 2

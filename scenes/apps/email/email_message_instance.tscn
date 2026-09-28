@@ -2,80 +2,144 @@
 
 [ext_resource type="Script" uid="uid://4k8bswival24" path="res://scripts/apps/email/email_message_instance.gd" id="1_tskvh"]
 [ext_resource type="PackedScene" uid="uid://b2ixf6unak5hi" path="res://scenes/apps/messages/profile_picture.tscn" id="2_tskvh"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="5_med"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_semi"]
+[ext_resource type="Texture2D" uid="uid://tg3mik6va7t0" path="res://assets/icons/paper-clip-14011.svg" id="7_clip"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_23rg2"]
-color = Color(0.41981313, 0.41981313, 0.4198131, 1)
-thickness = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chip"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 0.22)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
 
-[node name="EmailMessageInstance" type="VBoxContainer" unique_id=324249404 node_paths=PackedStringArray("profile_picture", "sender_label", "hour_received_label", "content_label")]
+[node name="EmailMessageInstance" type="VBoxContainer" node_paths=PackedStringArray("profile_picture", "sender_label", "hour_received_label", "content_label", "attachments_container", "attachment_template")]
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_tskvh")
+profile_picture = NodePath("Body/Column/SenderBar/Avatar/ProfilePicture")
+sender_label = NodePath("Body/Column/SenderBar/SenderColumn/SenderLabel")
+hour_received_label = NodePath("Body/Column/SenderBar/HourReceivedLabel")
+content_label = NodePath("Body/Column/ContentLabel")
+attachments_container = NodePath("Body/Column/AttachmentsContainer")
+attachment_template = NodePath("Body/Column/AttachmentsContainer/AttachmentChip")
+
+[node name="Body" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Column" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SenderBar" type="HBoxContainer" parent="Body/Column"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Avatar" type="Control" parent="Body/Column/SenderBar"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ProfilePicture" parent="Body/Column/SenderBar/Avatar" instance=ExtResource("2_tskvh")]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_tskvh")
-profile_picture = NodePath("SenderBarContainer/SenderIconContainer/ProfilePicture")
-sender_label = NodePath("SenderBarContainer/SenderLabel")
-hour_received_label = NodePath("SenderBarContainer/HourReceivedContainer/HourReceivedLabel")
-content_label = NodePath("ContentContainer/ContentLabel")
 
-[node name="SenderBarContainer" type="HBoxContainer" parent="." unique_id=1471787187]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="SenderIconContainer" type="MarginContainer" parent="SenderBarContainer" unique_id=1498567195]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="ProfilePicture" parent="SenderBarContainer/SenderIconContainer" unique_id=233740664 instance=ExtResource("2_tskvh")]
-custom_minimum_size = Vector2(56, 56)
-layout_mode = 2
-
-[node name="SenderLabel" type="Label" parent="SenderBarContainer" unique_id=569291859]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_font_sizes/font_size = 18
-text = "Chefinho"
-
-[node name="HourReceivedContainer" type="MarginContainer" parent="SenderBarContainer" unique_id=1599768129]
+[node name="SenderColumn" type="VBoxContainer" parent="Body/Column/SenderBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_right = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 0
 
-[node name="HourReceivedLabel" type="Label" parent="SenderBarContainer/HourReceivedContainer" unique_id=978976184]
+[node name="SenderLabel" type="Label" parent="Body/Column/SenderBar/SenderColumn"]
 layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_color = Color(0.32915837, 0.3291584, 0.3291583, 1)
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 14
+text = "mariana@enigma.com.br"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="RecipientLabel" type="Label" parent="Body/Column/SenderBar/SenderColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 12
-text = "sáb, 20 de dez. de 2025, 18:35"
-horizontal_alignment = 2
-vertical_alignment = 1
+text = "para mim"
 
-[node name="ContentContainer" type="MarginContainer" parent="." unique_id=676801728]
+[node name="HourReceivedLabel" type="Label" parent="Body/Column/SenderBar"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("5_med")
+theme_override_font_sizes/font_size = 11
+text = "08:14"
 
-[node name="ContentLabel" type="Label" parent="ContentContainer" unique_id=2007974726]
+[node name="ContentLabel" type="Label" parent="Body/Column"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.24115604, 0.24115604, 0.24115601, 1)
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 14
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+text = "Bom dia, Estagiário,
 
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+Essa semana temos uma entrega muito importante para um grande cliente."
 autowrap_mode = 3
 
-[node name="EndSeparator" type="HSeparator" parent="." unique_id=243205637]
+[node name="AttachmentsContainer" type="HFlowContainer" parent="Body/Column"]
+visible = false
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_23rg2")
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="AttachmentChip" type="PanelContainer" parent="Body/Column/AttachmentsContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="Row" type="HBoxContainer" parent="Body/Column/AttachmentsContainer/AttachmentChip"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ClipIcon" type="TextureRect" parent="Body/Column/AttachmentsContainer/AttachmentChip/Row"]
+modulate = Color(0.13333334, 0.28235295, 0.38431373, 1)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_clip")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Body/Column/AttachmentsContainer/AttachmentChip/Row"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("6_semi")
+theme_override_font_sizes/font_size = 12
+text = "anexo.pdf"
+
+[node name="DividerMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Divider" type="ColorRect" parent="DividerMargin"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)

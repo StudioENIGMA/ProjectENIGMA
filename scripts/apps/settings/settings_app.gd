@@ -2,9 +2,9 @@ extends Control
 
 signal subscreen_open_requested(subscreen_name: String)
 
-@export var passwords_manager_button: TextureButton
-@export var update_os_button: TextureButton
-@export var virus_scanner_button: TextureButton
+@export var passwords_manager_button: Button
+@export var update_os_button: Button
+@export var virus_scanner_button: Button
 
 func _ready() -> void:
 	#var day = GameData.current_day

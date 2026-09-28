@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bwvg0cxjnascq" path="res://scripts/notifications/notification_card.gd" id="1_card"]
+[ext_resource type="Texture2D" uid="uid://3brgs4sc8f7p" path="res://assets/icons/messages.png" id="2_icon"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.0980392, 0.380392, 0.32549, 0.823529)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="NotificationCard" type="PanelContainer" node_paths=PackedStringArray("app_icon", "title_label", "content_label")]
+custom_minimum_size = Vector2(0, 86)
+offset_right = 350.0
+offset_bottom = 86.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("1_card")
+app_icon = NodePath("Row/AppIcon")
+title_label = NodePath("Row/Text/Title")
+content_label = NodePath("Row/Text/Content")
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="MarginLeft" type="Control" parent="Row"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AppIcon" type="TextureRect" parent="Row"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="MarginUp" type="Control" parent="Row/Text"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Row/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 20
+text = "Chefinho"
+clip_text = true
+
+[node name="Content" type="Label" parent="Row/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 14
+text = "Olá, seja bem vindo à Enigma!"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="MarginRight" type="Control" parent="Row"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+mouse_filter = 2

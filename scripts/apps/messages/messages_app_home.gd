@@ -7,10 +7,12 @@ const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_
 const LEGACY_ID_PREFIX = "legacy:"
 
 @export var list_of_chats:VBoxContainer
+@export var empty_state:CenterContainer
 
 var conversations_data:Array[Dictionary]
 
 func _ready() -> void:
+	self.visibility_changed.connect(_refresh_empty_state)
 	load_conversations(GameData.saved_messages_conversations)
 
 ## Handles the player's answer to an NPC's message
@@ -117,6 +119,7 @@ func _update_list_of_chats(index:int) -> void:
 		conversation_row.setup(conversations_data[0])
 
 	list_of_chats.move_child(conversation_row, 0)
+	_refresh_empty_state()
 
 ## Handles the request to open a chat conversation
 ##
@@ -158,6 +161,8 @@ func load_conversations(saved_conversations: Array) -> void:
 		conversation_row.open_chat_requested.connect(_on_open_chat)
 		list_of_chats.add_child(conversation_row)
 
+	_refresh_empty_state()
+
 func on_delete_conversation(conversation_id: String) -> void:
 	var idx = _find_conversation(conversation_id)
 	if idx == -1:
@@ -168,7 +173,13 @@ func on_delete_conversation(conversation_id: String) -> void:
 	for child in list_of_chats.get_children():
 		if child.conversation_data.get("id", "") == conversation_id:
 			child.queue_free()
-			return
+			break
+
+	_refresh_empty_state()
+
+## Keeps the empty state in sync with the list
+func _refresh_empty_state() -> void:
+	empty_state.visible = conversations_data.is_empty()
 
 ## Position of a conversation in conversations_data, -1 when there is none
 ##

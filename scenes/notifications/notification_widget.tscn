@@ -1,0 +1,140 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/notifications/notification_widget.gd" id="1_widget"]
+[ext_resource type="Texture2D" uid="uid://bdxmhc8a70dxt" path="res://assets/icons/notification_bell.png" id="2_bell"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="4_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.101960786, 0.1254902, 0.2, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bell_circle"]
+bg_color = Color(1, 1, 0.972549, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_count"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+bg_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[node name="NotificationWidget" type="PanelContainer" node_paths=PackedStringArray("pills_container", "count_label", "count_badge", "empty_state")]
+custom_minimum_size = Vector2(0, 148)
+offset_right = 159.0
+offset_bottom = 148.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("1_widget")
+pills_container = NodePath("Content/Pills")
+count_label = NodePath("Content/Header/CountBadge/Count")
+count_badge = NodePath("Content/Header/CountBadge")
+empty_state = NodePath("Content/EmptyState")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="BellCircle" type="Panel" parent="Content/Header"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bell_circle")
+
+[node name="Bell" type="TextureRect" parent="Content/Header/BellCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 6.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bell")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_bold")
+theme_override_font_sizes/font_size = 13
+text = "Notificações"
+vertical_alignment = 1
+
+[node name="CountBadge" type="PanelContainer" parent="Content/Header"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_count")
+
+[node name="Count" type="Label" parent="Content/Header/CountBadge"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_bold")
+theme_override_font_sizes/font_size = 11
+text = "3"
+horizontal_alignment = 1
+
+[node name="Pills" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="EmptyState" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="EmptyTitle" type="Label" parent="Content/EmptyState"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_semi")
+theme_override_font_sizes/font_size = 13
+text = "Tudo em dia"
+horizontal_alignment = 1
+
+[node name="EmptySubtitle" type="Label" parent="Content/EmptyState"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 0.85)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 11
+text = "Nenhum aviso novo"
+horizontal_alignment = 1

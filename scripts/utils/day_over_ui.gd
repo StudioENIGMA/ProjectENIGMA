@@ -13,10 +13,16 @@ const TYPE_TO_RP = {
 	"scam": -10,
 }
 
+const SUCCESS_COLOR = Color(0.30980393, 0.79607844, 0.68235296)
+const FAILURE_COLOR = Color(0.92156863, 0.039215688, 0.27058825)
+## Tallest the events list grows before it starts scrolling
+const MAX_EVENTS_HEIGHT = 300.0
+
 @export var next_day_button:Button
 @export var events_container: VBoxContainer
 @export var reputation_points_label: Label
-@export var result_rich_text: RichTextLabel
+@export var result_label: Label
+@export var events_scroll: ScrollContainer
 
 func show_day_over() -> void:
 	if GameData.current_day == 7:
@@ -39,8 +45,9 @@ func show_day_over() -> void:
 		next_day_button.pressed.disconnect(connection["callable"])
 
 	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
-		result_rich_text.text = "APROVADO"
-		result_rich_text.add_theme_color_override("default_color", Color("#44cfb2"))
+		result_label.text = "APROVADO"
+		result_label.add_theme_color_override("font_color", SUCCESS_COLOR)
+		reputation_points_label.add_theme_color_override("font_color", SUCCESS_COLOR)
 		if GameData.current_day + 1 == 7:
 			next_day_button.text = "Continuar"
 			next_day_button.pressed.connect(_on_final_day_button_pressed)
@@ -48,11 +55,20 @@ func show_day_over() -> void:
 			next_day_button.text = "Iniciar Dia " + str(GameData.current_day + 1)
 			next_day_button.pressed.connect(_on_next_day_button_pressed)
 	else:
-		result_rich_text.text = "REPROVADO"
-		result_rich_text.add_theme_color_override("default_color", Color("#ff0447"))
+		result_label.text = "REPROVADO"
+		result_label.add_theme_color_override("font_color", FAILURE_COLOR)
+		reputation_points_label.add_theme_color_override("font_color", FAILURE_COLOR)
 		next_day_button.text = "Recomeçar Dia " + str(GameData.current_day)
 		next_day_button.pressed.connect(_on_previous_day_button_pressed)
 	self.show()
+	_fit_events_scroll()
+
+## Sizes the events list to its rows (capped), so the summary stays one compact centered block
+func _fit_events_scroll() -> void:
+	# Freed rows linger until the end of the frame, so measure after it
+	await get_tree().process_frame
+	var rows_height = events_container.get_combined_minimum_size().y
+	events_scroll.custom_minimum_size.y = min(rows_height, MAX_EVENTS_HEIGHT)
 
 func handle_credit_scene() -> void:
 	end_game.emit()

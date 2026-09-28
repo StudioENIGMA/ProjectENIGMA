@@ -1,0 +1,351 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://t7baus55h63" path="res://scripts/notifications/notification_center.gd" id="1_center"]
+[ext_resource type="Shader" uid="uid://jtbma8vm1hxv" path="res://shaders/frosted_glass.gdshader" id="2_frosted"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="6_semi"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="7_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="8_bold"]
+[ext_resource type="Texture2D" uid="uid://bdxmhc8a70dxt" path="res://assets/icons/notification_bell.png" id="9_bell"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glass"]
+shader = ExtResource("2_frosted")
+shader_parameter/blur_radius = 28.0
+shader_parameter/blur_lod = 3.0
+shader_parameter/tint = Color(0.101960786, 0.1254902, 0.2, 0.78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.25)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grip"]
+bg_color = Color(0.101960786, 0.1254902, 0.2, 0.55)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bell_circle"]
+bg_color = Color(1, 1, 0.972549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mint_pill"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mint_pill_pressed"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+bg_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_empty_circle"]
+bg_color = Color(1, 1, 0.972549, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="NotificationCenter" type="Control" node_paths=PackedStringArray("pull_handle", "pull_tab", "sheet", "cards_container", "count_label", "empty_state", "clear_all_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_center")
+pull_handle = NodePath("PullHandle")
+sheet = NodePath("Sheet")
+pull_tab = NodePath("PullHandle/Tab")
+cards_container = NodePath("Sheet/Margin/Content/ListArea/Scroll/Cards")
+count_label = NodePath("Sheet/Margin/Content/HeaderMargin/HeaderRow/TitleColumn/CountLabel")
+empty_state = NodePath("Sheet/Margin/Content/ListArea/EmptyState")
+clear_all_button = NodePath("Sheet/Margin/Content/HeaderMargin/HeaderRow/ClearAllButton")
+
+[node name="Sheet" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Glass" type="ColorRect" parent="Sheet"]
+material = SubResource("ShaderMaterial_glass")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="Sheet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 5
+
+[node name="Content" type="VBoxContainer" parent="Sheet/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderMargin" type="MarginContainer" parent="Sheet/Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HeaderRow" type="HBoxContainer" parent="Sheet/Margin/Content/HeaderMargin"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="BellCircle" type="Panel" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow"]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bell_circle")
+
+[node name="Bell" type="TextureRect" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow/BellCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -10.5
+offset_right = 9.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_bell")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleColumn" type="VBoxContainer" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="Title" type="Label" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow/TitleColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 20
+text = "Notificações"
+
+[node name="CountLabel" type="Label" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow/TitleColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "2 notificações"
+
+[node name="ClearAllButton" type="Button" parent="Sheet/Margin/Content/HeaderMargin/HeaderRow"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_colors/font_pressed_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("6_semi")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mint_pill")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mint_pill")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mint_pill_pressed")
+text = "Limpar tudo"
+
+[node name="DividerMargin" type="MarginContainer" parent="Sheet/Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="HeaderDivider" type="ColorRect" parent="Sheet/Margin/Content/DividerMargin"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.30980393, 0.79607844, 0.68235296, 0.3)
+
+[node name="HeaderSpacer" type="Control" parent="Sheet/Margin/Content"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ListArea" type="Control" parent="Sheet/Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Sheet/Margin/Content/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("7_scroll")
+size_x = 4
+
+[node name="Cards" type="VBoxContainer" parent="Sheet/Margin/Content/ListArea/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="EmptyState" type="VBoxContainer" parent="Sheet/Margin/Content/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="EmptyCircle" type="Panel" parent="Sheet/Margin/Content/ListArea/EmptyState"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_empty_circle")
+
+[node name="EmptyBell" type="TextureRect" parent="Sheet/Margin/Content/ListArea/EmptyState/EmptyCircle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -13.0
+offset_right = 11.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_bell")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EmptyGap" type="Control" parent="Sheet/Margin/Content/ListArea/EmptyState"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="EmptyTitle" type="Label" parent="Sheet/Margin/Content/ListArea/EmptyState"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("8_bold")
+theme_override_font_sizes/font_size = 16
+text = "Nenhuma notificação"
+horizontal_alignment = 1
+
+[node name="EmptySubtitle" type="Label" parent="Sheet/Margin/Content/ListArea/EmptyState"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 0.8)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Os avisos do celular aparecem aqui"
+horizontal_alignment = 1
+
+[node name="BottomSpacer" type="Control" parent="Sheet/Margin/Content"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PullHandle" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+
+[node name="Tab" type="Panel" parent="PullHandle"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_right = 26.0
+offset_bottom = 12.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tab")
+
+[node name="Grip" type="Panel" parent="PullHandle/Tab"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -1.0
+offset_right = 9.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_grip")

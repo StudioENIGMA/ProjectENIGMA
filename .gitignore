@@ -3,3 +3,6 @@
 /android/
 export/
 .gitignore
+
+# Godot temporary save files
+*.tmp

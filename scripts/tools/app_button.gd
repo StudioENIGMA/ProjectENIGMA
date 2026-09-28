@@ -2,6 +2,9 @@
 
 extends VBoxContainer
 
+## Counts above this are shown as "9+" so the number fits the badge
+const MAX_SHOWN_COUNT: int = 9
+
 ## Once app is changed we must call _update_ui to reflect the changes in the editor
 @export var app: GameData.App:
 	set(value):
@@ -13,10 +16,23 @@ extends VBoxContainer
 #region CHILDREN NODES REFERENCES
 @export var app_icon: TextureRect
 @export var app_name_label: Label
+@export var notification_badge: Control
+@export var notification_count_label: Label
 #endregion
 
 func _ready() -> void:
 	_update_ui()
+
+## Shows the bell badge with the pending notification count, or hides it at zero
+func set_notification_count(count: int) -> void:
+	if notification_badge == null or notification_count_label == null:
+		return
+
+	notification_badge.visible = count > 0
+	if count > MAX_SHOWN_COUNT:
+		notification_count_label.text = "%d+" % MAX_SHOWN_COUNT
+	else:
+		notification_count_label.text = str(count)
 
 ## Updates the app button UI based on the current game data
 func _update_ui() -> void:

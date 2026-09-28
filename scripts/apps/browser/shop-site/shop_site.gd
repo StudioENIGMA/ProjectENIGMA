@@ -8,6 +8,10 @@ const SHOP_ITEM_SCENE = preload("res://scenes/apps/browser/shops/shop_item.tscn"
 @export var cart_circle_label: Panel
 @export var cart_quantity_label: Label
 @export var shopping_cart_enum: GameData.App
+## Brand colours of the product cards' add to cart buttons
+@export var accent_color: Color
+@export var accent_pressed_color: Color
+@export var accent_text_color: Color
 
 var shopping_cart_quantity: int = 0
 var shopping_info: GameData.ShoppingInfo = GameData.ShoppingInfo.new()
@@ -22,7 +26,8 @@ func setup(shop_items_array: Array):
 	for item_data in shop_items_array:
 		var shop_item_instance = SHOP_ITEM_SCENE.instantiate()
 		items_grid_container.add_child(shop_item_instance)
-		shop_item_instance.setup(item_data, shopping_info.shop_enum)
+		shop_item_instance.setup(item_data)
+		shop_item_instance.set_accent(accent_color, accent_pressed_color, accent_text_color)
 		shop_item_instance.add_to_cart.connect(_on_added_to_cart)
 
 func _on_added_to_cart(item_data: Dictionary) -> void:

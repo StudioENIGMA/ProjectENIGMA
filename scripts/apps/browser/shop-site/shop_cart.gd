@@ -8,6 +8,8 @@ const ITEM_LINE_SCENE = preload("res://scenes/apps/browser/shops/shop_item_line.
 @export var items_v_box: VBoxContainer
 @export var total_price_label: Label
 @export var finish_button: Button
+## Shown instead of the list while the cart has no items
+@export var empty_state: Control
 var shopping_info: GameData.ShoppingInfo
 
 func setup(shopping_info_instance: GameData.ShoppingInfo) -> void:
@@ -23,7 +25,9 @@ func update_cart_items() -> void:
 	for child in items_v_box.get_children():
 		child.queue_free()
 
-	if shopping_info == null || shopping_info.shopping_cart.is_empty():
+	var is_empty := shopping_info == null || shopping_info.shopping_cart.is_empty()
+	empty_state.visible = is_empty
+	if is_empty:
 		finish_button.visible = false
 		total_price_label.text = "Total do Pedido: %s" % GameData.format_brl(0)
 		return
@@ -31,7 +35,7 @@ func update_cart_items() -> void:
 	finish_button.visible = true
 	for item in shopping_info.shopping_cart:
 		var line_instance = ITEM_LINE_SCENE.instantiate()
-		line_instance.setup(item, shopping_info.shop_enum)
+		line_instance.setup(item)
 		line_instance.update_shopping_cart.connect(_on_shopping_cart_updated)
 		line_instance.delete_item.connect(_on_item_deleted)
 		items_v_box.add_child(line_instance)

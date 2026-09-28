@@ -11,6 +11,43 @@
 [ext_resource type="Script" uid="uid://pm0hm7reoo87" path="res://scripts/confirmation_panel.gd" id="8_tbmy8"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="10_5dd4i"]
 [ext_resource type="Script" uid="uid://dig6gn875gn2d" path="res://scripts/utils/post_game_panel.gd" id="11_lgwnu"]
+[ext_resource type="Shader" uid="uid://l2hjotfj7twq" path="res://shaders/menu_button.gdshader" id="12_mnbtn"]
+[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="14_cfm"]
+[ext_resource type="FontFile" uid="uid://ctyaow7x014x1" path="res://assets/fonts/Droid 1997.otf" id="15_droid"]
+[ext_resource type="Shader" path="res://shaders/menu_button_text.gdshader" id="16_txtsh"]
+[ext_resource type="Script" path="res://scripts/main_menu/menu_button_label.gd" id="17_lbl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnbtn"]
+shader = ExtResource("12_mnbtn")
+shader_parameter/base_color = Color(0.16078432, 0.7647059, 0.6392157, 1)
+shader_parameter/band_color = Color(0.26666668, 0.84705883, 0.6627451, 1)
+shader_parameter/corner_radius = 10.0
+shader_parameter/band_top = 0.99
+shader_parameter/band_bottom = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnbtntext"]
+shader = ExtResource("16_txtsh")
+shader_parameter/base_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
+shader_parameter/band_color = Color(0.40392157, 0.05490196, 0.20392157, 1)
+shader_parameter/rect_size = Vector2(328, 132)
+shader_parameter/band_top = 0.99
+shader_parameter/band_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_hover"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_pressed"]
+bg_color = Color(0, 0, 0, 0.2)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
@@ -27,15 +64,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
-bg_color = Color(0.6064064, 0.06568552, 4.813075e-08, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
-bg_color = Color(0.4457847, 0.036952697, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
-bg_color = Color(0.7918716, 0.100445725, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
 bg_color = Color(0, 0.35686275, 0.2784314, 1)
 
@@ -44,6 +72,139 @@ bg_color = Color(3.6098064e-07, 0.25827616, 0.19861877, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
 bg_color = Color(0, 0.42383793, 0.33265236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmscrim"]
+bg_color = Color(0.043137256, 0.06666667, 0.105882354, 0.5490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmcard"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.11764706, 0.18823528, 0.27843136, 0.22)
+shadow_size = 20
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmcancel"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmcont"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5686275, 0.10196078, 0.21960784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmcontpress"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.38431373, 0.07058824, 0.19215687, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmconthover"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Animation" id="Animation_cancel_hover"]
+resource_name = "cancel_hover"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/CancelButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.44705883, 0.8745098, 0.7294118, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cancel_press"]
+resource_name = "cancel_press"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/CancelButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.79607844, 0.68235296, 1), Color(0.2745098, 0.70980394, 0.6901961, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_continue_hover"]
+resource_name = "continue_hover"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/ContinueButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.5686275, 0.10196078, 0.21960784, 1), Color(0.92156863, 0.03921569, 0.27058825, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_continue_press"]
+resource_name = "continue_press"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/ContinueButton:theme_override_styles/normal:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.5686275, 0.10196078, 0.21960784, 1), Color(0.38431373, 0.07058824, 0.19215687, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_confirmbtns"]
+_data = {
+&"cancel_hover": SubResource("Animation_cancel_hover"),
+&"cancel_press": SubResource("Animation_cancel_press"),
+&"continue_hover": SubResource("Animation_continue_hover"),
+&"continue_press": SubResource("Animation_continue_press")
+}
 
 [node name="Main Menu" type="Control" unique_id=668069274 node_paths=PackedStringArray("new_game_button", "confirmation_panel", "post_game_panel")]
 layout_mode = 3
@@ -83,39 +244,133 @@ theme_override_constants/margin_bottom = 16
 
 [node name="MainVBoxContainer" type="VBoxContainer" parent="ButtonsMargin" unique_id=165846684]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 16
 
 [node name="ProjetoEnigma" type="TextureRect" parent="ButtonsMargin/MainVBoxContainer" unique_id=1004285426]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_wu84c")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="LogoSpacing" type="MarginContainer" parent="ButtonsMargin/MainVBoxContainer" unique_id=1121775217]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="New Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1507016343]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "NEW GAME"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("3_rtw2f")
 
+[node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/New Game Button" unique_id=431025101]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_mnbtn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NewGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/New Game Button"]
+material = SubResource("ShaderMaterial_mnbtntext")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_droid")
+theme_override_font_sizes/font_size = 76
+text = "NOVO JOGO"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_lbl")
+
 [node name="Load Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1287796145]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "LOAD GAME"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("4_oa1go")
 
+[node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/Load Game Button" unique_id=431025102]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_mnbtn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LoadGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Load Game Button"]
+material = SubResource("ShaderMaterial_mnbtntext")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_droid")
+theme_override_font_sizes/font_size = 76
+text = "CARREGAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_lbl")
+
 [node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "SETTINGS"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("5_tbmy8")
+
+[node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/Settings Button" unique_id=431025103]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_mnbtn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SettingsLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Settings Button"]
+material = SubResource("ShaderMaterial_mnbtntext")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("15_droid")
+theme_override_font_sizes/font_size = 76
+text = "CONFIGURAÇÕES"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_lbl")
 
 [node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
 
@@ -176,19 +431,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfmscrim")
 script = ExtResource("8_tbmy8")
 confirm_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/ContinueButton")
 cancel_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/CancelButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="ConfirmationPanel" unique_id=643762061]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(300, 160)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfmcard")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPanel/PanelContainer" unique_id=515022701]
-custom_minimum_size = Vector2(280, 180)
+custom_minimum_size = Vector2(280, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -196,21 +452,21 @@ size_flags_vertical = 4
 [node name="Warn" type="RichTextLabel" parent="ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1540755162]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.92156863, 0.03921569, 0.27058825, 1)
+theme_override_fonts/normal_font = ExtResource("10_5dd4i")
+theme_override_fonts/bold_font = ExtResource("10_5dd4i")
+theme_override_font_sizes/normal_font_size = 18
 text = "ATENÇÃO!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Content" type="RichTextLabel" parent="ConfirmationPanel/PanelContainer/VBoxContainer" unique_id=1027129006]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_fonts/normal_font = ExtResource("10_5dd4i")
+theme_override_colors/default_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_fonts/normal_font = ExtResource("14_cfm")
 theme_override_fonts/bold_font = ExtResource("10_5dd4i")
-theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/normal_font_size = 14
 text = "Ao iniciar um novo jogo, todo o progresso anterior será perdido."
 horizontal_alignment = 1
 
@@ -218,24 +474,42 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="CancelButton" type="Button" parent="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1163520231]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_flqon")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+focus_mode = 0
+theme_override_colors/font_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_focus_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.11764706, 0.18823528, 0.27843136, 1)
+theme_override_fonts/font = ExtResource("14_cfm")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfmcancel")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cfmcancel")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cfmcancel")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cfmcancel")
 text = "Cancelar"
 
 [node name="ContinueButton" type="Button" parent="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1063753450]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+focus_mode = 0
+theme_override_colors/font_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_pressed_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+theme_override_fonts/font = ExtResource("14_cfm")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfmcont")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cfmcontpress")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cfmconthover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cfmcont")
 text = "Continuar"
+
+[node name="ConfirmButtonFeedback" type="AnimationPlayer" parent="ConfirmationPanel/PanelContainer" unique_id=837194626]
+libraries/ = SubResource("AnimationLibrary_confirmbtns")
+playback_default_blend_time = 0.15
 
 [node name="PostGamePanel" type="PanelContainer" parent="." unique_id=905926202]
 visible = false
@@ -297,3 +571,11 @@ text = "Fechar"
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
 [connection signal="pressed" from="PostGamePanel/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="PostGamePanel" method="_on_close_button_pressed"]
+[connection signal="button_down" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_press"]]
+[connection signal="button_up" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["cancel_press"]]
+[connection signal="mouse_entered" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_hover"]]
+[connection signal="mouse_exited" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["cancel_hover"]]
+[connection signal="button_down" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["continue_press"]]
+[connection signal="button_up" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_press"]]
+[connection signal="mouse_entered" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["continue_hover"]]
+[connection signal="mouse_exited" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_hover"]]

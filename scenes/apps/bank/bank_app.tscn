@@ -1,163 +1,410 @@
 [gd_scene format=3 uid="uid://o0judfg0ie3h"]
 
 [ext_resource type="Script" uid="uid://bbe1w64twx2tt" path="res://scripts/apps/bank/bank_app.gd" id="1_f135x"]
-[ext_resource type="Texture2D" uid="uid://cb4v4bb0jsqnr" path="res://assets/icons/default_person_icon.svg" id="2_a2xj4"]
-[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="2_o1c47"]
-[ext_resource type="Texture2D" uid="uid://cdkp5cwdx5wa1" path="res://assets/icons/closed_eye_icon.svg" id="3_sxruq"]
-[ext_resource type="Texture2D" uid="uid://b05e6xvr80oqk" path="res://assets/icons/eye_icon.svg" id="4_qciko"]
-[ext_resource type="Texture2D" uid="uid://buv1c45prpwvu" path="res://assets/icons/pix_icon.svg" id="6_a2xj4"]
-[ext_resource type="Texture2D" uid="uid://ck2cuqj2ndeas" path="res://assets/icons/boleto_icon.svg" id="7_eaf8e"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
+[ext_resource type="Texture2D" uid="uid://cb4v4bb0jsqnr" path="res://assets/icons/default_person_icon.svg" id="6_person"]
+[ext_resource type="Texture2D" uid="uid://cdkp5cwdx5wa1" path="res://assets/icons/closed_eye_icon.svg" id="7_eye_closed"]
+[ext_resource type="Texture2D" uid="uid://b05e6xvr80oqk" path="res://assets/icons/eye_icon.svg" id="8_eye"]
+[ext_resource type="Texture2D" uid="uid://buv1c45prpwvu" path="res://assets/icons/pix_icon.svg" id="9_pix"]
+[ext_resource type="Texture2D" uid="uid://ck2cuqj2ndeas" path="res://assets/icons/boleto_icon.svg" id="10_boleto"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iisxx"]
-bg_color = Color(0.19215687, 0.6862745, 0.68235296, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_kcqqf"]
-font_size = 18
-font_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_active"]
+bg_color = Color(0.27450982, 0.70980394, 0.6901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="FontFile" id="FontFile_kcqqf"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/40/0/ascent = 0.0
-cache/0/40/0/descent = 0.0
-cache/0/40/0/underline_position = 0.0
-cache/0/40/0/underline_thickness = 0.0
-cache/0/40/0/scale = 1.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balance_card"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 10.0
+content_margin_bottom = 14.0
+bg_color = Color(0.79607844, 0.92156863, 0.827451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_o1c47"]
-font = ExtResource("2_o1c47")
-font_color = Color(0, 0.03529412, 0.14117648, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 18.0
+bg_color = Color(0.27450982, 0.70980394, 0.6901961, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
 
-[node name="bank_app" type="Control" unique_id=1692098538 node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_shadow"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghost"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghost_active"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.11764706, 0.18823529, 0.2784314, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 8
+
+[node name="BankApp" type="Control" node_paths=PackedStringArray("balance_value_label", "hide_value_button", "pix_button", "ticket_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_f135x")
-balance_value_label = NodePath("VBoxContainer/ValueHBoxContainer/ValueLabel")
-hide_value_button = NodePath("VBoxContainer/HeaderPanel/VBoxContainer/MarginContainer/HBoxContainer/HideBalanceButton")
-pix_button = NodePath("VBoxContainer/MarginContainer/ButtonsHBoxContainer/PixButton")
-ticket_button = NodePath("VBoxContainer/MarginContainer/ButtonsHBoxContainer/TicketButton")
+balance_value_label = NodePath("Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow/BalanceColumn/ValueLabel")
+hide_value_button = NodePath("Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow/HideBalanceButton")
+pix_button = NodePath("Screen/ScrollContainer/Margin/Column/PixCard")
+ticket_button = NodePath("Screen/ScrollContainer/Margin/Column/TicketCard")
+visible_balance_icon = ExtResource("8_eye")
+hidden_balance_icon = ExtResource("7_eye_closed")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=998768744]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="Panel" parent="VBoxContainer" unique_id=1996760883]
-custom_minimum_size = Vector2(0, 128)
+[node name="HeaderPanel" type="PanelContainer" parent="Screen"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_iisxx")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_header")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=1461904506]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=1581119665]
+[node name="HeaderColumn" type="VBoxContainer" parent="Screen/HeaderPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderPanel/VBoxContainer/MarginContainer" unique_id=1250588683]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HeaderPanel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1911302118]
+[node name="Avatar" type="TextureRect" parent="Screen/HeaderPanel/HeaderColumn"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("2_a2xj4")
+size_flags_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("6_person")
 expand_mode = 1
-stretch_mode = 4
-
-[node name="HideBalanceButton" type="TextureButton" parent="VBoxContainer/HeaderPanel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2043085117]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-toggle_mode = true
-texture_normal = ExtResource("3_sxruq")
-texture_pressed = ExtResource("4_qciko")
-ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HeaderPanel/VBoxContainer" unique_id=2044644274]
+[node name="TextColumn" type="VBoxContainer" parent="Screen/HeaderPanel/HeaderColumn"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
+mouse_filter = 2
+theme_override_constants/separation = 0
 
-[node name="MessageLabel" type="Label" parent="VBoxContainer/HeaderPanel/VBoxContainer/MarginContainer2" unique_id=245203391]
+[node name="GreetingLabel" type="Label" parent="Screen/HeaderPanel/HeaderColumn/TextColumn"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("4_semi")
+theme_override_font_sizes/font_size = 18
 text = "Olá, Companheiro ENIGMA"
-label_settings = SubResource("LabelSettings_kcqqf")
+clip_text = true
+text_overrun_behavior = 3
 
-[node name="BalanceHBoxContainer" type="MarginContainer" parent="VBoxContainer" unique_id=672234500]
+[node name="SubtitleLabel" type="Label" parent="Screen/HeaderPanel/HeaderColumn/TextColumn"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Conta empresarial"
 
-[node name="BalanceLabel" type="Label" parent="VBoxContainer/BalanceHBoxContainer" unique_id=1463226659]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = SubResource("FontFile_kcqqf")
-text = "Saldo:"
-label_settings = SubResource("LabelSettings_o1c47")
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
 
-[node name="ValueHBoxContainer" type="MarginContainer" parent="VBoxContainer" unique_id=152260267]
+[node name="Margin" type="MarginContainer" parent="Screen/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 18
 
-[node name="ValueLabel" type="Label" parent="VBoxContainer/ValueHBoxContainer" unique_id=196128706]
+[node name="Column" type="VBoxContainer" parent="Screen/ScrollContainer/Margin"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = SubResource("FontFile_kcqqf")
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 18
+
+[node name="BalanceCard" type="PanelContainer" parent="Screen/ScrollContainer/Margin/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_balance_card")
+
+[node name="BalanceRow" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/BalanceCard"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="BalanceColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="BalanceLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow/BalanceColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Saldo disponível"
+
+[node name="ValueLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow/BalanceColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
 text = "******"
-label_settings = SubResource("LabelSettings_o1c47")
+clip_text = true
+text_overrun_behavior = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1016072179]
+[node name="HideBalanceButton" type="Button" parent="Screen/ScrollContainer/Margin/Column/BalanceCard/BalanceRow"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-theme_override_constants/margin_left = 16
+size_flags_vertical = 4
+tooltip_text = "Mostrar saldo"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghost")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghost_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghost_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+icon = ExtResource("7_eye_closed")
+icon_alignment = 1
+expand_icon = true
 
-[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=2136909677]
+[node name="SectionLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column"]
 layout_mode = 2
-theme_override_constants/separation = 10
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_semi")
+theme_override_font_sizes/font_size = 12
+text = "Pagamentos"
 
-[node name="PixButton" type="TextureButton" parent="VBoxContainer/MarginContainer/ButtonsHBoxContainer" unique_id=362309749]
-custom_minimum_size = Vector2(64, 64)
+[node name="PixCard" type="Button" parent="Screen/ScrollContainer/Margin/Column"]
+custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
-texture_normal = ExtResource("6_a2xj4")
-ignore_texture_size = true
-stretch_mode = 4
+size_flags_horizontal = 3
+tooltip_text = "Pagar com um código Pix"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
 
-[node name="TicketButton" type="TextureButton" parent="VBoxContainer/MarginContainer/ButtonsHBoxContainer" unique_id=1046744802]
-custom_minimum_size = Vector2(64, 64)
+[node name="Content" type="MarginContainer" parent="Screen/ScrollContainer/Margin/Column/PixCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Row" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content"]
 layout_mode = 2
-texture_normal = ExtResource("7_eaf8e")
-ignore_texture_size = true
-stretch_mode = 4
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Icon" type="TextureRect" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_pix")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 16
+text = "Pix"
+
+[node name="DescriptionLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/PixCard/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Transfira na hora usando um código Pix."
+autowrap_mode = 2
+
+[node name="TicketCard" type="Button" parent="Screen/ScrollContainer/Margin/Column"]
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Pagar um boleto"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+
+[node name="Content" type="MarginContainer" parent="Screen/ScrollContainer/Margin/Column/TicketCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Row" type="HBoxContainer" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Avatar" type="Control" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="IconShadow" type="Panel" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_shadow")
+
+[node name="Icon" type="TextureRect" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_boleto")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextColumn" type="VBoxContainer" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 16
+text = "Boleto"
+
+[node name="DescriptionLabel" type="Label" parent="Screen/ScrollContainer/Margin/Column/TicketCard/Content/Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_reg")
+theme_override_font_sizes/font_size = 12
+text = "Pague contas digitando o código do boleto."
+autowrap_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
