@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://ukvjtcjgigct" path="res://scripts/apps/messages/scroll_container.gd" id="2_654my"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="5_target"]
 
-[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "thread_size_label", "email_messages_container", "scroll_container")]
+[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "thread_size_label", "email_messages_container", "scroll_container", "subject_target")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +17,7 @@ subject_label = NodePath("ScrollContainer/FullEmailContainer/Header/HeaderColumn
 thread_size_label = NodePath("ScrollContainer/FullEmailContainer/Header/HeaderColumn/ThreadSizeLabel")
 email_messages_container = NodePath("ScrollContainer/FullEmailContainer/EmailMessagesContainer")
 scroll_container = NodePath("ScrollContainer")
+subject_target = NodePath("ScrollContainer/FullEmailContainer/Header/SubjectTarget")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -56,6 +58,12 @@ theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("4_reg")
 theme_override_font_sizes/font_size = 12
 text = "Caixa de entrada · 1 mensagem"
+
+[node name="SubjectTarget" type="Control" parent="ScrollContainer/FullEmailContainer/Header"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5_target")
+padding = Vector2(8, 6)
 
 [node name="Divider" type="ColorRect" parent="ScrollContainer/FullEmailContainer"]
 custom_minimum_size = Vector2(0, 1)

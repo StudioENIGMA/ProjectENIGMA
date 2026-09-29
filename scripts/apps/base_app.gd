@@ -9,6 +9,12 @@ signal pause_game_requested()
 ## Emitted whenever a screen opens, carrying the main app it belongs to
 signal main_app_opened(main_app: GameData.App)
 
+## Emitted when the player reports a message or email as a scam
+##
+## report: "section" (what was pointed at: source, section, excerpt...), "rule" (the rule of the
+## day it breaks, as read from data/rules/rules.json) and "screen" (the GameData.App it was on)
+signal discrepancy_reported(report: Dictionary)
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
@@ -29,6 +35,13 @@ signal main_app_opened(main_app: GameData.App)
 @export var app_title_picture: Control
 @export var app_title_label: Label
 @export var app_title_badge: Panel
+
+## Top bar toggle that starts pointing at the discrepancy of a message or email
+@export var inspect_button: Button
+## Lets the contact shown on the top bar of a chat be pointed at as the discrepancy
+@export var title_target: DiscrepancyTarget
+## Hint, rules sheet and stamp drawn over the app while reporting a discrepancy
+@export var discrepancy_overlay: Control
 
 var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
@@ -120,6 +133,13 @@ var open_apps:Array = []
 ## Opening/closing animations of the window and the apps inside it
 var _transitions:AppTransitions
 
+## Whether the player is reporting a scam (picking a rule, then pointing at the section)
+var _is_inspecting := false
+## Rule of the day the player said the scam breaks, empty while still picking it
+var _chosen_rule: Dictionary = {}
+## Section the player pointed at as the one breaking the rule
+var _picked_section: Dictionary = {}
+
 ## Called when the node enters the scene tree for the first time.
 ##
 ## Initializes the app top bar and connects necessary signals
@@ -139,6 +159,14 @@ func _ready() -> void:
 	# Connect close app button signal
 	back_button.pressed.connect(_on_back_button_pressed)
 	close_app_button.pressed.connect(_on_close_app_button_pressed)
+
+	# Discrepancy reporting (top bar toggle, contact on the chat header and the overlay)
+	inspect_button.toggled.connect(_set_inspecting)
+	title_target.picked.connect(_on_title_target_picked)
+	discrepancy_overlay.rule_chosen.connect(_on_discrepancy_rule_chosen)
+	discrepancy_overlay.rules_cancelled.connect(_set_inspecting.bind(false))
+	discrepancy_overlay.rule_change_requested.connect(_on_discrepancy_rule_change_requested)
+	discrepancy_overlay.report_confirmed.connect(_on_discrepancy_report_confirmed)
 
 	# Connect to apps UI app opened signal
 	apps_ui.app_opened.connect(_on_app_opened)
@@ -166,6 +194,7 @@ func _ready() -> void:
 	)
 	app_specific_screen.add_child(messages_app_chat)
 	messages_app_chat.header_changed.connect(_on_chat_header_changed)
+	messages_app_chat.discrepancy_picked.connect(_on_discrepancy_picked)
 
 	# Settings app home (Settings app)
 	settings_app.visible = false
@@ -280,6 +309,7 @@ func _ready() -> void:
 
 	# Email app viewer (Email app)
 	email_app_viewer.visible = false
+	email_app_viewer.discrepancy_picked.connect(_on_discrepancy_picked)
 	app_specific_screen.add_child(email_app_viewer)
 
 	# Authenticator app
@@ -339,6 +369,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		pause_game()
 		return
 
+	# The screen being inspected is about to be covered
+	_set_inspecting(false)
+
 	# When nothing was open, the whole phone window (top bar included) is what animates in
 	var is_first_app:bool = open_apps.is_empty()
 
@@ -369,6 +402,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	notification_ui.visible = true
 	
 	_update_app_title()
+	_update_inspect_button()
 
 	# If is a hack minigame, do not show back or close buttons
 	var hack_minigames = [
@@ -417,6 +451,8 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 ## Handles the close app button press event
 func _on_back_button_pressed() -> void:
+	_set_inspecting(false)
+
 	# Get the currently open app (topmost)
 	var current_app_dict:Dictionary = open_apps[open_apps.size() - 1]
 	var current_app_enum:GameData.App = current_app_dict["SubScreen"]
@@ -434,6 +470,7 @@ func _on_back_button_pressed() -> void:
 	open_apps.erase(current_app_dict)
 	
 	_update_app_title()
+	_update_inspect_button()
 
 	var number_of_open_apps:int = open_apps.size()
 
@@ -489,6 +526,12 @@ func _on_chat_header_changed(npc_name: String, photo: String, is_verified: bool)
 	app_title_picture.setup(photo, npc_name)
 	app_title_label.text = npc_name
 	app_title_badge.visible = is_verified
+	title_target.section = {
+		"source": "messages",
+		"section": "contact",
+		"conversation": messages_app_chat.conversation_id,
+		"excerpt": npc_name,
+	}
 
 ## Names the screen that is open: the contact on a chat, the app it belongs to everywhere else
 func _update_app_title() -> void:
@@ -512,6 +555,113 @@ func _update_app_title() -> void:
 	app_title_label.text = app_name
 	app_title.visible = not app_name.is_empty()
 
+#region DISCREPANCY
+## Shows the inspect toggle only on screens that know how to be inspected
+func _update_inspect_button() -> void:
+	var screen := _get_current_screen()
+	inspect_button.visible = screen != null and screen.has_method("set_inspection_mode")
+
+
+## Starts or stops reporting the open message or email as a scam
+##
+## Starting opens the rules notepad; the sections of the screen are only armed once a rule is
+## picked. Stopping puts everything away and forgets the rule and the section picked.
+func _set_inspecting(is_on: bool) -> void:
+	if is_on == _is_inspecting:
+		return
+	_is_inspecting = is_on
+	inspect_button.set_pressed_no_signal(is_on)
+
+	if is_on:
+		discrepancy_overlay.open_rules()
+	else:
+		_set_pointing(false)
+		discrepancy_overlay.stop()
+		_chosen_rule = {}
+
+
+## Arms or disarms the sections of the open screen (and the contact on a chat header)
+##
+## While armed, the screen is shrunk so nothing hides under the bar at the bottom.
+func _set_pointing(is_on: bool) -> void:
+	_picked_section = {}
+	var screen := _get_current_screen()
+	if screen and screen.has_method("set_inspection_mode"):
+		screen.set_inspection_mode(is_on)
+
+	var is_chat: bool = (
+		not open_apps.is_empty() and open_apps.back()["SubScreen"] == GameData.App.MESSAGESCHAT
+	)
+	title_target.armed = is_on and is_chat
+	app_specific_screen.offset_bottom = (
+		-discrepancy_overlay.get_point_bar_height() if is_on else 0.0
+	)
+
+
+## Lights the sections that can be pointed at, once the player said which rule is broken
+func _on_discrepancy_rule_chosen(rule: Dictionary) -> void:
+	_chosen_rule = rule
+	_set_pointing(true)
+	discrepancy_overlay.start_pointing(_get_spotlight_targets)
+
+
+## Goes back to the rules notepad, dropping the section pointed at
+func _on_discrepancy_rule_change_requested() -> void:
+	_chosen_rule = {}
+	_set_pointing(false)
+	discrepancy_overlay.open_rules()
+
+
+## Marks the section the player pointed at, the report can then be sent
+func _on_discrepancy_picked(section: Dictionary) -> void:
+	if _chosen_rule.is_empty():
+		return
+	# The contact on the header and the sections of the screen share a single selection
+	title_target.selected = section.get("section") == "contact"
+	_picked_section = section
+	discrepancy_overlay.set_section_picked(true)
+
+
+func _on_title_target_picked(target: DiscrepancyTarget) -> void:
+	var screen := _get_current_screen()
+	if screen and screen.has_method("clear_discrepancy_selection"):
+		screen.clear_discrepancy_selection()
+	_on_discrepancy_picked(target.section)
+
+
+## Reports the section pointed at with the rule chosen, stamps it and stops inspecting
+func _on_discrepancy_report_confirmed() -> void:
+	if _chosen_rule.is_empty() or _picked_section.is_empty():
+		return
+	discrepancy_reported.emit({
+		"section": _picked_section,
+		"rule": _chosen_rule,
+		"screen": open_apps.back()["SubScreen"] if not open_apps.is_empty() else null,
+	})
+	discrepancy_overlay.play_stamp()
+	_set_inspecting(false)
+
+
+## Sections lit through the dim while pointing: the armed ones of the screen, and the contact
+func _get_spotlight_targets() -> Array:
+	var targets: Array = []
+	var screen := _get_current_screen()
+	if screen and screen.has_method("get_discrepancy_targets"):
+		targets.append_array(screen.get_discrepancy_targets())
+	if title_target.armed:
+		targets.append(title_target)
+	return targets.filter(
+		func(target: DiscrepancyTarget) -> bool: return target.armed and target.is_visible_in_tree()
+	)
+
+
+## Returns the screen on top of the open apps, or null when none is open
+func _get_current_screen() -> Control:
+	if open_apps.is_empty():
+		return null
+	return _get_app_by_enum(open_apps.back()["SubScreen"])
+#endregion DISCREPANCY
+
 ## Checks if there is any open app with the specified main app enum
 func _has_open_main_app(main_app: GameData.App) -> bool:
 	for app_dict in open_apps:
@@ -521,6 +671,8 @@ func _has_open_main_app(main_app: GameData.App) -> bool:
 
 ## Closes all open apps with the specified main app enum
 func _close_main_app(main_app_enum: GameData.App) -> void:
+	_set_inspecting(false)
+
 	# If it is messages_app_chat, unset conversation_id
 	if main_app_enum == GameData.App.MESSAGESHOME:
 		messages_app_chat.conversation_id = ""
@@ -544,6 +696,7 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 		open_apps.remove_at(i)
 		
 	_update_app_title()
+	_update_inspect_button()
 
 	# Update top bar + show previous if any
 	if open_apps.is_empty():

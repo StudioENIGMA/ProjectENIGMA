@@ -1,0 +1,94 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_rule_row.gd" id="1_row"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://dga6bou3mkmqe" path="res://assets/fonts/GloriaHallelujah-Regular.ttf" id="4_hand"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_row"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_new_tag"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[node name="DiscrepancyRuleRow" type="PanelContainer" node_paths=PackedStringArray("number_label", "new_tag", "title_label", "description_label")]
+size_flags_horizontal = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_row")
+script = ExtResource("1_row")
+number_label = NodePath("Row/NumberLabel")
+new_tag = NodePath("Row/TextColumn/TitleRow/NewTagMargin")
+title_label = NodePath("Row/TextColumn/TitleRow/TitleLabel")
+description_label = NodePath("Row/TextColumn/DescriptionLabel")
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="NumberLabel" type="Label" parent="Row"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.22352941, 0.5647059, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("4_hand")
+theme_override_font_sizes/font_size = 17
+text = "1"
+horizontal_alignment = 1
+
+[node name="TextColumn" type="VBoxContainer" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TitleRow" type="HBoxContainer" parent="Row/TextColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="Row/TextColumn/TitleRow"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 0.92)
+theme_override_fonts/font = ExtResource("4_hand")
+theme_override_font_sizes/font_size = 17
+text = "Remetente imitado"
+autowrap_mode = 3
+
+[node name="NewTagMargin" type="MarginContainer" parent="Row/TextColumn/TitleRow"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 5
+
+[node name="NewTag" type="PanelContainer" parent="Row/TextColumn/TitleRow/NewTagMargin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_new_tag")
+
+[node name="NewLabel" type="Label" parent="Row/TextColumn/TitleRow/NewTagMargin/NewTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_semi")
+theme_override_font_sizes/font_size = 9
+text = "NOVA"
+
+[node name="DescriptionLabel" type="Label" parent="Row/TextColumn"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 0.9)
+theme_override_fonts/font = ExtResource("4_hand")
+theme_override_font_sizes/font_size = 14
+text = "O nome ou o endereço imita um contato conhecido."
+autowrap_mode = 3

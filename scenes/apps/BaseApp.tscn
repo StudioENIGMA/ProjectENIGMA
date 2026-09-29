@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://dm05wp1j0pade" path="res://scripts/apps/top_bar_clock_label.gd" id="4_04ele"]
 [ext_resource type="Texture2D" uid="uid://dg538esstxeq3" path="res://assets/icons/verified.svg" id="4_5dd6f"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="5_8k6qs"]
+[ext_resource type="Texture2D" path="res://assets/icons/inspect_light.svg" id="6_inspect"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="7_target"]
+[ext_resource type="PackedScene" path="res://scenes/apps/discrepancy/discrepancy_overlay.tscn" id="8_overlay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipks7"]
 bg_color = Color(1, 1, 0.972549, 1)
@@ -17,6 +20,27 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 corner_detail = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inspect"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inspect_hover"]
+bg_color = Color(1, 1, 0.972549, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inspect_on"]
+bg_color = Color(1, 1, 0.972549, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.14)
+shadow_size = 3
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_shadow"]
 offsets = PackedFloat32Array(0, 1)
@@ -28,7 +52,7 @@ width = 8
 height = 8
 fill_to = Vector2(0, 1)
 
-[node name="BaseApp" type="Control" unique_id=1808972621 node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen", "hack_screen", "app_title", "app_title_avatar", "app_title_picture", "app_title_label", "app_title_badge")]
+[node name="BaseApp" type="Control" unique_id=1808972621 node_paths=PackedStringArray("close_app_button", "back_button", "app_specific_screen", "hack_screen", "app_title", "app_title_avatar", "app_title_picture", "app_title_label", "app_title_badge", "inspect_button", "title_target", "discrepancy_overlay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,6 +70,9 @@ app_title_avatar = NodePath("TopBar/HeaderRow/HeaderContent/TitleArea/AppTitle/A
 app_title_picture = NodePath("TopBar/HeaderRow/HeaderContent/TitleArea/AppTitle/Avatar/ProfilePicture")
 app_title_label = NodePath("TopBar/HeaderRow/HeaderContent/TitleArea/AppTitle/TitleLabel")
 app_title_badge = NodePath("TopBar/HeaderRow/HeaderContent/TitleArea/AppTitle/Avatar/VerifiedBadge")
+inspect_button = NodePath("TopBar/HeaderRow/HeaderContent/InspectButton")
+title_target = NodePath("TopBar/HeaderRow/HeaderContent/TitleArea/TitleTarget")
+discrepancy_overlay = NodePath("DiscrepancyOverlay")
 
 [node name="BaseBackgroundColor" type="ColorRect" parent="." unique_id=1453402197]
 layout_mode = 1
@@ -252,6 +279,37 @@ clip_text = true
 text_overrun_behavior = 4
 max_lines_visible = 1
 
+[node name="TitleTarget" type="Control" parent="TopBar/HeaderRow/HeaderContent/TitleArea" unique_id=1587310001]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_target")
+accent = Color(1, 1, 0.972549, 1)
+badge_ink = Color(0.27450982, 0.70980394, 0.6901961, 1)
+padding = Vector2(4, -3)
+corner_radius = 12
+
+[node name="InspectButton" type="Button" parent="TopBar/HeaderRow/HeaderContent" unique_id=1587310002]
+visible = false
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/icon_pressed_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+theme_override_constants/icon_max_width = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_inspect")
+theme_override_styles/hover = SubResource("StyleBoxFlat_inspect_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_inspect_on")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_inspect_on")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_inspect")
+toggle_mode = true
+icon = ExtResource("6_inspect")
+icon_alignment = 1
+expand_icon = true
+
 [node name="CloseAppContainer" type="CenterContainer" parent="TopBar/HeaderRow/HeaderContent" unique_id=1653211727]
 layout_mode = 2
 mouse_filter = 2
@@ -301,6 +359,9 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_shadow")
 expand_mode = 1
 stretch_mode = 0
+
+[node name="DiscrepancyOverlay" parent="." unique_id=1587310003 instance=ExtResource("8_overlay")]
+layout_mode = 1
 
 [node name="HackScreen" type="Control" parent="." unique_id=1202790988]
 layout_mode = 1

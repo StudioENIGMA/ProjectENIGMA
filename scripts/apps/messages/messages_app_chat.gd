@@ -43,6 +43,11 @@ signal apk_installation_requested(app: GameData.App)
 
 signal delete_answers(conversation_id:String)
 
+## Emitted when the player, inspecting, points at a message or annex as a scam discrepancy
+##
+## section: "source", "section" ("message" or "annex"), "conversation" and "excerpt"
+signal discrepancy_picked(section: Dictionary)
+
 const MY_MESSAGE = preload("res://scenes/apps/messages/my_message.tscn")
 const OTHERS_MESSAGE = preload("res://scenes/apps/messages/others_message.tscn")
 const TIME_INDICATOR = preload("res://scenes/apps/messages/time_indicator.tscn")
@@ -66,6 +71,8 @@ var conversation_id:String = ""
 var messages_typing: Dictionary = {}
 
 var _last_sender:int = NO_SENDER
+## Keeps the NPC messages that can be pointed at as a discrepancy in step
+var _inspector := DiscrepancyInspector.new()
 
 func _ready() -> void:
 	answers_panel.message_answered.connect(message_answered.emit) # Propagate signal to base app
@@ -80,6 +87,7 @@ func _ready() -> void:
 	)
 	answers_panel.delete_answers.connect(delete_answers.emit) # Propagate signal to base app
 	answers_panel.options_changed.connect(_on_answer_options_changed)
+	_inspector.picked.connect(discrepancy_picked.emit) # Propagate signal to base app
 
 func setup(conversation_data:Dictionary) -> void:
 	# Read before clearing the counter, it is what tells the unread messages apart
@@ -98,6 +106,7 @@ func setup(conversation_data:Dictionary) -> void:
 	for child_node in messages_list.get_children():
 		messages_list.remove_child(child_node)
 		child_node.queue_free()
+	_inspector.forget_all()
 
 	_last_sender = NO_SENDER
 
@@ -207,6 +216,24 @@ func on_request_answer_option(
 		answer_id
 	)
 
+## Arms every NPC message and annex so the player can point at the one giving the scam away
+##
+## The answers bar is put away meanwhile, so no reply is sent by accident
+func set_inspection_mode(is_on: bool) -> void:
+	var was_at_bottom: bool = scroll_container.is_at_bottom()
+	_inspector.set_armed(is_on)
+	answers_panel.visible = not is_on
+	if was_at_bottom:
+		scroll_container.jump_to_bottom()
+
+## Sections that can be pointed at, lit while the rest of the phone is dimmed
+func get_discrepancy_targets() -> Array[DiscrepancyTarget]:
+	return _inspector.get_targets()
+
+## Unmarks the message picked, the others stay armed
+func clear_discrepancy_selection() -> void:
+	_inspector.clear_selection()
+
 ## The contact a stored conversation stands for, in the shape the story directors send it
 ##
 ## conversation_data: A conversation of messages_app_home
@@ -239,8 +266,36 @@ func _add_message(sender:int, message:String, annex:Dictionary, time:int) -> voi
 	message_instance.apk_installation_requested.connect(
 		apk_installation_requested.emit # Propagate signal to base app
 	)
+	if sender == GameData.Sender.NPC:
+		_add_discrepancy_targets(message_instance, message, annex, time)
 
 	_last_sender = sender
+
+## Lets the player point at an NPC message, and at its annex if it carries one
+func _add_discrepancy_targets(
+	message_instance:HBoxContainer,
+	message:String,
+	annex:Dictionary,
+	time:int
+) -> void:
+	message_instance.message_target.section = {
+		"source": "messages",
+		"section": "message",
+		"conversation": conversation_id,
+		"excerpt": message,
+		"time": GameData.hours_minutes_as_string(time - GameData.starting_hours_minutes),
+	}
+	_inspector.add(message_instance.message_target)
+
+	if annex.is_empty():
+		return
+	message_instance.annex_target.section = {
+		"source": "messages",
+		"section": "annex",
+		"conversation": conversation_id,
+		"excerpt": str(annex.get("caption", "")),
+	}
+	_inspector.add(message_instance.annex_target)
 
 ## Renders the bubble with the animation shown while an NPC types
 func _add_typing_indicator() -> void:
