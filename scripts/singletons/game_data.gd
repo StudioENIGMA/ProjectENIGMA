@@ -54,7 +54,9 @@ enum App {
 	# Pause
 	PAUSEMENU,
 	#Notes,
-	NOTES
+	NOTES,
+	# Order document, opened from an email attachment (kept last: scenes store App values)
+	ORDERDOCUMENT,
 }
 
 enum HackMinigame {
@@ -71,6 +73,8 @@ enum PaymentType {
 class PaymentCode:
 	var code: String
 	var type: PaymentType
+	## Whether the code was read from a QR Code, which the payment screen then shows as such
+	var from_qr: bool = false
 
 class ShoppingInfo:
 	var shop_enum: App
@@ -122,7 +126,7 @@ var clock_tick_interval: float = 1.5 # Time between clock ticks in seconds
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
-var max_hours_minutes:int = 1080 # End at 18:00
+var max_hours_minutes:int = 481 # End at 18:00
 var max_hours_minutes_tutorial:int = 720 # End at 12:00
 var current_day:int = 0
 var daily_reputation_points:int = 0
@@ -148,6 +152,12 @@ var is_in_minigame: bool = false
 var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 0
 var unsafe_apps: Array[App] = [App.FAKESTORE]
+
+## email_id of every email the player opened today, for the "email_read" requirement
+var read_emails: Array = []
+## Conversations and payment codes of the scams reported today, which can no longer go on
+var blocked_conversations: Array = []
+var blocked_payment_codes: Array = []
 
 var saved_messages_conversations: Array[Dictionary] = []
 var saved_email_threads: Array = []
@@ -194,6 +204,8 @@ var apps_name: Dictionary = {
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
 	"Notes": App.NOTES,
+	# Email app (order documents open from attachments)
+	"OrderDocument": App.ORDERDOCUMENT,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -320,6 +332,22 @@ func get_human_typing_time(message: String) -> int:
 		total_time += time_per_word
 
 	return total_time
+
+## The account name a contact gets when its conversation names none: "@" and the name in
+## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
+##
+## Conversations and the Notes app's company contacts both get their accounts from it.
+func account_from_name(contact_name: String) -> String:
+	var plain := contact_name.to_lower()
+	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",
+		"ó": "o", "ô": "o", "õ": "o", "ú": "u", "ç": "c"}
+	for accented in accents:
+		plain = plain.replace(accented, accents[accented])
+	var handle := ""
+	for character in plain:
+		if (character >= "a" and character <= "z") or (character >= "0" and character <= "9"):
+			handle += character
+	return "@" + handle
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""

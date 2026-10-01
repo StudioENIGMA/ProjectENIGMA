@@ -1,206 +1,261 @@
 {
-	"ANVNB" : {
-		"name" : "João Da Silva",
-		"cpf" : "123.456.789-10",
-		"email" : "joaodasilva@imail.com",
-		"value" : 58.90
+	"ANVNB": {
+		"name": "João Da Silva",
+		"cpf": "123.456.789-10",
+		"email": "joaodasilva@imail.com",
+		"value": 58.9,
+		"reason": "Serviço de fornecedor"
 	},
-	"12345" : {
-		"name" : "Lucas Freitas",
-		"cpf" : "123.456.789-10",
-		"email" : "lucasfreitas@imail.com",
-		"value" : 2250.50
+	"12345": {
+		"name": "Lucas Freitas",
+		"cpf": "123.456.789-10",
+		"email": "lucasfreitas@imail.com",
+		"value": 2250.5,
+		"reason": "Serviço de fornecedor"
 	},
-	"7EE11" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagamentos@negativa.com",
-		"value" : 6449.00
+	"NG711": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagamentos@negativa.com",
+		"value": 6449.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"66MM5" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagamentos@negativa.com",
-		"value" : 6449.00
+	"NG665": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagamentos@negativa.com",
+		"value": 6449.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"53IUY" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagamentos@negativando.com",
-		"value" : 17893.86
+	"53IUY": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagamentos@negativando.com",
+		"value": 17893.86,
+		"reason": "Serviço de fornecedor"
 	},
-	"62N96" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagarnentos@negativado.com",
-		"value" : 8386.62
+	"62N96": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagarnentos@negativado.com",
+		"value": 8386.62,
+		"reason": "Serviço de fornecedor"
 	},
-	"3P030" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagar@negativar.com",
-		"value" : 34786.33
+	"3P030": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagar@negativar.com",
+		"value": 34786.33,
+		"reason": "Serviço de fornecedor"
 	},
-	"15J51" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagamentos@negativar.com",
-		"value" : 15000.00
+	"15J51": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagamentos@negativar.com",
+		"value": 15000.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"0932A" : {
-		"name" : "Richards",
-		"cpf" : "406.717.252-32",
-		"email" : "richardss@ativado.com",
-		"value" : 4389.90
+	"0932A": {
+		"name": "Richards",
+		"cpf": "406.717.252-32",
+		"email": "richardss@ativado.com",
+		"value": 4389.9,
+		"reason": "Serviço de fornecedor"
 	},
-	"1233B" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "pagarmentos@negativa.com",
-		"value" : 21788.88
+	"1233B": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "pagarmentos@negativa.com",
+		"value": 21788.88,
+		"reason": "Serviço de fornecedor"
 	},
-	"6103C" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "freitas@negartiva.com",
-		"value" : 9971.50
+	"6103C": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "freitas@negartiva.com",
+		"value": 9971.5,
+		"reason": "Serviço de fornecedor"
 	},
-	"EH192" : {
-		"name" : "Negativa",
-		"cpf" : "456.717.252-32",
-		"email" : "ajdhsd@positivar.com",
-		"value" : 3942.90    
+	"EH192": {
+		"name": "Negativa",
+		"cpf": "456.717.252-32",
+		"email": "ajdhsd@positivar.com",
+		"value": 3942.9,
+		"reason": "Serviço de fornecedor"
 	},
-	"8903L" : {
-		"name" : "Negativa",
-		"cpf" : "406.717.252-32",
-		"email" : "neutro@ngativa.com",
-		"value" : 6321.77   
+	"8903L": {
+		"name": "Negativa",
+		"cpf": "406.717.252-32",
+		"email": "neutro@ngativa.com",
+		"value": 6321.77,
+		"reason": "Serviço de fornecedor"
 	},
-	"9922A" : {
-		"name" : "Carlos",
-		"cpf" : "103.787.235-50",
-		"email" : "pagamentos@px__investment.com",
-		"value" : 7000.00
+	"9922A": {
+		"name": "Carlos",
+		"cpf": "103.787.235-50",
+		"email": "pagamentos@px__investment.com",
+		"value": 7000.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"7F35U" : {
-		"name" : "Bruno",
-		"cpf" : "403.765.252-30",
-		"email" : "bruno@imail.com",
-		"value" : 17777.69
+	"7F35U": {
+		"name": "Bruno",
+		"cpf": "403.765.252-30",
+		"email": "bruno@imail.com",
+		"value": 17777.69,
+		"reason": "Serviço de fornecedor"
 	},
-	"FD56Z" : {
-		"name" : "Gilmar",
-		"cpf" : "563.765.252-30",
-		"email" : "gilmar@neutron.com",
-		"value" : 800.00
+	"FD56Z": {
+		"name": "Gilmar",
+		"cpf": "563.765.252-30",
+		"email": "gilmar@neutron.com",
+		"value": 800.0,
+		"reason": "Compra de material"
 	},
-	"R6K3S" : {
-		"name" : "Gilmar",
-		"cpf" : "563.765.252-30",
-		"email" : "gilmar@neutron.com",
-		"value" : 600.00
+	"R6K3S": {
+		"name": "Gilmar",
+		"cpf": "563.765.252-30",
+		"email": "gilmar@neutron.com",
+		"value": 600.0,
+		"reason": "Compra de material"
 	},
-	"RM6B8" : {
-		"name" : "Ricardo",
-		"cpf" : "563.765.252-30",
-		"email" : "ricardo@enigma.com.br",
-		"value" : 1225.09
+	"RM608": {
+		"name": "Ricardo",
+		"cpf": "563.765.252-30",
+		"email": "ricardo@enigma.com.br",
+		"value": 1225.09,
+		"reason": "Reembolso de funcionário"
 	},
-	"KO4HQ" : {
-		"name" : "Ricardo Bueno",
-		"cpf" : "563.765.252-86",
-		"email" : "ricardob@imail.com",
-		"value" : 2400.50
+	"KO4HQ": {
+		"name": "Ricardo Bueno",
+		"cpf": "563.765.252-86",
+		"email": "ricardob@imail.com",
+		"value": 2400.5,
+		"reason": "Reembolso de funcionário"
 	},
-	"6AF50" : {
-		"name" : "Zacarias Castro",
-		"cpf" : "963.005.252-86",
-		"email" : "zaca@neutron.com",
-		"value" : 13890.00
+	"6AF50": {
+		"name": "Zacarias Castro",
+		"cpf": "963.005.252-86",
+		"email": "zaca@neutron.com",
+		"value": 13890.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"OL349" : {
-		"name" : "Artur",
-		"cpf" : "963.905.252-86",
-		"email" : "artur@enigma.com.br",
-		"value" : 1566.70
+	"OL349": {
+		"name": "Artur",
+		"cpf": "963.905.252-86",
+		"email": "artur@enigma.com.br",
+		"value": 1566.7,
+		"reason": "Reembolso de funcionário"
 	},
-	"09FK0" : {
-		"name" : "Artur",
-		"cpf" : "963.905.252-86",
-		"email" : "artur@imail.com",
-		"value" : 2500.00
+	"09FK0": {
+		"name": "Artur",
+		"cpf": "963.905.252-86",
+		"email": "artur@imail.com",
+		"value": 2500.0,
+		"reason": "Reembolso de funcionário"
 	},
-	"45RTT" : {
-		"name" : "Carolinda",
-		"cpf" : "123.905.262-86",
-		"email" : "Carolinda@imail.com",
-		"value" : 3200.00
+	"45RTT": {
+		"name": "Carolinda",
+		"cpf": "123.905.262-86",
+		"email": "Carolinda@imail.com",
+		"value": 3200.0,
+		"reason": "Reembolso de funcionário"
 	},
-	"X8U77" : {
-		"name" : "Carolinda",
-		"cpf" : "123.905.262-86",
-		"email" : "Carolinda@imail.com",
-		"value" : 10000.00
+	"X8U77": {
+		"name": "Carolinda",
+		"cpf": "123.905.262-86",
+		"email": "Carolinda@imail.com",
+		"value": 10000.0,
+		"reason": "Reembolso de funcionário"
 	},
-	"7G25A" : {
-		"name" : "Jescica",
+	"7G25A": {
+		"name": "Jescica",
 		"cpf": "892.345.612-88",
 		"email": "jescica@neutron.me",
-		"value": 1200.0
+		"value": 1200.0,
+		"reason": "Reembolso de funcionário"
 	},
 	"MKB7U": {
-		"name" : "Jescica",
+		"name": "Jescica",
 		"cpf": "892.345.612-88",
 		"email": "jescica@neutron.me",
-		"value": 500.0
+		"value": 500.0,
+		"reason": "Reembolso de funcionário"
 	},
 	"53045": {
-		"name" : "Valter",
+		"name": "Valter",
 		"cpf": "666.777.888.99",
 		"email": "jescica@neutron.me",
-		"value": 17893.86
+		"value": 17893.86,
+		"reason": "Serviço de fornecedor"
 	},
-	"ABCDE" : {
-		"name" : "Simone Financeiro",
-		"cpf" : "456.776.208-47",
-		"email" : "simone@enigma.fin.com.br",
-		"value" : 100.00
+	"FN100": {
+		"name": "Simone Financeiro",
+		"cpf": "456.776.208-47",
+		"email": "simone@enigma.fin.com.br",
+		"value": 100.0,
+		"reason": "Reembolso de funcionário"
 	},
-	"I9W2V" : {
+	"I9W2V": {
 		"name": "Marie",
 		"cpf": "391.474.828-15",
 		"email": "marie@ngima.com.br",
-		"value": 32060.27
+		"value": 32060.27,
+		"reason": "Reembolso de funcionário"
 	},
 	"K47J1": {
 		"name": "Jeferson",
 		"cpf": "123.698.433-90",
 		"email": "jeferson@tempo-mail.com",
-		"value": 45670.99
+		"value": 45670.99,
+		"reason": "Serviço de fornecedor"
 	},
 	"L1P5K": {
-		"name" : "Valter",
+		"name": "Valter",
 		"cpf": "666.777.888.99",
 		"email": "marta@eningma.net.br",
-		"value": 1000.00
+		"value": 1000.0,
+		"reason": "Serviço de fornecedor"
 	},
 	"JPO64": {
-		"name" : "Yago oliveira",
+		"name": "Yago oliveira",
 		"cpf": "568-884-987-12",
 		"email": "Yago@enigma.con.br",
-		"value": 5000.00
+		"value": 5000.0,
+		"reason": "Reembolso de funcionário"
 	},
 	"JPA24": {
-		"name" : "Caio Machado",
+		"name": "Caio Machado",
 		"cpf": "841.457.933-12",
 		"email": "caiom@tempo-mail.com",
-		"value": 7500.00
+		"value": 7500.0,
+		"reason": "Serviço de fornecedor"
 	},
-	"T27DX": {
-		"name" : "Luxos Serviços",
+	"LX270": {
+		"name": "Luxos Serviços",
 		"cpf": "390.753.124-51",
 		"email": "pagamentos@luxos-servicos.com.br",
-		"value": 15667.90
+		"value": 15667.9,
+		"reason": "Serviço de fornecedor"
+	},
+	"PXO82": {
+		"name": "Distribuidora Aurora",
+		"cpf": "08.113.402/0001-51",
+		"email": "financeiro@distribuidoraaurora.com.br",
+		"value": 312.0,
+		"reason": "Compra de material"
+	},
+	"BF450": {
+		"name": "Buffet Bom Sabor",
+		"cpf": "22.918.330/0001-07",
+		"email": "contato@buffetbomsabor.com.br",
+		"value": 450.0,
+		"reason": "Evento da empresa"
+	},
+	"QZ190": {
+		"name": "Q. Z. Eventos",
+		"cpf": "41.502.776/0001-90",
+		"email": "pagamentos@qzeventos.com",
+		"value": 450.0,
+		"reason": "Evento da empresa"
 	}
 }

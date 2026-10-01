@@ -95,6 +95,7 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 	var delivered_email: Dictionary = {
 		# payload
 		"thread_id": thread_id,
+		"email_id": email_id,
 		"sender": email_dict.get("sender"),
 		"subject": email_dict.get("subject"),
 		"content": email_dict.get("content"),

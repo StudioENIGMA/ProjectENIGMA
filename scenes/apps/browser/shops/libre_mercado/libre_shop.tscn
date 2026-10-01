@@ -80,7 +80,7 @@ font = ExtResource("f_bold")
 font_size = 18
 font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
 
-[node name="AmazoniaShop" type="Control" node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label")]
+[node name="AmazoniaShop" type="Control" node_paths=PackedStringArray("items_grid_container", "cart_circle_label", "cart_quantity_label", "header_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,6 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("s_shop")
+header_panel = NodePath("Screen/HeaderPanel")
 items_grid_container = NodePath("Screen/ScrollContainer/Margin/Column/GridContainer")
 cart_circle_label = NodePath("Screen/HeaderPanel/HeaderRow/CartButton/CartCircle")
 cart_quantity_label = NodePath("Screen/HeaderPanel/HeaderRow/CartButton/CartCircle/CartQuantity")

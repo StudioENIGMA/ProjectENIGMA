@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
 [ext_resource type="Script" uid="uid://xaccuwl3nujq" path="res://scripts/utils/pause_button.gd" id="6_q7j5u"]
-[ext_resource type="FontFile" uid="uid://djlquwu0p7ll8" path="res://assets/fonts/IBMPlexSans-ExtraLight.ttf" id="7_yc1wb"]
 [ext_resource type="Script" uid="uid://bgpqwgjnw03l2" path="res://scripts/utils/apps_ui.gd" id="8_h0j4g"]
 [ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="13_51grn"]
 [ext_resource type="Script" uid="uid://c21cqx5ra84xp" path="res://scripts/utils/day_over_ui.gd" id="13_bd51b"]
@@ -41,6 +40,37 @@
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="36_scroll"]
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_center.tscn" id="37_center"]
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_widget.tscn" id="38_widget"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widget_card"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.101960786, 0.1254902, 0.2, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.08)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_track"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_fill"]
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
 shader = ExtResource("35_frosted")
@@ -453,37 +483,6 @@ shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 1.0
 shader_parameter/fade_intensity = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widget_card"]
-content_margin_left = 12.0
-content_margin_top = 10.0
-content_margin_right = 12.0
-content_margin_bottom = 10.0
-bg_color = Color(0.101960786, 0.1254902, 0.2, 0.72)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 0.08)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_track"]
-bg_color = Color(1, 1, 1, 0.12)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_workday_fill"]
-bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
 [node name="GameScreen" type="Control" unique_id=489356073 node_paths=PackedStringArray("ui", "event_handler", "story_director", "progressive_blur", "clock_timer")]
 layout_mode = 3
 anchors_preset = 15
@@ -563,7 +562,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_q7j5u")
 
-[node name="WidgetsMargin" type="MarginContainer" parent="UI/DesktopUI"]
+[node name="WidgetsMargin" type="MarginContainer" parent="UI/DesktopUI" unique_id=322678077]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -577,27 +576,27 @@ theme_override_constants/margin_left = 9
 theme_override_constants/margin_top = 78
 theme_override_constants/margin_right = 9
 
-[node name="Widgets" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin"]
+[node name="Widgets" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin" unique_id=257131221]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="NotificationWidget" parent="UI/DesktopUI/WidgetsMargin/Widgets" instance=ExtResource("38_widget")]
+[node name="NotificationWidget" parent="UI/DesktopUI/WidgetsMargin/Widgets" unique_id=837767283 instance=ExtResource("38_widget")]
 layout_mode = 2
 
-[node name="RightColumn" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets"]
+[node name="RightColumn" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets" unique_id=1074762745]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="ClockCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn"]
+[node name="ClockCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn" unique_id=668855606]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_widget_card")
 
-[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard" node_paths=PackedStringArray("time_label", "weekday_label", "workday_bar", "workday_label") groups=["clock_display"]]
+[node name="Clock" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard" unique_id=849680154 node_paths=PackedStringArray("time_label", "weekday_label", "workday_bar", "workday_label") groups=["clock_display"]]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = -6
@@ -608,7 +607,7 @@ weekday_label = NodePath("WeekDay")
 workday_bar = NodePath("../../WorkdayCard/Workday/Bar")
 workday_label = NodePath("../../WorkdayCard/Workday/Labels/Remaining")
 
-[node name="Hour" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock"]
+[node name="Hour" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock" unique_id=997321363]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
 theme_override_fonts/font = ExtResource("33_semi")
@@ -616,7 +615,7 @@ theme_override_font_sizes/font_size = 42
 text = "08:00"
 horizontal_alignment = 1
 
-[node name="WeekDay" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock"]
+[node name="WeekDay" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/ClockCard/Clock" unique_id=1413596481]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6392157, 0.9254902, 0.7607843, 0.85)
 theme_override_fonts/font = ExtResource("34_reg")
@@ -624,21 +623,21 @@ theme_override_font_sizes/font_size = 12
 text = "Quinta, 1 Janeiro"
 horizontal_alignment = 1
 
-[node name="WorkdayCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn"]
+[node name="WorkdayCard" type="PanelContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn" unique_id=494739923]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_widget_card")
 
-[node name="Workday" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard"]
+[node name="Workday" type="VBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard" unique_id=1053389971]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="Labels" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday"]
+[node name="Labels" type="HBoxContainer" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday" unique_id=413570588]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels"]
+[node name="Title" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels" unique_id=1492666234]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
@@ -647,15 +646,15 @@ theme_override_font_sizes/font_size = 11
 text = "Expediente"
 vertical_alignment = 1
 
-[node name="Remaining" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels"]
+[node name="Remaining" type="Label" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday/Labels" unique_id=229194556]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+theme_override_colors/font_color = Color(0.44705883, 0.8745098, 0.7294118, 1)
 theme_override_fonts/font = ExtResource("33_semi")
 theme_override_font_sizes/font_size = 11
 text = "restam 10h"
 horizontal_alignment = 2
 
-[node name="Bar" type="ProgressBar" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday"]
+[node name="Bar" type="ProgressBar" parent="UI/DesktopUI/WidgetsMargin/Widgets/RightColumn/WorkdayCard/Workday" unique_id=601431663]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 mouse_filter = 2
@@ -738,7 +737,7 @@ apps_ui = NodePath("../DesktopUI/BottomMargin/AppsUI")
 pause_button = NodePath("../DesktopUI/PauseContainer/PauseButton")
 notification_ui = NodePath("../NotificationUI")
 
-[node name="NotificationCenter" parent="UI" instance=ExtResource("37_center")]
+[node name="NotificationCenter" parent="UI" unique_id=809381010 instance=ExtResource("37_center")]
 layout_mode = 1
 
 [node name="NotificationUI" type="Control" parent="UI" unique_id=1985608450 node_paths=PackedStringArray("notification_timer", "audio_stream_player")]
@@ -765,7 +764,7 @@ bus = &"SFX"
 wait_time = 2.5
 one_shot = true
 
-[node name="DayOverUI" type="Control" parent="UI" node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_label", "events_scroll")]
+[node name="DayOverUI" type="Control" parent="UI" unique_id=5209449 node_paths=PackedStringArray("next_day_button", "events_container", "reputation_points_label", "result_label", "events_scroll")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -780,7 +779,7 @@ reputation_points_label = NodePath("Margin/Content/TotalRow/ValueLabel")
 result_label = NodePath("Margin/Content/ResultLabel")
 events_scroll = NodePath("Margin/Content/EventsScroll")
 
-[node name="Blur" type="ColorRect" parent="UI/DayOverUI"]
+[node name="Blur" type="ColorRect" parent="UI/DayOverUI" unique_id=997039068]
 material = SubResource("ShaderMaterial_dayover_blur")
 layout_mode = 1
 anchors_preset = 15
@@ -790,7 +789,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Margin" type="MarginContainer" parent="UI/DayOverUI"]
+[node name="Margin" type="MarginContainer" parent="UI/DayOverUI" unique_id=1226447615]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -802,12 +801,12 @@ theme_override_constants/margin_top = 56
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 36
 
-[node name="Content" type="VBoxContainer" parent="UI/DayOverUI/Margin"]
+[node name="Content" type="VBoxContainer" parent="UI/DayOverUI/Margin" unique_id=1927864432]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="UI/DayOverUI/Margin/Content"]
+[node name="TitleLabel" type="Label" parent="UI/DayOverUI/Margin/Content" unique_id=696752777]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
@@ -815,7 +814,7 @@ theme_override_font_sizes/font_size = 24
 text = "FIM DO DIA"
 horizontal_alignment = 1
 
-[node name="ResultLabel" type="Label" parent="UI/DayOverUI/Margin/Content"]
+[node name="ResultLabel" type="Label" parent="UI/DayOverUI/Margin/Content" unique_id=930456370]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
@@ -823,14 +822,14 @@ theme_override_font_sizes/font_size = 18
 text = "APROVADO"
 horizontal_alignment = 1
 
-[node name="TopSpacer" type="Control" parent="UI/DayOverUI/Margin/Content"]
+[node name="TopSpacer" type="Control" parent="UI/DayOverUI/Margin/Content" unique_id=193920411]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
-[node name="ListHeaderRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Content"]
+[node name="ListHeaderRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Content" unique_id=649611758]
 layout_mode = 2
 
-[node name="EventsLabel" type="Label" parent="UI/DayOverUI/Margin/Content/ListHeaderRow"]
+[node name="EventsLabel" type="Label" parent="UI/DayOverUI/Margin/Content/ListHeaderRow" unique_id=1929071979]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 0.972549, 0.55)
@@ -838,7 +837,7 @@ theme_override_fonts/font = ExtResource("33_semi")
 theme_override_font_sizes/font_size = 11
 text = "Eventos de Hoje"
 
-[node name="PointsLabel" type="Label" parent="UI/DayOverUI/Margin/Content/ListHeaderRow"]
+[node name="PointsLabel" type="Label" parent="UI/DayOverUI/Margin/Content/ListHeaderRow" unique_id=1293207159]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.972549, 0.55)
 theme_override_fonts/font = ExtResource("33_semi")
@@ -846,74 +845,74 @@ theme_override_font_sizes/font_size = 11
 text = "Pontos"
 horizontal_alignment = 2
 
-[node name="Divider1" type="ColorRect" parent="UI/DayOverUI/Margin/Content"]
+[node name="Divider1" type="ColorRect" parent="UI/DayOverUI/Margin/Content" unique_id=509312934]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 0.972549, 0.14)
 
-[node name="EventsScroll" type="ScrollContainer" parent="UI/DayOverUI/Margin/Content"]
+[node name="EventsScroll" type="ScrollContainer" parent="UI/DayOverUI/Margin/Content" unique_id=1773171422]
 layout_mode = 2
 horizontal_scroll_mode = 0
 script = ExtResource("36_scroll")
 size_x = 4
 
-[node name="RowsMargin" type="MarginContainer" parent="UI/DayOverUI/Margin/Content/EventsScroll"]
+[node name="RowsMargin" type="MarginContainer" parent="UI/DayOverUI/Margin/Content/EventsScroll" unique_id=1676913768]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 14
 
-[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/Margin/Content/EventsScroll/RowsMargin"]
+[node name="EventsContainer" type="VBoxContainer" parent="UI/DayOverUI/Margin/Content/EventsScroll/RowsMargin" unique_id=1591404514]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="Divider2" type="ColorRect" parent="UI/DayOverUI/Margin/Content"]
+[node name="Divider2" type="ColorRect" parent="UI/DayOverUI/Margin/Content" unique_id=1693127873]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 0.972549, 0.14)
 
-[node name="TotalRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Content"]
+[node name="TotalRow" type="HBoxContainer" parent="UI/DayOverUI/Margin/Content" unique_id=1049415026]
 layout_mode = 2
 
-[node name="LabelTotal" type="Label" parent="UI/DayOverUI/Margin/Content/TotalRow"]
+[node name="LabelTotal" type="Label" parent="UI/DayOverUI/Margin/Content/TotalRow" unique_id=684428483]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
 theme_override_font_sizes/font_size = 13
 text = "Pontos de Reputação Diários"
-autowrap_mode = 2
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="ValueLabel" type="Label" parent="UI/DayOverUI/Margin/Content/TotalRow"]
+[node name="ValueLabel" type="Label" parent="UI/DayOverUI/Margin/Content/TotalRow" unique_id=1720428390]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.44705883, 0.87450981, 0.7294118, 1)
+theme_override_colors/font_color = Color(0.44705883, 0.8745098, 0.7294118, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
 theme_override_font_sizes/font_size = 16
 text = "10/10"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BottomSpacer" type="Control" parent="UI/DayOverUI/Margin/Content"]
+[node name="BottomSpacer" type="Control" parent="UI/DayOverUI/Margin/Content" unique_id=1811092223]
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
-[node name="NextDayButton" type="Button" parent="UI/DayOverUI/Margin/Content"]
+[node name="NextDayButton" type="Button" parent="UI/DayOverUI/Margin/Content" unique_id=1220671891]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 0.972549, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.972549, 1)
 theme_override_fonts/font = ExtResource("19_1vcyb")
 theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dayover_focus")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dayover_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dayover_button_active")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dayover_button_active")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dayover_button_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dayover_focus")
 text = "Iniciar Dia 1"
 
 [node name="PauseGameUI" type="Control" parent="UI" unique_id=1198218409 node_paths=PackedStringArray("resume_button", "quit_button", "menu_button", "confirmation_panel", "difficulty_changer")]
@@ -1226,7 +1225,7 @@ script = ExtResource("26_51grn")
 [node name="EventsDirector" type="Node2D" parent="StoryDirector" unique_id=1141190310]
 script = ExtResource("28_5o8nl")
 
-[node name="BlurBackBufferCopy" type="BackBufferCopy" parent="."]
+[node name="BlurBackBufferCopy" type="BackBufferCopy" parent="." unique_id=1133987199]
 copy_mode = 2
 
 [node name="progressiveBlur" type="ColorRect" parent="." unique_id=1481049179]

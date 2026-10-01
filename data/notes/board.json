@@ -1,0 +1,83 @@
+{
+	"contacts": [
+		{ "name": "Artur", "department": "TI", "email": "artur@enigma.ti.com.br" },
+		{ "name": "Carla", "department": "Financeiro", "email": "carla@enigma.fin.com.br" },
+		{ "name": "Carolina", "department": "TI", "email": "carolina@enigma.ti.com.br" },
+		{ "name": "Chefinho", "department": "Diretoria" },
+		{ "name": "Financeiro", "department": "Financeiro" },
+		{ "name": "Gilmar", "department": "Compras", "email": "gilmar@enigma.com.br" },
+		{ "name": "Guilherme", "department": "Compras" },
+		{ "name": "Jessica", "department": "RH", "email": "jessica@enigma.rh.com.br" },
+		{ "name": "José", "department": "Compras" },
+		{ "name": "Marcão", "department": "Operações" },
+		{ "name": "Marcia", "department": "RH", "email": "marcia@enigma.rh.com.br" },
+		{ "name": "Mariana", "department": "Comercial", "email": "mariana@enigma.com.br" },
+		{ "name": "Marta", "department": "Comercial", "email": "marta@enigma.com.br" },
+		{ "name": "Ricardo", "department": "Comercial", "email": "ricardo@enigma.com.br" },
+		{ "name": "RH", "department": "RH" },
+		{ "name": "TI", "department": "TI" },
+		{ "name": "Yago", "department": "Financeiro", "email": "yagob@enigma.fin.com.br" },
+		{ "name": "Gerente PX Investment", "department": "Parceiro", "account": "@pxinvestment", "verified": true },
+		{ "name": "Negativa", "department": "Parceiro", "verified": true },
+		{ "name": "Viva", "department": "Fornecedor de internet", "email": "pagamentos@Viva.com.br" }
+	],
+	"accepted_files": [
+		"Documentos: .pdf",
+		"Imagens: .jpg e .png",
+		"A empresa nunca manda instaladores (.apk, .exe). Aplicativos só pela Loja oficial."
+	],
+	"payment_patterns": [
+		"Código Pix: 2 letras seguidas de 3 números. Exemplo: PX482.",
+		"Cuidado com a letra O no lugar do zero e com códigos de 4 ou 6 caracteres.",
+		"Código de boleto: 6 números."
+	],
+	"accepted_reasons": [
+		"Fatura de internet",
+		"Compra de material",
+		"Serviço de fornecedor",
+		"Reembolso de funcionário",
+		"Evento da empresa",
+		"Investimento da empresa"
+	],
+	"security_rules": [
+		"Ninguém da empresa pede sua senha.",
+		"Códigos de recuperação e do autenticador são só seus. Nunca repasse, nem para colegas.",
+		"Na dúvida, confirme com a pessoa por outro canal ou com o TI."
+	],
+	"approvers": [
+		{ "department": "Compras", "name": "Gilmar" },
+		{ "department": "RH", "name": "Marcia" },
+		{ "department": "TI", "name": "Carolina" },
+		{ "department": "Financeiro", "name": "Yago" }
+	],
+	"days": {
+		"3": {
+			"orders": [
+				{ "order_id": "PC-0455", "department": "RH", "requested_by": "Marcia", "items": "Crachás novos" },
+				{ "order_id": "PC-0462", "department": "TI", "requested_by": "Carolina", "items": "Cabos de rede" },
+				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" }
+			]
+		},
+		"4": {
+			"orders": [
+				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" },
+				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" }
+			],
+			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
+		},
+		"5": {
+			"orders": [
+				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" },
+				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" }
+			],
+			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
+		},
+		"6": {
+			"orders": [
+				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" },
+				{ "order_id": "PC-0602", "department": "RH", "requested_by": "Jessica", "items": "Buffet da festa do setor" }
+			],
+			"accepted_banks": ["Banco Aurora", "Caixa Leste"]
+		}
+	}
+}

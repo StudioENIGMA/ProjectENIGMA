@@ -117,7 +117,7 @@
 		"task4_ricardo": [
 			{
 				"id": "ricardo_payment0_0",
-				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui RM6B8"
+				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui RM608"
 			},
 			{
 				"id": "ricardo_purchase3_1",
@@ -125,7 +125,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "RM6B8"
+						"payment_id": "RM608"
 					}
 				]
 			}

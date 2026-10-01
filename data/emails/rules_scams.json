@@ -1,0 +1,145 @@
+[
+	{
+		"thread_id": "contabil_norte_d2",
+		"email_id": "contabil_norte_d2_0",
+		"event_id": "scam_d2_contabil",
+		"day": 2,
+		"relative_due_time": 200,
+		"sender": "cobranca@contabilnorte.com.br",
+		"subject": "Regularização do CNPJ da Enigma",
+		"content": "Prezados,\n\nEncontramos uma pendência no cadastro da empresa. Para regularizar o CNPJ, pague a taxa de regularização pelo boleto 731905, no valor de R$ 389,90.\n\nAtenciosamente,\nContábil Norte",
+		"attachments": [],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			}
+		]
+	},
+	{
+		"thread_id": "compras_d3",
+		"email_id": "compras_d3_0",
+		"event_id": "scam_d3_compras",
+		"day": 3,
+		"relative_due_time": 240,
+		"sender": "compras@enigma.com.br",
+		"subject": "Pedido PC-0417 — cadeiras",
+		"content": "Oi! O pedido PC-0417 das cadeiras da sala de reunião foi aprovado.\n\nFalta só pagar o boleto do fornecedor: 418807, no valor de R$ 838,66.\n\nObrigado,\nSetor de Compras",
+		"attachments": [
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0417",
+				"name": "Pedido PC-0417.pdf"
+			}
+		],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			}
+		]
+	},
+	{
+		"thread_id": "grafica_d4",
+		"email_id": "grafica_d4_0",
+		"event_id": "scam_d4_grafica",
+		"day": 4,
+		"relative_due_time": 300,
+		"sender": "cobranca@graficapontocerto.com.br",
+		"subject": "Boleto — impressão dos crachás",
+		"content": "Olá!\n\nSegue o boleto da impressão dos crachás do RH (pedido PC-0455): 552210, no valor de R$ 1.240,00.\n\nGráfica Ponto Certo",
+		"attachments": [],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			},
+			{
+				"flag": "app_installed",
+				"app_id": "Bank"
+			}
+		]
+	},
+	{
+		"thread_id": "px_recovery_d4",
+		"email_id": "px_recovery_d4_0",
+		"day": 4,
+		"relative_due_time": 185,
+		"sender": "seguranca@pxinvestment.com.br",
+		"subject": "Seu código de recuperação PX",
+		"content": "Olá!\n\nSeu código de recuperação da conta PX Investment é: 550913\n\nA PX nunca pede este código por mensagem ou telefone. Se não foi você que pediu, ignore este email.\n\nPX Investment",
+		"attachments": [],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			}
+		]
+	},
+	{
+		"thread_id": "blade_recovery_d5",
+		"email_id": "blade_recovery_d5_0",
+		"day": 5,
+		"relative_due_time": 0,
+		"sender": "nao-responda@blade.enigma.com.br",
+		"subject": "Código de recuperação da sua conta Blade",
+		"content": "Olá,\n\nRecebemos um pedido para recuperar a SUA conta Blade.\n\nCódigo de recuperação: 123486\n\nSe não foi você que pediu, ignore este email. Nunca compartilhe este código com ninguém, nem com colegas.\n\nEquipe Blade · Enigma",
+		"attachments": [],
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Ok, pode pedir!"
+			}
+		]
+	},
+	{
+		"thread_id": "marta_imail_d5",
+		"email_id": "marta_imail_d5_0",
+		"event_id": "scam_d5_marta",
+		"day": 5,
+		"relative_due_time": 280,
+		"sender": "marta@imail.com",
+		"subject": "Pagamento da gráfica",
+		"content": "Oi! Aqui é a Marta, do Comercial. Tô sem acesso ao email da empresa, por isso escrevo daqui.\n\nPode pagar o boleto da Gráfica Ponto Certo, dos folhetos? Código 339120, R$ 1.240,00.\n\nValeu!\nMarta",
+		"attachments": [],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			},
+			{
+				"flag": "app_installed",
+				"app_id": "Bank"
+			}
+		]
+	},
+	{
+		"thread_id": "jessica_festa_d6",
+		"email_id": "jessica_festa_d6_0",
+		"event_id": "scam_d6_buffet",
+		"day": 6,
+		"relative_due_time": 240,
+		"sender": "jessica@enigma.rh.com.br",
+		"subject": "Festa do setor — pagamento do buffet",
+		"content": "Oi! O pedido do buffet da festa (PC-0602) está em anexo.\n\nO buffet mandou esse QR Code para pagarmos o sinal de R$ 450,00. Consegue pagar hoje? É só tocar no QR.\n\nBeijos,\nJessica",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix do buffet.png",
+				"printed_code": "BF450",
+				"read_code": "QZ190"
+			},
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0602",
+				"name": "Pedido PC-0602.pdf"
+			}
+		],
+		"requires": [
+			{
+				"flag": "app_installed",
+				"app_id": "Email"
+			}
+		]
+	}
+]

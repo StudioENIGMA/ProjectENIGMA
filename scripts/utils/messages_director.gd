@@ -114,6 +114,10 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	var branch := str(schedule_entry["branch"])
 	var node_index := int(schedule_entry["index"])
 
+	# A conversation reported as a scam goes no further
+	if GameData.blocked_conversations.has(conversation_id):
+		return
+
 	var conversation: Dictionary = conversations_by_id[conversation_id]
 	var branches: Dictionary = conversation.get("branches", {})
 	var branch_nodes: Array = branches.get(branch, [])
@@ -202,8 +206,9 @@ func _on_answer_committed(
 ##
 ## "id" is the conversation_id, which is what the UI tells conversations apart by, so two
 ## conversations with the same contact_name are still separate chats.
-## Optional fields: "avatar" (file name in assets/avatars/, defaults to the contact_name)
-## and "verified" (shows the verified badge, defaults to false).
+## Optional fields: "avatar" (file name in assets/avatars/, defaults to the contact_name),
+## "verified" (shows the verified badge, defaults to false) and "account" (the account name shown
+## under the contact, defaults to the contact_name as a handle, see GameData.account_from_name()).
 func _get_contact(conversation_id: String) -> Dictionary:
 	var conversation: Dictionary = conversations_by_id[conversation_id]
 	var npc_name := str(conversation.get("contact_name", conversation_id))
@@ -214,6 +219,7 @@ func _get_contact(conversation_id: String) -> Dictionary:
 		"name": npc_name,
 		"photo": str("res://assets/avatars/", avatar, ".png"),
 		"verified": bool(conversation.get("verified", false)),
+		"account": str(conversation.get("account", GameData.account_from_name(npc_name))),
 	}
 
 ## Gets the requires array for a given node in a conversation branch

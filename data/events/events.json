@@ -45,7 +45,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "ABCDE"
+				"payment_id": "FN100"
 			}
 		]
 	},
@@ -266,7 +266,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "T27DX"
+				"payment_id": "LX270"
 			}
 		]
 	},
@@ -410,7 +410,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "RM6B8"
+				"payment_id": "RM608"
 			}
 		]
 	},
@@ -853,6 +853,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "arthur_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan1_arthur": {
@@ -862,6 +875,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "09FK0"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "arthur_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_09FK0",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "09FK0",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -873,6 +910,31 @@
 				"flag": "option",
 				"choice": "$bank_password"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carolinda_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "pede_senha",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carolinda_1",
+						"section": "message",
+						"contains": "senha"
+					}
+				]
+			}
 		]
 	},
 	"scan1_carolinda": {
@@ -882,6 +944,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "45RTT"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carolinda_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_45RTT",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "45RTT",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -893,6 +979,30 @@
 				"flag": "payment",
 				"payment_id": "X8U77"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carolinda_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_X8U77",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "X8U77",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"scan0_false_px_investment": {
@@ -902,6 +1012,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "9922A"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "false_px_investment_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_9922A",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "9922A",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -913,6 +1047,31 @@
 				"flag": "option",
 				"choice": "$bank_password"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "false_px_investment_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "pede_senha",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "false_px_investment_1",
+						"section": "message",
+						"contains": "senha"
+					}
+				]
+			}
 		]
 	},
 	"scan0_gilrnar": {
@@ -922,6 +1081,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "789623"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "gilrnar_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -933,6 +1105,30 @@
 				"flag": "payment",
 				"payment_id": "FD56Z"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "gilrnar_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_FD56Z",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "FD56Z",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"scan0_giumar": {
@@ -943,6 +1139,30 @@
 				"flag": "payment",
 				"payment_id": "R6K3S"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "giumar_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_R6K3S",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "R6K3S",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"scan0_guilherrne": {
@@ -952,6 +1172,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "6AF50"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "guilherrne_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_6AF50",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "6AF50",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -972,6 +1216,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "guillherme_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_jescica": {
@@ -981,6 +1238,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "556382"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jescica_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -992,6 +1262,30 @@
 				"flag": "payment",
 				"payment_id": "7G25A"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jescica_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_7G25A",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "7G25A",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"scan2_jescica": {
@@ -1002,6 +1296,30 @@
 				"flag": "payment",
 				"payment_id": "MKB7U"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jescica_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_MKB7U",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MKB7U",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"scan0_jilmar": {
@@ -1011,6 +1329,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "SD3A4"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jilmar_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -1028,6 +1359,19 @@
 							"amazonia",
 							"libre_mercado"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "joseh_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1050,6 +1394,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "joseh_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_josue": {
@@ -1066,6 +1423,19 @@
 							"amazonia",
 							"libre_mercado"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "josue_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1088,6 +1458,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "josue_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_jouse": {
@@ -1104,6 +1487,19 @@
 							"amazonia",
 							"libre_mercado"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jouse_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1126,6 +1522,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jouse_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan2_jouse": {
@@ -1142,6 +1551,19 @@
 							"amazonia",
 							"libre_mercado"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "jouse_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1164,6 +1586,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "mancia_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan2_mancia": {
@@ -1183,6 +1618,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "mancia_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_marcaao": {
@@ -1193,6 +1641,19 @@
 				"flag": "payment",
 				"payment_id": "234567"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marcaao_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan1_marcaao": {
@@ -1202,6 +1663,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "468431"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marcaao_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -1219,6 +1693,19 @@
 							"amazonia",
 							"libre_mercado"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marçao_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1241,6 +1728,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marcaon_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_marciia": {
@@ -1257,6 +1757,19 @@
 							"aec",
 							"zora"
 						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marciia_1",
+						"section": "contact"
 					}
 				]
 			}
@@ -1279,6 +1792,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marciia_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_marrta": {
@@ -1288,6 +1814,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "I83G9"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "marrta_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -1316,6 +1855,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "martha_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan1_martha": {
@@ -1335,6 +1887,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "martha_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan0_non_px_investment": {
@@ -1344,6 +1909,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "7F35U"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "non_px_investment_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_7F35U",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "7F35U",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1355,6 +1944,19 @@
 				"flag": "payment",
 				"payment_id": "586934"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "px_investrnent_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan1_px_investrnent": {
@@ -1365,6 +1967,19 @@
 				"flag": "payment",
 				"payment_id": "536944"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "px_investrnent_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan2_px_investrnent": {
@@ -1374,6 +1989,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "586054"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "px_investrnent_1",
+						"section": "contact"
+					}
+				]
 			}
 		]
 	},
@@ -1418,6 +2046,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "ricarudo_1",
+						"section": "contact"
+					}
+				]
+			}
 		]
 	},
 	"scan1_ricarudo": {
@@ -1427,6 +2068,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "KO4HQ"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "ricarudo_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_KO4HQ",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "KO4HQ",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1438,6 +2103,31 @@
 				"flag": "option",
 				"choice": "$bank_password"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "ricarudo_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "pede_senha",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "ricarudo_1",
+						"section": "message",
+						"contains": "senha"
+					}
+				]
+			}
 		]
 	},
 	"false_negativa_scan_payment0": {
@@ -1447,6 +2137,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "53045"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_negativa_scan_payment0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_53045",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "53045",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1458,6 +2172,19 @@
 				"flag": "payment",
 				"payment_id": "432789"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Viva_scan_payment0",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"Vivas_scan_payment1": {
@@ -1467,6 +2194,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "483234"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Vivas_scan_payment1",
+						"section": "sender"
+					}
+				]
 			}
 		]
 	},
@@ -1478,6 +2218,19 @@
 				"flag": "payment",
 				"payment_id": "896108"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Vivaa_scan_payment2",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"Viiva_scan_payment3": {
@@ -1488,6 +2241,19 @@
 				"flag": "payment",
 				"payment_id": "896100"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Viiva_scan_payment3",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"Viva_scan_payment4": {
@@ -1497,6 +2263,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "896118"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Viva_scan_payment4",
+						"section": "sender"
+					}
+				]
 			}
 		]
 	},
@@ -1687,6 +2466,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_mariana_purchase0",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"marie_payment0": {
@@ -1696,6 +2488,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "I9W2V"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marie_payment0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_I9W2V",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "I9W2V",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1713,6 +2529,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marinana_purchase1",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"false_mariana_payment1": {
@@ -1722,6 +2551,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "I9W2V"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_mariana_payment1",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_I9W2V",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "I9W2V",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1760,6 +2613,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_marcia_purchase0",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"false_marta_payment0": {
@@ -1769,6 +2635,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "L1P5K"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_marta_payment0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_L1P5K",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "L1P5K",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1780,6 +2670,30 @@
 				"flag": "payment",
 				"payment_id": "JPO64"
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_yago_payment0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_JPO64",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JPO64",
+						"section": "pix_code"
+					}
+				]
+			}
 		]
 	},
 	"false_yago_payment1": {
@@ -1789,6 +2703,19 @@
 			{
 				"flag": "payment",
 				"payment_id": "554433"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_yago_payment1",
+						"section": "sender"
+					}
+				]
 			}
 		]
 	},
@@ -1806,6 +2733,19 @@
 					}
 				]
 			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "false_yago_purchase0",
+						"section": "sender"
+					}
+				]
+			}
 		]
 	},
 	"scam0_iago": {
@@ -1815,6 +2755,30 @@
 			{
 				"flag": "payment",
 				"payment_id": "JPA24"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "iago_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "codigo_pix_JPA24",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JPA24",
+						"section": "pix_code"
+					}
+				]
 			}
 		]
 	},
@@ -1849,6 +2813,307 @@
 						"item_id": 25,
 						"quantity": 1,
 						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"scam_d1_aurora": {
+		"type": "scam",
+		"description": "Pix de fornecedor com código fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PXO82"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "codigo_pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PXO82",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
+	"scam_d2_contabil": {
+		"type": "scam",
+		"description": "Boleto com motivo fora da lista",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "731905"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "contabil_norte_d2_0",
+						"section": "content"
+					},
+					{
+						"source": "bank",
+						"payment_code": "731905",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"scam_d3_compras": {
+		"type": "scam",
+		"description": "Pedido inexistente e boleto com valor inflado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "418807"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor_inflado",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "compras_d3_0",
+						"section": "content"
+					},
+					{
+						"source": "bank",
+						"payment_code": "418807",
+						"section": "value"
+					}
+				]
+			},
+			{
+				"id": "pedido_inexistente",
+				"rule": "order_id",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0417",
+						"section": "order_id"
+					}
+				]
+			}
+		]
+	},
+	"scam_d4_grafica": {
+		"type": "scam",
+		"description": "Boleto de um banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "552210"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "banco",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "552210",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"scam_px_d4": {
+		"type": "scam",
+		"description": "PX falsa pediu o código de recuperação",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "550913"
+			}
+		],
+		"consequence": {
+			"bank_loss": 20000
+		},
+		"discrepancies": [
+			{
+				"id": "nome_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "px_investment_2",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "pede_codigo",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "px_investment_2",
+						"section": "message",
+						"contains": "código"
+					}
+				]
+			}
+		]
+	},
+	"scam_carla_d5": {
+		"type": "scam",
+		"description": "Carla falsa pediu seu código Blade",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "123486"
+			}
+		],
+		"consequence": {
+			"hack": true
+		},
+		"discrepancies": [
+			{
+				"id": "conta_falsa",
+				"rule": "account_name",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carla_2",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "pede_codigo",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "carla_2",
+						"section": "message",
+						"contains": "código"
+					}
+				]
+			}
+		]
+	},
+	"scam_d5_marta": {
+		"type": "scam",
+		"description": "Email de fora da empresa com cedente trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "339120"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "email_externo",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marta_imail_d5_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "cedente",
+				"rule": "ticket_payee",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "339120",
+						"section": "ticket_payee"
+					}
+				]
+			}
+		]
+	},
+	"scam_d6_buffet": {
+		"type": "scam",
+		"description": "QR Code adulterado e pedido sem a assinatura certa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "QZ190"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "qr_adulterado",
+				"rule": "pix_qr",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "jessica_festa_d6_0",
+						"section": "attachment",
+						"contains": "QR"
+					},
+					{
+						"source": "bank",
+						"payment_code": "QZ190",
+						"section": "qr_read"
+					}
+				]
+			},
+			{
+				"id": "assinatura",
+				"rule": "order_signature",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0602",
+						"section": "order_signature"
+					}
+				]
+			}
+		]
+	},
+	"store_zora": {
+		"type": "store",
+		"description": "Loja mal avaliada: Zora",
+		"always_active": true,
+		"requires": [],
+		"discrepancies": [
+			{
+				"id": "loja",
+				"rule": "trusted_store",
+				"found_at": [
+					{
+						"source": "shop",
+						"store": "zora",
+						"section": "store"
+					}
+				]
+			}
+		]
+	},
+	"store_libre_mercado": {
+		"type": "store",
+		"description": "Loja mal avaliada: Libre Mercado",
+		"always_active": true,
+		"requires": [],
+		"discrepancies": [
+			{
+				"id": "loja",
+				"rule": "trusted_store",
+				"found_at": [
+					{
+						"source": "shop",
+						"store": "libre_mercado",
+						"section": "store"
 					}
 				]
 			}

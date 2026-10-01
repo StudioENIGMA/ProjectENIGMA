@@ -8,7 +8,8 @@ var bg_color: Color
 var label_color: Color
 
 func setup(photo_path: String, npc_name: String) -> void:
-	var photo_resource = load(photo_path)
+	# Contacts without a picture of their own get their initial instead
+	var photo_resource = load(photo_path) if ResourceLoader.exists(photo_path) else null
 
 	if (photo_resource):
 		photo_rect.visible = true

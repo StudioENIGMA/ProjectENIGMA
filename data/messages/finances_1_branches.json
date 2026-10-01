@@ -69,7 +69,7 @@
 		},
 		{
 			"id": "f_1_1",
-			"text": "Por favor, efetue este pagamento por PIX inserindo o código ABCDE na área de pagamento PIX do banco. Agradeço desde já.",
+			"text": "Por favor, efetue este pagamento por PIX inserindo o código FN100 na área de pagamento PIX do banco. Agradeço desde já.",
 			"event_id": "fin_payment0"
 		},
 		{

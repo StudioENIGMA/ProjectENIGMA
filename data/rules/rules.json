@@ -2,43 +2,121 @@
 	{
 		"id": "lookalike_sender",
 		"day": 0,
-		"title": "Remetente imitado",
-		"description": "O nome ou o endereço imita um contato conhecido, com letras trocadas, a mais ou faltando."
-	},
-	{
-		"id": "urgency",
-		"day": 0,
-		"title": "Pressa e ameaça",
-		"description": "Exige uma ação imediata, com prazo curto demais ou ameaça de punição."
+		"apps": ["MessagesHome", "Email", "Bank"],
+		"title": "Nome imitado",
+		"description": "O nome ou o endereço imita alguém conhecido, com letras trocadas, a mais ou faltando.",
+		"reference": "Notas › Contatos da empresa"
 	},
 	{
 		"id": "suspicious_attachment",
 		"day": 1,
-		"title": "Anexo suspeito",
-		"description": "Envia um instalador (.apk) ou um arquivo que ninguém pediu."
+		"apps": ["MessagesHome", "Email"],
+		"title": "Anexo perigoso",
+		"description": "O anexo é um instalador ou um tipo de arquivo que a empresa não envia.",
+		"reference": "Notas › Arquivos aceitos"
 	},
 	{
-		"id": "unexpected_payment",
+		"id": "pix_code_format",
 		"day": 1,
-		"title": "Cobrança inesperada",
-		"description": "Pede um Pix ou boleto sem um pedido ou uma fatura que você reconheça."
+		"apps": ["Bank"],
+		"title": "Código Pix fora do padrão",
+		"description": "O código Pix não tem 2 letras seguidas de 3 números.",
+		"reference": "Notas › Padrões de pagamento"
+	},
+	{
+		"id": "trusted_store",
+		"day": 1,
+		"apps": ["browser"],
+		"title": "Loja mal avaliada",
+		"description": "A loja tem nota abaixo de 50 no site de avaliações.",
+		"reference": "Navegador › Site de avaliações"
+	},
+	{
+		"id": "valid_reason",
+		"day": 2,
+		"apps": ["MessagesHome", "Email", "Bank", "browser"],
+		"title": "Motivo fora da lista",
+		"description": "O motivo do pagamento ou da compra não está na lista de motivos aceitos.",
+		"reference": "Notas › Motivos aceitos"
+	},
+	{
+		"id": "payment_value",
+		"day": 3,
+		"apps": ["MessagesHome", "Email", "Bank"],
+		"title": "Valor diferente do combinado",
+		"description": "O valor no Banco não é o valor combinado na mensagem ou no email.",
+		"reference": "Compare o pedido com a tela do Banco"
+	},
+	{
+		"id": "order_id",
+		"day": 3,
+		"apps": ["browser"],
+		"title": "Pedido que não existe",
+		"description": "O número do pedido não aparece na lista de pedidos do setor.",
+		"reference": "Notas › Pedidos do dia"
 	},
 	{
 		"id": "secret_data",
-		"day": 2,
-		"title": "Pedido de dados sigilosos",
-		"description": "Pede senha, código do autenticador ou dados pessoais."
+		"day": 4,
+		"apps": ["MessagesHome", "Email"],
+		"title": "Pedido de código ou senha",
+		"description": "Pede uma senha ou um código que chegou para você. Ninguém da empresa pede isso.",
+		"reference": "Notas › Regras de segurança"
 	},
 	{
-		"id": "unverified_company",
-		"day": 2,
-		"title": "Empresa sem verificação",
-		"description": "Diz falar por uma empresa, mas a conta não tem o selo de verificado."
+		"id": "ticket_bank",
+		"day": 4,
+		"apps": ["Bank"],
+		"title": "Banco não aceito",
+		"description": "O boleto é de um banco que não está na lista de bancos aceitos hoje.",
+		"reference": "Notas › Bancos aceitos hoje"
 	},
 	{
-		"id": "odd_writing",
-		"day": 3,
-		"title": "Escrita fora do padrão",
-		"description": "Erros, símbolos estranhos ou formatação que a empresa não usaria."
+		"id": "account_name",
+		"day": 5,
+		"apps": ["MessagesHome"],
+		"title": "Conta que não bate",
+		"description": "O nome da conta ou o selo de verificado não batem com os contatos da empresa. Um ✓ escrito no nome não é selo.",
+		"reference": "Notas › Contatos da empresa"
+	},
+	{
+		"id": "employee_email",
+		"day": 5,
+		"apps": ["Email"],
+		"title": "Email fora da empresa",
+		"description": "O endereço não é o email da empresa que está nos contatos.",
+		"reference": "Notas › Contatos da empresa"
+	},
+	{
+		"id": "ticket_payee",
+		"day": 5,
+		"apps": ["Bank"],
+		"title": "Cedente errado",
+		"description": "Quem recebe o boleto não é a empresa citada no pedido.",
+		"reference": "Compare o pedido com a tela do Banco"
+	},
+	{
+		"id": "order_requester",
+		"day": 5,
+		"apps": ["browser"],
+		"title": "Quem pediu não confere",
+		"description": "O nome de quem pediu não é o que está na lista de pedidos do setor.",
+		"reference": "Notas › Pedidos do dia"
+	},
+	{
+		"id": "pix_qr",
+		"day": 6,
+		"apps": ["MessagesHome", "Email", "Bank"],
+		"title": "QR Code adulterado",
+		"description": "O código que o Banco leu no QR não é o código impresso embaixo dele.",
+		"reference": "Banco › Código lido do QR"
+	},
+	{
+		"id": "order_signature",
+		"day": 6,
+		"apps": ["browser"],
+		"title": "Assinatura inválida",
+		"description": "O pedido não foi assinado por quem aprova os pedidos daquele setor.",
+		"reference": "Notas › Quem aprova pedidos"
 	}
 ]
