@@ -34,4 +34,3 @@ func refresh_passwords_list() -> void:
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
 		refresh_passwords_list()
-
