@@ -1,6 +1,7 @@
 {
 	"conversation_id": "px_investment_1",
 	"contact_name": "Gerente PX Investment",
+	"account": "@pxinvestment",
 	"verified": true,
 
 	"branches": {

@@ -85,6 +85,13 @@ func _ready() -> void:
 	ui.base_app.browser_app_shop_payment_screen._on_code_received
   )
 
+  # Discrepancy reports: the UI reports, the events director judges and blocks the scam
+  var events_director = story_director.events_director
+  ui.base_app.discrepancy_reported.connect(events_director.evaluate_report)
+  events_director.report_evaluated.connect(ui.base_app.on_report_evaluated)
+  events_director.scam_blocked.connect(ui.base_app.on_scam_blocked)
+  events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
+
   # UI
   # UI message answered to Story Director
   ui.message_answered.connect(answers_director.on_message_answered)

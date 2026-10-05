@@ -20,7 +20,8 @@ signal message_answered(answer_id:int)
 ## npc_name: The name of the contact
 ## photo: The path of the contact's avatar
 ## is_verified: Whether the contact carries the verified badge
-signal header_changed(npc_name: String, photo: String, is_verified: bool)
+## account: The account name of the contact, shown under its name
+signal header_changed(npc_name: String, photo: String, is_verified: bool, account: String)
 
 ## contact: The conversation the message belongs to ("id", "name", "photo", "verified")
 signal request_message_creation_on_answer(
@@ -97,7 +98,10 @@ func setup(conversation_data:Dictionary) -> void:
 	conversation_dict = conversation_data
 	conversation_id = conversation_data["id"]
 	header_changed.emit(
-		conversation_data["name"], conversation_data["photo"], conversation_data["verified"]
+		conversation_data["name"],
+		conversation_data["photo"],
+		conversation_data["verified"],
+		_account_of(conversation_data)
 	)
 
 	answers_panel.set_active_conversation(conversation_id)
@@ -216,6 +220,15 @@ func on_request_answer_option(
 		answer_id
 	)
 
+## Takes the answers of a conversation reported as a scam away, if it is the one open
+func on_conversation_blocked(blocked_conversation_id:String) -> void:
+	if blocked_conversation_id == conversation_id:
+		answers_panel.clear_ui()
+
+## Rules group the sections of this screen are checked against, see data/rules/rules.json
+func get_rules_app() -> String:
+	return "MessagesHome"
+
 ## Arms every NPC message and annex so the player can point at the one giving the scam away
 ##
 ## The answers bar is put away meanwhile, so no reply is sent by accident
@@ -243,7 +256,16 @@ func _contact_of(conversation_data:Dictionary) -> Dictionary:
 		"name": conversation_data["name"],
 		"photo": conversation_data["photo"],
 		"verified": conversation_data["verified"],
+		"account": _account_of(conversation_data),
 	}
+
+## The account name of a stored conversation, rebuilt from its name for saves made before
+## conversations kept it
+func _account_of(conversation_data:Dictionary) -> String:
+	var account := str(conversation_data.get("account", ""))
+	if account.is_empty():
+		account = GameData.account_from_name(str(conversation_data["name"]))
+	return account
 
 ## Renders a message bubble at the end of the conversation
 ##

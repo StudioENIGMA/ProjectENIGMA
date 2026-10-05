@@ -1,6 +1,11 @@
 extends Control
 
 signal subscreen_open_requested(app: GameData.App, optional_data: Variant)
+## Emitted when the player, inspecting, points at the store as a scam discrepancy
+##
+## section: "source" ("shop"), "section" ("store"), "store" (its id in
+## GameData.shop_string_to_enum) and "excerpt"
+signal discrepancy_picked(section: Dictionary)
 
 const SHOP_ITEM_SCENE = preload("res://scenes/apps/browser/shops/shop_item.tscn")
 
@@ -12,12 +17,55 @@ const SHOP_ITEM_SCENE = preload("res://scenes/apps/browser/shops/shop_item.tscn"
 @export var accent_color: Color
 @export var accent_pressed_color: Color
 @export var accent_text_color: Color
+## Header showing the store, which can be pointed at as a badly reviewed store
+@export var header_panel: PanelContainer
 
 var shopping_cart_quantity: int = 0
 var shopping_info: GameData.ShoppingInfo = GameData.ShoppingInfo.new()
 
+## Keeps the store header, the section that can be pointed at, in step
+var _inspector := DiscrepancyInspector.new()
+
 func _ready() -> void:
 	shopping_info.shop_enum = GameData.cart_enum_to_shop_enum.get(shopping_cart_enum)
+	_add_store_target()
+	_inspector.picked.connect(discrepancy_picked.emit) # Propagate signal to base app
+
+## Lets the header be pointed at as the store the scam is about
+func _add_store_target() -> void:
+	if header_panel == null:
+		return
+	var store_id := ""
+	for store_name in GameData.shop_string_to_enum:
+		if GameData.shop_string_to_enum[store_name] == shopping_info.shop_enum:
+			store_id = store_name
+
+	var target := DiscrepancyTarget.new()
+	target.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	header_panel.add_child(target)
+	target.section = {
+		"source": "shop",
+		"section": "store",
+		"store": store_id,
+		"excerpt": GameData.shops_names.get(shopping_info.shop_enum, store_id),
+	}
+	_inspector.add(target)
+
+## Rules group the sections of this screen are checked against, see data/rules/rules.json
+func get_rules_app() -> String:
+	return "browser"
+
+## Arms the store header so the player can point at it
+func set_inspection_mode(is_on: bool) -> void:
+	_inspector.set_armed(is_on)
+
+## Sections that can be pointed at, lit while the rest of the phone is dimmed
+func get_discrepancy_targets() -> Array[DiscrepancyTarget]:
+	return _inspector.get_targets()
+
+## Unmarks the store header
+func clear_discrepancy_selection() -> void:
+	_inspector.clear_selection()
 
 func setup(shop_items_array: Array):
 	for child in items_grid_container.get_children():

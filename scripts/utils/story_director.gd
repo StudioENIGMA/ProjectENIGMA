@@ -23,6 +23,7 @@ signal update_news
 @export var tasks_dir_path: String = "res://data/random/tasks"
 @export var scams_dir_path: String = "res://data/random/scams"
 @export var events_dir_path: String = "res://data/events/events.json"
+@export var rules_dir_path: String = "res://data/rules/rules.json"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -69,6 +70,7 @@ func reload_and_setup_today() -> void:
 	var pix_dictionary = _read_json_root(pix_codes_dir_path)
 	var tickets_dictionary = _read_json_root(ticket_codes_dir_path)
 	var events_dictionary = _read_json_root(events_dir_path)
+	var rules_array := _read_json_array(rules_dir_path)
 
 	# StoryDirector provides data, directors interpret and request schedules upward
 	messages_director.setup_from_json_roots(message_roots)
@@ -76,8 +78,10 @@ func reload_and_setup_today() -> void:
 	browser_director.reviews_director.setup_from_json_array(reviews_array)
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
-	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
-	events_director.setup_from_json_file(events_dictionary)
+	randomness_director.setup_from_json_roots(
+		tasks_roots, scams_roots, events_dictionary, rules_array
+	)
+	events_director.setup_from_json_file(events_dictionary, rules_array)
 
 	#Update Browser News
 	_on_update_news()
@@ -272,6 +276,11 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 	if flag == "payment":
 		var payment_id = requirement.get("payment_id", "")
 		return GameData.completed_payments.has(payment_id)
+	# Read without being consumed, unlike events_director, so a story beat can wait for it
+	if flag == "option":
+		return GameData.options_chose.get(requirement.get("choice", ""), false)
+	if flag == "email_read":
+		return GameData.read_emails.has(requirement.get("email_id", ""))
 
 	return false
 

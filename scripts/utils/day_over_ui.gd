@@ -35,7 +35,8 @@ func show_day_over() -> void:
 	for event in GameData.events_log:
 		var event_instance = EVENT_DESCRIPTION_SCENE.instantiate()
 
-		var event_rp = TYPE_TO_RP.get(event.get("type", ""), 0)
+		# Report lines carry their own points, the other events are worth their type
+		var event_rp = int(event.get("reputation_points", TYPE_TO_RP.get(event.get("type", ""), 0)))
 		event_instance.setup(event.get("description", ""), event_rp)
 		events_container.add_child(event_instance)
 

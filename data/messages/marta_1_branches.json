@@ -96,7 +96,7 @@
 			},
 			{
 				"id": "marta_payment0_3",
-				"text": "O código é T27DX"
+				"text": "O código é LX270"
 			},
 			{
 				"id": "marta_payment0_4",
@@ -104,7 +104,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "T27DX"
+						"payment_id": "LX270"
 					}
 				]
 			}

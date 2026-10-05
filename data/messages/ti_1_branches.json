@@ -38,6 +38,17 @@
 		"relative_due_time": 290
 	},
 	{
+		"day": 4,
+		"branch": "d4_px_confirm",
+		"relative_due_time": 0,
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Vou confirmar com o TI."
+			}
+		]
+	},
+	{
 		"day": 7,
 		"branch": "d7_good_ending",
 		"requires": [
@@ -63,6 +74,20 @@
 	}
 	],
 	"branches": {
+	"d4_px_confirm": [
+		{
+			"id": "ti_d4_px_0",
+			"text": "opa, a segurança viu um contato \"PX lnvestment\" falando contigo"
+		},
+		{
+			"id": "ti_d4_px_1",
+			"text": "a PX nunca pede código de recuperação por mensagem. é golpe!"
+		},
+		{
+			"id": "ti_d4_px_2",
+			"text": "não manda nada, bloqueia e denuncia"
+		}
+	],
 	"d0_start": [
 			{
 		"id": "ti_0_0",

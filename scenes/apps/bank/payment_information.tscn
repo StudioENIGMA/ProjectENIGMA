@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="2_0en2f"]
 [ext_resource type="Script" uid="uid://cwx2fryg58o0k" path="res://scripts/apps/bank/not_found_container.gd" id="2_8i7aa"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_m2c43"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="4_scroll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2c43"]
 content_margin_bottom = 30.0
@@ -55,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0en2f")
-informations_container = NodePath("MarginContainer/VBoxContainer/InformationVBox")
+informations_container = NodePath("MarginContainer/VBoxContainer/InformationScroll/InformationVBox")
 not_found_container = NodePath("MarginContainer/VBoxContainer/NotFoundContainer")
 confirm_button = NodePath("MarginContainer/VBoxContainer/ConfirmButton")
 
@@ -67,16 +68,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1778340396]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 
-[node name="NotFoundContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=218993155 node_paths=PackedStringArray("not_found_label")]
+[node name="NotFoundContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=218993155 node_paths=PackedStringArray("not_found_label", "error_label")]
 layout_mode = 2
 script = ExtResource("2_8i7aa")
 not_found_label = NodePath("NotFoundLabel")
+error_label = NodePath("ErrorLabel")
 
 [node name="NotFoundLabel" type="Label" parent="MarginContainer/VBoxContainer/NotFoundContainer" unique_id=1399787231]
 custom_minimum_size = Vector2(1, 0)
@@ -95,8 +99,16 @@ label_settings = SubResource("LabelSettings_tjutn")
 horizontal_alignment = 1
 clip_text = true
 
-[node name="InformationVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=903232668]
+[node name="InformationScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("4_scroll")
+size_x = 4
+
+[node name="InformationVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InformationScroll" unique_id=903232668]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 

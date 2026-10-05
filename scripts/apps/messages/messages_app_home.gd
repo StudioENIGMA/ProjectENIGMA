@@ -69,6 +69,7 @@ func on_send_message(
 			"name":contact["name"],
 			"photo":contact["photo"],
 			"verified":contact["verified"],
+			"account":contact.get("account", ""),
 			"notification_count": 1,
 			"messages":[{
 				"message":message,

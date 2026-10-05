@@ -3,7 +3,8 @@ extends Control
 ##
 ## First the rules notepad, to pick the rule of the day the scam breaks. Then the phone is
 ## dimmed, the sections that can be pointed at only outlined, the one hovered or picked lit,
-## with a bar at the bottom naming the rule picked, and a stamp once it is reported. It only shows things: base_app decides when.
+## with a bar at the bottom naming the rule picked, a line tying that rule to the section
+## picked, and a stamp once it is reported. It only shows things: base_app decides when.
 
 ## Emitted when the player picks a rule in the notepad and goes on to point at the section
 signal rule_chosen(rule: Dictionary)
@@ -16,6 +17,20 @@ signal report_confirmed()
 
 const RULE_ROW = preload("res://scenes/apps/discrepancy/discrepancy_rule_row.tscn")
 const RULES_PATH := "res://data/rules/rules.json"
+const GROUP_FONT = preload("res://assets/fonts/GloriaHallelujah-Regular.ttf")
+## Rules groups of the notepad, in the order they are listed: the "apps" of the rules
+const RULES_GROUPS := {
+	"MessagesHome": "Mensagens",
+	"Email": "Email",
+	"Bank": "Banco",
+	"browser": "Navegador e lojas",
+}
+## Stamp colours: a scam found, a report that changed nothing and a wrong report
+const STAMP_FOUND_COLOR := Color(0.92156863, 0.039215688, 0.27058825)
+const STAMP_NEUTRAL_COLOR := Color(0.13333334, 0.28235295, 0.38431373)
+const STAMP_WRONG_COLOR := Color(0.101960786, 0.1254902, 0.2)
+## Stamp titles longer than this are written smaller, so they fit the phone
+const STAMP_LONG_TITLE := 12
 ## Height of the bar shown at the bottom while pointing, the screen under it is shrunk by this
 const POINT_BAR_HEIGHT := 132.0
 const SHEET_SECONDS := 0.28
@@ -32,14 +47,21 @@ const STAMP_HOLD_SECONDS := 0.9
 @export var dim: ColorRect
 @export var point_bar: Control
 @export var point_rule_number: Label
+@export var point_rule_badge: Control
 @export var point_rule_title: Label
 @export var change_rule_button: Button
 @export var report_button: Button
+## Line from the rule's badge to the section picked
+@export var link: DiscrepancyLink
 @export var stamp: Control
+@export var stamp_label: Label
+@export var stamp_sub_label: Label
 
 var _chosen_row: PanelContainer = null
 ## Id of the rule picked, kept so the notepad opens on it again when the player goes back
 var _chosen_rule_id := ""
+## Rules group of the screen being reported, the only one whose rules can be picked
+var _rules_app := ""
 var _is_sheet_open := false
 ## Returns the targets to light through the dim, while pointing
 var _spotlight_source := Callable()
@@ -65,7 +87,11 @@ func _ready() -> void:
 
 
 ## Slides the rules notepad up, on the rule picked before if the player came back to change it
-func open_rules() -> void:
+##
+## rules_app: The rules group of the screen being reported ("MessagesHome", "Email", "Bank" or
+## "browser"), listed first and the only one whose rules can be picked
+func open_rules(rules_app: String = "") -> void:
+	_rules_app = rules_app
 	_hide_pointing()
 	_fill_rules()
 
@@ -121,9 +147,14 @@ func get_point_bar_height() -> float:
 	return POINT_BAR_HEIGHT
 
 
-## Lets the report be sent once a section is picked
+## Lets the report be sent once a section is picked, tying the rule to it with a line
 func set_section_picked(is_picked: bool) -> void:
 	report_button.disabled = not is_picked
+	if is_picked:
+		link.play()
+		_update_spotlights()
+	else:
+		link.clear()
 
 
 ## Puts everything away, forgetting the rule picked
@@ -134,10 +165,35 @@ func stop() -> void:
 	_chosen_row = null
 
 
-## Slams the "reported" stamp over the app, then fades it away
-func play_stamp() -> void:
+## Slams the verdict of a report over the app, then fades it away
+##
+## result: "verdict" ("found", "duplicate", "late", "stale", "wrong" or "false"), "title" and
+## "subtitle", as judged by events_director
+func play_stamp(result: Dictionary = {}) -> void:
 	if _stamp_tween:
 		_stamp_tween.kill()
+
+	var title := str(result.get("title", "DENUNCIADO"))
+	stamp_label.text = title
+	stamp_label.add_theme_font_size_override(
+		"font_size", 20 if title.length() > STAMP_LONG_TITLE else 28
+	)
+	stamp_sub_label.text = str(result.get("subtitle", "GOLPE REPORTADO · ENIGMA")).to_upper()
+
+	var color := STAMP_FOUND_COLOR
+	match str(result.get("verdict", "found")):
+		"duplicate", "late", "stale":
+			color = STAMP_NEUTRAL_COLOR
+		"wrong", "false":
+			color = STAMP_WRONG_COLOR
+	var style := stamp.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
+	style.border_color = color
+	stamp.add_theme_stylebox_override("panel", style)
+	stamp_label.add_theme_color_override("font_color", color)
+	stamp_sub_label.add_theme_color_override("font_color", color.darkened(0.3))
+	# Shrinks back around the new text before being centred on the phone
+	stamp.reset_size()
+	stamp.position = (size - stamp.size) / 2.0
 
 	stamp.visible = true
 	stamp.pivot_offset = stamp.size / 2.0
@@ -182,6 +238,7 @@ func _hide_pointing() -> void:
 	_spotlight_source = Callable()
 	dim.visible = false
 	point_bar.visible = false
+	link.clear()
 
 
 ## Tells the dim where every target that can be seen right now is, and which ones are lit
@@ -194,8 +251,11 @@ func _update_spotlights() -> void:
 	var radii := PackedFloat32Array()
 	var lit_flags := PackedFloat32Array()
 	var dim_origin := dim.get_global_rect().position
+	var selected_target: DiscrepancyTarget = null
 
 	for target: DiscrepancyTarget in targets:
+		if target.selected:
+			selected_target = target
 		if holes.size() >= 32: # MAX_HOLES in spotlight.gdshader
 			break
 		var rect := target.get_spotlight_rect()
@@ -218,12 +278,23 @@ func _update_spotlights() -> void:
 	dim_material.set_shader_parameter("radii", radii)
 	dim_material.set_shader_parameter("lit_flags", lit_flags)
 
+	if selected_target:
+		link.set_ends(
+			point_rule_badge.get_global_rect(),
+			selected_target.get_spotlight_rect(),
+			selected_target.get_spotlight_corner_radius()
+		)
+
 
 func _set_dim_strength(value: float) -> void:
 	(dim.material as ShaderMaterial).set_shader_parameter("strength", value)
 
 
-## Lists the rules in force today, oldest first, flagging the ones added today
+## Lists the rules in force today by app, oldest first, flagging the ones added today
+##
+## The group of the screen being reported comes first and is the only one that can be picked,
+## the others follow, faded, for the player to read. A rule checked in several apps is listed in
+## each of their groups.
 func _fill_rules() -> void:
 	for row in rules_list.get_children():
 		rules_list.remove_child(row)
@@ -231,20 +302,56 @@ func _fill_rules() -> void:
 	_chosen_row = null
 	next_button.disabled = true
 
-	var number := 0
-	for rule in _load_rules():
-		var rule_day := int(rule.get("day", 0))
-		if rule_day > GameData.current_day:
+	var rules := _load_rules()
+	var groups: Array = RULES_GROUPS.keys()
+	if groups.has(_rules_app):
+		groups.erase(_rules_app)
+		groups.push_front(_rules_app)
+
+	for group in groups:
+		var is_current: bool = group == _rules_app
+		var group_rules := rules.filter(
+			func(rule: Dictionary) -> bool:
+				return (
+					int(rule.get("day", 0)) <= GameData.current_day
+					and rule.get("apps", []).has(group)
+				)
+		)
+		if group_rules.is_empty():
 			continue
-		number += 1
-		var row := RULE_ROW.instantiate()
-		rules_list.add_child(row)
-		row.setup(rule, number, rule_day == GameData.current_day)
-		row.chosen.connect(_on_rule_chosen)
-		if not _chosen_rule_id.is_empty() and str(rule.get("id", "")) == _chosen_rule_id:
-			_on_rule_chosen(row)
+
+		var heading: String = RULES_GROUPS[group]
+		if not is_current:
+			heading = "Em outros apps · " + heading
+		_add_group_heading(heading)
+
+		var number := 0
+		for rule in group_rules:
+			number += 1
+			var row := RULE_ROW.instantiate()
+			rules_list.add_child(row)
+			row.setup(rule, number, int(rule.get("day", 0)) == GameData.current_day)
+			row.set_enabled(is_current)
+			row.chosen.connect(_on_rule_chosen)
+			if is_current and str(rule.get("id", "")) == _chosen_rule_id:
+				_on_rule_chosen(row)
 
 	rules_scroll.scroll_vertical = 0
+
+
+## Writes the name of a rules group on the page, past the margin line, on a ruling
+func _add_group_heading(text: String) -> void:
+	var margin := MarginContainer.new()
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.add_theme_constant_override("margin_left", int(RulesNotebook.MARGIN_WIDTH) + 6)
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_override("font", GROUP_FONT)
+	label.add_theme_font_size_override("font_size", 15)
+	label.add_theme_color_override("font_color", Color(0.5686275, 0.101960786, 0.21960784, 0.9))
+	margin.add_child(label)
+	rules_list.add_child(margin)
+	RulesNotebook.fit_to_ruling(label)
 
 
 ## Reads the whole rulebook, every day included

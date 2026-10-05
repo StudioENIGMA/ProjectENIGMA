@@ -1,120 +1,85 @@
 [gd_scene format=3 uid="uid://b17iw65ub7udl"]
 
-[ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="1_q1aku"]
+[ext_resource type="Script" path="res://scripts/apps/notes/notes_app.gd" id="1_notes"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="1_vp0h0"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="3_reg"]
 
-[sub_resource type="GDScript" id="GDScript_q1aku"]
-script/source = "extends Control
-
-func _ready() -> void:
-	pass
-"
-
-[sub_resource type="LabelSettings" id="LabelSettings_unvh1"]
-font = ExtResource("1_q1aku")
-font_size = 11
-font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-
-[node name="Control" type="Control" unique_id=1684741528]
+[node name="Control" type="Control" unique_id=1684741528 node_paths=PackedStringArray("subtitle_label", "sections_list", "scroll")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_q1aku")
+script = ExtResource("1_notes")
+subtitle_label = NodePath("Screen/Header/Column/Subtitle")
+sections_list = NodePath("Screen/ListArea/ScrollContainer/Margin/Sections")
+scroll = NodePath("Screen/ListArea/ScrollContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=923306893]
+[node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.99200004
-offset_left = 17.0
-offset_right = -16.0
-offset_bottom = 0.11999512
+anchor_bottom = 1.0
 grow_horizontal = 2
-script = ExtResource("1_vp0h0")
+grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=414857710]
+[node name="Header" type="MarginContainer" parent="Screen"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Column" type="VBoxContainer" parent="Screen/Header"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Screen/Header/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 20
+text = "Quadro da empresa"
+
+[node name="Subtitle" type="Label" parent="Screen/Header/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("3_reg")
+theme_override_font_sizes/font_size = 12
+text = "Confira aqui antes de denunciar"
+
+[node name="Divider" type="ColorRect" parent="Screen"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="ListArea" type="Control" parent="Screen"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen/ListArea" unique_id=923306893]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("1_vp0h0")
+size_x = 4
+
+[node name="Margin" type="MarginContainer" parent="Screen/ListArea/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=1567643027]
-layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 20
 
-[node name="ContactsTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=434318668]
+[node name="Sections" type="VBoxContainer" parent="Screen/ListArea/ScrollContainer/Margin" unique_id=414857710]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "Contatos:"
-
-[node name="ContactsContent" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=915180312]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "Esta é sua lista de contatos padrão:
-    • Artur
-    • Chefinho
-    • Carolina
-    • Financeiro
-    • Gilmar
-    • Guilherme
-    • Jessica
-    • José
-    • Marcão
-    • Marcia
-    • Mariana
-    • Marta
-    • Negativa
-    • Gerente PX Investment
-    • RH
-    • Ricardo
-    • TI
-    • Yago
-Suspeite de qualquer pessoa que entre em contato com você e não esteja nessa lista. Esteja atento a indivíduos tentando se passar por outrem, existem muitos golpistas que tentam fazer isso! Fique atento a como os nomes estão escritos, um detalhe pode ser sua salvação entre cair ou não em um golpe!"
-label_settings = SubResource("LabelSettings_unvh1")
-autowrap_mode = 2
-autowrap_trim_flags = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=30261582]
-layout_mode = 2
-theme_override_constants/margin_bottom = 20
-
-[node name="URLTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=299070892]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "URLs:"
-
-[node name="URLContent" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1149504063]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "Existem muitos sites tentando te enganar por aí, sempre verifique se o site que você está acessando é confiável!!! "
-label_settings = SubResource("LabelSettings_unvh1")
-autowrap_mode = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=838001417]
-layout_mode = 2
-theme_override_constants/margin_bottom = 20
-
-[node name="EmailsTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1693251793]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "Emails"
-
-[node name="EmailsContent" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1734719192]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.101960786, 0.1254902, 0.2, 1)
-text = "Esta é sua lista de contatos padrão de email:
-    • mariana@enigma.com.br
-    • yagob@enigma.fin.com.br
-    • ricardo@enigma.com.br
-    • marcia@enigma.rh.com.br
-    • carolina@enigma.ti.com.br
-    • jessica@enigma.rh.com.br
-Tome cuidado ao ler emails, sempre tem alguém preparando uma armadilha para você. Não se esqueça de conferir se o remetente do email está correto!
-"
-label_settings = SubResource("LabelSettings_unvh1")
-autowrap_mode = 2
-autowrap_trim_flags = 0
+size_flags_horizontal = 3
+theme_override_constants/separation = 18

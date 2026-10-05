@@ -45,13 +45,23 @@ var tasks_list: Array
 var scams_list: Array
 var events_scheduled: bool
 var clock_counter: int = 0
+## Every event of data/events/events.json, to know which discrepancies a scam declares
+var events_dict: Dictionary = {}
+## rule id -> day the rule is released on
+var rule_days: Dictionary = {}
 #endregion STATES
 
 
 #region SETUP
-func setup_from_json_roots(random_tasks: Array, random_scams: Array) -> void:
+func setup_from_json_roots(
+	random_tasks: Array, random_scams: Array, events: Dictionary, rules: Array
+) -> void:
 	tasks_list = random_tasks[0] + random_tasks[1]
 	scams_list = random_scams[0] + random_scams[1]
+	events_dict = events
+	rule_days.clear()
+	for rule in rules:
+		rule_days[str(rule.get("id", ""))] = int(rule.get("day", 0))
 	events_scheduled = false
 	define_events_list()
 #endregion SETUP
@@ -150,7 +160,18 @@ func evaluate_requirements(event) -> bool:
 	if (event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
 		return false
 
-	return true
+	return _has_released_discrepancy(event_id)
+
+## Whether the player can already report the event: it declares no discrepancy (a task), or at
+## least one of its discrepancies breaks a rule released by today
+func _has_released_discrepancy(event_id: String) -> bool:
+	var discrepancies: Array = events_dict.get(event_id, {}).get("discrepancies", [])
+	if discrepancies.is_empty():
+		return true
+	for discrepancy in discrepancies:
+		if rule_days.get(str(discrepancy.get("rule", "")), 999) <= GameData.current_day:
+			return true
+	return false
 
 func schedule_events(events_list: Array) -> void:
 	events_list.shuffle()

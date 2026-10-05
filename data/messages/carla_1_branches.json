@@ -1,0 +1,39 @@
+{
+	"conversation_id": "carla_1",
+	"contact_name": "Carla",
+	"entry_points": [
+		{
+			"day": 3,
+			"relative_due_time": 60,
+			"branch": "d3_hello"
+		}
+	],
+	"branches": {
+		"d3_hello": [
+			{
+				"id": "carla1_d3_0",
+				"text": "Oi! Sou a Carla, entrei no Financeiro essa semana 😊"
+			},
+			{
+				"id": "carla1_d3_1",
+				"text": "Qualquer coisa de reembolso, pode falar comigo por aqui.",
+				"choices": [
+					{
+						"id": "carla1_d3_1a_0",
+						"player_text": "Bem-vinda, Carla!",
+						"npc_reply": {
+							"goto_branch": "d3_thanks",
+							"delay_ticks": 2
+						}
+					}
+				]
+			}
+		],
+		"d3_thanks": [
+			{
+				"id": "carla1_d3_2",
+				"text": "Obrigada! 💚"
+			}
+		]
+	}
+}

@@ -1,0 +1,144 @@
+{
+	"conversation_id": "carla_2",
+	"contact_name": "Carla",
+	"account": "@carla.financeiro",
+	"entry_points": [
+		{
+			"day": 5,
+			"relative_due_time": 120,
+			"branch": "d5_start",
+			"event_id": "scam_carla_d5"
+		}
+	],
+	"branches": {
+		"d5_start": [
+			{
+				"id": "carla2_d5_0",
+				"text": "Ei, preciso da sua ajuda 😥",
+				"choices": [
+					{
+						"id": "carla2_d5_0a_0",
+						"player_text": "Do que?",
+						"npc_reply": {
+							"goto_branch": "d5_ask",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "carla2_d5_0a_1",
+						"player_text": "O que houve?",
+						"npc_reply": {
+							"goto_branch": "d5_ask",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5_ask": [
+			{
+				"id": "carla2_d5_1",
+				"text": "Perdi o acesso à minha conta Blade e o TI tá sem tempo hoje."
+			},
+			{
+				"id": "carla2_d5_2",
+				"text": "Posso pedir a recuperação do Blade code no seu email? Aí você só me passa o código.",
+				"choices": [
+					{
+						"id": "carla2_d5_2a_0",
+						"player_text": "Ok, pode pedir!",
+						"npc_reply": {
+							"goto_branch": "d5_requested",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "carla2_d5_2a_1",
+						"player_text": "Não",
+						"npc_reply": {
+							"goto_branch": "d5_refused",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "carla2_d5_2a_2",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d5_requested": [
+			{
+				"id": "carla2_d5_3",
+				"text": "Valeu! Já pedi, deve chegar agora no seu email."
+			},
+			{
+				"id": "carla2_d5_4",
+				"text": "Chegou? Me passa o código 🙏",
+				"requires": [
+					{
+						"flag": "email_read",
+						"email_id": "blade_recovery_d5_0"
+					}
+				],
+				"choices": [
+					{
+						"id": "carla2_d5_4a_0",
+						"player_text": "123486",
+						"npc_reply": {
+							"goto_branch": "d5_code_given",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "carla2_d5_4a_1",
+						"player_text": "Peraí, esse código é da MINHA conta…",
+						"npc_reply": {
+							"goto_branch": "d5_pressure",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "carla2_d5_4a_2",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d5_pressure": [
+			{
+				"id": "carla2_d5_5",
+				"text": "É rapidinho, confia! Senão eu perco o prazo 😭",
+				"choices": [
+					{
+						"id": "carla2_d5_5a_0",
+						"player_text": "Não vou mandar.",
+						"npc_reply": {
+							"goto_branch": "d5_refused",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "carla2_d5_5a_1",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d5_refused": [
+			{
+				"id": "carla2_d5_6",
+				"text": "Poxa, achei que podia contar com você…"
+			}
+		],
+		"d5_code_given": [
+			{
+				"id": "carla2_d5_7",
+				"text": "Perfeito, obrigada!! 😘"
+			}
+		]
+	}
+}

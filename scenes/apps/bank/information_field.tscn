@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="1_ppj0n"]
 [ext_resource type="Script" uid="uid://c3rdk0sefiyjr" path="res://scripts/apps/bank/information_field.gd" id="3_4a5t1"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="4_target"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1xi2p"]
 font = ExtResource("1_ppj0n")
@@ -9,6 +10,10 @@ font_size = 13
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap05p"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
 bg_color = Color(0.26666668, 0.8117647, 0.69803923, 1)
 border_width_left = 2
 border_width_top = 2
@@ -25,7 +30,7 @@ font = ExtResource("1_ppj0n")
 font_size = 18
 font_color = Color(0, 0.03529412, 0.14117648, 1)
 
-[node name="InformationField" type="VBoxContainer" unique_id=1626536848 node_paths=PackedStringArray("title_label", "information_label")]
+[node name="InformationField" type="VBoxContainer" unique_id=1626536848 node_paths=PackedStringArray("title_label", "information_label", "section_target")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 100.0
@@ -34,6 +39,7 @@ theme_override_constants/separation = 1
 script = ExtResource("3_4a5t1")
 title_label = NodePath("InformationTitle")
 information_label = NodePath("InformationPanel/InformationLabel")
+section_target = NodePath("InformationPanel/SectionTarget")
 
 [node name="InformationTitle" type="Label" parent="." unique_id=671207465]
 layout_mode = 2
@@ -41,26 +47,26 @@ size_flags_horizontal = 0
 text = "Nome"
 label_settings = SubResource("LabelSettings_1xi2p")
 
-[node name="InformationPanel" type="Panel" parent="." unique_id=987741722]
+[node name="InformationPanel" type="PanelContainer" parent="." unique_id=987741722]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ap05p")
 
 [node name="InformationLabel" type="Label" parent="InformationPanel" unique_id=1773085783]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.5
-offset_top = -8.5
-offset_right = 18.5
-offset_bottom = 8.5
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
 text = "XXXXX"
 label_settings = SubResource("LabelSettings_pr6ro")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SectionTarget" type="Control" parent="InformationPanel"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4_target")
+padding = Vector2(2, 2)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1247812102]
 custom_minimum_size = Vector2(0, 8)

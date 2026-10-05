@@ -18,6 +18,8 @@ const TAP_SLOP := 10.0
 
 ## The rule shown, as read from data/rules/rules.json
 var rule: Dictionary = {}
+## Whether the row can be picked: the rules of the other apps are only there to be read
+var is_enabled := true
 
 var _is_selected := false
 ## Where the pointer went down, in viewport coordinates, or null while nothing is pressed
@@ -42,6 +44,12 @@ func setup(rule_data: Dictionary, number: int, is_new: bool) -> void:
 	title_label.text = str(rule_data.get("title", ""))
 	description_label.text = str(rule_data.get("description", ""))
 	set_selected(false)
+
+
+## Lets the row be picked, or fades it as a rule of another app
+func set_enabled(enabled: bool) -> void:
+	is_enabled = enabled
+	modulate.a = 1.0 if enabled else 0.4
 
 
 ## Shows the row as the chosen one, or as a plain option
@@ -79,6 +87,8 @@ func _draw() -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	if not is_enabled:
+		return
 	if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
 		return
 
