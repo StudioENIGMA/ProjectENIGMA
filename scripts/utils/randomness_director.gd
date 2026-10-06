@@ -56,8 +56,12 @@ var rule_days: Dictionary = {}
 func setup_from_json_roots(
 	random_tasks: Array, random_scams: Array, events: Dictionary, rules: Array
 ) -> void:
-	tasks_list = random_tasks[0] + random_tasks[1]
-	scams_list = random_scams[0] + random_scams[1]
+	tasks_list.clear()
+	for root in random_tasks:
+		tasks_list.append_array(root)
+	scams_list.clear()
+	for root in random_scams:
+		scams_list.append_array(root)
 	events_dict = events
 	rule_days.clear()
 	for rule in rules:

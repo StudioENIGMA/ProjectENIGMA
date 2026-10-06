@@ -20,8 +20,8 @@ signal update_news
 @export var shops_items_dir_path: String = "res://data/browser/shops_items.json"
 @export var pix_codes_dir_path: String = "res://data/bank/pix_codes_data.json"
 @export var ticket_codes_dir_path: String = "res://data/bank/ticket_codes_data.json"
-@export var tasks_dir_path: String = "res://data/random/tasks"
-@export var scams_dir_path: String = "res://data/random/scams"
+## Holds one day_<n>/{tasks,scams} folder per day with random events
+@export var random_dir_path: String = "res://data/random"
 @export var events_dir_path: String = "res://data/events/events.json"
 @export var rules_dir_path: String = "res://data/rules/rules.json"
 #endregion CHILDREN NODES REFERENCES
@@ -61,8 +61,9 @@ func reload_and_setup_today() -> void:
 	# Load JSON roots from data directories
 	var message_roots := _load_json_roots_from_directory(messages_dir_path)
 	var email_roots := _load_json_roots_from_directory(emails_dir_path)
-	var tasks_roots := _load_json_roots_from_directory(tasks_dir_path)
-	var scams_roots := _load_json_roots_from_directory(scams_dir_path)
+	var random_day_dir_path := random_dir_path.path_join("day_%d" % GameData.current_day)
+	var tasks_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("tasks"))
+	var scams_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("scams"))
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
@@ -201,6 +202,8 @@ func _load_json_roots_from_directory(directory_path: String) -> Array:
 func _list_json_file_paths(directory_path: String) -> Array[String]:
 	var directory := DirAccess.open(directory_path)
 	var file_paths: Array[String] = []
+	if directory == null:
+		return file_paths
 
 	directory.list_dir_begin()
 	while true:
