@@ -10,6 +10,7 @@ signal update_news
 @export var bank_director: Node
 @export var randomness_director: Node
 @export var events_director: Node
+@export var introduction_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -23,6 +24,7 @@ signal update_news
 @export var tasks_dir_path: String = "res://data/random/tasks"
 @export var scams_dir_path: String = "res://data/random/scams"
 @export var events_dir_path: String = "res://data/events/events.json"
+@export var introduction_dir_path: String = "res://data/introduction"
 #endregion CHILDREN NODES REFERENCES
 
 #region QUEUE STATE
@@ -62,6 +64,7 @@ func reload_and_setup_today() -> void:
 	var email_roots := _load_json_roots_from_directory(emails_dir_path)
 	var tasks_roots := _load_json_roots_from_directory(tasks_dir_path)
 	var scams_roots := _load_json_roots_from_directory(scams_dir_path)
+	var introduction_roots := _load_json_roots_from_directory(introduction_dir_path)
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
@@ -78,6 +81,7 @@ func reload_and_setup_today() -> void:
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(tasks_roots, scams_roots)
 	events_director.setup_from_json_file(events_dictionary)
+	introduction_director.setup_from_json_file(introduction_roots)	
 
 	#Update Browser News
 	_on_update_news()

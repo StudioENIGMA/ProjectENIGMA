@@ -83,6 +83,11 @@ class ShoppingInfo:
 		total_price = 0
 		is_order_opened = false
 
+class Introduction:
+	var description: String
+	var rules: Array[String]
+	var footer: String
+
 var shops_names = {
 	App.BROWSERAMAZONIASHOP: "Amazônia",
 	App.BROWSERLIBREMERCADOSHOP: "Libre Mercado",
@@ -151,6 +156,8 @@ var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 var saved_messages_conversations: Array[Dictionary] = []
 var saved_email_threads: Array = []
+
+var introductions: Array[Introduction] = []
 
 var apps_name: Dictionary = {
 	# Messages app
