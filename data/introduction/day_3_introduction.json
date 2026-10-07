@@ -1,0 +1,9 @@
+{
+  "day": 3,
+  "description": "Hoje os detalhes contam. Além das regras anteriores, confira:",
+  "rules": [
+    "— O email do funcionário deve ser um email válido da empresa",
+    "— O valor do boleto deve ser o valor combinado"
+  ],
+  "footer": "Abra as notas para verificar as regras do dia."
+}

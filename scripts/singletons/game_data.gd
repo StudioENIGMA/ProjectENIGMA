@@ -84,6 +84,7 @@ class ShoppingInfo:
 		is_order_opened = false
 
 class Introduction:
+	var day: int
 	var description: String
 	var rules: Array[String]
 	var footer: String

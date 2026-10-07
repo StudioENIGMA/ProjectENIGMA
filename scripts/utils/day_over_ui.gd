@@ -102,8 +102,8 @@ func _on_next_day_button_pressed() -> void:
 		if randi() % 100 < 50: # 50% chance
 			GameData.apps_with_available_updates.append(app)
 
+	# The morning paper starts the day and saves once it has been set up
 	day_over_clicked.emit()
-	GameData.save_game()
 
 func _on_previous_day_button_pressed() -> void:
 	GameData.reset_to_defaults()

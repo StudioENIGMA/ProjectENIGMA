@@ -7,6 +7,7 @@ signal message_answered(answer_id:int)
 #region CHILDREN NODES REFERENCES
 @export var base_app:Control
 @export var day_over_ui:Control
+@export var day_introduction_ui:Control
 @export var notifications_control:Control
 @export var notification_center:Control
 @export var notification_widget:Control

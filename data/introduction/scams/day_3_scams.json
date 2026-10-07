@@ -1,0 +1,43 @@
+{
+	"scams": [
+		{
+			"title": "Email de funcionário inválido",
+			"app": "email",
+			"subject": "Pedido de materiais",
+			"sender": "marcao.enigma@imail.com",
+			"messages": [
+				"Bom dia! Aqui é o Marcão, do setor de materiais.",
+				"Paga o boleto 586029 dos materiais, por favor."
+			],
+			"suspicious": "@imail.com",
+			"tip": "Funcionários usam o email da empresa, que termina em @enigma.com.br. Qualquer outro domínio não é da empresa."
+		},
+		{
+			"title": "Valor diferente",
+			"app": "messages",
+			"sender": "Guilherme",
+			"messages": [
+				"paga o boleto 769632 dos materiais pra mim?",
+				"é de R$ 1.200,00"
+			],
+			"suspicious": "R$ 1.200,00",
+			"tip": "O combinado foi R$ 1.200,00, mas no Banco o boleto é de R$ 12.000,00. Valor diferente, não pague.",
+			"bank": {
+				"code": "769632",
+				"fields": [
+					[
+						"Instituição Pagadora",
+						"Financeiro"
+					],
+					[
+						"Valor",
+						"R$ 12.000,00"
+					]
+				],
+				"check": [
+					"Valor"
+				]
+			}
+		}
+	]
+}
