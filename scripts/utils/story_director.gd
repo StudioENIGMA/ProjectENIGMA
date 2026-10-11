@@ -59,7 +59,8 @@ func reload_and_setup_today() -> void:
 	_clear_story_queue()
 
 	# Load JSON roots from data directories
-	var message_roots := _load_json_roots_from_directory(messages_dir_path)
+	var message_roots := _load_json_roots_from_all_directories(messages_dir_path)
+	
 	var email_roots := _load_json_roots_from_directory(emails_dir_path)
 	var random_day_dir_path := random_dir_path.path_join("day_%d" % GameData.current_day)
 	var tasks_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("tasks"))
@@ -188,6 +189,37 @@ func _insert_story_entry_sorted(story_entry: Dictionary) -> void:
 #endregion QUEUE OPS
 
 #region JSON LOADING
+## Loads all JSON roots of all directories inside a given directory path
+func _load_json_roots_from_all_directories(directory_path: String) -> Array:
+	var subdirectory_paths := _list_subdirectory_paths(directory_path)
+	subdirectory_paths.sort()
+
+	var roots: Array = []
+	for subdirectory_path in subdirectory_paths:
+		roots.append_array(_load_json_roots_from_directory(subdirectory_path))
+	return roots
+
+## Lists all subdirectory paths in a given directory
+func _list_subdirectory_paths(directory_path: String) -> Array[String]:
+	var directory := DirAccess.open(directory_path)
+	var subdirectory_paths: Array[String] = []
+	if directory == null:
+		return subdirectory_paths
+
+	directory.list_dir_begin()
+	while true:
+		var directory_name := directory.get_next()
+		if directory_name == "":
+			break
+		if not directory.current_is_dir():
+			continue
+		if directory_name.begins_with("."):
+			continue
+		subdirectory_paths.append(directory_path.path_join(directory_name))
+	directory.list_dir_end()
+
+	return subdirectory_paths
+	
 ## Loads all JSON roots from a given directory path
 func _load_json_roots_from_directory(directory_path: String) -> Array:
 	var file_paths := _list_json_file_paths(directory_path)
