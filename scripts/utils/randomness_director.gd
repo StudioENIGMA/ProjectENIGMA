@@ -9,34 +9,34 @@ signal schedule_email(story_entry: Dictionary)
 const random_tasks_delay = [0, 60, 30, 30, 30, 30, 30]
 
 const number_of_events = [
-    {
-        "tasks": 0,
-        "scams": 0
-    },
-    {
-        "tasks": 1,
-        "scams": 1
-    },
-    {
-        "tasks": 1,
-        "scams": 3
-    },
-    {
-        "tasks": 4,
-        "scams": 4
-    },
-    {
-        "tasks": 7,
-        "scams": 5
-    },
-    {
-        "tasks": 8,
-        "scams": 8
-    },
-    {
-        "tasks": 8,
-        "scams": 13
-    },
+	{
+		"tasks": 0,
+		"scams": 0
+	},
+	{
+		"tasks": 1,
+		"scams": 1
+	},
+	{
+		"tasks": 1,
+		"scams": 3
+	},
+	{
+		"tasks": 4,
+		"scams": 4
+	},
+	{
+		"tasks": 7,
+		"scams": 5
+	},
+	{
+		"tasks": 8,
+		"scams": 8
+	},
+	{
+		"tasks": 8,
+		"scams": 13
+	},
 ]
 #endregion CONSTANTS
 
