@@ -1,0 +1,44 @@
+{
+  "conversation_id": "athur_2",
+  "contact_name": "Arthur",
+  "branches": {
+    "scam0_arthur2": [
+      {
+        "id": "arthur2_payment0_0",
+        "text": "Eai estgiário, preciso de um pagamento para um novo maquinário",
+        "choices": [
+          {
+            "id": "arthur2_payment0_0a_0",
+            "player_text": "Qual o ID do pagamento?",
+            "npc_reply": {
+              "goto_branch": "from_arthur2_payment0_0",
+              "delay_ticks": 0
+            }
+          }
+        ]
+      }
+    ],
+    "from_arthur2_payment0_0": [
+      {
+        "id": "arthur2_payment0_1",
+        "text": "EAC16",
+        "choices": [
+          {
+            "id": "arthur2_payment0_1a_0",
+            "player_text": "O ID não segue o padrãqo correto",
+            "npc_replay": {
+              "goto_branch": "from_arthur2_payment0_1",
+              "delay_ticks": 0
+            }
+          }
+        ]
+      }
+    ],
+    "from_arthur2_payment0_1" : [
+      {
+        "id": "arthur2_payment0_2",
+        "text": "Que isso deve haver algum engano"
+      }
+    ]
+  }
+}
