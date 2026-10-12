@@ -245,6 +245,46 @@
 				"id": "marcao_payment3_4",
 				"text": "o boleto tem código 897341"
 			}
+		],
+		"task9_marcao": [
+		  {
+				"id": "marcao_payment4_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+			  "id": "marcao_payment4_1",
+				"text": "Marcão na área"
+			},
+			{
+			  "id": "marcao_payment4_2",
+				"text": "sobrou pra você fazer o pagamento do pedido que fiz de maquinário novo",
+				"choices": [
+				  {
+						"id": "marcao_payment4_2a_0",
+						"player_text": "Me passa o ID para esse pagamento",
+						"npc_reply": {
+						  "goto_branch": "from_marcao_payment4_2",
+							"delay_ticks": 0
+						}
+					}
+				]
+			}
+		],
+		"from_marcao_payment4_2" : [
+		  {
+				"id": "marcao_payment4_3",
+				"text": "[correct_pattern]"
+			},
+			{
+			  "id": "marcao_payment4_4",
+				"text": "Valeu!",
+				"requires": [
+				  {
+						"flag": "payment",
+						"payment_id": "[correct_pattern]"
+					}
+				]
+			}
 		]
 	}                                        
 }
