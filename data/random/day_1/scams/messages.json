@@ -209,6 +209,10 @@
 		"branch": "scan0_non_px_investment",
 		"required_app": "Bank"
 	},
+
+
+
+	
 	{
 	  "conversation_id": "athur_2",
 		"branch": "scam0_arthur2",
@@ -217,6 +221,11 @@
 	{
 	  "conversation_id": "arthur_3",
 		"branch": "scam0_arthur3",
+		"required_app": "Bank"
+	},
+	{
+	  "conversation_id": "distribuidora_aurora_1",
+		"branch": "task1_aurora1",
 		"required_app": "Bank"
 	}
 ]

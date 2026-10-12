@@ -1,32 +1,18 @@
 {
 	"conversation_id": "distribuidora_aurora_1",
 	"contact_name": "Distribuidora Aurora",
-	"entry_points": [
-		{
-			"day": 1,
-			"relative_due_time": 150,
-			"branch": "d1_payment",
-			"event_id": "scam_d1_aurora",
-			"requires": [
-				{
-					"flag": "app_installed",
-					"app_id": "Bank"
-				}
-			]
-		}
-	],
 	"branches": {
-		"d1_payment": [
+		"task1_aurora1": [
 			{
-				"id": "aurora_d1_0",
+				"id": "aurora1_payment0_0",
 				"text": "Bom dia! Aqui é da Distribuidora Aurora, a fornecedora de papel e toner da Enigma."
 			},
 			{
-				"id": "aurora_d1_1",
+				"id": "aurora1_payment0_1",
 				"text": "O toner que entregamos ontem ficou sem pagar: R$ 312,00."
 			},
 			{
-				"id": "aurora_d1_2",
+				"id": "aurora1_payment0_2",
 				"text": "Pode pagar pelo Pix, código PXO82. Obrigado!"
 			}
 		]
