@@ -271,6 +271,10 @@
 	  "conversation_id": "marcão_1",
 		"branch": "task9_marcao",
 		"required_app": "Bank"
+	},
+	{
+	  "conversation_id": "jessica_2",
+		"branch": "scam0_jessica2",
+		"required_app": "Bank"
 	}
-
 ]
