@@ -269,7 +269,7 @@ func _should_release_lock(current_minutes: int) -> bool:
 		for story_entry in queue:
 			if story_entry["owner"] != active_owner or not story_entry["continues"]:
 				continue
-			var is_due := current_minutes >= int(story_entry["due_at"])
+			var is_due := _is_due(story_entry, current_minutes)
 			if not is_due or _requirements_met(story_entry["requires"]):
 				return false
 			# Its next message waits on something done outside the chat
@@ -288,7 +288,7 @@ func _deliver_first_ready(
 		var story_entry := queue[entry_index]
 
 		# Ordered by due_at, so no entry after this one is due either
-		if current_minutes < int(story_entry["due_at"]):
+		if not _is_due(story_entry, current_minutes):
 			return false
 
 		if owner != "" and (story_entry["owner"] != owner or not story_entry["continues"]):
@@ -304,6 +304,11 @@ func _deliver_first_ready(
 		return true
 
 	return false
+
+## Whether an entry is due. The tutorial (day 0) has no time passing, so its entries come one
+## after another, in the order of their due times, as each chat in progress ends
+func _is_due(story_entry: Dictionary, current_minutes: int) -> bool:
+	return GameData.current_day == 0 or current_minutes >= int(story_entry["due_at"])
 
 ## Puts the chat of the entry in progress and calls down into the right controller
 func _deliver(story_entry: Dictionary, current_minutes: int) -> void:

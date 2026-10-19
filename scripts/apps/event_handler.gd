@@ -42,10 +42,13 @@ func _update_in_game_time() -> void:
 	for clock_node in clock_nodes:
 		clock_node.update_clock_display(current_hour, current_minute)
 
-	if GameData.hours_minutes >= GameData.max_hours_minutes_tutorial and GameData.current_day == 0:
-		_on_day_over_timeout()
+	# The tutorial (day 0) has no time passing: it stays at the start of the day until the player
+	# ends it from its button, see end_day()
+	if GameData.current_day == 0:
+		return
+
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
-		_on_day_over_timeout()
+		end_day()
 
 	# Increment in-game time by X minutes, X = 1 + number of viruses / 50 as integer
 	var minutes_to_add = 1 + int(GameData.number_of_viruses / 50)
@@ -53,8 +56,9 @@ func _update_in_game_time() -> void:
 #endregion CLOCK TICK
 
 #region DAY CYCLE MANAGEMENT
-## Handles the end of the day event
-func _on_day_over_timeout() -> void:
+## Ends the day, showing its summary: when the workday is over, or when the player ends the
+## tutorial from its button
+func end_day() -> void:
 	# Emit the day ended signal to notify other systems
 	day_ended.emit()
 

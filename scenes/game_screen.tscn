@@ -502,7 +502,7 @@ story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
 
-[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui")]
+[node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui", "finish_tutorial_button")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -520,6 +520,7 @@ notification_center = NodePath("NotificationCenter")
 notification_widget = NodePath("DesktopUI/WidgetsMargin/Widgets/NotificationWidget")
 apps_ui = NodePath("DesktopUI/BottomMargin/AppsUI")
 pause_game_ui = NodePath("PauseGameUI")
+finish_tutorial_button = NodePath("DesktopUI/FinishTutorialButton")
 
 [node name="DesktopUI" type="Control" parent="UI" unique_id=541633836]
 layout_mode = 1
@@ -729,6 +730,32 @@ app = 38
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
+
+[node name="FinishTutorialButton" type="Button" parent="UI/DesktopUI" unique_id=109865786]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("19_1vcyb")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_dayover_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dayover_button_active")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dayover_button_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dayover_focus")
+text = "Terminar tutorial"
 
 [node name="BaseApp" parent="UI" unique_id=1677309777 node_paths=PackedStringArray("apps_ui", "pause_button", "notification_ui") instance=ExtResource("3_qca60")]
 visible = false

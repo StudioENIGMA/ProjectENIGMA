@@ -107,6 +107,8 @@ func _ready() -> void:
 	ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
 	ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
 	ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
+	# UI tutorial ended, which has no time passing to end it
+	ui.finish_tutorial_requested.connect(event_handler.end_day)
 	# UI game paused
 	ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
 	ui.day_over_ui.end_game.connect(_on_end_game)
