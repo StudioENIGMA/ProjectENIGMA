@@ -30,6 +30,8 @@ signal conversation_finished(conversation_id: String)
 
 #region STATE
 var conversations_by_id: Dictionary = {}
+## Changes on every setup (a new day), so a message still being typed when the day ends is dropped
+var setup_count: int = 0
 #endregion STATE
 
 #region SETUP
@@ -40,6 +42,7 @@ func _ready() -> void:
 ## Sets up conversations from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
 	conversations_by_id.clear()
+	setup_count += 1
 
 	for root in json_roots:
 		_register_conversations_from_root(root)
@@ -139,18 +142,25 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	npc_message_created.emit(contact)
 
 	## Await animation time
+	var setup_at_delivery := setup_count
 	var wait_time: float = GameData.get_human_typing_time(message_node.get("text", ""))
 	await  get_tree().create_timer(wait_time).timeout
+	# The day ended while the NPC was typing (the tutorial can be ended at any moment)
+	if setup_count != setup_at_delivery:
+		return
 
+	# Sent at the time on the clock, which does not move in the tutorial
 	npc_message_sent.emit(
 		contact,
 		message_node.get("text", ""),
 		message_node.get("annex", {}),
 		GameData.Sender.NPC,
-		current_minutes + wait_time
+		GameData.hours_minutes
 	)
 
 	await  get_tree().create_timer(1).timeout
+	if setup_count != setup_at_delivery:
+		return
 
 	# Handle choices if any
 	var choices: Array = message_node.get("choices", [])
