@@ -103,15 +103,23 @@ func _ready() -> void:
 	ui.base_app.maze.hack_concluded.connect(event_handler.hack_handler.on_hack_concluded)
 	# UI asking for minigame
 	ui.base_app.virus_scanner.minigame_request.connect(event_handler.hack_handler.open_minigame)
-	# UI start new day
-	ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
-	ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
-	ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
+	# UI start new day: the day summary hands over to the morning paper, which starts the day
+	ui.day_over_ui.day_over_clicked.connect(ui.day_over_ui.hide_day_over)
+	ui.day_over_ui.day_over_clicked.connect(ui.day_introduction_ui.show_introduction)
+	ui.day_introduction_ui.day_started.connect(event_handler.reset_data_for_new_day)
+	ui.day_introduction_ui.day_started.connect(story_director.reload_and_setup_today)
+	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_home._on_start_new_day)
 	# UI tutorial ended, which has no time passing to end it
 	ui.finish_tutorial_requested.connect(event_handler.end_day)
 	# UI game paused
 	ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
 	ui.day_over_ui.end_game.connect(_on_end_game)
+
+	# A loaded game resumes at the start of its day, already set up by the Story Director:
+	# show that day's introduction again and hold the clock until it is closed
+	clock_timer.stop()
+	ui.day_introduction_ui.preview_closed.connect(clock_timer.start, CONNECT_ONE_SHOT)
+	ui.day_introduction_ui.show_introduction.call_deferred(GameData.current_day)
 #endregion INITIALIZATION
 
 func _process(_delta: float) -> void:
@@ -125,7 +133,7 @@ func _process(_delta: float) -> void:
 			var window_height = window_interface.innerHeight
 			var viewport_height = visual_viewport.height
 
-			if window_height - viewport_height > 50: 
+			if window_height - viewport_height > 50:
 				keyboard_height = window_height - viewport_height
 	# Desktop display servers have no virtual keyboard and warn on every call
 	elif DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):

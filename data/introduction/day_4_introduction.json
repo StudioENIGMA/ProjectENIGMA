@@ -1,0 +1,8 @@
+{
+  "day": 4,
+  "description": "Hoje confira o boleto com atenção. Além das regras anteriores, confira:",
+  "rules": [
+    "— O boleto no Banco deve ser o mesmo do email"
+  ],
+  "footer": "Abra as notas para verificar as regras do dia."
+}
