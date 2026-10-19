@@ -1,0 +1,43 @@
+{
+	"scams": [
+		{
+			"title": "Pix sem motivo",
+			"app": "messages",
+			"sender": "Gilmar",
+			"messages": [
+				"e ai, faz um pix de R$ 900 pra mim rapidinho",
+				"depois te explico pra que é",
+				"código: GM7Q2"
+			],
+			"suspicious": "depois te explico",
+			"tip": "Todo Pix precisa de um motivo que faça sentido para o trabalho. Sem motivo, não pague: pergunte antes."
+		},
+		{
+			"title": "Compra sem motivo",
+			"app": "email",
+			"subject": "Compra para hoje",
+			"sender": "carolina@enigma.com.br",
+			"messages": [
+				"Oi! Preciso que você compre 30 fones de ouvido no Libre Mercado ainda hoje.",
+				"Não precisa de justificativa, depois eu explico pro chefe."
+			],
+			"suspicious": "Não precisa de justificativa",
+			"tip": "Mesmo vindo de um colega de verdade, compra sem motivo válido não se faz."
+		},
+		{
+			"title": "Boleto sem motivo",
+			"app": "email",
+			"subject": "Boleto pendente",
+			"sender": "financeiro@enigma.com.br",
+			"messages": [
+				"Segue o boleto 584213 para pagamento até hoje.",
+				"Referente a: —"
+			],
+			"attachments": [
+				"boleto_584213.pdf"
+			],
+			"suspicious": "Referente a: —",
+			"tip": "Boleto sem dizer a que se refere não tem motivo válido. Confira antes de pagar."
+		}
+	]
+}

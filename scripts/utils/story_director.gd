@@ -14,6 +14,7 @@ enum Lane { MAIN, RANDOM }
 @export var bank_director: Node
 @export var randomness_director: Node
 @export var events_director: Node
+@export var introduction_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -28,6 +29,7 @@ enum Lane { MAIN, RANDOM }
 @export var random_dir_path: String = "res://data/random"
 @export var events_dir_path: String = "res://data/events/events.json"
 @export var rules_dir_path: String = "res://data/rules/rules.json"
+@export var introduction_dir_path: String = "res://data/introduction"
 #endregion CHILDREN NODES REFERENCES
 
 ## Game minutes a chat in progress keeps holding the others while it waits for the player (an
@@ -94,6 +96,7 @@ func reload_and_setup_today() -> void:
 	var random_day_dir_path := random_dir_path.path_join("day_%d" % GameData.current_day)
 	var tasks_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("tasks"))
 	var scams_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("scams"))
+	var introduction_roots := _load_json_roots_from_directory(introduction_dir_path)
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
@@ -116,6 +119,7 @@ func reload_and_setup_today() -> void:
 		rules_array
 	)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
+	introduction_director.setup_from_json_roots(introduction_roots)
 
 	#Update Browser News
 	_on_update_news()
