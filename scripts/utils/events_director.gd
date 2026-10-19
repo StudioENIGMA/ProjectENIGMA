@@ -89,6 +89,11 @@ func _on_event_initiated(event_id: String) -> void:
 	if not events_to_check.has(event_id):
 		events_to_check.append(event_id)
 
+## Whether an event delivered today is still to be done: a task not completed yet, or a scam
+## neither fallen for nor blocked
+func is_event_pending(event_id: String) -> bool:
+	return events_to_check.has(event_id)
+
 func _on_clock_tick() -> void:
 	# Iterates over a copy, completed events are erased from the list meanwhile
 	for event_id in events_to_check.duplicate():
