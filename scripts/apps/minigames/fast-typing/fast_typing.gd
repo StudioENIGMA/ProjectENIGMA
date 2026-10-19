@@ -36,7 +36,8 @@ func _process(_delta: float) -> void:
 
 			if window_height - viewport_height > 50: 
 				keyboard_height = window_height - viewport_height
-	else:
+	# Desktop display servers have no virtual keyboard and warn on every call
+	elif DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
 		keyboard_height = float(DisplayServer.virtual_keyboard_get_height())
 
 	if keyboard_height > 0:
