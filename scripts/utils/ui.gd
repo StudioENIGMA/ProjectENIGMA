@@ -2,6 +2,8 @@ extends Control
 
 #region SIGNALS
 signal message_answered(answer_id:int)
+## Emitted when the player ends the tutorial (day 0), which has no time passing
+signal finish_tutorial_requested()
 #endregion SIGNALS
 
 #region CHILDREN NODES REFERENCES
@@ -12,6 +14,7 @@ signal message_answered(answer_id:int)
 @export var notification_widget:Control
 @export var apps_ui:Control
 @export var pause_game_ui:Control
+@export var finish_tutorial_button:Button
 #endregion CHILDREN NODES REFERENCES
 
 #region INITIALIZATION
@@ -48,4 +51,12 @@ func _ready() -> void:
   notifications_control.visibility_changed.connect(
 	func(): notification_center.set_enabled(notifications_control.is_visible_in_tree())
   )
+
+  # The tutorial has no time passing, the player ends it from this button
+  finish_tutorial_button.visible = GameData.current_day == 0
+  finish_tutorial_button.pressed.connect(_on_finish_tutorial_pressed)
 #endregion INITIALIZATION
+
+func _on_finish_tutorial_pressed() -> void:
+  finish_tutorial_button.hide()
+  finish_tutorial_requested.emit()
