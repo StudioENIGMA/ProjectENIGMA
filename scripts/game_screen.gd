@@ -90,6 +90,8 @@ func _ready() -> void:
 	ui.base_app.discrepancy_reported.connect(events_director.evaluate_report)
 	events_director.report_evaluated.connect(ui.base_app.on_report_evaluated)
 	events_director.scam_blocked.connect(ui.base_app.on_scam_blocked)
+	# Connected after the UI, which takes the conversation's answers away first
+	events_director.scam_blocked.connect(story_director.messages_director.offer_block_and_report)
 	events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
 
 	# UI
