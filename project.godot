@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://fowefagtagic"
 [autoload]
 
 GameData="*res://scripts/singletons/game_data.gd"
+SoundSignals="*uid://dk6hp8mern8ex"
 
 [debug]
 

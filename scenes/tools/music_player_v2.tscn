@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cxedermdt10gv"]
+
+[ext_resource type="Script" uid="uid://cq31wn58midqb" path="res://scripts/utils/sound and music/sound_director_v2.gd" id="1_7b51f"]
+[ext_resource type="Animation" uid="uid://po4ake2nhrg4" path="res://assets/sounds/music/v2/Music.res" id="1_umf4w"]
+[ext_resource type="AudioStream" uid="uid://c6lsmf3sq21ov" path="res://assets/sounds/music/v2/keys_melody_weak.ogg" id="3_7atyq"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umf4w"]
+_data = {
+&"Music": ExtResource("1_umf4w")
+}
+
+[node name="MusicPlayerV2" type="Node" unique_id=789101576 node_paths=PackedStringArray("animation_player", "KeysMelodyWeak", "KeysMelodyMid", "KeysMelodyIntense", "KeysAccompanimentWeak", "KeysAccompanimentMid", "Bass", "BassBridge", "Drums")]
+script = ExtResource("1_7b51f")
+intensity = 10
+animation_player = NodePath("AnimationPlayer")
+KeysMelodyWeak = NodePath("KeysMelody/KeysMelodyWeak")
+KeysMelodyMid = NodePath("KeysMelody/KeysMelodyMid")
+KeysMelodyIntense = NodePath("KeysMelody/KeysMelodyIntense")
+KeysAccompanimentWeak = NodePath("KeysAccompaniment/KeysAccompanimentWeak")
+KeysAccompanimentMid = NodePath("KeysAccompaniment/KeysAccompanimentMid")
+Bass = NodePath("Bass/Bass")
+BassBridge = NodePath("Bass/BassBridge")
+Drums = NodePath("Drums/Drums")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=720953441]
+libraries/ = SubResource("AnimationLibrary_umf4w")
+
+[node name="KeysMelody" type="Node" parent="." unique_id=1020013795]
+
+[node name="KeysMelodyWeak" type="AudioStreamPlayer" parent="KeysMelody" unique_id=934030211]
+stream = ExtResource("3_7atyq")
+
+[node name="KeysMelodyMid" type="AudioStreamPlayer" parent="KeysMelody" unique_id=213752682]
+
+[node name="KeysMelodyIntense" type="AudioStreamPlayer" parent="KeysMelody" unique_id=150723882]
+
+[node name="KeysAccompaniment" type="Node" parent="." unique_id=1993424300]
+
+[node name="KeysAccompanimentWeak" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=1921918717]
+
+[node name="KeysAccompanimentMid" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=40332302]
+
+[node name="Bass" type="Node" parent="." unique_id=1360393060]
+
+[node name="Bass" type="AudioStreamPlayer" parent="Bass" unique_id=1666518347]
+
+[node name="BassBridge" type="AudioStreamPlayer" parent="Bass" unique_id=773901408]
+
+[node name="Drums" type="Node" parent="." unique_id=190592936]
+
+[node name="Drums" type="AudioStreamPlayer" parent="Drums" unique_id=1914932921]
