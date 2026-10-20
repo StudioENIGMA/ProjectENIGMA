@@ -11,6 +11,9 @@ signal day_ended()
 @export var hack_handler:Node2D
 #endregion CHILDREN NODES REFERENCES
 
+## Track if has already applied intensity increase to the end of the day
+var has_intensified_end_of_day : bool = false
+
 #region INITIALIZATION
 ## Initializes the event handler by connecting timers to their respective functions
 func _ready() -> void:
@@ -49,6 +52,11 @@ func _update_in_game_time() -> void:
 
 	if GameData.hours_minutes >= GameData.max_hours_minutes:
 		end_day()
+	elif GameData.hours_minutes > 0.80 * GameData.max_hours_minutes and not has_intensified_end_of_day:
+		# Increase the intensity of the music when the day is ending
+		SoundSignals.increase_music_intensity.emit()
+		SoundSignals.increase_music_intensity.emit()
+		has_intensified_end_of_day = true
 
 	# Increment in-game time by X minutes, X = 1 + number of viruses / 50 as integer
 	var minutes_to_add = 1 + int(GameData.number_of_viruses / 50)
@@ -59,6 +67,12 @@ func _update_in_game_time() -> void:
 ## Ends the day, showing its summary: when the workday is over, or when the player ends the
 ## tutorial from its button
 func end_day() -> void:
+	print("end")
+	# Small intensity boost to provide satisfactory musical sting at day's end
+	SoundSignals.increase_music_intensity.emit()
+	SoundSignals.increase_music_intensity.emit()
+	has_intensified_end_of_day = false
+
 	# Emit the day ended signal to notify other systems
 	day_ended.emit()
 

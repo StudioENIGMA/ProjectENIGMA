@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://brf63k13b8u6p" path="res://scripts/main_menu/new_game_handler.gd" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cat5v86k6gaeu" path="res://scripts/main_menu/load_game_handler.gd" id="4_oa1go"]
 [ext_resource type="Script" uid="uid://8q811jh6p7au" path="res://scripts/main_menu/settings_handler.gd" id="5_tbmy8"]
-[ext_resource type="PackedScene" uid="uid://do2glcjvs4s7j" path="res://scenes/tools/music_player.tscn" id="6_rtw2f"]
 [ext_resource type="Script" uid="uid://vkfy3aw4upiu" path="res://scripts/conscent_panel.gd" id="7_oa1go"]
 [ext_resource type="Script" uid="uid://pm0hm7reoo87" path="res://scripts/confirmation_panel.gd" id="8_tbmy8"]
 [ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="10_5dd4i"]
@@ -14,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://l2hjotfj7twq" path="res://shaders/menu_button.gdshader" id="12_mnbtn"]
 [ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="14_cfm"]
 [ext_resource type="FontFile" uid="uid://ctyaow7x014x1" path="res://assets/fonts/Droid 1997.otf" id="15_droid"]
+[ext_resource type="PackedScene" uid="uid://cxedermdt10gv" path="res://scenes/tools/music_player_v2.tscn" id="16_5pajh"]
 [ext_resource type="Shader" uid="uid://cvysxvx3xn10e" path="res://shaders/menu_button_text.gdshader" id="16_txtsh"]
 [ext_resource type="Script" uid="uid://do5w7m1qcltk4" path="res://scripts/main_menu/menu_button_label.gd" id="17_lbl"]
 
@@ -369,8 +369,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("17_lbl")
 
-[node name="MusicPlayer" parent="." unique_id=176206279 instance=ExtResource("6_rtw2f")]
-
 [node name="ConscentPanel" type="PanelContainer" parent="." unique_id=267683509 node_paths=PackedStringArray("conscent_button")]
 visible = false
 layout_mode = 1
@@ -564,6 +562,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
 text = "Fechar"
+
+[node name="MusicPlayerV2" parent="." unique_id=789101576 instance=ExtResource("16_5pajh")]
+intensity = 1
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]

@@ -12,11 +12,24 @@ extends Control
 @export var clock_timer: Timer
 #endregion CHILDREN NODES REFERENCES
 
+@export var intensity_reduction_interval_secs : float
+var intensity_reduction_timer : Timer
+
 @onready var base_window_height : int = int(ProjectSettings.get_setting("display/window/size/viewport_height"))
 
 #region INITIALIZATION
 ## Setup signal connections to redirect events to each app
 func _ready() -> void:
+	# Setup cooldown timer for music
+	intensity_reduction_timer = Timer.new()
+	intensity_reduction_timer.wait_time = intensity_reduction_interval_secs
+	intensity_reduction_timer.autostart = true
+	intensity_reduction_timer.one_shot = false
+	intensity_reduction_timer.timeout.connect(_on_intensity_reduction_timer_timeout)
+	self.add_child(intensity_reduction_timer)
+	intensity_reduction_timer.start()
+	SoundSignals.increase_music_intensity.connect(_reset_intensity_reduction_timer)
+
 	# Set timer according to the difficulty level
 	clock_timer.wait_time = GameData.clock_tick_interval
 	var difficulty_changer = ui.pause_game_ui.difficulty_changer
@@ -180,3 +193,11 @@ func _update_blur() -> void:
 func _on_end_game() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0) # 1 second fade
+
+
+func _reset_intensity_reduction_timer():
+	intensity_reduction_timer.start()
+
+func _on_intensity_reduction_timer_timeout():
+	SoundSignals.decrease_music_intensity.emit()
+	SoundSignals.decrease_music_intensity.emit()

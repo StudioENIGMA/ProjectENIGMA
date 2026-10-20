@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
 [ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="1_8e4ax"]
 [ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
-[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="PackedScene" uid="uid://cxedermdt10gv" path="res://scenes/tools/music_player_v2.tscn" id="2_040sx"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
@@ -74,12 +74,6 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
-shader = ExtResource("35_frosted")
-shader_parameter/blur_radius = 40.0
-shader_parameter/blur_lod = 3.0
-shader_parameter/tint = Color(0.101960786, 0.1254902, 0.2, 0.9)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dayover_button"]
 bg_color = Color(1, 1, 0.972549, 0.1)
 border_width_left = 1
@@ -105,6 +99,12 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dayover_focus"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dayover_blur"]
+shader = ExtResource("35_frosted")
+shader_parameter/blur_radius = 40.0
+shader_parameter/blur_lod = 3.0
+shader_parameter/tint = Color(0.101960786, 0.1254902, 0.2, 0.9)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0pff"]
 content_margin_left = 30.0
@@ -503,6 +503,10 @@ event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
+intensity_reduction_interval_secs = 15.0
+
+[node name="MusicPlayerV2" parent="." unique_id=789101576 instance=ExtResource("2_040sx")]
+intensity = 5
 
 [node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "day_introduction_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui", "finish_tutorial_button")]
 layout_mode = 1
@@ -545,11 +549,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_3a7ej")
 expand_mode = 1
-
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
-stream = ExtResource("2_bd51b")
-autoplay = true
-bus = &"Music"
 
 [node name="PauseContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=1437380376]
 layout_mode = 0
@@ -945,7 +944,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dayover_button_active")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dayover_focus")
 text = "Iniciar Dia 1"
 
-[node name="DayIntroductionUI" parent="UI" instance=ExtResource("13_dayintro")]
+[node name="DayIntroductionUI" parent="UI" unique_id=1586656065 instance=ExtResource("13_dayintro")]
 visible = false
 layout_mode = 1
 

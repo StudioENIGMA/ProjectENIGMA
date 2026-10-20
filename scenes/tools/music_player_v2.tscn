@@ -11,7 +11,6 @@ _data = {
 
 [node name="MusicPlayerV2" type="Node" unique_id=789101576 node_paths=PackedStringArray("animation_player", "KeysMelodyWeak", "KeysMelodyMid", "KeysMelodyIntense", "KeysAccompanimentWeak", "KeysAccompanimentMid", "Bass", "BassBridge", "Drums")]
 script = ExtResource("1_7b51f")
-intensity = 10
 animation_player = NodePath("AnimationPlayer")
 KeysMelodyWeak = NodePath("KeysMelody/KeysMelodyWeak")
 KeysMelodyMid = NodePath("KeysMelody/KeysMelodyMid")
@@ -21,6 +20,7 @@ KeysAccompanimentMid = NodePath("KeysAccompaniment/KeysAccompanimentMid")
 Bass = NodePath("Bass/Bass")
 BassBridge = NodePath("Bass/BassBridge")
 Drums = NodePath("Drums/Drums")
+bridge_cooldown_time = 120.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=720953441]
 libraries/ = SubResource("AnimationLibrary_umf4w")
