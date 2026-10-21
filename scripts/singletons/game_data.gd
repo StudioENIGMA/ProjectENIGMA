@@ -57,6 +57,8 @@ enum App {
 	NOTES,
 	# Order document, opened from an email attachment (kept last: scenes store App values)
 	ORDERDOCUMENT,
+	# Conversations of the days gone by (Messages app), after the others for the same reason
+	MESSAGESHISTORY,
 }
 
 enum HackMinigame {
@@ -86,6 +88,12 @@ class ShoppingInfo:
 		shopping_cart.clear()
 		total_price = 0
 		is_order_opened = false
+
+class Introduction:
+	var day: int
+	var description: String
+	var rules: Array[String]
+	var footer: String
 
 var shops_names = {
 	App.BROWSERAMAZONIASHOP: "Amazônia",
@@ -127,7 +135,6 @@ var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
 var max_hours_minutes:int = 1080 # End at 18:00
-var max_hours_minutes_tutorial:int = 720 # End at 12:00
 var current_day:int = 0
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
@@ -160,7 +167,12 @@ var blocked_conversations: Array = []
 var blocked_payment_codes: Array = []
 
 var saved_messages_conversations: Array[Dictionary] = []
+## Conversations of the days gone by, read-only in the Messages history, oldest day first
+## {"day": int, "date_dict": Dictionary, "conversations": Array[Dictionary]}
+var saved_messages_history: Array = []
 var saved_email_threads: Array = []
+
+var introductions: Array[Introduction] = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -430,6 +442,7 @@ func save_game() -> void:
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
 		"saved_messages_conversations": saved_messages_conversations,
+		"saved_messages_history": saved_messages_history,
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
@@ -491,6 +504,11 @@ func load_game() -> void:
 	for saved_conversation in raw_saved_conversations:
 		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
 		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_history: Array = game_state.get("saved_messages_history", [])
+	saved_messages_history.clear()
+	for saved_day in raw_saved_history:
+		saved_messages_history.append(saved_day.duplicate(true))
 
 	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
 	saved_email_threads.clear()

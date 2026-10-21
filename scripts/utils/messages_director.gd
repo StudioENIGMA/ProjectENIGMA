@@ -19,7 +19,20 @@ signal npc_message_sent(
 	sender: GameData.Sender,
 	time: int
 )
+## Emitted when a conversation has nothing left to say (no next message and no answer to wait
+## for), so the other chats can go on
+signal conversation_finished(conversation_id: String)
 #endregion SIGNALS
+
+#region CONSTANTS
+## Offered in a conversation once the player finds a discrepancy in it, the same choice the
+## unknown number (fake_store_1) offers in its own data
+const BLOCK_AND_REPORT_CHOICE := {
+	"id": "block_and_report",
+	"player_text": "Bloquear e Denunciar",
+	"event_id": "block_and_report",
+}
+#endregion CONSTANTS
 
 #region CHILDREN NODES REFERENCES
 @export var answers_director: Node2D
@@ -27,6 +40,8 @@ signal npc_message_sent(
 
 #region STATE
 var conversations_by_id: Dictionary = {}
+## Changes on every setup (a new day), so a message still being typed when the day ends is dropped
+var setup_count: int = 0
 #endregion STATE
 
 #region SETUP
@@ -37,6 +52,7 @@ func _ready() -> void:
 ## Sets up conversations from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
 	conversations_by_id.clear()
+	setup_count += 1
 
 	for root in json_roots:
 		_register_conversations_from_root(root)
@@ -116,11 +132,18 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 
 	# A conversation reported as a scam goes no further
 	if GameData.blocked_conversations.has(conversation_id):
+		conversation_finished.emit(conversation_id)
 		return
 
-	var conversation: Dictionary = conversations_by_id[conversation_id]
+	var conversation: Dictionary = conversations_by_id.get(conversation_id, {})
 	var branches: Dictionary = conversation.get("branches", {})
 	var branch_nodes: Array = branches.get(branch, [])
+
+	# A random event naming a conversation or branch that does not exist must not hold the others
+	if node_index >= branch_nodes.size():
+		push_error("No message %d in branch '%s' of '%s'" % [node_index, branch, conversation_id])
+		conversation_finished.emit(conversation_id)
+		return
 
 	var message_node: Dictionary = branch_nodes[node_index]
 	var contact := _get_contact(conversation_id)
@@ -129,18 +152,25 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	npc_message_created.emit(contact)
 
 	## Await animation time
+	var setup_at_delivery := setup_count
 	var wait_time: float = GameData.get_human_typing_time(message_node.get("text", ""))
 	await  get_tree().create_timer(wait_time).timeout
+	# The day ended while the NPC was typing (the tutorial can be ended at any moment)
+	if setup_count != setup_at_delivery:
+		return
 
+	# Sent at the time on the clock, which does not move in the tutorial
 	npc_message_sent.emit(
 		contact,
 		message_node.get("text", ""),
 		message_node.get("annex", {}),
 		GameData.Sender.NPC,
-		current_minutes + wait_time
+		GameData.hours_minutes
 	)
 
 	await  get_tree().create_timer(1).timeout
+	if setup_count != setup_at_delivery:
+		return
 
 	# Handle choices if any
 	var choices: Array = message_node.get("choices", [])
@@ -154,21 +184,26 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 
 	# Schedule next node if any
 	var next_index := node_index + 1
-	if next_index < branch_nodes.size():
-		var delay_minutes = message_node.get("delay_minutes", 2) # Default delay
+	if next_index >= branch_nodes.size():
+		conversation_finished.emit(conversation_id)
+		return
 
-		var next_node_requires := _get_node_requires(conversation, branch, next_index)
+	var delay_minutes = message_node.get("delay_minutes", 2) # Default delay
 
-		var event_id := _get_event_id(conversation, branch, next_index)
+	var next_node_requires := _get_node_requires(conversation, branch, next_index)
 
-		schedule_entry_requested.emit({
-			"conversation_id": conversation_id,
-			"branch": branch,
-			"index": next_index,
-			"due_at": current_minutes + delay_minutes,
-			"requires": next_node_requires,
-			"event_id": event_id
-		})
+	var event_id := _get_event_id(conversation, branch, next_index)
+
+	schedule_entry_requested.emit({
+		"conversation_id": conversation_id,
+		"branch": branch,
+		"index": next_index,
+		"due_at": current_minutes + delay_minutes,
+		"requires": next_node_requires,
+		"event_id": event_id,
+		# Keeps the conversation in progress, see StoryDirector
+		"continues": true,
+	})
 #endregion DELIVERY
 
 #region ANSWERS
@@ -197,11 +232,34 @@ func _on_answer_committed(
 				"index": 0,
 				"due_at": int(GameData.hours_minutes) + delay_minutes,
 				"requires": first_node_requires,
+				"continues": true,
 			})
 			return
+
+	# No NPC reply to the answer, the conversation is over
+	conversation_finished.emit(conversation_id)
+
+## Offers "Bloquear e Denunciar" in each conversation of a scam the player found a discrepancy
+## in, in place of the answers it had (connected after the UI takes those away)
+func offer_block_and_report(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		conversation_id = str(conversation_id)
+		if not conversations_by_id.has(conversation_id):
+			continue
+		answers_director.forget_answers(conversation_id)
+		answers_director.present_choices(
+			_get_contact(conversation_id),
+			[BLOCK_AND_REPORT_CHOICE.duplicate()],
+			GameData.hours_minutes
+		)
 #endregion ANSWERS
 
 #region HELPERS
+## Whether a conversation registered has a branch with at least one message
+func has_branch(conversation_id: String, branch: String) -> bool:
+	var conversation: Dictionary = conversations_by_id.get(conversation_id, {})
+	return not conversation.get("branches", {}).get(branch, []).is_empty()
+
 ## Builds the contact a conversation is shown as on the phone
 ##
 ## "id" is the conversation_id, which is what the UI tells conversations apart by, so two

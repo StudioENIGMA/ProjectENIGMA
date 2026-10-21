@@ -3,6 +3,10 @@ extends Node2D
 signal news_ready(day_news_data: Dictionary)
 signal update_news
 
+## Lanes of the story queue. Whenever no chat is in progress the main characters (the bosses of
+## the company) go first, then the random employees asking the intern for help, by message or email
+enum Lane { MAIN, RANDOM }
+
 #region CHILDREN NODES REFERENCES
 @export var messages_director: Node
 @export var emails_director: Node
@@ -10,6 +14,7 @@ signal update_news
 @export var bank_director: Node
 @export var randomness_director: Node
 @export var events_director: Node
+@export var introduction_director: Node
 
 @export var ui: Control
 @export var event_handler: Node2D
@@ -24,17 +29,38 @@ signal update_news
 @export var random_dir_path: String = "res://data/random"
 @export var events_dir_path: String = "res://data/events/events.json"
 @export var rules_dir_path: String = "res://data/rules/rules.json"
+@export var introduction_dir_path: String = "res://data/introduction"
 #endregion CHILDREN NODES REFERENCES
 
+## Game minutes a chat in progress keeps holding the others while it waits for the player (an
+## answer, an email to be read) with nothing else queued. 0 holds them for as long as it takes
+@export var lock_timeout_minutes: int = 60
+
 #region QUEUE STATE
-# Unified queue for all apps that deliver story content over time
-# {"channel":String, "due_at":int, "seq":int, "requires":Array, "payload":Dictionary}
-var story_queue: Array[Dictionary] = []
+# One queue per lane for all apps that deliver story content over time
+# {"channel":String, "owner":String, "lane":Lane, "continues":bool, "due_at":int, "seq":int,
+#  "requires":Array, "payload":Dictionary}
+var main_queue: Array[Dictionary] = []
+var random_queue: Array[Dictionary] = []
 var story_enqueue_seq: int = 0
 
 # Maps channel name to director node
 var channel_director_by_name: Dictionary = {}
 #endregion QUEUE STATE
+
+#region LOCK STATE
+## Chat in progress ("messages:<conversation_id>" or "emails:<thread_id>"), empty when none.
+## Until it ends only its own next messages are delivered, every other chat waits
+var active_owner: String = ""
+## Event of the random task in progress, which holds the others until it is done
+var active_event_id: String = ""
+## Whether the chat in progress said everything and only its event is left to be done
+var active_chat_done: bool = false
+## Last minute the chat in progress was delivered or got its next message queued
+var lock_last_activity: int = 0
+## Lane each chat was last delivered in, so its next messages stay in it
+var lane_by_owner: Dictionary = {}
+#endregion LOCK STATE
 
 #region INITIALIZATION
 ## Creates channel_director_by_name and connects to their schedule_entry_requested signals.
@@ -46,8 +72,13 @@ func _ready() -> void:
 
 	messages_director.schedule_entry_requested.connect(_on_messages_schedule_entry_requested)
 	emails_director.schedule_entry_requested.connect(_on_emails_schedule_entry_requested)
-	randomness_director.schedule_message.connect(_on_messages_schedule_entry_requested)
-	randomness_director.schedule_email.connect(_on_emails_schedule_entry_requested)
+	# Random messages and emails share the random lane, one in progress holds the other
+	randomness_director.schedule_message.connect(_on_random_message_requested)
+	randomness_director.schedule_email.connect(_on_random_email_requested)
+
+	messages_director.conversation_finished.connect(_on_conversation_finished)
+	emails_director.thread_finished.connect(_on_thread_finished)
+	events_director.scam_blocked.connect(_on_scam_blocked)
 
 	reload_and_setup_today()
 #endregion INITIALIZATION
@@ -65,6 +96,7 @@ func reload_and_setup_today() -> void:
 	var random_day_dir_path := random_dir_path.path_join("day_%d" % GameData.current_day)
 	var tasks_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("tasks"))
 	var scams_roots := _load_json_roots_from_directory(random_day_dir_path.path_join("scams"))
+	var introduction_roots := _load_json_roots_from_directory(introduction_dir_path)
 
 	# Load JSON file from file path
 	var reviews_array := _read_json_array(reviews_dir_path)
@@ -81,12 +113,39 @@ func reload_and_setup_today() -> void:
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	randomness_director.setup_from_json_roots(
-		tasks_roots, scams_roots, events_dictionary, rules_array
+		_drop_missing_random_events(tasks_roots),
+		_drop_missing_random_events(scams_roots),
+		events_dictionary,
+		rules_array
 	)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
+	introduction_director.setup_from_json_roots(introduction_roots)
 
 	#Update Browser News
 	_on_update_news()
+
+## Leaves out the random events naming a conversation branch or an email that does not exist,
+## they could never be done and would hold the random lane until the timeout
+func _drop_missing_random_events(roots: Array) -> Array:
+	var existing_events: Array = []
+	for root in roots:
+		for event in root:
+			var exists: bool
+			if event.has("email_id"):
+				exists = emails_director.has_email(
+					str(event.get("thread_id")), str(event.get("email_id"))
+				)
+			else:
+				exists = messages_director.has_branch(
+					str(event.get("conversation_id")), str(event.get("branch"))
+				)
+			if exists:
+				existing_events.append(event)
+			else:
+				push_error("Random event of day %d not found in the data: %s" % [
+					GameData.current_day, event
+				])
+	return [existing_events]
 #endregion SETUP FLOW
 
 #region SIGNAL HANDLERS
@@ -98,13 +157,61 @@ func _on_messages_schedule_entry_requested(schedule_entry: Dictionary) -> void:
 func _on_emails_schedule_entry_requested(schedule_entry: Dictionary) -> void:
 	_enqueue_story_entry("emails", schedule_entry)
 
-## Enqueues a story entry into the unified story queue
-func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> void:
+## Handles schedule_message from randomness director
+func _on_random_message_requested(schedule_entry: Dictionary) -> void:
+	_enqueue_story_entry("messages", schedule_entry, Lane.RANDOM)
+
+## Handles schedule_email from randomness director
+func _on_random_email_requested(schedule_entry: Dictionary) -> void:
+	_enqueue_story_entry("emails", schedule_entry, Lane.RANDOM)
+
+## Handles conversation_finished from messages director: the NPC has nothing left to say
+func _on_conversation_finished(conversation_id: String) -> void:
+	_on_chat_done(_get_owner("messages", conversation_id))
+
+## Handles thread_finished from email director: the player read the email
+func _on_thread_finished(thread_id: String) -> void:
+	_on_chat_done(_get_owner("emails", thread_id))
+
+## The chat said everything: it stops holding the others, unless it is a random task still to be
+## done (a purchase, a payment...), see _should_release_lock()
+func _on_chat_done(owner: String) -> void:
+	if active_owner != owner:
+		return
+	active_chat_done = true
+	if not events_director.is_event_pending(active_event_id):
+		_release_lock()
+
+## Handles scam_blocked from events director: a blocked conversation goes no further, so its
+## queued messages are dropped and it stops holding the other chats
+func _on_scam_blocked(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		var owner := _get_owner("messages", str(conversation_id))
+		if active_owner == owner:
+			_release_lock()
+		for queue in [main_queue, random_queue]:
+			for entry_index in range(queue.size() - 1, -1, -1):
+				if queue[entry_index]["owner"] == owner:
+					queue.remove_at(entry_index)
+
+## Enqueues a story entry into the queue of its lane
+##
+## lane: Lane.RANDOM for random events. Left out, the entry goes in the lane its chat was last
+## delivered in, the main one for a chat not delivered yet
+func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary, lane: int = -1) -> void:
 	var due_at := int(schedule_entry["due_at"])
 	var requires: Array = schedule_entry.get("requires", [])
+	var chat_id_key := "conversation_id" if channel_name == "messages" else "thread_id"
+	var owner := _get_owner(channel_name, str(schedule_entry.get(chat_id_key, "")))
+	if lane == -1:
+		lane = lane_by_owner.get(owner, Lane.MAIN)
 
 	var story_entry: Dictionary = {
 		"channel": channel_name,
+		"owner": owner,
+		"lane": lane,
+		# Next message of a chat already delivered, rather than a new chat (or branch) to start
+		"continues": bool(schedule_entry.get("continues", false)),
 		"due_at": due_at,
 		"seq": story_enqueue_seq,
 		"requires": requires,
@@ -112,80 +219,162 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary) -> v
 	}
 
 	story_enqueue_seq += 1
-	_insert_story_entry_sorted(story_entry)
+	_insert_story_entry_sorted(_get_queue(lane), story_entry)
+
+	# The NPC replying keeps its chat in progress
+	if owner == active_owner:
+		lock_last_activity = int(GameData.hours_minutes)
 #endregion SIGNAL HANDLERS
 
 #region CLOCK
 ## Called by Clock every tick to process due story entries
+##
+## Delivers at most one entry per tick. While a chat is in progress only its own next messages
+## are delivered and every other chat, messages or emails, waits for it to end. With no chat in
+## progress the main lane goes first and the random lane after it, which gets its next random
+## event right then, so they come one after another.
 func on_clock_tick(current_minutes: int) -> void:
-	randomness_director._on_clock_tick()
 	events_director._on_clock_tick()
+	emails_director._on_clock_tick()
 
-	# If no entries, nothing to do
-	if story_queue.is_empty():
+	if active_owner != "" and not _should_release_lock(current_minutes):
+		for queue in [main_queue, random_queue]:
+			if _deliver_first_ready(queue, current_minutes, active_owner):
+				return
 		return
 
-	# Check the head of the queue (ordered, so earliest due_at first)
-	var head := story_queue[0]
-	if current_minutes < int(head["due_at"]):
-		return # If the head is not due, nothing to do
+	_release_lock()
+	if _deliver_first_ready(main_queue, current_minutes):
+		return
 
-	# If due, check all entries in order until we find one that can be delivered
-	# or we run out of due entries.
-	# The reason to do this is that some entries may be blocked by unmet requirements
-	# and we want to skip them for now, checking only the head would cause a head-of-line blocking.
+	# The next random event is picked only once the last one picked was delivered
+	var has_random_to_start := random_queue.any(
+		func(story_entry: Dictionary) -> bool: return not story_entry["continues"]
+	)
+	if not has_random_to_start:
+		randomness_director.schedule_next_event(current_minutes)
+	_deliver_first_ready(random_queue, current_minutes)
 
-	# Deliver at most one per tick
-	var entry_index := 0
-	while entry_index < story_queue.size():
-		var story_entry := story_queue[entry_index]
+## Whether the chat in progress gives its turn away
+##
+## A main chat gives it away once its next message waits on something done outside the chat (a
+## purchase, a payment...). A random task holds it until done: its waiting message comes, or its
+## event is completed or blocked. Waiting on the player (an answer, an email to be read, a task)
+## holds it for lock_timeout_minutes at most, so a scam the player refuses does not hold forever.
+func _should_release_lock(current_minutes: int) -> bool:
+	var is_timed_out := lock_timeout_minutes > 0 \
+		and current_minutes - lock_last_activity >= lock_timeout_minutes
 
-		# If we reached an entry not yet due, stop checking
-		if current_minutes < int(story_entry["due_at"]):
-			return
+	# A random task that said everything, waiting for the player to do it
+	if active_chat_done:
+		return is_timed_out or not events_director.is_event_pending(active_event_id)
 
-		# If due, check requirements
-		if not _requirements_met(story_entry.get("requires", [])):
-			# Requeue blocked entry for next tick
-			story_entry["due_at"] = current_minutes + 1
-			story_queue.remove_at(entry_index)
-			_insert_story_entry_sorted(story_entry)
-			return
+	for queue in [main_queue, random_queue]:
+		for story_entry in queue:
+			if story_entry["owner"] != active_owner or not story_entry["continues"]:
+				continue
+			var is_due := _is_due(story_entry, current_minutes)
+			if not is_due or _requirements_met(story_entry["requires"]):
+				return false
+			# Its next message waits on something done outside the chat
+			return story_entry["lane"] == Lane.MAIN or is_timed_out
 
-		# If ready remove from queue + call down into the right controller
-		story_queue.remove_at(entry_index)
-		var channel_name := str(story_entry["channel"])
-		var controller: Node = channel_director_by_name[channel_name]
-		events_director._on_event_initiated(story_entry["payload"].get("event_id", ""))
-		controller.deliver_scheduled_entry(story_entry["payload"], current_minutes)
-		return # Only one delivery per tick
+	# Nothing queued: the NPC is typing, or it waits for an answer or for the email to be read
+	return is_timed_out
+
+## Delivers the first due entry of the queue whose requirements are met, returning whether it did
+##
+## owner: When given, only the next messages of that chat are delivered
+func _deliver_first_ready(
+	queue: Array[Dictionary], current_minutes: int, owner: String = ""
+) -> bool:
+	for entry_index in range(queue.size()):
+		var story_entry := queue[entry_index]
+
+		# Ordered by due_at, so no entry after this one is due either
+		if not _is_due(story_entry, current_minutes):
+			return false
+
+		if owner != "" and (story_entry["owner"] != owner or not story_entry["continues"]):
+			continue
+
+		# Entries blocked by unmet requirements are skipped for now, checking only the head would
+		# cause a head-of-line blocking
+		if not _requirements_met(story_entry["requires"]):
+			continue
+
+		queue.remove_at(entry_index)
+		_deliver(story_entry, current_minutes)
+		return true
+
+	return false
+
+## Whether an entry is due. The tutorial (day 0) has no time passing, so its entries come one
+## after another, in the order of their due times, as each chat in progress ends
+func _is_due(story_entry: Dictionary, current_minutes: int) -> bool:
+	return GameData.current_day == 0 or current_minutes >= int(story_entry["due_at"])
+
+## Puts the chat of the entry in progress and calls down into the right controller
+func _deliver(story_entry: Dictionary, current_minutes: int) -> void:
+	var payload: Dictionary = story_entry["payload"]
+	var event_id := str(payload.get("event_id", ""))
+
+	# Set before delivering, as a delivery may end its chat right away
+	var is_same_chat: bool = story_entry["owner"] == active_owner and story_entry["continues"]
+	active_owner = story_entry["owner"]
+	active_chat_done = false
+	lock_last_activity = current_minutes
+	lane_by_owner[active_owner] = story_entry["lane"]
+	# The event a random task waits on comes with its first message
+	if not is_same_chat:
+		active_event_id = event_id if story_entry["lane"] == Lane.RANDOM else ""
+
+	var controller: Node = channel_director_by_name[story_entry["channel"]]
+	events_director._on_event_initiated(event_id)
+	controller.deliver_scheduled_entry(payload, current_minutes)
+
+## Lets every other chat go on
+func _release_lock() -> void:
+	active_owner = ""
+	active_event_id = ""
+	active_chat_done = false
 #endregion CLOCK
 
 #region QUEUE OPS
-## Clears the story queue and resets sequence counter
+## Clears the story queues, the chat in progress and resets sequence counter
 func _clear_story_queue() -> void:
-	story_queue.clear()
+	main_queue.clear()
+	random_queue.clear()
 	story_enqueue_seq = 0
+	_release_lock()
+	lane_by_owner.clear()
 
-## Inserts a story entry into the story queue maintaining order by due_at and seq
+## Inserts a story entry into a story queue maintaining order by due_at and seq
 ## This allows FIFO ordering for entries with the same due_at
-func _insert_story_entry_sorted(story_entry: Dictionary) -> void:
+func _insert_story_entry_sorted(queue: Array[Dictionary], story_entry: Dictionary) -> void:
 	var due_at := int(story_entry["due_at"])
 	var seq := int(story_entry["seq"])
 
-	for index in range(story_queue.size()):
-		var existing := story_queue[index]
+	for index in range(queue.size()):
+		var existing := queue[index]
 		var existing_due := int(existing["due_at"])
 
 		if existing_due > due_at:
-			story_queue.insert(index, story_entry)
+			queue.insert(index, story_entry)
 			return
 
 		if existing_due == due_at and int(existing["seq"]) > seq:
-			story_queue.insert(index, story_entry)
+			queue.insert(index, story_entry)
 			return
 
-	story_queue.append(story_entry)
+	queue.append(story_entry)
+
+func _get_queue(lane: int) -> Array[Dictionary]:
+	return random_queue if lane == Lane.RANDOM else main_queue
+
+## Key of the chat (a conversation or an email thread) a story entry belongs to
+func _get_owner(channel_name: String, chat_id: String) -> String:
+	return "%s:%s" % [channel_name, chat_id]
 #endregion QUEUE OPS
 
 #region JSON LOADING
