@@ -1,12 +1,37 @@
 [
 	{
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
+		"conversation_id": "carolina_1",
+		"branch": "task0_carolina",
 		"required_app": "browser"
 	},
 	{
-		"conversation_id": "carla_1",
-		"branch": "d3_hello",
+		"conversation_id": "carolina_1",
+		"branch": "task1_carolina",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "carolina_1",
+		"branch": "task2_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "carolina_1",
+		"branch": "task3_carolina",
 		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "negativa_1",
+		"branch": "task0_negativa",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "negativa_1",
+		"branch": "task1_negativa",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "negativa_1",
+		"branch": "task2_negativa",
+		"required_app": "Bank"
 	}
 ]

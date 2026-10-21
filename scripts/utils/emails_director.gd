@@ -64,8 +64,17 @@ func has_email(thread_id: String, email_id: String) -> bool:
 func get_sender(thread_id: String, email_id: String) -> String:
 	for email in emails_by_id.get(thread_id, []):
 		if email.get("email_id") == email_id:
-			return str(email.get("sender", ""))
+			return str(email.get("sender", "")).strip_edges()
 	return ""
+
+## Emails the story sends on a day, the random ones have no day of their own
+func get_emails_of_day(day: int) -> Array:
+	var emails: Array = []
+	for thread in emails_by_id.values():
+		for email in thread:
+			if email.has("day") and int(email["day"]) == day:
+				emails.append(email)
+	return emails
 #endregion REGISTER EMAILS
 
 #region SCHEDULING TODAY

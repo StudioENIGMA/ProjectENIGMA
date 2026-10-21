@@ -119,7 +119,7 @@ func reload_and_setup_today() -> void:
 		events_dictionary,
 		rules_array
 	)
-	_publish_trusted_senders(task_roots[0])
+	_publish_trusted_senders(task_roots[0], events_dictionary)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
 	introduction_director.setup_from_json_roots(introduction_roots)
 
@@ -129,7 +129,8 @@ func reload_and_setup_today() -> void:
 ## Tells the Notes who sends the random tasks of today: anyone else asking for something is a scam
 ##
 ## task_events: The random tasks of today, as data/random/day_<n>/tasks lists them
-func _publish_trusted_senders(task_events: Array) -> void:
+## events: Every event of data/events/events.json
+func _publish_trusted_senders(task_events: Array, events: Dictionary) -> void:
 	var senders: Array[Dictionary] = []
 	for event in task_events:
 		var sender: Dictionary
@@ -145,6 +146,15 @@ func _publish_trusted_senders(task_events: Array) -> void:
 				"verified": contact["verified"],
 			}
 		# A sender with many tasks in the pool is listed once
+		if not senders.has(sender):
+			senders.append(sender)
+
+	# Neither are the emails the story sends today that are not scams (an invoice, a recovery code)
+	for email in emails_director.get_emails_of_day(GameData.current_day):
+		var event: Dictionary = events.get(str(email.get("event_id", "")), {})
+		if event.get("type", "") == "scam":
+			continue
+		var sender := {"email": str(email.get("sender", "")).strip_edges()}
 		if not senders.has(sender):
 			senders.append(sender)
 	GameData.trusted_senders_today = senders
