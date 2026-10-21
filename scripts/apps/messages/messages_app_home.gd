@@ -6,13 +6,25 @@ const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_
 ## Prefix of the id given to conversations of saves made before conversations had ids
 const LEGACY_ID_PREFIX = "legacy:"
 
+## Hint of the empty state when the conversations of the days gone by are in the history
+const EMPTY_HINT_WITH_HISTORY = (
+	"As mensagens de hoje vão aparecer aqui. As dos dias anteriores ficam no Histórico."
+)
+
 @export var list_of_chats:VBoxContainer
 @export var empty_state:CenterContainer
+@export var empty_state_hint:Label
+## Opens the conversations of the days gone by, on top of the list
+@export var history_row:Control
 
 var conversations_data:Array[Dictionary]
+## Hint the empty state comes with, shown while there is no history yet
+var _empty_hint_without_history:String
 
 func _ready() -> void:
+	_empty_hint_without_history = empty_state_hint.text
 	self.visibility_changed.connect(_refresh_empty_state)
+	history_row.open_requested.connect(_on_open_history)
 	load_conversations(GameData.saved_messages_conversations)
 
 ## Handles the player's answer to an NPC's message
@@ -136,10 +148,54 @@ func on_delete_answers(conversation_id:String) -> void:
 	_update_list_of_chats(idx)
 	_sync_conversations_to_game_data()
 
+## Every day starts with an empty list: the conversations of the day that ended go to the history
 func _on_start_new_day() -> void:
+	# The day is counted when the next one is set, so the one that ended is the one before
+	_archive_conversations(GameData.current_day - 1)
+
+## Moves every conversation into the history as the conversations of a day gone by
+##
+## day: The day the conversations belong to
+func _archive_conversations(day:int) -> void:
+	if conversations_data.is_empty():
+		return
+
+	var archived_conversations:Array[Dictionary] = []
 	for conversation in conversations_data:
-		conversation["options"].clear()
+		var archived_conversation:Dictionary = conversation.duplicate(true)
+		# The day is over: nothing is left to answer nor to read as new
+		archived_conversation["options"] = []
+		archived_conversation["notification_count"] = 0
+		archived_conversations.append(archived_conversation)
+
+	GameData.saved_messages_history.append({
+		"day": day,
+		"date_dict": conversations_data[0]["messages"].back().get("date_dict", {}),
+		"conversations": archived_conversations,
+	})
+
+	conversations_data.clear()
+	for child in list_of_chats.get_children():
+		child.queue_free()
 	_sync_conversations_to_game_data()
+	_refresh_empty_state()
+
+## Marks how the scam of a conversation ended, so the history shows it
+##
+## conversation_id: The conversation of the scam
+## outcome: "fallen" when the player fell for it, "reported" when the player found it
+func mark_outcome(conversation_id:String, outcome:String) -> void:
+	var idx = _find_conversation(conversation_id)
+	if idx == -1:
+		return
+	# Falling for it is what the player has to learn from, a late report does not hide it
+	if conversations_data[idx].get("outcome", "") == "fallen":
+		return
+	conversations_data[idx]["outcome"] = outcome
+	_sync_conversations_to_game_data()
+
+func _on_open_history() -> void:
+	subscreen_open_requested.emit(GameData.App.MESSAGESHISTORY, {})
 
 func _sync_conversations_to_game_data() -> void:
 	GameData.saved_messages_conversations = conversations_data.duplicate(true)
@@ -178,9 +234,15 @@ func on_delete_conversation(conversation_id: String) -> void:
 
 	_refresh_empty_state()
 
-## Keeps the empty state in sync with the list
+## Keeps the empty state and the history row in sync with the list
 func _refresh_empty_state() -> void:
+	var has_history:bool = not GameData.saved_messages_history.is_empty()
 	empty_state.visible = conversations_data.is_empty()
+	empty_state_hint.text = EMPTY_HINT_WITH_HISTORY if has_history else _empty_hint_without_history
+
+	history_row.visible = has_history
+	if has_history:
+		history_row.setup(GameData.saved_messages_history)
 
 ## Position of a conversation in conversations_data, -1 when there is none
 ##

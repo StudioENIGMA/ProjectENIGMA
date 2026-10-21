@@ -3032,7 +3032,7 @@
 			}
 		]
 	},
-	"scam_carla_d5": {
+	"scam0_carla2": {
 		"type": "scam",
 		"description": "Carla falsa pediu seu código Blade",
 		"requires": [
