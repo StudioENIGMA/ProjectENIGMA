@@ -2,16 +2,8 @@
 	"conversation_id": "carla_2",
 	"contact_name": "Carla",
 	"account": "@carla.financeiro",
-	"entry_points": [
-		{
-			"day": 5,
-			"relative_due_time": 120,
-			"branch": "d5_start",
-			"event_id": "scam_carla_d5"
-		}
-	],
 	"branches": {
-		"d5_start": [
+		"scam0_carla2": [
 			{
 				"id": "carla2_d5_0",
 				"text": "Ei, preciso da sua ajuda 😥",
