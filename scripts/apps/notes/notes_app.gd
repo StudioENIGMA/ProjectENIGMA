@@ -29,7 +29,7 @@ func setup() -> void:
 	var today: Dictionary = board.get("days", {}).get(str(GameData.current_day), {})
 	subtitle_label.text = "Confira aqui antes de denunciar · Dia %d" % GameData.current_day
 
-	_add_contacts(board.get("contacts", []))
+	_add_trusted_contacts(board)
 	_add_list_section("Arquivos aceitos", 1, board.get("accepted_files", []))
 	_add_list_section("Padrões de pagamento", 1, board.get("payment_patterns", []))
 	_add_list_section("Lojas", 1, [
@@ -45,22 +45,112 @@ func setup() -> void:
 	scroll.scroll_vertical = 0
 
 
-## The company contacts: name, account (and verified badge), email and sector
-func _add_contacts(contacts: Array) -> void:
-	var body := _add_section("Contatos da empresa", 0)
-	_add_line(body, "Suspeite de nomes parecidos, com letras trocadas, a mais ou faltando.", MUTED)
-	for contact in contacts:
-		var contact_name := str(contact.get("name", ""))
-		var account := str(contact.get("account", GameData.account_from_name(contact_name)))
-		if contact.get("verified", false):
+## Who can ask the player for something today: the bosses and suppliers of every day, and the
+## people the random tasks of today come from (see story_director._publish_trusted_senders()).
+## Anyone else is a scam. Emails are only listed once the Email app is released.
+func _add_trusted_contacts(board: Dictionary) -> void:
+	var directory: Array = board.get("contacts", [])
+	var shows_email := (
+		GameData.apps_in_store.has(GameData.App.EMAIL)
+		or GameData.downloaded_apps.has(GameData.App.EMAIL)
+	)
+
+	var body := _add_section("Contatos confiáveis de hoje", 0)
+	_add_line(body, "Só eles pedem algo a você hoje. Qualquer outro contato é golpe: confira nome, "
+		+ "conta e email letra por letra.", MUTED)
+
+	_add_caption(body, "CHEFIAS E FORNECEDORES")
+	for trusted in board.get("trusted_every_day", []):
+		var contact := _find_contact(directory, "name", str(trusted.get("name", "")))
+		var person := _person(str(trusted.get("name", "")), directory)
+		if trusted.get("channel", "messages") == "messages":
+			person["account"] = str(contact.get("account", GameData.account_from_name(person["name"])))
+			person["verified"] = contact.get("verified", false)
+		else:
+			person["email"] = str(contact.get("email", ""))
+		_add_trusted_row(body, person, shows_email)
+
+	_add_caption(body, "PEDIDOS DE HOJE")
+	var people: Array[Dictionary] = []
+	for sender in GameData.trusted_senders_today:
+		if sender.has("email"):
+			if not shows_email:
+				continue
+			var owner := _find_contact(directory, "email", str(sender["email"]))
+			var person := _find_person(people, str(owner.get("name", sender["email"])))
+			if person.is_empty():
+				person = _person(str(owner.get("name", sender["email"])), directory)
+				people.append(person)
+			person["email"] = str(sender["email"])
+		else:
+			var person := _find_person(people, str(sender["name"]))
+			if person.is_empty():
+				person = _person(str(sender["name"]), directory)
+				people.append(person)
+			person["account"] = str(sender["account"])
+			person["verified"] = sender.get("verified", false)
+
+	if people.is_empty():
+		_add_line(body, "Ninguém além das chefias hoje.", MUTED)
+	for person in people:
+		_add_trusted_row(body, person, shows_email)
+
+
+## A person of the trusted contacts, with the sector the company directory gives it
+func _person(person_name: String, directory: Array) -> Dictionary:
+	var contact := _find_contact(directory, "name", person_name)
+	return {
+		"name": person_name,
+		"account": "",
+		"verified": false,
+		"email": "",
+		"department": str(contact.get("department", "")),
+	}
+
+
+func _find_person(people: Array[Dictionary], person_name: String) -> Dictionary:
+	for person in people:
+		if person["name"] == person_name:
+			return person
+	return {}
+
+
+## The contact of the company directory whose field matches, empty when there is none
+func _find_contact(directory: Array, field: String, value: String) -> Dictionary:
+	for contact in directory:
+		if str(contact.get(field, "")).to_lower() == value.to_lower():
+			return contact
+	return {}
+
+
+## One trusted contact: its name, how it reaches the player (account, email) and its sector.
+## A contact only reached by email is left out until the Email app is released
+func _add_trusted_row(body: VBoxContainer, person: Dictionary, shows_email: bool) -> void:
+	var has_account: bool = not str(person["account"]).is_empty()
+	var has_email: bool = shows_email and not str(person["email"]).is_empty()
+	if not has_account and not has_email:
+		return
+
+	var row := _add_row(body)
+	_add_label(row, person["name"], FONT_SEMIBOLD, 14, INK)
+	if has_account:
+		var account: String = person["account"]
+		if person["verified"]:
 			account += " ✓"
-		var row := _add_row(body)
-		_add_label(row, contact_name, FONT_SEMIBOLD, 14, INK)
 		_add_label(row, account, FONT_REGULAR, 12, TEAL)
-		var details := str(contact.get("department", ""))
-		if contact.has("email"):
-			details += " · " + str(contact["email"])
-		_add_label(row, details, FONT_REGULAR, 12, MUTED)
+	if has_email:
+		_add_label(row, person["email"], FONT_REGULAR, 12, TEAL)
+	if not str(person["department"]).is_empty():
+		_add_label(row, person["department"], FONT_REGULAR, 12, MUTED)
+
+
+## Small title of a group of lines inside a section, set apart from the group above it
+func _add_caption(body: VBoxContainer, text: String) -> void:
+	if body.get_child_count() > 1:
+		var gap := Control.new()
+		gap.custom_minimum_size.y = 6
+		body.add_child(gap)
+	_add_label(body, text, FONT_BOLD, 10, MUTED)
 
 
 ## The orders of the sectors for today

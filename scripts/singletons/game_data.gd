@@ -168,6 +168,9 @@ var saved_messages_conversations: Array[Dictionary] = []
 var saved_email_threads: Array = []
 
 var introductions: Array[Introduction] = []
+## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
+## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
+var trusted_senders_today: Array[Dictionary] = []
 
 var apps_name: Dictionary = {
 	# Messages app

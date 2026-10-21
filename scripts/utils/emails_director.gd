@@ -60,6 +60,12 @@ func has_email(thread_id: String, email_id: String) -> bool:
 	return emails_by_id.get(thread_id, []).any(
 		func(email: Dictionary) -> bool: return email.get("email_id") == email_id
 	)
+## Address an email registered is sent from, empty when there is no such email
+func get_sender(thread_id: String, email_id: String) -> String:
+	for email in emails_by_id.get(thread_id, []):
+		if email.get("email_id") == email_id:
+			return str(email.get("sender", ""))
+	return ""
 #endregion REGISTER EMAILS
 
 #region SCHEDULING TODAY
