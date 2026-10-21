@@ -60,6 +60,24 @@ const GROUP_GAP = 10
 const NO_SENDER = -1
 ## Message index that stands for "the whole conversation was already read"
 const NO_UNREAD = -1
+## Day that stands for "the open chat is today's, not one of the history"
+const NOT_ARCHIVED = -1
+## Gives a chat of the history an id of its own, so a new message of the same contact (which
+## belongs to today's chat) never lands in it
+const ARCHIVED_ID_PREFIX = "history:"
+const FOOTER_FONT = preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
+const FOOTER_COLOR = Color(0.43137255, 0.44313726, 0.5019608)
+## How the footer of a chat of the history tells how its scam ended
+const OUTCOME_LINES = {
+	"fallen": {
+		"text": "Você caiu neste golpe",
+		"color": Color(0.80784315, 0.03137255, 0.23529412),
+	},
+	"reported": {
+		"text": "Você denunciou este golpe",
+		"color": Color(0.05490196, 0.41960785, 0.34509805),
+	},
+}
 
 @export var messages_list:VBoxContainer
 @export var answers_panel:PanelContainer
@@ -74,6 +92,12 @@ var messages_typing: Dictionary = {}
 var _last_sender:int = NO_SENDER
 ## Keeps the NPC messages that can be pointed at as a discrepancy in step
 var _inspector := DiscrepancyInspector.new()
+## Day of the history the open chat belongs to, NOT_ARCHIVED for today's chats
+var _archived_day:int = NOT_ARCHIVED
+## Takes the place of the answers bar on a chat of the history, which takes no answers
+var _archived_footer:PanelContainer
+var _archived_label:Label
+var _archived_outcome_label:Label
 
 func _ready() -> void:
 	answers_panel.message_answered.connect(message_answered.emit) # Propagate signal to base app
@@ -89,14 +113,20 @@ func _ready() -> void:
 	answers_panel.delete_answers.connect(delete_answers.emit) # Propagate signal to base app
 	answers_panel.options_changed.connect(_on_answer_options_changed)
 	_inspector.picked.connect(discrepancy_picked.emit) # Propagate signal to base app
+	_build_archived_footer()
 
+## Opens a conversation: one of today's, or one of the history when it carries "archived_day"
 func setup(conversation_data:Dictionary) -> void:
 	# Read before clearing the counter, it is what tells the unread messages apart
 	var first_unread:int = _first_unread_index(conversation_data)
 	conversation_data["notification_count"] = 0
 
 	conversation_dict = conversation_data
+	_archived_day = int(conversation_data.get("archived_day", NOT_ARCHIVED))
 	conversation_id = conversation_data["id"]
+	if _is_archived():
+		conversation_id = "%s%d:%s" % [ARCHIVED_ID_PREFIX, _archived_day, conversation_data["id"]]
+	_show_archived_footer(str(conversation_data.get("outcome", "")))
 	header_changed.emit(
 		conversation_data["name"],
 		conversation_data["photo"],
@@ -220,6 +250,11 @@ func on_request_answer_option(
 		answer_id
 	)
 
+## Whether the open chat can be inspected for a scam: the ones of the history are left as they
+## were, the day they belong to is over
+func is_inspectable() -> bool:
+	return not _is_archived()
+
 ## Takes the answers of a conversation reported as a scam away, if it is the one open
 func on_conversation_blocked(blocked_conversation_id:String) -> void:
 	if blocked_conversation_id == conversation_id:
@@ -235,7 +270,7 @@ func get_rules_app() -> String:
 func set_inspection_mode(is_on: bool) -> void:
 	var was_at_bottom: bool = scroll_container.is_at_bottom()
 	_inspector.set_armed(is_on)
-	answers_panel.visible = not is_on
+	answers_panel.visible = not is_on and not _is_archived()
 	if was_at_bottom:
 		scroll_container.jump_to_bottom()
 
@@ -285,6 +320,11 @@ func _add_message(sender:int, message:String, annex:Dictionary, time:int) -> voi
 
 	messages_list.add_child(message_instance)
 	message_instance.setup(message, annex, time)
+	# A chat of the history is only read: its annexes install nothing, nothing is reported in it
+	if _is_archived():
+		_last_sender = sender
+		return
+
 	message_instance.apk_installation_requested.connect(
 		apk_installation_requested.emit # Propagate signal to base app
 	)
@@ -361,6 +401,59 @@ func _first_unread_index(conversation_data:Dictionary) -> int:
 		return NO_UNREAD
 
 	return first_unread
+
+func _is_archived() -> bool:
+	return _archived_day != NOT_ARCHIVED
+
+## Builds the footer shown under a chat of the history, styled like the answers bar it replaces
+func _build_archived_footer() -> void:
+	_archived_footer = PanelContainer.new()
+	_archived_footer.visible = false
+	_archived_footer.add_theme_stylebox_override("panel", answers_panel.get_theme_stylebox("panel"))
+
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 16)
+	margin.add_theme_constant_override("margin_right", 16)
+	margin.add_theme_constant_override("margin_top", 14)
+	margin.add_theme_constant_override("margin_bottom", 16)
+	_archived_footer.add_child(margin)
+
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 2)
+	margin.add_child(column)
+
+	_archived_label = _footer_label(FOOTER_COLOR)
+	column.add_child(_archived_label)
+	_archived_outcome_label = _footer_label(FOOTER_COLOR)
+	column.add_child(_archived_outcome_label)
+
+	answers_panel.add_sibling(_archived_footer)
+
+func _footer_label(color:Color) -> Label:
+	var label := Label.new()
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.add_theme_font_override("font", FOOTER_FONT)
+	label.add_theme_font_size_override("font_size", 12)
+	label.add_theme_color_override("font_color", color)
+	return label
+
+## Swaps the answers bar for the footer on a chat of the history, and back on today's chats
+##
+## outcome: How the scam of the conversation ended, see messages_app_home.mark_outcome()
+func _show_archived_footer(outcome:String) -> void:
+	answers_panel.visible = not _is_archived()
+	_archived_footer.visible = _is_archived()
+	if not _is_archived():
+		return
+
+	var day_name:String = "do tutorial" if _archived_day == 0 else "do Dia %d" % _archived_day
+	_archived_label.text = "Conversa %s · somente leitura" % day_name
+
+	_archived_outcome_label.visible = OUTCOME_LINES.has(outcome)
+	if _archived_outcome_label.visible:
+		_archived_outcome_label.text = OUTCOME_LINES[outcome]["text"]
+		_archived_outcome_label.add_theme_color_override("font_color", OUTCOME_LINES[outcome]["color"])
 
 ## Separates two consecutive blocks of messages of different senders
 func _add_group_gap() -> void:

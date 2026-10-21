@@ -1,0 +1,75 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/apps/messages/messages_app_history.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="3_semi"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+
+[node name="MessagesAppHistory" type="Control" node_paths=PackedStringArray("days_list", "empty_state")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+days_list = NodePath("DaysScrollContainer/DaysMargin/DaysList")
+empty_state = NodePath("EmptyState")
+
+[node name="DaysScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
+
+[node name="DaysMargin" type="MarginContainer" parent="DaysScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="DaysList" type="VBoxContainer" parent="DaysScrollContainer/DaysMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="EmptyState" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmptyStateColumn" type="VBoxContainer" parent="EmptyState"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="EmptyStateTitle" type="Label" parent="EmptyState/EmptyStateColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_semi")
+theme_override_font_sizes/font_size = 15
+text = "Nenhum dia anterior ainda"
+horizontal_alignment = 1
+
+[node name="EmptyStateHint" type="Label" parent="EmptyState/EmptyStateColumn"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "As conversas de cada dia ficam guardadas aqui quando o dia termina."
+horizontal_alignment = 1
+autowrap_mode = 2
