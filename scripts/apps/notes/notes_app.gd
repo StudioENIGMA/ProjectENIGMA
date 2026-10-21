@@ -60,6 +60,7 @@ func _add_trusted_contacts(board: Dictionary) -> void:
 		+ "conta e email letra por letra.", MUTED)
 
 	_add_caption(body, "CHEFIAS E FORNECEDORES")
+	var fixed_people: Array[Dictionary] = []
 	for trusted in board.get("trusted_every_day", []):
 		var contact := _find_contact(directory, "name", str(trusted.get("name", "")))
 		var person := _person(str(trusted.get("name", "")), directory)
@@ -68,11 +69,15 @@ func _add_trusted_contacts(board: Dictionary) -> void:
 			person["verified"] = contact.get("verified", false)
 		else:
 			person["email"] = str(contact.get("email", ""))
+		fixed_people.append(person)
 		_add_trusted_row(body, person, shows_email)
 
 	_add_caption(body, "PEDIDOS DE HOJE")
 	var people: Array[Dictionary] = []
 	for sender in GameData.trusted_senders_today:
+		# The bosses and suppliers of every day are already listed above
+		if fixed_people.any(func(fixed: Dictionary) -> bool: return _is_same_sender(fixed, sender)):
+			continue
 		if sender.has("email"):
 			if not shows_email:
 				continue
@@ -94,6 +99,16 @@ func _add_trusted_contacts(board: Dictionary) -> void:
 		_add_line(body, "Ninguém além das chefias hoje.", MUTED)
 	for person in people:
 		_add_trusted_row(body, person, shows_email)
+
+
+## Whether a sender of today is a person of the trusted contacts, by account or by address
+func _is_same_sender(person: Dictionary, sender: Dictionary) -> bool:
+	var email := str(sender.get("email", ""))
+	var account := str(sender.get("account", ""))
+	return (
+		(not email.is_empty() and email == person["email"])
+		or (not account.is_empty() and account == person["account"])
+	)
 
 
 ## A person of the trusted contacts, with the sector the company directory gives it
@@ -138,7 +153,8 @@ func _add_trusted_row(body: VBoxContainer, person: Dictionary, shows_email: bool
 		if person["verified"]:
 			account += " ✓"
 		_add_label(row, account, FONT_REGULAR, 12, TEAL)
-	if has_email:
+	# A sender known only by its address is already named by it
+	if has_email and person["email"] != person["name"]:
 		_add_label(row, person["email"], FONT_REGULAR, 12, TEAL)
 	if not str(person["department"]).is_empty():
 		_add_label(row, person["department"], FONT_REGULAR, 12, MUTED)
