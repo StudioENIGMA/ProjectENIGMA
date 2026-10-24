@@ -91,6 +91,7 @@ func _ready() -> void:
 	events_director.report_evaluated.connect(ui.base_app.on_report_evaluated)
 	events_director.scam_blocked.connect(ui.base_app.on_scam_blocked)
 	events_director.scam_fallen.connect(ui.base_app.on_scam_fallen)
+	events_director.scam_fall_judged.connect(ui.notifications_control.send_scam_notification)
 	# Connected after the UI, which takes the conversation's answers away first
 	events_director.scam_blocked.connect(story_director.messages_director.offer_block_and_report)
 	events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
@@ -112,6 +113,7 @@ func _ready() -> void:
 	ui.day_introduction_ui.day_started.connect(event_handler.reset_data_for_new_day)
 	ui.day_introduction_ui.day_started.connect(story_director.reload_and_setup_today)
 	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_home._on_start_new_day)
+	ui.day_introduction_ui.day_started.connect(ui.notification_center.clear_day_alerts)
 	# UI tutorial ended, which has no time passing to end it
 	ui.finish_tutorial_requested.connect(event_handler.end_day)
 	# UI game paused

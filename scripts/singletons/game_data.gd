@@ -59,6 +59,8 @@ enum App {
 	ORDERDOCUMENT,
 	# Conversations of the days gone by (Messages app), after the others for the same reason
 	MESSAGESHISTORY,
+	# Alert of a scam the player fell for, used only for notifications like HACK
+	SCAM,
 }
 
 enum HackMinigame {
@@ -297,6 +299,12 @@ var apps_data = {
 		"is_bad": true,
 	},
 
+	App.SCAM: {
+		"name": "Golpe",
+		"icon_path": "res://assets/icons/utai.png",
+		"is_bad": true,
+	},
+
 	App.PAUSEMENU: {
 		"name": "Pause Menu",
 		"icon_path": "res://assets/icons/default-app.png",
@@ -352,6 +360,15 @@ func get_human_typing_time(message: String) -> int:
 ## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
 ##
 ## Conversations and the Notes app's company contacts both get their accounts from it.
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
+## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_free_scam_falls() -> int:
+	if clock_tick_interval >= 2.0:
+		return 2
+	if clock_tick_interval >= 1.5:
+		return 1
+	return 0
+
 func account_from_name(contact_name: String) -> String:
 	var plain := contact_name.to_lower()
 	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",

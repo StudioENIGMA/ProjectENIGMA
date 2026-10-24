@@ -825,9 +825,15 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 ##
 ## Hack alerts ask the player to run the scanner, so they lead to Settings
 func open_app_from_notification(app:GameData.App) -> void:
-	var target_app:GameData.App = GameData.App.SETTINGS if app == GameData.App.HACK else app
+	var target_app:GameData.App = app
+	match app:
+		GameData.App.HACK:
+			target_app = GameData.App.SETTINGS
+		# A scam alert points at the board, to check the next request against it
+		GameData.App.SCAM:
+			target_app = GameData.App.NOTES
 	# The app may have been uninstalled since the notification arrived
-	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+	if target_app == app and not GameData.downloaded_apps.has(app):
 		return
 
 	if not open_apps.is_empty():
