@@ -100,9 +100,13 @@ func _ready() -> void:
   ui.day_over_ui.day_over_clicked.connect(event_handler.reset_data_for_new_day)
   ui.day_over_ui.day_over_clicked.connect(story_director.reload_and_setup_today)
   ui.day_over_ui.day_over_clicked.connect(ui.base_app.messages_app_home._on_start_new_day)
+  ui.day_over_ui.day_over_clicked.connect(ui.base_app.settings_app.notify_outdated_passwords)
   # UI game paused
   ui.base_app.pause_game_requested.connect(ui.pause_game_ui.show_pause_menu)
   ui.day_over_ui.end_game.connect(_on_end_game)
+
+  # The game always starts (or restarts) at the beginning of a day
+  ui.base_app.settings_app.notify_outdated_passwords.call_deferred()
 #endregion INITIALIZATION
 
 func _process(_delta: float) -> void:

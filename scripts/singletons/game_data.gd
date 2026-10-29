@@ -12,7 +12,7 @@ enum App {
 	# Settings app
 	SETTINGS,
 	PASSWORDMANAGER,
-	PASSWORDCHECK,
+	PASSWORDLOCK,
 	PASSWORDCHANGE,
 	VIRUSSCANNER,
 	UPDATEOS,
@@ -133,7 +133,9 @@ var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
 }
 
-var updated_password_today: bool = false
+## Password protected apps whose password was already changed today. Passwords expire every day,
+## so this is cleared when a new day starts and a gated app stays locked until it is back in here
+var passwords_updated_today: Array[App] = []
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
@@ -189,7 +191,7 @@ var apps_name: Dictionary = {
 	# Authenticator app
 	"Authenticator": App.AUTHENTICATOR,
 	# Password app
-	"PasswordCheck": App.PASSWORDCHECK,
+	"PasswordLock": App.PASSWORDLOCK,
 	# Pause Menu
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
@@ -305,6 +307,19 @@ func _ready() -> void:
 
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
+
+## Tells whether the app is password protected and its password was not changed today yet,
+## which keeps it locked
+func is_password_outdated(app: App) -> bool:
+	return passwords.has(app) and not passwords_updated_today.has(app)
+
+## Installed password protected apps that are still waiting for today's password change
+func get_outdated_password_apps() -> Array[App]:
+	var outdated_apps: Array[App] = []
+	for app in passwords.keys():
+		if downloaded_apps.has(app) and is_password_outdated(app):
+			outdated_apps.append(app)
+	return outdated_apps
 
 func get_human_typing_time(message: String) -> int:
 	var word_count = message.split(" ").size()

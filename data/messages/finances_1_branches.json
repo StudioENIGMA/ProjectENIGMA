@@ -74,7 +74,7 @@
 		},
 		{
 			"id": "f_1_2",
-			"text": "Caso tenha dificuldades de acessar o aplicativo do banco, lembre de verificar seu gerenciador de senhas, aqui na empresa sempre começamos com uma senha padrão cadastrada aleatoriamente, mas lembre de trocar a senha assim que possível para evitar problemas de segurança."
+			"text": "Caso o aplicativo do banco esteja bloqueado, troque a senha dele no Gerenciador de Senhas das configurações. Por segurança, aqui na empresa as senhas expiram e devem ser trocadas todos os dias."
 		}
 	],
 	"d1_tip": [
