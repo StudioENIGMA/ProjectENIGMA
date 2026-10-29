@@ -26,6 +26,9 @@ func _ready() -> void:
   base_app.email_app_home.request_email_notification.connect(
 		notifications_control.add_notification_to_queue
   )
+  base_app.settings_app.request_password_notification.connect(
+		notifications_control.add_notification_to_queue
+  )
 
   base_app.messages_app_chat.message_answered.connect(message_answered.emit)
   base_app.apk_installation_requested.connect(apps_ui.on_app_installed)

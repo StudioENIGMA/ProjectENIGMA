@@ -26,7 +26,9 @@ func add_notification_to_queue(
   time:int
 ) -> void:
 	
-	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+	# Hack alerts and Settings belong to the phone itself, never to an installed app
+	var is_system_app:bool = app == GameData.App.HACK or app == GameData.App.SETTINGS
+	if not is_system_app and not GameData.downloaded_apps.has(app):
 		return
 
 	# Append the notification to the queue

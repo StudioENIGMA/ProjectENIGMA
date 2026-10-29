@@ -2,18 +2,50 @@ extends Control
 
 signal password_changed()
 
-const MINIMUM_PASSWORD_LENGTH: int = 4
 const MAXIMUM_PASSWORD_LENGTH: int = 20
 const DIGITS: String = "0123456789"
 const LOWERCASE: String = "abcdefghijklmnopqrstuvwxyzáàâãéêíóôõúç"
 const UPPERCASE: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÉÊÍÓÔÕÚÇ"
+## What a new password needs on each day (index = GameData.current_day, later days reuse the
+## last entry): the minimum length and how many characters of each class it must have
+const DAILY_REQUIREMENTS: Array[Dictionary] = [
+	{"length": 4, "digits": 0, "lowercase": 0, "uppercase": 0, "symbols": 0},
+	{"length": 6, "digits": 1, "lowercase": 0, "uppercase": 0, "symbols": 0},
+	{"length": 8, "digits": 1, "lowercase": 1, "uppercase": 0, "symbols": 0},
+	{"length": 8, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 0},
+	{"length": 10, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 1},
+	{"length": 12, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 1},
+	{"length": 14, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 2},
+]
+## Character classes a requirement can ask for, keyed like DAILY_REQUIREMENTS. Symbols have no
+## character list: they are anything that is not a letter or a digit
+const CHARACTER_CLASSES: Array[Dictionary] = [
+	{
+		"key": "lowercase", "characters": LOWERCASE,
+		"singular": "letra minúscula", "plural": "letras minúsculas",
+	},
+	{
+		"key": "uppercase", "characters": UPPERCASE,
+		"singular": "letra maiúscula", "plural": "letras maiúsculas",
+	},
+	{
+		"key": "digits", "characters": DIGITS,
+		"singular": "número", "plural": "números",
+	},
+	{
+		"key": "symbols", "characters": "",
+		"singular": "símbolo (!, @, #...)", "plural": "símbolos (!, @, #...)",
+	},
+]
 const HINT_TEXT: String = (
-	"De 4 a 20 caracteres. Misturar letras, números e símbolos deixa a senha mais"
-	+ " difícil de descobrir."
+	"A senha expira todo dia e as exigências aumentam com o tempo. Misturar letras, números e"
+	+ " símbolos deixa a senha mais difícil de descobrir."
 )
 const ALERT_COLOR: Color = Color(0.5686275, 0.101960786, 0.21960784)
 const NEUTRAL_COLOR: Color = Color(0.13333334, 0.28235295, 0.38431373)
 const MUTED_COLOR: Color = Color(0.43137255, 0.44313726, 0.5019608)
+const CHECK_MET_COLOR: Color = Color(0.30980393, 0.79607844, 0.68235296)
+const CHECK_UNMET_COLOR: Color = Color(0.85882354, 0.84705883, 0.8117647)
 
 #region CHILDREN NODES REFERENCES
 @export var subtitle_label: Label
@@ -22,6 +54,9 @@ const MUTED_COLOR: Color = Color(0.43137255, 0.44313726, 0.5019608)
 @export var line_edit: LineEdit
 @export var toggle_visibility_button: Button
 @export var hint_label: Label
+@export var requirements_list: VBoxContainer
+## Hidden row duplicated once per requirement of the day
+@export var requirement_row_template: HBoxContainer
 @export var strength_row: HBoxContainer
 @export var strength_bar: ProgressBar
 @export var strength_label: Label
@@ -40,6 +75,9 @@ const MUTED_COLOR: Color = Color(0.43137255, 0.44313726, 0.5019608)
 #endregion
 
 var gated_app: GameData.App
+
+## Requirement rows of the day, each {"row": HBoxContainer, "check": Callable}
+var _requirement_rows: Array[Dictionary] = []
 
 func _ready() -> void:
 	line_edit.max_length = MAXIMUM_PASSWORD_LENGTH
@@ -66,6 +104,7 @@ func setup(data: Dictionary) -> void:
 	subtitle_label.text = "Escolha uma senha nova para %s." % app_name
 
 	_reset_form()
+	_build_requirements()
 
 	# Catch focus to the line edit
 	await get_tree().process_frame
@@ -87,10 +126,10 @@ func _reset_form() -> void:
 	confirm_button.disabled = true
 	confirm_button.text = "Confirmar"
 
-## Enables the confirm button once the password is long enough and keeps the
-## strength meter in sync with what is typed
+## Enables the confirm button once every requirement of the day is met and keeps the
+## checklist and the strength meter in sync with what is typed
 func _user_typed(entered_password: String) -> void:
-	confirm_button.disabled = entered_password.length() < MINIMUM_PASSWORD_LENGTH
+	confirm_button.disabled = not _refresh_requirements(entered_password)
 	_refresh_strength(entered_password)
 
 ## Toggles the password between masked and plain text
@@ -113,7 +152,8 @@ func _on_password_submitted(_entered_password: String) -> void:
 func _on_confirm_button_pressed() -> void:
 	confirm_button.disabled = true
 	GameData.passwords[gated_app] = line_edit.text
-	GameData.updated_password_today = true
+	if not GameData.passwords_updated_today.has(gated_app):
+		GameData.passwords_updated_today.append(gated_app)
 
 	# Lock the form down and report the change where the field used to ask for it
 	line_edit.editable = false
@@ -126,6 +166,79 @@ func _on_confirm_button_pressed() -> void:
 
 	await get_tree().create_timer(1.0).timeout
 	emit_signal("password_changed")
+#endregion
+
+#region PASSWORD REQUIREMENTS
+## Rebuilds the checklist with today's requirements, plus not reusing the current password
+func _build_requirements() -> void:
+	for requirement in _requirement_rows:
+		requirement["row"].queue_free()
+	_requirement_rows.clear()
+
+	var day_index: int = clampi(GameData.current_day, 0, DAILY_REQUIREMENTS.size() - 1)
+	var requirements: Dictionary = DAILY_REQUIREMENTS[day_index]
+
+	_add_requirement(
+		"Pelo menos %d caracteres" % requirements["length"],
+		func(password: String) -> bool: return password.length() >= requirements["length"]
+	)
+	for character_class in CHARACTER_CLASSES:
+		_add_class_requirement(requirements[character_class["key"]], character_class)
+
+	var current_password: String = GameData.passwords.get(gated_app, "")
+	_add_requirement(
+		"Diferente da senha atual",
+		func(password: String) -> bool:
+			return not password.is_empty() and password != current_password
+	)
+
+	_refresh_requirements("")
+
+## Adds an "at least N characters of this class" row, skipped when the day does not ask for it
+func _add_class_requirement(minimum: int, character_class: Dictionary) -> void:
+	if minimum <= 0:
+		return
+
+	var noun: String = character_class["singular"] if minimum == 1 else character_class["plural"]
+	_add_requirement(
+		"Pelo menos %d %s" % [minimum, noun],
+		func(password: String) -> bool:
+			return _count_characters(password, character_class["characters"]) >= minimum
+	)
+
+func _add_requirement(text: String, check: Callable) -> void:
+	var row: HBoxContainer = requirement_row_template.duplicate()
+	row.get_node("Label").text = text
+	requirements_list.add_child(row)
+	_requirement_rows.append({"row": row, "check": check})
+
+## Ticks every requirement the password meets and tells whether all of them are met
+func _refresh_requirements(entered_password: String) -> bool:
+	var all_met: bool = true
+
+	for requirement in _requirement_rows:
+		var is_met: bool = requirement["check"].call(entered_password)
+		all_met = all_met and is_met
+
+		var row: HBoxContainer = requirement["row"]
+		row.visible = true
+		row.get_node("Check").self_modulate = CHECK_MET_COLOR if is_met else CHECK_UNMET_COLOR
+		row.get_node("Label").add_theme_color_override(
+			"font_color", NEUTRAL_COLOR if is_met else MUTED_COLOR
+		)
+
+	return all_met
+
+## Counts the characters of the password in the class. An empty class counts symbols
+func _count_characters(entered_password: String, class_characters: String) -> int:
+	var count: int = 0
+	for character in entered_password:
+		if class_characters.is_empty():
+			if not (DIGITS + LOWERCASE + UPPERCASE).contains(character):
+				count += 1
+		elif class_characters.contains(character):
+			count += 1
+	return count
 #endregion
 
 #region PASSWORD STRENGTH

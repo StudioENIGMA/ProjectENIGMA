@@ -3,11 +3,14 @@ extends Control
 signal subscreen_open_requested(app: GameData.App, data: Dictionary)
 
 const MASK_CHARACTER: String = "•"
+const ALERT_COLOR: Color = Color(0.5686275, 0.101960786, 0.21960784)
+const NEUTRAL_COLOR: Color = Color(0.13333334, 0.28235295, 0.38431373)
 
 #region CHILDREN NODES REFERENCES
 @export var app_icon: TextureRect
 @export var app_name_label: Label
 @export var password_label: Label
+@export var status_label: Label
 @export var change_password_button: Button
 @export var toggle_visibility_button: Button
 #endregion
@@ -44,6 +47,7 @@ func setup(data: Dictionary) -> void:
 
 	password_visible = false
 	_refresh_password_label()
+	_refresh_status_label()
 
 ## Requests base app to open the password change subscreen for the gated app
 func _on_change_password_pressed() -> void:
@@ -66,3 +70,12 @@ func _refresh_password_label() -> void:
 		password_label.text = MASK_CHARACTER.repeat(current_password.length())
 		toggle_visibility_button.icon = hidden_password_icon
 		toggle_visibility_button.tooltip_text = "Mostrar senha"
+
+## Tells whether the password still has to be changed today (keeping its app locked)
+func _refresh_status_label() -> void:
+	if GameData.is_password_outdated(gated_app):
+		status_label.text = "Expirada, troque hoje"
+		status_label.add_theme_color_override("font_color", ALERT_COLOR)
+	else:
+		status_label.text = "Trocada hoje"
+		status_label.add_theme_color_override("font_color", NEUTRAL_COLOR)

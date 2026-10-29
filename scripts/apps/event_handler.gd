@@ -73,6 +73,9 @@ func reset_data_for_new_day() -> void:
 	# Reset Bank Balance
 	GameData.bank_balance = 150000
 
+	# Passwords expire every day, so every gated app locks until it gets a new one
+	GameData.passwords_updated_today.clear()
+
 	# Restart timers
 	clock_timer.start()
 
