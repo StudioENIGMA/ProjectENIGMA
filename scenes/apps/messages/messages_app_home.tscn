@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://5qfjsihyrf6e"]
+[gd_scene format=3 uid="uid://5qfjsihyrf6e"]
 
 [ext_resource type="Script" uid="uid://cx2n0tvkgpgho" path="res://scripts/apps/messages/messages_app_home.gd" id="1_jwkj7"]
 [ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_b2xfe"]
 [ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="4_semi"]
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="5_reg"]
+[ext_resource type="PackedScene" path="res://scenes/apps/messages/history_row.tscn" id="6_history"]
 
 [sub_resource type="GDScript" id="GDScript_h1xob"]
 script/source = "extends VBoxContainer
@@ -11,7 +12,7 @@ script/source = "extends VBoxContainer
 
 "
 
-[node name="MessagesAppHome" type="Control" node_paths=PackedStringArray("list_of_chats", "empty_state")]
+[node name="MessagesAppHome" type="Control" node_paths=PackedStringArray("list_of_chats", "empty_state", "empty_state_hint", "history_row")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,8 +20,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwkj7")
-list_of_chats = NodePath("Screen/ListArea/MessagesScrollContainer/ListOfChats")
+list_of_chats = NodePath("Screen/ListArea/MessagesScrollContainer/ListContent/ListOfChats")
 empty_state = NodePath("Screen/ListArea/EmptyState")
+empty_state_hint = NodePath("Screen/ListArea/EmptyState/EmptyStateColumn/EmptyStateHint")
+history_row = NodePath("Screen/ListArea/MessagesScrollContainer/ListContent/HistoryRow")
 
 [node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -49,7 +52,18 @@ horizontal_scroll_mode = 0
 script = ExtResource("2_b2xfe")
 size_x = 4
 
-[node name="ListOfChats" type="VBoxContainer" parent="Screen/ListArea/MessagesScrollContainer"]
+[node name="ListContent" type="VBoxContainer" parent="Screen/ListArea/MessagesScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="HistoryRow" parent="Screen/ListArea/MessagesScrollContainer/ListContent" instance=ExtResource("6_history")]
+visible = false
+layout_mode = 2
+
+[node name="ListOfChats" type="VBoxContainer" parent="Screen/ListArea/MessagesScrollContainer/ListContent"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

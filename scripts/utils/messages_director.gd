@@ -24,6 +24,16 @@ signal npc_message_sent(
 signal conversation_finished(conversation_id: String)
 #endregion SIGNALS
 
+#region CONSTANTS
+## Offered in a conversation once the player finds a discrepancy in it, the same choice the
+## unknown number (fake_store_1) offers in its own data
+const BLOCK_AND_REPORT_CHOICE := {
+	"id": "block_and_report",
+	"player_text": "Bloquear e Denunciar",
+	"event_id": "block_and_report",
+}
+#endregion CONSTANTS
+
 #region CHILDREN NODES REFERENCES
 @export var answers_director: Node2D
 #endregion CHILDREN NODES REFERENCES
@@ -228,6 +238,20 @@ func _on_answer_committed(
 
 	# No NPC reply to the answer, the conversation is over
 	conversation_finished.emit(conversation_id)
+
+## Offers "Bloquear e Denunciar" in each conversation of a scam the player found a discrepancy
+## in, in place of the answers it had (connected after the UI takes those away)
+func offer_block_and_report(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		conversation_id = str(conversation_id)
+		if not conversations_by_id.has(conversation_id):
+			continue
+		answers_director.forget_answers(conversation_id)
+		answers_director.present_choices(
+			_get_contact(conversation_id),
+			[BLOCK_AND_REPORT_CHOICE.duplicate()],
+			GameData.hours_minutes
+		)
 #endregion ANSWERS
 
 #region HELPERS

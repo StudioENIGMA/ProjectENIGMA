@@ -3,6 +3,7 @@ extends Control
 ## Notification center: a pull-down list of every notification received
 ##
 ## Keeps every notification the phone received until the player clears it or opens its app.
+## Scam alerts are the exception: they stay for the whole day, nothing clears them.
 ## Pull the mint tab at the top edge down to open it. The tab rides along the sheet's bottom edge,
 ## flipping on the way, and ends upside down at the bottom of the screen, where pushing it up (or
 ## tapping it) closes the center. Notifications are listed one card each, newest on top.
@@ -74,7 +75,12 @@ func on_app_opened(main_app: GameData.App) -> void:
 	_rebuild()
 
 func clear_all() -> void:
-	_entries.clear()
+	_entries = _entries.filter(_is_pinned)
+	_rebuild()
+
+## Takes the scam alerts of the day that ended away, they count the falls of that day only
+func clear_day_alerts() -> void:
+	_entries = _entries.filter(func(entry): return not _is_pinned(entry))
 	_rebuild()
 
 ## Allows or blocks pulling the center down (e.g. blocked during hack minigames)
@@ -155,11 +161,12 @@ func _rebuild() -> void:
 		var card = NOTIFICATION_CARD.instantiate()
 		cards_container.add_child(card)
 		card.setup(entry)
+		card.dismissible = not _is_pinned(entry)
 		card.pressed.connect(_on_entry_pressed.bind(entry))
 		card.dismissed.connect(_on_entry_dismissed.bind(entry))
 
 	empty_state.visible = _entries.is_empty()
-	clear_all_button.visible = not _entries.is_empty()
+	clear_all_button.visible = _entries.any(func(entry): return not _is_pinned(entry))
 	match _entries.size():
 		0:
 			count_label.text = "Tudo em dia"
@@ -179,9 +186,15 @@ func _on_entry_dismissed(entry: Dictionary) -> void:
 
 ## Hack alerts tell the player to run the scanner, so opening Settings clears them too
 func _belongs_to(entry: Dictionary, main_app: GameData.App) -> bool:
+	if _is_pinned(entry):
+		return false
 	if entry.app == GameData.App.HACK:
 		return main_app == GameData.App.SETTINGS
 	return entry.app == main_app
+
+## Whether the player can not clear the entry: the scam alerts, kept until the day ends
+func _is_pinned(entry: Dictionary) -> bool:
+	return entry.app == GameData.App.SCAM
 #endregion LIST
 
 #region ANIMATION

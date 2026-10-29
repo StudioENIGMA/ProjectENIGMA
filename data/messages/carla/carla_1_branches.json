@@ -1,13 +1,6 @@
 {
 	"conversation_id": "carla_1",
 	"contact_name": "Carla",
-	"entry_points": [
-		{
-			"day": 3,
-			"relative_due_time": 60,
-			"branch": "d3_hello"
-		}
-	],
 	"branches": {
 		"d3_hello": [
 			{
