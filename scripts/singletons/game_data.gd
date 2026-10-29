@@ -57,6 +57,10 @@ enum App {
 	NOTES,
 	# Order document, opened from an email attachment (kept last: scenes store App values)
 	ORDERDOCUMENT,
+	# Conversations of the days gone by (Messages app), after the others for the same reason
+	MESSAGESHISTORY,
+	# Alert of a scam the player fell for, used only for notifications like HACK
+	SCAM,
 }
 
 enum HackMinigame {
@@ -165,9 +169,15 @@ var blocked_conversations: Array = []
 var blocked_payment_codes: Array = []
 
 var saved_messages_conversations: Array[Dictionary] = []
+## Conversations of the days gone by, read-only in the Messages history, oldest day first
+## {"day": int, "date_dict": Dictionary, "conversations": Array[Dictionary]}
+var saved_messages_history: Array = []
 var saved_email_threads: Array = []
 
 var introductions: Array[Introduction] = []
+## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
+## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
+var trusted_senders_today: Array[Dictionary] = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -289,6 +299,12 @@ var apps_data = {
 		"is_bad": true,
 	},
 
+	App.SCAM: {
+		"name": "Golpe",
+		"icon_path": "res://assets/icons/utai.png",
+		"is_bad": true,
+	},
+
 	App.PAUSEMENU: {
 		"name": "Pause Menu",
 		"icon_path": "res://assets/icons/default-app.png",
@@ -344,6 +360,15 @@ func get_human_typing_time(message: String) -> int:
 ## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
 ##
 ## Conversations and the Notes app's company contacts both get their accounts from it.
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
+## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_free_scam_falls() -> int:
+	if clock_tick_interval >= 2.0:
+		return 2
+	if clock_tick_interval >= 1.5:
+		return 1
+	return 0
+
 func account_from_name(contact_name: String) -> String:
 	var plain := contact_name.to_lower()
 	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",
@@ -437,6 +462,7 @@ func save_game() -> void:
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
 		"saved_messages_conversations": saved_messages_conversations,
+		"saved_messages_history": saved_messages_history,
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
@@ -498,6 +524,11 @@ func load_game() -> void:
 	for saved_conversation in raw_saved_conversations:
 		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
 		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_history: Array = game_state.get("saved_messages_history", [])
+	saved_messages_history.clear()
+	for saved_day in raw_saved_history:
+		saved_messages_history.append(saved_day.duplicate(true))
 
 	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
 	saved_email_threads.clear()

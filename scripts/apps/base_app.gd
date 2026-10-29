@@ -15,6 +15,11 @@ signal main_app_opened(main_app: GameData.App)
 ## day it breaks, as read from data/rules/rules.json) and "screen" (the GameData.App it was on)
 signal discrepancy_reported(report: Dictionary)
 
+## Title of the screens that are not named after the app they belong to
+const SUBSCREEN_TITLES = {
+	GameData.App.MESSAGESHISTORY: "Histórico",
+}
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
@@ -47,6 +52,9 @@ signal discrepancy_reported(report: Dictionary)
 
 var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
+var messages_app_history = preload(
+	"res://scenes/apps/messages/messages_app_history.tscn"
+).instantiate()
 var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
 var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
@@ -181,6 +189,11 @@ func _ready() -> void:
 	messages_app_home.visible = false
 	messages_app_home.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(messages_app_home)
+
+	# Messages app history (Messages app)
+	messages_app_history.visible = false
+	messages_app_history.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(messages_app_history)
 
 	# Messages app chat (Messages app)
 	messages_app_chat.visible = false
@@ -574,7 +587,9 @@ func _update_app_title() -> void:
 
 	# Everything else is titled with its main app, so the bar is never a bare row of icons
 	var main_app: GameData.App = current_app_dict["MainApp"]
-	var app_name: String = GameData.apps_data.get(main_app, {}).get("name", "")
+	var app_name: String = SUBSCREEN_TITLES.get(
+		current_app_dict["SubScreen"], GameData.apps_data.get(main_app, {}).get("name", "")
+	)
 	app_title_avatar.visible = false
 	app_title_account.visible = false
 	app_title_badge.visible = false
@@ -585,7 +600,10 @@ func _update_app_title() -> void:
 ## Shows the inspect toggle only on screens that know how to be inspected
 func _update_inspect_button() -> void:
 	var screen := _get_current_screen()
-	inspect_button.visible = screen != null and screen.has_method("set_inspection_mode")
+	inspect_button.visible = (
+		screen != null and screen.has_method("set_inspection_mode")
+		and (not screen.has_method("is_inspectable") or screen.is_inspectable())
+	)
 
 
 ## Starts or stops reporting the open message or email as a scam
@@ -681,6 +699,13 @@ func on_scam_blocked(conversation_ids: Array) -> void:
 	for conversation_id in conversation_ids:
 		messages_app_home.on_delete_answers(conversation_id)
 		messages_app_chat.on_conversation_blocked(conversation_id)
+		messages_app_home.mark_outcome(conversation_id, "reported")
+
+
+## Keeps the conversations of a scam the player fell for, tagged for the history
+func on_scam_fallen(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		messages_app_home.mark_outcome(conversation_id, "fallen")
 
 
 ## Rules group the open screen is checked against, empty when it names none
@@ -800,9 +825,15 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 ##
 ## Hack alerts ask the player to run the scanner, so they lead to Settings
 func open_app_from_notification(app:GameData.App) -> void:
-	var target_app:GameData.App = GameData.App.SETTINGS if app == GameData.App.HACK else app
+	var target_app:GameData.App = app
+	match app:
+		GameData.App.HACK:
+			target_app = GameData.App.SETTINGS
+		# A scam alert points at the board, to check the next request against it
+		GameData.App.SCAM:
+			target_app = GameData.App.NOTES
 	# The app may have been uninstalled since the notification arrived
-	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+	if target_app == app and not GameData.downloaded_apps.has(app):
 		return
 
 	if not open_apps.is_empty():
@@ -838,6 +869,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Messages app
 		GameData.App.MESSAGESHOME: messages_app_home,
 		GameData.App.MESSAGESCHAT: messages_app_chat,
+		GameData.App.MESSAGESHISTORY: messages_app_history,
 		# Settings app
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
@@ -892,6 +924,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Messages app
 		GameData.App.MESSAGESHOME: GameData.App.MESSAGESHOME,
 		GameData.App.MESSAGESCHAT: GameData.App.MESSAGESHOME,
+		GameData.App.MESSAGESHISTORY: GameData.App.MESSAGESHOME,
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
