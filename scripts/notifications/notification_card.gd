@@ -3,7 +3,8 @@ extends PanelContainer
 ## One notification inside the notification center
 ##
 ## A tap emits pressed, a horizontal swipe past SWIPE_THRESHOLD slides the card away and emits
-## dismissed. Vertical drags are left alone so the ScrollContainer above can scroll the list.
+## dismissed (unless the card is not dismissible). Vertical drags are left alone so the
+## ScrollContainer above can scroll the list.
 
 signal pressed
 signal dismissed
@@ -16,6 +17,9 @@ const SLIDE_DURATION: float = 0.25
 @export var app_icon: TextureRect
 @export var title_label: Label
 @export var content_label: Label
+
+## Off for the alerts the player can not clear, which stay put when swiped
+var dismissible: bool = true
 
 var _is_pressing: bool = false
 var _is_swiping: bool = false
@@ -64,7 +68,10 @@ func _gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion and _is_pressing:
 		var drag: Vector2 = event.global_position - _press_position
-		if not _is_swiping and absf(drag.x) > TAP_SLOP and absf(drag.x) > absf(drag.y):
+		if (
+			not _is_swiping and dismissible
+			and absf(drag.x) > TAP_SLOP and absf(drag.x) > absf(drag.y)
+		):
 			_is_swiping = true
 		if _is_swiping:
 			accept_event()

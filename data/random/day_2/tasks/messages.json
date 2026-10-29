@@ -1,14 +1,12 @@
 [
-    {
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
-		"required_app": "browser"
-	},
-
-	
 	{
-	  "conversation_id": "jessica_1",
-		"branch": "task0_jessica1",
-		"required_app": "browser"
+		"conversation_id": "yago_1",
+		"branch": "task0_yago",
+		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "carla_1",
+		"branch": "d3_hello",
+		"required_app": "MessagesHome"
 	}
 ]

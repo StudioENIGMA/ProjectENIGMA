@@ -414,7 +414,7 @@
 			}
 		]
 	},
-	"task0_artur": {
+	"task0_arthur1": {
 		"type": "random-task",
 		"description": "Pagamento de fatura",
 		"requires": [
@@ -424,13 +424,23 @@
 			}
 		]
 	},
-	"task1_artur": {
+	"task1_arthur1": {
 		"type": "random-task",
 		"description": "Ajudar na escolha de senha",
 		"requires": [
 			{
 				"flag": "option",
 				"choice": "s2s2s2s2"
+			}
+		]
+	},
+	"task2_jessica": {
+		"type": "random-task",
+		"description": "Sugerir uma senha segura",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "J@5v48!a#Q2m"
 			}
 		]
 	},
@@ -836,7 +846,7 @@
 			}
 		]
 	},
-	"scan0_arthur": {
+	"scan0_arhtur": {
 		"type": "scam",
 		"description": "Identificar mensagens de scam",
 		"requires": [
@@ -861,14 +871,14 @@
 				"found_at": [
 					{
 						"source": "messages",
-						"conversation": "arthur_1",
+						"conversation": "arhtur_1",
 						"section": "contact"
 					}
 				]
 			}
 		]
 	},
-	"scan1_arthur": {
+	"scan1_arhtur": {
 		"type": "scam",
 		"description": "Contato de funcionário falso",
 		"requires": [
@@ -884,7 +894,7 @@
 				"found_at": [
 					{
 						"source": "messages",
-						"conversation": "arthur_1",
+						"conversation": "arhtur_1",
 						"section": "contact"
 					}
 				]
@@ -902,13 +912,42 @@
 			}
 		]
 	},
+	"scam0_aurora1": {
+		"type": "scam",
+		"description": "Distribuidora Aurora cobrou com um Pix fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PXO82"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "codigo_pix_PXO82",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "distribuidora_aurora_1",
+						"section": "message",
+						"contains": "PXO82"
+					},
+					{
+						"source": "bank",
+						"payment_code": "PXO82",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
 	"scam0_arthur2": {
 	  "type": "scam",
 		"description": "ID de pagamento incorreto",
 		"requires": [
 		  {
 				"flag": "payment",
-				"payment": "EAC16"
+				"payment_id": "EAC16"
 			}
 		],
 		"discrepancies": [
@@ -918,8 +957,9 @@
 				"found_at": [
 				  {
 						"source": "messages",
-						"conversation": "arthur_2",
-						"section": "contact"
+						"conversation": "athur_2",
+						"section": "message",
+						"contains": "EAC16"
 					}
 				]
 			}

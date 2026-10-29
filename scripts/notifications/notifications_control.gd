@@ -8,6 +8,8 @@ signal notification_posted(app: GameData.App, content: String, title: String)
 signal notification_tapped(app: GameData.App)
 
 const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
+## Alerts of the phone itself, sent whatever apps are installed
+const SYSTEM_ALERTS = [GameData.App.HACK, GameData.App.SCAM]
 
 @export var notification_timer:Timer
 @export var audio_stream_player:AudioStreamPlayer2D
@@ -26,7 +28,7 @@ func add_notification_to_queue(
   time:int
 ) -> void:
 	
-	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+	if not SYSTEM_ALERTS.has(app) and not GameData.downloaded_apps.has(app):
 		return
 
 	# Append the notification to the queue
@@ -99,6 +101,17 @@ func _advance_queue() -> void:
 	notification_array.remove_at(0)
 	if notification_array.size() > 0:
 		send_notification(notification_array[0])
+
+## Tells the player they fell for a scam and whether it costs points
+##
+## fall: "fall", "free_falls" and "points", see events_director.scam_fall_judged
+func send_scam_notification(fall: Dictionary) -> void:
+	var content: String
+	if int(fall["points"]) == 0:
+		content = "Sem consequência negativa %d/%d" % [fall["fall"], fall["free_falls"]]
+	else:
+		content = "%d pontos ao final do dia" % fall["points"]
+	add_notification_to_queue(GameData.App.SCAM, content, "Você caiu em um golpe", 0)
 
 func send_hack_notification() -> void:
 	add_notification_to_queue(
