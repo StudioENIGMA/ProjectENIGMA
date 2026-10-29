@@ -1,12 +1,12 @@
 [
 	{
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
+		"conversation_id": "arhtur_1",
+		"branch": "scan0_arhtur",
 		"required_app": "browser"
 	},
 	{
-		"conversation_id": "arthur_1",
-		"branch": "scan1_arthur",
+		"conversation_id": "arhtur_1",
+		"branch": "scan1_arhtur",
 		"required_app": "Bank"
 	},
 	{
@@ -209,23 +209,19 @@
 		"branch": "scan0_non_px_investment",
 		"required_app": "Bank"
 	},
-
-
-
-	
 	{
-	  "conversation_id": "athur_2",
+		"conversation_id": "athur_2",
 		"branch": "scam0_arthur2",
 		"required_app": "Bank"
 	},
 	{
-	  "conversation_id": "arthur_3",
+		"conversation_id": "arthur_3",
 		"branch": "scam0_arthur3",
 		"required_app": "Bank"
 	},
 	{
-	  "conversation_id": "distribuidora_aurora_1",
-		"branch": "task1_aurora1",
+		"conversation_id": "distribuidora_aurora_1",
+		"branch": "scam0_aurora1",
 		"required_app": "Bank"
 	}
 ]

@@ -1,6 +1,13 @@
 {
+	"trusted_every_day": [
+		{ "name": "Chefinho", "channel": "messages" },
+		{ "name": "Financeiro", "channel": "messages" },
+		{ "name": "RH", "channel": "messages" },
+		{ "name": "TI", "channel": "messages" },
+		{ "name": "Viva", "channel": "email" }
+	],
 	"contacts": [
-		{ "name": "Artur", "department": "TI", "email": "artur@enigma.ti.com.br" },
+		{ "name": "Arthur", "department": "TI", "email": "artur@enigma.ti.com.br" },
 		{ "name": "Carla", "department": "Financeiro", "email": "carla@enigma.fin.com.br" },
 		{ "name": "Carolina", "department": "TI", "email": "carolina@enigma.ti.com.br" },
 		{ "name": "Chefinho", "department": "Diretoria" },

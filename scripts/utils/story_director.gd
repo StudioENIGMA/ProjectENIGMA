@@ -112,17 +112,52 @@ func reload_and_setup_today() -> void:
 	browser_director.reviews_director.setup_from_json_array(reviews_array)
 	browser_director.shops_director.setup_from_json_file(shops_dictionary)
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
+	var task_roots: Array = _drop_missing_random_events(tasks_roots)
 	randomness_director.setup_from_json_roots(
-		_drop_missing_random_events(tasks_roots),
+		task_roots,
 		_drop_missing_random_events(scams_roots),
 		events_dictionary,
 		rules_array
 	)
+	_publish_trusted_senders(task_roots[0], events_dictionary)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
 	introduction_director.setup_from_json_roots(introduction_roots)
 
 	#Update Browser News
 	_on_update_news()
+
+## Tells the Notes who sends the random tasks of today: anyone else asking for something is a scam
+##
+## task_events: The random tasks of today, as data/random/day_<n>/tasks lists them
+## events: Every event of data/events/events.json
+func _publish_trusted_senders(task_events: Array, events: Dictionary) -> void:
+	var senders: Array[Dictionary] = []
+	for event in task_events:
+		var sender: Dictionary
+		if event.has("email_id"):
+			sender = {
+				"email": emails_director.get_sender(str(event["thread_id"]), str(event["email_id"]))
+			}
+		else:
+			var contact: Dictionary = messages_director._get_contact(str(event["conversation_id"]))
+			sender = {
+				"name": contact["name"],
+				"account": contact["account"],
+				"verified": contact["verified"],
+			}
+		# A sender with many tasks in the pool is listed once
+		if not senders.has(sender):
+			senders.append(sender)
+
+	# Neither are the emails the story sends today that are not scams (an invoice, a recovery code)
+	for email in emails_director.get_emails_of_day(GameData.current_day):
+		var event: Dictionary = events.get(str(email.get("event_id", "")), {})
+		if event.get("type", "") == "scam":
+			continue
+		var sender := {"email": str(email.get("sender", "")).strip_edges()}
+		if not senders.has(sender):
+			senders.append(sender)
+	GameData.trusted_senders_today = senders
 
 ## Leaves out the random events naming a conversation branch or an email that does not exist,
 ## they could never be done and would hold the random lane until the timeout

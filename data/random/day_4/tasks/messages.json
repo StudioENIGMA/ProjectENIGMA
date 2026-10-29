@@ -1,7 +1,47 @@
 [
-    {
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
+	{
+		"conversation_id": "marcia_1",
+		"branch": "task0_marcia",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcia_1",
+		"branch": "task1_marcia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcia_1",
+		"branch": "task2_marcia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcia_1",
+		"branch": "task3_marcia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "guilherme_1",
+		"branch": "task0_guilherme",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "guilherme_1",
+		"branch": "task1_guilherme",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "guilherme_1",
+		"branch": "task2_guilherme",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "guilherme_1",
+		"branch": "task3_guilherme",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "guilherme_1",
+		"branch": "task4_guilherme",
+		"required_app": "MessagesHome"
 	}
 ]

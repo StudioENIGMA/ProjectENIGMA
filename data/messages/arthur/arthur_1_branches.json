@@ -47,7 +47,7 @@
 						"id": "arthur_password0_0a_0",
 						"player_text": "aaaaaaaa",
 						"npc_reply": {
-							"goto_branch": "from_artur_password0_4",
+							"goto_branch": "from_arthur1_password0_4",
 							"delay_ticks": 23
 						}
 					},
@@ -55,7 +55,7 @@
 						"id": "arthur_password0_0a_1",
 						"player_text": "s2s2s2s2",
 						"npc_reply": {
-							"goto_branch": "from_artur_password0_5",
+							"goto_branch": "from_arthur1_password0_5",
 							"delay_ticks": 23
 						}
 					}

@@ -16,6 +16,10 @@ signal report_evaluated(result: Dictionary)
 signal scam_blocked(conversation_ids: Array)
 ## Emitted when the player falls for a scam, with its conversations, kept to be compared later
 signal scam_fallen(conversation_ids: Array)
+## Emitted when the player falls for a scam, judged by the difficulty: "fall" (how many scams were
+## fallen for today), "free_falls" (how many a day the difficulty forgives) and "points" (lost at
+## the end of the day, 0 while the fall is forgiven)
+signal scam_fall_judged(fall: Dictionary)
 ## Emitted when the player falls for a scam whose consequence is being hacked
 signal hack_requested()
 
@@ -105,17 +109,31 @@ func _on_clock_tick() -> void:
 			continue
 		var is_event_completed: bool = evaluate_requirements(event)
 		if is_event_completed:
-			GameData.events_log.append(event)
 			events_to_check.erase(event_id)
 
 			var event_type = event.get("type", "")
 			var reputation_points = TYPE_TO_RP.get(event_type, 0)
-			GameData.daily_reputation_points += reputation_points
+			var log_entry: Dictionary = event
 
 			if event_type == "scam":
 				fallen_events.append(event_id)
-				_apply_consequence(event.get("consequence", {}))
+				var fall := _judge_fall()
+				reputation_points = fall["points"]
+				# The line of the day summary tells the fall apart, the event is shared by every day
+				log_entry = event.duplicate()
+				log_entry["reputation_points"] = reputation_points
+				if reputation_points == 0:
+					log_entry["description"] = "%s · sem consequência (%d/%d)" % [
+						event.get("description", ""), fall["fall"], fall["free_falls"]
+					]
+				else:
+					# A forgiven fall goes without its consequence too: nothing negative happens
+					_apply_consequence(event.get("consequence", {}))
 				scam_fallen.emit(_get_conversations(event))
+				scam_fall_judged.emit(fall)
+
+			GameData.events_log.append(log_entry)
+			GameData.daily_reputation_points += reputation_points
 
 func evaluate_requirements(event: Dictionary) -> bool:
 	if event == null:
@@ -171,6 +189,16 @@ func evaluate_requirements(event: Dictionary) -> bool:
 		elif flag == "email_read":
 			return GameData.read_emails.has(requirement.get("email_id", ""))
 	return false
+
+## Whether the scam just fallen for costs points: the difficulty forgives the first ones of the day
+func _judge_fall() -> Dictionary:
+	var free_falls := GameData.get_free_scam_falls()
+	var fall := fallen_events.size()
+	return {
+		"fall": fall,
+		"free_falls": free_falls,
+		"points": 0 if fall <= free_falls else TYPE_TO_RP["scam"],
+	}
 
 ## What falling for a scam costs besides reputation
 ##
