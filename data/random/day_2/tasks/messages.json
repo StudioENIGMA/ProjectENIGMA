@@ -6,7 +6,7 @@
 	},
 	{
 		"conversation_id": "carla_1",
-		"branch": "d3_hello",
+		"branch": "d2_hello",
 		"required_app": "MessagesHome"
 	}
 ]

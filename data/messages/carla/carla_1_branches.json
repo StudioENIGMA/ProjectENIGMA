@@ -2,29 +2,29 @@
 	"conversation_id": "carla_1",
 	"contact_name": "Carla",
 	"branches": {
-		"d3_hello": [
+		"d2_hello": [
 			{
-				"id": "carla1_d3_0",
+				"id": "carla1_d2_0",
 				"text": "Oi! Sou a Carla, entrei no Financeiro essa semana 😊"
 			},
 			{
-				"id": "carla1_d3_1",
+				"id": "carla1_d2_1",
 				"text": "Qualquer coisa de reembolso, pode falar comigo por aqui.",
 				"choices": [
 					{
-						"id": "carla1_d3_1a_0",
+						"id": "carla1_d2_1a_0",
 						"player_text": "Bem-vinda, Carla!",
 						"npc_reply": {
-							"goto_branch": "d3_thanks",
+							"goto_branch": "d2_thanks",
 							"delay_ticks": 2
 						}
 					}
 				]
 			}
 		],
-		"d3_thanks": [
+		"d2_thanks": [
 			{
-				"id": "carla1_d3_2",
+				"id": "carla1_d2_2",
 				"text": "Obrigada! 💚"
 			}
 		]
