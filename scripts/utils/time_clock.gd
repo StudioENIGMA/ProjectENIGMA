@@ -90,10 +90,14 @@ func _update_workday(current_minutes: int) -> void:
 	if workday_bar == null or workday_label == null:
 		return
 
-	# The tutorial day ends earlier
-	var day_end: int = GameData.max_hours_minutes
+	# The tutorial has no time passing, it ends from its own button
 	if GameData.current_day == 0:
-		day_end = GameData.max_hours_minutes_tutorial
+		workday_bar.value = 0.0
+		workday_label.text = "tutorial"
+		_set_workday_warning(false)
+		return
+
+	var day_end: int = GameData.max_hours_minutes
 	var day_start: int = GameData.starting_hours_minutes
 
 	workday_bar.value = clampf(

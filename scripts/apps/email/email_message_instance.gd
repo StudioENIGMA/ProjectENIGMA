@@ -1,5 +1,11 @@
 extends VBoxContainer
 
+## Emitted when the player taps an attachment that opens (an order document or a Pix QR Code)
+signal attachment_opened(attachment: Dictionary)
+
+## Attachment types that open when tapped
+const OPENABLE_ATTACHMENTS := ["order_document", "pix_qr"]
+
 #region CHILDREN NODES REFERENCES
 @export var profile_picture:Control
 @export var sender_label: Label
@@ -34,20 +40,35 @@ func setup(email_data: Dictionary) -> void:
 ## Adds one chip per attachment under the content, hiding the row when there is none
 ##
 ## email_id: The email the attachments belong to, for the section each chip reports
-## attachments: The attachments of the email, as names or dictionaries with a "name"
+## attachments: The attachments of the email, as names or dictionaries with a "name" (and a
+## "type" for the ones that open: "order_document" or "pix_qr" with its "printed_code")
 func _show_attachments(email_id: String, attachments: Array) -> void:
 	attachments_container.visible = not attachments.is_empty()
 
 	for attachment in attachments:
 		var chip := attachment_template.duplicate() as PanelContainer
 		var attachment_name = attachment.get("name", "") if attachment is Dictionary else attachment
-		chip.get_node("Row/NameLabel").text = str(attachment_name)
+		var chip_text := str(attachment_name)
+		# The code printed under a QR Code, to be compared with the one the bank reads
+		if attachment is Dictionary and attachment.has("printed_code"):
+			chip_text += " · código %s" % attachment["printed_code"]
+		chip.get_node("Row/NameLabel").text = chip_text
 		chip.visible = true
 		attachments_container.add_child(chip)
+
+		if attachment is Dictionary and OPENABLE_ATTACHMENTS.has(attachment.get("type", "")):
+			chip.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			chip.gui_input.connect(_on_attachment_gui_input.bind(attachment))
 
 		var chip_target: DiscrepancyTarget = chip.get_node("AttachmentTarget")
 		chip_target.section = _section(email_id, "attachment", str(attachment_name))
 		discrepancy_targets.append(chip_target)
+
+## Opens the attachment on a tap (a release, so a drag scrolling the thread does not count)
+func _on_attachment_gui_input(event: InputEvent, attachment: Dictionary) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not event.pressed:
+			attachment_opened.emit(attachment)
 
 ## Describes a section of this email for the discrepancy report
 func _section(email_id: String, section: String, excerpt: String) -> Dictionary:

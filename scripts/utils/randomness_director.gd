@@ -1,4 +1,9 @@
 extends Node
+## Feeds the random lane of the StoryDirector with the random tasks and scams of the day
+##
+## There is no amount per day: whenever the random lane is free the StoryDirector asks for the
+## next event, so they come one after another from the start to the end of the day, each sender
+## once a day.
 
 #region SIGNALS
 signal schedule_message(story_entry: Dictionary)
@@ -6,121 +11,77 @@ signal schedule_email(story_entry: Dictionary)
 #endregion SIGNALS
 
 #region CONSTANTS
-const random_tasks_delay = [0, 60, 30, 30, 30, 30, 30]
-
-const number_of_events = [
-    {
-        "tasks": 0,
-        "scams": 0
-    },
-    {
-        "tasks": 1,
-        "scams": 1
-    },
-    {
-        "tasks": 1,
-        "scams": 3
-    },
-    {
-        "tasks": 4,
-        "scams": 4
-    },
-    {
-        "tasks": 7,
-        "scams": 5
-    },
-    {
-        "tasks": 8,
-        "scams": 8
-    },
-    {
-        "tasks": 8,
-        "scams": 13
-    },
-]
+## The tutorial (day 0) and the last day never get random events
+const DAYS_WITHOUT_RANDOM_EVENTS = [0, 7]
 #endregion CONSTANTS
 
 #region STATES
 var tasks_list: Array
 var scams_list: Array
-var events_scheduled: bool
-var clock_counter: int = 0
+## Senders (thread_id or conversation_id) that already sent a random event today
+var senders_today: Dictionary = {}
+## Every event of data/events/events.json, to know which discrepancies a scam declares
+var events_dict: Dictionary = {}
+## rule id -> day the rule is released on
+var rule_days: Dictionary = {}
 #endregion STATES
 
 
 #region SETUP
-func setup_from_json_roots(random_tasks: Array, random_scams: Array) -> void:
-	tasks_list = random_tasks[0] + random_tasks[1]
-	scams_list = random_scams[0] + random_scams[1]
-	events_scheduled = false
-	define_events_list()
+func setup_from_json_roots(
+	random_tasks: Array, random_scams: Array, events: Dictionary, rules: Array
+) -> void:
+	tasks_list.clear()
+	for root in random_tasks:
+		tasks_list.append_array(root)
+	scams_list.clear()
+	for root in random_scams:
+		scams_list.append_array(root)
+	events_dict = events
+	rule_days.clear()
+	for rule in rules:
+		rule_days[str(rule.get("id", ""))] = int(rule.get("day", 0))
+	senders_today.clear()
 #endregion SETUP
 
 #region FUNCTIONS
-func _on_clock_tick() -> void:
-	if (events_scheduled or GameData.current_day == 0 or GameData.current_day == 7):
+## Schedules the next random event of the day, due at once, if the player can get one
+##
+## Called by StoryDirector whenever the random lane is free. An event waiting on an app the player
+## has not installed yet is left for a later call.
+func schedule_next_event(current_minutes: int) -> void:
+	if DAYS_WITHOUT_RANDOM_EVENTS.has(GameData.current_day):
 		return
 
-	clock_counter += 1
-	if (clock_counter == 1):
-		clock_counter = 0
-		define_events_list()
-
-func define_events_list() -> void:
-	if (GameData.current_day == 0 or GameData.current_day == 7):
+	var available_events := (tasks_list + scams_list).filter(
+		func(event: Dictionary) -> bool:
+			return not senders_today.has(_get_sender_id(event)) and evaluate_requirements(event)
+	)
+	if available_events.is_empty():
 		return
 
-	var randomized_tasks = tasks_list.duplicate(true)
-	var randomized_scams = scams_list.duplicate(true)
+	var event: Dictionary = available_events.pick_random()
+	var event_id := _get_event_id(event)
+	senders_today[_get_sender_id(event)] = true
+	GameData.random_events_history.append(event_id)
 
-	randomized_tasks.shuffle()
-	randomized_scams.shuffle()
-
-	var number_of_tasks_required = number_of_events[GameData.current_day].tasks
-	var number_of_scams_required = number_of_events[GameData.current_day].scams
-
-	if GameData.downloaded_apps.has(GameData.App.FAKESTORE):
-		number_of_scams_required = ceili(number_of_scams_required * 1.4)
-		number_of_tasks_required = ceili(number_of_tasks_required * 1.4)
-
-	var chosen_tasks = []
-	var tasks_sender_ids = {}
-	for task in randomized_tasks:
-		if len(chosen_tasks) >= number_of_tasks_required:
-			break
-
-		if not evaluate_requirements(task):
-			continue
-
-		var sender_id = _get_sender_id(task)
-		if tasks_sender_ids.has(sender_id):
-			continue
-
-		tasks_sender_ids.set(sender_id, true)
-		chosen_tasks.append(task)
-	
-	var chosen_scams = []
-	var scams_sender_ids = {}
-	for scam in randomized_scams:
-		if len(chosen_scams) >= number_of_scams_required:
-			break
-
-		if not evaluate_requirements(scam):
-			continue
-
-		var sender_id = _get_sender_id(scam)
-		if scams_sender_ids.has(sender_id):
-			continue
-
-		scams_sender_ids.set(sender_id, true)
-		chosen_scams.append(scam)
-
-	if (len(chosen_tasks) != number_of_tasks_required or len(chosen_scams) != number_of_scams_required):
-		push_warning("It wasn't possible to pick random events, trying again in 10 seconds")
-		return
-
-	var events_list = chosen_tasks + chosen_scams
-	schedule_events(events_list)
+	if event.has("email_id"):
+		schedule_email.emit({
+			"thread_id": event.get("thread_id"),
+			"email_id": event_id,
+			"event_id": event_id,
+			"due_at": current_minutes,
+			"requires": [],
+		})
+	else:
+		schedule_message.emit({
+			"conversation_id": event.get("conversation_id"),
+			"branch": event_id,
+			"event_id": event_id,
+			"index": 0,
+			"due_at": current_minutes,
+			"requires": [],
+		})
 
 ## Who sends a random event: the email thread_id or the messages conversation_id
 func _get_sender_id(event: Dictionary) -> String:
@@ -128,109 +89,35 @@ func _get_sender_id(event: Dictionary) -> String:
 		return str(event.get("thread_id"))
 	return str(event.get("conversation_id"))
 
-func evaluate_requirements(event) -> bool:
-	var event_id = null
+## Id of a random event: the email_id, or the branch of the conversation
+func _get_event_id(event: Dictionary) -> String:
+	assert(event.has("email_id") or event.has("branch"))
+	if event.has("email_id"):
+		return str(event.get("email_id"))
+	return str(event.get("branch"))
 
-	if event.has("branch"):
-		event_id = event.get("branch")
-	elif event.has("email_id"):
-		event_id = event.get("email_id")
-		event["is_email"] = true
-	assert(event_id != null)
-
-	if (GameData.random_events_history.has(event_id)):
+func evaluate_requirements(event: Dictionary) -> bool:
+	var event_id := _get_event_id(event)
+	if GameData.random_events_history.has(event_id):
 		return false
 
-	var app_id = event.get("required_app", "")
-	var app = GameData.apps_name.get(app_id, null)
-
-	if (!GameData.downloaded_apps.has(app)):
+	var app = GameData.apps_name.get(event.get("required_app", ""), null)
+	if not GameData.downloaded_apps.has(app):
 		return false
 
-	if (event.get("is_email", false) and not GameData.downloaded_apps.has(GameData.App.EMAIL)):
+	if event.has("email_id") and not GameData.downloaded_apps.has(GameData.App.EMAIL):
 		return false
 
-	return true
+	return _has_released_discrepancy(event_id)
 
-func schedule_events(events_list: Array) -> void:
-	events_list.shuffle()
-
-	var events_due_times = get_spaced_times(events_list.size())
-	assert(events_due_times.size() == events_list.size())
-
-	for i in range(events_list.size()):
-		var event_id = null
-		if events_list[i].get("is_email", false):
-			event_id = events_list[i].get("email_id")
-			schedule_email.emit({
-				"thread_id": events_list[i].get("thread_id"),
-				"email_id": event_id,
-				"event_id": event_id,
-				"due_at": events_due_times[i],
-				"requires": [],
-			})
-		else:
-			event_id = events_list[i].get("branch")
-			schedule_message.emit({
-					"conversation_id": events_list[i].get("conversation_id"),
-					"branch": event_id,
-					"event_id": event_id,
-					"index": 0,
-					"due_at": events_due_times[i],
-					"requires": [],
-				})
-		GameData.random_events_history.append(event_id)
-	
-	events_scheduled = true
-
-func get_spaced_times(number_of_times: int) -> Array:
-	var times = []
-
-	var start_of_range = GameData.starting_hours_minutes + random_tasks_delay[GameData.current_day]
-	var end_of_range = GameData.max_hours_minutes - 45
-
-	var min_dist = 30
-	# Verifies if min distance at 30s is possible
-	var interval_length = end_of_range - start_of_range
-	var minimum_acceptable_interval = number_of_times * min_dist
-
-	var average_length = (interval_length / number_of_times)
-	const CORRECTING_FACTOR = 0.8
-	if (minimum_acceptable_interval >= interval_length):
-		push_warning("Quantidade mínima inalcalçável")
-		min_dist = floori(average_length * CORRECTING_FACTOR)
-
-	for delta_idx in range(number_of_times):
-		times.append(start_of_range + average_length * (delta_idx + 1))
-
-	print(times)
-	for time_idx in range(len(times)):
-		var unadjusted_time = times[time_idx]
-		var time_delta = randfn(0.0, average_length/10)
-		time_delta = clamp(time_delta, -average_length * CORRECTING_FACTOR, average_length * CORRECTING_FACTOR)
-		var time = unadjusted_time + time_delta
-		time = clamp(time, start_of_range, end_of_range)
-		times[time_idx] = time
-
-	times.sort()
-
-	var base_times = times.duplicate(true)
-	# Adjust for better rebalancing
-	for time_idx in range(1, len(base_times) - 1):
-		var unadjusted_time = base_times[time_idx]
-
-		var previous_time = base_times[time_idx - 1]
-		var subsequent_time = base_times[time_idx + 1]
-
-		var previous_interval = unadjusted_time - previous_time
-		var subsequent_interval = subsequent_time - unadjusted_time
-
-		var interval_proportions = subsequent_interval / max(previous_interval, 0.001)
-		var adjusted_proportion = pow(interval_proportions, 0.3)
-
-		var new_time = (previous_time + subsequent_time) / (1 + adjusted_proportion)
-		times[time_idx] = new_time
-
-	print(times)
-	return times
-#endregion FUNCTION
+## Whether the player can already report the event: it declares no discrepancy (a task), or at
+## least one of its discrepancies breaks a rule released by today
+func _has_released_discrepancy(event_id: String) -> bool:
+	var discrepancies: Array = events_dict.get(event_id, {}).get("discrepancies", [])
+	if discrepancies.is_empty():
+		return true
+	for discrepancy in discrepancies:
+		if rule_days.get(str(discrepancy.get("rule", "")), 999) <= GameData.current_day:
+			return true
+	return false
+#endregion FUNCTIONS

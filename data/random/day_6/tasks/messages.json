@@ -1,0 +1,37 @@
+[
+	{
+		"conversation_id": "mariana_1",
+		"branch": "task0_mariana",
+		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "marta_1",
+		"branch": "task0_marta",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marta_1",
+		"branch": "task2_marta",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marta_1",
+		"branch": "task3_marta",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "gilmar_1",
+		"branch": "task0_gilmar",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "gilmar_1",
+		"branch": "task1_gilmar",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "gilmar_1",
+		"branch": "task2_gilmar",
+		"required_app": "MessagesHome"
+	}
+]

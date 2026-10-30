@@ -1,0 +1,245 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/apps/email/order_document.gd" id="1_doc"]
+[ext_resource type="Script" uid="uid://bvuvfbxwwfw0n" path="res://scripts/tools/thin_scroll.gd" id="2_scroll"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="3_bold"]
+[ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
+[ext_resource type="FontFile" uid="uid://fq2l7f2gu08q" path="res://assets/fonts/IBMPlexSans-SemiBold.ttf" id="5_semi"]
+[ext_resource type="FontFile" uid="uid://dga6bou3mkmqe" path="res://assets/fonts/GloriaHallelujah-Regular.ttf" id="6_hand"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="7_target"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paper"]
+content_margin_left = 18.0
+content_margin_top = 20.0
+content_margin_right = 18.0
+content_margin_bottom = 20.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 8
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.08)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_section"]
+
+[node name="OrderDocument" type="Control" node_paths=PackedStringArray("department_label", "order_id_label", "requester_label", "reason_label", "items_label", "signature_label", "signature_caption_label", "order_id_target", "requester_target", "reason_target", "signature_target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_doc")
+department_label = NodePath("Margin/Scroll/Paper/Column/Header/DepartmentLabel")
+order_id_label = NodePath("Margin/Scroll/Paper/Column/OrderIdSection/Column/OrderIdLabel")
+requester_label = NodePath("Margin/Scroll/Paper/Column/RequesterSection/Column/RequesterLabel")
+reason_label = NodePath("Margin/Scroll/Paper/Column/ReasonSection/Column/ReasonLabel")
+items_label = NodePath("Margin/Scroll/Paper/Column/ReasonSection/Column/ItemsLabel")
+signature_label = NodePath("Margin/Scroll/Paper/Column/SignatureSection/Column/SignatureLabel")
+signature_caption_label = NodePath("Margin/Scroll/Paper/Column/SignatureSection/Column/SignatureCaption")
+order_id_target = NodePath("Margin/Scroll/Paper/Column/OrderIdSection/OrderIdTarget")
+requester_target = NodePath("Margin/Scroll/Paper/Column/RequesterSection/RequesterTarget")
+reason_target = NodePath("Margin/Scroll/Paper/Column/ReasonSection/ReasonTarget")
+signature_target = NodePath("Margin/Scroll/Paper/Column/SignatureSection/SignatureTarget")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_scroll")
+size_x = 4
+
+[node name="Paper" type="PanelContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_paper")
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll/Paper"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="VBoxContainer" parent="Margin/Scroll/Paper/Column"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="KindLabel" type="Label" parent="Margin/Scroll/Paper/Column/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 0.5647059, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 12
+text = "PEDIDO DE COMPRA"
+
+[node name="DepartmentLabel" type="Label" parent="Margin/Scroll/Paper/Column/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Enigma · Setor de Compras"
+
+[node name="Divider" type="ColorRect" parent="Margin/Scroll/Paper/Column"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="OrderIdSection" type="PanelContainer" parent="Margin/Scroll/Paper/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll/Paper/Column/OrderIdSection"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Caption" type="Label" parent="Margin/Scroll/Paper/Column/OrderIdSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Nº do pedido"
+
+[node name="OrderIdLabel" type="Label" parent="Margin/Scroll/Paper/Column/OrderIdSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 20
+text = "PC-0000"
+
+[node name="OrderIdTarget" type="Control" parent="Margin/Scroll/Paper/Column/OrderIdSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_target")
+padding = Vector2(8, 5)
+
+[node name="RequesterSection" type="PanelContainer" parent="Margin/Scroll/Paper/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll/Paper/Column/RequesterSection"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Caption" type="Label" parent="Margin/Scroll/Paper/Column/RequesterSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Pedido por"
+
+[node name="RequesterLabel" type="Label" parent="Margin/Scroll/Paper/Column/RequesterSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("5_semi")
+theme_override_font_sizes/font_size = 16
+text = "Nome"
+
+[node name="RequesterTarget" type="Control" parent="Margin/Scroll/Paper/Column/RequesterSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_target")
+padding = Vector2(8, 5)
+
+[node name="ReasonSection" type="PanelContainer" parent="Margin/Scroll/Paper/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll/Paper/Column/ReasonSection"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Caption" type="Label" parent="Margin/Scroll/Paper/Column/ReasonSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Motivo"
+
+[node name="ReasonLabel" type="Label" parent="Margin/Scroll/Paper/Column/ReasonSection/Column"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("5_semi")
+theme_override_font_sizes/font_size = 16
+text = "Motivo"
+autowrap_mode = 3
+
+[node name="ItemsLabel" type="Label" parent="Margin/Scroll/Paper/Column/ReasonSection/Column"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13333334, 0.28235295, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 14
+text = "Itens"
+autowrap_mode = 3
+
+[node name="ReasonTarget" type="Control" parent="Margin/Scroll/Paper/Column/ReasonSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_target")
+padding = Vector2(8, 5)
+
+[node name="Divider2" type="ColorRect" parent="Margin/Scroll/Paper/Column"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[node name="SignatureSection" type="PanelContainer" parent="Margin/Scroll/Paper/Column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_section")
+
+[node name="Column" type="VBoxContainer" parent="Margin/Scroll/Paper/Column/SignatureSection"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Caption" type="Label" parent="Margin/Scroll/Paper/Column/SignatureSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 12
+text = "Assinatura"
+
+[node name="SignatureLabel" type="Label" parent="Margin/Scroll/Paper/Column/SignatureSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11764706, 0.1882353, 0.2784314, 1)
+theme_override_fonts/font = ExtResource("6_hand")
+theme_override_font_sizes/font_size = 26
+text = "Nome"
+
+[node name="SignatureLine" type="ColorRect" parent="Margin/Scroll/Paper/Column/SignatureSection/Column"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.11764706, 0.1882353, 0.2784314, 0.5)
+
+[node name="SignatureCaption" type="Label" parent="Margin/Scroll/Paper/Column/SignatureSection/Column"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("4_reg")
+theme_override_font_sizes/font_size = 11
+text = "Assinado por"
+
+[node name="SignatureTarget" type="Control" parent="Margin/Scroll/Paper/Column/SignatureSection"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("7_target")
+padding = Vector2(8, 5)

@@ -1,198 +1,320 @@
 {
 	"667831": {
 		"institution": "Elogie Lá",
-		"value": 531.20
+		"value": 531.2,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
 	},
 	"902351": {
 		"institution": "Asiáticas",
-		"value": 72.99
+		"value": 72.99,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"569721": {
 		"institution": "Viva Inc.",
-		"value": 69.90
+		"value": 69.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"120958": {
 		"institution": "Viva Inc.",
-		"value": 79.90
+		"value": 79.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"568493": {
 		"institution": "Viva Inc.",
-		"value": 89.90
+		"value": 89.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"684936": {
 		"institution": "Viva Inc.",
-		"value": 69.90
+		"value": 69.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"203948": {
 		"institution": "Viva Inc.",
-		"value": 129.90
+		"value": 129.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"238172": {
 		"institution": "Viva Inc.",
-		"value": 79.90
+		"value": 79.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"274665": {
 		"institution": "Negativa",
-		"value": 6449.00
+		"value": 6449.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
 	},
 	"725409": {
 		"institution": "Negativa",
-		"value": 8386.62
+		"value": 8386.62,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"098471": {
 		"institution": "Negativa",
-		"value": 6449.00
+		"value": 6449.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
 	},
 	"677700": {
 		"institution": "Negativa",
-		"value": 6321.77
+		"value": 6321.77,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"673423": {
 		"institution": "PX Investment ltda.",
-		"value": 19822.00
+		"value": 19822.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
 	},
 	"901254": {
 		"institution": "PX Investment ltda.",
-		"value": 20000.0
+		"value": 20000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
 	},
 	"345127": {
 		"institution": "PX Investment ltda.",
-		"value": 7844.00
+		"value": 7844.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
 	},
 	"547925": {
 		"institution": "PX Investment ldta.",
-		"value": 25000.00
+		"value": 25000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
 	},
 	"393209": {
 		"institution": "PX Investment ltda.",
-		"value": 4798.00
+		"value": 4798.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
 	},
 	"856321": {
 		"institution": "viva inc",
-		"value": 69.90
+		"value": 69.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"786321": {
 		"institution": "Viv4 Inc.",
-		"value": 200.00
+		"value": 200.0,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"483234": {
 		"institution": "Vivas incs",
-		"value": 99.90
+		"value": 99.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"932789": {
 		"institution": "Viva",
-		"value": 6666.00
+		"value": 6666.0,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"896100": {
 		"institution": "Viva",
-		"value": 89.90
+		"value": 89.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"196108": {
 		"institution": "Vivs",
-		"value": 700.00
+		"value": 700.0,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"566118": {
 		"institution": "Vivaa",
-		"value": 690.90
+		"value": 690.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"113419": {
 		"institution": "Vivs",
-		"value": 690.90
+		"value": 690.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"308112": {
 		"institution": "VIVA",
-		"value": 169.90
+		"value": 169.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"894152": {
 		"institution": "ViVa",
-		"value": 1290.90
+		"value": 1290.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"890152": {
 		"institution": "ViVa",
-		"value": 700.00
+		"value": 700.0,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"400004": {
 		"institution": "ViVa",
-		"value": 34786.33
+		"value": 34786.33,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
 	},
 	"455555": {
 		"institution": "Negativa",
-		"value": 4389.90
+		"value": 4389.9,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"586954": {
 		"institution": "Gerente PX Investment",
-		"value": 14000.00
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
 	},
 	"536954": {
 		"institution": "Gerente PX Investment",
-		"value": 14000.00
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
 	},
 	"586054": {
 		"institution": "Gerente PX Investment",
-		"value": 14000.00
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
 	},
 	"586098": {
 		"institution": "Industrials",
-		"value": 3299.00
+		"value": 3299.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
 	},
 	"586092": {
 		"institution": "Industrials",
-		"value": 1349.90
+		"value": 1349.9,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
 	},
 	"897340": {
 		"institution": "Industrials",
-		"value": 1430.90
+		"value": 1430.9,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
 	},
 	"897341": {
 		"institution": "Industrials",
-		"value": 17990.00
+		"value": 17990.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
 	},
 	"234567": {
 		"institution": "Marcelo",
-		"value": 10000.00
+		"value": 10000.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"468431": {
 		"institution": "Marcelo",
-		"value": 5999.00
+		"value": 5999.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
 	},
 	"789623": {
 		"institution": "Industrias Habitat",
-		"value": 6500.00
+		"value": 6500.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
 	},
 	"769623": {
 		"institution": "Financeiro",
-		"value": 9780.90
+		"value": 9780.9,
+		"reason": "Reembolso de funcionário",
+		"bank": "Banco Aurora"
 	},
 	"760623": {
 		"institution": "Financeiro",
-		"value": 3467.98
+		"value": 3467.98,
+		"reason": "Reembolso de funcionário",
+		"bank": "Caixa Leste"
 	},
 	"760023": {
 		"institution": "Financeiro",
-		"value": 15667.90
+		"value": 15667.9,
+		"reason": "Reembolso de funcionário",
+		"bank": "Banco Aurora"
 	},
 	"960023": {
 		"institution": "TI",
-		"value": 6767.67
+		"value": 6767.67,
+		"reason": "Reembolso de funcionário",
+		"bank": "Caixa Leste"
 	},
 	"556382": {
 		"institution": "ENIGMAZ",
-		"value": 500.00
+		"value": 500.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
 	},
 	"056128": {
 		"institution": "Empório da Festa",
-		"value": 1688.00
+		"value": 1688.0,
+		"reason": "Evento da empresa",
+		"bank": "Caixa Leste"
 	},
 	"097341": {
 		"institution": "Industrials",
-		"value": 8670.12
+		"value": 8670.12,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
 	},
-	"554433":{
+	"554433": {
 		"institution": "Eros Company",
-		"value": 8999.99
+		"value": 8999.99,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"063299": {
 		"institution": "Pagamentos Kospenski",
-		"value": 1700.00
+		"value": 1700.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"731905": {
+		"institution": "Contábil Norte",
+		"value": 389.9,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Banco Aurora"
+	},
+	"418807": {
+		"institution": "Móveis Rocha",
+		"value": 8386.6,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"552210": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 1240.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Nexo"
+	},
+	"339120": {
+		"institution": "M. L. Serviços Ltda",
+		"value": 1240.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	}
 }

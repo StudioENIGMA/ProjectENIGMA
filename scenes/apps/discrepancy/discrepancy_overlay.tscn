@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/apps/discrepancy/rules_notebook.gd" id="7_notebook"]
 [ext_resource type="Shader" path="res://shaders/aged_paper.gdshader" id="8_aged"]
 [ext_resource type="Shader" path="res://shaders/spotlight.gdshader" id="9_spot"]
+[ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_link.gd" id="10_link"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sheet"]
 bg_color = Color(1, 1, 0.972549, 1)
@@ -167,7 +168,7 @@ shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.14)
 shadow_size = 10
 shadow_offset = Vector2(0, 4)
 
-[node name="DiscrepancyOverlay" type="Control" node_paths=PackedStringArray("scrim", "sheet", "rules_scroll", "rules_list", "cancel_button", "next_button", "dim", "point_bar", "point_rule_number", "point_rule_title", "change_rule_button", "report_button", "stamp")]
+[node name="DiscrepancyOverlay" type="Control" node_paths=PackedStringArray("scrim", "sheet", "rules_scroll", "rules_list", "cancel_button", "next_button", "dim", "point_bar", "point_rule_number", "point_rule_badge", "point_rule_title", "change_rule_button", "report_button", "link", "stamp", "stamp_label", "stamp_sub_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,10 +186,14 @@ next_button = NodePath("Sheet/SheetMargin/SheetColumn/ActionsRow/NextButton")
 dim = NodePath("Dim")
 point_bar = NodePath("PointBar")
 point_rule_number = NodePath("PointBar/PointMargin/PointColumn/RuleRow/NumberBadge/NumberLabel")
+point_rule_badge = NodePath("PointBar/PointMargin/PointColumn/RuleRow/NumberBadge")
 point_rule_title = NodePath("PointBar/PointMargin/PointColumn/RuleRow/RuleText/RuleTitle")
 change_rule_button = NodePath("PointBar/PointMargin/PointColumn/ActionsRow/ChangeRuleButton")
 report_button = NodePath("PointBar/PointMargin/PointColumn/ActionsRow/ReportButton")
+link = NodePath("Link")
 stamp = NodePath("Stamp")
+stamp_label = NodePath("Stamp/StampColumn/StampLabel")
+stamp_sub_label = NodePath("Stamp/StampColumn/StampSubLabel")
 
 [node name="Scrim" type="ColorRect" parent="."]
 layout_mode = 1
@@ -422,6 +427,17 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_report_disabled")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
 disabled = true
 text = "Denunciar golpe"
+
+[node name="Link" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_link")
+tag_font = ExtResource("2_bold")
 
 [node name="Stamp" type="PanelContainer" parent="."]
 layout_mode = 1

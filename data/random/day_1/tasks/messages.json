@@ -1,0 +1,87 @@
+[
+	{
+		"conversation_id": "arthur_1",
+		"branch": "task0_arthur1",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "arthur_1",
+		"branch": "task1_arthur1",
+		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "jessica_1",
+		"branch": "task2_jessica",
+		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "px_investment_1",
+		"branch": "task0_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "px_investment_1",
+		"branch": "task1_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "px_investment_1",
+		"branch": "task2_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "px_investment_1",
+		"branch": "task3_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "px_investment_1",
+		"branch": "task4_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task0_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task1_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task2_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task3_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task4_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task5_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task6_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task7_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task8_marcao",
+		"required_app": "Bank"
+	}
+]

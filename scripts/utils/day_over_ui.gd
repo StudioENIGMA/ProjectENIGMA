@@ -3,7 +3,8 @@ extends Control
 signal day_over_clicked()
 signal end_game()
 
-const MIN_RP_DAY = [10, 55, 60, 70, 75, 80, 85]
+## Reputation points needed to pass each day. The tutorial (day 0) needs none and is always passed
+const MIN_RP_DAY = [0, 55, 60, 70, 75, 80, 85]
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const CREDIT_ROLL_PATH = "res://scenes/rolling_credits.tscn"
 const TYPE_TO_RP = {
@@ -35,16 +36,22 @@ func show_day_over() -> void:
 	for event in GameData.events_log:
 		var event_instance = EVENT_DESCRIPTION_SCENE.instantiate()
 
-		var event_rp = TYPE_TO_RP.get(event.get("type", ""), 0)
+		# Report lines carry their own points, the other events are worth their type
+		var event_rp = int(event.get("reputation_points", TYPE_TO_RP.get(event.get("type", ""), 0)))
 		event_instance.setup(event.get("description", ""), event_rp)
 		events_container.add_child(event_instance)
 
-	reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, MIN_RP_DAY[GameData.current_day]]
+	var min_rp: int = MIN_RP_DAY[GameData.current_day]
+	if min_rp > 0:
+		reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, min_rp]
+	else:
+		reputation_points_label.text = str(GameData.daily_reputation_points)
 
 	for connection in next_day_button.pressed.get_connections():
 		next_day_button.pressed.disconnect(connection["callable"])
 
-	if GameData.daily_reputation_points >= MIN_RP_DAY[GameData.current_day]:
+	# With no minimum, not even a day with negative points (wrong reports) holds the player back
+	if min_rp == 0 or GameData.daily_reputation_points >= min_rp:
 		result_label.text = "APROVADO"
 		result_label.add_theme_color_override("font_color", SUCCESS_COLOR)
 		reputation_points_label.add_theme_color_override("font_color", SUCCESS_COLOR)
@@ -102,8 +109,8 @@ func _on_next_day_button_pressed() -> void:
 		if randi() % 100 < 50: # 50% chance
 			GameData.apps_with_available_updates.append(app)
 
+	# The morning paper starts the day and saves once it has been set up
 	day_over_clicked.emit()
-	GameData.save_game()
 
 func _on_previous_day_button_pressed() -> void:
 	GameData.reset_to_defaults()
