@@ -7,37 +7,38 @@
 				"id": "jessica1_purchase0_0",
 				"text": "Oi, boa tarde, você não me faria um favor? Estamos precisando renovar a vestimenta do pessoal aqui da empresa, você poderia por gentileza comprar 10 camisas sociais (5 de cada cor)?",
 				"choices": [
-				  {
+					{
 						"id": "jessica1_purchase0_0a_0",
-						"text": "Vou precisar do ID da compra",
+						"player_text": "Vou precisar do ID da compra",
 						"npc_reply": {
-						  "goto_branch": "from_jessica1_purchase0_0"
+							"goto_branch": "from_jessica1_purchase0_0",
+							"delay_ticks": 0
 						}
 					}
-				],
-				"from_jessica1_purchase0_0": [
-				  {
-						"id": "jessica1_purchase0_1",
-						"text": "[correct_pattern]"
-					},
+				]
+			}
+		],
+		"from_jessica1_purchase0_0": [
+			{
+				"id": "jessica1_purchase0_1",
+				"text": "[correct_pattern]"
+			},
+			{
+				"id": "jessica1_purchase0_2",
+				"text": "obgdaa",
+				"requires": [
 					{
-						"id": "jessica1_purchase0_1",
-						"text": "obgdaa",
-						"requires": [
+						"flag": "purchase",
+						"items": [
 							{
-								"flag": "purchase",
-								"items": [
-									{
-										"item_id": 31,
-										"quantity": 5,
-										"store": "aec"
-									},
-									{
-										"item_id": 32,
-										"quantity": 5,
-										"store": "aec"
-									}
-								]
+								"item_id": 31,
+								"quantity": 5,
+								"store": "aec"
+							},
+							{
+								"item_id": 32,
+								"quantity": 5,
+								"store": "aec"
 							}
 						]
 					}

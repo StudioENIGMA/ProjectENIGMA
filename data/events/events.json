@@ -957,9 +957,33 @@
 				"found_at": [
 				  {
 						"source": "messages",
-						"conversation": "athur_2",
+						"conversation": "arthur_2",
 						"section": "message",
 						"contains": "EAC16"
+					}
+				]
+			}
+		]
+	},
+	"scam0_arthur3": {
+		"type": "scam",
+		"description": "ID de pagamento incorreto",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "R7U6M"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "codigo_pix_R7U6M",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "arthur_3",
+						"section": "message",
+						"contains": "R7U6M"
 					}
 				]
 			}

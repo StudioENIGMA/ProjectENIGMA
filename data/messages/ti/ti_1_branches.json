@@ -290,7 +290,7 @@
 					"id": "ti_2_0a_1",
 					"player_text": "Não",
 					"npc_reply": {
-						"goto_branch": "from_ti_2_5",
+						"goto_branch": "from_ti_2_1",
 						"delay_ticks": 2
 					}
 				}
