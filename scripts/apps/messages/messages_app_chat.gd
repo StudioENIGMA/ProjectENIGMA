@@ -260,6 +260,14 @@ func on_conversation_blocked(blocked_conversation_id:String) -> void:
 	if blocked_conversation_id == conversation_id:
 		answers_panel.clear_ui()
 
+## Stops every "typing" of the day that ended, the messages they announced are never sent
+func on_start_new_day() -> void:
+	if messages_typing.get(conversation_id, false):
+		var typing_instance = messages_list.get_child(messages_list.get_child_count() - 1)
+		messages_list.remove_child(typing_instance)
+		typing_instance.queue_free()
+	messages_typing.clear()
+
 ## Rules group the sections of this screen are checked against, see data/rules/rules.json
 func get_rules_app() -> String:
 	return "MessagesHome"

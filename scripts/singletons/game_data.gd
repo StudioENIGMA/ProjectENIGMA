@@ -356,10 +356,6 @@ func get_human_typing_time(message: String) -> int:
 
 	return total_time
 
-## The account name a contact gets when its conversation names none: "@" and the name in
-## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
-##
-## Conversations and the Notes app's company contacts both get their accounts from it.
 ## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
 ## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
 func get_free_scam_falls() -> int:
@@ -369,6 +365,10 @@ func get_free_scam_falls() -> int:
 		return 1
 	return 0
 
+## The account name a contact gets when its conversation names none: "@" and the name in
+## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
+##
+## Conversations and the Notes app's company contacts both get their accounts from it.
 func account_from_name(contact_name: String) -> String:
 	var plain := contact_name.to_lower()
 	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",

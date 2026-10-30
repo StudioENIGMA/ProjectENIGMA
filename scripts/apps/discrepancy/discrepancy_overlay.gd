@@ -167,8 +167,8 @@ func stop() -> void:
 
 ## Slams the verdict of a report over the app, then fades it away
 ##
-## result: "verdict" ("found", "duplicate", "late", "stale", "wrong" or "false"), "title" and
-## "subtitle", as judged by events_director
+## result: "verdict" ("found", "duplicate", "late", "early", "stale", "wrong" or "false"),
+## "title" and "subtitle", as judged by events_director
 func play_stamp(result: Dictionary = {}) -> void:
 	if _stamp_tween:
 		_stamp_tween.kill()
@@ -182,7 +182,7 @@ func play_stamp(result: Dictionary = {}) -> void:
 
 	var color := STAMP_FOUND_COLOR
 	match str(result.get("verdict", "found")):
-		"duplicate", "late", "stale":
+		"duplicate", "late", "early", "stale":
 			color = STAMP_NEUTRAL_COLOR
 		"wrong", "false":
 			color = STAMP_WRONG_COLOR

@@ -113,6 +113,7 @@ func _ready() -> void:
 	ui.day_introduction_ui.day_started.connect(event_handler.reset_data_for_new_day)
 	ui.day_introduction_ui.day_started.connect(story_director.reload_and_setup_today)
 	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_home._on_start_new_day)
+	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_chat.on_start_new_day)
 	ui.day_introduction_ui.day_started.connect(ui.notification_center.clear_day_alerts)
 	# UI tutorial ended, which has no time passing to end it
 	ui.finish_tutorial_requested.connect(event_handler.end_day)
