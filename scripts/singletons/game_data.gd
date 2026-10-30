@@ -74,6 +74,16 @@ enum PaymentType {
 	TICKET,
 }
 
+## Rules the player reports scams against, see load_rules()
+const RULES_PATH := "res://data/rules/rules.json"
+## Names of a date_dict's "weekday" (0 is Sunday), see weekday_name()
+const WEEKDAY_NAMES := ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+## Names of a date_dict's "month" (1 is January), see month_name()
+const MONTH_NAMES := [
+	"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+	"julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
+]
+
 class PaymentCode:
 	var code: String
 	var type: PaymentType
@@ -380,6 +390,27 @@ func account_from_name(contact_name: String) -> String:
 		if (character >= "a" and character <= "z") or (character >= "0" and character <= "9"):
 			handle += character
 	return "@" + handle
+
+## Name of the weekday of a date ("Quarta"), date_dict as get_current_date_dict() gives it
+func weekday_name(date_dict: Dictionary) -> String:
+	return WEEKDAY_NAMES[int(date_dict.get("weekday", 0)) % 7]
+
+## Name of the month of a date ("outubro"), date_dict as get_current_date_dict() gives it
+func month_name(date_dict: Dictionary) -> String:
+	return MONTH_NAMES[(int(date_dict.get("month", 1)) - 1) % 12]
+
+## Reads the whole rulebook, every day included
+func load_rules() -> Array:
+	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
+	if file == null:
+		push_error("Could not open rules file: %s" % RULES_PATH)
+		return []
+
+	var rules = JSON.parse_string(file.get_as_text())
+	if not rules is Array:
+		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
+		return []
+	return rules
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""

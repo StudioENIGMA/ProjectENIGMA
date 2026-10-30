@@ -16,7 +16,6 @@ signal rule_change_requested()
 signal report_confirmed()
 
 const RULE_ROW = preload("res://scenes/apps/discrepancy/discrepancy_rule_row.tscn")
-const RULES_PATH := "res://data/rules/rules.json"
 const GROUP_FONT = preload("res://assets/fonts/GloriaHallelujah-Regular.ttf")
 ## Rules groups of the notepad, in the order they are listed: the "apps" of the rules
 const RULES_GROUPS := {
@@ -302,7 +301,7 @@ func _fill_rules() -> void:
 	_chosen_row = null
 	next_button.disabled = true
 
-	var rules := _load_rules()
+	var rules := GameData.load_rules()
 	var groups: Array = RULES_GROUPS.keys()
 	if groups.has(_rules_app):
 		groups.erase(_rules_app)
@@ -352,20 +351,6 @@ func _add_group_heading(text: String) -> void:
 	margin.add_child(label)
 	rules_list.add_child(margin)
 	RulesNotebook.fit_to_ruling(label)
-
-
-## Reads the whole rulebook, every day included
-func _load_rules() -> Array:
-	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
-	if file == null:
-		push_error("Could not open rules file: %s" % RULES_PATH)
-		return []
-
-	var rules = JSON.parse_string(file.get_as_text())
-	if not rules is Array:
-		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
-		return []
-	return rules
 
 
 func _restart_sheet_tween() -> void:
