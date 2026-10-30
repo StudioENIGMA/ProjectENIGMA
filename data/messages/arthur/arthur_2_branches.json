@@ -25,8 +25,8 @@
         "choices": [
           {
             "id": "arthur2_payment0_1a_0",
-            "player_text": "O ID não segue o padrãqo correto",
-            "npc_replay": {
+            "player_text": "O ID não segue o padrão correto",
+            "npc_reply": {
               "goto_branch": "from_arthur2_payment0_1",
               "delay_ticks": 0
             }
