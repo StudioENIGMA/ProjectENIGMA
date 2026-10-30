@@ -39,7 +39,6 @@ const FAILURE_COLOR = IntroBuilders.FAILURE_COLOR
 const DOT_COLOR := Color(0.09019608, 0.10980392, 0.18039216, 0.15)
 ## Same look as the Messages app: its top bar, chat background and NPC bubbles
 const CHAT_BAR_COLOR = IntroBuilders.CHAT_BAR_COLOR
-const CHAT_TEXT_COLOR = IntroBuilders.CHAT_TEXT_COLOR
 const BUBBLE_BORDER_COLOR = IntroBuilders.BUBBLE_BORDER_COLOR
 ## Same look as the Email app: its text and its attachment chips
 const EMAIL_TEXT_COLOR := Color(0.101960786, 0.1254902, 0.2)

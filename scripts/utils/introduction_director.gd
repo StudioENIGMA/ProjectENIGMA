@@ -13,7 +13,8 @@ func setup_from_json_roots(json_roots: Array) -> void:
 #region REGISTER INTRODUCTIONS
 ## Registers a single introduction given its JSON root
 func _register_introduction(root: Variant) -> void:
-	# Each introduction file is a Dictionary: { "day": 1, "description": ..., "rules": [...], "footer": ... }
+	# Each introduction file is a Dictionary:
+	# { "day": 1, "description": ..., "rules": [...], "footer": ... }
 	assert(typeof(root) == TYPE_DICTIONARY)
 	assert(root.has("day"))
 
