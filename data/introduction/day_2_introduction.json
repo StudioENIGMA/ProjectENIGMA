@@ -1,0 +1,10 @@
+{
+  "day": 2,
+  "description": "Hoje nenhum dinheiro sai sem motivo. Além das regras de ontem, confira:",
+  "rules": [
+    "— O pagamento Pix deve ter um motivo válido",
+    "— A compra deve ter um motivo válido",
+    "— O boleto deve ter um motivo válido"
+  ],
+  "footer": "Abra as notas para verificar as regras do dia."
+}

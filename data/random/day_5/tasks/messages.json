@@ -1,0 +1,57 @@
+[
+	{
+		"conversation_id": "ricardo_1",
+		"branch": "task0_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricardo_1",
+		"branch": "task1_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricardo_1",
+		"branch": "task2_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricardo_1",
+		"branch": "task4_ricardo",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task0_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task1_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task2_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task3_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task4_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task5_jose",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josé_1",
+		"branch": "task6_jose",
+		"required_app": "browser"
+	}
+]

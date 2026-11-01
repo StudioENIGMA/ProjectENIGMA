@@ -1,0 +1,33 @@
+{
+	"scams": [
+		{
+			"title": "Boleto trocado",
+			"app": "email",
+			"subject": "Boleto dos materiais",
+			"sender": "marcao@enigma.com.br",
+			"messages": [
+				"Boleto dos materiais: 586081.",
+				"No Banco, use este código: 586018."
+			],
+			"suspicious": "586018",
+			"tip": "Digitando o código do Banco, o boleto é de outra pessoa. O código no Banco tem que ser o mesmo do email.",
+			"bank": {
+				"code": "586018",
+				"fields": [
+					[
+						"Instituição Pagadora",
+						"Carlos Andrade"
+					],
+					[
+						"Valor",
+						"R$ 3.299,00"
+					]
+				],
+				"check": [
+					"Código Boleto",
+					"Instituição Pagadora"
+				]
+			}
+		}
+	]
+}

@@ -73,6 +73,12 @@ func on_message_answered(answer_id: int) -> void:
 
 	answer_committed.emit(conversation_id, choice)
 
+## Drops the answers still waiting in a conversation, once the UI took them away
+func forget_answers(conversation_id: String) -> void:
+	for answer_id in answer_state_by_id.keys():
+		if answer_state_by_id[answer_id].get("conversation_id", "") == conversation_id:
+			answer_state_by_id.erase(answer_id)
+
 ## Useful when reloading messages/day to avoid stale UI answers.
 func clear_pending_answers() -> void:
 	answer_state_by_id.clear()

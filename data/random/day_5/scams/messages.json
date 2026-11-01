@@ -1,0 +1,12 @@
+[
+	{
+		"conversation_id": "arhtur_1",
+		"branch": "scan0_arhtur",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "carla_2",
+		"branch": "scam0_carla2",
+		"required_app": "Email"
+	}
+]

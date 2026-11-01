@@ -3,16 +3,21 @@ extends Node
 #region SIGNALS
 signal schedule_entry_requested(schedule_entry: Dictionary)
 signal email_received(email_data: Dictionary)
+## Emitted once the player reads the email delivered in a thread, so the other chats can go on
+signal thread_finished(thread_id: String)
 #endregion SIGNALS
 
 #region STATE
 var emails_by_id: Dictionary = {}
+## thread_id -> email_id of the email delivered there that the player has not read yet
+var unread_email_by_thread: Dictionary = {}
 #endregion STATE
 
 #region SETUP
 ## Sets up emails from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
 	emails_by_id.clear()
+	unread_email_by_thread.clear()
 
 	for root in json_roots:
 		_register_emails_from_root(root)
@@ -49,6 +54,27 @@ func _register_one_email(email_dict: Dictionary) -> void:
 		return
 
 	emails_by_id[thread_id] = [email_dict]
+
+## Whether an email registered is in the given thread
+func has_email(thread_id: String, email_id: String) -> bool:
+	return emails_by_id.get(thread_id, []).any(
+		func(email: Dictionary) -> bool: return email.get("email_id") == email_id
+	)
+## Address an email registered is sent from, empty when there is no such email
+func get_sender(thread_id: String, email_id: String) -> String:
+	for email in emails_by_id.get(thread_id, []):
+		if email.get("email_id") == email_id:
+			return str(email.get("sender", "")).strip_edges()
+	return ""
+
+## Emails the story sends on a day, the random ones have no day of their own
+func get_emails_of_day(day: int) -> Array:
+	var emails: Array = []
+	for thread in emails_by_id.values():
+		for email in thread:
+			if email.has("day") and int(email["day"]) == day:
+				emails.append(email)
+	return emails
 #endregion REGISTER EMAILS
 
 #region SCHEDULING TODAY
@@ -95,6 +121,7 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 	var delivered_email: Dictionary = {
 		# payload
 		"thread_id": thread_id,
+		"email_id": email_id,
 		"sender": email_dict.get("sender"),
 		"subject": email_dict.get("subject"),
 		"content": email_dict.get("content"),
@@ -104,4 +131,14 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 	}
 
 	email_received.emit(delivered_email)
+	unread_email_by_thread[thread_id] = email_id
 #endregion DELIVERY
+
+#region CLOCK
+## Called by StoryDirector every tick: finishes the threads whose email the player read
+func _on_clock_tick() -> void:
+	for thread_id in unread_email_by_thread.keys():
+		if GameData.read_emails.has(unread_email_by_thread[thread_id]):
+			unread_email_by_thread.erase(thread_id)
+			thread_finished.emit(thread_id)
+#endregion CLOCK
