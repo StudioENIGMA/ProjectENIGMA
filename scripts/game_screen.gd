@@ -115,6 +115,8 @@ func _ready() -> void:
 	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_home._on_start_new_day)
 	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_chat.on_start_new_day)
 	ui.day_introduction_ui.day_started.connect(ui.notification_center.clear_day_alerts)
+	# Passwords expire with the day: once it started (and they were reset), ask for new ones
+	ui.day_introduction_ui.day_started.connect(ui.base_app.settings_app.notify_outdated_passwords)
 	# UI tutorial ended, which has no time passing to end it
 	ui.finish_tutorial_requested.connect(event_handler.end_day)
 	# UI game paused
@@ -125,6 +127,11 @@ func _ready() -> void:
 	# show that day's introduction again and hold the clock until it is closed
 	clock_timer.stop()
 	ui.day_introduction_ui.preview_closed.connect(clock_timer.start, CONNECT_ONE_SHOT)
+	# The game always starts (or restarts) at the beginning of a day, the password alert is sent
+	# once that day's introduction is closed instead of behind it
+	ui.day_introduction_ui.preview_closed.connect(
+		ui.base_app.settings_app.notify_outdated_passwords, CONNECT_ONE_SHOT
+	)
 	ui.day_introduction_ui.show_introduction.call_deferred(GameData.current_day)
 #endregion INITIALIZATION
 
