@@ -7,8 +7,13 @@
 		"relative_due_time": 200,
 		"sender": "cobranca@contabilnorte.com.br",
 		"subject": "Regularização do CNPJ da Enigma",
-		"content": "Prezados,\n\nEncontramos uma pendência no cadastro da empresa. Para regularizar o CNPJ, pague a taxa de regularização pelo boleto 731905, no valor de R$ 389,90.\n\nAtenciosamente,\nContábil Norte",
-		"attachments": [],
+		"content": "Prezados,\n\nEncontramos uma pendência no cadastro da empresa. Para regularizar o CNPJ, pague a taxa de regularização pelo boleto {boleto:contabil_cnpj_d2.code}, no valor de {boleto:contabil_cnpj_d2.value}.\n\nAtenciosamente,\nContábil Norte",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "contabil_cnpj_d2"
+			}
+		],
 		"requires": [
 			{
 				"flag": "app_installed",
@@ -24,8 +29,12 @@
 		"relative_due_time": 240,
 		"sender": "compras@enigma.com.br",
 		"subject": "Pedido PC-0417 — cadeiras",
-		"content": "Oi! O pedido PC-0417 das cadeiras da sala de reunião foi aprovado.\n\nFalta só pagar o boleto do fornecedor: 418807, no valor de R$ 838,66.\n\nObrigado,\nSetor de Compras",
+		"content": "Oi! O pedido PC-0417 das cadeiras da sala de reunião foi aprovado.\n\nFalta só pagar o boleto do fornecedor: {boleto:moveis_cadeiras_d3.code}, no valor de {boleto:moveis_cadeiras_d3.value}.\n\nObrigado,\nSetor de Compras",
 		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_cadeiras_d3"
+			},
 			{
 				"type": "order_document",
 				"document_id": "doc_pc0417",
@@ -47,8 +56,13 @@
 		"relative_due_time": 300,
 		"sender": "cobranca@graficapontocerto.com.br",
 		"subject": "Boleto — impressão dos crachás",
-		"content": "Olá!\n\nSegue o boleto da impressão dos crachás do RH (pedido PC-0455): 552210, no valor de R$ 1.240,00.\n\nGráfica Ponto Certo",
-		"attachments": [],
+		"content": "Olá!\n\nSegue o boleto da impressão dos crachás do RH (pedido PC-0455): {boleto:grafica_crachas_d4.code}, no valor de {boleto:grafica_crachas_d4.value}.\n\nGráfica Ponto Certo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_crachas_d4"
+			}
+		],
 		"requires": [
 			{
 				"flag": "app_installed",
@@ -100,8 +114,13 @@
 		"relative_due_time": 280,
 		"sender": "marta@imail.com",
 		"subject": "Pagamento da gráfica",
-		"content": "Oi! Aqui é a Marta, do Comercial. Tô sem acesso ao email da empresa, por isso escrevo daqui.\n\nPode pagar o boleto da Gráfica Ponto Certo, dos folhetos? Código 339120, R$ 1.240,00.\n\nValeu!\nMarta",
-		"attachments": [],
+		"content": "Oi! Aqui é a Marta, do Comercial. Tô sem acesso ao email da empresa, por isso escrevo daqui.\n\nPode pagar o boleto da Gráfica Ponto Certo, dos folhetos? Código {boleto:grafica_folhetos_d5.code}, {boleto:grafica_folhetos_d5.value}.\n\nValeu!\nMarta",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_folhetos_d5"
+			}
+		],
 		"requires": [
 			{
 				"flag": "app_installed",

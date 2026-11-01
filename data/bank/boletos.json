@@ -1,0 +1,193 @@
+{
+	"banks": {
+		"aurora": { "name": "Banco Aurora", "code": "907" },
+		"caixa_leste": { "name": "Caixa Leste", "code": "913" },
+		"central_sul": { "name": "Banco Central Sul", "code": "921" },
+		"norte": { "name": "Banco Norte", "code": "934" },
+		"nexo": { "name": "Banco Nexo", "code": "948" },
+		"mercurio": { "name": "Banco Mercúrio", "code": "952" },
+		"nova_caixa": { "name": "Nova Caixa Digital", "code": "967" }
+	},
+	"payees": {
+		"viva": {
+			"name": "Viva Inc.",
+			"cnpj": "12.345.678/0001-90",
+			"bank": "aurora",
+			"agency": "0412-7"
+		},
+		"industrials": {
+			"name": "Industrials",
+			"cnpj": "45.118.902/0001-33",
+			"bank": "caixa_leste",
+			"agency": "1180-2"
+		},
+		"emporio_festa": {
+			"name": "Empório da Festa",
+			"cnpj": "31.208.554/0001-71",
+			"bank": "caixa_leste",
+			"agency": "2204-9"
+		},
+		"kospenski": {
+			"name": "Pagamentos Kospenski",
+			"cnpj": "27.640.119/0001-48",
+			"bank": "aurora",
+			"agency": "0870-3"
+		},
+		"grafica_ponto_certo": {
+			"name": "Gráfica Ponto Certo",
+			"cnpj": "08.771.430/0001-05",
+			"bank": "aurora",
+			"agency": "0733-1"
+		},
+		"moveis_rocha": {
+			"name": "Móveis Rocha",
+			"cnpj": "19.502.337/0001-26",
+			"bank": "caixa_leste",
+			"agency": "3315-0"
+		},
+		"negativa": {
+			"name": "Negativa",
+			"cnpj": "22.874.601/0001-09",
+			"bank": "caixa_leste",
+			"agency": "1902-4"
+		},
+		"contabil_norte": {
+			"name": "Contábil Norte",
+			"cnpj": "40.993.218/0001-62",
+			"bank": "aurora",
+			"agency": "1046-8",
+			"listed": false
+		}
+	},
+	"forgery_pools": {
+		"payee": [
+			"Marcelo Souza",
+			"M. L. Serviços Ltda",
+			"Pagamentos Rápidos ME",
+			"Eros Company",
+			"J. R. Cobranças"
+		],
+		"bank": ["nexo", "mercurio", "nova_caixa"],
+		"reason": [
+			"Taxa de regularização do CNPJ",
+			"Taxa de liberação",
+			"Multa por atraso",
+			"Seguro obrigatório"
+		]
+	},
+	"boletos": {
+		"viva_fatura_d2": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 79.9
+		},
+		"viva_fatura_d3": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 89.9
+		},
+		"viva_fatura_d4": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 69.9
+		},
+		"viva_fatura_d5": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 129.9
+		},
+		"viva_fatura_d6": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 79.9
+		},
+		"industrials_materiais": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 8670.12,
+			"event_id": "mariana_payment0"
+		},
+		"emporio_utensilios": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 1688.0,
+			"event_id": "yago_payment0"
+		},
+		"kospenski_firewall": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1700.0,
+			"event_id": "carolina_payment1"
+		},
+		"viva_golpe_0": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 89.9,
+			"event_id": "Viva_scan_payment0",
+			"forge": [{ "field": "random" }]
+		},
+		"vivas_golpe_1": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 99.9,
+			"event_id": "Vivas_scan_payment1",
+			"forge": [{ "field": "payee", "mode": "lookalike", "value": "Vivas Inc." }]
+		},
+		"vivaa_golpe_2": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 250.0,
+			"event_id": "Vivaa_scan_payment2",
+			"forge": [{ "field": "random" }]
+		},
+		"viiva_golpe_3": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 89.9,
+			"event_id": "Viiva_scan_payment3",
+			"forge": [{ "field": "random" }]
+		},
+		"viva_golpe_4": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 79.9,
+			"event_id": "Viva_scan_payment4",
+			"forge": [{ "field": "random" }]
+		},
+		"negativa_notebooks_golpe": {
+			"payee": "negativa",
+			"reason": "Serviço de fornecedor",
+			"value": 8999.99,
+			"event_id": "false_yago_payment1",
+			"forge": [{ "field": "payee", "mode": "other", "value": "Eros Company" }]
+		},
+		"contabil_cnpj_d2": {
+			"payee": "contabil_norte",
+			"reason": "Serviço de fornecedor",
+			"value": 389.9,
+			"event_id": "scam_d2_contabil",
+			"forge": [{ "field": "reason", "on": "both", "value": "Taxa de regularização do CNPJ" }]
+		},
+		"moveis_cadeiras_d3": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 838.66,
+			"event_id": "scam_d3_compras",
+			"forge": [{ "field": "value", "on": "bank", "value": 8386.6 }]
+		},
+		"grafica_crachas_d4": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 1240.0,
+			"event_id": "scam_d4_grafica",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Nexo" }]
+		},
+		"grafica_folhetos_d5": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 1240.0,
+			"event_id": "scam_d5_marta",
+			"forge": [{ "field": "payee", "mode": "other", "on": "bank", "value": "M. L. Serviços Ltda" }]
+		}
+	}
+}

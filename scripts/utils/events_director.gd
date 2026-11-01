@@ -14,6 +14,8 @@ extends Node
 signal report_evaluated(result: Dictionary)
 ## Emitted when a report blocks a scam, with the conversations that take no more answers
 signal scam_blocked(conversation_ids: Array)
+## Emitted right after scam_blocked with the event blocked, for the emails it was sent in
+signal scam_event_blocked(event_id: String)
 ## Emitted when the player falls for a scam, with its conversations, kept to be compared later
 signal scam_fallen(conversation_ids: Array)
 ## Emitted when the player falls for a scam, judged by the difficulty: "fall" (how many scams were
@@ -320,6 +322,7 @@ func _block_scam(event_id: String) -> void:
 
 	GameData.blocked_conversations.append_array(conversations)
 	scam_blocked.emit(conversations)
+	scam_event_blocked.emit(event_id)
 
 ## Conversations a scam is carried out in, as named by the places of its discrepancies
 func _get_conversations(event: Dictionary) -> Array:

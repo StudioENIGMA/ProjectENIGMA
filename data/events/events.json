@@ -942,20 +942,20 @@
 		]
 	},
 	"scam0_arthur2": {
-	  "type": "scam",
+		"type": "scam",
 		"description": "ID de pagamento incorreto",
 		"requires": [
-		  {
+			{
 				"flag": "payment",
 				"payment_id": "EAC16"
 			}
 		],
 		"discrepancies": [
-		  {
+			{
 				"id": "codigo_pix_EAC16",
 				"rule": "pix_code_format",
 				"found_at": [
-				  {
+					{
 						"source": "messages",
 						"conversation": "arthur_2",
 						"section": "message",
@@ -2257,7 +2257,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "432789"
+				"boleto_id": "viva_golpe_0"
 			}
 		],
 		"discrepancies": [
@@ -2280,7 +2280,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "483234"
+				"boleto_id": "vivas_golpe_1"
 			}
 		],
 		"discrepancies": [
@@ -2303,7 +2303,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "896108"
+				"boleto_id": "vivaa_golpe_2"
 			}
 		],
 		"discrepancies": [
@@ -2326,7 +2326,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "896100"
+				"boleto_id": "viiva_golpe_3"
 			}
 		],
 		"discrepancies": [
@@ -2349,7 +2349,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "896118"
+				"boleto_id": "viva_golpe_4"
 			}
 		],
 		"discrepancies": [
@@ -2366,118 +2366,13 @@
 			}
 		]
 	},
-	"mariana_purchase0": {
-		"type": "random-task",
-		"description": "Compra de materiais para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 11,
-						"quantity": 20,
-						"store": "amazonia"
-					},
-					{
-						"item_id": 15,
-						"quantity": 5,
-						"store": "amazonia"
-					},
-					{
-						"item_id": 13,
-						"quantity": 3,
-						"store": "amazonia"
-					}
-				]
-			}
-		]
-	},
-	"mariana_purchase1": {
-		"type": "random-task",
-		"description": "Compra de materiais para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 14,
-						"quantity": 7,
-						"store": "amazonia"
-					}
-				]
-			}
-		]
-	},
 	"mariana_payment0": {
 		"type": "random-task",
 		"description": "Pagamento de contas da empresa",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "097341"
-			}
-		]
-	},
-	"yago_purchase0": {
-		"type": "random-task",
-		"description": "Compra de doces para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 25,
-						"quantity": 4,
-						"store": "emilia_bolos"
-					},
-					{
-						"item_id": 21,
-						"quantity": 20,
-						"store": "emilia_bolos"
-					}
-				]
-			}
-		]
-	},
-	"yago_purchase1": {
-		"type": "random-task",
-		"description": "Compra de monitores para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 14,
-						"quantity": 9,
-						"store": "amazonia"
-					}
-				]
-			}
-		]
-	},
-	"yago_purchase2": {
-		"type": "random-task",
-		"description": "Compra de camisas para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 33,
-						"quantity": 3,
-						"store": "aec"
-					},
-					{
-						"item_id": 31,
-						"quantity": 4,
-						"store": "aec"
-					},
-					{
-						"item_id": 36,
-						"quantity": 5,
-						"store": "aec"
-					}
-				]
+				"boleto_id": "industrials_materiais"
 			}
 		]
 	},
@@ -2487,84 +2382,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "056128"
-			}
-		]
-	},
-	"artur_purchase0": {
-		"type": "random-task",
-		"description": "Compra de frigobares para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 16,
-						"quantity": 3,
-						"store": "amazonia"
-					}
-				]
-			}
-		]
-	},
-	"artur_purchase1": {
-		"type": "random-task",
-		"description": "Compra de camisas para empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 35,
-						"quantity": 4,
-						"store": "aec"
-					}
-				]
-			}
-		]
-	},
-	"ricardo_purchase4": {
-		"type": "random-task",
-		"description": "Compra de doces para cliente importante",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 21,
-						"quantity": 30,
-						"store": "emilia_bolos"
-					}
-				]
-			}
-		]
-	},
-	"false_mariana_purchase0": {
-		"type": "scam",
-		"description": "Email da empresa falso",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 16,
-						"quantity": 6,
-						"store": "amazonia"
-					}
-				]
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_mariana_purchase0",
-						"section": "sender"
-					}
-				]
+				"boleto_id": "emporio_utensilios"
 			}
 		]
 	},
@@ -2602,35 +2420,6 @@
 			}
 		]
 	},
-	"marinana_purchase1": {
-		"type": "scam",
-		"description": "Contato externo à empresa",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 36,
-						"quantity": 10,
-						"store": "zora"
-					}
-				]
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "marinana_purchase1",
-						"section": "sender"
-					}
-				]
-			}
-		]
-	},
 	"false_mariana_payment1": {
 		"type": "scam",
 		"description": "Email da empresa falso",
@@ -2660,56 +2449,6 @@
 						"source": "bank",
 						"payment_code": "I9W2V",
 						"section": "pix_code"
-					}
-				]
-			}
-		]
-	},
-	"marcia_purchase4": {
-		"type": "random-task",
-		"description": "Compra para mudança de política",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 35,
-						"quantity": 7,
-						"store": "aec"
-					}
-				]
-			}
-		]
-	},
-	"false_marcia_purchase0": {
-		"type": "scam",
-		"description": "Email da empresa falso",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 34,
-						"quantity": 7,
-						"store": "zora"
-					},
-					{
-						"item_id": 33,
-						"quantity": 5,
-						"store": "zora"
-					}
-				]
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_marcia_purchase0",
-						"section": "sender"
 					}
 				]
 			}
@@ -2789,7 +2528,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "554433"
+				"boleto_id": "negativa_notebooks_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2800,35 +2539,6 @@
 					{
 						"source": "email",
 						"email_id": "false_yago_payment1",
-						"section": "sender"
-					}
-				]
-			}
-		]
-	},
-	"false_yago_purchase0": {
-		"type": "scam",
-		"description": "Email da empresa falso",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 26,
-						"quantity": 6,
-						"store": "emporio_bolos"
-					}
-				]
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_yago_purchase0",
 						"section": "sender"
 					}
 				]
@@ -2885,23 +2595,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "063299"
-			}
-		]
-	},
-	"jessica_purchase1": {
-		"type": "random-task",
-		"description": "Bolo de Aniverśario da Helena",
-		"requires": [
-			{
-				"flag": "purchase",
-				"items": [
-					{
-						"item_id": 25,
-						"quantity": 1,
-						"store": "emilia_bolos"
-					}
-				]
+				"boleto_id": "kospenski_firewall"
 			}
 		]
 	},
@@ -2934,7 +2628,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "731905"
+				"boleto_id": "contabil_cnpj_d2"
 			}
 		],
 		"discrepancies": [
@@ -2946,11 +2640,6 @@
 						"source": "email",
 						"email_id": "contabil_norte_d2_0",
 						"section": "content"
-					},
-					{
-						"source": "bank",
-						"payment_code": "731905",
-						"section": "reason"
 					}
 				]
 			}
@@ -2962,7 +2651,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "418807"
+				"boleto_id": "moveis_cadeiras_d3"
 			}
 		],
 		"discrepancies": [
@@ -2974,11 +2663,6 @@
 						"source": "email",
 						"email_id": "compras_d3_0",
 						"section": "content"
-					},
-					{
-						"source": "bank",
-						"payment_code": "418807",
-						"section": "value"
 					}
 				]
 			},
@@ -3001,22 +2685,10 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "552210"
+				"boleto_id": "grafica_crachas_d4"
 			}
 		],
-		"discrepancies": [
-			{
-				"id": "banco",
-				"rule": "ticket_bank",
-				"found_at": [
-					{
-						"source": "bank",
-						"payment_code": "552210",
-						"section": "ticket_bank"
-					}
-				]
-			}
-		]
+		"discrepancies": []
 	},
 	"scam_px_d4": {
 		"type": "scam",
@@ -3100,7 +2772,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "339120"
+				"boleto_id": "grafica_folhetos_d5"
 			}
 		],
 		"discrepancies": [
@@ -3112,17 +2784,6 @@
 						"source": "email",
 						"email_id": "marta_imail_d5_0",
 						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "cedente",
-				"rule": "ticket_payee",
-				"found_at": [
-					{
-						"source": "bank",
-						"payment_code": "339120",
-						"section": "ticket_payee"
 					}
 				]
 			}

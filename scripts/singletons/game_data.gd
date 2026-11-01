@@ -61,6 +61,8 @@ enum App {
 	MESSAGESHISTORY,
 	# Alert of a scam the player fell for, used only for notifications like HACK
 	SCAM,
+	# Boleto, opened from an email attachment (Email app), after the others for the same reason
+	BOLETO,
 }
 
 enum HackMinigame {
@@ -141,6 +143,9 @@ var purchased_items = {}
 var options_chose = {}
 
 var random_events_history = []
+## Seed of this game, drawn when it starts: the boletos of a day are made from it, so playing the
+## same day again makes the same boletos
+var run_seed: int = randi()
 
 var clock_tick_interval: float = 1.5 # Time between clock ticks in seconds
 var start_date_dict: Dictionary # {year, month, day, weekday}
@@ -233,8 +238,9 @@ var apps_name: Dictionary = {
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
 	"Notes": App.NOTES,
-	# Email app (order documents open from attachments)
+	# Email app (order documents and boletos open from attachments)
 	"OrderDocument": App.ORDERDOCUMENT,
+	"Boleto": App.BOLETO,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -511,6 +517,7 @@ func save_game() -> void:
 		"saved_messages_history": saved_messages_history,
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
+		"run_seed": run_seed,
 		"bank_balance": bank_balance,
 		"apps_with_available_updates": apps_with_available_updates,
 		"clock_tick_interval": clock_tick_interval,
@@ -585,6 +592,9 @@ func load_game() -> void:
 	random_events_history.clear()
 	for thread in raw_random_events_history:
 		random_events_history.append(thread)
+
+	# Saves made before the seed existed keep the one drawn for this session
+	run_seed = int(game_state.get("run_seed", run_seed))
 
 	var raw_apps_with_available_updates: Array = game_state.get("apps_with_available_updates", [])
 	apps_with_available_updates.clear()
