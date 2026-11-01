@@ -14,8 +14,24 @@
 [ext_resource type="Shader" uid="uid://l2hjotfj7twq" path="res://shaders/menu_button.gdshader" id="12_mnbtn"]
 [ext_resource type="FontFile" uid="uid://dxb82shlqe47d" path="res://assets/fonts/IBMPlexSans-Medium.ttf" id="14_cfm"]
 [ext_resource type="FontFile" uid="uid://ctyaow7x014x1" path="res://assets/fonts/Droid 1997.otf" id="15_droid"]
-[ext_resource type="Shader" path="res://shaders/menu_button_text.gdshader" id="16_txtsh"]
-[ext_resource type="Script" path="res://scripts/main_menu/menu_button_label.gd" id="17_lbl"]
+[ext_resource type="Shader" uid="uid://cvysxvx3xn10e" path="res://shaders/menu_button_text.gdshader" id="16_txtsh"]
+[ext_resource type="Script" uid="uid://do5w7m1qcltk4" path="res://scripts/main_menu/menu_button_label.gd" id="17_lbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_pressed"]
+bg_color = Color(0, 0, 0, 0.2)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_hover"]
+bg_color = Color(1, 1, 1, 0.12)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mnbtn"]
 shader = ExtResource("12_mnbtn")
@@ -33,45 +49,8 @@ shader_parameter/rect_size = Vector2(328, 132)
 shader_parameter/band_top = 0.99
 shader_parameter/band_bottom = 0.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnbtn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_hover"]
-bg_color = Color(1, 1, 1, 0.12)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnbtn_pressed"]
-bg_color = Color(0, 0, 0, 0.2)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0.75537133, 0.82398456, 0.82398456, 0.75686276)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
-bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
-bg_color = Color(0, 0.35686275, 0.2784314, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
-bg_color = Color(3.6098064e-07, 0.25827616, 0.19861877, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0, 0.42383793, 0.33265236, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmscrim"]
 bg_color = Color(0.043137256, 0.06666667, 0.105882354, 0.5490196)
@@ -206,6 +185,27 @@ _data = {
 &"continue_press": SubResource("Animation_continue_press")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.35454047, 0.37876603, 0.46231127, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.005173057, 0.04071507, 0.13775954, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0, 0.35686275, 0.2784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(3.6098064e-07, 0.25827616, 0.19861877, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0, 0.42383793, 0.33265236, 1)
+
 [node name="Main Menu" type="Control" unique_id=668069274 node_paths=PackedStringArray("new_game_button", "confirmation_panel", "post_game_panel")]
 layout_mode = 3
 anchors_preset = 15
@@ -261,11 +261,11 @@ size_flags_vertical = 3
 [node name="New Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1507016343]
 custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("3_rtw2f")
 
 [node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/New Game Button" unique_id=431025101]
@@ -279,7 +279,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="NewGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/New Game Button"]
+[node name="NewGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/New Game Button" unique_id=830353197]
 material = SubResource("ShaderMaterial_mnbtntext")
 layout_mode = 1
 anchors_preset = 15
@@ -287,7 +287,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("15_droid")
 theme_override_font_sizes/font_size = 76
@@ -299,11 +298,11 @@ script = ExtResource("17_lbl")
 [node name="Load Game Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1287796145]
 custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("4_oa1go")
 
 [node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/Load Game Button" unique_id=431025102]
@@ -317,7 +316,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LoadGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Load Game Button"]
+[node name="LoadGameLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Load Game Button" unique_id=229740702]
 material = SubResource("ShaderMaterial_mnbtntext")
 layout_mode = 1
 anchors_preset = 15
@@ -325,7 +324,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("15_droid")
 theme_override_font_sizes/font_size = 76
@@ -337,11 +335,11 @@ script = ExtResource("17_lbl")
 [node name="Settings Button" type="Button" parent="ButtonsMargin/MainVBoxContainer" unique_id=1176641697]
 custom_minimum_size = Vector2(0, 132)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mnbtn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mnbtn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnbtn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mnbtn")
 script = ExtResource("5_tbmy8")
 
 [node name="Plate" type="ColorRect" parent="ButtonsMargin/MainVBoxContainer/Settings Button" unique_id=431025103]
@@ -355,7 +353,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="SettingsLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Settings Button"]
+[node name="SettingsLabel" type="Label" parent="ButtonsMargin/MainVBoxContainer/Settings Button" unique_id=1853166114]
 material = SubResource("ShaderMaterial_mnbtntext")
 layout_mode = 1
 anchors_preset = 15
@@ -363,7 +361,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("15_droid")
 theme_override_font_sizes/font_size = 76
@@ -570,7 +567,6 @@ text = "Fechar"
 
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/New Game Button" to="ButtonsMargin/MainVBoxContainer/New Game Button" method="_on_pressed"]
 [connection signal="pressed" from="ButtonsMargin/MainVBoxContainer/Load Game Button" to="ButtonsMargin/MainVBoxContainer/Load Game Button" method="_on_pressed"]
-[connection signal="pressed" from="PostGamePanel/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="PostGamePanel" method="_on_close_button_pressed"]
 [connection signal="button_down" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_press"]]
 [connection signal="button_up" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["cancel_press"]]
 [connection signal="mouse_entered" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["cancel_hover"]]
@@ -579,3 +575,4 @@ text = "Fechar"
 [connection signal="button_up" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_press"]]
 [connection signal="mouse_entered" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play" binds= ["continue_hover"]]
 [connection signal="mouse_exited" from="ConfirmationPanel/PanelContainer/VBoxContainer/HBoxContainer/ContinueButton" to="ConfirmationPanel/PanelContainer/ConfirmButtonFeedback" method="play_backwards" binds= ["continue_hover"]]
+[connection signal="pressed" from="PostGamePanel/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="PostGamePanel" method="_on_close_button_pressed"]

@@ -1,0 +1,28 @@
+{
+  "conversation_id": "arthur_3",
+  "contact_name": "Arthur",
+  "branches": {
+    "scam0_arthur3": [
+      {
+        "id": "arthur3_payment0_0",
+        "text": "Favor o chefe quer que você pague o boleto com código R7U6M",
+        "choices": [
+          {
+            "id": "arthur3_payment0_0a_0",
+            "player_text": "Esse ID está fora do padrão",
+            "npc_reply": {
+              "goto_branch": "from_arthur3_payment0_0",
+              "delay_ticks": 0
+            }
+          }
+        ]
+      }
+    ],
+    "from_arthur3_payment0_0": [
+      {
+        "id": "arthur3_payment0_1",
+        "text": "O que? Esquece isso, o chefe tá querendo isso para agora"
+      }
+    ]
+  }
+}

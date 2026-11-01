@@ -54,7 +54,13 @@ enum App {
 	# Pause
 	PAUSEMENU,
 	#Notes,
-	NOTES
+	NOTES,
+	# Order document, opened from an email attachment (kept last: scenes store App values)
+	ORDERDOCUMENT,
+	# Conversations of the days gone by (Messages app), after the others for the same reason
+	MESSAGESHISTORY,
+	# Alert of a scam the player fell for, used only for notifications like HACK
+	SCAM,
 }
 
 enum HackMinigame {
@@ -68,9 +74,21 @@ enum PaymentType {
 	TICKET,
 }
 
+## Rules the player reports scams against, see load_rules()
+const RULES_PATH := "res://data/rules/rules.json"
+## Names of a date_dict's "weekday" (0 is Sunday), see weekday_name()
+const WEEKDAY_NAMES := ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+## Names of a date_dict's "month" (1 is January), see month_name()
+const MONTH_NAMES := [
+	"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+	"julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
+]
+
 class PaymentCode:
 	var code: String
 	var type: PaymentType
+	## Whether the code was read from a QR Code, which the payment screen then shows as such
+	var from_qr: bool = false
 
 class ShoppingInfo:
 	var shop_enum: App
@@ -82,6 +100,12 @@ class ShoppingInfo:
 		shopping_cart.clear()
 		total_price = 0
 		is_order_opened = false
+
+class Introduction:
+	var day: int
+	var description: String
+	var rules: Array[String]
+	var footer: String
 
 var shops_names = {
 	App.BROWSERAMAZONIASHOP: "Amazônia",
@@ -123,7 +147,6 @@ var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
 var max_hours_minutes:int = 1080 # End at 18:00
-var max_hours_minutes_tutorial:int = 720 # End at 12:00
 var current_day:int = 0
 var daily_reputation_points:int = 0
 var total_reputation_points:int = 0
@@ -149,8 +172,22 @@ var last_hacked_tick: int = starting_hours_minutes # Safe game start
 var number_of_viruses: int = 0
 var unsafe_apps: Array[App] = [App.FAKESTORE]
 
+## email_id of every email the player opened today, for the "email_read" requirement
+var read_emails: Array = []
+## Conversations and payment codes of the scams reported today, which can no longer go on
+var blocked_conversations: Array = []
+var blocked_payment_codes: Array = []
+
 var saved_messages_conversations: Array[Dictionary] = []
+## Conversations of the days gone by, read-only in the Messages history, oldest day first
+## {"day": int, "date_dict": Dictionary, "conversations": Array[Dictionary]}
+var saved_messages_history: Array = []
 var saved_email_threads: Array = []
+
+var introductions: Array[Introduction] = []
+## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
+## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
+var trusted_senders_today: Array[Dictionary] = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -194,6 +231,8 @@ var apps_name: Dictionary = {
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
 	"Notes": App.NOTES,
+	# Email app (order documents open from attachments)
+	"OrderDocument": App.ORDERDOCUMENT,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -270,6 +309,12 @@ var apps_data = {
 		"is_bad": true,
 	},
 
+	App.SCAM: {
+		"name": "Golpe",
+		"icon_path": "res://assets/icons/utai.png",
+		"is_bad": true,
+	},
+
 	App.PAUSEMENU: {
 		"name": "Pause Menu",
 		"icon_path": "res://assets/icons/default-app.png",
@@ -320,6 +365,52 @@ func get_human_typing_time(message: String) -> int:
 		total_time += time_per_word
 
 	return total_time
+
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
+## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_free_scam_falls() -> int:
+	if clock_tick_interval >= 2.0:
+		return 2
+	if clock_tick_interval >= 1.5:
+		return 1
+	return 0
+
+## The account name a contact gets when its conversation names none: "@" and the name in
+## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
+##
+## Conversations and the Notes app's company contacts both get their accounts from it.
+func account_from_name(contact_name: String) -> String:
+	var plain := contact_name.to_lower()
+	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",
+		"ó": "o", "ô": "o", "õ": "o", "ú": "u", "ç": "c"}
+	for accented in accents:
+		plain = plain.replace(accented, accents[accented])
+	var handle := ""
+	for character in plain:
+		if (character >= "a" and character <= "z") or (character >= "0" and character <= "9"):
+			handle += character
+	return "@" + handle
+
+## Name of the weekday of a date ("Quarta"), date_dict as get_current_date_dict() gives it
+func weekday_name(date_dict: Dictionary) -> String:
+	return WEEKDAY_NAMES[int(date_dict.get("weekday", 0)) % 7]
+
+## Name of the month of a date ("outubro"), date_dict as get_current_date_dict() gives it
+func month_name(date_dict: Dictionary) -> String:
+	return MONTH_NAMES[(int(date_dict.get("month", 1)) - 1) % 12]
+
+## Reads the whole rulebook, every day included
+func load_rules() -> Array:
+	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
+	if file == null:
+		push_error("Could not open rules file: %s" % RULES_PATH)
+		return []
+
+	var rules = JSON.parse_string(file.get_as_text())
+	if not rules is Array:
+		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
+		return []
+	return rules
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""
@@ -402,6 +493,7 @@ func save_game() -> void:
 		"apps_in_store": apps_in_store,
 		"downloaded_apps": downloaded_apps,
 		"saved_messages_conversations": saved_messages_conversations,
+		"saved_messages_history": saved_messages_history,
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
 		"bank_balance": bank_balance,
@@ -463,6 +555,11 @@ func load_game() -> void:
 	for saved_conversation in raw_saved_conversations:
 		saved_conversation.notification_count = int(saved_conversation.get("notification_count", 0))
 		saved_messages_conversations.append(saved_conversation.duplicate(true))
+
+	var raw_saved_history: Array = game_state.get("saved_messages_history", [])
+	saved_messages_history.clear()
+	for saved_day in raw_saved_history:
+		saved_messages_history.append(saved_day.duplicate(true))
 
 	var raw_saved_email_threads: Array = game_state.get("saved_email_threads", [])
 	saved_email_threads.clear()

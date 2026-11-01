@@ -69,6 +69,13 @@ func on_hack_concluded() -> void:
 	GameData.current_hack_probability = 0.0
 	GameData.last_hacked_tick = GameData.hours_minutes
 
+## Hacks the phone at once, like a hack rolled on a tick (a scam gave the account away)
+func force_hack() -> void:
+	if GameData.is_hacked or GameData.is_in_minigame:
+		return
+	GameData.is_hacked = true
+	send_hack_notification.emit()
+
 func open_minigame() -> void:
 	GameData.is_in_minigame = true
 

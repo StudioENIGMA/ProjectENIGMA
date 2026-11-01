@@ -1,0 +1,40 @@
+{
+	"scams": [
+		{
+			"rule_id": "lookalike_sender",
+			"real": {
+				"sender": "Gerente PX Investment",
+				"avatar": "Gerente PX Investment",
+				"verified": true
+			},
+			"sender": "Px Investrnent (✓)",
+			"avatar": "Px Investrnent ☑️",
+			"messages": [
+				"Aqui é o Gerente do PX Investment. Me foi solicitado te pedir o pagamento de um dos nossos clientes que trabalha em sua empresa.",
+				"Segue o boleto de pagamento: 586934"
+			],
+			"suspicious": "Investrnent",
+			"tip": "\"Px Investrnent\" não é a PX Investment: o nome imita o contato verdadeiro. Confira nas notas quem são os contatos válidos de hoje.",
+			"title": "Contato inválido"
+		},
+		{
+			"title": "Código Pix inválido",
+			"app": "messages",
+			"sender": "Arthur",
+			"messages": [
+				"me faz esse pagamento por favor, é importante",
+				"foi o chefe que pediu",
+				"código pix: 7f-35u9"
+			],
+			"suspicious": "7f-35u9",
+			"bank": {
+				"type": "pix",
+				"code": "7f-35u9",
+				"check": [
+					"Código Pix"
+				]
+			},
+			"tip": "Código Pix válido tem 5 caracteres, só letras maiúsculas e números (ex.: 7F35U). Fora desse padrão, não pague."
+		}
+	]
+}

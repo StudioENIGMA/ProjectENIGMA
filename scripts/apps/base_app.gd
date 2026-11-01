@@ -15,6 +15,11 @@ signal main_app_opened(main_app: GameData.App)
 ## day it breaks, as read from data/rules/rules.json) and "screen" (the GameData.App it was on)
 signal discrepancy_reported(report: Dictionary)
 
+## Title of the screens that are not named after the app they belong to
+const SUBSCREEN_TITLES = {
+	GameData.App.MESSAGESHISTORY: "Histórico",
+}
+
 @export var close_app_button:TextureButton
 @export var back_button:TextureButton
 
@@ -34,6 +39,8 @@ signal discrepancy_reported(report: Dictionary)
 @export var app_title_avatar: Control
 @export var app_title_picture: Control
 @export var app_title_label: Label
+## Account name of the contact, under its name on a chat
+@export var app_title_account: Label
 @export var app_title_badge: Panel
 
 ## Top bar toggle that starts pointing at the discrepancy of a message or email
@@ -45,6 +52,9 @@ signal discrepancy_reported(report: Dictionary)
 
 var messages_app_home = preload("res://scenes/apps/messages/messages_app_home.tscn").instantiate()
 var messages_app_chat = preload("res://scenes/apps/messages/messages_app_chat.tscn").instantiate()
+var messages_app_history = preload(
+	"res://scenes/apps/messages/messages_app_history.tscn"
+).instantiate()
 var settings_app = preload("res://scenes/settings/settings_app.tscn").instantiate()
 var passwords_manager_app = preload("res://scenes/settings/passwords_manager.tscn").instantiate()
 var store_app = preload("res://scenes/apps/store-shop/store_app.tscn").instantiate()
@@ -126,6 +136,9 @@ var update_os_screen = preload(
 var notes_app = preload(
 	"res://scenes/apps/notes/notes_app.tscn"
 ).instantiate()
+var order_document = preload(
+	"res://scenes/apps/email/order_document.tscn"
+).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
 var open_apps:Array = []
@@ -176,6 +189,11 @@ func _ready() -> void:
 	messages_app_home.visible = false
 	messages_app_home.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(messages_app_home)
+
+	# Messages app history (Messages app)
+	messages_app_history.visible = false
+	messages_app_history.subscreen_open_requested.connect(_on_app_opened)
+	app_specific_screen.add_child(messages_app_history)
 
 	# Messages app chat (Messages app)
 	messages_app_chat.visible = false
@@ -239,6 +257,15 @@ func _ready() -> void:
 	app_specific_screen.add_child(browser_app_news)
 
 	#Browser Shops (Browser App)
+	for shop in [
+		browser_app_amazonia_shop,
+		browser_app_libre_mercado_shop,
+		browser_app_emilia_shop,
+		browser_app_emporio_bolos_shop,
+		browser_app_aec_shop,
+		browser_app_zora_shop,
+	]:
+		shop.discrepancy_picked.connect(_on_discrepancy_picked)
 	#Amazonia
 	browser_app_amazonia_shop.visible = false
 	browser_app_amazonia_shop.subscreen_open_requested.connect(_on_app_opened)
@@ -310,7 +337,13 @@ func _ready() -> void:
 	# Email app viewer (Email app)
 	email_app_viewer.visible = false
 	email_app_viewer.discrepancy_picked.connect(_on_discrepancy_picked)
+	email_app_viewer.attachment_opened.connect(_on_attachment_opened)
 	app_specific_screen.add_child(email_app_viewer)
+
+	# Order document, opened from an email attachment (Email app)
+	order_document.visible = false
+	order_document.discrepancy_picked.connect(_on_discrepancy_picked)
+	app_specific_screen.add_child(order_document)
 
 	# Authenticator app
 	authenticator_app.visible = false
@@ -329,8 +362,9 @@ func _ready() -> void:
 	# Payment Information (Bank app)
 	bank_payment_info.visible = false
 	app_specific_screen.add_child(bank_payment_info)
+	bank_payment_info.discrepancy_picked.connect(_on_discrepancy_picked)
 	bank_payment_info.transaction_completed.connect(
-		func(_payment_code: GameData.PaymentCode): _on_back_button_pressed(); _on_back_button_pressed()
+		func(_payment_code: GameData.PaymentCode): _close_payment_screens()
 	)
 	bank_payment_info.transaction_completed.connect(
 		browser_app_shop_payment_screen._on_transaction_completed
@@ -522,15 +556,18 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 		_close_main_app(main_app)
 
 ## Fills the top bar title with the opened conversation contact
-func _on_chat_header_changed(npc_name: String, photo: String, is_verified: bool) -> void:
+func _on_chat_header_changed(
+	npc_name: String, photo: String, is_verified: bool, account: String
+) -> void:
 	app_title_picture.setup(photo, npc_name)
 	app_title_label.text = npc_name
+	app_title_account.text = account
 	app_title_badge.visible = is_verified
 	title_target.section = {
 		"source": "messages",
 		"section": "contact",
 		"conversation": messages_app_chat.conversation_id,
-		"excerpt": npc_name,
+		"excerpt": "%s %s" % [npc_name, account],
 	}
 
 ## Names the screen that is open: the contact on a chat, the app it belongs to everywhere else
@@ -544,13 +581,17 @@ func _update_app_title() -> void:
 	# A chat keeps the header the conversation itself asked for (avatar, name and badge)
 	if current_app_dict["SubScreen"] == GameData.App.MESSAGESCHAT:
 		app_title_avatar.visible = true
+		app_title_account.visible = true
 		app_title.visible = true
 		return
 
 	# Everything else is titled with its main app, so the bar is never a bare row of icons
 	var main_app: GameData.App = current_app_dict["MainApp"]
-	var app_name: String = GameData.apps_data.get(main_app, {}).get("name", "")
+	var app_name: String = SUBSCREEN_TITLES.get(
+		current_app_dict["SubScreen"], GameData.apps_data.get(main_app, {}).get("name", "")
+	)
 	app_title_avatar.visible = false
+	app_title_account.visible = false
 	app_title_badge.visible = false
 	app_title_label.text = app_name
 	app_title.visible = not app_name.is_empty()
@@ -559,7 +600,10 @@ func _update_app_title() -> void:
 ## Shows the inspect toggle only on screens that know how to be inspected
 func _update_inspect_button() -> void:
 	var screen := _get_current_screen()
-	inspect_button.visible = screen != null and screen.has_method("set_inspection_mode")
+	inspect_button.visible = (
+		screen != null and screen.has_method("set_inspection_mode")
+		and (not screen.has_method("is_inspectable") or screen.is_inspectable())
+	)
 
 
 ## Starts or stops reporting the open message or email as a scam
@@ -573,7 +617,7 @@ func _set_inspecting(is_on: bool) -> void:
 	inspect_button.set_pressed_no_signal(is_on)
 
 	if is_on:
-		discrepancy_overlay.open_rules()
+		discrepancy_overlay.open_rules(_get_rules_app())
 	else:
 		_set_pointing(false)
 		discrepancy_overlay.stop()
@@ -609,7 +653,7 @@ func _on_discrepancy_rule_chosen(rule: Dictionary) -> void:
 func _on_discrepancy_rule_change_requested() -> void:
 	_chosen_rule = {}
 	_set_pointing(false)
-	discrepancy_overlay.open_rules()
+	discrepancy_overlay.open_rules(_get_rules_app())
 
 
 ## Marks the section the player pointed at, the report can then be sent
@@ -629,7 +673,9 @@ func _on_title_target_picked(target: DiscrepancyTarget) -> void:
 	_on_discrepancy_picked(target.section)
 
 
-## Reports the section pointed at with the rule chosen, stamps it and stops inspecting
+## Reports the section pointed at with the rule chosen and stops inspecting
+##
+## The verdict comes back through on_report_evaluated(), which stamps it over the app
 func _on_discrepancy_report_confirmed() -> void:
 	if _chosen_rule.is_empty() or _picked_section.is_empty():
 		return
@@ -638,8 +684,36 @@ func _on_discrepancy_report_confirmed() -> void:
 		"rule": _chosen_rule,
 		"screen": open_apps.back()["SubScreen"] if not open_apps.is_empty() else null,
 	})
-	discrepancy_overlay.play_stamp()
 	_set_inspecting(false)
+
+
+## Stamps the verdict of the report just sent over the app
+##
+## result: "verdict", "title", "subtitle" and "points", see events_director.evaluate_report()
+func on_report_evaluated(result: Dictionary) -> void:
+	discrepancy_overlay.play_stamp(result)
+
+
+## Takes the answers of the conversations of a reported scam away
+func on_scam_blocked(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		messages_app_home.on_delete_answers(conversation_id)
+		messages_app_chat.on_conversation_blocked(conversation_id)
+		messages_app_home.mark_outcome(conversation_id, "reported")
+
+
+## Keeps the conversations of a scam the player fell for, tagged for the history
+func on_scam_fallen(conversation_ids: Array) -> void:
+	for conversation_id in conversation_ids:
+		messages_app_home.mark_outcome(conversation_id, "fallen")
+
+
+## Rules group the open screen is checked against, empty when it names none
+func _get_rules_app() -> String:
+	var screen := _get_current_screen()
+	if screen and screen.has_method("get_rules_app"):
+		return screen.get_rules_app()
+	return ""
 
 
 ## Sections lit through the dim while pointing: the armed ones of the screen, and the contact
@@ -661,6 +735,34 @@ func _get_current_screen() -> Control:
 		return null
 	return _get_app_by_enum(open_apps.back()["SubScreen"])
 #endregion DISCREPANCY
+
+## Opens an email attachment: an order document, or the payment a Pix QR Code reads to
+##
+## attachment: "type" ("order_document" with its "document_id", or "pix_qr" with its
+## "read_code", the code the bank reads, which may not be the one printed under it)
+func _on_attachment_opened(attachment: Dictionary) -> void:
+	match str(attachment.get("type", "")):
+		"order_document":
+			_on_app_opened(GameData.App.ORDERDOCUMENT, attachment)
+		"pix_qr":
+			# Reading a QR Code is a job for the bank app
+			if not GameData.downloaded_apps.has(GameData.App.BANK):
+				return
+			var payment_code := GameData.PaymentCode.new()
+			payment_code.code = str(attachment.get("read_code", ""))
+			payment_code.type = GameData.PaymentType.PIX
+			payment_code.from_qr = true
+			_on_app_opened(GameData.App.PAYMENTINFORMATION, payment_code)
+			if GameData.passwords.has(GameData.App.BANK):
+				_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": GameData.App.BANK})
+
+
+## Leaves the payment screen once paid, along with the code screen that led to it, if any
+func _close_payment_screens() -> void:
+	_on_back_button_pressed()
+	if not open_apps.is_empty() and open_apps.back()["SubScreen"] == GameData.App.PAYMENTCODE:
+		_on_back_button_pressed()
+
 
 ## Checks if there is any open app with the specified main app enum
 func _has_open_main_app(main_app: GameData.App) -> bool:
@@ -723,9 +825,15 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 ##
 ## Hack alerts ask the player to run the scanner, so they lead to Settings
 func open_app_from_notification(app:GameData.App) -> void:
-	var target_app:GameData.App = GameData.App.SETTINGS if app == GameData.App.HACK else app
+	var target_app:GameData.App = app
+	match app:
+		GameData.App.HACK:
+			target_app = GameData.App.SETTINGS
+		# A scam alert points at the board, to check the next request against it
+		GameData.App.SCAM:
+			target_app = GameData.App.NOTES
 	# The app may have been uninstalled since the notification arrived
-	if app != GameData.App.HACK and not GameData.downloaded_apps.has(app):
+	if target_app == app and not GameData.downloaded_apps.has(app):
 		return
 
 	if not open_apps.is_empty():
@@ -761,6 +869,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Messages app
 		GameData.App.MESSAGESHOME: messages_app_home,
 		GameData.App.MESSAGESCHAT: messages_app_chat,
+		GameData.App.MESSAGESHISTORY: messages_app_history,
 		# Settings app
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
@@ -791,6 +900,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Email app
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
+		GameData.App.ORDERDOCUMENT: order_document,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: authenticator_app,
 		# Bank app
@@ -814,6 +924,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Messages app
 		GameData.App.MESSAGESHOME: GameData.App.MESSAGESHOME,
 		GameData.App.MESSAGESCHAT: GameData.App.MESSAGESHOME,
+		GameData.App.MESSAGESHISTORY: GameData.App.MESSAGESHOME,
 		# Settings app
 		GameData.App.SETTINGS: GameData.App.SETTINGS,
 		GameData.App.PASSWORDMANAGER: GameData.App.SETTINGS,
@@ -843,6 +954,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		# Email app
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
+		GameData.App.ORDERDOCUMENT: GameData.App.EMAIL,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: GameData.App.AUTHENTICATOR,
 		# Bank app

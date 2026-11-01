@@ -1,0 +1,45 @@
+{
+	"scams": [
+		{
+			"title": "Conta de outra pessoa",
+			"app": "messages",
+			"sender": "Iago",
+			"messages": [
+				"Fala chefe, é o Yago da sua empresa. To pelo celular.",
+				"Preciso de um pagamento. É de uma prestadora de serviço nossa.",
+				"Faz nesse pix ae JPA24."
+			],
+			"suspicious": "JPA24",
+			"tip": "No Banco, esse Pix vai para Caio Machado, não para o Yago. O nome da conta tem que ser o de quem pediu.",
+			"bank": {
+				"type": "pix",
+				"code": "JPA24",
+				"check": [
+					"Nome",
+					"Email"
+				]
+			}
+		},
+		{
+			"title": "Instituição errada",
+			"app": "email",
+			"subject": "Boleto de materiais",
+			"sender": "marcao@enigma.com.br",
+			"messages": [
+				"Segue o boleto 234567 dos materiais.",
+				"Cedente: Marcelo"
+			],
+			"attachments": [
+				"boleto_234567.pdf"
+			],
+			"suspicious": "Cedente: Marcelo",
+			"tip": "No Banco, a Instituição Pagadora desse boleto é \"Marcelo\". Os boletos de materiais vêm da Industrials: se for outra, não pague.",
+			"bank": {
+				"code": "234567",
+				"check": [
+					"Instituição Pagadora"
+				]
+			}
+		}
+	]
+}

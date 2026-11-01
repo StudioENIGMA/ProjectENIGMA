@@ -5,6 +5,8 @@ extends Control
 ## section: "source", "section" ("subject", "sender", "content" or "attachment"),
 ## "email_id" and "excerpt"
 signal discrepancy_picked(section: Dictionary)
+## Emitted when the player taps an attachment that opens (an order document or a Pix QR Code)
+signal attachment_opened(attachment: Dictionary)
 
 const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_message_instance.tscn")
 
@@ -48,13 +50,23 @@ func setup(email_data: Array) -> void:
 	for email_message_data in email_data:
 		var email_message_instance = EMAIL_MESSAGE_INSTANCE_SCENE.instantiate()
 		email_message_instance.setup(email_message_data)
+		email_message_instance.attachment_opened.connect(attachment_opened.emit)
 		email_messages_container.add_child(email_message_instance)
+
+		# Opening the thread reads its emails, which some messages wait for
+		var email_id := str(email_message_data.get("email_id", ""))
+		if not email_id.is_empty() and not GameData.read_emails.has(email_id):
+			GameData.read_emails.append(email_id)
 		for target in email_message_instance.discrepancy_targets:
 			_inspector.add(target)
 
 	# Opens the thread showing the latest email, once the messages just added are
 	# accounted for by the containers
 	scroll_container.jump_to_bottom()
+
+## Rules group the sections of this screen are checked against, see data/rules/rules.json
+func get_rules_app() -> String:
+	return "Email"
 
 ## Arms every section of the thread so the player can point at the one giving the scam away
 func set_inspection_mode(is_on: bool) -> void:

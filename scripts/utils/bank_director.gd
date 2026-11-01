@@ -39,6 +39,9 @@ func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
 	update_codes_dict()
 
 func _on_code_created(code_information, app: GameData.App) -> void:
+	# Store purchases are paid for material, from a bank the company always accepts
+	code_information["reason"] = code_information.get("reason", "Compra de material")
+	code_information["bank"] = code_information.get("bank", "Banco Aurora")
 	var code: String
 	match code_information["type"]:
 		GameData.PaymentType.PIX:
@@ -60,13 +63,15 @@ func generate_code(type: GameData.PaymentType) -> String:
 			return generate_numeric_code()
 	return ""
 
+## A Pix code in the pattern the company uses: 2 letters followed by 3 digits
 func generate_alphanumeric_code() -> String:
-	var caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	var letters = "ABCDEFGHIJKLMNPQRSTUVWXYZ" # No O, it reads as a zero
 	var code: String = ""
 
-	for i in range(5):
-		var indice = randi() % caracteres.length()
-		code += caracteres[indice]
+	for i in range(2):
+		code += letters[randi() % letters.length()]
+	for i in range(3):
+		code += str(randi_range(0, 9))
 
 	if pix_codes_static.has(code) or pix_codes_dynamic.has(code):
 		return generate_alphanumeric_code()

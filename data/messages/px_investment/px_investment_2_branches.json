@@ -1,0 +1,115 @@
+{
+	"conversation_id": "px_investment_2",
+	"contact_name": "PX lnvestment",
+	"entry_points": [
+		{
+			"day": 4,
+			"relative_due_time": 180,
+			"branch": "d4_start",
+			"event_id": "scam_px_d4"
+		}
+	],
+	"branches": {
+		"d4_start": [
+			{
+				"id": "px2_d4_0",
+				"text": "Detectamos um acesso incomum na conta PX Investment da sua empresa."
+			},
+			{
+				"id": "px2_d4_1",
+				"text": "Para proteger a conta, enviamos um código de recuperação para o seu email. Mande o código aqui em até 10 minutos, senão você vai perder o acesso.",
+				"choices": [
+					{
+						"id": "px2_d4_1a_0",
+						"player_text": "Que código?",
+						"npc_reply": {
+							"goto_branch": "d4_code",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "px2_d4_1a_1",
+						"player_text": "Vou confirmar com o TI.",
+						"npc_reply": {
+							"goto_branch": "d4_hurry",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "px2_d4_1a_2",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d4_code": [
+			{
+				"id": "px2_d4_2",
+				"text": "O código que acabou de chegar no seu email. Rápido!",
+				"requires": [
+					{
+						"flag": "email_read",
+						"email_id": "px_recovery_d4_0"
+					}
+				],
+				"choices": [
+					{
+						"id": "px2_d4_2a_0",
+						"player_text": "550913",
+						"npc_reply": {
+							"goto_branch": "d4_code_given",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "px2_d4_2a_1",
+						"player_text": "Não vou mandar.",
+						"npc_reply": {
+							"goto_branch": "d4_refused",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "px2_d4_2a_2",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d4_hurry": [
+			{
+				"id": "px2_d4_3",
+				"text": "Não dá tempo! Mande agora ou a conta será bloqueada.",
+				"choices": [
+					{
+						"id": "px2_d4_3a_0",
+						"player_text": "Não vou mandar.",
+						"npc_reply": {
+							"goto_branch": "d4_refused",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "px2_d4_3a_1",
+						"player_text": "Bloquear",
+						"event_id": "block_and_report"
+					}
+				]
+			}
+		],
+		"d4_refused": [
+			{
+				"id": "px2_d4_4",
+				"text": "Você foi avisado. A PX não se responsabiliza pela perda da conta."
+			}
+		],
+		"d4_code_given": [
+			{
+				"id": "px2_d4_5",
+				"text": "Código confirmado. Obrigado pela colaboração."
+			}
+		]
+	}
+}

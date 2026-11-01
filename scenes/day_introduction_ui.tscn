@@ -1,0 +1,217 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/utils/day_introduction_ui.gd" id="1_intro"]
+[ext_resource type="FontFile" uid="uid://cwojsg0irciae" path="res://assets/fonts/IBMPlexSans-Bold.ttf" id="2_bold"]
+[ext_resource type="AudioStream" uid="uid://1chu0pn6ps5b" path="res://assets/sounds/sfx/notification_sound.ogg" id="3_message"]
+[ext_resource type="AudioStream" uid="uid://b7nfm0ukfj02f" path="res://assets/sounds/sfx/touch_sound.ogg" id="4_touch"]
+[ext_resource type="Shader" uid="uid://jtbma8vm1hxv" path="res://shaders/frosted_glass.gdshader" id="5_frosted"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_scrim"]
+shader = ExtResource("5_frosted")
+shader_parameter/blur_radius = 14.0
+shader_parameter/blur_lod = 1.5
+shader_parameter/tint = Color(0.11764706, 0.18823529, 0.2784314, 0.45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sheet"]
+bg_color = Color(1, 1, 0.972549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.9)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+corner_detail = 14
+shadow_color = Color(0.05882353, 0.09019608, 0.14117648, 0.32)
+shadow_size = 32
+shadow_offset = Vector2(0, 12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_badge"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 16
+shadow_color = Color(0.11764706, 0.18823529, 0.2784314, 0.18)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_next_normal"]
+content_margin_left = 16.0
+content_margin_top = 13.0
+content_margin_right = 16.0
+content_margin_bottom = 13.0
+bg_color = Color(0.30980393, 0.79607844, 0.68235296, 1)
+border_width_top = 1
+border_color = Color(1, 1, 1, 0.35)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+shadow_color = Color(0.27450982, 0.70980394, 0.6901961, 0.35)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_next_pressed"]
+content_margin_left = 16.0
+content_margin_top = 13.0
+content_margin_right = 16.0
+content_margin_bottom = 13.0
+bg_color = Color(0.27450982, 0.70980394, 0.6901961, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+shadow_color = Color(0.27450982, 0.70980394, 0.6901961, 0.25)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="DayIntroductionUI" type="Control" node_paths=PackedStringArray("scrim", "sheet", "icon_badge", "icon", "day_label", "title_label", "dots", "pages_holder", "next_button", "message_sound", "touch_sound")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_intro")
+scrim = NodePath("Scrim")
+sheet = NodePath("Sheet")
+icon_badge = NodePath("Sheet/SheetMargin/SheetColumn/Header/IconBadge")
+icon = NodePath("Sheet/SheetMargin/SheetColumn/Header/IconBadge/Icon")
+day_label = NodePath("Sheet/SheetMargin/SheetColumn/Header/Titles/TopRow/DayLabel")
+title_label = NodePath("Sheet/SheetMargin/SheetColumn/Header/Titles/TitleLabel")
+dots = NodePath("Sheet/SheetMargin/SheetColumn/Header/Titles/TopRow/Dots")
+pages_holder = NodePath("Sheet/SheetMargin/SheetColumn/PagesHolder")
+next_button = NodePath("Sheet/SheetMargin/SheetColumn/NextButton")
+message_sound = NodePath("MessageSound")
+touch_sound = NodePath("TouchSound")
+
+[node name="Scrim" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_scrim")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sheet" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.06
+anchor_right = 1.0
+anchor_bottom = 0.95
+offset_left = 18.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sheet")
+
+[node name="SheetMargin" type="MarginContainer" parent="Sheet"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 18
+
+[node name="SheetColumn" type="VBoxContainer" parent="Sheet/SheetMargin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="HBoxContainer" parent="Sheet/SheetMargin/SheetColumn"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="IconBadge" type="PanelContainer" parent="Sheet/SheetMargin/SheetColumn/Header"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_badge")
+
+[node name="Icon" type="TextureRect" parent="Sheet/SheetMargin/SheetColumn/Header/IconBadge"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Titles" type="VBoxContainer" parent="Sheet/SheetMargin/SheetColumn/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="TopRow" type="HBoxContainer" parent="Sheet/SheetMargin/SheetColumn/Header/Titles"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DayLabel" type="Label" parent="Sheet/SheetMargin/SheetColumn/Header/Titles/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 11
+text = "DIA 1"
+
+[node name="Dots" type="HBoxContainer" parent="Sheet/SheetMargin/SheetColumn/Header/Titles/TopRow"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 5
+
+
+[node name="TitleLabel" type="Label" parent="Sheet/SheetMargin/SheetColumn/Header/Titles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.10980392, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 19
+text = "Regra do dia"
+autowrap_mode = 3
+
+[node name="PagesHolder" type="Control" parent="Sheet/SheetMargin/SheetColumn"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="NextButton" type="Button" parent="Sheet/SheetMargin/SheetColumn"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_bold")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_next_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_next_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_next_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_next_normal")
+text = "Entendi"
+
+[node name="MessageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_message")
+volume_db = -8.0
+max_polyphony = 3
+bus = &"SFX"
+
+[node name="TouchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_touch")
+bus = &"SFX"

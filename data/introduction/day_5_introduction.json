@@ -1,0 +1,9 @@
+{
+  "day": 5,
+  "description": "Hoje os nomes precisam bater. Além das regras anteriores, confira:",
+  "rules": [
+    "— O nome da conta deve ser o da pessoa que pediu",
+    "— A instituição do boleto deve ser quem cobra de verdade"
+  ],
+  "footer": "Abra as notas para verificar as regras do dia."
+}

@@ -1,0 +1,32 @@
+{
+ 	"conversation_id": "jessica_2",
+	"contact_name": "Jessica",
+	"branches": {
+	  "scam0_jessica2": [
+			  {
+					"id": "jessica2_payment0_0",
+					"text": "Olá, boa noite"
+				},
+				{
+				  "id": "jessica2_payment0_1",
+					"text": "preciso de pix",
+					"choices": [
+					  {
+							"id": "jessica2_payment0_0a_0",
+							"text": "Preciso do ID do pagamento",
+							"npc_reply": {
+							  "goto_branch": "from_jessica2_payment0_0",
+								"delay_ticks": 0
+							}
+						}
+					]
+				}	
+			],
+			"from_jessica2_payment0_0": [
+			  {
+					"id": "jessica_payment0_2",
+					"text": "18 :)"
+				}
+			]
+	}
+}
