@@ -75,6 +75,7 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.daily_reputation_points = 0
 	GameData.options_chose.clear()
 	GameData.read_emails.clear()
+	GameData.seen_info.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
 

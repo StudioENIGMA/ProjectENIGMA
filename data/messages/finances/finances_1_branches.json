@@ -71,10 +71,6 @@
 			"id": "f_1_1",
 			"text": "Por favor, efetue este pagamento por PIX inserindo o código FN100 na área de pagamento PIX do banco. Agradeço desde já.",
 			"event_id": "fin_payment0"
-		},
-		{
-			"id": "f_1_2",
-			"text": "Caso o aplicativo do banco esteja bloqueado, troque a senha dele no Gerenciador de Senhas das configurações. Por segurança, aqui na empresa as senhas expiram e devem ser trocadas todos os dias."
 		}
 	],
 	"d1_tip": [

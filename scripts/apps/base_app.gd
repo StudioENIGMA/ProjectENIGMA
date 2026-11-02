@@ -433,6 +433,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
 	main_app_opened.emit(main_app)
+	# The story may wait for the player to look at a screen, see GameData.seen_info
+	var screen_name: String = GameData.apps_name_reverse.get(app, GameData.App.find_key(app))
+	GameData.mark_seen("screen:%s" % screen_name)
 
 	# Get specific app that should be opened
 	var specific_app = _get_app_by_enum(app)

@@ -310,6 +310,8 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary, lane
 func on_clock_tick(current_minutes: int) -> void:
 	events_director._on_clock_tick()
 	emails_director._on_clock_tick()
+	# Whatever chat is in progress, as the answers belong to a message already delivered
+	messages_director.present_held_choices(_requirements_met)
 
 	if active_owner != "" and not _should_release_lock(current_minutes):
 		for queue in [main_queue, random_queue]:
@@ -588,6 +590,8 @@ func _evaluate_requirement(requirement: Dictionary) -> bool:
 		return GameData.options_chose.get(requirement.get("choice", ""), false)
 	if flag == "email_read":
 		return GameData.read_emails.has(requirement.get("email_id", ""))
+	if flag == "seen":
+		return GameData.has_seen(str(requirement.get("info", "")))
 
 	return false
 

@@ -25,7 +25,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "Houve vazamento de bilhõs de senhas"
+				"choice": "Houve vazamento de bilhões de senhas"
 			}
 		]
 	},
