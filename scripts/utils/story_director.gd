@@ -137,14 +137,22 @@ func reload_and_setup_today() -> void:
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	bank_director.set_boletos(boletos_director.get_registered_codes())
 	var task_roots: Array = _drop_missing_random_events(tasks_roots)
+	var held_back_events: Array = boletos_director.get_events_with_unaccepted_banks(
+		events_dictionary, tickets_dictionary
+	)
 	randomness_director.setup_from_json_roots(
 		task_roots,
 		_drop_missing_random_events(scams_roots),
 		events_dictionary,
 		rules_array,
-		boletos_director.get_events_with_unaccepted_banks(events_dictionary, tickets_dictionary)
+		held_back_events
 	)
-	_publish_trusted_senders(task_roots[0], events_dictionary)
+	# A task held back by its bank never comes today, its sender asks for nothing
+	var tasks_coming: Array = []
+	for event in task_roots[0]:
+		if not held_back_events.has(randomness_director._get_event_id(event)):
+			tasks_coming.append(event)
+	_publish_trusted_senders(tasks_coming, events_dictionary)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
 	introduction_director.setup_from_json_roots(introduction_roots)
 
