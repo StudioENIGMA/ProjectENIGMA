@@ -70,21 +70,33 @@
 				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" },
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" }
 			],
-			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
+			"accepted_banks": {
+				"easy": ["Banco Aurora"],
+				"normal": ["Banco Aurora", "Caixa Leste"],
+				"hard": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
+			}
 		},
 		"5": {
 			"orders": [
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" },
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" }
 			],
-			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
+			"accepted_banks": {
+				"easy": ["Banco Aurora"],
+				"normal": ["Banco Aurora", "Caixa Leste"],
+				"hard": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
+			}
 		},
 		"6": {
 			"orders": [
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" },
 				{ "order_id": "PC-0602", "department": "RH", "requested_by": "Jessica", "items": "Buffet da festa do setor" }
 			],
-			"accepted_banks": ["Banco Aurora", "Caixa Leste"]
+			"accepted_banks": {
+				"easy": ["Banco Aurora"],
+				"normal": ["Banco Aurora", "Caixa Leste"],
+				"hard": ["Banco Aurora", "Caixa Leste", "Banco Central Sul", "Banco Norte"]
+			}
 		}
 	}
 }

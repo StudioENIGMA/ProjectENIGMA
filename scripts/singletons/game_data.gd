@@ -209,6 +209,9 @@ var introductions: Array[Introduction] = []
 ## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
 ## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
 var trusted_senders_today: Array[Dictionary] = []
+## Banks the company accepts boletos from today, as the difficulty picked when the day started lists
+## them in data/notes/board.json (more of them the harder it is). Empty before banks are checked
+var accepted_banks_today: Array = []
 
 var apps_name: Dictionary = {
 	# Messages app

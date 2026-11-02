@@ -42,7 +42,7 @@ func setup() -> void:
 	_add_list_section("Motivos aceitos", 2, board.get("accepted_reasons", []))
 	_add_orders(today.get("orders", []))
 	_add_list_section("Regras de segurança", 4, board.get("security_rules", []))
-	_add_list_section("Bancos aceitos hoje", 4, today.get("accepted_banks", []))
+	_add_list_section("Bancos aceitos hoje", 4, GameData.accepted_banks_today)
 	_add_approvers(board.get("approvers", []))
 
 	scroll.scroll_vertical = 0
