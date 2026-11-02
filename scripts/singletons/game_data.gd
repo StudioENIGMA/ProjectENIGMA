@@ -76,6 +76,13 @@ enum PaymentType {
 	TICKET,
 }
 
+## Picked in the pause menu as the clock speed, see get_difficulty()
+enum Difficulty {
+	EASY,
+	NORMAL,
+	HARD,
+}
+
 ## Rules the player reports scams against, see load_rules()
 const RULES_PATH := "res://data/rules/rules.json"
 ## Names of a date_dict's "weekday" (0 is Sunday), see weekday_name()
@@ -417,13 +424,21 @@ func get_human_typing_time(message: String) -> int:
 
 	return total_time
 
-## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
-## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
-func get_free_scam_falls() -> int:
+## The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_difficulty() -> Difficulty:
 	if clock_tick_interval >= 2.0:
-		return 2
+		return Difficulty.EASY
 	if clock_tick_interval >= 1.5:
-		return 1
+		return Difficulty.NORMAL
+	return Difficulty.HARD
+
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on hard
+func get_free_scam_falls() -> int:
+	match get_difficulty():
+		Difficulty.EASY:
+			return 2
+		Difficulty.NORMAL:
+			return 1
 	return 0
 
 ## The account name a contact gets when its conversation names none: "@" and the name in
