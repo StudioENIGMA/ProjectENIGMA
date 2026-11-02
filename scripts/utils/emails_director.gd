@@ -24,6 +24,8 @@ var unread_email_by_thread: Dictionary = {}
 var thread_by_event: Dictionary = {}
 ## boleto_id -> boleto of today, as made by the BoletosDirector
 var boletos: Dictionary = {}
+## Threads waiting on a follow-up (an NPC thanking for the task done), which they do not end before
+var threads_awaiting_follow_up: Dictionary = {}
 
 var _boleto_placeholder := RegEx.create_from_string(BOLETO_PLACEHOLDER)
 #endregion STATE
@@ -36,6 +38,7 @@ func setup_from_json_roots(json_roots: Array, boletos_today: Dictionary = {}) ->
 	emails_by_id.clear()
 	unread_email_by_thread.clear()
 	thread_by_event.clear()
+	threads_awaiting_follow_up.clear()
 	boletos = boletos_today
 
 	for root in json_roots:
@@ -128,12 +131,17 @@ func _queue_today_emails() -> void:
 
 #region DELIVERY (CALLED DOWN BY STORYDIRECTOR)
 ## Delivers a scheduled email entry
-func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) -> void:
+##
+## The email after it in its thread, when it has no day of its own, is its follow-up: it is queued
+## at once and comes as soon as its requirements are met (the NPC thanks once the task is done).
+## The thread waits for it, and ends once it is delivered, without waiting for it to be read.
+func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -> void:
 	var thread_id := str(schedule_entry["thread_id"])
 	var email_id := str(schedule_entry["email_id"])
 
 	var thread: Array = emails_by_id[thread_id]
-	var email_dict: Dictionary = thread.filter(func(email): return email.get("email_id") == email_id)[0]
+	var email_index := thread.find_custom(func(email): return email.get("email_id") == email_id)
+	var email_dict: Dictionary = thread[email_index]
 
 	var attachments: Array = email_dict.get("attachments", []).map(_resolve_attachment)
 
@@ -146,15 +154,36 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 		"content": _resolve_boleto_fields(str(email_dict.get("content"))),
 		"attachments": attachments,
 		"day": email_dict.get("day"),
-		"relative_due_time": float(email_dict.get("relative_due_time", 0.0)),
+		# When it really arrived, a chat in progress may have held it past its due time
+		"relative_due_time": float(current_minutes - GameData.starting_hours_minutes),
 	}
 
 	var event_id := str(schedule_entry.get("event_id", ""))
 	if not event_id.is_empty():
 		thread_by_event[event_id] = thread_id
 
+	var is_follow_up := threads_awaiting_follow_up.has(thread_id)
+	threads_awaiting_follow_up.erase(thread_id)
+	var follow_up: Dictionary = {}
+	if email_index + 1 < thread.size() and not thread[email_index + 1].has("day"):
+		follow_up = thread[email_index + 1]
+		threads_awaiting_follow_up[thread_id] = true
+
 	email_received.emit(delivered_email)
-	unread_email_by_thread[thread_id] = email_id
+	if is_follow_up and follow_up.is_empty():
+		thread_finished.emit(thread_id)
+	else:
+		unread_email_by_thread[thread_id] = email_id
+
+	if not follow_up.is_empty():
+		schedule_entry_requested.emit({
+			"thread_id": thread_id,
+			"email_id": str(follow_up.get("email_id", "")),
+			"due_at": current_minutes,
+			"requires": follow_up.get("requires", []),
+			"event_id": "",
+			"continues": true,
+		})
 
 ## Turns a boleto attachment ({"type": "boleto", "boleto_id"}) into the boleto of today, the way
 ## it is printed, so the email keeps showing the same boleto once saved. Other attachments are
@@ -217,10 +246,12 @@ func on_thread_deleted(thread_id: String) -> void:
 #endregion DELETION
 
 #region CLOCK
-## Called by StoryDirector every tick: finishes the threads whose email the player read
+## Called by StoryDirector every tick: finishes the threads whose email the player read, unless they
+## still wait on a follow-up
 func _on_clock_tick() -> void:
 	for thread_id in unread_email_by_thread.keys():
 		if GameData.read_emails.has(unread_email_by_thread[thread_id]):
 			unread_email_by_thread.erase(thread_id)
-			thread_finished.emit(thread_id)
+			if not threads_awaiting_follow_up.has(thread_id):
+				thread_finished.emit(thread_id)
 #endregion CLOCK

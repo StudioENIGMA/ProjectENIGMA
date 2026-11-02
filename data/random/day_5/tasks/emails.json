@@ -1,1 +1,32 @@
-[]
+[
+	{
+		"thread_id": "mariana_brindes_d5",
+		"email_id": "mariana_brindes_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_limpeza_d5",
+		"email_id": "marcao_limpeza_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "kospenski_backup_d5",
+		"email_id": "kospenski_backup_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carla_licencas_d5",
+		"email_id": "carla_licencas_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "ricardo_ar_d5",
+		"email_id": "ricardo_ar_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "Viva_task4",
+		"email_id": "Viva_payment4",
+		"required_app": "Bank"
+	}
+]

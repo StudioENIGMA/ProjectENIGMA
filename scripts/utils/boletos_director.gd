@@ -177,6 +177,52 @@ func get_registered_codes() -> Dictionary:
 			"boleto_id": boleto["boleto_id"],
 		}
 	return codes
+
+## Events showing a real bank the company does not accept today as true information, on a boleto
+## of today or a static one: a task would look like a scam, and a scam would give away a
+## discrepancy it does not declare. The fake banks (forgery_pools) are always false information,
+## so they never hold an event back
+##
+## events: Every event of data/events/events.json, after bind_events() gave them their codes
+## tickets: The static boletos of data/bank/ticket_codes_data.json, code -> "bank" among others
+func get_events_with_unaccepted_banks(events: Dictionary, tickets: Dictionary) -> Array:
+	if _accepted_banks.is_empty():
+		return []
+
+	var fake_banks: Array = []
+	for bank_id in _forgery_pools.get("bank", []):
+		fake_banks.append(str(_banks.get(bank_id, {}).get("name", "")))
+
+	# code -> banks the payment shows, on both faces of a boleto of today
+	var banks_by_code: Dictionary = {}
+	for code in tickets:
+		banks_by_code[str(code)] = [str(tickets[code].get("bank", ""))]
+	for boleto in boletos_today.values():
+		banks_by_code[boleto["code"]] = [boleto["printed"]["bank"], boleto["registered"]["bank"]]
+
+	var is_unaccepted := func(bank: String) -> bool:
+		return not bank.is_empty() and not _accepted_banks.has(bank) and not fake_banks.has(bank)
+	var refused: Array = []
+	for event_id in events:
+		for code in _get_payment_codes(events[event_id]):
+			if banks_by_code.get(code, []).any(is_unaccepted):
+				refused.append(event_id)
+				break
+	return refused
+
+## Payment codes an event waits on or points its discrepancies at
+func _get_payment_codes(event: Dictionary) -> Array:
+	var codes: Array = []
+	for requirement in event.get("requires", []):
+		if requirement.has("payment_id"):
+			codes.append(str(requirement["payment_id"]))
+		for code in requirement.get("payment_array", []):
+			codes.append(str(code))
+	for discrepancy in event.get("discrepancies", []):
+		for place in discrepancy.get("found_at", []):
+			if place.has("payment_code"):
+				codes.append(str(place["payment_code"]))
+	return codes
 #endregion QUERIES
 
 #region MAKING

@@ -120,10 +120,11 @@ func reload_and_setup_today() -> void:
 	# The boletos of today come first: the emails print them, the bank registers them and the
 	# events wait on their codes
 	var today_board: Dictionary = board_dictionary.get("days", {}).get(str(GameData.current_day), {})
+	GameData.accepted_banks_today = _get_accepted_banks(today_board)
 	boletos_director.setup(
 		boletos_dictionary,
 		rules_array,
-		today_board.get("accepted_banks", []),
+		GameData.accepted_banks_today,
 		pix_dictionary.keys() + tickets_dictionary.keys()
 	)
 	boletos_director.bind_events(events_dictionary)
@@ -136,13 +137,22 @@ func reload_and_setup_today() -> void:
 	bank_director.setup_from_json_file(pix_dictionary, tickets_dictionary)
 	bank_director.set_boletos(boletos_director.get_registered_codes())
 	var task_roots: Array = _drop_missing_random_events(tasks_roots)
+	var held_back_events: Array = boletos_director.get_events_with_unaccepted_banks(
+		events_dictionary, tickets_dictionary
+	)
 	randomness_director.setup_from_json_roots(
 		task_roots,
 		_drop_missing_random_events(scams_roots),
 		events_dictionary,
-		rules_array
+		rules_array,
+		held_back_events
 	)
-	_publish_trusted_senders(task_roots[0], events_dictionary)
+	# A task held back by its bank never comes today, its sender asks for nothing
+	var tasks_coming: Array = []
+	for event in task_roots[0]:
+		if not held_back_events.has(randomness_director._get_event_id(event)):
+			tasks_coming.append(event)
+	_publish_trusted_senders(tasks_coming, events_dictionary)
 	events_director.setup_from_json_file(events_dictionary, rules_array)
 	introduction_director.setup_from_json_roots(introduction_roots)
 
@@ -181,6 +191,15 @@ func _publish_trusted_senders(task_events: Array, events: Dictionary) -> void:
 		if not senders.has(sender):
 			senders.append(sender)
 	GameData.trusted_senders_today = senders
+
+## Banks the company accepts today: data/notes/board.json lists them per difficulty ("easy",
+## "normal" and "hard"), the harder the more banks a boleto is checked against
+##
+## today_board: The day of data/notes/board.json, without banks before they are checked
+func _get_accepted_banks(today_board: Dictionary) -> Array:
+	var banks_by_difficulty: Dictionary = today_board.get("accepted_banks", {})
+	var difficulty := str(GameData.Difficulty.find_key(GameData.get_difficulty())).to_lower()
+	return banks_by_difficulty.get(difficulty, [])
 
 ## Leaves out the random events naming a conversation branch or an email that does not exist,
 ## they could never be done and would hold the random lane until the timeout
