@@ -1,7 +1,32 @@
 [
 	{
-		"thread_id": "marcia_task4",
-		"email_id": "marcia_purchase4",
-		"required_app": "browser"
+		"thread_id": "carolina_task4",
+		"email_id": "carolina_payment1",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "grafica_banner_d4",
+		"email_id": "grafica_banner_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "artur_perifericos_d4",
+		"email_id": "artur_perifericos_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_ar_d4",
+		"email_id": "marcao_ar_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_aniversariantes_d4",
+		"email_id": "jessica_aniversariantes_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "Viva_task3",
+		"email_id": "Viva_payment3",
+		"required_app": "Bank"
 	}
 ]

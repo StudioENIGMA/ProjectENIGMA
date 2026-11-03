@@ -1,11 +1,78 @@
-[   
+[
 	{
 		"thread_id": "Viva_scan0",
 		"email_id": "Viva_scan_payment0",
-		"sender": "p̸a̷g̸a̸m̷e̸nn̷t̸o̶s̵@̴V̵i̵v̷a̸.̸c̶o̵m̵.̶b̵r̶)̵",
-		"subject": "Fatura da Viva",
-		"content": "̶S̴u̶a̴ ̷f̴a̴t̸u̸r̵a̶ ̸f̶e̸c̵h̴a̴ ̶h̴o̶j̶e̵!̵\n\n̷O̷ ̴v̷e̷n̴c̸i̷m̷e̸n̴t̸o̴ ̵d̸a̷ ̷s̵u̶a̸ ̵f̸a̶t̷u̴r̸a̶ ̸r̵e̵f̵e̴r̷e̷n̸t̸e̵ ̵a̴o̷ ̶p̶l̵a̴n̶o̶ ̶d̷e̶ ̴I̶n̷t̵e̴r̵n̶e̴t̷ ̷d̵o̴s̶ ̴ú̵l̸t̷i̴m̴o̸s̷ ̸3̵0̶ ̵d̵i̶a̴s̴ ̸é̴ ̴h̶o̶j̴e̵.̴ ̶E̶s̶t̸a̵m̴o̶s̷ ̵e̷n̴v̴i̴a̶n̷d̴o̶ ̴u̷m̵a̷ ̶2̶ª̸ ̴v̵i̴a̴ ̸d̸o̷ ̴b̴o̴l̸e̴t̸o̵ ̵p̵a̶r̷a̴ ̸f̶a̵c̷i̴l̷i̷t̵a̶r̷ ̶s̷e̶u̷ ̸p̵a̶g̷a̶m̷e̸n̷t̴o̶.̵ O boleto é 432789\n\n̵-̶ ̸©̶ ̸V̷i̷v̶a̴ ̷",
-		"attachments": [],
+		"sender": "pagamentos@Vlva.com.br",
+		"subject": "Fatura da Viva: 2ª via",
+		"content": "Sua fatura fecha hoje!\n\nO vencimento da sua fatura do plano de Internet é hoje. Para facilitar, enviamos a 2ª via do boleto em anexo. Se o boleto não abrir no seu celular, instale o leitor que mandamos junto.\n\nMotivo: {boleto:viva_golpe_0.reason}\nValor: {boleto:viva_golpe_0.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_golpe_0"
+			},
+			{
+				"name": "LeitorViva.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "Vivaa_scan2",
+		"email_id": "Vivaa_scan_payment2",
+		"sender": "pagamentos@Viiva.com.br",
+		"subject": "Desconto especial na sua fatura",
+		"content": "Boa, boa, chefe!\n\nVocê é um cliente legal, então liberamos um desconto bacana: a renegociação do seu plano de Internet sai de R$ 700,00 por apenas {boleto:vivaa_golpe_2.value}. Mas é só hoje, hein! Tá na mão o boleto em anexo.\n\nMotivo: {boleto:vivaa_golpe_2.reason}\nValor: {boleto:vivaa_golpe_2.value}\n\n- Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "vivaa_golpe_2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marie_scam1",
+		"email_id": "marie_payment0",
+		"sender": "rnariana@enigma.com.br",
+		"subject": "Pagamento de compra de equipamentos",
+		"content": "Bom dia, estagiário,\n\nComo você deve imaginar, a demanda do Comercial está alta e preciso da sua ajuda com um pagamento. A Industrials só libera os equipamentos novos depois que pagarmos o boleto em anexo.\n\nMotivo: {boleto:industrials_liberacao_golpe.reason}\nValor: {boleto:industrials_liberacao_golpe.value}\n\nAtenciosamente,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_liberacao_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "false_yago_scam0",
+		"email_id": "false_yago_payment0",
+		"sender": "yagob@enigma.fin.con.br",
+		"subject": "PAGAMENTO IMPORTANTE! RISCO DE DEMISSÃO.",
+		"content": "Bom dia! Aqui é o Yago, do Financeiro.\n\nO supervisor geral precisa que o boleto da Negativa em anexo seja pago pra ontem!!! Existe risco de demissão se essa task não for feita, então agiliza aí, tá?\n\nMotivo: {boleto:negativa_urgente_golpe.reason}\nValor: {boleto:negativa_urgente_golpe.value}\n\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_urgente_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jose_leitor_d2",
+		"email_id": "jose_leitor_d2_0",
+		"sender": "jose@enigrna.com.br",
+		"subject": "Boleto das mesas novas",
+		"content": "Oi, estagiário! Aqui é o José, de Compras.\n\nA Móveis Rocha mandou o boleto das mesas novas, mas ele só abre com o leitor deles. Instala o LeitorBoleto.exe que vai em anexo e paga, por favor.\n\nMotivo: {boleto:moveis_mesas_golpe.reason}\nValor: {boleto:moveis_mesas_golpe.value}\n\nObrigado!\nJosé",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_mesas_golpe"
+			},
+			{
+				"name": "LeitorBoleto.exe"
+			}
+		],
 		"requires": []
 	},
 	{
@@ -13,89 +80,166 @@
 		"email_id": "Vivas_scan_payment1",
 		"sender": "pagamentos@Vivas.com.br",
 		"subject": "Fatura da Vivas",
-		"content": "Bom dia, tudo bem?\n\nNós da Vivas solicitamos o pagamento do seu plano de Internet referente aos últimos trinta dias. Devido ao alto uso desta linha teremos que cobrar uma taxa de R$30,00. Caso queira rever a cobrança entre em contato com nosso número 0900 3123. Segue o Boleto 483234\n\nVivas",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Vivaa_scan2",
-		"email_id": "Vivaa_scan_payment2",
-		"sender": "pagamentos@Viiva.com.br",
-		"subject": "Fatura da Vivaa",
-		"content": "Boa boa chefe,\n\nFaz o pagamento ai para gente do seu plano de Internet, já que você é um cliente legal, vamos estar fazendo um desconto bacana dessa vez de R$ 700,00 por apenas R$250,00. Tá na mão o boleto em anexo. Boleto -> 896108\n\n- Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viiva_scan3",
-		"email_id": "Viiva_scan_payment3",
-		"sender": "pagarnentos@VIVA.com.br",
-		"subject": "Fatura da Viva",
-		"content": "Lembrete:\n\nO vencimento da sua fatura referente ao plano de Internet do último dia é hoje. Devido à problemas ocasionados por desastres naturais, uma taxa de emergência foi adicionada. Estamos enviando uma 2ª via do boleto para facilitar seu pagamento. Segue o boleto 896100\n\n- © Viva",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "Viva_scan4",
-		"email_id": "Viva_scan_payment4",
-		"sender": "pagamentos@vivα.cθm.brbr",
-		"subject": "Fatura da Viva",
-		"content": "λemβrete:\n\nΘ veηcimentθ da δua φaτura referente αo plαnθ de Internet dos ηlτimos τrintα diαδ é hθje. Estαηos enviando υma segunda viα do boletθ para facilitar seu pagamento. Pague o boleto 896118\n\n- © Viva",
-		"attachments": [],
+		"content": "Bom dia, tudo bem?\n\nNós da Viva solicitamos o pagamento do seu plano de Internet dos últimos trinta dias. Devido ao alto uso desta linha, foi cobrada uma taxa extra de R$ 30,00, já incluída no boleto em anexo.\n\nMotivo: {boleto:vivas_golpe_1.reason}\nValor: {boleto:vivas_golpe_1.value}\n\nCaso queira rever a cobrança, ligue para 0900 3123.\nViva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "vivas_golpe_1"
+			}
+		],
 		"requires": []
 	},
 	{
 		"thread_id": "false_negativa_scan0",
 		"email_id": "false_negativa_scan_payment0",
-		"sender": "valterg@imail.com",
+		"sender": "pagamentos@negatlva.com",
 		"subject": "Pagamento computadores",
-		"content": "Olá Senhor estagiário\n\nComo combinado com seu gerente você deve realizar o pagamento dos últimos computadores enviados a sua empresa\n\nCódigo pix: 53045",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "false_mariana_scam0",
-		"email_id": "false_mariana_purchase0",
-		"sender": "mariana@eningma.rs",
-		"subject": "Compra de Frigobar",
-		"content": "bom dia,\n\nvoce poderia comprar 6 frigobar no libre mercado para o pessoal aqui da industria tomar uma agua gelada por favor?\n\nobrigada, mariana",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "marie_scam1",
-		"email_id": "marie_payment0",
-		"sender": "marie@ngima.com.br",
-		"subject": "Pagamento de compra de equipamentos",
-		"content": "Bom dia, senhor,\n\nComo você deve imaginar a demanda do nosso setor está alta, então precisamos da sua colaboração em nos ajudar com alguns pagamentos. Faça o pagamento de equipamentos no pix I9W2V.",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "marinana_scam2",
-		"email_id": "marinana_purchase1",
-		"sender": "marinana@imail.com",
-		"subject": "Exigência de uma compra de camisetas",
-		"content": "Bom dia,\n\nComo sua chefe, eu exijo que você vá na Zora e compre 10 camisetas polo vermelhas!\n\nCordialmente,\n\nMarinana",
-		"attachments": [],
+		"content": "Olá, senhor estagiário,\n\nComo combinado com seu gerente, você deve realizar o pagamento dos últimos computadores enviados à sua empresa. O boleto da Negativa vai em anexo.\n\nMotivo: {boleto:negativa_computadores_golpe.reason}\nValor: {boleto:negativa_computadores_golpe.value}\n\nNegativa",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_computadores_golpe"
+			}
+		],
 		"requires": []
 	},
 	{
 		"thread_id": "false_mariana_scam3",
 		"email_id": "false_mariana_payment1",
-		"sender": "mariana@enigrna.com.br]",
+		"sender": "mariana@enigrna.com.br",
 		"subject": "Reposição da máquina que explodiu",
-		"content": "Bom dia, Estagiário,\n\nOntem houve um incidente e uma das máquinas da empresa explodiu, mas estamos todos bem. O chefe me falou para te pedir dinheiro para repormos essa máquina. Me manda no PIX K47J1\n\nAtenciosamente,\n\nMariana",
-		"attachments": [],
+		"content": "Bom dia, estagiário,\n\nOntem houve um incidente e uma das máquinas do Comercial explodiu, mas estamos todos bem. O Chefe pediu para repormos a máquina hoje mesmo, e o boleto da Industrials vai em anexo.\n\nMotivo: {boleto:industrials_maquina_golpe.reason}\nValor: {boleto:industrials_maquina_golpe.value}\n\nAtenciosamente,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_maquina_golpe"
+			}
+		],
 		"requires": []
 	},
 	{
-		"thread_id": "false_marcia_scam0",
-		"email_id": "false_marcia_purchase0",
-		"sender": "marcia@emigana.rh.com.br",
-		"subject": "Política de compras da empresa",
-		"content": "Oiii!!\n\nTemos uma nova política da empresa, agora todas as compras de roupa devem ser feitas pela Zora. Aproveitando então, precisamos aumentar o estoque de camisetas para o pessoal do comercial, encomende 7 camisetas vermelhas e 5 camisetas azuis.\n\nObrigada!,\n\nMarcia",
-		"attachments": [],
+		"thread_id": "guilherme_armarios_d3",
+		"email_id": "guilherme_armarios_d3_0",
+		"sender": "guilherrne@enigma.com.br",
+		"subject": "Armários do almoxarifado (PC-0478)",
+		"content": "Olá, estagiário!\n\nO Gilmar aprovou os armários novos do almoxarifado: o pedido PC-0478 vai em anexo com o boleto da Móveis Rocha. Paga hoje, por favor, senão a gente perde a promoção.\n\nMotivo: {boleto:moveis_armarios_golpe.reason}\nValor: {boleto:moveis_armarios_golpe.value}\n\nValeu, cara!\nGuilherme",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_armarios_golpe"
+			},
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0478",
+				"name": "Pedido PC-0478.pdf"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_instalador_d3",
+		"email_id": "carolina_instalador_d3_0",
+		"sender": "carolina@enigma.tl.com.br",
+		"subject": "URGENTE: atualização do antivírus",
+		"content": "Oiee,\n\nA licença do antivírus da Kospenski vence hoje! Instala no seu celular o Instalador_Kospenski.exe que vai em anexo e paga o boleto da licença, senão ficamos sem proteção kkkk\n\nMotivo: {boleto:kospenski_licenca_golpe.reason}\nValor: {boleto:kospenski_licenca_golpe.value}\n\nCarolina\nTI",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_licenca_golpe"
+			},
+			{
+				"name": "Instalador_Kospenski.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "Viiva_scan3",
+		"email_id": "Viiva_scan_payment3",
+		"sender": "pagarnentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura do plano de Internet é hoje. Devido a problemas causados por desastres naturais, uma taxa de emergência foi adicionada à fatura. Estamos enviando a 2ª via do boleto em anexo para facilitar seu pagamento.\n\nMotivo: {boleto:viiva_golpe_3.reason}\nValor: {boleto:viiva_golpe_3.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viiva_golpe_3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_codigo_d4",
+		"email_id": "carolina_codigo_d4_0",
+		"sender": "carolina@enigma.ti.corn.br",
+		"subject": "Licença do Firewall: preciso do código",
+		"content": "Oiee,\n\nVou ativar a licença nova do Firewall. Paga o boleto da Kospenski em anexo e depois me manda por mensagem o código do autenticador que vai chegar pra você. Preciso dele pra liberar a licença kkkk\n\nMotivo: {boleto:kospenski_codigo_golpe.reason}\nValor: {boleto:kospenski_codigo_golpe.value}\n\nCarolina\nTI",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_codigo_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "gilmar_estantes_d4",
+		"email_id": "gilmar_estantes_d4_0",
+		"sender": "gilmar@enlgma.com.br",
+		"subject": "Estantes de aço (PC-0477)",
+		"content": "Bom dia!\n\nAs estantes de aço do almoxarifado foram entregues. Seguem o pedido PC-0477 e o boleto da Móveis Rocha. Conferi tudo, pode pagar.\n\nMotivo: {boleto:moveis_estantes_golpe.reason}\nValor: {boleto:moveis_estantes_golpe.value}\n\nAbraço,\nGilmar\nSetor de Compras",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_estantes_golpe"
+			},
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0477",
+				"name": "Pedido PC-0477.pdf"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_multa_d4",
+		"email_id": "yago_multa_d4_0",
+		"sender": "yago@enigma.fin.com.br",
+		"subject": "Multa da Contábil Norte",
+		"content": "Olá, estagiário,\n\nA Contábil Norte cobrou uma multa porque o imposto do mês passado foi entregue com atraso. Precisamos pagar hoje para não virar processo. O boleto vai em anexo e o Chefe já está ciente.\n\nMotivo: {boleto:contabil_multa_golpe.reason}\nValor: {boleto:contabil_multa_golpe.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "contabil_multa_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcao_conserto_d4",
+		"email_id": "marcao_conserto_d4_0",
+		"sender": "rnarcao@enigma.com.br",
+		"subject": "Conserto urgente do ar",
+		"content": "Fala, estagiário!\n\nO ar do galpão pifou de novo e a Clima Ar só vem consertar se a gente pagar hoje. Boleto no anexo, manda ver.\n\nMotivo: {boleto:clima_conserto_golpe.reason}\nValor: {boleto:clima_conserto_golpe.value}\n\nMarcão",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_conserto_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "Viva_scan4",
+		"email_id": "Viva_scan_payment4",
+		"sender": "pagamentos@vivα.cθm.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua fatura do plano de Internet é hoje. Estamos enviando a 2ª via do boleto em anexo para facilitar seu pagamento.\n\nMotivo: {boleto:viva_golpe_4.reason}\nValor: {boleto:viva_golpe_4.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_golpe_4"
+			}
+		],
 		"requires": []
 	},
 	{
@@ -103,35 +247,137 @@
 		"email_id": "false_marta_payment0",
 		"sender": "marta@eningma.net.br",
 		"subject": "MULTIPLICAR NOSSO DINHEIRO!!!!",
-		"content": "Olá, novo Estagiário\n\nFiquei sabendo que o chefe encontrou um jeito de aumentar os lucros da empresa. Ele disse que vai dividir com a gente se colaborarmos. Me manda 1000 reais que eu vou transformar em 10 mil, te devolvo 7 mil e fico com 3, pode ser? Meu PIX é L1P5K",
-		"attachments": [],
-		"requires": []
-	},
-	{
-		"thread_id": "false_yago_scam0",
-		"email_id": "false_yago_payment0",
-		"sender": "Yago@enigma.con.net",
-		"subject": "PAGAMENTO IMPORTANTE! RISCO DE DEMISSÃO.",
-		"content": "Bom dia! Aqui é o Yago, sabe, da sua empresa. O supervisor geral precisa de um pagamento de um boleto pra ontem!!!\n\nO risco de demissão existe caso a gente não consiga realizar essa task, então agiliza aí tá. JPO64. (PIX)",
-		"attachments": [],
+		"content": "Olá, novo estagiário!\n\nFiquei sabendo que o Chefe encontrou um jeito de aumentar os lucros da empresa e vai dividir com quem colaborar. Paga o boleto em anexo que em uma semana ele rende dez vezes mais. Confia!\n\nMotivo: {boleto:marta_lucros_golpe.reason}\nValor: {boleto:marta_lucros_golpe.value}\n\nMarta",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "marta_lucros_golpe"
+			}
+		],
 		"requires": []
 	},
 	{
 		"thread_id": "false_yago_scam1",
 		"email_id": "false_yago_payment1",
-		"sender": "yag0@enigma.net",
-		"subject": "Pagamento para negativa",
-		"content": "Olá, estagiário,\n\nAcabamos de contratar novos funcionários para o nosso setor e fizemos contato com a Negativa para providenciar novos notebooks. O chefe pediu para você fazer esse pagamento no boleto 554433\n\nAtenciosamente, Yago",
-		"attachments": [],
+		"sender": "yag0b@enigma.fin.com.br",
+		"subject": "Pagamento para Negativa",
+		"content": "Olá, estagiário,\n\nAcabamos de contratar novos funcionários para o Financeiro e pedimos notebooks novos à Negativa. O Chefe pediu para você pagar o boleto em anexo.\n\nMotivo: {boleto:negativa_notebooks_golpe.reason}\nValor: {boleto:negativa_notebooks_golpe.value}\n\nAtenciosamente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_notebooks_golpe"
+			}
+		],
 		"requires": []
 	},
 	{
-		"thread_id": "false_yago_scam2",
-		"email_id": "false_yago_purchase0",
-		"sender": "yagob@emigma.fin.com.br",
-		"subject": "Doces para processo seletivo",
-		"content": "Olá, estagiário,\n\nEstamos fazendo um processo seletivo de emprego para todas as áreas, e assim para nossa primeira dinâmica em grupo com os vários participantes queremos proporcionar uma ótima experiência com doces de coffee break. Por favor, compre para nós 6 tiramisu no empório dos bolos.\n\nAtenciosamente, Yago",
-		"attachments": [],
+		"thread_id": "gilmar_imail_d5",
+		"email_id": "gilmar_imail_d5_0",
+		"sender": "gilmar.compras@imail.com",
+		"subject": "Pagamento da Clima Ar",
+		"content": "Oi, estagiário. Aqui é o Gilmar, de Compras. Estou sem acesso ao email da empresa, por isso escrevo deste.\n\nA Clima Ar mandou o boleto da revisão dos aparelhos do escritório. Pode pagar hoje? Vai em anexo.\n\nMotivo: {boleto:clima_revisao_golpe.reason}\nValor: {boleto:clima_revisao_golpe.value}\n\nAbraço,\nGilmar",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_revisao_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_brindes_golpe_d5",
+		"email_id": "mariana_brindes_golpe_d5_0",
+		"sender": "mariana@enlgma.com.br",
+		"subject": "Brindes para clientes (PC-0512)",
+		"content": "Olá, estagiário, bom dia!\n\nOs brindes dos clientes ficaram prontos. Seguem o pedido PC-0512 e o boleto da Gráfica Ponto Certo. Pode pagar ainda hoje?\n\nMotivo: {boleto:grafica_brindes_golpe.reason}\nValor: {boleto:grafica_brindes_golpe.value}\n\nAtenciosamente,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_brindes_golpe"
+			},
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0512_falso",
+				"name": "Pedido PC-0512.pdf"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcao_qr_d6",
+		"email_id": "marcao_qr_d6_0",
+		"sender": "marcao@enigrna.com.br",
+		"subject": "Pix do conserto (QR Code)",
+		"content": "Fala, estagiário!\n\nA Clima Ar consertou o ar da copa e pediu Pix. Mandaram o QR Code aí embaixo, é só tocar e pagar.\n\nMotivo: Serviço de fornecedor\nValor: R$ 560,00\n\nValeu!\nMarcão",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix da Clima Ar.png",
+				"printed_code": "CL207",
+				"read_code": "KX913"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_assinatura_d6",
+		"email_id": "carolina_assinatura_d6_0",
+		"sender": "caroline@enigma.ti.com.br",
+		"subject": "Renovação do antivírus (PC-0615)",
+		"content": "Oiee,\n\nSeguem o pedido PC-0615 da renovação do antivírus e o boleto da Kospenski. Paga hoje pra gente não ficar desprotegido kkkk\n\nMotivo: {boleto:kospenski_antivirus_golpe.reason}\nValor: {boleto:kospenski_antivirus_golpe.value}\n\nCarolina\nTI",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_antivirus_golpe"
+			},
+			{
+				"type": "order_document",
+				"document_id": "doc_pc0615_falso",
+				"name": "Pedido PC-0615.pdf"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jose_imail_d6",
+		"email_id": "jose_imail_d6_0",
+		"sender": "jose.compras@imail.com",
+		"subject": "Boleto do café",
+		"content": "Oi, estagiário! Aqui é o José. Meu email da empresa travou, então mando deste.\n\nPrecisamos pagar hoje o café da copa. O boleto da Café Serra Azul vai em anexo.\n\nMotivo: {boleto:cafe_copa_golpe.reason}\nValor: {boleto:cafe_copa_golpe.value}\n\nObrigado!\nJosé",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "cafe_copa_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "viva_multa_d6",
+		"email_id": "viva_multa_d6_0",
+		"sender": "pagamentos@Vivo.com.br",
+		"subject": "Aviso de multa: Viva",
+		"content": "Prezado cliente,\n\nIdentificamos que a fatura anterior do seu plano de Internet foi paga com atraso. Por isso foi gerada uma multa, que deve ser paga hoje para evitar o corte do serviço. O boleto vai em anexo.\n\nMotivo: {boleto:viva_multa_golpe.reason}\nValor: {boleto:viva_multa_golpe.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_multa_golpe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_codigo_d6",
+		"email_id": "yago_codigo_d6_0",
+		"sender": "yago.financeiro@imail.com",
+		"subject": "Notebooks novos: preciso do código",
+		"content": "Olá, estagiário,\n\nEstou fora do escritório e sem o email da empresa. Paga o boleto da Negativa em anexo, dos notebooks novos, e depois me manda o código de recuperação do Banco que vai chegar pra você. Preciso dele para conferir o pagamento.\n\nMotivo: {boleto:negativa_codigo_golpe.reason}\nValor: {boleto:negativa_codigo_golpe.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_codigo_golpe"
+			}
+		],
 		"requires": []
 	}
 ]

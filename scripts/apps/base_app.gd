@@ -18,6 +18,7 @@ signal discrepancy_reported(report: Dictionary)
 ## Title of the screens that are not named after the app they belong to
 const SUBSCREEN_TITLES = {
 	GameData.App.MESSAGESHISTORY: "Histórico",
+	GameData.App.BOLETO: "Boleto",
 }
 
 @export var close_app_button:TextureButton
@@ -138,6 +139,9 @@ var notes_app = preload(
 ).instantiate()
 var order_document = preload(
 	"res://scenes/apps/email/order_document.tscn"
+).instantiate()
+var boleto_document = preload(
+	"res://scenes/apps/email/boleto_document.tscn"
 ).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
@@ -338,12 +342,19 @@ func _ready() -> void:
 	email_app_viewer.visible = false
 	email_app_viewer.discrepancy_picked.connect(_on_discrepancy_picked)
 	email_app_viewer.attachment_opened.connect(_on_attachment_opened)
+	email_app_viewer.delete_requested.connect(_on_email_delete_requested)
+	email_app_home.thread_blocked.connect(email_app_viewer.on_thread_blocked)
 	app_specific_screen.add_child(email_app_viewer)
 
 	# Order document, opened from an email attachment (Email app)
 	order_document.visible = false
 	order_document.discrepancy_picked.connect(_on_discrepancy_picked)
 	app_specific_screen.add_child(order_document)
+
+	# Boleto, opened from an email attachment (Email app)
+	boleto_document.visible = false
+	boleto_document.discrepancy_picked.connect(_on_discrepancy_picked)
+	app_specific_screen.add_child(boleto_document)
 
 	# Authenticator app
 	authenticator_app.visible = false
@@ -422,6 +433,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
 	main_app_opened.emit(main_app)
+	# The story may wait for the player to look at a screen, see GameData.seen_info
+	var screen_name: String = GameData.apps_name_reverse.get(app, GameData.App.find_key(app))
+	GameData.mark_seen("screen:%s" % screen_name)
 
 	# Get specific app that should be opened
 	var specific_app = _get_app_by_enum(app)
@@ -736,14 +750,18 @@ func _get_current_screen() -> Control:
 	return _get_app_by_enum(open_apps.back()["SubScreen"])
 #endregion DISCREPANCY
 
-## Opens an email attachment: an order document, or the payment a Pix QR Code reads to
+## Opens an email attachment: an order document, a boleto, or the payment a Pix QR Code reads to
 ##
-## attachment: "type" ("order_document" with its "document_id", or "pix_qr" with its
-## "read_code", the code the bank reads, which may not be the one printed under it)
+## attachment: "type" ("order_document" with its "document_id", "boleto" with its printed face,
+## or "pix_qr" with its "read_code", the code the bank reads, which may not be the one printed
+## under it)
 func _on_attachment_opened(attachment: Dictionary) -> void:
 	match str(attachment.get("type", "")):
 		"order_document":
 			_on_app_opened(GameData.App.ORDERDOCUMENT, attachment)
+		# Paid by typing its code in the bank app, the player compares both on the way
+		"boleto":
+			_on_app_opened(GameData.App.BOLETO, attachment)
 		"pix_qr":
 			# Reading a QR Code is a job for the bank app
 			if not GameData.downloaded_apps.has(GameData.App.BANK):
@@ -877,6 +895,12 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 func on_delete_conversation(_conversation_id: String) -> void:
 	_on_back_button_pressed()
 
+## Deletes the thread of a blocked scam, going back from it to the inbox
+func _on_email_delete_requested(thread_id: String) -> void:
+	if not open_apps.is_empty() and open_apps.back()["SubScreen"] == GameData.App.EMAILREAD:
+		_on_back_button_pressed()
+	email_app_home.delete_thread(thread_id)
+
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
@@ -915,6 +939,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
 		GameData.App.ORDERDOCUMENT: order_document,
+		GameData.App.BOLETO: boleto_document,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: authenticator_app,
 		# Bank app
@@ -969,6 +994,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
 		GameData.App.ORDERDOCUMENT: GameData.App.EMAIL,
+		GameData.App.BOLETO: GameData.App.EMAIL,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: GameData.App.AUTHENTICATOR,
 		# Bank app

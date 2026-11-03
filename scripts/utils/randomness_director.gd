@@ -24,12 +24,19 @@ var senders_today: Dictionary = {}
 var events_dict: Dictionary = {}
 ## rule id -> day the rule is released on
 var rule_days: Dictionary = {}
+## Events showing a bank not accepted today as true information, which are not sent today, see
+## BoletosDirector.get_events_with_unaccepted_banks()
+var unaccepted_bank_events: Array = []
 #endregion STATES
 
 
 #region SETUP
 func setup_from_json_roots(
-	random_tasks: Array, random_scams: Array, events: Dictionary, rules: Array
+	random_tasks: Array,
+	random_scams: Array,
+	events: Dictionary,
+	rules: Array,
+	events_with_unaccepted_banks: Array = [],
 ) -> void:
 	tasks_list.clear()
 	for root in random_tasks:
@@ -41,6 +48,7 @@ func setup_from_json_roots(
 	rule_days.clear()
 	for rule in rules:
 		rule_days[str(rule.get("id", ""))] = int(rule.get("day", 0))
+	unaccepted_bank_events = events_with_unaccepted_banks
 	senders_today.clear()
 #endregion SETUP
 
@@ -106,6 +114,10 @@ func evaluate_requirements(event: Dictionary) -> bool:
 		return false
 
 	if event.has("email_id") and not GameData.downloaded_apps.has(GameData.App.EMAIL):
+		return false
+
+	# Its boleto would show as true a bank the company does not accept today
+	if unaccepted_bank_events.has(event_id):
 		return false
 
 	return _has_released_discrepancy(event_id)

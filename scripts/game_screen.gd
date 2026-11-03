@@ -94,6 +94,10 @@ func _ready() -> void:
 	events_director.scam_fall_judged.connect(ui.notifications_control.send_scam_notification)
 	# Connected after the UI, which takes the conversation's answers away first
 	events_director.scam_blocked.connect(story_director.messages_director.offer_block_and_report)
+	# A scam sent by email offers to delete its thread, which lets the next chat come
+	events_director.scam_event_blocked.connect(emails_director.offer_delete)
+	emails_director.delete_offered.connect(ui.base_app.email_app_home.on_delete_offered)
+	ui.base_app.email_app_home.thread_deleted.connect(emails_director.on_thread_deleted)
 	events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
 
 	# UI

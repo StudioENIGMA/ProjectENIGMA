@@ -268,16 +268,22 @@
 		"d2_task": [
 			{
 				"id": "b_2_9",
-				"text": "Preciso te informar que o Navegador possui alguma notícias em sua parte inferior. Leia as notícias todos os dias para se manter informado ou aprender alguma coisa nova."
+				"text": "O Navegador tem notícias na parte de baixo. Leia todos os dias para se manter informado."
 			},
 			{
 				"id": "b_2_10",
-				"text": "Aproveitando, abra as notícias e depois volte aqui para me contar o que alguma diz.",
+				"text": "Abra uma delas agora e depois volte aqui para me contar o que ela diz.",
 				"event_id": "boss_news0",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "news"
+					}
+				],
 				"choices": [
 					{
 						"id": "b_2_10a_0",
-						"player_text": "Houve vazamento de bilhõs de senhas",
+						"player_text": "Houve vazamento de bilhões de senhas",
 						"npc_reply": {
 							"goto_branch": "from_b_2_11",
 							"delay_ticks": 2.0
@@ -298,13 +304,13 @@
 		"from_b_2_11": [
 			{
 				"id": "b_2_11",
-				"text": "É importante possuir uma informação dessas, agora podemos trocar nossas senhas."
+				"text": "Informação importante. Agora podemos trocar nossas senhas."
 			}
 		],
 		"from_b_2_12": [
 			{
 				"id": "b_2_12",
-				"text": "Não foi isso, eu assisti ao jogo. Você deve ler melhor as notícias e buscar as mais interessantes."
+				"text": "Não foi isso, eu assisti ao jogo. Leia as notícias com mais atenção."
 			}
 		],
 		"d3_start1": [

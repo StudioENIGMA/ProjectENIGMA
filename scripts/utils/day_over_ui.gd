@@ -3,8 +3,15 @@ extends Control
 signal day_over_clicked()
 signal end_game()
 
-## Reputation points needed to pass each day. The tutorial (day 0) needs none and is always passed
-const MIN_RP_DAY = [0, 55, 60, 70, 75, 80, 85]
+## Reputation points needed to pass each day on each difficulty, see GameData.get_difficulty().
+## The tutorial (day 0) needs none and is always passed. Days 1 and 2 are shorter and mostly story,
+## the days from 3 on all last as long. Harder ones leave less real time for the same day, so they
+## need about as many points
+const MIN_RP_DAY = {
+	GameData.Difficulty.EASY: [0, 55, 75, 85, 85, 85, 85],
+	GameData.Difficulty.NORMAL: [0, 60, 90, 110, 110, 110, 110],
+	GameData.Difficulty.HARD: [0, 60, 90, 120, 120, 120, 120],
+}
 const EVENT_DESCRIPTION_SCENE = preload("res://scenes/event_description.tscn")
 const CREDIT_ROLL_PATH = "res://scenes/rolling_credits.tscn"
 const TYPE_TO_RP = {
@@ -41,7 +48,7 @@ func show_day_over() -> void:
 		event_instance.setup(event.get("description", ""), event_rp)
 		events_container.add_child(event_instance)
 
-	var min_rp: int = MIN_RP_DAY[GameData.current_day]
+	var min_rp: int = MIN_RP_DAY[GameData.get_difficulty()][GameData.current_day]
 	if min_rp > 0:
 		reputation_points_label.text = "%d/%d" % [GameData.daily_reputation_points, min_rp]
 	else:
