@@ -79,16 +79,22 @@
 		"d2_start": [
 			{
 				"id": "rh_2_0",
-				"text": "Olá! Acho importante te contar sobre o Elogie Lá (@ ^ _ ^ @). Esse é um site que mostra o quão verdadeiro é um determinado site/loja online. Existem vários sites como esse, mas a nossa empresa trabalha com o Elogie Lá. Os sites possuem um ranking de confiabilidade, quanto maior, mais confiável é esse site. Se um site não estiver uma página no Elogie Lá, com certeza ele é falso!. Fique atento!"
+				"text": "Olá! Quero te apresentar o Elogie Lá (@ ^ _ ^ @), o site que a nossa empresa usa para saber se uma loja online é confiável. Quanto maior a nota, mais confiável. E se a loja nem aparece lá, com certeza é falsa!"
 			},
 			{
 				"id": "rh_2_1",
-				"text": "E outra coisa, desconfie de lojas com o preço muito baixo do mercado. Muitas lojas falsas fazem promoções muito grandes para atrair consumidores desatentos."
+				"text": "Desconfie também de preços muito abaixo do mercado, lojas falsas fazem promoções enormes para atrair os desatentos."
 			},
 			{
 				"id": "rh_2_1",
-				"text": "Aproveitando, por favor, entre no Elogie Lá e me diga que reputação da loja A&C, estamos pensando em fazer algumas compras nela ( > ^ _ ^ )>.",
+				"text": "Aproveitando, entre no Elogie Lá e me diga qual a nota da A&C, por favor. Queremos fazer umas compras lá ( > ^ _ ^ )>",
 				"event_id": "rh_check0",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "review:A&C"
+					}
+				],
 				"choices": [
 					{
 						"id": "rh_2_1a_0",
@@ -112,12 +118,18 @@
 		"d3_start": [
 			{
 				"id": "rh_3_0",
-				"text": "Olá! fiquei sabendo de uma importante notícia em relação aos aplicativos de celular chamados de apk ( = ^ w ^ = )"
+				"text": "Olá! Saiu uma notícia importante sobre os aplicativos .apk ( = ^ w ^ = )"
 			},
 			{
 				"id": "rh_3_1",
-				"text": "Você poderia ler essa notícia e me dizer o que há de tão perigoso com esses tipos de aplicativo?",
+				"text": "Pode ler no Navegador e me dizer o que eles têm de tão perigoso?",
 				"event_id": "rh_news0",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "news:d3n2"
+					}
+				],
 				"choices": [
 					{
 						"id": "rh_3_1a_0",
@@ -147,7 +159,7 @@
 		"from_rh_2_3": [
 			{
 				"id": "rh_2_3",
-				"text": "Eu tenho certeza que você olhou errado, a nota da A&C é bem alta. Nós sempre compramos por lá."
+				"text": "Acho que você olhou errado, a nota da A&C é bem alta. Sempre compramos lá."
 			}
 		],
 		"from_rh_3_2": [
@@ -159,7 +171,7 @@
 		"from_rh_3_3": [
 			{
 				"id": "rh_3_3",
-				"text": "Exatamente! Podemos ver como pode ser perigoso baixar .apk desconhecidos."
+				"text": "Exatamente! Por isso é perigoso baixar .apk desconhecido."
 			}
 		],
 		"d7_good_ending": [

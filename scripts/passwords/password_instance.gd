@@ -77,5 +77,7 @@ func _refresh_status_label() -> void:
 		status_label.text = "Expirada, troque hoje"
 		status_label.add_theme_color_override("font_color", ALERT_COLOR)
 	else:
-		status_label.text = "Trocada hoje"
+		# Before passwords start to expire, a password not changed is still good
+		var was_changed := GameData.passwords_updated_today.has(gated_app)
+		status_label.text = "Trocada hoje" if was_changed else "Em dia"
 		status_label.add_theme_color_override("font_color", NEUTRAL_COLOR)

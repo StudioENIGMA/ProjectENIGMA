@@ -9,9 +9,13 @@ signal open_news(news_data: Dictionary)
 
 var _news_data: Dictionary
 
-func set_news_data(news_title : String, news_text_content : String, news_data : String) -> void:
+## news_id: The "id" of the news in data/news.json, which tells it is read once opened
+func set_news_data(
+	news_id : String, news_title : String, news_text_content : String, news_data : String
+) -> void:
 
 	_news_data = {
+		"id": news_id,
 		"title": news_title,
 		"content": news_text_content,
 		"metadata": news_data,

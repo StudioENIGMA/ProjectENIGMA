@@ -76,6 +76,13 @@ enum PaymentType {
 	TICKET,
 }
 
+## Picked in the pause menu as the clock speed, see get_difficulty()
+enum Difficulty {
+	EASY,
+	NORMAL,
+	HARD,
+}
+
 ## Rules the player reports scams against, see load_rules()
 const RULES_PATH := "res://data/rules/rules.json"
 ## Names of a date_dict's "weekday" (0 is Sunday), see weekday_name()
@@ -164,6 +171,9 @@ var passwords: Dictionary = {
 ## Password protected apps whose password was already changed today. Passwords expire every day,
 ## so this is cleared when a new day starts and a gated app stays locked until it is back in here
 var passwords_updated_today: Array[App] = []
+## First day passwords expire: on day 1 the Bank opens without a change, as the TI only shows the
+## passwords manager that day
+var passwords_expire_from_day: int = 2
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
@@ -181,6 +191,10 @@ var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 ## email_id of every email the player opened today, for the "email_read" requirement
 var read_emails: Array = []
+## What the player looked at today, for the "seen" requirement: "news:<id>" for a news article
+## opened, "review:<company>" for a company shown whole on Elogie Lá and "screen:<app>" for a
+## screen opened (named as apps_name names it, "screen:PasswordManager"), see mark_seen()
+var seen_info: Array[String] = []
 ## Conversations and payment codes of the scams reported today, which can no longer go on
 var blocked_conversations: Array = []
 var blocked_payment_codes: Array = []
@@ -195,6 +209,9 @@ var introductions: Array[Introduction] = []
 ## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
 ## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
 var trusted_senders_today: Array[Dictionary] = []
+## Banks the company accepts boletos from today, as the difficulty picked when the day started lists
+## them in data/notes/board.json (more of them the harder it is). Empty before banks are checked
+var accepted_banks_today: Array = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -360,9 +377,32 @@ func _ready() -> void:
 	export_game_data_for_tools()
 
 ## Tells whether the app is password protected and its password was not changed today yet,
-## which keeps it locked
+## which keeps it locked. Before passwords_expire_from_day none is
 func is_password_outdated(app: App) -> bool:
+	if current_day < passwords_expire_from_day:
+		return false
 	return passwords.has(app) and not passwords_updated_today.has(app)
+
+## Keeps something the player looked at today, see seen_info
+func mark_seen(info: String) -> void:
+	if not seen_info.has(info):
+		seen_info.append(info)
+
+## Whether the player looked at something today, see seen_info. A kind alone ("news") stands for
+## anything of that kind
+func has_seen(info: String) -> bool:
+	return seen_info.any(_is_seen_info.bind(info))
+
+## Forgets something the player looked at, so a task asking for it again waits for another look.
+## A kind alone ("news") forgets everything of that kind
+func forget_seen(info: String) -> void:
+	for index in range(seen_info.size() - 1, -1, -1):
+		if _is_seen_info(seen_info[index], info):
+			seen_info.remove_at(index)
+
+## Whether an entry of seen_info is the info, or of its kind when the info is a kind alone
+func _is_seen_info(seen: String, info: String) -> bool:
+	return seen == info or seen.begins_with(info + ":")
 
 ## Installed password protected apps that are still waiting for today's password change
 func get_outdated_password_apps() -> Array[App]:
@@ -387,13 +427,21 @@ func get_human_typing_time(message: String) -> int:
 
 	return total_time
 
-## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
-## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
-func get_free_scam_falls() -> int:
+## The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_difficulty() -> Difficulty:
 	if clock_tick_interval >= 2.0:
-		return 2
+		return Difficulty.EASY
 	if clock_tick_interval >= 1.5:
-		return 1
+		return Difficulty.NORMAL
+	return Difficulty.HARD
+
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on hard
+func get_free_scam_falls() -> int:
+	match get_difficulty():
+		Difficulty.EASY:
+			return 2
+		Difficulty.NORMAL:
+			return 1
 	return 0
 
 ## The account name a contact gets when its conversation names none: "@" and the name in

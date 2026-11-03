@@ -155,23 +155,17 @@
 	"d1_start": [
 		{
 			"id": "ti_1_0",
-			"text": "entao, estagio"
-		},
-		{
-			"id": "ti_1_1",
-			"text": "vc ja deve ter notado q alguns aplicativos q vc usa aqui precisa de senha"
-		},
-		{
-			"id": "ti_1_2",
-			"text": "eh por seguranca"
+			"text": "entao estagio, alguns apps aqui tem senha, eh por seguranca"
 		},
 		{
 			"id": "ti_1_3",
-			"text": "da uma olhada no Gerenciador de Senhas nos ajustes"
-		},
-		{
-			"id": "ti_1_4",
-			"text": "qnd voltar me da um toque",
+			"text": "da uma olhada no Gerenciador de Senhas nas configuraçoes e dps me da um toque",
+			"choices_requires": [
+				{
+					"flag": "seen",
+					"info": "screen:PasswordManager"
+				}
+			],
 			"choices": [
 				{
 					"id": "ti_0_4a_0",
@@ -199,17 +193,17 @@
 		},
 		{
 			"id": "ti_1_8",
-			"text": "soh n esquecer de trocar a senha todo dia, pq isso pode deixar seu sistema vulneravel para os hackers"
+			"text": "a partir de amanha tem q trocar a senha todo dia, senao o app bloqueia e vc fica vulneravel pros hackers"
 		}
 	],
 	"from_ti_1_9": [
 		{
 			"id": "ti_1_9",
-			"text": "eh pra vc n ter q ficar botando de novo o tempo todo muito util"
+			"text": "eh pra vc n ter q digitar toda hora, mt util"
 		},
 		{
 			"id": "ti_1_10",
-			"text": "soh n esquecer de trocar a senha todo dia, pq isso pode deixar seu sistema vulneravel para os hackers"
+			"text": "a partir de amanha tem q trocar a senha todo dia, senao o app bloqueia e vc fica vulneravel pros hackers"
 		}
 	],
 	"d1_task": [
@@ -276,31 +270,13 @@
 	"d2_start": [
 		{
 			"id": "ti_2_0",
-			"text": "ou vc viu a noticia do bananaOS???",
-			"choices": [
+			"text": "ou saiu noticia do bananaOS no navegador, da uma lida e dps volta aqui",
+			"choices_requires": [
 				{
-					"id": "ti_2_0a_0",
-					"player_text": "Sim",
-					"npc_reply": {
-						"goto_branch": "from_ti_2_1",
-						"delay_ticks": 2
-					}
-				},
-				{
-					"id": "ti_2_0a_1",
-					"player_text": "Não",
-					"npc_reply": {
-						"goto_branch": "from_ti_2_1",
-						"delay_ticks": 2
-					}
+					"flag": "seen",
+					"info": "news:d2n3"
 				}
-			]
-		}
-	],
-	"from_ti_2_1": [
-		{
-			"id": "ti_2_1",
-			"text": "da uma olhada ent e dps volta aqui",
+			],
 			"choices": [
 				{
 					"id": "ti_2_1a_0",
@@ -324,41 +300,21 @@
 	"from_ti_2_2": [
 		{
 			"id": "ti_2_2",
-			"text": "agora atualiza essa joça eh bom pra evitar virus e hackers"
+			"text": "agora atualiza essa joça, ajuda a evitar virus e hacker"
 		},
 		{
 			"id": "ti_2_3",
-			"text": "fica atento que diariamente tem atualizaçao do sistema e dos aplicativos"
-		},
-		{
-			"id": "ti_2_4",
-			"text": "as dos aplicativos vc vai encontrar na loja, eh bom ver todo dia"
-		},
-		{
-			"id": "ti_2_5",
-			"text": "ambos te deixam menos vulneravel aos hackers"
+			"text": "todo dia tem atualizaçao do sistema nas configuraçoes e dos apps na loja, confere sempre q te deixa menos vulneravel"
 		}
 	],
 	"from_ti_2_6": [
 		{
 			"id": "ti_2_6",
-			"text": "se ainda n atualizou vai logo atualizar essa budega kkkkkkkk"
+			"text": "isso ai, se ainda n atualizou vai logo atualizar essa budega kkkkkkkk"
 		},
 		{
 			"id": "ti_2_7",
-			"text": "questao de segurança ajuda a evitar virus e falha e etc"
-		},
-		{
-			"id": "ti_2_8",
-			"text": "fica atento que diariamente tem atualizaçao do sistema e dos aplicativos"
-		},
-		{
-			"id": "ti_2_9",
-			"text": "as dos aplicativos vc vai encontrar na loja, eh bom ver todo dia"
-		},
-		{
-			"id": "ti_2_10",
-			"text": "ambos te deixam menos vulneravel aos hackers"
+			"text": "todo dia tem atualizaçao do sistema nas configuraçoes e dos apps na loja, confere sempre q te deixa menos vulneravel"
 		}
 	],
 	"d3_start": [

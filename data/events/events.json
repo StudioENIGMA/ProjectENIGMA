@@ -25,7 +25,7 @@
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "Houve vazamento de bilhõs de senhas"
+				"choice": "Houve vazamento de bilhões de senhas"
 			}
 		]
 	},
@@ -2219,11 +2219,11 @@
 	},
 	"false_negativa_scan_payment0": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Negativa com valor alterado no Banco",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "53045"
+				"boleto_id": "negativa_computadores_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2239,13 +2239,13 @@
 				]
 			},
 			{
-				"id": "codigo_pix_53045",
-				"rule": "pix_code_format",
+				"id": "valor",
+				"rule": "payment_value",
 				"found_at": [
 					{
-						"source": "bank",
-						"payment_code": "53045",
-						"section": "pix_code"
+						"source": "email",
+						"email_id": "false_negativa_scan_payment0",
+						"section": "content"
 					}
 				]
 			}
@@ -2253,7 +2253,7 @@
 	},
 	"Viva_scan_payment0": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Viva com instalador anexado",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2271,12 +2271,24 @@
 						"section": "sender"
 					}
 				]
+			},
+			{
+				"id": "anexo_perigoso",
+				"rule": "suspicious_attachment",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Viva_scan_payment0",
+						"section": "attachment",
+						"contains": ".apk"
+					}
+				]
 			}
 		]
 	},
 	"Vivas_scan_payment1": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Viva com valor alterado no Banco",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2294,12 +2306,23 @@
 						"section": "sender"
 					}
 				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Vivas_scan_payment1",
+						"section": "content"
+					}
+				]
 			}
 		]
 	},
 	"Vivaa_scan_payment2": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Viva com motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2317,12 +2340,23 @@
 						"section": "sender"
 					}
 				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Vivaa_scan_payment2",
+						"section": "content"
+					}
+				]
 			}
 		]
 	},
 	"Viiva_scan_payment3": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Viva com banco não aceito e motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2340,12 +2374,23 @@
 						"section": "sender"
 					}
 				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "Viiva_scan_payment3",
+						"section": "content"
+					}
+				]
 			}
 		]
 	},
 	"Viva_scan_payment4": {
 		"type": "scam",
-		"description": "Instituição falsa",
+		"description": "Email imitando a Viva com o CNPJ de outra empresa",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2368,7 +2413,7 @@
 	},
 	"mariana_payment0": {
 		"type": "random-task",
-		"description": "Pagamento de contas da empresa",
+		"description": "Pagamento dos materiais da Industrials",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2378,7 +2423,7 @@
 	},
 	"yago_payment0": {
 		"type": "random-task",
-		"description": "Pagamento de contas da empresa",
+		"description": "Pagamento dos utensílios do processo seletivo",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2388,11 +2433,11 @@
 	},
 	"marie_payment0": {
 		"type": "scam",
-		"description": "Contato externo à empresa\n\nEmail da empresa falso",
+		"description": "Email imitando a Mariana com motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "I9W2V"
+				"boleto_id": "industrials_liberacao_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2408,13 +2453,13 @@
 				]
 			},
 			{
-				"id": "codigo_pix_I9W2V",
-				"rule": "pix_code_format",
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
-						"source": "bank",
-						"payment_code": "I9W2V",
-						"section": "pix_code"
+						"source": "email",
+						"email_id": "marie_payment0",
+						"section": "content"
 					}
 				]
 			}
@@ -2422,11 +2467,11 @@
 	},
 	"false_mariana_payment1": {
 		"type": "scam",
-		"description": "Email da empresa falso",
+		"description": "Email imitando a Mariana com cedente imitado e motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "I9W2V"
+				"boleto_id": "industrials_maquina_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2442,13 +2487,13 @@
 				]
 			},
 			{
-				"id": "codigo_pix_I9W2V",
-				"rule": "pix_code_format",
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
-						"source": "bank",
-						"payment_code": "I9W2V",
-						"section": "pix_code"
+						"source": "email",
+						"email_id": "false_mariana_payment1",
+						"section": "content"
 					}
 				]
 			}
@@ -2456,11 +2501,11 @@
 	},
 	"false_marta_payment0": {
 		"type": "scam",
-		"description": "Email da empresa falso",
+		"description": "Email imitando a Marta com cedente e motivo errados",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "L1P5K"
+				"boleto_id": "marta_lucros_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2476,13 +2521,13 @@
 				]
 			},
 			{
-				"id": "codigo_pix_L1P5K",
-				"rule": "pix_code_format",
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
-						"source": "bank",
-						"payment_code": "L1P5K",
-						"section": "pix_code"
+						"source": "email",
+						"email_id": "false_marta_payment0",
+						"section": "content"
 					}
 				]
 			}
@@ -2490,11 +2535,11 @@
 	},
 	"false_yago_payment0": {
 		"type": "scam",
-		"description": "Email da empresa falso",
+		"description": "Email imitando o Yago com código de boleto fora do padrão",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "JPO64"
+				"boleto_id": "negativa_urgente_golpe"
 			}
 		],
 		"discrepancies": [
@@ -2508,23 +2553,12 @@
 						"section": "sender"
 					}
 				]
-			},
-			{
-				"id": "codigo_pix_JPO64",
-				"rule": "pix_code_format",
-				"found_at": [
-					{
-						"source": "bank",
-						"payment_code": "JPO64",
-						"section": "pix_code"
-					}
-				]
 			}
 		]
 	},
 	"false_yago_payment1": {
 		"type": "scam",
-		"description": "Email da empresa falso",
+		"description": "Email imitando o Yago com boleto pago a outra empresa",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2591,7 +2625,7 @@
 	},
 	"carolina_payment1": {
 		"type": "random-task",
-		"description": "Pagamento de assinatura Firewall",
+		"description": "Pagamento da assinatura do Firewall",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2624,7 +2658,7 @@
 	},
 	"scam_d2_contabil": {
 		"type": "scam",
-		"description": "Boleto com motivo fora da lista",
+		"description": "Email imitando a Carla com motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2632,6 +2666,17 @@
 			}
 		],
 		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "contabil_norte_d2_0",
+						"section": "sender"
+					}
+				]
+			},
 			{
 				"id": "motivo",
 				"rule": "valid_reason",
@@ -2647,7 +2692,7 @@
 	},
 	"scam_d3_compras": {
 		"type": "scam",
-		"description": "Pedido inexistente e boleto com valor inflado",
+		"description": "Email imitando o Gilmar com pedido inexistente e valor alterado",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2655,6 +2700,17 @@
 			}
 		],
 		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "compras_d3_0",
+						"section": "sender"
+					}
+				]
+			},
 			{
 				"id": "valor_inflado",
 				"rule": "payment_value",
@@ -2681,14 +2737,26 @@
 	},
 	"scam_d4_grafica": {
 		"type": "scam",
-		"description": "Boleto de um banco não aceito",
+		"description": "Email imitando a Gráfica com boleto de um banco não aceito",
 		"requires": [
 			{
 				"flag": "payment",
 				"boleto_id": "grafica_crachas_d4"
 			}
 		],
-		"discrepancies": []
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "grafica_d4_0",
+						"section": "sender"
+					}
+				]
+			}
+		]
 	},
 	"scam_px_d4": {
 		"type": "scam",
@@ -2791,7 +2859,7 @@
 	},
 	"scam_d6_buffet": {
 		"type": "scam",
-		"description": "QR Code adulterado e pedido sem a assinatura certa",
+		"description": "Email imitando a Jessica com QR Code adulterado e pedido sem a assinatura certa",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2799,6 +2867,17 @@
 			}
 		],
 		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "jessica_festa_d6_0",
+						"section": "sender"
+					}
+				]
+			},
 			{
 				"id": "qr_adulterado",
 				"rule": "pix_qr",
@@ -2864,6 +2943,772 @@
 						"section": "store"
 					}
 				]
+			}
+		]
+	},
+	"gilmar_papelaria_d2_0": {
+		"type": "random-task",
+		"description": "Pagamento do papel e do toner da Papelaria Central",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "papelaria_resmas_d2"
+			}
+		]
+	},
+	"jessica_cafe_d2_0": {
+		"type": "random-task",
+		"description": "Pagamento do café de boas-vindas",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "cafe_boasvindas_d2"
+			}
+		]
+	},
+	"grafica_cartoes_d2_0": {
+		"type": "random-task",
+		"description": "Pagamento dos cartões de visita da Gráfica",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "grafica_cartoes_d2"
+			}
+		]
+	},
+	"marcao_limpeza_d2_0": {
+		"type": "random-task",
+		"description": "Pagamento da limpeza do galpão",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "limpabem_galpao_d2"
+			}
+		]
+	},
+	"marcia_crachas_d3_0": {
+		"type": "random-task",
+		"description": "Pagamento dos crachás novos do RH",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "grafica_crachas_d3"
+			}
+		]
+	},
+	"carolina_cabos_d3_0": {
+		"type": "random-task",
+		"description": "Pagamento dos cabos de rede da TI",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "industrials_cabos_d3"
+			}
+		]
+	},
+	"ricardo_cafe_d3_0": {
+		"type": "random-task",
+		"description": "Pagamento do café da reunião do Comercial",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "cafe_reuniao_d3"
+			}
+		]
+	},
+	"negativa_manutencao_d3_0": {
+		"type": "random-task",
+		"description": "Pagamento da manutenção dos notebooks",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "negativa_manutencao_d3"
+			}
+		]
+	},
+	"guilherme_cadeiras_d3_0": {
+		"type": "random-task",
+		"description": "Pagamento das cadeiras da sala de reunião",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "moveis_cadeiras_pc0471"
+			}
+		]
+	},
+	"grafica_banner_d4_0": {
+		"type": "random-task",
+		"description": "Pagamento do banner da feira",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "grafica_banner_d4"
+			}
+		]
+	},
+	"artur_perifericos_d4_0": {
+		"type": "random-task",
+		"description": "Pagamento dos mouses e teclados da TI",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "papelaria_perifericos_d4"
+			}
+		]
+	},
+	"marcao_ar_d4_0": {
+		"type": "random-task",
+		"description": "Pagamento da manutenção do ar-condicionado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "clima_manutencao_d4"
+			}
+		]
+	},
+	"jessica_aniversariantes_d4_0": {
+		"type": "random-task",
+		"description": "Pagamento da festa dos aniversariantes",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "emporio_aniversario_d4"
+			}
+		]
+	},
+	"mariana_brindes_d5_0": {
+		"type": "random-task",
+		"description": "Pagamento dos brindes para clientes",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "grafica_brindes_d5"
+			}
+		]
+	},
+	"marcao_limpeza_d5_0": {
+		"type": "random-task",
+		"description": "Pagamento da limpeza depois da obra",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "limpabem_obra_d5"
+			}
+		]
+	},
+	"kospenski_backup_d5_0": {
+		"type": "random-task",
+		"description": "Pagamento do backup em nuvem",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "kospenski_backup_d5"
+			}
+		]
+	},
+	"carla_licencas_d5_0": {
+		"type": "random-task",
+		"description": "Pagamento das licenças dos notebooks",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "negativa_licencas_d5"
+			}
+		]
+	},
+	"ricardo_ar_d5_0": {
+		"type": "random-task",
+		"description": "Pagamento do conserto do ar da sala de reunião",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "clima_sala_d5"
+			}
+		]
+	},
+	"carolina_antivirus_d6_0": {
+		"type": "random-task",
+		"description": "Pagamento da renovação do antivírus",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "kospenski_antivirus_d6"
+			}
+		]
+	},
+	"jose_cafe_d6_0": {
+		"type": "random-task",
+		"description": "Pagamento do café e dos copos da copa",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "cafe_copa_d6"
+			}
+		]
+	},
+	"marcia_curso_d6_0": {
+		"type": "random-task",
+		"description": "Pagamento do curso de segurança digital",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "prisma_curso_d6"
+			}
+		]
+	},
+	"ricardo_adesivos_d6_0": {
+		"type": "random-task",
+		"description": "Pagamento dos adesivos da feira por Pix",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP614"
+			}
+		]
+	},
+	"clima_revisao_d6_0": {
+		"type": "random-task",
+		"description": "Pagamento da revisão do ar-condicionado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "clima_revisao_d6"
+			}
+		]
+	},
+	"jose_leitor_d2_0": {
+		"type": "scam",
+		"description": "Email imitando o José com instalador anexado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "moveis_mesas_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "jose_leitor_d2_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "anexo_perigoso",
+				"rule": "suspicious_attachment",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "jose_leitor_d2_0",
+						"section": "attachment",
+						"contains": ".exe"
+					}
+				]
+			}
+		]
+	},
+	"guilherme_armarios_d3_0": {
+		"type": "scam",
+		"description": "Email imitando o Guilherme com pedido inexistente",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "moveis_armarios_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "guilherme_armarios_d3_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "pedido_inexistente",
+				"rule": "order_id",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0478",
+						"section": "order_id"
+					}
+				]
+			}
+		]
+	},
+	"carolina_instalador_d3_0": {
+		"type": "scam",
+		"description": "Email imitando a Carolina com instalador e código fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "kospenski_licenca_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "carolina_instalador_d3_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "anexo_perigoso",
+				"rule": "suspicious_attachment",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "carolina_instalador_d3_0",
+						"section": "attachment",
+						"contains": ".exe"
+					}
+				]
+			}
+		]
+	},
+	"carolina_codigo_d4_0": {
+		"type": "scam",
+		"description": "Email imitando a Carolina pedindo o código do autenticador",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "kospenski_codigo_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "carolina_codigo_d4_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "pede_codigo",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "carolina_codigo_d4_0",
+						"section": "content",
+						"contains": "código"
+					}
+				]
+			}
+		]
+	},
+	"gilmar_estantes_d4_0": {
+		"type": "scam",
+		"description": "Email imitando o Gilmar com pedido inexistente e valor alterado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "moveis_estantes_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "gilmar_estantes_d4_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "pedido_inexistente",
+				"rule": "order_id",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0477",
+						"section": "order_id"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "gilmar_estantes_d4_0",
+						"section": "content"
+					}
+				]
+			}
+		]
+	},
+	"yago_multa_d4_0": {
+		"type": "scam",
+		"description": "Email imitando o Yago com motivo fora da lista",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "contabil_multa_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "yago_multa_d4_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "yago_multa_d4_0",
+						"section": "content"
+					}
+				]
+			}
+		]
+	},
+	"marcao_conserto_d4_0": {
+		"type": "scam",
+		"description": "Email imitando o Marcão com código fora do padrão e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "clima_conserto_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marcao_conserto_d4_0",
+						"section": "sender"
+					}
+				]
+			}
+		]
+	},
+	"gilmar_imail_d5_0": {
+		"type": "scam",
+		"description": "Email de fora da empresa com a agência de outra conta",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "clima_revisao_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "email_externo",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "gilmar_imail_d5_0",
+						"section": "sender"
+					}
+				]
+			}
+		]
+	},
+	"mariana_brindes_golpe_d5_0": {
+		"type": "scam",
+		"description": "Email imitando a Mariana com pedido de outra pessoa e valor alterado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "grafica_brindes_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "mariana_brindes_golpe_d5_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "quem_pediu",
+				"rule": "order_requester",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0512_falso",
+						"section": "order_requester"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "mariana_brindes_golpe_d5_0",
+						"section": "content"
+					}
+				]
+			}
+		]
+	},
+	"marcao_qr_d6_0": {
+		"type": "scam",
+		"description": "Email imitando o Marcão com QR Code adulterado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "KX913"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marcao_qr_d6_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "qr_adulterado",
+				"rule": "pix_qr",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "marcao_qr_d6_0",
+						"section": "attachment",
+						"contains": "QR"
+					},
+					{
+						"source": "bank",
+						"payment_code": "KX913",
+						"section": "qr_read"
+					}
+				]
+			}
+		]
+	},
+	"carolina_assinatura_d6_0": {
+		"type": "scam",
+		"description": "Email imitando a Carolina com assinatura inválida e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "kospenski_antivirus_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "carolina_assinatura_d6_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "assinatura",
+				"rule": "order_signature",
+				"found_at": [
+					{
+						"source": "document",
+						"document_id": "doc_pc0615_falso",
+						"section": "order_signature"
+					}
+				]
+			}
+		]
+	},
+	"jose_imail_d6_0": {
+		"type": "scam",
+		"description": "Email de fora da empresa com cedente trocado e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "cafe_copa_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "email_externo",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "jose_imail_d6_0",
+						"section": "sender"
+					}
+				]
+			}
+		]
+	},
+	"viva_multa_d6_0": {
+		"type": "scam",
+		"description": "Email imitando a Viva com motivo fora da lista e valor alterado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_multa_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente_imitado",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "viva_multa_d6_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "viva_multa_d6_0",
+						"section": "content"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "viva_multa_d6_0",
+						"section": "content"
+					}
+				]
+			}
+		]
+	},
+	"yago_codigo_d6_0": {
+		"type": "scam",
+		"description": "Email de fora da empresa pedindo código, com cedente imitado",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "negativa_codigo_golpe"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "email_externo",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "yago_codigo_d6_0",
+						"section": "sender"
+					}
+				]
+			},
+			{
+				"id": "pede_codigo",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "email",
+						"email_id": "yago_codigo_d6_0",
+						"section": "content",
+						"contains": "código"
+					}
+				]
+			}
+		]
+	},
+	"Viva_payment0": {
+		"type": "random-task",
+		"description": "Pagamento da fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_fatura_d2"
+			}
+		]
+	},
+	"Viva_payment2": {
+		"type": "random-task",
+		"description": "Pagamento da fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_fatura_d3"
+			}
+		]
+	},
+	"Viva_payment3": {
+		"type": "random-task",
+		"description": "Pagamento da fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_fatura_d4"
+			}
+		]
+	},
+	"Viva_payment4": {
+		"type": "random-task",
+		"description": "Pagamento da fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_fatura_d5"
+			}
+		]
+	},
+	"Viva_payment5": {
+		"type": "random-task",
+		"description": "Pagamento da fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"boleto_id": "viva_fatura_d6"
 			}
 		]
 	}
