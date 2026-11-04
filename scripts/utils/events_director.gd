@@ -78,6 +78,10 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.seen_info.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
+	GameData.scam_conversations.clear()
+	for event in events_dict.values():
+		if event.get("type", "") == "scam":
+			GameData.scam_conversations.append_array(_get_conversations(event))
 
 	rules_by_id.clear()
 	for rule in rules:

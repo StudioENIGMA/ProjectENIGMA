@@ -330,6 +330,8 @@ func _add_message(sender:int, message:String, annex:Dictionary, time:int) -> voi
 	message_instance.setup(message, annex, time)
 	# A chat of the history is only read: its annexes install nothing, nothing is reported in it
 	if _is_archived():
+		if sender == GameData.Sender.NPC and GameData.scam_conversations.has(conversation_dict["id"]):
+			message_instance.mark_as_scam()
 		_last_sender = sender
 		return
 
