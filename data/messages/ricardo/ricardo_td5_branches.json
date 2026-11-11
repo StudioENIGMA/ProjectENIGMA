@@ -1,0 +1,445 @@
+{
+	"conversation_id": "ricardo_td5",
+	"contact_name": "Ricardo",
+	"branches": {
+		"d5t06_ricardo": [
+			{
+				"id": "d5t06_ricardo_0",
+				"text": "Estagiário, chefe falou q é pra vc fazer um pix pra mim"
+			},
+			{
+				"id": "d5t06_ricardo_1",
+				"text": "pera q o cliente ta me ligando",
+				"choices": [
+					{
+						"id": "d5t06_ricardo_2_0",
+						"player_text": "Tá, mas qual é o motivo? Me manda quando voltar",
+						"npc_reply": {
+							"goto_branch": "d5t06_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t06_ricardo_2_1",
+						"player_text": "Sem motivo não lanço, Ricardo. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d5t06_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t06_ricardo_2_2",
+						"player_text": "Vai lá. Depois me diz do que se trata",
+						"npc_reply": {
+							"goto_branch": "d5t06_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t06_ricardo_fim": [
+			{
+				"id": "d5t06_ricardo_2",
+				"text": "voltei campeão. vish, saí correndo e nem falei kkkkkk"
+			},
+			{
+				"id": "d5t06_ricardo_3",
+				"text": "o homem ligou pra agradecer o almoço, acredita"
+			},
+			{
+				"id": "d5t06_ricardo_4",
+				"text": "almoço q eu paguei do meu bolso, ele pediu picanha e sobremesa"
+			},
+			{
+				"id": "d5t06_ricardo_5",
+				"text": "É Reembolso de funcionário. R$ 214,70 no pix RM562, ta no meu nome mesmo"
+			},
+			{
+				"id": "d5t06_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe. Da próxima o cliente paga a picanha dele kkkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RM562"
+					}
+				]
+			}
+		],
+		"d5t07_ricardo": [
+			{
+				"id": "d5t07_ricardo_0",
+				"text": "Estagiário, acabou meu cartão de visita e amanhã tem cliente grande"
+			},
+			{
+				"id": "d5t07_ricardo_1",
+				"text": "semana passada entreguei meu numero num guardanapo kkkkkk",
+				"choices": [
+					{
+						"id": "d5t07_ricardo_2_0",
+						"player_text": "Guardanapo é mais memorável, vai",
+						"npc_reply": {
+							"goto_branch": "d5t07_ricardo_memo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t07_ricardo_2_1",
+						"player_text": "Quer ajuda pra resolver isso?",
+						"npc_reply": {
+							"goto_branch": "d5t07_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t07_ricardo_memo": [
+			{
+				"id": "d5t07_ricardo_2",
+				"text": "o cara assoou o nariz nele campeão"
+			},
+			{
+				"id": "d5t07_ricardo_3",
+				"text": "até hj n me ligou",
+				"choices": [
+					{
+						"id": "d5t07_ricardo_4_0",
+						"player_text": "Kkkkk justo, vamos arrumar isso",
+						"npc_reply": {
+							"goto_branch": "d5t07_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t07_ricardo_4_1",
+						"player_text": "Tá, o que eu faço?",
+						"npc_reply": {
+							"goto_branch": "d5t07_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t07_ricardo_fim": [
+			{
+				"id": "d5t07_ricardo_4",
+				"text": "paga ai o boleto da Gráfica Ponto Certo pra mim faz o favor"
+			},
+			{
+				"id": "d5t07_ricardo_5",
+				"text": "é Serviço de fornecedor. R$ 1.120,00, boleto 752288"
+			},
+			{
+				"id": "d5t07_ricardo_end",
+				"text": "Obrigado estagiário 👍 Guardanapo aposentado",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "752288"
+					}
+				]
+			}
+		],
+		"d5t08_ricardo": [
+			{
+				"id": "d5t08_ricardo_0",
+				"text": "Estagiário, tem um boleto meu pra vc pagar faz o favor",
+				"choices": [
+					{
+						"id": "d5t08_ricardo_1_0",
+						"player_text": "Antes de fazer, me diz o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_motivo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t08_ricardo_1_1",
+						"player_text": "Esse pedido tá sem motivo. Pode explicar?",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_motivo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t08_ricardo_motivo": [
+			{
+				"id": "d5t08_ricardo_1",
+				"text": "foi mal estagiário, to com a cabeça na lua hj"
+			},
+			{
+				"id": "d5t08_ricardo_2",
+				"text": "É Evento da empresa, a confraternização do Comercial. O Buffet Sabor da Vila vai fazer"
+			},
+			{
+				"id": "d5t08_ricardo_3",
+				"text": "me ajuda aqui: salgado bom é coxinha ou empadinha?",
+				"choices": [
+					{
+						"id": "d5t08_ricardo_4_0",
+						"player_text": "Coxinha, óbvio",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t08_ricardo_4_1",
+						"player_text": "Empadinha, com azeitona",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_empada",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t08_ricardo_empada": [
+			{
+				"id": "d5t08_ricardo_4",
+				"text": "campeão... ano passado a azeitona veio com caroço"
+			},
+			{
+				"id": "d5t08_ricardo_5",
+				"text": "o Marcão quase ficou sem dente kkkkkk",
+				"choices": [
+					{
+						"id": "d5t08_ricardo_6_0",
+						"player_text": "Tá bom, voto na coxinha então",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t08_ricardo_6_1",
+						"player_text": "Mantenho meu voto. Empadinha",
+						"npc_reply": {
+							"goto_branch": "d5t08_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t08_ricardo_fim": [
+			{
+				"id": "d5t08_ricardo_6",
+				"text": "anotado, vou levar pro chefe como pesquisa de mercado kkkkkk"
+			},
+			{
+				"id": "d5t08_ricardo_7",
+				"text": "o boleto é 752416, de R$ 2.480,00"
+			},
+			{
+				"id": "d5t08_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe. Vou guardar uma coxinha pra vc",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "752416"
+					}
+				]
+			}
+		],
+		"d5t09_ricardo": [
+			{
+				"id": "d5t09_ricardo_0",
+				"text": "Estagiário, Evento da empresa na sexta com os clientes e eu ia esquecendo kkkkkk"
+			},
+			{
+				"id": "d5t09_ricardo_1",
+				"text": "compra na Emília Bolos 25 brigadeiros e 2 bolos de chocolate faz o favor",
+				"choices": [
+					{
+						"id": "d5t09_ricardo_2_0",
+						"player_text": "25 brigadeiros? Quantos clientes vêm?",
+						"npc_reply": {
+							"goto_branch": "d5t09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t09_ricardo_2_1",
+						"player_text": "Anotado: 25 e 2 de chocolate, na Emília",
+						"npc_reply": {
+							"goto_branch": "d5t09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t09_ricardo_fim": [
+			{
+				"id": "d5t09_ricardo_2",
+				"text": "cliente satisfeito assina mais rápido",
+				"event_id": "d5t09_ricardo"
+			},
+			{
+				"id": "d5t09_ricardo_3",
+				"text": "e doce sobrando nunca fez mal a ninguém kkkkkk"
+			},
+			{
+				"id": "d5t09_ricardo_end",
+				"text": "Obrigado estagiário (b^_^)b Se sobrar brigadeiro eu aviso. N vai sobrar",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 21,
+								"quantity": 25,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 27,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d5t10_ricardo": [
+			{
+				"id": "d5t10_ricardo_0",
+				"text": "Estagiário, vc ja derrubou café em alguma coisa cara?",
+				"choices": [
+					{
+						"id": "d5t10_ricardo_1_0",
+						"player_text": "Já, no notebook da minha mãe",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_mae",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t10_ricardo_1_1",
+						"player_text": "Nunca. Por quê, Ricardo?",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_nunca",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t10_ricardo_mae": [
+			{
+				"id": "d5t10_ricardo_1",
+				"text": "kkkkkk ent vc entende minha dor campeão"
+			},
+			{
+				"id": "d5t10_ricardo_2",
+				"text": "preciso q vc compre um negócio pra mim",
+				"choices": [
+					{
+						"id": "d5t10_ricardo_3_0",
+						"player_text": "Sei... que negócio? E qual o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t10_ricardo_3_1",
+						"player_text": "Isso tá fora do padrão. Qual é o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t10_ricardo_nunca": [
+			{
+				"id": "d5t10_ricardo_3",
+				"text": "vc é abençoado, continua assim"
+			},
+			{
+				"id": "d5t10_ricardo_4",
+				"text": "preciso q vc compre um negócio pra mim",
+				"choices": [
+					{
+						"id": "d5t10_ricardo_5_0",
+						"player_text": "Tem a ver com o café? Qual é a razão do pedido?",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t10_ricardo_5_1",
+						"player_text": "Comprar o quê? E vai lançar com qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t10_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t10_ricardo_fim": [
+			{
+				"id": "d5t10_ricardo_5",
+				"text": "ah, é Compra de material sim",
+				"event_id": "d5t10_ricardo"
+			},
+			{
+				"id": "d5t10_ricardo_6",
+				"text": "derrubei café no monitor da sala de apresentação kkkkkk bem no slide de resultados"
+			},
+			{
+				"id": "d5t10_ricardo_7",
+				"text": "compra 1 Monitor 4K na Amazônia"
+			},
+			{
+				"id": "d5t10_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe. Vou tomar café longe dele",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d5t11_ricardo": [
+			{
+				"id": "d5t11_ricardo_0",
+				"text": "Estagiário, chefe fechou um estande pra gente na feira do mês q vem"
+			},
+			{
+				"id": "d5t11_ricardo_1",
+				"text": "3 dias em pé sorrindo, ora por mim kkkkkk"
+			},
+			{
+				"id": "d5t11_ricardo_2",
+				"text": "É Investimento da empresa, pix pra Expo Vale Eventos de R$ 3.200,00. O código é EV553"
+			},
+			{
+				"id": "d5t11_ricardo_end",
+				"text": "Valeu campeão 👍 Já to treinando o sorriso",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "EV553"
+					}
+				]
+			}
+		]
+	}
+}

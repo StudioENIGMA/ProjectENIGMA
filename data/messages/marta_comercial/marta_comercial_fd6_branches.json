@@ -1,0 +1,96 @@
+{
+	"conversation_id": "marta_comercial_fd6",
+	"contact_name": "Marta Comercial ✓",
+	"branches": {
+		"d6g17_marta_comercial": [
+			{
+				"id": "d6g17_marta_comercial_0",
+				"text": "Olá, novo companheiro! Marta aqui…"
+			},
+			{
+				"id": "d6g17_marta_comercial_1",
+				"text": "Meu acesso travou… preciso da sua senha só por hoje, pra lançar um pedido aqui."
+			},
+			{
+				"id": "d6g17_marta_comercial_2",
+				"text": "Pooor favorr.",
+				"choices": [
+					{
+						"id": "d6g17_marta_comercial_3_0",
+						"player_text": "Tá bom, minha senha é Enigma@2024",
+						"npc_reply": {
+							"goto_branch": "d6g17_marta_comercial_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g17_marta_comercial_3_1",
+						"player_text": "Ninguém da empresa pede senha, não passo.",
+						"npc_reply": {
+							"goto_branch": "d6g17_marta_comercial_nao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g17_marta_comercial_3_2",
+						"player_text": "Marta Comercial? Você não era do Financeiro?",
+						"npc_reply": {
+							"goto_branch": "d6g17_marta_comercial_setor",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g17_marta_comercial_setor": [
+			{
+				"id": "d6g17_marta_comercial_3",
+				"text": "Mudei de setor essa semana…"
+			},
+			{
+				"id": "d6g17_marta_comercial_4",
+				"text": "E já me trancaram pra fora, acredita? Por favorzinho…",
+				"choices": [
+					{
+						"id": "d6g17_marta_comercial_5_0",
+						"player_text": "Tá bom, minha senha é Enigma@2024",
+						"npc_reply": {
+							"goto_branch": "d6g17_marta_comercial_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g17_marta_comercial_5_1",
+						"player_text": "Parabéns pelo setor, mas senha não",
+						"npc_reply": {
+							"goto_branch": "d6g17_marta_comercial_magoa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g17_marta_comercial_deu": [
+			{
+				"id": "d6g17_marta_comercial_5",
+				"text": "Ai, você é um anjinho…"
+			}
+		],
+		"d6g17_marta_comercial_nao": [
+			{
+				"id": "d6g17_marta_comercial_6",
+				"text": "Ai, tudo bem… vou ver aqui."
+			}
+		],
+		"d6g17_marta_comercial_magoa": [
+			{
+				"id": "d6g17_marta_comercial_7",
+				"text": "Puxa… achei que a gente tinha uma amizade…"
+			},
+			{
+				"id": "d6g17_marta_comercial_8",
+				"text": "Vou ver aqui, então."
+			}
+		]
+	}
+}

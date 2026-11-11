@@ -1,0 +1,32 @@
+[
+	{
+		"thread_id": "d2g12_carla",
+		"email_id": "d2g12_carla",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d2g13_viva",
+		"email_id": "d2g13_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d2g14_yago",
+		"email_id": "d2g14_yago",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "d2g18_yago",
+		"email_id": "d2g18_yago",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d2g19_carla",
+		"email_id": "d2g19_carla",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "d2g20_viva",
+		"email_id": "d2g20_viva",
+		"required_app": "Bank"
+	}
+]

@@ -1,0 +1,177 @@
+[
+	{
+		"thread_id": "d6t04_gilmar",
+		"email_id": "d6t04_gilmar",
+		"sender": "gilmar@enigma.com.br",
+		"subject": "Frete das barras de aço",
+		"content": "Olá.\n\nFrete das barras de aço pela Rota Sul. Serviço de fornecedor, R$ 1.275,90.\n\nCódigo do boleto: 760102\n\nObrigado.\n\nGilmar",
+		"attachments": [],
+		"requires": [],
+		"reply": "Recebido.\n\nGilmar"
+	},
+	{
+		"thread_id": "d6t05_gilmar",
+		"email_id": "d6t05_gilmar",
+		"sender": "gilmar@enigma.com.br",
+		"subject": "Parafusos da produção",
+		"content": "Oi.\n\nFaltaram parafusos na última entrega. A Metalúrgica Bonfim mandou o QR do Pix, está em anexo. Compra de material, R$ 689,00.\n\nObrigado.\n\nGilmar",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "MB627",
+				"read_code": "MB627"
+			}
+		],
+		"requires": [],
+		"reply": "Recebido. Obrigado.\n\nGilmar"
+	},
+	{
+		"thread_id": "d6t08_mariana",
+		"email_id": "d6t08_mariana",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Encontro de clientes",
+		"content": "Bom dia, Estagiário,\n\nReservamos o Espaço Jequitibá para o encontro de clientes. É Evento da empresa, no valor de R$ 2.350,00. Por favor, realize o pagamento.\n\nSegue o código: 760103\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": [],
+		"reply": "Olá, Estagiário,\n\nReserva confirmada, obrigada!\n\nAtenciosamente,\n\nMariana"
+	},
+	{
+		"thread_id": "d6t09_mariana",
+		"email_id": "d6t09_mariana",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Compra de Monitores",
+		"content": "Bom dia, Estagiário,\n\nA sala de demonstração ainda usa monitores do tempo em que a empresa abriu. Por favor, faça a Compra de material de 2 monitores. Desde já agradeço!\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": [],
+		"reply": "Olá, Estagiário,\n\nOs monitores chegaram, ficou ótimo!\n\nAtenciosamente,\n\nMariana"
+	},
+	{
+		"thread_id": "d6t10_mariana",
+		"email_id": "d6t10_mariana",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Estacionamento da visita",
+		"content": "Olá Estagiário, bom dia!\n\nPaguei do meu bolso o estacionamento da visita ao cliente. É Reembolso de funcionário, R$ 186,40. O QR do Pix está em anexo, na minha conta.\n\nAtenciosamente,\n\nMariana",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "MZ628",
+				"read_code": "MZ628"
+			}
+		],
+		"requires": [],
+		"reply": "Olá, Estagiário,\n\nRecebi, obrigada!\n\nAtenciosamente,\n\nMariana"
+	},
+	{
+		"thread_id": "d6t14_marta",
+		"email_id": "d6t14_marta",
+		"sender": "marta@enigma.com.br",
+		"subject": "Decoração da confraternização",
+		"content": "Olá, novo companheiro!\n\nA Balões da Neide vai decorar a confraternização do Comercial. É Evento da empresa, R$ 780,00. Pode pagar pra mim? Código: 760104\n\nPor favorrrr.\n\nMarta",
+		"attachments": [],
+		"requires": [],
+		"reply": "Obrigadaaaaaaa!\n\nMarta"
+	},
+	{
+		"thread_id": "d6t23_viva",
+		"email_id": "d6t23_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Sua fatura fecha hoje!\n\nFatura de internet referente ao plano da empresa, no valor de R$ 459,90. Estamos enviando a 2ª via do boleto da Viva para facilitar seu pagamento.\n\nCódigo: 760108\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"reply": "Pagamento confirmado. Obrigado por escolher a Viva!\n\n- © Viva"
+	},
+	{
+		"thread_id": "d6g07_mariana",
+		"email_id": "d6g07_mariana",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Envio de amostras",
+		"content": "Bom dia, Estagiário,\n\nEnviamos amostras para um cliente pela Transportes Alvorada. É Serviço de fornecedor, no valor de R$ 1.320,00. Por favor, realize o pagamento.\n\nCódigo Pix: TA641\n\nAtenciosamente,\n\nMariana",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g08_viva",
+		"email_id": "d6g08_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nFatura de internet do link reserva, no valor de R$ 512,40. Estamos enviando a 1ª via do boleto da Viva para facilitar seu pagamento.\n\nCódigo: 760204\n\n- © Viva",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g18_gilmar",
+		"email_id": "d6g18_gilmar",
+		"sender": "gilmar@enigma.com.br",
+		"subject": "Eletrodos da solda",
+		"content": "Olá.\n\nA Casa do Soldador entregou os eletrodos. Compra de material, R$ 1.015,00. QR do Pix em anexo.\n\nObrigado.\n\nGilmar",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "CS645",
+				"read_code": "ZK645"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g19_marta",
+		"email_id": "d6g19_marta",
+		"sender": "marta@enigma.com.br",
+		"subject": "Flores da recepção",
+		"content": "Olaaá, novo companheiro!\n\nA floricultura Flor de Lis mandou o QR do Pix das flores da recepção. É Evento da empresa, R$ 265,00.\n\nPooor favorr.\n\nObrigadaaaaaaa!\n\nMarta",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "FL643",
+				"read_code": "FL634"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g20_mariana",
+		"email_id": "d6g20_mariana",
+		"sender": "mariana@enigma.com.br",
+		"subject": "Vídeo institucional",
+		"content": "Bom dia, Estagiário,\n\nA Agência Lumière finalizou nosso vídeo institucional. É Serviço de fornecedor, no valor de R$ 2.900,00. Segue o QR do Pix em anexo.\n\nAtenciosamente,\n\nMariana",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "MR652",
+				"read_code": "RM652"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g21_gilmar",
+		"email_id": "d6g21_gilmar",
+		"sender": "gilmar@enigrna.com.br",
+		"subject": "Boleto dos materiais",
+		"content": "Oi.\n\nBoleto dos tubos da Industrials: 760221. Compra de material, R$ 1.740,00.\n\nNo Banco, use este código: 760212.\n\nObrigado.\n\nGilmar",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d6g22_marta",
+		"email_id": "d6g22_marta",
+		"sender": "marta.enigma@gmail.com",
+		"subject": "Fotógrafa da confraternização",
+		"content": "Olá, novo companheiro!\n\nA fotógrafa Lia Mendes fez as fotos da confraternização… É Evento da empresa, R$ 430,00. O QR do Pix está em anexo.\n\nPor favorrrr.\n\nMarta",
+		"attachments": [
+			{
+				"type": "pix_qr",
+				"name": "QR Pix.png",
+				"printed_code": "LM653",
+				"read_code": "LJ653"
+			}
+		],
+		"requires": []
+	}
+]

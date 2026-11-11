@@ -1,0 +1,82 @@
+{
+	"conversation_id": "negativva_fd3",
+	"contact_name": "Negativva",
+	"branches": {
+		"d3g16_negativva": [
+			{
+				"id": "d3g16_negativva_0",
+				"text": "Caríssimo cliente"
+			},
+			{
+				"id": "d3g16_negativva_1",
+				"text": "Solicitamos a realização do pagamento pendente para não haver cobrança de multa.",
+				"choices": [
+					{
+						"id": "d3g16_negativva_2_0",
+						"player_text": "Pendente de quê? Diz o motivo",
+						"npc_reply": {
+							"goto_branch": "d3g16_negativva_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g16_negativva_2_1",
+						"player_text": "O Gerente não me falou nada. Isso é o quê?",
+						"npc_reply": {
+							"goto_branch": "d3g16_negativva_prazo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g16_negativva_prazo": [
+			{
+				"id": "d3g16_negativva_2",
+				"text": "Caro cliente, esta mensagem tem validade de 15 minutos."
+			},
+			{
+				"id": "d3g16_negativva_3",
+				"text": "Agora 14.",
+				"choices": [
+					{
+						"id": "d3g16_negativva_4_0",
+						"player_text": "Mas por que estou pagando?",
+						"npc_reply": {
+							"goto_branch": "d3g16_negativva_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g16_negativva_4_1",
+						"player_text": "Vou confirmar com o Financeiro",
+						"npc_reply": {
+							"goto_branch": "d3g16_negativva_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g16_negativva_fim": [
+			{
+				"id": "d3g16_negativva_4",
+				"text": "A multa só aumenta enquanto o senhor pergunta, caro cliente."
+			},
+			{
+				"id": "d3g16_negativva_5",
+				"text": "Código boleto: 732563, R$ 2.480,00."
+			},
+			{
+				"id": "d3g16_negativva_end",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "732563"
+					}
+				]
+			}
+		]
+	}
+}

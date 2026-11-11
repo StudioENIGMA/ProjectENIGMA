@@ -16,6 +16,8 @@ signal report_evaluated(result: Dictionary)
 signal scam_blocked(conversation_ids: Array)
 ## Emitted when the player falls for a scam, with its conversations, kept to be compared later
 signal scam_fallen(conversation_ids: Array)
+## Emitted when a task (not a scam) is done, so its sender can answer, see emails_director
+signal task_completed(event_id: String)
 ## Emitted when the player falls for a scam, judged by the difficulty: "fall" (how many scams were
 ## fallen for today), "free_falls" (how many a day the difficulty forgives) and "points" (lost at
 ## the end of the day, 0 while the fall is forgiven)
@@ -51,6 +53,8 @@ var initiated_events: Array[String] = []
 var fallen_events: Array[String] = []
 ## event_id -> ids of the discrepancies of that event found today
 var found_discrepancies: Dictionary = {}
+## event_id -> {store: {item_id: quantity}} bought for that event today, see _hand_out_purchases()
+var purchase_credits: Dictionary = {}
 ## rule id -> rule, as read from data/rules/rules.json
 var rules_by_id: Dictionary = {}
 ## event_id -> its line in the day summary, kept to be updated as more is found
@@ -67,6 +71,7 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	initiated_events = []
 	fallen_events = []
 	found_discrepancies = {}
+	purchase_credits = {}
 	_report_entries = {}
 	_wrong_reports_entry = {}
 	GameData.events_log.clear()
@@ -75,6 +80,7 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.read_emails.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
+	GameData.purchased_items.clear()
 
 	rules_by_id.clear()
 	for rule in rules:
@@ -101,13 +107,14 @@ func is_event_pending(event_id: String) -> bool:
 	return events_to_check.has(event_id)
 
 func _on_clock_tick() -> void:
+	_hand_out_purchases()
 	# Iterates over a copy, completed events are erased from the list meanwhile
 	for event_id in events_to_check.duplicate():
 		var event = events_dict.get(event_id, null)
 		if event == null:
 			events_to_check.erase(event_id)
 			continue
-		var is_event_completed: bool = evaluate_requirements(event)
+		var is_event_completed: bool = evaluate_requirements(event, event_id)
 		if is_event_completed:
 			events_to_check.erase(event_id)
 
@@ -133,9 +140,11 @@ func _on_clock_tick() -> void:
 				scam_fall_judged.emit(fall)
 
 			GameData.events_log.append(log_entry)
+			if event_type != "scam":
+				task_completed.emit(event_id)
 			GameData.daily_reputation_points += reputation_points
 
-func evaluate_requirements(event: Dictionary) -> bool:
+func evaluate_requirements(event: Dictionary, event_id: String) -> bool:
 	if event == null:
 		return false
 	for requirement in event.get("requires"):
@@ -146,32 +155,7 @@ func evaluate_requirements(event: Dictionary) -> bool:
 			var app = GameData.apps_name.get(app_id, null)
 			return GameData.downloaded_apps.has(app)
 		elif flag == "purchase":
-			var items = requirement.get("items", [])
-			for item in items:
-				var item_id = item.get("item_id", "")
-				var quantity = int(item.get("quantity", 0))
-				var store_ids = item.get("store", [])
-
-				if typeof(store_ids) == TYPE_STRING:
-					store_ids = [store_ids]
-
-				var is_item_valid = false
-
-				for store_name in store_ids:
-					var store = GameData.shop_string_to_enum.get(store_name, null)
-
-					if not GameData.purchased_items.has(store):
-						continue
-					var store_purchases = GameData.purchased_items[store]
-					if not store_purchases.has(item_id):
-						continue
-					if store_purchases[item_id] < quantity:
-						continue
-					is_item_valid = true
-
-				if not is_item_valid:
-					return false
-			return true
+			return has_purchased(event_id, requirement.get("items", []))
 		elif flag == "payment":
 			var payment_id = requirement.get("payment_id", "")
 			return GameData.completed_payments.has(payment_id)
@@ -183,12 +167,76 @@ func evaluate_requirements(event: Dictionary) -> bool:
 			return false
 		elif flag == "option":
 			var choice = requirement.get("choice", "")
-			var was_chosen = GameData.options_chose.get(choice, false)
-			GameData.options_chose[choice] = false
-			return was_chosen
+			if not GameData.options_chose.has(choice):
+				return false
+			# A scam only takes the answer given in its own chat, an answer shared by several
+			# scams ("$bank_password") is left to the scam of the chat it was picked in
+			# ponytail: tasks have no chat in events.json and take it from any chat, their
+			# answers are unique
+			var chosen_in := str(GameData.options_chose[choice])
+			var conversations := _get_conversations(event)
+			if chosen_in != "" and not conversations.is_empty() and not conversations.has(chosen_in):
+				return false
+			GameData.options_chose.erase(choice)
+			return true
 		elif flag == "email_read":
 			return GameData.read_emails.has(requirement.get("email_id", ""))
 	return false
+
+## Hands the orders paid since the last tick (GameData.purchased_items) out to the events waiting on
+## them, tasks before scams, each taking only what it still lacks. An order thus counts once and only
+## for what was already asked: it neither completes a task delivered later nor makes the player fall
+## for a scam asking the same as a task, unless more than the task asked was bought
+func _hand_out_purchases() -> void:
+	var is_scam := func(event_id: String) -> bool:
+		return events_dict.get(event_id, {}).get("type", "") == "scam"
+	var waiting: Array = events_to_check.filter(func(id): return not is_scam.call(id)) \
+		+ events_to_check.filter(is_scam)
+
+	for store in GameData.purchased_items:
+		for item_id in GameData.purchased_items[store]:
+			var left := int(GameData.purchased_items[store][item_id])
+			for event_id in waiting:
+				var credits: Dictionary = purchase_credits.get_or_add(event_id, {}).get_or_add(store, {})
+				var had := int(credits.get(int(item_id), 0))
+				var taken := clampi(_get_asked_quantity(event_id, store, int(item_id)) - had, 0, left)
+				credits[int(item_id)] = had + taken
+				left -= taken
+	# ponytail: what no event asked for is dropped, it was bought for nothing delivered yet
+	GameData.purchased_items.clear()
+
+## How many of an item the purchase requirements of an event ask for in a store
+func _get_asked_quantity(event_id: String, store: int, item_id: int) -> int:
+	var asked := 0
+	for requirement in events_dict.get(event_id, {}).get("requires", []):
+		for item in requirement.get("items", []):
+			var store_ids = item.get("store", [])
+			if typeof(store_ids) == TYPE_STRING:
+				store_ids = [store_ids]
+			var stores: Array = store_ids.map(
+				func(store_name): return GameData.shop_string_to_enum.get(store_name)
+			)
+			if int(item.get("item_id", -1)) == item_id and stores.has(store):
+				asked += int(item.get("quantity", 0))
+	return asked
+
+## Whether the items were bought for the event, each in one of the stores it names, see
+## _hand_out_purchases(). Chats ask it too, for the thanks of the NPC once the event is done
+func has_purchased(event_id: String, items: Array) -> bool:
+	var credits: Dictionary = purchase_credits.get(event_id, {})
+	for item in items:
+		var store_ids = item.get("store", [])
+		if typeof(store_ids) == TYPE_STRING:
+			store_ids = [store_ids]
+		var is_item_bought := false
+		for store_name in store_ids:
+			var store = GameData.shop_string_to_enum.get(store_name, null)
+			var bought := int(credits.get(store, {}).get(int(item.get("item_id", -1)), 0))
+			if bought >= int(item.get("quantity", 0)):
+				is_item_bought = true
+		if not is_item_bought:
+			return false
+	return true
 
 ## Whether the scam just fallen for costs points: the difficulty forgives the first ones of the day
 func _judge_fall() -> Dictionary:

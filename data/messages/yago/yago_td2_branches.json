@@ -1,0 +1,242 @@
+{
+	"conversation_id": "yago_td2",
+	"contact_name": "Yago",
+	"branches": {
+		"d2t08_yago": [
+			{
+				"id": "d2t08_yago_0",
+				"text": "Olá, estagiário. Uma consulta breve antes do pedido."
+			},
+			{
+				"id": "d2t08_yago_1",
+				"text": "De 1 a 5, como avalia o seu estágio até aqui?",
+				"choices": [
+					{
+						"id": "d2t08_yago_2_0",
+						"player_text": "Nota 5, Yago!",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_cinco",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t08_yago_2_1",
+						"player_text": "Nota 3, ainda tô aprendendo",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_tres",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t08_yago_2_2",
+						"player_text": "Precisa de justificativa? kkk",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_just",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t08_yago_cinco": [
+			{
+				"id": "d2t08_yago_2",
+				"text": "Registrado. Otimismo também é uma competência."
+			},
+			{
+				"id": "d2t08_yago_3",
+				"text": "Gostaria que realizasse o Pix da Sonora Eventos, no valor de R$ 1.120,00.",
+				"choices": [
+					{
+						"id": "d2t08_yago_4_0",
+						"player_text": "Fechado. E o motivo desse Pix?",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t08_yago_4_1",
+						"player_text": "Nota 5 pra mim, nota 0 pro motivo. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t08_yago_tres": [
+			{
+				"id": "d2t08_yago_4",
+				"text": "Registrado. Honestidade também é uma competência."
+			},
+			{
+				"id": "d2t08_yago_5",
+				"text": "Gostaria que realizasse o Pix da Sonora Eventos, no valor de R$ 1.120,00.",
+				"choices": [
+					{
+						"id": "d2t08_yago_6_0",
+						"player_text": "Esse pedido tá sem motivo, não posso pagar assim",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t08_yago_6_1",
+						"player_text": "Certo. Qual a razão do Pix?",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t08_yago_just": [
+			{
+				"id": "d2t08_yago_6",
+				"text": "Não nesta planilha. Vou registrar como 4."
+			},
+			{
+				"id": "d2t08_yago_7",
+				"text": "Gostaria que realizasse o Pix da Sonora Eventos, no valor de R$ 1.120,00.",
+				"choices": [
+					{
+						"id": "d2t08_yago_8_0",
+						"player_text": "O Pix precisa de justificativa, porém",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t08_yago_8_1",
+						"player_text": "Quatro tá ótimo. Pix referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d2t08_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t08_yago_fim": [
+			{
+				"id": "d2t08_yago_8",
+				"text": "Tem razão, estagiário. Deveria ter informado."
+			},
+			{
+				"id": "d2t08_yago_9",
+				"text": "Trata-se de evento da empresa: o som da nossa dinâmica do processo seletivo."
+			},
+			{
+				"id": "d2t08_yago_10",
+				"text": "Sim, haverá música. Não recomendo dançar."
+			},
+			{
+				"id": "d2t08_yago_11",
+				"text": "Código: SE246"
+			},
+			{
+				"id": "d2t08_yago_end",
+				"text": "Pagamento confirmado. Obrigado. Sua agilidade foi registrada.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SE246"
+					}
+				]
+			}
+		],
+		"d2t09_yago": [
+			{
+				"id": "d2t09_yago_0",
+				"text": "Olá, estagiário. Preciso que faça uma compra na A&C, por favor.",
+				"choices": [
+					{
+						"id": "d2t09_yago_1_0",
+						"player_text": "Claro. Pra que seria essa compra?",
+						"npc_reply": {
+							"goto_branch": "d2t09_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t09_yago_1_1",
+						"player_text": "O procedimento pede motivo, senhor.",
+						"npc_reply": {
+							"goto_branch": "d2t09_yago_senhor",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t09_yago_senhor": [
+			{
+				"id": "d2t09_yago_1",
+				"text": "Correto. E dispenso o \"senhor\"."
+			},
+			{
+				"id": "d2t09_yago_2",
+				"text": "Antes de eu responder: gostaria de tentar adivinhar?",
+				"choices": [
+					{
+						"id": "d2t09_yago_3_0",
+						"player_text": "Roupa, porque a A&C só vende roupa",
+						"npc_reply": {
+							"goto_branch": "d2t09_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t09_yago_3_1",
+						"player_text": "Prefiro não arriscar, Yago",
+						"npc_reply": {
+							"goto_branch": "d2t09_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t09_yago_fim": [
+			{
+				"id": "d2t09_yago_3",
+				"text": "Perdão, estagiário. Foi um lapso meu.",
+				"event_id": "d2t09_yago"
+			},
+			{
+				"id": "d2t09_yago_4",
+				"text": "É compra de material: uniformes para os novos estagiários, com autorização do Chefe."
+			},
+			{
+				"id": "d2t09_yago_5",
+				"text": "Compre 3 camisetas azuis e 2 camisas polo vermelhas."
+			},
+			{
+				"id": "d2t09_yago_end",
+				"text": "Os uniformes chegaram. Obrigado. O azul está dentro do padrão.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 33,
+								"quantity": 3,
+								"store": "aec"
+							},
+							{
+								"item_id": 36,
+								"quantity": 2,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

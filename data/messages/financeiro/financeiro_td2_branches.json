@@ -1,0 +1,186 @@
+{
+	"conversation_id": "financeiro_td2",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d2t10_financeiro": [
+			{
+				"id": "d2t10_financeiro_0",
+				"text": "Bom dia, estagiário! Simone, do Financeiro."
+			},
+			{
+				"id": "d2t10_financeiro_1",
+				"text": "Preciso que você pague um boleto de R$ 9.600,00 da Corretora Horizonte.",
+				"choices": [
+					{
+						"id": "d2t10_financeiro_2_0",
+						"player_text": "Bom dia, Simone. Boleto de quê?",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_dados",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t10_financeiro_2_1",
+						"player_text": "Sem o motivo não lanço. É referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_dados",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t10_financeiro_dados": [
+			{
+				"id": "d2t10_financeiro_2",
+				"text": "Verdade, faltou o principal. Bom que cobrou."
+			},
+			{
+				"id": "d2t10_financeiro_3",
+				"text": "É investimento da empresa: o aporte trimestral aprovado pela diretoria."
+			},
+			{
+				"id": "d2t10_financeiro_4",
+				"text": "Código do boleto: 727701"
+			},
+			{
+				"id": "d2t10_financeiro_5",
+				"text": "Antes de pagar, confira comigo o valor e o nome.",
+				"choices": [
+					{
+						"id": "d2t10_financeiro_6_0",
+						"player_text": "Conferi: R$ 9.600,00, Corretora Horizonte",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t10_financeiro_6_1",
+						"player_text": "Nunca paguei nada tão alto, tô suando kkk",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_suor",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t10_financeiro_suor": [
+			{
+				"id": "d2t10_financeiro_6",
+				"text": "Respire. O número é maior, o procedimento é o mesmo.",
+				"choices": [
+					{
+						"id": "d2t10_financeiro_7_0",
+						"player_text": "Respirei. Pode deixar comigo",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t10_financeiro_7_1",
+						"player_text": "Vou conferir duas vezes, então",
+						"npc_reply": {
+							"goto_branch": "d2t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t10_financeiro_fim": [
+			{
+				"id": "d2t10_financeiro_7",
+				"text": "É assim que eu gosto. Bom trabalho."
+			},
+			{
+				"id": "d2t10_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "727701"
+					}
+				]
+			}
+		],
+		"d2t17_financeiro": [
+			{
+				"id": "d2t17_financeiro_0",
+				"text": "Boa tarde! Aqui é a Simone."
+			},
+			{
+				"id": "d2t17_financeiro_1",
+				"text": "A impressora ficou sem toner e sem papel. É compra de material, da Papelaria Central."
+			},
+			{
+				"id": "d2t17_financeiro_2",
+				"text": "Faça o Pix de R$ 318,60, por favor. Código: PC284",
+				"choices": [
+					{
+						"id": "d2t17_financeiro_3_0",
+						"player_text": "Anotado: PC284, R$ 318,60",
+						"npc_reply": {
+							"goto_branch": "d2t17_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t17_financeiro_3_1",
+						"player_text": "Foi o Yago que imprimiu tudo, né?",
+						"npc_reply": {
+							"goto_branch": "d2t17_financeiro_fofoca",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t17_financeiro_fofoca": [
+			{
+				"id": "d2t17_financeiro_3",
+				"text": "Sem comentários."
+			},
+			{
+				"id": "d2t17_financeiro_4",
+				"text": "Mas há uma pilha em três vias na mesa dele.",
+				"choices": [
+					{
+						"id": "d2t17_financeiro_5_0",
+						"player_text": "Kkkk entendi tudo",
+						"npc_reply": {
+							"goto_branch": "d2t17_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t17_financeiro_5_1",
+						"player_text": "Vou fingir que não li",
+						"npc_reply": {
+							"goto_branch": "d2t17_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t17_financeiro_fim": [
+			{
+				"id": "d2t17_financeiro_5",
+				"text": "Obrigada. Volto para o fechamento."
+			},
+			{
+				"id": "d2t17_financeiro_end",
+				"text": "Pagamento recebido, obrigada! Papel de volta à impressora.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PC284"
+					}
+				]
+			}
+		]
+	}
+}

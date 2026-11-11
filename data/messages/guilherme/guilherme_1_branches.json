@@ -100,12 +100,22 @@
 				"text": "Oi estagiário."
 			},
 			{
-				"id": "guilherme_purchase1_1",
+				"id": "guilherme_payment1_1",
 				"text": "Estamos fazendo uma melhoria no departamento do financeiro, e precisamos de uma ajuda com alguns pagamentos."
 			},
 			{
-				"id": "guilherme_purchase1_2",
+				"id": "guilherme_payment1_2",
 				"text": "Por favor, faça esse pagamento pelo código 760623."
+			},
+			{
+				"id": "guilherme_payment1_3",
+				"text": "Pagamento feito, obrigado estagiário.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "760623"
+					}
+				]
 			}
 		],
 		"task4_guilherme": [

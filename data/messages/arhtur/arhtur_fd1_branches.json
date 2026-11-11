@@ -1,0 +1,90 @@
+{
+	"conversation_id": "arhtur_fd1",
+	"contact_name": "Arhtur",
+	"branches": {
+		"d1g09_arhtur": [
+			{
+				"id": "d1g09_arhtur_0",
+				"text": "fala estágio, tudo certo?",
+				"choices": [
+					{
+						"id": "d1g09_arhtur_1_0",
+						"player_text": "Tudo, e aí?",
+						"npc_reply": {
+							"goto_branch": "d1g09_arhtur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g09_arhtur_1_1",
+						"player_text": "Tudo. Como tá o rack?",
+						"npc_reply": {
+							"goto_branch": "d1g09_arhtur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g09_arhtur_1_2",
+						"player_text": "Arthur? Seu nome tá diferente aqui",
+						"npc_reply": {
+							"goto_branch": "d1g09_arhtur_nome",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g09_arhtur_nome": [
+			{
+				"id": "d1g09_arhtur_1",
+				"text": "kkkk deve ser esse celular novo"
+			},
+			{
+				"id": "d1g09_arhtur_2",
+				"text": "troquei de aparelho ontem, tá tudo zoado aqui",
+				"choices": [
+					{
+						"id": "d1g09_arhtur_3_0",
+						"player_text": "Hum, tá bom",
+						"npc_reply": {
+							"goto_branch": "d1g09_arhtur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g09_arhtur_3_1",
+						"player_text": "Trocou de número também?",
+						"npc_reply": {
+							"goto_branch": "d1g09_arhtur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g09_arhtur_fim": [
+			{
+				"id": "d1g09_arhtur_3",
+				"text": "cara, nem fala: dois SSD do servidor de backup foram pro saco"
+			},
+			{
+				"id": "d1g09_arhtur_4",
+				"text": "já pedi na DiscoBom, Compra de material, R$ 870,00"
+			},
+			{
+				"id": "d1g09_arhtur_5",
+				"text": "código pix: HD15"
+			},
+			{
+				"id": "d1g09_arhtur_end",
+				"text": "Valeu tmj",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "HD15"
+					}
+				]
+			}
+		]
+	}
+}

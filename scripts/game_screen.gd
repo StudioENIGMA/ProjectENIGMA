@@ -91,6 +91,7 @@ func _ready() -> void:
 	events_director.report_evaluated.connect(ui.base_app.on_report_evaluated)
 	events_director.scam_blocked.connect(ui.base_app.on_scam_blocked)
 	events_director.scam_fallen.connect(ui.base_app.on_scam_fallen)
+	events_director.task_completed.connect(story_director.emails_director.send_reply)
 	events_director.scam_fall_judged.connect(ui.notifications_control.send_scam_notification)
 	# Connected after the UI, which takes the conversation's answers away first
 	events_director.scam_blocked.connect(story_director.messages_director.offer_block_and_report)

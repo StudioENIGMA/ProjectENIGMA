@@ -1,0 +1,114 @@
+{
+	"conversation_id": "marrcao_fd1",
+	"contact_name": "Marrcão",
+	"branches": {
+		"d1g11_marrcao": [
+			{
+				"id": "d1g11_marrcao_0",
+				"text": "Fala aí meu camarada estagiário"
+			},
+			{
+				"id": "d1g11_marrcao_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "d1g11_marrcao_2",
+				"text": "a reforma da doca gerou entulho até o teto kkkkk, pera que tão me gritando aqui",
+				"choices": [
+					{
+						"id": "d1g11_marrcao_3_0",
+						"player_text": "Tranquilo, te espero",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_volta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g11_marrcao_3_1",
+						"player_text": "Marcão? Sumiu no meio da história",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_volta",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g11_marrcao_volta": [
+			{
+				"id": "d1g11_marrcao_3",
+				"text": "voltei, foi mal. quase jogaram minha marmita junto com o entulho kkkkk"
+			},
+			{
+				"id": "d1g11_marrcao_4",
+				"text": "a Caçamba Rápida vem buscar, Serviço de fornecedor, R$ 410,00"
+			},
+			{
+				"id": "d1g11_marrcao_5",
+				"text": "pix CC1904",
+				"choices": [
+					{
+						"id": "d1g11_marrcao_6_0",
+						"player_text": "Marcão, seu nome aqui tá com dois R",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_nome",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g11_marrcao_6_1",
+						"player_text": "Fechado, salva a marmita",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g11_marrcao_nome": [
+			{
+				"id": "d1g11_marrcao_6",
+				"text": "kkkkk digitei errado quando troquei o chip"
+			},
+			{
+				"id": "d1g11_marrcao_7",
+				"text": "tu acha que alguém ia se passar por mim? ninguém quer essa vida",
+				"choices": [
+					{
+						"id": "d1g11_marrcao_8_0",
+						"player_text": "Vai que quer, né",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g11_marrcao_8_1",
+						"player_text": "Vou dar uma conferida",
+						"npc_reply": {
+							"goto_branch": "d1g11_marrcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g11_marrcao_fim": [
+			{
+				"id": "d1g11_marrcao_8",
+				"text": "tá, vou lá que a doca não esvazia sozinha"
+			},
+			{
+				"id": "d1g11_marrcao_end",
+				"text": "Valeu! obrigado camarada",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CC1904"
+					}
+				]
+			}
+		]
+	}
+}

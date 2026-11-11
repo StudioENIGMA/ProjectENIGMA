@@ -81,7 +81,7 @@
 	},
 	{
 		"id": "employee_email",
-		"day": 5,
+		"day": 3,
 		"apps": ["Email"],
 		"title": "Email fora da empresa",
 		"description": "O endereço não é o email da empresa que está nos contatos.",
@@ -102,6 +102,22 @@
 		"title": "Quem pediu não confere",
 		"description": "O nome de quem pediu não é o que está na lista de pedidos do setor.",
 		"reference": "Notas › Pedidos do dia"
+	},
+	{
+		"id": "ticket_code",
+		"day": 4,
+		"apps": ["MessagesHome", "Email", "Bank"],
+		"title": "Boleto trocado",
+		"description": "O código para pagar no Banco não é o mesmo código do boleto enviado.",
+		"reference": "Compare o pedido com o código digitado no Banco"
+	},
+	{
+		"id": "pix_recipient",
+		"day": 5,
+		"apps": ["Bank"],
+		"title": "Pix para outra pessoa",
+		"description": "O nome da conta do Pix não é o de quem pediu nem o de quem foi citado no pedido.",
+		"reference": "Compare o pedido com a tela do Banco"
 	},
 	{
 		"id": "pix_qr",

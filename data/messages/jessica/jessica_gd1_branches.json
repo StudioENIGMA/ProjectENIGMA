@@ -1,0 +1,122 @@
+{
+	"conversation_id": "jessica_gd1",
+	"contact_name": "Jessica",
+	"branches": {
+		"d1g02_jessica": [
+			{
+				"id": "d1g02_jessica_0",
+				"text": "Oi, tudo bem?"
+			},
+			{
+				"id": "d1g02_jessica_1",
+				"text": "Fechei a decoração da festa junina com a Bandeirinha Festas."
+			},
+			{
+				"id": "d1g02_jessica_2",
+				"text": "Me ajuda a decidir? Bandeirinha colorida ou só vermelha?",
+				"choices": [
+					{
+						"id": "d1g02_jessica_3_0",
+						"player_text": "Colorida, claro",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_colorida",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g02_jessica_3_1",
+						"player_text": "Vermelha, mais chique",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_vermelha",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g02_jessica_colorida": [
+			{
+				"id": "d1g02_jessica_3",
+				"text": "Eu também acho! :)"
+			},
+			{
+				"id": "d1g02_jessica_4",
+				"text": "Tem que parecer festa junina, não reunião de diretoria",
+				"choices": [
+					{
+						"id": "d1g02_jessica_5_0",
+						"player_text": "Tem que ter paçoca também",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g02_jessica_5_1",
+						"player_text": "Agora quero dançar quadrilha",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g02_jessica_vermelha": [
+			{
+				"id": "d1g02_jessica_5",
+				"text": "Chique demais pra quem vai dançar quadrilha kkk"
+			},
+			{
+				"id": "d1g02_jessica_6",
+				"text": "Mas gostei, vou levar a sua ideia pro pessoal",
+				"choices": [
+					{
+						"id": "d1g02_jessica_7_0",
+						"player_text": "Quadrilha chique existe",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g02_jessica_7_1",
+						"player_text": "Você que manda",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g02_jessica_7_2",
+						"player_text": "Eu só voto, não danço",
+						"npc_reply": {
+							"goto_branch": "d1g02_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g02_jessica_fim": [
+			{
+				"id": "d1g02_jessica_7",
+				"text": "Ah, e falando nisso: é Evento da empresa, R$ 460,00"
+			},
+			{
+				"id": "d1g02_jessica_8",
+				"text": "Não sou boa com banco kkk, faz pra mim? Pix: FJ1752"
+			},
+			{
+				"id": "d1g02_jessica_end",
+				"text": "Deu certo, muito obrigada! Vou guardar uma bandeirinha pra você kkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FJ1752"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"conversation_id": "marciia_fd4",
+	"contact_name": "Marciia",
+	"branches": {
+		"d4g17_marciia": [
+			{
+				"id": "d4g17_marciia_0",
+				"text": "Oie! Você poderia fazer um Pix para mim, por favor?",
+				"choices": [
+					{
+						"id": "d4g17_marciia_1_0",
+						"player_text": "Oi! Motivo desse Pix, qual seria?",
+						"npc_reply": {
+							"goto_branch": "d4g17_marciia_rapido",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g17_marciia_1_1",
+						"player_text": "Sem motivo da lista não dá, Marcia. É pra quê?",
+						"npc_reply": {
+							"goto_branch": "d4g17_marciia_amiga",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g17_marciia_amiga": [
+			{
+				"id": "d4g17_marciia_1",
+				"text": "Ai, achei que a gente já tinha essa confiança..."
+			},
+			{
+				"id": "d4g17_marciia_2",
+				"text": "Te mandei brigadeiro na integração e tudo!",
+				"choices": [
+					{
+						"id": "d4g17_marciia_3_0",
+						"player_text": "Foi bom mesmo, mas continuo sem o motivo",
+						"npc_reply": {
+							"goto_branch": "d4g17_marciia_rapido",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g17_marciia_3_1",
+						"player_text": "Que brigadeiro? Não lembro de ter ganhado",
+						"npc_reply": {
+							"goto_branch": "d4g17_marciia_rapido",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g17_marciia_rapido": [
+			{
+				"id": "d4g17_marciia_3",
+				"text": "Imagina, é coisa rápida, não precisa de motivo."
+			},
+			{
+				"id": "d4g17_marciia_4",
+				"text": "R$ 450,00, código MC438."
+			},
+			{
+				"id": "d4g17_marciia_end",
+				"text": "Obrigadaa!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MC438"
+					}
+				]
+			}
+		]
+	}
+}

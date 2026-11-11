@@ -6,6 +6,27 @@
 			{
 				"id": "carolina_purchase0_0",
 				"text": "Oii, vamos fzr uma confraternização do nosso time nos próximos dias e queria que vc me ajudasse comprando um bolo de cobertura de morango e um de cobertura de maracujá"
+			},
+			{
+				"id": "carolina_purchase0_confirm",
+				"text": "Chegou tudo, obrigadaa!!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 23,
+								"quantity": 1,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 24,
+								"quantity": 1,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
 			}
 		],
 		"task1_carolina": [

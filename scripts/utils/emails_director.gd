@@ -132,6 +132,24 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, _current_minutes: int) 
 
 	email_received.emit(delivered_email)
 	unread_email_by_thread[thread_id] = email_id
+
+## The sender answers a task email once the player does it, in the same thread
+func send_reply(event_id: String) -> void:
+	for thread_id in emails_by_id:
+		for email in emails_by_id[thread_id]:
+			if email.get("email_id") != event_id:
+				continue
+			email_received.emit({
+				"thread_id": thread_id,
+				"email_id": event_id + "_reply",
+				"sender": email.get("sender"),
+				"subject": "Re: " + str(email.get("subject", "")),
+				"content": str(email.get("reply", "Recebido, muito obrigado!")),
+				"attachments": [],
+				"day": GameData.current_day,
+				"relative_due_time": 0.0,
+			})
+			return
 #endregion DELIVERY
 
 #region CLOCK

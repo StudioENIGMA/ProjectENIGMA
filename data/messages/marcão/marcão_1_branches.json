@@ -12,11 +12,11 @@
 				"text": "Marcão na área"
 			},
 			{
-				"id": "marcao_purchase0_1",
+				"id": "marcao_purchase0_2",
 				"text": "preciso que você compre 15kg de aço"
 			},
 			{
-				"id": "marcao_purchase0_1",
+				"id": "marcao_purchase0_3",
 				"text": "Valeu!",
 				"requires": [
 					{
@@ -44,6 +44,22 @@
 			{
 				"id": "marcao_purchase1_2",
 				"text": "preciso que você compre 7 furadeiras"
+			},
+			{
+				"id": "marcao_purchase1_3",
+				"text": "chegaram as furadeiras, valeu camarada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 7,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
 			}
 		],
 		"task2_marcao": [
@@ -134,6 +150,22 @@
 			{
 				"id": "marcao_purchase4_4",
 				"text": "compra 8 litros de N2 por favor"
+			},
+			{
+				"id": "marcao_purchase4_5",
+				"text": "N2 chegou, salvou a gente kkkkk valeu",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 8,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
 			}
 		],
 		"task5_marcao": [
@@ -154,7 +186,7 @@
 				"text": "586098"
 			},
 			{
-				"id": "marcao_payment0_3",
+				"id": "marcao_payment0_4",
 				"text": "Valeu!",
 				"requires": [
 					{
@@ -186,7 +218,7 @@
 				"text": "o boleto é 586092"
 			},
 			{
-				"id": "marcao_payment1_4",
+				"id": "marcao_payment1_5",
 				"text": "Salvou o projeto!",
 				"requires": [
 					{
@@ -210,11 +242,11 @@
 				"text": "paga esses materiais necessários, chefe permitiu"
 			},
 			{
-				"id": "marcao_payment1_4",
+				"id": "marcao_payment2_3",
 				"text": "897340"
 			},
 			{
-				"id": "marcao_payment1_4",
+				"id": "marcao_payment2_4",
 				"text": "obrigado camarada",
 				"requires": [
 					{
@@ -244,44 +276,14 @@
 			{
 				"id": "marcao_payment3_4",
 				"text": "o boleto tem código 897341"
-			}
-		],
-		"task9_marcao": [
-		  {
-				"id": "marcao_payment4_0",
-				"text": "Fala meu camarada estagiário"
 			},
 			{
-			  "id": "marcao_payment4_1",
-				"text": "Marcão na área"
-			},
-			{
-			  "id": "marcao_payment4_2",
-				"text": "sobrou pra você fazer o pagamento do pedido que fiz de maquinário novo",
-				"choices": [
-				  {
-						"id": "marcao_payment4_2a_0",
-						"player_text": "Me passa o ID para esse pagamento",
-						"npc_reply": {
-						  "goto_branch": "from_marcao_payment4_2",
-							"delay_ticks": 0
-						}
-					}
-				]
-			}
-		],
-		"from_marcao_payment4_2" : [
-		  {
-				"id": "marcao_payment4_3",
-				"text": "[correct_pattern]"
-			},
-			{
-			  "id": "marcao_payment4_4",
-				"text": "Valeu!",
+				"id": "marcao_payment3_5",
+				"text": "boleto pago, valeu meu bom",
 				"requires": [
-				  {
+					{
 						"flag": "payment",
-						"payment_id": "[correct_pattern]"
+						"payment_id": "897341"
 					}
 				]
 			}

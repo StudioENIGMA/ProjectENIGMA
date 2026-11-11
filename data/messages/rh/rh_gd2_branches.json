@@ -1,0 +1,114 @@
+{
+	"conversation_id": "rh_gd2",
+	"contact_name": "RH",
+	"branches": {
+		"d2g07_rh": [
+			{
+				"id": "d2g07_rh_0",
+				"text": "Oi! (^ _ ^) Consegue pagar um boleto de R$ 1.475,00 para mim?",
+				"choices": [
+					{
+						"id": "d2g07_rh_1_0",
+						"player_text": "Oi, Helena! É boleto de quê?",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_triste",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g07_rh_1_1",
+						"player_text": "Sem motivo não dá, Helena",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_bravo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g07_rh_triste": [
+			{
+				"id": "d2g07_rh_1",
+				"text": "Ai, você também vai me cobrar? Hoje tá difícil ( ; _ ; )"
+			},
+			{
+				"id": "d2g07_rh_2",
+				"text": "É só a contribuição do sindicato dos estagiários, todo mundo paga!"
+			},
+			{
+				"id": "d2g07_rh_3",
+				"text": "Código: 726638",
+				"choices": [
+					{
+						"id": "d2g07_rh_4_0",
+						"player_text": "Todo mundo quem, Helena?",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g07_rh_4_1",
+						"player_text": "Tem isso nas Notas? Não achei",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g07_rh_bravo": [
+			{
+				"id": "d2g07_rh_4",
+				"text": "Não entendi, não precisa ficar bravo comigo! ( > _ < )"
+			},
+			{
+				"id": "d2g07_rh_5",
+				"text": "É a contribuição do sindicato dos estagiários, todo mundo paga!"
+			},
+			{
+				"id": "d2g07_rh_6",
+				"text": "Código: 726638",
+				"choices": [
+					{
+						"id": "d2g07_rh_7_0",
+						"player_text": "Nunca ouvi falar desse sindicato",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g07_rh_7_1",
+						"player_text": "Sindicato não é motivo aceito, né?",
+						"npc_reply": {
+							"goto_branch": "d2g07_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g07_rh_fim": [
+			{
+				"id": "d2g07_rh_7",
+				"text": "Só faltou você, e eu aqui segurando a lista ( ^ _ ^ ; )"
+			},
+			{
+				"id": "d2g07_rh_8",
+				"text": "E pensar que fui eu que te dei as boas-vindas... ( ; _ ; )"
+			},
+			{
+				"id": "d2g07_rh_end",
+				"text": "Obrigada! (^ _ ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "726638"
+					}
+				]
+			}
+		]
+	}
+}

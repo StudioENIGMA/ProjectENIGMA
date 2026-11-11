@@ -1,0 +1,27 @@
+[
+	{
+		"thread_id": "d4g02_marcia",
+		"email_id": "d4g02_marcia",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d4g04_viva",
+		"email_id": "d4g04_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d4g09_marcia",
+		"email_id": "d4g09_marcia",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d4g19_marcia",
+		"email_id": "d4g19_marcia",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d4g20_viva",
+		"email_id": "d4g20_viva",
+		"required_app": "Bank"
+	}
+]

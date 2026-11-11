@@ -111,7 +111,8 @@ func _apply_choice_effects(conversation_id: String, choice: Dictionary) -> void:
 		GameData.reputation_points += rep_points
 
 	var player_text := str(choice.get("player_text", ""))
-	GameData.options_chose[player_text] = true
+	# Keeps the chat it was chosen in, a scam only falls for the answer given in its own chat
+	GameData.options_chose[player_text] = conversation_id
 
 	# If choice has an event_id, do what is expected from it
 	var event_id = choice.get("event_id", null)

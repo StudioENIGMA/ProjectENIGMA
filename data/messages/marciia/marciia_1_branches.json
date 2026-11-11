@@ -5,7 +5,7 @@
 		"scan0_marciia": [
 			{
 				"id": "marciia_purchase0_0",
-				"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas azuis, pf"
+				"text": "oi!!! e so a Marcia do RH, como vai ^^? eu vo ta te pedindo pra comprar umas coisinhas pra empresa tudo bem? pode começar ja indo na zora encomendar 5 camisas sociais azuis, pf"
 			},
 			{
 				"id": "marciia_purchase0_1",
@@ -15,9 +15,9 @@
 						"flag": "purchase",
 						"items": [
 							{
-								"item_id": 33,
+								"item_id": 31,
 								"quantity": 5,
-								"store": "aec"
+								"store": "zora"
 							}
 						]
 					}
@@ -37,7 +37,7 @@
 						"flag": "purchase",
 						"items": [
 							{
-								"item_id": 33,
+								"item_id": 34,
 								"quantity": 5,
 								"store": "aec"
 							}

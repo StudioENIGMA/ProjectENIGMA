@@ -1,0 +1,80 @@
+{
+	"conversation_id": "gerente_px_investment_gd1",
+	"contact_name": "Gerente PX Investment",
+	"verified": true,
+	"account": "@pxinvestment",
+	"branches": {
+		"d1g04_px": [
+			{
+				"id": "d1g04_px_0",
+				"text": "Caro cliente, bom dia!"
+			},
+			{
+				"id": "d1g04_px_1",
+				"text": "O banco PX Investment tem uma oferta muito satisfatória para sua empresa, conforme autorização da diretoria.",
+				"choices": [
+					{
+						"id": "d1g04_px_2_0",
+						"player_text": "Satisfatória em que sentido?",
+						"npc_reply": {
+							"goto_branch": "d1g04_px_sentido",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g04_px_2_1",
+						"player_text": "Bom dia. Pode me passar os dados?",
+						"npc_reply": {
+							"goto_branch": "d1g04_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g04_px_sentido": [
+			{
+				"id": "d1g04_px_2",
+				"text": "No sentido de que a diretoria ficou satisfeita."
+			},
+			{
+				"id": "d1g04_px_3",
+				"text": "Eu mesmo fiquei satisfeito ao comunicar.",
+				"choices": [
+					{
+						"id": "d1g04_px_4_0",
+						"player_text": "Se todo mundo tá feliz, eu também",
+						"npc_reply": {
+							"goto_branch": "d1g04_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g04_px_4_1",
+						"player_text": "Bonito isso. E os dados?",
+						"npc_reply": {
+							"goto_branch": "d1g04_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g04_px_fim": [
+			{
+				"id": "d1g04_px_4",
+				"text": "Investimento da empresa de R$ 15.000,00, pelo Pix: PX-14"
+			},
+			{
+				"id": "d1g04_px_end",
+				"text": "Investimento confirmado! Obrigado pela confiança no PX Investment.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PX-14"
+					}
+				]
+			}
+		]
+	}
+}

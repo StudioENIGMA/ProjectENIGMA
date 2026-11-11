@@ -1,0 +1,118 @@
+{
+	"conversation_id": "gerente_px_investrnent_fd1",
+	"contact_name": "Gerente PX Investrnent",
+	"branches": {
+		"d1g12_px": [
+			{
+				"id": "d1g12_px_0",
+				"text": "Saudações!"
+			},
+			{
+				"id": "d1g12_px_1",
+				"text": "Aqui é o Gerente do PX Investment. Temos uma proposta de investimento autorizada pela sua diretoria."
+			},
+			{
+				"id": "d1g12_px_2",
+				"text": "Investimento da empresa de R$ 30.000,00, somente hoje. Segue o Pix: XP12",
+				"choices": [
+					{
+						"id": "d1g12_px_3_0",
+						"player_text": "Por que somente hoje?",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_hoje",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g12_px_3_1",
+						"player_text": "Seu nome aqui tá escrito diferente",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_nome",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g12_px_3_2",
+						"player_text": "Recebido",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g12_px_hoje": [
+			{
+				"id": "d1g12_px_3",
+				"text": "A janela da oferta se encerra ainda hoje, senhor."
+			},
+			{
+				"id": "d1g12_px_4",
+				"text": "Depois disso, a oportunidade segue para outro cliente. Sua diretoria não ficará contente.",
+				"choices": [
+					{
+						"id": "d1g12_px_5_0",
+						"player_text": "Não precisa ameaçar",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g12_px_5_1",
+						"player_text": "Vou ver isso com calma",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g12_px_nome": [
+			{
+				"id": "d1g12_px_5",
+				"text": "Trata-se de uma atualização do nosso cadastro."
+			},
+			{
+				"id": "d1g12_px_6",
+				"text": "Não recomendo se prender a esse tipo de detalhe quando há valores importantes em jogo.",
+				"choices": [
+					{
+						"id": "d1g12_px_7_0",
+						"player_text": "Pra mim detalhe é importante",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g12_px_7_1",
+						"player_text": "Vou conferir nas notas",
+						"npc_reply": {
+							"goto_branch": "d1g12_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g12_px_fim": [
+			{
+				"id": "d1g12_px_7",
+				"text": "O PX Investment aguarda a sua confirmação. Cordialmente."
+			},
+			{
+				"id": "d1g12_px_end",
+				"text": "Recebemos o seu investimento. O PX Investment agradece!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "XP12"
+					}
+				]
+			}
+		]
+	}
+}

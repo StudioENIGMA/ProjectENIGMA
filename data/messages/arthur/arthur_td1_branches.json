@@ -1,0 +1,314 @@
+{
+	"conversation_id": "arthur_td1",
+	"contact_name": "Arthur",
+	"branches": {
+		"d1t01_arthur": [
+			{
+				"id": "d1t01_arthur_0",
+				"text": "fala estágio, bom?"
+			},
+			{
+				"id": "d1t01_arthur_1",
+				"text": "ops, estagiário* kkkkkk"
+			},
+			{
+				"id": "d1t01_arthur_2",
+				"text": "hoje vc começa a pagar coisa de verdade né? tá nervoso?",
+				"choices": [
+					{
+						"id": "d1t01_arthur_3_0",
+						"player_text": "Um pouco, é dinheiro dos outros",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_nervoso",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t01_arthur_3_1",
+						"player_text": "Nervoso nada, nasci pra isso kkk",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_calmo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t01_arthur_nervoso": [
+			{
+				"id": "d1t01_arthur_3",
+				"text": "relaxa, o dinheiro nem é seu kkkkk"
+			},
+			{
+				"id": "d1t01_arthur_4",
+				"text": "quer começar por um fácil?",
+				"choices": [
+					{
+						"id": "d1t01_arthur_5_0",
+						"player_text": "Quero, o mais fácil que tiver",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t01_arthur_5_1",
+						"player_text": "Manda antes que eu desista",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t01_arthur_calmo": [
+			{
+				"id": "d1t01_arthur_5",
+				"text": "gostei, confiança de quem nunca derrubou servidor kkk"
+			},
+			{
+				"id": "d1t01_arthur_6",
+				"text": "posso te passar um então?",
+				"choices": [
+					{
+						"id": "d1t01_arthur_7_0",
+						"player_text": "Pode vir",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t01_arthur_7_1",
+						"player_text": "Passa que eu resolvo kkk",
+						"npc_reply": {
+							"goto_branch": "d1t01_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t01_arthur_fim": [
+			{
+				"id": "d1t01_arthur_7",
+				"text": "então, paguei do meu bolso os cabos de rede do rack ontem kkk"
+			},
+			{
+				"id": "d1t01_arthur_8",
+				"text": "é Reembolso de funcionário, deu R$ 186,40"
+			},
+			{
+				"id": "d1t01_arthur_9",
+				"text": "te mandando o código do pix: TK147"
+			},
+			{
+				"id": "d1t01_arthur_end",
+				"text": "caiu aqui, valeu tmj",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TK147"
+					}
+				]
+			}
+		],
+		"d1t02_arthur": [
+			{
+				"id": "d1t02_arthur_0",
+				"text": "Eai estagiário"
+			},
+			{
+				"id": "d1t02_arthur_1",
+				"text": "chuta quantos graus tava na sala dos servidores hoje cedo",
+				"choices": [
+					{
+						"id": "d1t02_arthur_2_0",
+						"player_text": "Uns 30?",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_trinta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t02_arthur_2_1",
+						"player_text": "50 kkkk",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_cinquenta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t02_arthur_2_2",
+						"player_text": "Nem sei onde fica essa sala",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_nemsei",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t02_arthur_trinta": [
+			{
+				"id": "d1t02_arthur_2",
+				"text": "38 kkkkkk"
+			},
+			{
+				"id": "d1t02_arthur_3",
+				"text": "dava pra assar pão de queijo em cima do switch",
+				"choices": [
+					{
+						"id": "d1t02_arthur_4_0",
+						"player_text": "E os servidores, sobreviveram?",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t02_arthur_4_1",
+						"player_text": "Guarda um pão de queijo pra mim",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t02_arthur_cinquenta": [
+			{
+				"id": "d1t02_arthur_4",
+				"text": "quase kkkkk deu 38"
+			},
+			{
+				"id": "d1t02_arthur_5",
+				"text": "mas o Lorenz jura que viu a parede suar",
+				"choices": [
+					{
+						"id": "d1t02_arthur_6_0",
+						"player_text": "Coitado do Lorenz kkk",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t02_arthur_6_1",
+						"player_text": "A parede passa bem?",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t02_arthur_nemsei": [
+			{
+				"id": "d1t02_arthur_6",
+				"text": "fundo do corredor, a porta que vive trancada"
+			},
+			{
+				"id": "d1t02_arthur_7",
+				"text": "hoje nem precisava de placa, era só seguir o calor kkkkk",
+				"choices": [
+					{
+						"id": "d1t02_arthur_8_0",
+						"player_text": "Vou passar lá pra conhecer",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t02_arthur_8_1",
+						"player_text": "E já resolveram isso?",
+						"npc_reply": {
+							"goto_branch": "d1t02_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t02_arthur_fim": [
+			{
+				"id": "d1t02_arthur_8",
+				"text": "agora passou, o cara da Friopeças veio arrumar o ar"
+			},
+			{
+				"id": "d1t02_arthur_9",
+				"text": "Serviço de fornecedor, ficou R$ 640,00"
+			},
+			{
+				"id": "d1t02_arthur_10",
+				"text": "código pix: FR162"
+			},
+			{
+				"id": "d1t02_arthur_end",
+				"text": "Pagou? boa, os servidores agradecem kkk tmj",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FR162"
+					}
+				]
+			}
+		],
+		"d1t03_arthur": [
+			{
+				"id": "d1t03_arthur_0",
+				"text": "Fala cara, tô pelo celular"
+			},
+			{
+				"id": "d1t03_arthur_1",
+				"text": "chegou a Fatura de internet da Viva, R$ 389,90"
+			},
+			{
+				"id": "d1t03_arthur_2",
+				"text": "se atrasar o pessoal fica sem wi-fi e sobra pra mim kkkkkkk"
+			},
+			{
+				"id": "d1t03_arthur_3",
+				"text": "boleto 714402",
+				"choices": [
+					{
+						"id": "d1t03_arthur_4_0",
+						"player_text": "714402, anotado. Já vou olhar",
+						"npc_reply": {
+							"goto_branch": "d1t03_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t03_arthur_4_1",
+						"player_text": "Se cair o wi-fi eu digo que foi você kkk",
+						"npc_reply": {
+							"goto_branch": "d1t03_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t03_arthur_fim": [
+			{
+				"id": "d1t03_arthur_4",
+				"text": "pode deixar, entrando em reunião aqui. falou"
+			},
+			{
+				"id": "d1t03_arthur_end",
+				"text": "Valeu tmj, salvou o wi-fi",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "714402"
+					}
+				]
+			}
+		]
+	}
+}

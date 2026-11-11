@@ -1,0 +1,222 @@
+{
+	"conversation_id": "rh_gd3",
+	"contact_name": "RH",
+	"branches": {
+		"d3g04_rh": [
+			{
+				"id": "d3g04_rh_0",
+				"text": "Oi! O Buffet Sabor Feliz confirmou a confraternização do mês \\(*^ o ^*)/"
+			},
+			{
+				"id": "d3g04_rh_1",
+				"text": "Me ajuda a decidir: coxinha ou empada?",
+				"choices": [
+					{
+						"id": "d3g04_rh_2_0",
+						"player_text": "Coxinha, sem discussão",
+						"npc_reply": {
+							"goto_branch": "d3g04_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g04_rh_2_1",
+						"player_text": "Empada! Alguém precisa defender",
+						"npc_reply": {
+							"goto_branch": "d3g04_rh_empada",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g04_rh_empada": [
+			{
+				"id": "d3g04_rh_2",
+				"text": "(o _ o) A Marcia disse a mesma coisa."
+			},
+			{
+				"id": "d3g04_rh_3",
+				"text": "Vou ter que abrir votação.",
+				"choices": [
+					{
+						"id": "d3g04_rh_4_0",
+						"player_text": "Voto de novo se precisar",
+						"npc_reply": {
+							"goto_branch": "d3g04_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g04_rh_4_1",
+						"player_text": "Empada é o que une este país",
+						"npc_reply": {
+							"goto_branch": "d3g04_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g04_rh_fim": [
+			{
+				"id": "d3g04_rh_4",
+				"text": "Anotado ( = ^ w ^ = )"
+			},
+			{
+				"id": "d3g04_rh_5",
+				"text": "O boleto é 731288, de R$ 1.150,00. É Evento da empresa. Pode pagar, por favor? ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d3g04_rh_end",
+				"text": "Pago! Vai ter coxinha (@ ^ _ ^ @)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "731288"
+					}
+				]
+			}
+		],
+		"d3g08_rh": [
+			{
+				"id": "d3g08_rh_0",
+				"text": "Oi! A Jessica comprou os kits de boas-vindas do bolso dela (> _ <)"
+			},
+			{
+				"id": "d3g08_rh_1",
+				"text": "Faz o Pix JM394 de R$ 118,00 pra ela? É Reembolso de funcionário ( = ^ w ^ = )",
+				"choices": [
+					{
+						"id": "d3g08_rh_2_0",
+						"player_text": "Faço! O kit tem brinde?",
+						"npc_reply": {
+							"goto_branch": "d3g08_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g08_rh_2_1",
+						"player_text": "Pode deixar. Sobrou kit pra mim?",
+						"npc_reply": {
+							"goto_branch": "d3g08_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g08_rh_fim": [
+			{
+				"id": "d3g08_rh_2",
+				"text": "Tem caneta e um chaveiro que ninguém sabe abrir. Guardo um pra você (@ ^ _ ^ @)"
+			},
+			{
+				"id": "d3g08_rh_end",
+				"text": "Recebido, obrigada! (^ _ ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JM394"
+					}
+				]
+			}
+		],
+		"d3g14_rh": [
+			{
+				"id": "d3g14_rh_0",
+				"text": "Oi! Tem um boleto pra pagar hoje, pode me ajudar? ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d3g14_rh_1_0",
+						"player_text": "Ajudo! Só me diz do que é",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_tambem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g14_rh_1_1",
+						"player_text": "E o motivo, cadê?",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_carinha",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g14_rh_tambem": [
+			{
+				"id": "d3g14_rh_1",
+				"text": "(o _ o) Você também?"
+			},
+			{
+				"id": "d3g14_rh_2",
+				"text": "Hoje todo mundo resolveu me perguntar coisa.",
+				"choices": [
+					{
+						"id": "d3g14_rh_3_0",
+						"player_text": "Só preciso disso, juro",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g14_rh_3_1",
+						"player_text": "Tá difícil o dia aí?",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g14_rh_carinha": [
+			{
+				"id": "d3g14_rh_3",
+				"text": "( ; _ ; ) Eu te mando carinha todo dia e é assim que você me trata?",
+				"choices": [
+					{
+						"id": "d3g14_rh_4_0",
+						"player_text": "As carinhas não pagam boleto",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g14_rh_4_1",
+						"player_text": "Desculpa, mas preciso anotar",
+						"npc_reply": {
+							"goto_branch": "d3g14_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g14_rh_fim": [
+			{
+				"id": "d3g14_rh_4",
+				"text": "A Helena mandou e pronto, não posso ficar explicando!"
+			},
+			{
+				"id": "d3g14_rh_5",
+				"text": "É o 737189 da Gráfica Pontual, R$ 690,00"
+			},
+			{
+				"id": "d3g14_rh_end",
+				"text": "Pago, obrigada! (^ _ ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "737189"
+					}
+				]
+			}
+		]
+	}
+}

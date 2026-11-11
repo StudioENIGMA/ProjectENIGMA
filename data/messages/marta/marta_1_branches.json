@@ -60,7 +60,7 @@
 							{
 								"item_id": 36,
 								"quantity": 6,
-								"store": "emilia_bolos"
+								"store": "aec"
 							}
 						] 
 					}
@@ -79,6 +79,22 @@
 			{
 				"id": "marta_purchase2_3",
 				"text": "Pooooor favorr. "
+			},
+			{
+				"id": "marta_purchase2_4",
+				"text": "Os bolos foram encomendados! Muuuito obrigada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 27,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
 			}
 		],
 		"task3_marta": [

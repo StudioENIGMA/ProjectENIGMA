@@ -8,5 +8,30 @@
 		"conversation_id": "carla_1",
 		"branch": "d3_hello",
 		"required_app": "MessagesHome"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task0_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task1_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task2_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task3_marcao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcão_1",
+		"branch": "task4_marcao",
+		"required_app": "browser"
 	}
 ]

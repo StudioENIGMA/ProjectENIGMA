@@ -127,7 +127,11 @@ var cart_enum_to_shop_enum = {
 var bank_balance: float = 150000
 
 var completed_payments = []
+## Orders paid since the last clock tick, {store: {item_id: quantity}}, then handed out to the
+## events asking for them by the EventsDirector
 var purchased_items = {}
+## Answers picked and not yet taken by an event, {player_text: conversation_id it was picked in,
+## "" for any chat}
 var options_chose = {}
 
 var random_events_history = []

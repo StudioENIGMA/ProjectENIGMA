@@ -1,0 +1,174 @@
+{
+	"conversation_id": "rh_td2",
+	"contact_name": "RH",
+	"branches": {
+		"d2t11_rh": [
+			{
+				"id": "d2t11_rh_0",
+				"text": "Oi! (^ _ ^) Passou pela recepção hoje? Tem flores novas!",
+				"choices": [
+					{
+						"id": "d2t11_rh_1_0",
+						"player_text": "Vi sim, lindas! Quem escolheu?",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_lindas",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t11_rh_1_1",
+						"player_text": "Achei que eram de plástico kkk",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_plastico",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t11_rh_lindas": [
+			{
+				"id": "d2t11_rh_1",
+				"text": "O Tiago, da portaria! Tem bom gosto, né? ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d2t11_rh_2",
+				"text": "Consegue mandar R$ 94,90 para ele, por Pix?",
+				"choices": [
+					{
+						"id": "d2t11_rh_3_0",
+						"player_text": "Consigo, Helena! E qual o motivo?",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t11_rh_3_1",
+						"player_text": "Pix pelas flores? Me diz o motivo certinho",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t11_rh_plastico": [
+			{
+				"id": "d2t11_rh_3",
+				"text": "Não deixa o Tiago, da portaria, ouvir isso! ( > _ < )"
+			},
+			{
+				"id": "d2t11_rh_4",
+				"text": "Para pagar o pecado, consegue mandar R$ 94,90 para ele, por Pix?",
+				"choices": [
+					{
+						"id": "d2t11_rh_5_0",
+						"player_text": "Aceito a pena kkk Mas com que motivo?",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t11_rh_5_1",
+						"player_text": "Sem motivo nem pecador paga. Pra que é?",
+						"npc_reply": {
+							"goto_branch": "d2t11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t11_rh_fim": [
+			{
+				"id": "d2t11_rh_5",
+				"text": "Ih, esqueci! ( ^ _ ^ ; )"
+			},
+			{
+				"id": "d2t11_rh_6",
+				"text": "É reembolso de funcionário: ele comprou as flores da recepção do próprio bolso."
+			},
+			{
+				"id": "d2t11_rh_7",
+				"text": "Código: TG251"
+			},
+			{
+				"id": "d2t11_rh_end",
+				"text": "Prontinho, ele agradeceu! \\(*^ o ^*)/",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TG251"
+					}
+				]
+			}
+		],
+		"d2t16_rh": [
+			{
+				"id": "d2t16_rh_0",
+				"text": "Oi! \\(*^ o ^*)/"
+			},
+			{
+				"id": "d2t16_rh_1",
+				"text": "Hoje tem os aniversariantes do mês! Você é time bolo ou time salgado?",
+				"choices": [
+					{
+						"id": "d2t16_rh_2_0",
+						"player_text": "Time bolo, sempre",
+						"npc_reply": {
+							"goto_branch": "d2t16_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t16_rh_2_1",
+						"player_text": "Time salgado, me desculpa",
+						"npc_reply": {
+							"goto_branch": "d2t16_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t16_rh_fim": [
+			{
+				"id": "d2t16_rh_2",
+				"text": "Pois hoje é só doce e ninguém me segura ( > ^ _ ^ )>",
+				"event_id": "d2t16_rh"
+			},
+			{
+				"id": "d2t16_rh_3",
+				"text": "É evento da empresa, então pode comprar na Emília Bolos, por favor:"
+			},
+			{
+				"id": "d2t16_rh_4",
+				"text": "2 bolos de chocolate e 1 tiramisu ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d2t16_rh_end",
+				"text": "Chegou tudo, obrigada! (@ ^ _ ^ @)",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 27,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 26,
+								"quantity": 1,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

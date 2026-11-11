@@ -1,0 +1,588 @@
+{
+	"conversation_id": "guilherme_td4",
+	"contact_name": "Guilherme",
+	"branches": {
+		"d4t01_guilherme": [
+			{
+				"id": "d4t01_guilherme_0",
+				"text": "Estagiário, boa jornada!"
+			},
+			{
+				"id": "d4t01_guilherme_1",
+				"text": "Os crachás novos chegaram da Gráfica Ponto Certo."
+			},
+			{
+				"id": "d4t01_guilherme_2",
+				"text": "Saí na foto de olhos fechados. Você acha que alguém vai reparar?",
+				"choices": [
+					{
+						"id": "d4t01_guilherme_3_0",
+						"player_text": "Vão achar que é concentração",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_conc",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t01_guilherme_3_1",
+						"player_text": "Todo mundo vai reparar, foi mal",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_sincero",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t01_guilherme_conc": [
+			{
+				"id": "d4t01_guilherme_3",
+				"text": "Concentração. Gostei, cara. Vou usar essa."
+			},
+			{
+				"id": "d4t01_guilherme_4",
+				"text": "Agora, pode me ajudar com a conta da gráfica?",
+				"choices": [
+					{
+						"id": "d4t01_guilherme_5_0",
+						"player_text": "Posso, manda",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t01_guilherme_5_1",
+						"player_text": "Ajudo, de olhos abertos",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t01_guilherme_sincero": [
+			{
+				"id": "d4t01_guilherme_5",
+				"text": "A sinceridade é um valor da empresa. Infelizmente."
+			},
+			{
+				"id": "d4t01_guilherme_6",
+				"text": "Já que estamos sendo sinceros, a gráfica quer receber. Pode me ajudar?",
+				"choices": [
+					{
+						"id": "d4t01_guilherme_7_0",
+						"player_text": "Claro, desculpa aí",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t01_guilherme_7_1",
+						"player_text": "Posso. O meu crachá saiu bom, pelo menos?",
+						"npc_reply": {
+							"goto_branch": "d4t01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t01_guilherme_fim": [
+			{
+				"id": "d4t01_guilherme_7",
+				"text": "A Simone me orientou a pedir sua ajuda."
+			},
+			{
+				"id": "d4t01_guilherme_8",
+				"text": "É Serviço de fornecedor, R$ 1.284,50. Segue o código do boleto: 741836."
+			},
+			{
+				"id": "d4t01_guilherme_end",
+				"text": "Valeu cara, os crachás já estão liberados. Os olhos seguem fechados.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "741836"
+					}
+				]
+			}
+		],
+		"d4t02_guilherme": [
+			{
+				"id": "d4t02_guilherme_0",
+				"text": "Boa jornada, estagiário."
+			},
+			{
+				"id": "d4t02_guilherme_1",
+				"text": "Uma dúvida antes de tudo: você sabe usar furadeira?",
+				"choices": [
+					{
+						"id": "d4t02_guilherme_2_0",
+						"player_text": "Sei sim, meu pai me ensinou",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_sei",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t02_guilherme_2_1",
+						"player_text": "Só de ver vídeo na internet",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_video",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t02_guilherme_sei": [
+			{
+				"id": "d4t02_guilherme_2",
+				"text": "Ótimo. Não vou te chamar, mas é bom saber que existe alguém."
+			},
+			{
+				"id": "d4t02_guilherme_3",
+				"text": "Por favor, compre 3 furadeiras para mim.",
+				"choices": [
+					{
+						"id": "d4t02_guilherme_4_0",
+						"player_text": "Compro! Mas pra que são? Preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t02_guilherme_4_1",
+						"player_text": "3 de uma vez? Me diz o motivo da lista",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t02_guilherme_video": [
+			{
+				"id": "d4t02_guilherme_4",
+				"text": "Igual ao pessoal daqui, então. Por isso eu preciso de mais de uma."
+			},
+			{
+				"id": "d4t02_guilherme_5",
+				"text": "Por favor, compre 3 furadeiras para mim.",
+				"choices": [
+					{
+						"id": "d4t02_guilherme_6_0",
+						"player_text": "Vão furar o quê? Sem o motivo não fecho a compra",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t02_guilherme_6_1",
+						"player_text": "Fechado, só falta o motivo pra eu lançar",
+						"npc_reply": {
+							"goto_branch": "d4t02_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t02_guilherme_fim": [
+			{
+				"id": "d4t02_guilherme_6",
+				"text": "Verdade, cara. É Compra de material, a equipe vai fixar as prateleiras novas do almoxarifado.",
+				"event_id": "d4t02_guilherme"
+			},
+			{
+				"id": "d4t02_guilherme_7",
+				"text": "Pode comprar as 3 furadeiras na Amazonia."
+			},
+			{
+				"id": "d4t02_guilherme_end",
+				"text": "Valeu estagiário, chegaram inteiras.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 3,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d4t03_guilherme": [
+			{
+				"id": "d4t03_guilherme_0",
+				"text": "Oi estagiário, um instante da sua atenção."
+			},
+			{
+				"id": "d4t03_guilherme_1",
+				"text": "Estamos com uma carga muito alta aqui em Compras."
+			},
+			{
+				"id": "d4t03_guilherme_2",
+				"text": "Pode me ajudar com o pagamento da transportadora? Um minuto, o telefone está tocando.",
+				"choices": [
+					{
+						"id": "d4t03_guilherme_3_0",
+						"player_text": "Posso, mas me passa o motivo e o código antes",
+						"npc_reply": {
+							"goto_branch": "d4t03_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t03_guilherme_3_1",
+						"player_text": "Tá, fico esperando aqui",
+						"npc_reply": {
+							"goto_branch": "d4t03_guilherme_espera",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t03_guilherme_espera": [
+			{
+				"id": "d4t03_guilherme_3",
+				"text": "Voltei. Era o motorista, parado no prédio errado."
+			},
+			{
+				"id": "d4t03_guilherme_4",
+				"text": "Pela terceira vez este mês. Onde paramos?",
+				"choices": [
+					{
+						"id": "d4t03_guilherme_5_0",
+						"player_text": "Paramos em você me dizer o motivo e o código :)",
+						"npc_reply": {
+							"goto_branch": "d4t03_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t03_guilherme_5_1",
+						"player_text": "No pagamento. Qual motivo eu coloco?",
+						"npc_reply": {
+							"goto_branch": "d4t03_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t03_guilherme_fim": [
+			{
+				"id": "d4t03_guilherme_5",
+				"text": "Pois é, esqueci de falar. É Serviço de fornecedor, o frete das prateleiras com a Transportadora Rota Sete."
+			},
+			{
+				"id": "d4t03_guilherme_6",
+				"text": "São R$ 2.310,00, código do boleto: 743519."
+			},
+			{
+				"id": "d4t03_guilherme_end",
+				"text": "Pagamento feito, obrigado estagiário.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "743519"
+					}
+				]
+			}
+		],
+		"d4t04_guilherme": [
+			{
+				"id": "d4t04_guilherme_0",
+				"text": "Olá, a Simone pediu para solicitar sua ajuda."
+			},
+			{
+				"id": "d4t04_guilherme_1",
+				"text": "Você passou pelo corredor hoje? Notou alguma diferença?",
+				"choices": [
+					{
+						"id": "d4t04_guilherme_2_0",
+						"player_text": "Tá seco! Consertaram o bebedouro?",
+						"npc_reply": {
+							"goto_branch": "d4t04_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t04_guilherme_2_1",
+						"player_text": "Só notei que parou de pingar na minha cabeça",
+						"npc_reply": {
+							"goto_branch": "d4t04_guilherme_pingo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t04_guilherme_pingo": [
+			{
+				"id": "d4t04_guilherme_2",
+				"text": "Na de todos nós, cara. Foi um dia histórico para Compras."
+			},
+			{
+				"id": "d4t04_guilherme_3",
+				"text": "Quer saber quem foi o herói?",
+				"choices": [
+					{
+						"id": "d4t04_guilherme_4_0",
+						"player_text": "Quero, quem foi?",
+						"npc_reply": {
+							"goto_branch": "d4t04_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t04_guilherme_4_1",
+						"player_text": "Deixa eu adivinhar: não foi você",
+						"npc_reply": {
+							"goto_branch": "d4t04_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t04_guilherme_fim": [
+			{
+				"id": "d4t04_guilherme_4",
+				"text": "O Paulo Henrique comprou do bolso uma peça para o bebedouro e trocou no horário de almoço."
+			},
+			{
+				"id": "d4t04_guilherme_5",
+				"text": "É Reembolso de funcionário, R$ 186,40. Pix dele: GR427."
+			},
+			{
+				"id": "d4t04_guilherme_end",
+				"text": "Valeu cara, o Paulo agradeceu. Agora ele quer uma plaquinha no bebedouro.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GR427"
+					}
+				]
+			}
+		],
+		"d4t05_guilherme": [
+			{
+				"id": "d4t05_guilherme_0",
+				"text": "Olá, tudo certo por aí, estagiário?"
+			},
+			{
+				"id": "d4t05_guilherme_1",
+				"text": "Estou responsável por organizar um encontro importante com um cliente."
+			},
+			{
+				"id": "d4t05_guilherme_2",
+				"text": "Dúvida séria: vou de gravata ou sem gravata?",
+				"choices": [
+					{
+						"id": "d4t05_guilherme_3_0",
+						"player_text": "Com gravata. Cliente gosta de respeito",
+						"npc_reply": {
+							"goto_branch": "d4t05_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t05_guilherme_3_1",
+						"player_text": "Sem, pra parecer empresa moderna",
+						"npc_reply": {
+							"goto_branch": "d4t05_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t05_guilherme_3_2",
+						"player_text": "Vai de gravata e leva bolo, ninguém repara",
+						"npc_reply": {
+							"goto_branch": "d4t05_guilherme_bolo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t05_guilherme_bolo": [
+			{
+				"id": "d4t05_guilherme_3",
+				"text": "Cara, você tem futuro em Compras."
+			},
+			{
+				"id": "d4t05_guilherme_4",
+				"text": "Bolo é justamente o assunto. Posso te pedir um favor?",
+				"choices": [
+					{
+						"id": "d4t05_guilherme_5_0",
+						"player_text": "Pode, é só falar",
+						"npc_reply": {
+							"goto_branch": "d4t05_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t05_guilherme_5_1",
+						"player_text": "Só se sobrar um pedaço pra mim",
+						"npc_reply": {
+							"goto_branch": "d4t05_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t05_guilherme_fim": [
+			{
+				"id": "d4t05_guilherme_5",
+				"text": "Anotado. Agora o que interessa: é Evento da empresa.",
+				"event_id": "d4t05_guilherme"
+			},
+			{
+				"id": "d4t05_guilherme_6",
+				"text": "Preciso de 2 bolos decorados da Emília Bolos. Você poderia fazer a compra para mim? Por favor."
+			},
+			{
+				"id": "d4t05_guilherme_end",
+				"text": "Valeu cara, o cliente até pediu o contato da confeitaria.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 25,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d4t06_guilherme": [
+			{
+				"id": "d4t06_guilherme_0",
+				"text": "Oi estagiário, como anda o seu nível de energia?"
+			},
+			{
+				"id": "d4t06_guilherme_1",
+				"text": "O café da copa acabou e o pessoal já está ficando estranho."
+			},
+			{
+				"id": "d4t06_guilherme_2",
+				"text": "O Paulo acabou de dar bom dia para a impressora.",
+				"choices": [
+					{
+						"id": "d4t06_guilherme_3_0",
+						"player_text": "kkkk e ela respondeu?",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_resp",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t06_guilherme_3_1",
+						"player_text": "Eu senti. Tô lendo o mesmo e-mail faz 20 minutos",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_email",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t06_guilherme_resp": [
+			{
+				"id": "d4t06_guilherme_3",
+				"text": "Piscou uma luz laranja. Ele achou simpático."
+			},
+			{
+				"id": "d4t06_guilherme_4",
+				"text": "Consegue fazer um Pix para mim, antes que piore?",
+				"choices": [
+					{
+						"id": "d4t06_guilherme_5_0",
+						"player_text": "Consigo, qual o motivo desse Pix?",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t06_guilherme_5_1",
+						"player_text": "Salvo a empresa, mas cadê o motivo e o código?",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t06_guilherme_email": [
+			{
+				"id": "d4t06_guilherme_5",
+				"text": "Então você entende a gravidade, cara."
+			},
+			{
+				"id": "d4t06_guilherme_6",
+				"text": "Consegue fazer um Pix para mim?",
+				"choices": [
+					{
+						"id": "d4t06_guilherme_7_0",
+						"player_text": "Pelo café eu faço. Motivo da lista qual é?",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t06_guilherme_7_1",
+						"player_text": "Faço, só me passa o código e o motivo",
+						"npc_reply": {
+							"goto_branch": "d4t06_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t06_guilherme_fim": [
+			{
+				"id": "d4t06_guilherme_7",
+				"text": "Foi mal, cara, falei tudo pela metade. Sem cafeína dá nisso."
+			},
+			{
+				"id": "d4t06_guilherme_8",
+				"text": "É Compra de material, o fardo de café do fornecedor Café Serra Azul."
+			},
+			{
+				"id": "d4t06_guilherme_9",
+				"text": "R$ 412,00, código LT441."
+			},
+			{
+				"id": "d4t06_guilherme_end",
+				"text": "Valeu estagiário, salvou a tarde de todo mundo. O Paulo já parou de falar com a impressora.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "LT441"
+					}
+				]
+			}
+		]
+	}
+}

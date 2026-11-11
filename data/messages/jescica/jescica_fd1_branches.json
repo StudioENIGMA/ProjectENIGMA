@@ -1,0 +1,118 @@
+{
+	"conversation_id": "jescica_fd1",
+	"contact_name": "Jescica",
+	"branches": {
+		"d1g10_jescica": [
+			{
+				"id": "d1g10_jescica_0",
+				"text": "Oi, tudo bem com você?"
+			},
+			{
+				"id": "d1g10_jescica_1",
+				"text": "A menina nova da recepção pagou a passagem do treinamento e ainda não recebeu :("
+			},
+			{
+				"id": "d1g10_jescica_2",
+				"text": "É Reembolso de funcionário, R$ 124,80. Pix: vt163",
+				"choices": [
+					{
+						"id": "d1g10_jescica_3_0",
+						"player_text": "Esse pix tá em minúscula, Jessica",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_minuscula",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g10_jescica_3_1",
+						"player_text": "Quem é essa menina?",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_quem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g10_jescica_3_2",
+						"player_text": "Pode deixar",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g10_jescica_minuscula": [
+			{
+				"id": "d1g10_jescica_3",
+				"text": "Ai, não sou boa com essas coisas kkk, foi o que ela me passou"
+			},
+			{
+				"id": "d1g10_jescica_4",
+				"text": "Você vai deixar a coitada sem a passagem por causa de uma letrinha? :(",
+				"choices": [
+					{
+						"id": "d1g10_jescica_5_0",
+						"player_text": "Não é isso, só vou conferir",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g10_jescica_5_1",
+						"player_text": "Ninguém falou em deixar sem",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g10_jescica_quem": [
+			{
+				"id": "d1g10_jescica_5",
+				"text": "A Larissa! Começou semana passada, você ainda não viu? :)"
+			},
+			{
+				"id": "d1g10_jescica_6",
+				"text": "Ela é bem quietinha, nem teve coragem de cobrar",
+				"choices": [
+					{
+						"id": "d1g10_jescica_7_0",
+						"player_text": "Vou falar oi pra ela",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g10_jescica_7_1",
+						"player_text": "Vou olhar isso aqui antes",
+						"npc_reply": {
+							"goto_branch": "d1g10_jescica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g10_jescica_fim": [
+			{
+				"id": "d1g10_jescica_7",
+				"text": "Você é um amor, obrigada :)"
+			},
+			{
+				"id": "d1g10_jescica_end",
+				"text": "Muito obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "vt163"
+					}
+				]
+			}
+		]
+	}
+}

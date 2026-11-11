@@ -1,0 +1,106 @@
+{
+	"conversation_id": "finaceiro_fd4",
+	"contact_name": "Finaceiro",
+	"branches": {
+		"d4g18_finaceiro": [
+			{
+				"id": "d4g18_finaceiro_0",
+				"text": "Bom dia! Sentiu o cheiro de eucalipto no corredor?",
+				"choices": [
+					{
+						"id": "d4g18_finaceiro_1_0",
+						"player_text": "Senti, parece hotel",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_hotel",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g18_finaceiro_1_1",
+						"player_text": "Senti, tô com dor de cabeça",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_dor",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g18_finaceiro_hotel": [
+			{
+				"id": "d4g18_finaceiro_1",
+				"text": "Um hotel com boletos, sim."
+			},
+			{
+				"id": "d4g18_finaceiro_2",
+				"text": "Falando nisso, tenho um para você.",
+				"choices": [
+					{
+						"id": "d4g18_finaceiro_3_0",
+						"player_text": "Pode mandar",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g18_finaceiro_3_1",
+						"player_text": "Tem check-out?",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g18_finaceiro_dor": [
+			{
+				"id": "d4g18_finaceiro_3",
+				"text": "Procure a água. Ela ainda é de graça."
+			},
+			{
+				"id": "d4g18_finaceiro_4",
+				"text": "Antes disso, um boleto para você.",
+				"choices": [
+					{
+						"id": "d4g18_finaceiro_5_0",
+						"player_text": "Faço sim",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g18_finaceiro_5_1",
+						"player_text": "Com dor e tudo, manda",
+						"npc_reply": {
+							"goto_branch": "d4g18_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g18_finaceiro_fim": [
+			{
+				"id": "d4g18_finaceiro_5",
+				"text": "A Limpa Tudo entregou os produtos de limpeza. É Compra de material, R$ 318,00."
+			},
+			{
+				"id": "d4g18_finaceiro_6",
+				"text": "Pode quitar o boleto, por favor: código 747640."
+			},
+			{
+				"id": "d4g18_finaceiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "747640"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,258 @@
+{
+	"conversation_id": "marta_gd6",
+	"contact_name": "Marta",
+	"branches": {
+		"d6g04_marta": [
+			{
+				"id": "d6g04_marta_0",
+				"text": "Olá, novo companheiro!"
+			},
+			{
+				"id": "d6g04_marta_1",
+				"text": "A Gráfica Pontual imprimiu os folders…"
+			},
+			{
+				"id": "d6g04_marta_2",
+				"text": "Serviço de fornecedor, R$ 320,00."
+			},
+			{
+				"id": "d6g04_marta_3",
+				"text": "O código é GP639. Pooor favorr.",
+				"choices": [
+					{
+						"id": "d6g04_marta_4_0",
+						"player_text": "Repetindo: GP639, R$ 320,00, né?",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_sim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g04_marta_4_1",
+						"player_text": "Posso ver um folder?",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_folder",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g04_marta_sim": [
+			{
+				"id": "d6g04_marta_4",
+				"text": "Issoooo!"
+			},
+			{
+				"id": "d6g04_marta_5",
+				"text": "Amei que você repete… parece o moço do drive-thru.",
+				"choices": [
+					{
+						"id": "d6g04_marta_6_0",
+						"player_text": "Vai querer batata com isso?",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g04_marta_6_1",
+						"player_text": "Mais alguma coisa, senhora?",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g04_marta_folder": [
+			{
+				"id": "d6g04_marta_6",
+				"text": "Claro! Só não olha a foto do Chefinho…"
+			},
+			{
+				"id": "d6g04_marta_7",
+				"text": "Saiu de olho fechado em todos.",
+				"choices": [
+					{
+						"id": "d6g04_marta_8_0",
+						"player_text": "Parece mais descansado assim",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g04_marta_8_1",
+						"player_text": "Posso guardar um de recordação?",
+						"npc_reply": {
+							"goto_branch": "d6g04_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g04_marta_fim": [
+			{
+				"id": "d6g04_marta_8",
+				"text": "Aiii, adorei você."
+			},
+			{
+				"id": "d6g04_marta_end",
+				"text": "Muuuito obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GP639"
+					}
+				]
+			}
+		],
+		"d6g10_marta": [
+			{
+				"id": "d6g10_marta_0",
+				"text": "Olaaá, novo companheiro!"
+			},
+			{
+				"id": "d6g10_marta_1",
+				"text": "Poderia pagar um boleto da Forte Serviços…"
+			},
+			{
+				"id": "d6g10_marta_2",
+				"text": "Por favorrrrr.",
+				"choices": [
+					{
+						"id": "d6g10_marta_3_0",
+						"player_text": "Claro, mas qual o motivo do boleto?",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g10_marta_3_1",
+						"player_text": "Forte Serviços? É referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g10_marta_r": [
+			{
+				"id": "d6g10_marta_3",
+				"text": "ai novo companheiro… pra que tanta pergunta?"
+			},
+			{
+				"id": "d6g10_marta_4",
+				"text": "É só uma taxinha…"
+			},
+			{
+				"id": "d6g10_marta_5",
+				"text": "Achei que a gente era amigo…",
+				"choices": [
+					{
+						"id": "d6g10_marta_6_0",
+						"player_text": "Somos, mas amigo também pergunta",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_amigo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g10_marta_6_1",
+						"player_text": "Taxinha de quê, Marta?",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_taxa",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g10_marta_6_2",
+						"player_text": "Sem motivo válido eu travo aqui",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g10_marta_amigo": [
+			{
+				"id": "d6g10_marta_6",
+				"text": "Eu te dei docinho…"
+			},
+			{
+				"id": "d6g10_marta_7",
+				"text": "E te chamei de companheiro antes de todo mundo…",
+				"choices": [
+					{
+						"id": "d6g10_marta_8_0",
+						"player_text": "Tá me chantageando com docinho?",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g10_marta_8_1",
+						"player_text": "Foi um docinho só, Marta",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g10_marta_taxa": [
+			{
+				"id": "d6g10_marta_8",
+				"text": "Essas coisinhas de papel, sabe?"
+			},
+			{
+				"id": "d6g10_marta_9",
+				"text": "Vou ficar tão tristinha se isso atrasar…",
+				"choices": [
+					{
+						"id": "d6g10_marta_10_0",
+						"player_text": "Não me olha assim pelo celular",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g10_marta_10_1",
+						"player_text": "Papel de quê? Ainda não disse",
+						"npc_reply": {
+							"goto_branch": "d6g10_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g10_marta_fim": [
+			{
+				"id": "d6g10_marta_10",
+				"text": "R$ 1.085,00, código 760205. Por favorrrrr."
+			},
+			{
+				"id": "d6g10_marta_end",
+				"text": "Muuuito obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "760205"
+					}
+				]
+			}
+		]
+	}
+}

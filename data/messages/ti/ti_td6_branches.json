@@ -1,0 +1,233 @@
+{
+	"conversation_id": "ti_td6",
+	"contact_name": "TI",
+	"branches": {
+		"d6t21_ti": [
+			{
+				"id": "d6t21_ti_0",
+				"text": "blz estagio?"
+			},
+			{
+				"id": "d6t21_ti_1",
+				"text": "preciso de um negocio da loja, consegue pegar pra mim?",
+				"choices": [
+					{
+						"id": "d6t21_ti_2_0",
+						"player_text": "Consigo, mas é pra quê?",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t21_ti_2_1",
+						"player_text": "Negócio de quê? Preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t21_ti_r": [
+			{
+				"id": "d6t21_ti_2",
+				"text": "foi mal kkkk, eh Compra de material"
+			},
+			{
+				"id": "d6t21_ti_3",
+				"text": "1 furadeira na Amazonia, pra passar os cabos de rede da sala nova"
+			},
+			{
+				"id": "d6t21_ti_4",
+				"text": "a ultima o Artur queimou",
+				"choices": [
+					{
+						"id": "d6t21_ti_5_0",
+						"player_text": "Queimou como?",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_queimou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t21_ti_5_1",
+						"player_text": "Anotado. Entrego na sala do TI?",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t21_ti_queimou": [
+			{
+				"id": "d6t21_ti_5",
+				"text": "tentou mexer tinta com ela"
+			},
+			{
+				"id": "d6t21_ti_6",
+				"text": "a sala nem ia ser pintada kkkkk",
+				"choices": [
+					{
+						"id": "d6t21_ti_7_0",
+						"player_text": "Tadinho do Artur kkk",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t21_ti_7_1",
+						"player_text": "Escondo a nova onde?",
+						"npc_reply": {
+							"goto_branch": "d6t21_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t21_ti_fim": [
+			{
+				"id": "d6t21_ti_7",
+				"text": "qnd chegar me chama antes q ele veja",
+				"event_id": "d6t21_ti"
+			},
+			{
+				"id": "d6t21_ti_end",
+				"text": "chegou, voa mlk. ja escondi do Artur",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6t22_ti": [
+			{
+				"id": "d6t22_ti_0",
+				"text": "ô estagio, lorenz aqui"
+			},
+			{
+				"id": "d6t22_ti_1",
+				"text": "venceu o backup da Nuvem Forte"
+			},
+			{
+				"id": "d6t22_ti_2",
+				"text": "pera",
+				"choices": [
+					{
+						"id": "d6t22_ti_3_0",
+						"player_text": "Tô esperando",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_volta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t22_ti_3_1",
+						"player_text": "Pera o quê? Tudo bem aí?",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_plugou",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t22_ti_volta": [
+			{
+				"id": "d6t22_ti_3",
+				"text": "voltei, foi mal"
+			},
+			{
+				"id": "d6t22_ti_4",
+				"text": "a impressora do 3 andar travou"
+			},
+			{
+				"id": "d6t22_ti_5",
+				"text": "a Marcia resolveu na base do tapa",
+				"choices": [
+					{
+						"id": "d6t22_ti_6_0",
+						"player_text": "E funcionou?",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t22_ti_6_1",
+						"player_text": "Isso tá no manual do TI?",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t22_ti_plugou": [
+			{
+				"id": "d6t22_ti_6",
+				"text": "oi voltei kkk"
+			},
+			{
+				"id": "d6t22_ti_7",
+				"text": "o chefinho tentou plugar o carregador na porta de rede",
+				"choices": [
+					{
+						"id": "d6t22_ti_8_0",
+						"player_text": "Caiu a rede toda?",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t22_ti_8_1",
+						"player_text": "Ele sabe que é o chefe disso tudo?",
+						"npc_reply": {
+							"goto_branch": "d6t22_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t22_ti_fim": [
+			{
+				"id": "d6t22_ti_8",
+				"text": "entao, o backup"
+			},
+			{
+				"id": "d6t22_ti_9",
+				"text": "Serviço de fornecedor, R$ 918,00"
+			},
+			{
+				"id": "d6t22_ti_10",
+				"text": "boleto 760107 da Nuvem Forte, paga la pra mim"
+			},
+			{
+				"id": "d6t22_ti_end",
+				"text": "suave, valeu",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "760107"
+					}
+				]
+			}
+		]
+	}
+}

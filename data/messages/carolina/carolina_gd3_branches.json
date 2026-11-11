@@ -1,0 +1,238 @@
+{
+	"conversation_id": "carolina_gd3",
+	"contact_name": "Carolina",
+	"branches": {
+		"d3g01_carolina": [
+			{
+				"id": "d3g01_carolina_0",
+				"text": "Oi estagiário, os HDs novos chegaram e o Lorenz já tá fazendo carinho neles hahaha",
+				"choices": [
+					{
+						"id": "d3g01_carolina_1_0",
+						"player_text": "Ele deu nome pra eles já?",
+						"npc_reply": {
+							"goto_branch": "d3g01_carolina_nome",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g01_carolina_1_1",
+						"player_text": "Hahaha, e o que precisa de mim?",
+						"npc_reply": {
+							"goto_branch": "d3g01_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g01_carolina_nome": [
+			{
+				"id": "d3g01_carolina_1",
+				"text": "deu. Thor e Loki hahaha"
+			},
+			{
+				"id": "d3g01_carolina_2",
+				"text": "o Loki já deu erro, ele disse q é personalidade",
+				"choices": [
+					{
+						"id": "d3g01_carolina_3_0",
+						"player_text": "Clássico do Loki",
+						"npc_reply": {
+							"goto_branch": "d3g01_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g01_carolina_3_1",
+						"player_text": "Preciso me preocupar com o Lorenz?",
+						"npc_reply": {
+							"goto_branch": "d3g01_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g01_carolina_fim": [
+			{
+				"id": "d3g01_carolina_3",
+				"text": "o boleto da Disco Sul é 733902, R$ 640,00. Compra de material, paga pra mim?"
+			},
+			{
+				"id": "d3g01_carolina_end",
+				"text": "Obgdaa!!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "733902"
+					}
+				]
+			}
+		],
+		"d3g09_carolina": [
+			{
+				"id": "d3g09_carolina_0",
+				"text": "Oii, a Fix Tech arrumou o projetor da sala grande, agr ele n fica mais verde hahaha",
+				"choices": [
+					{
+						"id": "d3g09_carolina_1_0",
+						"player_text": "Que pena, o chefe de verde era bonito",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_pena",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g09_carolina_1_1",
+						"player_text": "Verde de que jeito?",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_jeito",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g09_carolina_pena": [
+			{
+				"id": "d3g09_carolina_1",
+				"text": "ele achou q era doença, foi até no médico hahaha",
+				"choices": [
+					{
+						"id": "d3g09_carolina_2_0",
+						"player_text": "E o que o médico falou?",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g09_carolina_2_1",
+						"player_text": "Coitado do chefe kkk",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g09_carolina_jeito": [
+			{
+				"id": "d3g09_carolina_2",
+				"text": "verde shrek. o gráfico de vendas parecia um pântano hahaha",
+				"choices": [
+					{
+						"id": "d3g09_carolina_3_0",
+						"player_text": "Queria ter visto isso",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g09_carolina_3_1",
+						"player_text": "Vendas no pântano, faz sentido",
+						"npc_reply": {
+							"goto_branch": "d3g09_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g09_carolina_fim": [
+			{
+				"id": "d3g09_carolina_3",
+				"text": "enfim, faz o pix FX3107 pra mim? R$ 320,00, Serviço de fornecedor"
+			},
+			{
+				"id": "d3g09_carolina_end",
+				"text": "Obgdaa!!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FX3107"
+					}
+				]
+			}
+		],
+		"d3g10_carolina": [
+			{
+				"id": "d3g10_carolina_0",
+				"text": "Oi estagiário, paga um boleto pra mim? chefe falou pra eu pedir pra vc hahaha",
+				"choices": [
+					{
+						"id": "d3g10_carolina_1_0",
+						"player_text": "Tá faltando o motivo aí",
+						"npc_reply": {
+							"goto_branch": "d3g10_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g10_carolina_1_1",
+						"player_text": "Sem motivo não lanço, Carolina",
+						"npc_reply": {
+							"goto_branch": "d3g10_carolina_simone",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g10_carolina_simone": [
+			{
+				"id": "d3g10_carolina_1",
+				"text": "ih, vc tá igual a Simone hahaha"
+			},
+			{
+				"id": "d3g10_carolina_2",
+				"text": "o chefe pediu, n basta?",
+				"choices": [
+					{
+						"id": "d3g10_carolina_3_0",
+						"player_text": "Não basta, desculpa",
+						"npc_reply": {
+							"goto_branch": "d3g10_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g10_carolina_3_1",
+						"player_text": "Então cadê o pedido dele?",
+						"npc_reply": {
+							"goto_branch": "d3g10_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g10_carolina_fim": [
+			{
+				"id": "d3g10_carolina_3",
+				"text": "pq isso agr? nunca me perguntaram isso hahaha"
+			},
+			{
+				"id": "d3g10_carolina_4",
+				"text": "só paga, é o 735348 da Tecno Vale, R$ 1.480,00"
+			},
+			{
+				"id": "d3g10_carolina_5",
+				"text": "te devo um café, vai"
+			},
+			{
+				"id": "d3g10_carolina_end",
+				"text": "Obirigada!!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "735348"
+					}
+				]
+			}
+		]
+	}
+}

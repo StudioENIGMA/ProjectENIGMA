@@ -1,0 +1,37 @@
+[
+	{
+		"thread_id": "d3g06_viva",
+		"email_id": "d3g06_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g07_carolina",
+		"email_id": "d3g07_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g18_carolina",
+		"email_id": "d3g18_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g19_carolina",
+		"email_id": "d3g19_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g20_financeiro",
+		"email_id": "d3g20_financeiro",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g21_viva",
+		"email_id": "d3g21_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3g22_ti",
+		"email_id": "d3g22_ti",
+		"required_app": "browser"
+	}
+]

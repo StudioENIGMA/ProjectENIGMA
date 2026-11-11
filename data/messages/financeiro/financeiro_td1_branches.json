@@ -1,0 +1,54 @@
+{
+	"conversation_id": "financeiro_td1",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d1t13_financeiro": [
+			{
+				"id": "d1t13_financeiro_0",
+				"text": "Bom dia! Aqui é a Simone."
+			},
+			{
+				"id": "d1t13_financeiro_1",
+				"text": "A impressora do Financeiro ficou sem toner bem no fechamento. Pedi toner e papel na Papelaria Central."
+			},
+			{
+				"id": "d1t13_financeiro_2",
+				"text": "Faça este Pix para mim: código PC194, R$ 274,60. Motivo: Compra de material.",
+				"choices": [
+					{
+						"id": "d1t13_financeiro_3_0",
+						"player_text": "Pode deixar, Simone",
+						"npc_reply": {
+							"goto_branch": "d1t13_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t13_financeiro_3_1",
+						"player_text": "O fechamento tá puxado aí?",
+						"npc_reply": {
+							"goto_branch": "d1t13_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t13_financeiro_fim": [
+			{
+				"id": "d1t13_financeiro_3",
+				"text": "Volto para a minha planilha. Ela não se fecha sozinha."
+			},
+			{
+				"id": "d1t13_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PC194"
+					}
+				]
+			}
+		]
+	}
+}

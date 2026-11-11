@@ -1,0 +1,516 @@
+{
+	"conversation_id": "marcao_td2",
+	"contact_name": "Marcão",
+	"branches": {
+		"d2t04_marcao": [
+			{
+				"id": "d2t04_marcao_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "d2t04_marcao_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "d2t04_marcao_2",
+				"text": "pergunta séria: vc tem medo de altura?",
+				"choices": [
+					{
+						"id": "d2t04_marcao_3_0",
+						"player_text": "Tenho não, por quê?",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_nao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t04_marcao_3_1",
+						"player_text": "Depende. Vou subir aonde, Marcão?",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_onde",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t04_marcao_3_2",
+						"player_text": "Essa pergunta já me deu medo",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_onde",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t04_marcao_nao": [
+			{
+				"id": "d2t04_marcao_3",
+				"text": "relaxa kkkkk era só curiosidade"
+			},
+			{
+				"id": "d2t04_marcao_4",
+				"text": "preciso mesmo é de uma comprinha na Amazonia",
+				"choices": [
+					{
+						"id": "d2t04_marcao_5_0",
+						"player_text": "Fala, Marcão. Compra pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t04_marcao_5_1",
+						"player_text": "Sem motivo eu não compro, camarada",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t04_marcao_onde": [
+			{
+				"id": "d2t04_marcao_5",
+				"text": "em lugar nenhum kkkkk por enquanto"
+			},
+			{
+				"id": "d2t04_marcao_6",
+				"text": "hoje vc só faz uma comprinha na Amazonia pra mim",
+				"choices": [
+					{
+						"id": "d2t04_marcao_7_0",
+						"player_text": "Ufa. E o motivo dessa comprinha?",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t04_marcao_7_1",
+						"player_text": "Comprinha tem motivo também, viu",
+						"npc_reply": {
+							"goto_branch": "d2t04_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t04_marcao_fim": [
+			{
+				"id": "d2t04_marcao_7",
+				"text": "foi mal camarada kkkk",
+				"event_id": "d2t04_marcao"
+			},
+			{
+				"id": "d2t04_marcao_8",
+				"text": "compra de material, as prateleiras do estoque tão caindo aos pedaços"
+			},
+			{
+				"id": "d2t04_marcao_9",
+				"text": "compra 25kg de barra de aço"
+			},
+			{
+				"id": "d2t04_marcao_10",
+				"text": "pra ninguém ter que segurar prateleira com a cabeça de novo"
+			},
+			{
+				"id": "d2t04_marcao_end",
+				"text": "chegou o aço, valeu camarada! hoje ninguém sobe em nada kkkkk",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 25,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d2t05_marcao": [
+			{
+				"id": "d2t05_marcao_0",
+				"text": "Cara me ajuda ai kkkkkkkkkkk"
+			},
+			{
+				"id": "d2t05_marcao_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "d2t05_marcao_2",
+				"text": "a Jurema morreu de novo",
+				"choices": [
+					{
+						"id": "d2t05_marcao_3_0",
+						"player_text": "Eita! Quem é Jurema?",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_quem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t05_marcao_3_1",
+						"player_text": "Meus sentimentos, Marcão",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_pesar",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t05_marcao_quem": [
+			{
+				"id": "d2t05_marcao_3",
+				"text": "a empilhadeira camarada"
+			},
+			{
+				"id": "d2t05_marcao_4",
+				"text": "tem mais tempo de casa que a Dona Cida"
+			},
+			{
+				"id": "d2t05_marcao_5",
+				"text": "faz um pix de R$ 1.380,00 pro seu Dirceu",
+				"choices": [
+					{
+						"id": "d2t05_marcao_6_0",
+						"player_text": "Pix pra quê, Marcão? Falta o motivo",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t05_marcao_6_1",
+						"player_text": "Seu Dirceu é da família da Jurema? Por que o Pix?",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t05_marcao_pesar": [
+			{
+				"id": "d2t05_marcao_6",
+				"text": "obrigado meu bom, vc é dos meus kkkkk"
+			},
+			{
+				"id": "d2t05_marcao_7",
+				"text": "é a empilhadeira, mas a gente se apega"
+			},
+			{
+				"id": "d2t05_marcao_8",
+				"text": "faz um pix de R$ 1.380,00 pro seu Dirceu",
+				"choices": [
+					{
+						"id": "d2t05_marcao_9_0",
+						"player_text": "E esse Pix é por qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t05_marcao_9_1",
+						"player_text": "Velório sem motivo não pago kkk Pra que é?",
+						"npc_reply": {
+							"goto_branch": "d2t05_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t05_marcao_fim": [
+			{
+				"id": "d2t05_marcao_9",
+				"text": "ih, esqueci meu bom"
+			},
+			{
+				"id": "d2t05_marcao_10",
+				"text": "serviço de fornecedor, o seu Dirceu conserta ela toda vez kkkkk"
+			},
+			{
+				"id": "d2t05_marcao_11",
+				"text": "o código é DR238"
+			},
+			{
+				"id": "d2t05_marcao_end",
+				"text": "salvou o projeto! a Jurema mandou um abraço kkkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DR238"
+					}
+				]
+			}
+		],
+		"d2t06_marcao": [
+			{
+				"id": "d2t06_marcao_0",
+				"text": "Opa estagiário"
+			},
+			{
+				"id": "d2t06_marcao_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "d2t06_marcao_2",
+				"text": "sobrou para você pagar um boleto de R$ 2.915,75 kkkkkk",
+				"choices": [
+					{
+						"id": "d2t06_marcao_3_0",
+						"player_text": "Sobrou por quê? Boleto de quê?",
+						"npc_reply": {
+							"goto_branch": "d2t06_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t06_marcao_3_1",
+						"player_text": "Tá rindo de quê? Me dá o motivo primeiro",
+						"npc_reply": {
+							"goto_branch": "d2t06_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t06_marcao_fim": [
+			{
+				"id": "d2t06_marcao_3",
+				"text": "putz, pulei essa parte"
+			},
+			{
+				"id": "d2t06_marcao_4",
+				"text": "é compra de material, parafuso e chapa da Ferragens Santa Luzia"
+			},
+			{
+				"id": "d2t06_marcao_5",
+				"text": "se eu soubesse o preço do parafuso tinha aberto uma loja kkkkk"
+			},
+			{
+				"id": "d2t06_marcao_6",
+				"text": "o boleto é 725563"
+			},
+			{
+				"id": "d2t06_marcao_end",
+				"text": "boleto pago, valeu meu bom",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "725563"
+					}
+				]
+			}
+		],
+		"d2t07_marcao": [
+			{
+				"id": "d2t07_marcao_0",
+				"text": "Preciso de uma ajuda sua camarada"
+			},
+			{
+				"id": "d2t07_marcao_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "d2t07_marcao_2",
+				"text": "compra um negócio pra mim na Amazonia faz o favor",
+				"choices": [
+					{
+						"id": "d2t07_marcao_3_0",
+						"player_text": "Que negócio? E pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t07_marcao_3_1",
+						"player_text": "\"Um negócio\" não passa na regra, Marcão. Motivo?",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t07_marcao_r": [
+			{
+				"id": "d2t07_marcao_3",
+				"text": "opa, desculpa, tô com a cabeça no galpão"
+			},
+			{
+				"id": "d2t07_marcao_4",
+				"text": "é compra de material, o nitrogênio do equipamento acabou bem na hora do almoço"
+			},
+			{
+				"id": "d2t07_marcao_5",
+				"text": "compra 6 litros de N2",
+				"choices": [
+					{
+						"id": "d2t07_marcao_6_0",
+						"player_text": "6 litros de N2 na Amazonia, certo?",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_ok",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t07_marcao_6_1",
+						"player_text": "N2 é o nitrogênio mesmo? Só pra garantir",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_n2",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t07_marcao_ok": [
+			{
+				"id": "d2t07_marcao_6",
+				"text": "isso aí, tá mais afiado que o Yago"
+			},
+			{
+				"id": "d2t07_marcao_7",
+				"text": "ele pede tudo em três vias kkkkk",
+				"choices": [
+					{
+						"id": "d2t07_marcao_8_0",
+						"player_text": "Essa eu não ouvi kkk",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t07_marcao_8_1",
+						"player_text": "Vou contar pra ele, hein",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t07_marcao_n2": [
+			{
+				"id": "d2t07_marcao_8",
+				"text": "ele mesmo camarada, boa pergunta"
+			},
+			{
+				"id": "d2t07_marcao_9",
+				"text": "só não vai beber kkkkk",
+				"choices": [
+					{
+						"id": "d2t07_marcao_10_0",
+						"player_text": "Ah, que pena. Já tinha pegado o copo",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t07_marcao_10_1",
+						"player_text": "Pode deixar, vou só comprar",
+						"npc_reply": {
+							"goto_branch": "d2t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t07_marcao_fim": [
+			{
+				"id": "d2t07_marcao_10",
+				"text": "kkkkk volto pro galpão, valeu",
+				"event_id": "d2t07_marcao"
+			},
+			{
+				"id": "d2t07_marcao_end",
+				"text": "N2 chegou, me salvou estagiário kkkkk",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 6,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d2t13_marcao": [
+			{
+				"id": "d2t13_marcao_0",
+				"text": "Bom dia meu camarada"
+			},
+			{
+				"id": "d2t13_marcao_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "d2t13_marcao_2",
+				"text": "o dia tá bonito, mas o ar do galpão tá osso",
+				"choices": [
+					{
+						"id": "d2t13_marcao_3_0",
+						"player_text": "Tá quente assim lá?",
+						"npc_reply": {
+							"goto_branch": "d2t13_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t13_marcao_3_1",
+						"player_text": "Vem pro escritório, aqui tá gelado kkk",
+						"npc_reply": {
+							"goto_branch": "d2t13_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t13_marcao_fim": [
+			{
+				"id": "d2t13_marcao_3",
+				"text": "camarada, vi um pastel fritar sozinho kkkkk"
+			},
+			{
+				"id": "d2t13_marcao_4",
+				"text": "mas agora resolveu: serviço de fornecedor, o técnico da ClimaFrio já arrumou"
+			},
+			{
+				"id": "d2t13_marcao_5",
+				"text": "faz o pix de R$ 560,00, código CF263"
+			},
+			{
+				"id": "d2t13_marcao_end",
+				"text": "obrigado camarada, o galpão agradece",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CF263"
+					}
+				]
+			}
+		]
+	}
+}

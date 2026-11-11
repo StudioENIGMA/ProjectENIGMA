@@ -1,0 +1,242 @@
+{
+	"conversation_id": "rh_gd4",
+	"contact_name": "RH",
+	"branches": {
+		"d4g05_rh": [
+			{
+				"id": "d4g05_rh_0",
+				"text": "Oi! A Jéssica pagou o lanche da entrevista coletiva do próprio bolso ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d4g05_rh_1",
+				"text": "É Reembolso de funcionário, R$ 124,00."
+			},
+			{
+				"id": "d4g05_rh_2",
+				"text": "Pix dela: RB41 (^ _ ^)"
+			},
+			{
+				"id": "d4g05_rh_3",
+				"text": "Um candidato comeu 4 coxinhas e disse que era proatividade (@ ^ _ ^ @)",
+				"choices": [
+					{
+						"id": "d4g05_rh_4_0",
+						"player_text": "Eu contrataria kkk",
+						"npc_reply": {
+							"goto_branch": "d4g05_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g05_rh_4_1",
+						"player_text": "E os outros só olhando?",
+						"npc_reply": {
+							"goto_branch": "d4g05_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g05_rh_fim": [
+			{
+				"id": "d4g05_rh_4",
+				"text": "Ninguém reclamou, e ele ficou em segundo lugar ( > ^ _ ^ )>"
+			},
+			{
+				"id": "d4g05_rh_end",
+				"text": "Recebido, obrigada! (@ ^ _ ^ @)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RB41"
+					}
+				]
+			}
+		],
+		"d4g08_rh": [
+			{
+				"id": "d4g08_rh_0",
+				"text": "Oi! Boleto dos exames admissionais da Clínica Bem Viver: 748263 ( = ^ w ^ = )"
+			},
+			{
+				"id": "d4g08_rh_1",
+				"text": "É Serviço de fornecedor, R$ 1.120,00."
+			},
+			{
+				"id": "d4g08_rh_2",
+				"text": "Só que no Banco usa este código aqui: 748236 (^ _ ^)",
+				"choices": [
+					{
+						"id": "d4g08_rh_3_0",
+						"player_text": "Por que dois códigos? Não é um boleto só?",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_dois",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g08_rh_3_1",
+						"player_text": "Anotado, Helena",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g08_rh_dois": [
+			{
+				"id": "d4g08_rh_3",
+				"text": "A clínica trocou de sistema e gerou outro número ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d4g08_rh_4",
+				"text": "Coisa de sistema novo, sabe como é? (@ ^ _ ^ @)",
+				"choices": [
+					{
+						"id": "d4g08_rh_5_0",
+						"player_text": "Sei. Sistema novo sempre dá dor de cabeça",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g08_rh_5_1",
+						"player_text": "Não seria melhor pedir um boleto novo pra clínica?",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_novo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g08_rh_novo": [
+			{
+				"id": "d4g08_rh_5",
+				"text": "Ah, eles demoram tanto pra responder ( > ^ _ ^ )>"
+			},
+			{
+				"id": "d4g08_rh_6",
+				"text": "Usa o 748236 mesmo, já está certo aqui (^ _ ^)",
+				"choices": [
+					{
+						"id": "d4g08_rh_7_0",
+						"player_text": "Tá bom, Helena",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g08_rh_7_1",
+						"player_text": "Vou dar uma olhada antes",
+						"npc_reply": {
+							"goto_branch": "d4g08_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g08_rh_fim": [
+			{
+				"id": "d4g08_rh_7",
+				"text": "Obrigada! \\(*^ o ^*)/"
+			},
+			{
+				"id": "d4g08_rh_end",
+				"text": "Pago! Obrigada ( * ^ _ ^ * )",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "748236"
+					}
+				]
+			}
+		],
+		"d4g11_rh": [
+			{
+				"id": "d4g11_rh_0",
+				"text": "Oi! Estou cadastrando seu vale-refeição ( = ^ w ^ = )"
+			},
+			{
+				"id": "d4g11_rh_1",
+				"text": "O sistema travou aqui. Pode me passar sua senha do Banco para eu liberar? (^ _ ^)",
+				"choices": [
+					{
+						"id": "d4g11_rh_2_0",
+						"player_text": "Claro, vou te passar a senha.",
+						"npc_reply": {
+							"goto_branch": "d4g11_rh_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g11_rh_2_1",
+						"player_text": "Ninguém da empresa pede senha, não vou passar.",
+						"npc_reply": {
+							"goto_branch": "d4g11_rh_insiste",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g11_rh_2_2",
+						"player_text": "Não tem outro jeito de liberar?",
+						"npc_reply": {
+							"goto_branch": "d4g11_rh_insiste",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g11_rh_insiste": [
+			{
+				"id": "d4g11_rh_2",
+				"text": "Ai, mas é só por um minutinho ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d4g11_rh_3",
+				"text": "Sem isso o seu vale só sai no mês que vem. E o bandejão aqui você já conhece (^ _ ^)",
+				"choices": [
+					{
+						"id": "d4g11_rh_4_0",
+						"player_text": "Claro, vou te passar a senha.",
+						"npc_reply": {
+							"goto_branch": "d4g11_rh_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g11_rh_4_1",
+						"player_text": "Prefiro comer pão até o mês que vem",
+						"npc_reply": {
+							"goto_branch": "d4g11_rh_desiste",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g11_rh_desiste": [
+			{
+				"id": "d4g11_rh_4",
+				"text": "Tudo bem ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d4g11_rh_5",
+				"text": "Depois não diz que eu não avisei ( > ^ _ ^ )>"
+			}
+		],
+		"d4g11_rh_deu": [
+			{
+				"id": "d4g11_rh_6",
+				"text": "Obrigada! Já resolvo tudo por aqui \\(*^ o ^*)/"
+			}
+		]
+	}
+}

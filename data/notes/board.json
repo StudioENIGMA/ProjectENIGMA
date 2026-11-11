@@ -58,7 +58,25 @@
 		{ "department": "Financeiro", "name": "Yago" }
 	],
 	"days": {
+		"0": {
+			"agenda": ["Sem tarefas hoje: explore o celular e leia as mensagens de apresentação."]
+		},
+		"1": {
+			"agenda": [
+				"Expediente até 14:00.",
+				"Novo na loja: Banco.",
+				"A PX Investment vai mandar propostas de investimento. Estão autorizadas pela diretoria."
+			]
+		},
+		"2": {
+			"agenda": [
+				"Expediente até 16:00.",
+				"Novo na loja: Email e Navegador.",
+				"Leia as notícias na parte de baixo do Navegador todos os dias."
+			]
+		},
 		"3": {
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0455", "department": "RH", "requested_by": "Marcia", "items": "Crachás novos" },
 				{ "order_id": "PC-0462", "department": "TI", "requested_by": "Carolina", "items": "Cabos de rede" },
@@ -66,6 +84,7 @@
 			]
 		},
 		"4": {
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" },
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" }
@@ -73,6 +92,7 @@
 			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
 		},
 		"5": {
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" },
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" }
@@ -80,6 +100,7 @@
 			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
 		},
 		"6": {
+			"agenda": ["Expediente até 18:00.", "Último dia do estágio."],
 			"orders": [
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" },
 				{ "order_id": "PC-0602", "department": "RH", "requested_by": "Jessica", "items": "Buffet da festa do setor" }

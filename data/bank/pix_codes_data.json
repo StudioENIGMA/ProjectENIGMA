@@ -24,7 +24,7 @@
 		"name": "Negativa",
 		"cpf": "406.717.252-32",
 		"email": "pagamentos@negativa.com",
-		"value": 6449.0,
+		"value": 34990.0,
 		"reason": "Serviço de fornecedor"
 	},
 	"53IUY": {
@@ -120,7 +120,7 @@
 	},
 	"RM608": {
 		"name": "Ricardo",
-		"cpf": "563.765.252-30",
+		"cpf": "573.165.252-41",
 		"email": "ricardo@enigma.com.br",
 		"value": 1225.09,
 		"reason": "Reembolso de funcionário"
@@ -140,9 +140,9 @@
 		"reason": "Serviço de fornecedor"
 	},
 	"OL349": {
-		"name": "Artur",
+		"name": "Arthur",
 		"cpf": "963.905.252-86",
-		"email": "artur@enigma.com.br",
+		"email": "artur@enigma.ti.com.br",
 		"value": 1566.7,
 		"reason": "Reembolso de funcionário"
 	},
@@ -244,6 +244,13 @@
 		"value": 312.0,
 		"reason": "Compra de material"
 	},
+	"AUR39": {
+		"name": "Distribuidora Aurora",
+		"cpf": "08.113.402/0001-51",
+		"email": "financeiro@distribuidoraaurora.com.br",
+		"value": 189.9,
+		"reason": "Compra de material"
+	},
 	"BF450": {
 		"name": "Buffet Bom Sabor",
 		"cpf": "22.918.330/0001-07",
@@ -256,6 +263,713 @@
 		"cpf": "41.502.776/0001-90",
 		"email": "pagamentos@qzeventos.com",
 		"value": 450.0,
+		"reason": "Evento da empresa"
+	},
+	"EAC16": {
+		"name": "Maquinário Forte Ltda",
+		"cpf": "27.604.118/0001-63",
+		"email": "financeiro@maquinarioforte.com.br",
+		"value": 8900.0,
+		"reason": "Compra de material"
+	},
+	"SD3A4": {
+		"name": "Jilmar",
+		"cpf": "563.765.525-03",
+		"email": "jilmar@enigma.com.br",
+		"value": 750.0,
+		"reason": "Compra de material"
+	},
+	"I83G9": {
+		"name": "Marrta",
+		"cpf": "391.828.474-51",
+		"email": "marrta@enigma.com.br",
+		"value": 1200.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"TK147": {
+		"name": "Arthur Nogueira",
+		"cpf": "284.615.930-17",
+		"email": "arthurnogueira@imail.com",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"FR162": {
+		"name": "Friopeças Climatização",
+		"cpf": "41.502.776/0001-90",
+		"email": "contato@friopecas.com.br",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"DN128": {
+		"name": "Confeitaria Dona Nena",
+		"cpf": "27.318.904/0001-62",
+		"email": "donanena@imail.com",
+		"value": 215.0,
+		"reason": "Evento da empresa"
+	},
+	"VG153": {
+		"name": "Valdir Gomes",
+		"cpf": "512.078.346-22",
+		"email": "valdirgomes@imail.com",
+		"value": 92.3,
+		"reason": "Reembolso de funcionário"
+	},
+	"SA119": {
+		"name": "Ferragens Santo Antônio",
+		"cpf": "19.774.230/0001-08",
+		"email": "vendas@ferragenssa.com.br",
+		"value": 1340.75,
+		"reason": "Compra de material"
+	},
+	"CT171": {
+		"name": "Chaveiro do Tião",
+		"cpf": "703.219.584-41",
+		"email": "chaveirodotiao@imail.com",
+		"value": 150.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"PI135": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 12000.0,
+		"reason": "Investimento da empresa"
+	},
+	"PG186": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0002-58",
+		"email": "carteiras@pxinvestment.com.br",
+		"value": 5750.0,
+		"reason": "Investimento da empresa"
+	},
+	"PC194": {
+		"name": "Papelaria Central",
+		"cpf": "52.097.113/0001-34",
+		"email": "pedidos@papelariacentral.com.br",
+		"value": 274.6,
+		"reason": "Compra de material"
+	},
+	"HB112": {
+		"name": "Padaria Bom Grão",
+		"cpf": "38.241.667/0001-85",
+		"email": "bomgrao@imail.com",
+		"value": 330.0,
+		"reason": "Evento da empresa"
+	},
+	"ML158": {
+		"name": "InfoTec Informática",
+		"cpf": "46.885.320/0001-51",
+		"email": "vendas@infotec.com.br",
+		"value": 418.0,
+		"reason": "Compra de material"
+	},
+	"at174": {
+		"name": "Arthur Nogueira",
+		"cpf": "284.615.930-71",
+		"email": "arthur.nog@imail.com",
+		"value": 299.0,
+		"reason": "Reembolso de funcionário"
+	},
+	"FJ1752": {
+		"name": "Bandeirinha Festas",
+		"cpf": "29.430.118/0001-46",
+		"email": "bandeirinhafestas@imail.com",
+		"value": 460.0,
+		"reason": "Evento da empresa"
+	},
+	"TP13": {
+		"name": "Casa das Tintas",
+		"cpf": "15.662.907/0001-23",
+		"email": "casadastintas@imail.com",
+		"value": 735.2,
+		"reason": "Compra de material"
+	},
+	"PX-14": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0003-39",
+		"email": "ofertas@pxinvestment.com.br",
+		"value": 15000.0,
+		"reason": "Investimento da empresa"
+	},
+	"DZ-163": {
+		"name": "Dedetiza Já",
+		"cpf": "44.109.872/0001-16",
+		"email": "dedetizaja@imail.com",
+		"value": 580.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"fc185": {
+		"name": "Estúdio Foco",
+		"cpf": "31.558.046/0001-70",
+		"email": "estudiofoco@imail.com",
+		"value": 690.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"NB19": {
+		"name": "Voltz Energia",
+		"cpf": "22.736.590/0001-97",
+		"email": "vendas@voltzenergia.com.br",
+		"value": 1120.0,
+		"reason": "Compra de material"
+	},
+	"ep142": {
+		"name": "MecaPlus Empilhadeiras",
+		"cpf": "18.903.244/0001-65",
+		"email": "oficina@mecaplus.com.br",
+		"value": 1875.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"HD15": {
+		"name": "DiscoBom Informática",
+		"cpf": "37.210.659/0001-02",
+		"email": "discobom@imail.com",
+		"value": 870.0,
+		"reason": "Compra de material"
+	},
+	"vt163": {
+		"name": "Larissa Prado",
+		"cpf": "640.391.275-08",
+		"email": "larissaprado@imail.com",
+		"value": 124.8,
+		"reason": "Reembolso de funcionário"
+	},
+	"CC1904": {
+		"name": "Caçamba Rápida",
+		"cpf": "26.487.031/0001-49",
+		"email": "cacambarapida@imail.com",
+		"value": 410.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"XP12": {
+		"name": "PX Investment Fundos",
+		"cpf": "58.144.920/0001-11",
+		"email": "fundos.pxinvestment@imail.com",
+		"value": 30000.0,
+		"reason": "Investimento da empresa"
+	},
+	"VV-18": {
+		"name": "Viva Cobranças",
+		"cpf": "60.327.415/0001-83",
+		"email": "cobrancas.viva@imail.com",
+		"value": 249.9,
+		"reason": "Fatura de internet"
+	},
+	"MG1620": {
+		"name": "Mimos & Cia",
+		"cpf": "34.871.206/0001-58",
+		"email": "mimosecia@imail.com",
+		"value": 380.0,
+		"reason": "Evento da empresa"
+	},
+	"LB137": {
+		"name": "EletroLuz Materiais",
+		"cpf": "49.016.783/0001-27",
+		"email": "eletroluz@imail.com",
+		"value": 163.5,
+		"reason": "Compra de material"
+	},
+	"RE214": {
+		"name": "Renata Lobo",
+		"cpf": "214.803.667-12",
+		"email": "renata.lobo@imail.com",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"DR238": {
+		"name": "Dirceu Almeida",
+		"cpf": "308.114.925-40",
+		"email": "dirceu.oficina@imail.com",
+		"value": 1380.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"SE246": {
+		"name": "Sonora Eventos",
+		"cpf": "41.502.776/0001-46",
+		"email": "contato@sonoraeventos.com",
+		"value": 1120.0,
+		"reason": "Evento da empresa"
+	},
+	"TG251": {
+		"name": "Tiago Moura",
+		"cpf": "517.230.846-09",
+		"email": "tiago.moura@imail.com",
+		"value": 94.9,
+		"reason": "Reembolso de funcionário"
+	},
+	"CF263": {
+		"name": "ClimaFrio Refrigeração",
+		"cpf": "41.502.776/0001-63",
+		"email": "financeiro@climafrio.com",
+		"value": 560.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"BN272": {
+		"name": "Buffet da Neide",
+		"cpf": "41.502.776/0001-72",
+		"email": "neide@buffetdaneide.com",
+		"value": 430.0,
+		"reason": "Evento da empresa"
+	},
+	"PC284": {
+		"name": "Papelaria Central",
+		"cpf": "41.502.776/0001-84",
+		"email": "vendas@papelariacentral.com",
+		"value": 318.6,
+		"reason": "Compra de material"
+	},
+	"PN217": {
+		"name": "Patrícia Neves",
+		"cpf": "602.418.733-21",
+		"email": "patricia.neves@imail.com",
+		"value": 680.0,
+		"reason": "Vaquinha da equipe"
+	},
+	"VD2417": {
+		"name": "Valdir Ramos",
+		"cpf": "711.905.284-33",
+		"email": "valdir.ramos@imail.com",
+		"value": 1950.0,
+		"reason": "Acerto de conta"
+	},
+	"lp218": {
+		"name": "Lúcia Prado",
+		"cpf": "825.340.196-47",
+		"email": "lucia.prado@imail.com",
+		"value": 2340.0,
+		"reason": "Ajuste interno"
+	},
+	"ED239": {
+		"name": "Eduardo Lima",
+		"cpf": "934.207.158-60",
+		"email": "eduardo.lima@imail.com",
+		"value": 275.3,
+		"reason": "Empréstimo pessoal"
+	},
+	"LB242": {
+		"name": "Limpeza Brilho",
+		"cpf": "41.502.776/0001-42",
+		"email": "contato@limpezabrilho.com",
+		"value": 1890.0,
+		"reason": "Taxa de liberação de crédito"
+	},
+	"BS2561": {
+		"name": "Bufê Sabor",
+		"cpf": "41.502.776/0001-61",
+		"email": "bufesabor@imail.com",
+		"value": 890.0,
+		"reason": "Adiantamento de premiação"
+	},
+	"JL24": {
+		"name": "Júlio Antunes",
+		"cpf": "146.872.309-55",
+		"email": "julio.antunes@imail.com",
+		"value": 212.0,
+		"reason": "Cota de rifa"
+	},
+	"EL25": {
+		"name": "Elétrica Faísca",
+		"cpf": "41.502.776/0001-25",
+		"email": "eletricafaisca@imail.com",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"CR317": {
+		"name": "Carolina Prado",
+		"cpf": "312.884.650-21",
+		"email": "carolina@enigma.ti.com.br",
+		"value": 89.9,
+		"reason": "Reembolso de funcionário"
+	},
+	"FN372": {
+		"name": "Aurora Capital",
+		"cpf": "41.502.776/0001-37",
+		"email": "contato@auroracapital.com.br",
+		"value": 5000.0,
+		"reason": "Investimento da empresa"
+	},
+	"RH341": {
+		"name": "Jessica Moura",
+		"cpf": "204.771.390-58",
+		"email": "jessica@enigma.rh.com.br",
+		"value": 64.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"TX358": {
+		"name": "Teclaria Informática",
+		"cpf": "27.918.340/0001-62",
+		"email": "vendas@teclaria.com.br",
+		"value": 245.3,
+		"reason": "Compra de material"
+	},
+	"PZ326": {
+		"name": "Pizzaria Bella Massa",
+		"cpf": "33.610.245/0001-18",
+		"email": "pedidos@bellamassa.com.br",
+		"value": 540.0,
+		"reason": "Evento da empresa"
+	},
+	"VV345": {
+		"name": "Viva",
+		"cpf": "18.203.557/0001-44",
+		"email": "pagamentos@Viva.com.br",
+		"value": 129.9,
+		"reason": "Fatura de internet"
+	},
+	"PC383": {
+		"name": "Papelaria Central",
+		"cpf": "29.144.803/0001-07",
+		"email": "vendas@papelariacentral.com.br",
+		"value": 725.9,
+		"reason": "Compra de material"
+	},
+	"JM394": {
+		"name": "Jessica Moura",
+		"cpf": "204.771.390-58",
+		"email": "jessica@enigma.rh.com.br",
+		"value": 118.0,
+		"reason": "Contribuição sindical avulsa"
+	},
+	"FX3107": {
+		"name": "Fix Tech",
+		"cpf": "36.780.112/0001-29",
+		"email": "contato@fixtech.com.br",
+		"value": 320.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"NG329": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 1760.5,
+		"reason": "Taxa de liberação de contrato"
+	},
+	"TI-32": {
+		"name": "Lorenz Almeida",
+		"cpf": "418.206.733-40",
+		"email": "lorenz@enigma.ti.com.br",
+		"value": 450.0,
+		"reason": "Acerto interno"
+	},
+	"ch356": {
+		"name": "Contábil Horizonte",
+		"cpf": "30.517.664/0001-81",
+		"email": "contato@contabilhorizonte.com.br",
+		"value": 1150.5,
+		"reason": "Serviço de fornecedor"
+	},
+	"GR427": {
+		"name": "Paulo Henrique Duarte",
+		"cpf": "214.873.650-12",
+		"email": "paulo.duarte@enigma.com.br",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"LT441": {
+		"name": "Café Serra Azul",
+		"cpf": "41.502.776/0001-48",
+		"email": "vendas@cafeserraazul.com.br",
+		"value": 412.0,
+		"reason": "Compra de material"
+	},
+	"MA462": {
+		"name": "Tatiane Rocha",
+		"cpf": "305.118.742-60",
+		"email": "tatiane.rocha@enigma.rh.com.br",
+		"value": 97.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"RC409": {
+		"name": "Ergo Postura Ltda",
+		"cpf": "28.641.903/0001-17",
+		"email": "contato@ergopostura.com.br",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"HL435": {
+		"name": "DJ Marquinhos",
+		"cpf": "187.530.264-08",
+		"email": "djmarquinhos@festamail.com.br",
+		"value": 350.0,
+		"reason": "Evento da empresa"
+	},
+	"TK452": {
+		"name": "Tec Print Serviços",
+		"cpf": "33.207.418/0001-55",
+		"email": "financeiro@tecprint.com.br",
+		"value": 280.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"RB41": {
+		"name": "Jéssica Almeida",
+		"cpf": "402.665.190-33",
+		"email": "jessica.almeida@enigma.rh.com.br",
+		"value": 124.0,
+		"reason": "Reembolso de funcionário"
+	},
+	"MC438": {
+		"name": "Lucas Ferraz",
+		"cpf": "519.240.876-41",
+		"email": "lucasf@mailrapido.com.br",
+		"value": 450.0,
+		"reason": "Ajuda de custo particular"
+	},
+	"FD527": {
+		"name": "Ferragens Dois Irmãos",
+		"cpf": "42.509.773/0001-11",
+		"email": "ferragensdoisirmaos@imail.com",
+		"value": 386.4,
+		"reason": "Compra de material"
+	},
+	"JS541": {
+		"name": "José",
+		"cpf": "129.454.779-12",
+		"email": "jose@imail.com",
+		"value": 96.8,
+		"reason": "Reembolso de funcionário"
+	},
+	"RM562": {
+		"name": "Ricardo",
+		"cpf": "132.453.774-13",
+		"email": "ricardo@imail.com",
+		"value": 214.7,
+		"reason": "Reembolso de funcionário"
+	},
+	"EV553": {
+		"name": "Expo Vale Eventos",
+		"cpf": "45.530.764/0001-14",
+		"email": "expovaleeventos@imail.com",
+		"value": 3200.0,
+		"reason": "Investimento da empresa"
+	},
+	"YB553": {
+		"name": "Yago Bastos",
+		"cpf": "138.451.764-15",
+		"email": "yagobastos@imail.com",
+		"value": 158.25,
+		"reason": "Reembolso de funcionário"
+	},
+	"DT564": {
+		"name": "Doceria da Tia Neide",
+		"cpf": "47.544.758/0001-16",
+		"email": "doceriadatianeide@imail.com",
+		"value": 275.0,
+		"reason": "Evento da empresa"
+	},
+	"CC575": {
+		"name": "Cabos & Conectores",
+		"cpf": "48.551.755/0001-17",
+		"email": "cabosconectores@imail.com",
+		"value": 327.6,
+		"reason": "Compra de material"
+	},
+	"VV534": {
+		"name": "Viva",
+		"cpf": "49.558.752/0001-18",
+		"email": "viva@imail.com",
+		"value": 129.9,
+		"reason": "Fatura de internet"
+	},
+	"SB528": {
+		"name": "Wellington Souza",
+		"cpf": "150.447.744-19",
+		"email": "wellingtonsouza@imail.com",
+		"value": 512.3,
+		"reason": "Compra de material"
+	},
+	"RS545": {
+		"name": "Marcos Teles",
+		"cpf": "153.446.739-20",
+		"email": "marcosteles@imail.com",
+		"value": 828.0,
+		"reason": "Compra de material"
+	},
+	"JP576": {
+		"name": "Renan Ferraz",
+		"cpf": "156.445.734-21",
+		"email": "renanferraz@imail.com",
+		"value": 173.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"EJ587": {
+		"name": "Thiago Lemos",
+		"cpf": "159.444.729-22",
+		"email": "thiagolemos@imail.com",
+		"value": 1950.0,
+		"reason": "Evento da empresa"
+	},
+	"JA536": {
+		"name": "José",
+		"cpf": "162.443.724-23",
+		"email": "jose@imail.com",
+		"value": 450.0,
+		"reason": "Acerto interno"
+	},
+	"PL571": {
+		"name": "Paulo Lacerda",
+		"cpf": "165.442.719-24",
+		"email": "paulolacerda@imail.com",
+		"value": 1760.0,
+		"reason": "Adiantamento de comissão"
+	},
+	"MS5281": {
+		"name": "Madeireira Santa Rita",
+		"cpf": "56.607.731/0001-25",
+		"email": "madeireirasantarita@imail.com",
+		"value": 2105.0,
+		"reason": "Compra de material"
+	},
+	"CH529": {
+		"name": "Diego Prates",
+		"cpf": "171.440.709-26",
+		"email": "diegoprates@imail.com",
+		"value": 345.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"VV-52": {
+		"name": "Viva",
+		"cpf": "58.621.725/0001-27",
+		"email": "viva@imail.com",
+		"value": 412.6,
+		"reason": "Fatura de internet"
+	},
+	"DA598": {
+		"name": "Decorações Arraiá",
+		"cpf": "59.628.722/0001-28",
+		"email": "decoracoesarraia@imail.com",
+		"value": 365.0,
+		"reason": "Evento da empresa"
+	},
+	"FC614": {
+		"name": "Ferreira Chaves",
+		"cpf": "83.941.182/0001-72",
+		"email": "ferreira.chaves@empresa.com.br",
+		"value": 420.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"MB627": {
+		"name": "Metalúrgica Bonfim",
+		"cpf": "43.137.100/0001-28",
+		"email": "metalurgica.bonfim@empresa.com.br",
+		"value": 689.0,
+		"reason": "Compra de material"
+	},
+	"CC615": {
+		"name": "Canecas & Cia",
+		"cpf": "94.700.581/0001-57",
+		"email": "canecas.cia@empresa.com.br",
+		"value": 1140.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"MZ628": {
+		"name": "Mariana",
+		"cpf": "427.888.122-44",
+		"email": "mariana@mail.com.br",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"MT631": {
+		"name": "Marta",
+		"cpf": "600.921.302-62",
+		"email": "marta@mail.com.br",
+		"value": 94.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"VA616": {
+		"name": "Corretora Vale Azul",
+		"cpf": "78.652.798/0001-22",
+		"email": "corretora.vale.azul@empresa.com.br",
+		"value": 5000.0,
+		"reason": "Investimento da empresa"
+	},
+	"DJ617": {
+		"name": "DJ Tiãozinho",
+		"cpf": "297.676.666-99",
+		"email": "dj.tiaozinho@mail.com.br",
+		"value": 550.0,
+		"reason": "Evento da empresa"
+	},
+	"ML638": {
+		"name": "Rogério Lemos",
+		"cpf": "924.846.371-94",
+		"email": "rogerio.lemos@mail.com.br",
+		"value": 212.3,
+		"reason": "Reembolso de funcionário"
+	},
+	"GP639": {
+		"name": "Gráfica Pontual",
+		"cpf": "88.802.190/0001-64",
+		"email": "grafica.pontual@empresa.com.br",
+		"value": 3200.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"PC640": {
+		"name": "Papelaria Central",
+		"cpf": "52.195.470/0001-62",
+		"email": "papelaria.central@empresa.com.br",
+		"value": 275.0,
+		"reason": "Taxa de regularização do CNPJ"
+	},
+	"TA641": {
+		"name": "Diego R. Tavares",
+		"cpf": "924.356.555-99",
+		"email": "diego.r.tavares@mail.com.br",
+		"value": 1890.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"GL642": {
+		"name": "Renato Quirino",
+		"cpf": "196.873.301-99",
+		"email": "renato.quirino@mail.com.br",
+		"value": 730.0,
+		"reason": "Adiantamento de caixinha"
+	},
+	"hl6123": {
+		"name": "Helena",
+		"cpf": "750.915.398-22",
+		"email": "helena@mail.com.br",
+		"value": 348.0,
+		"reason": "Ajuste de folha"
+	},
+	"SM643": {
+		"name": "Simone",
+		"cpf": "146.702.305-93",
+		"email": "simone@mail.com.br",
+		"value": 8700.0,
+		"reason": "Multa de atraso"
+	},
+	"AB644": {
+		"name": "Ferragens Aço Bom",
+		"cpf": "56.598.952/0001-34",
+		"email": "ferragens.aco.bom@empresa.com.br",
+		"value": 1250.0,
+		"reason": "Caução de entrega"
+	},
+	"ZK645": {
+		"name": "Zeca Kuster",
+		"cpf": "627.689.760-99",
+		"email": "zeca.kuster@mail.com.br",
+		"value": 1015.0,
+		"reason": "Compra de material"
+	},
+	"FL634": {
+		"name": "Flor de Lis",
+		"cpf": "74.129.748/0001-56",
+		"email": "flor.de.lis@empresa.com.br",
+		"value": 265.0,
+		"reason": "Evento da empresa"
+	},
+	"RM652": {
+		"name": "Agência Lumière",
+		"cpf": "41.716.540/0001-48",
+		"email": "agencia.lumiere@empresa.com.br",
+		"value": 4900.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"LJ653": {
+		"name": "Lia Mendes",
+		"cpf": "465.703.222-21",
+		"email": "lia.mendes@mail.com.br",
+		"value": 430.0,
 		"reason": "Evento da empresa"
 	}
 }

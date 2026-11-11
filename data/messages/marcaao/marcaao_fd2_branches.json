@@ -1,0 +1,62 @@
+{
+	"conversation_id": "marcaao_fd2",
+	"contact_name": "Marcaão",
+	"branches": {
+		"d2g15_marcaao": [
+			{
+				"id": "d2g15_marcaao_0",
+				"text": "Fala meu bom"
+			},
+			{
+				"id": "d2g15_marcaao_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "d2g15_marcaao_2",
+				"text": "vc viu a luz piscar de manhã?",
+				"choices": [
+					{
+						"id": "d2g15_marcaao_3_0",
+						"player_text": "Vi! Achei que era o fim",
+						"npc_reply": {
+							"goto_branch": "d2g15_marcaao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g15_marcaao_3_1",
+						"player_text": "Aqui nem piscou",
+						"npc_reply": {
+							"goto_branch": "d2g15_marcaao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g15_marcaao_fim": [
+			{
+				"id": "d2g15_marcaao_3",
+				"text": "foi o quadro de luz do galpão kkkkk"
+			},
+			{
+				"id": "d2g15_marcaao_4",
+				"text": "serviço de fornecedor, o eletricista trocou tudo"
+			},
+			{
+				"id": "d2g15_marcaao_5",
+				"text": "pix de R$ 640,00, código EL25"
+			},
+			{
+				"id": "d2g15_marcaao_end",
+				"text": "valeu meu bom",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "EL25"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,172 @@
+{
+	"conversation_id": "ti_td5",
+	"contact_name": "TI",
+	"branches": {
+		"d5t18_ti": [
+			{
+				"id": "d5t18_ti_0",
+				"text": "fala estagio, a sala 3 ta sem rede pq alguem passou a cadeira em cima do cabo kkkk"
+			},
+			{
+				"id": "d5t18_ti_1",
+				"text": "foi tu?",
+				"choices": [
+					{
+						"id": "d5t18_ti_2_0",
+						"player_text": "Eu não! Juro",
+						"npc_reply": {
+							"goto_branch": "d5t18_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t18_ti_2_1",
+						"player_text": "Que cabo? Não sei de nada",
+						"npc_reply": {
+							"goto_branch": "d5t18_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t18_ti_2_2",
+						"player_text": "Talvez... kkk",
+						"npc_reply": {
+							"goto_branch": "d5t18_ti_talvez",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t18_ti_talvez": [
+			{
+				"id": "d5t18_ti_2",
+				"text": "sabia kkkk"
+			},
+			{
+				"id": "d5t18_ti_3",
+				"text": "brinks, tem camera. foi o chefe, deu 3 voltas em cima",
+				"choices": [
+					{
+						"id": "d5t18_ti_4_0",
+						"player_text": "Ufa kkk",
+						"npc_reply": {
+							"goto_branch": "d5t18_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t18_ti_4_1",
+						"player_text": "Ele tava fazendo o quê?",
+						"npc_reply": {
+							"goto_branch": "d5t18_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t18_ti_fim": [
+			{
+				"id": "d5t18_ti_4",
+				"text": "relaxa, cabo novo resolve"
+			},
+			{
+				"id": "d5t18_ti_5",
+				"text": "eh Compra de material, faz um pix pra Cabos & Conectores. R$ 327,60, codigo CC575"
+			},
+			{
+				"id": "d5t18_ti_end",
+				"text": "(b^_^)b a sala 3 voltou. a cadeira ta em observacao",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CC575"
+					}
+				]
+			}
+		],
+		"d5t19_ti": [
+			{
+				"id": "d5t19_ti_0",
+				"text": "fala estagio, preciso de um pagamento teu",
+				"choices": [
+					{
+						"id": "d5t19_ti_1_0",
+						"player_text": "Antes de fazer, me diz o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t19_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t19_ti_1_1",
+						"player_text": "Pagamento de quê? Falta o motivo aí",
+						"npc_reply": {
+							"goto_branch": "d5t19_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t19_ti_fim": [
+			{
+				"id": "d5t19_ti_1",
+				"text": "eita, foi mal kkkk"
+			},
+			{
+				"id": "d5t19_ti_2",
+				"text": "eh Serviço de fornecedor, a Reparo Express q arrumou a impressora"
+			},
+			{
+				"id": "d5t19_ti_3",
+				"text": "o defeito era papel preso. cobraram msm assim kkkk"
+			},
+			{
+				"id": "d5t19_ti_4",
+				"text": "boleto 754299, R$ 540,00"
+			},
+			{
+				"id": "d5t19_ti_end",
+				"text": "kkkkkkk tamo junto. se ela encrencar de novo eu finjo q n vi",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "754299"
+					}
+				]
+			}
+		],
+		"d5t20_ti": [
+			{
+				"id": "d5t20_ti_0",
+				"text": "fala estagio, o rack novo so entra na marra kkkk"
+			},
+			{
+				"id": "d5t20_ti_1",
+				"text": "ja tentei com jeitinho, com manual e com reza"
+			},
+			{
+				"id": "d5t20_ti_2",
+				"text": "eh Compra de material mesmo, pega 1 martelo na Amazônia pra mim"
+			},
+			{
+				"id": "d5t20_ti_end",
+				"text": "valeu estagio (b^_^)b se o rack quebrar a culpa eh do manual",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 13,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

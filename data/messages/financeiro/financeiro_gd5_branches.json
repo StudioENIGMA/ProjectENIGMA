@@ -1,0 +1,150 @@
+{
+	"conversation_id": "financeiro_gd5",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d5g03_financeiro": [
+			{
+				"id": "d5g03_financeiro_0",
+				"text": "Bom dia! A Transportadora Via Expressa está aguardando pagamento, pode fazer, por favor?"
+			},
+			{
+				"id": "d5g03_financeiro_1",
+				"text": "É Serviço de fornecedor, o frete das cadeiras. Boleto 755233, R$ 934,75."
+			},
+			{
+				"id": "d5g03_financeiro_2",
+				"text": "As cadeiras chegaram. Quatro delas sem encosto, mas isso é outro chamado."
+			},
+			{
+				"id": "d5g03_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "755233"
+					}
+				]
+			}
+		],
+		"d5g10_financeiro": [
+			{
+				"id": "d5g10_financeiro_0",
+				"text": "Bom dia! Tenho um boleto para você pagar, por favor.",
+				"choices": [
+					{
+						"id": "d5g10_financeiro_1_0",
+						"player_text": "Não veio motivo nenhum. Do que se trata?",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g10_financeiro_1_1",
+						"player_text": "Só faço com motivo da lista. Qual é o seu?",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g10_financeiro_r": [
+			{
+				"id": "d5g10_financeiro_1",
+				"text": "Não entendi a pergunta, o boleto já vem certinho do Cartório Central."
+			},
+			{
+				"id": "d5g10_financeiro_2",
+				"text": "É a taxa de regularização do CNPJ, vence hoje.",
+				"choices": [
+					{
+						"id": "d5g10_financeiro_3_0",
+						"player_text": "Taxa de regularização? Nunca ouvi falar",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_cnpj",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g10_financeiro_3_1",
+						"player_text": "Vou checar com o Financeiro antes",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_financeiro",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g10_financeiro_cnpj": [
+			{
+				"id": "d5g10_financeiro_3",
+				"text": "Pois é. Se o CNPJ parar, para a folha de pagamento. A sua bolsa inclusive.",
+				"choices": [
+					{
+						"id": "d5g10_financeiro_4_0",
+						"player_text": "Mesmo assim não tá na lista",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g10_financeiro_4_1",
+						"player_text": "Isso me parece estranho",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g10_financeiro_financeiro": [
+			{
+				"id": "d5g10_financeiro_4",
+				"text": "Eu sou o Financeiro. Checou.",
+				"choices": [
+					{
+						"id": "d5g10_financeiro_5_0",
+						"player_text": "Prefiro ver isso nas Notas",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g10_financeiro_5_1",
+						"player_text": "Kkk boa, mas ainda não entendi a taxa",
+						"npc_reply": {
+							"goto_branch": "d5g10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g10_financeiro_fim": [
+			{
+				"id": "d5g10_financeiro_5",
+				"text": "Estou no meio do fechamento, não posso ficar nisso a manhã toda."
+			},
+			{
+				"id": "d5g10_financeiro_6",
+				"text": "Boleto 755460, R$ 1.215,00."
+			},
+			{
+				"id": "d5g10_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "755460"
+					}
+				]
+			}
+		]
+	}
+}

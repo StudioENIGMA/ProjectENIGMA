@@ -16,6 +16,11 @@
 	},
 	{
 		"conversation_id": "marta_1",
+		"branch": "task1_marta",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marta_1",
 		"branch": "task3_marta",
 		"required_app": "Bank"
 	},

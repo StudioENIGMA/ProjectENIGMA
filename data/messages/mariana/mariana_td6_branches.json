@@ -1,0 +1,250 @@
+{
+	"conversation_id": "mariana_td6",
+	"contact_name": "Mariana",
+	"branches": {
+		"d6t06_mariana": [
+			{
+				"id": "d6t06_mariana_0",
+				"text": "Olá estagiário, é a Mariana pelo celular"
+			},
+			{
+				"id": "d6t06_mariana_1",
+				"text": "Um cliente vem conhecer a fábrica amanhã e não quero servir só café :("
+			},
+			{
+				"id": "d6t06_mariana_2",
+				"text": "O que você serviria?",
+				"choices": [
+					{
+						"id": "d6t06_mariana_3_0",
+						"player_text": "Brigadeiro. Ninguém reclama de boca cheia",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_brig",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t06_mariana_3_1",
+						"player_text": "Bolo! Bolo passa credibilidade",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t06_mariana_3_2",
+						"player_text": "Café e um sorriso, ué",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_cafe",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t06_mariana_brig": [
+			{
+				"id": "d6t06_mariana_3",
+				"text": "Ótima resposta, abrigada"
+			},
+			{
+				"id": "d6t06_mariana_4",
+				"text": "Quer dizer, obrigada. É esse teclado :(",
+				"choices": [
+					{
+						"id": "d6t06_mariana_5_0",
+						"player_text": "Abrigada também, de nada",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t06_mariana_5_1",
+						"player_text": "Esse teclado já é um personagem",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t06_mariana_cafe": [
+			{
+				"id": "d6t06_mariana_5",
+				"text": "Foi o que serviram na última visita :("
+			},
+			{
+				"id": "d6t06_mariana_6",
+				"text": "O cliente não voltou",
+				"choices": [
+					{
+						"id": "d6t06_mariana_7_0",
+						"player_text": "Entendi, o sorriso era fraco",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t06_mariana_7_1",
+						"player_text": "Retiro o que eu disse, Mariana",
+						"npc_reply": {
+							"goto_branch": "d6t06_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t06_mariana_fim": [
+			{
+				"id": "d6t06_mariana_7",
+				"text": "Pensei em doce mesmo",
+				"event_id": "d6t06_mariana"
+			},
+			{
+				"id": "d6t06_mariana_8",
+				"text": "É Evento da empresa."
+			},
+			{
+				"id": "d6t06_mariana_9",
+				"text": "Pode comprar 2 bolos decorados e 30 brigadeiros gourmet na Emília Bolos?"
+			},
+			{
+				"id": "d6t06_mariana_end",
+				"text": "Chegaram! Muito abrigada. Quer dizer, obrigada :)",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 25,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 21,
+								"quantity": 30,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6t07_mariana": [
+			{
+				"id": "d6t07_mariana_0",
+				"text": "Estagiário? É a Mariana, ainda pelo celular"
+			},
+			{
+				"id": "d6t07_mariana_1",
+				"text": "Pode fazer um Pix pra mim, por favor?",
+				"choices": [
+					{
+						"id": "d6t07_mariana_2_0",
+						"player_text": "Posso sim! De que é esse Pix?",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t07_mariana_2_1",
+						"player_text": "Qual motivo eu coloco, Mariana?",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t07_mariana_2_2",
+						"player_text": "Pix sem motivo? A Simone me mata",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t07_mariana_r": [
+			{
+				"id": "d6t07_mariana_2",
+				"text": "Ai, me perdoe, saí correndo e esqueci de explicar :("
+			},
+			{
+				"id": "d6t07_mariana_3",
+				"text": "É Serviço de fornecedor: a Canecas & Cia personalizou os brindes dos clientes."
+			},
+			{
+				"id": "d6t07_mariana_4",
+				"text": "Ficaram lindas. Só vinte saíram escrito Enigna :(",
+				"choices": [
+					{
+						"id": "d6t07_mariana_5_0",
+						"player_text": "Imagino a cara do cliente",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t07_mariana_5_1",
+						"player_text": "Guarda uma dessas pra mim?",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_guarda",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t07_mariana_guarda": [
+			{
+				"id": "d6t07_mariana_5",
+				"text": "Já separei duas :)"
+			},
+			{
+				"id": "d6t07_mariana_6",
+				"text": "Você é o primeiro que pede uma de propósito",
+				"choices": [
+					{
+						"id": "d6t07_mariana_7_0",
+						"player_text": "Vou tomar café nela todo dia",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t07_mariana_7_1",
+						"player_text": "Autografada seria melhor ainda",
+						"npc_reply": {
+							"goto_branch": "d6t07_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t07_mariana_fim": [
+			{
+				"id": "d6t07_mariana_7",
+				"text": "O valor é R$ 1.140,00 e o código é CC615"
+			},
+			{
+				"id": "d6t07_mariana_end",
+				"text": "Pagamento certinho, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CC615"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,114 @@
+{
+	"conversation_id": "arthur_gd1",
+	"contact_name": "Arthur",
+	"branches": {
+		"d1g01_arthur": [
+			{
+				"id": "d1g01_arthur_0",
+				"text": "fala estágio, bom?"
+			},
+			{
+				"id": "d1g01_arthur_1",
+				"text": "adivinha quem passou na certificação de redes",
+				"choices": [
+					{
+						"id": "d1g01_arthur_2_0",
+						"player_text": "Você?",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_voce",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g01_arthur_2_1",
+						"player_text": "Parabéns! Foi difícil?",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_dificil",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g01_arthur_voce": [
+			{
+				"id": "d1g01_arthur_2",
+				"text": "eu mesmo kkkk, de primeira hein"
+			},
+			{
+				"id": "d1g01_arthur_3",
+				"text": "o Lorenz disse que foi sorte, mas ele levou duas tentativas",
+				"choices": [
+					{
+						"id": "d1g01_arthur_4_0",
+						"player_text": "Conta isso pra todo mundo",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g01_arthur_4_1",
+						"player_text": "Agora vai dar aula pra ele",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g01_arthur_dificil": [
+			{
+				"id": "d1g01_arthur_4",
+				"text": "cara, tinha questão que nem quem escreveu sabia responder kkkk"
+			},
+			{
+				"id": "d1g01_arthur_5",
+				"text": "saí de lá vendo cabo em tudo",
+				"choices": [
+					{
+						"id": "d1g01_arthur_6_0",
+						"player_text": "Imagino, parabéns mesmo",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g01_arthur_6_1",
+						"player_text": "Vai ter bolo pra comemorar?",
+						"npc_reply": {
+							"goto_branch": "d1g01_arthur_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g01_arthur_fim": [
+			{
+				"id": "d1g01_arthur_6",
+				"text": "só que paguei a prova do meu bolso, passei mas fiquei liso kkkk"
+			},
+			{
+				"id": "d1g01_arthur_7",
+				"text": "é Reembolso de funcionário, R$ 299,00"
+			},
+			{
+				"id": "d1g01_arthur_8",
+				"text": "código do pix: at174"
+			},
+			{
+				"id": "d1g01_arthur_end",
+				"text": "caiu aqui, valeu tmj",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "at174"
+					}
+				]
+			}
+		]
+	}
+}

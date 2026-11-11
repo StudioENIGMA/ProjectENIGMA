@@ -1,7 +1,27 @@
 [
-    {
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
+	{
+		"conversation_id": "arhtur_1",
+		"branch": "scan0_arhtur",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marcaon_1",
+		"branch": "scan0_marcaon",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marçao_1",
+		"branch": "scan0_marçao",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "distribuidora_aurora_1",
+		"branch": "scam_d1_aurora",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "iago_1",
+		"branch": "scam0_iago",
+		"required_app": "Bank"
 	}
 ]

@@ -1,0 +1,70 @@
+{
+	"conversation_id": "carolinda_fd3",
+	"contact_name": "Carolinda",
+	"branches": {
+		"d3g15_carolinda": [
+			{
+				"id": "d3g15_carolinda_0",
+				"text": "Oii, a Conecta Cabos mandou mais um boleto, das canaletas hahaha",
+				"choices": [
+					{
+						"id": "d3g15_carolinda_1_0",
+						"player_text": "Ainda nessa dos cabos?",
+						"npc_reply": {
+							"goto_branch": "d3g15_carolinda_cabos",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g15_carolinda_1_1",
+						"player_text": "Manda aí",
+						"npc_reply": {
+							"goto_branch": "d3g15_carolinda_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g15_carolinda_cabos": [
+			{
+				"id": "d3g15_carolinda_1",
+				"text": "pois é, virei eletricista sem aumento hahaha",
+				"choices": [
+					{
+						"id": "d3g15_carolinda_2_0",
+						"player_text": "Pede adicional de periculosidade",
+						"npc_reply": {
+							"goto_branch": "d3g15_carolinda_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g15_carolinda_2_1",
+						"player_text": "Vida difícil, hein",
+						"npc_reply": {
+							"goto_branch": "d3g15_carolinda_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g15_carolinda_fim": [
+			{
+				"id": "d3g15_carolinda_2",
+				"text": "é o 730916, R$ 920,00. Compra de material, paga pra mim?"
+			},
+			{
+				"id": "d3g15_carolinda_end",
+				"text": "Obgdaa!!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "730916"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,393 @@
+{
+	"conversation_id": "ricardo_gd5",
+	"contact_name": "Ricardo",
+	"branches": {
+		"d5g02_ricardo": [
+			{
+				"id": "d5g02_ricardo_0",
+				"text": "Estagiário, paga ai o boleto da Agência Click Norte q fez os banners da feira"
+			},
+			{
+				"id": "d5g02_ricardo_1",
+				"text": "colocaram minha cara num banner de 3 metros kkkkkk",
+				"choices": [
+					{
+						"id": "d5g02_ricardo_2_0",
+						"player_text": "Ficou bonito pelo menos?",
+						"npc_reply": {
+							"goto_branch": "d5g02_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g02_ricardo_2_1",
+						"player_text": "3 metros?! Manda foto",
+						"npc_reply": {
+							"goto_branch": "d5g02_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g02_ricardo_fim": [
+			{
+				"id": "d5g02_ricardo_2",
+				"text": "parece cartaz de procurado campeão, minha mãe adorou"
+			},
+			{
+				"id": "d5g02_ricardo_3",
+				"text": "É Serviço de fornecedor, R$ 1.390,00. Boleto 755120"
+			},
+			{
+				"id": "d5g02_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "755120"
+					}
+				]
+			}
+		],
+		"d5g09_ricardo": [
+			{
+				"id": "d5g09_ricardo_0",
+				"text": "Estagiário, chefe disse q é pra vc mandar um pix aqui",
+				"choices": [
+					{
+						"id": "d5g09_ricardo_1_0",
+						"player_text": "Preciso do motivo pra lançar. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g09_ricardo_1_1",
+						"player_text": "Tá faltando o motivo aí. Pode me dizer?",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g09_ricardo_r": [
+			{
+				"id": "d5g09_ricardo_1",
+				"text": "campeão, tô entrando em reunião, depois a gente fala disso kkkkkk"
+			},
+			{
+				"id": "d5g09_ricardo_2",
+				"text": "É um adiantamento de comissão, faz logo pq ele ta cobrando",
+				"choices": [
+					{
+						"id": "d5g09_ricardo_3_0",
+						"player_text": "Comissão não tá na lista de motivos, Ricardo",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_lista",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g09_ricardo_3_1",
+						"player_text": "Pede pro chefe me escrever então",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_chefe",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g09_ricardo_lista": [
+			{
+				"id": "d5g09_ricardo_3",
+				"text": "q lista campeão, sempre te tratei bem aqui"
+			},
+			{
+				"id": "d5g09_ricardo_4",
+				"text": "fui eu q te defendi naquele pedido errado de aço, lembra?",
+				"choices": [
+					{
+						"id": "d5g09_ricardo_5_0",
+						"player_text": "Isso não aconteceu, Ricardo",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g09_ricardo_5_1",
+						"player_text": "Mesmo assim, não muda o motivo",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g09_ricardo_chefe": [
+			{
+				"id": "d5g09_ricardo_5",
+				"text": "ele ta aqui do meu lado, n pode pegar o celular agora"
+			},
+			{
+				"id": "d5g09_ricardo_6",
+				"text": "confia em mim, Deus ta vendo",
+				"choices": [
+					{
+						"id": "d5g09_ricardo_7_0",
+						"player_text": "Se tá do lado, é rapidinho",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g09_ricardo_7_1",
+						"player_text": "Vou esperar ele então",
+						"npc_reply": {
+							"goto_branch": "d5g09_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g09_ricardo_fim": [
+			{
+				"id": "d5g09_ricardo_7",
+				"text": "R$ 1.760,00, pix PL571"
+			},
+			{
+				"id": "d5g09_ricardo_8",
+				"text": "fui, a reunião começou"
+			},
+			{
+				"id": "d5g09_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PL571"
+					}
+				]
+			}
+		],
+		"d5g11_ricardo": [
+			{
+				"id": "d5g11_ricardo_0",
+				"text": "Estagiário, me arruma uma coisa ai faz o favor",
+				"choices": [
+					{
+						"id": "d5g11_ricardo_1_0",
+						"player_text": "Antes de fazer, me diz o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g11_ricardo_1_1",
+						"player_text": "Esse pedido tá sem motivo. Pode explicar?",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g11_ricardo_r": [
+			{
+				"id": "d5g11_ricardo_1",
+				"text": "precisa de motivo pra tudo agora campeão? kkkkkk"
+			},
+			{
+				"id": "d5g11_ricardo_2",
+				"text": "É pra minha casa de praia",
+				"choices": [
+					{
+						"id": "d5g11_ricardo_3_0",
+						"player_text": "Mas isso aí é pessoal, né?",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_praia",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g11_ricardo_3_1",
+						"player_text": "Casa de praia não é da empresa, Ricardo",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g11_ricardo_praia": [
+			{
+				"id": "d5g11_ricardo_3",
+				"text": "já fiz até reunião lá, é quase uma filial kkkkkk"
+			},
+			{
+				"id": "d5g11_ricardo_4",
+				"text": "e te levo um dia, tem camarão e churrasco",
+				"choices": [
+					{
+						"id": "d5g11_ricardo_5_0",
+						"player_text": "Camarão não vira motivo, Ricardo",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g11_ricardo_5_1",
+						"player_text": "Tô fora dessa",
+						"npc_reply": {
+							"goto_branch": "d5g11_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g11_ricardo_fim": [
+			{
+				"id": "d5g11_ricardo_5",
+				"text": "vc é muito certinho campeão, relaxa",
+				"event_id": "d5g11_ricardo"
+			},
+			{
+				"id": "d5g11_ricardo_6",
+				"text": "compra 1 frigobar no Libre Mercado q ta barato"
+			},
+			{
+				"id": "d5g11_ricardo_end",
+				"text": "Obrigado estagiário 👍",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 16,
+								"quantity": 1,
+								"store": "libre_mercado"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d5g14_ricardo": [
+			{
+				"id": "d5g14_ricardo_0",
+				"text": "Estagiário, boleto 755310 da Copa Alimentos, é Compra de material pro café do Comercial. R$ 673,20"
+			},
+			{
+				"id": "d5g14_ricardo_1",
+				"text": "no banco digita o 755391 q esse é o q ta valendo",
+				"choices": [
+					{
+						"id": "d5g14_ricardo_2_0",
+						"player_text": "Ué, são dois números. Qual é o certo?",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_numeros",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g14_ricardo_2_1",
+						"player_text": "Tudo isso de café? Vocês tomam banho nele?",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_cafe",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g14_ricardo_numeros": [
+			{
+				"id": "d5g14_ricardo_2",
+				"text": "o 755310 é o q ta na folha, mas o cara da Copa falou q mudou"
+			},
+			{
+				"id": "d5g14_ricardo_3",
+				"text": "digita o outro q ta certo campeão, confia",
+				"choices": [
+					{
+						"id": "d5g14_ricardo_4_0",
+						"player_text": "Ele mandou isso por escrito?",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g14_ricardo_4_1",
+						"player_text": "Mudou por quê?",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g14_ricardo_cafe": [
+			{
+				"id": "d5g14_ricardo_4",
+				"text": "kkkkkk Comercial sem café n vende nem água no deserto"
+			},
+			{
+				"id": "d5g14_ricardo_5",
+				"text": "mas é o 755391 q vc digita hein, n o outro",
+				"choices": [
+					{
+						"id": "d5g14_ricardo_6_0",
+						"player_text": "Por que não o da folha?",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g14_ricardo_6_1",
+						"player_text": "Esquisito isso aí",
+						"npc_reply": {
+							"goto_branch": "d5g14_ricardo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g14_ricardo_fim": [
+			{
+				"id": "d5g14_ricardo_6",
+				"text": "sei lá campeão, coisa de sistema deles"
+			},
+			{
+				"id": "d5g14_ricardo_7",
+				"text": "to na rua visitando cliente, qualquer coisa me chama"
+			},
+			{
+				"id": "d5g14_ricardo_end",
+				"text": "Obrigado campeão, Deus abençoe",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "755391"
+					}
+				]
+			}
+		]
+	}
+}

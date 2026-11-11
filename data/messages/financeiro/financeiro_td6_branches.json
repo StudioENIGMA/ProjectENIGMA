@@ -1,0 +1,293 @@
+{
+	"conversation_id": "financeiro_td6",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d6t16_financeiro": [
+			{
+				"id": "d6t16_financeiro_0",
+				"text": "Olá. Simone falando."
+			},
+			{
+				"id": "d6t16_financeiro_1",
+				"text": "A diretoria aprovou o aporte do mês. É Investimento da empresa, R$ 5.000,00, para a Corretora Vale Azul."
+			},
+			{
+				"id": "d6t16_financeiro_2",
+				"text": "Faça o Pix pelo código VA616, por favor.",
+				"choices": [
+					{
+						"id": "d6t16_financeiro_3_0",
+						"player_text": "Confere: VA616, R$ 5.000,00, Vale Azul?",
+						"npc_reply": {
+							"goto_branch": "d6t16_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t16_financeiro_3_1",
+						"player_text": "Isso rende quanto? Promete muito?",
+						"npc_reply": {
+							"goto_branch": "d6t16_financeiro_rende",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t16_financeiro_rende": [
+			{
+				"id": "d6t16_financeiro_3",
+				"text": "Rende pouco e não promete nada."
+			},
+			{
+				"id": "d6t16_financeiro_4",
+				"text": "É assim que se reconhece um investimento de verdade.",
+				"choices": [
+					{
+						"id": "d6t16_financeiro_5_0",
+						"player_text": "Anotado: desconfiar de quem promete muito",
+						"npc_reply": {
+							"goto_branch": "d6t16_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t16_financeiro_5_1",
+						"player_text": "Que nem minha bolsa de estágio, então",
+						"npc_reply": {
+							"goto_branch": "d6t16_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t16_financeiro_fim": [
+			{
+				"id": "d6t16_financeiro_5",
+				"text": "Obrigada. Pode fazer."
+			},
+			{
+				"id": "d6t16_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "VA616"
+					}
+				]
+			}
+		],
+		"d6t17_financeiro": [
+			{
+				"id": "d6t17_financeiro_0",
+				"text": "Bom dia, estagiário. Simone falando."
+			},
+			{
+				"id": "d6t17_financeiro_1",
+				"text": "Preciso que você pague um boleto para mim.",
+				"choices": [
+					{
+						"id": "d6t17_financeiro_2_0",
+						"player_text": "Bom dia! Qual o motivo desse boleto?",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t17_financeiro_2_1",
+						"player_text": "Claro. É aquele de sempre?",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_sempre",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t17_financeiro_sempre": [
+			{
+				"id": "d6t17_financeiro_2",
+				"text": "Aqui nada é de sempre. É por isso que ainda temos caixa.",
+				"choices": [
+					{
+						"id": "d6t17_financeiro_3_0",
+						"player_text": "Justo. Então qual é o motivo?",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t17_financeiro_3_1",
+						"player_text": "Boa. E o que eu coloco de motivo?",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t17_financeiro_r": [
+			{
+				"id": "d6t17_financeiro_3",
+				"text": "Verdade, a manhã está corrida. É Fatura de internet da filial, da Viva."
+			},
+			{
+				"id": "d6t17_financeiro_4",
+				"text": "Ontem caiu por três horas e me ligaram. A mim. Do Financeiro."
+			},
+			{
+				"id": "d6t17_financeiro_5",
+				"text": "R$ 389,90. Código 760106.",
+				"choices": [
+					{
+						"id": "d6t17_financeiro_6_0",
+						"player_text": "Virou suporte, então?",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t17_financeiro_6_1",
+						"player_text": "Anotei tudo, Simone",
+						"npc_reply": {
+							"goto_branch": "d6t17_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t17_financeiro_fim": [
+			{
+				"id": "d6t17_financeiro_6",
+				"text": "Obrigada. Volto para as minhas planilhas."
+			},
+			{
+				"id": "d6t17_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "760106"
+					}
+				]
+			}
+		],
+		"d6t18_financeiro": [
+			{
+				"id": "d6t18_financeiro_0",
+				"text": "Bom dia!"
+			},
+			{
+				"id": "d6t18_financeiro_1",
+				"text": "O frigobar da copa do Financeiro resolveu descongelar sozinho em cima dos relatórios.",
+				"choices": [
+					{
+						"id": "d6t18_financeiro_2_0",
+						"player_text": "Os relatórios sobreviveram?",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_rel",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t18_financeiro_2_1",
+						"player_text": "E as marmitas, Simone?",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_marmita",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t18_financeiro_rel": [
+			{
+				"id": "d6t18_financeiro_2",
+				"text": "Secaram."
+			},
+			{
+				"id": "d6t18_financeiro_3",
+				"text": "A planilha de março agora cheira a queijo.",
+				"choices": [
+					{
+						"id": "d6t18_financeiro_4_0",
+						"player_text": "Mas fecha?",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t18_financeiro_4_1",
+						"player_text": "Dá pra chamar de relatório maturado",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t18_financeiro_marmita": [
+			{
+				"id": "d6t18_financeiro_4",
+				"text": "A sua, não sei."
+			},
+			{
+				"id": "d6t18_financeiro_5",
+				"text": "A do Yago, infelizmente, sobreviveu.",
+				"choices": [
+					{
+						"id": "d6t18_financeiro_6_0",
+						"player_text": "A minha era a do pote torto",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t18_financeiro_6_1",
+						"player_text": "Nem pergunto o que tinha nela",
+						"npc_reply": {
+							"goto_branch": "d6t18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t18_financeiro_fim": [
+			{
+				"id": "d6t18_financeiro_6",
+				"text": "É Compra de material: compre 1 frigobar na Amazônia, por favor.",
+				"event_id": "d6t18_financeiro"
+			},
+			{
+				"id": "d6t18_financeiro_7",
+				"text": "A Marta insistiu que caiba uma travessa grande. Não perguntei por quê. Ainda."
+			},
+			{
+				"id": "d6t18_financeiro_end",
+				"text": "Chegou, obrigada! Os relatórios agradecem.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 16,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

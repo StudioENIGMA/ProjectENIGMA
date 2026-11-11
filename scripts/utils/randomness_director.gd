@@ -24,6 +24,8 @@ var senders_today: Dictionary = {}
 var events_dict: Dictionary = {}
 ## rule id -> day the rule is released on
 var rule_days: Dictionary = {}
+## DEBUG: senders send more than one random event a day, so every event of the day comes
+var debug_every_event: bool = false
 #endregion STATES
 
 
@@ -55,7 +57,7 @@ func schedule_next_event(current_minutes: int) -> void:
 
 	var available_events := (tasks_list + scams_list).filter(
 		func(event: Dictionary) -> bool:
-			return not senders_today.has(_get_sender_id(event)) and evaluate_requirements(event)
+			return (debug_every_event or not senders_today.has(_get_sender_id(event))) 				and evaluate_requirements(event)
 	)
 	if available_events.is_empty():
 		return

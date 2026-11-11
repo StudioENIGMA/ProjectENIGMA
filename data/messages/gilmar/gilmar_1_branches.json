@@ -10,6 +10,22 @@
 			{
 				"id": "gilmar_purchase0_1",
 				"text": "Precisamos de mais carregamento de aço. Você deve comprar 17kg"
+			},
+			{
+				"id": "gilmar_purchase0_2",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 17,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
 			}
 		],
 		"task1_gilmar": [

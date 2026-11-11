@@ -23,6 +23,8 @@
 						"id": "yago_password0_1a_1",
 						"player_text": "f??Aerg",
 						"npc_reply": {
+							"goto_branch": "from_yago_password0_3",
+							"delay_ticks": 12
 						}
 					}
 				]
@@ -32,6 +34,12 @@
 			{
 				"id": "yago_password0_2",
 				"text": "Obrigado."
+			}
+		],
+		"from_yago_password0_3": [
+			{
+				"id": "yago_password0_3",
+				"text": "Hm, o sistema de segurança diz que essa é fraca. Senhas curtas são fáceis de quebrar."
 			}
 		]
 	}

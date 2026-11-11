@@ -60,6 +60,8 @@ var active_chat_done: bool = false
 var lock_last_activity: int = 0
 ## Lane each chat was last delivered in, so its next messages stay in it
 var lane_by_owner: Dictionary = {}
+## DEBUG: no chat starts by itself, only the ones fired from the debug task launcher go on
+var debug_isolated: bool = false
 #endregion LOCK STATE
 
 #region INITIALIZATION
@@ -81,6 +83,14 @@ func _ready() -> void:
 	events_director.scam_blocked.connect(_on_scam_blocked)
 
 	reload_and_setup_today()
+
+	## ======================================================
+	##                     DEBUG CODE
+	## ======================================================
+	## F9 lists every event to fire one on demand, see debug_task_launcher.gd. The story runs as
+	## in the exported game: one random event per sender a day
+	if OS.is_debug_build():
+		add_child(load("res://scripts/utils/debug_task_launcher.gd").new())
 #endregion INITIALIZATION
 
 #region SETUP FLOW
@@ -279,6 +289,12 @@ func on_clock_tick(current_minutes: int) -> void:
 		return
 
 	_release_lock()
+	if debug_isolated:
+		for queue in [main_queue, random_queue]:
+			if _deliver_first_ready(queue, current_minutes, "", true):
+				return
+		return
+
 	if _deliver_first_ready(main_queue, current_minutes):
 		return
 
@@ -309,7 +325,7 @@ func _should_release_lock(current_minutes: int) -> bool:
 			if story_entry["owner"] != active_owner or not story_entry["continues"]:
 				continue
 			var is_due := _is_due(story_entry, current_minutes)
-			if not is_due or _requirements_met(story_entry["requires"]):
+			if not is_due or _requirements_met(story_entry):
 				return false
 			# Its next message waits on something done outside the chat
 			return story_entry["lane"] == Lane.MAIN or is_timed_out
@@ -320,8 +336,9 @@ func _should_release_lock(current_minutes: int) -> bool:
 ## Delivers the first due entry of the queue whose requirements are met, returning whether it did
 ##
 ## owner: When given, only the next messages of that chat are delivered
+## continuing_only: Only the next messages of chats already delivered, no new chat
 func _deliver_first_ready(
-	queue: Array[Dictionary], current_minutes: int, owner: String = ""
+	queue: Array[Dictionary], current_minutes: int, owner: String = "", continuing_only := false
 ) -> bool:
 	for entry_index in range(queue.size()):
 		var story_entry := queue[entry_index]
@@ -332,10 +349,12 @@ func _deliver_first_ready(
 
 		if owner != "" and (story_entry["owner"] != owner or not story_entry["continues"]):
 			continue
+		if continuing_only and not story_entry["continues"]:
+			continue
 
 		# Entries blocked by unmet requirements are skipped for now, checking only the head would
 		# cause a head-of-line blocking
-		if not _requirements_met(story_entry["requires"]):
+		if not _requirements_met(story_entry):
 			continue
 
 		queue.remove_at(entry_index)
@@ -494,50 +513,49 @@ func _read_json_array(file_path: String) -> Array:
 #endregion JSON LOADING
 
 #region REQUIREMENTS
-## Evaluates if all requirements in the given array are met
-func _requirements_met(requirements: Array) -> bool:
+## Evaluates if all requirements of the given story entry are met
+func _requirements_met(story_entry: Dictionary) -> bool:
+	var requirements: Array = story_entry["requires"]
 	if requirements.is_empty():
 		return true
 
+	var event_id := _get_branch_event(story_entry["payload"])
 	for requirement in requirements:
 		var expected = bool(requirement.get("is", true))
-		if _evaluate_requirement(requirement) != expected:
+		if _evaluate_requirement(requirement, event_id) != expected:
 			return false
 
 	return true
 
+## The event a chat message belongs to: the one a message of its branch starts (a story branch like
+## "d2_start"), else the branch itself, named after its event for random tasks and scams
+func _get_branch_event(payload: Dictionary) -> String:
+	var branch := str(payload.get("branch", ""))
+	var conversation: Dictionary = messages_director.conversations_by_id.get(
+		str(payload.get("conversation_id", "")), {}
+	)
+	for node in conversation.get("branches", {}).get(branch, []):
+		if str(node.get("event_id", "")) != "":
+			return str(node["event_id"])
+	return branch
+
 ## Evaluates a single requirement flag
-func _evaluate_requirement(requirement: Dictionary) -> bool:
+##
+## event_id: The event of the chat, a purchase only counts when bought for it
+func _evaluate_requirement(requirement: Dictionary, event_id: String) -> bool:
 	var flag = requirement.get("flag", "")
 	if flag == "app_installed":
 		var app_id = requirement.get("app_id", "")
 		var app = GameData.apps_name.get(app_id, null)
 		return GameData.downloaded_apps.has(app)
 	if flag == "purchase":
-		var items = requirement.get("items", [])
-		for item in items:
-			var item_id = item.get("item_id", "")
-			var quantity = int(item.get("quantity", 0))
-			var store_id = item.get("store", "")
-			var store = GameData.shop_string_to_enum.get(store_id, null)
-
-			if store == null:
-				return false
-			if not GameData.purchased_items.has(store):
-				return false
-			var store_purchases = GameData.purchased_items[store]
-			if not store_purchases.has(item_id):
-				return false
-			if store_purchases[item_id] < quantity:
-				return false
-
-		return true
+		return events_director.has_purchased(event_id, requirement.get("items", []))
 	if flag == "payment":
 		var payment_id = requirement.get("payment_id", "")
 		return GameData.completed_payments.has(payment_id)
 	# Read without being consumed, unlike events_director, so a story beat can wait for it
 	if flag == "option":
-		return GameData.options_chose.get(requirement.get("choice", ""), false)
+		return GameData.options_chose.has(requirement.get("choice", ""))
 	if flag == "email_read":
 		return GameData.read_emails.has(requirement.get("email_id", ""))
 

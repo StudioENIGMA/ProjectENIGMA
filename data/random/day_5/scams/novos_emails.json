@@ -1,0 +1,22 @@
+[
+	{
+		"thread_id": "d5g06_viva",
+		"email_id": "d5g06_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d5g07_ricardo",
+		"email_id": "d5g07_ricardo",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d5g20_ricardo",
+		"email_id": "d5g20_ricardo",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d5g21_viva",
+		"email_id": "d5g21_viva",
+		"required_app": "Bank"
+	}
+]

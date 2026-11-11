@@ -1,0 +1,134 @@
+{
+	"conversation_id": "rh_gd6",
+	"contact_name": "RH",
+	"branches": {
+		"d6g11_rh": [
+			{
+				"id": "d6g11_rh_0",
+				"text": "Oiê! Helena aqui (^ _ ^)"
+			},
+			{
+				"id": "d6g11_rh_1",
+				"text": "Preciso de um Pix rapidinho ( * ^ _ ^ * )",
+				"choices": [
+					{
+						"id": "d6g11_rh_2_0",
+						"player_text": "Preciso do motivo antes de fazer.",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g11_rh_2_1",
+						"player_text": "Rapidinho? É referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g11_rh_r": [
+			{
+				"id": "d6g11_rh_2",
+				"text": "(> _ <) é coisa interna do RH, depois te explico"
+			},
+			{
+				"id": "d6g11_rh_3",
+				"text": "R$ 348,00, código hl6123 ( ^ _ ^ )",
+				"choices": [
+					{
+						"id": "d6g11_rh_4_0",
+						"player_text": "Posso confirmar com a Marcia, então?",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_marcia",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g11_rh_4_1",
+						"player_text": "Esse código tá diferente dos outros",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_codigo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g11_rh_marcia": [
+			{
+				"id": "d6g11_rh_4",
+				"text": "(o _ o) não precisa!!"
+			},
+			{
+				"id": "d6g11_rh_5",
+				"text": "ela não tá sabendo, é surpresa",
+				"choices": [
+					{
+						"id": "d6g11_rh_6_0",
+						"player_text": "Surpresa num Pix? Estranho",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g11_rh_6_1",
+						"player_text": "Surpresa pra quem, Helena?",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g11_rh_codigo": [
+			{
+				"id": "d6g11_rh_6",
+				"text": "( ^ _ ^ ) é novo, o sistema atualizou"
+			},
+			{
+				"id": "d6g11_rh_7",
+				"text": "coisa de TI, você sabe como eles são",
+				"choices": [
+					{
+						"id": "d6g11_rh_8_0",
+						"player_text": "Minúsculo assim? Sei não",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g11_rh_8_1",
+						"player_text": "O Lorenz não comentou nada",
+						"npc_reply": {
+							"goto_branch": "d6g11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g11_rh_fim": [
+			{
+				"id": "d6g11_rh_8",
+				"text": "( ^ w ^ ) confio em você, viu?"
+			},
+			{
+				"id": "d6g11_rh_end",
+				"text": "Obrigada! (^ w ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "hl6123"
+					}
+				]
+			}
+		]
+	}
+}

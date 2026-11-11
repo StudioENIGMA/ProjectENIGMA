@@ -17,6 +17,16 @@
 			{
 				"id": "px_investment_payment0_2",
 				"text": "Favor pagar o boleto: 673423"
+			},
+			{
+				"id": "px_investment_payment0_3",
+				"text": "Pagamento confirmado. Obrigado e tenha um ótimo dia!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "673423"
+					}
+				]
 			}
 		],
 		"task1_px_investment": [
@@ -27,6 +37,16 @@
 			{
 				"id": "px_investment_payment01_1",
 				"text": "Nós do banco PX Investment temos uma ótima oferta de investimento para sua empresa! Invista R$20000,00 agora mesmo pelo Boleto 901254"
+			},
+			{
+				"id": "px_investment_payment01_2",
+				"text": "Investimento confirmado! Obrigado pela confiança no PX Investment.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "901254"
+					}
+				]
 			}
 		],
 		"task2_px_investment": [
@@ -37,6 +57,16 @@
 			{
 				"id": "px_investment_payment02_1",
 				"text": "O banco PX Investment tem uma oferta de investimento muito satisfatória para sua empresa! Coloque R$25000,00 nesse fundo de investimento agora mesmo pelo Boleto 547925"
+			},
+			{
+				"id": "px_investment_payment02_2",
+				"text": "Recebemos o seu investimento. O PX Investment agradece!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "547925"
+					}
+				]
 			}
 		],
 		"task3_px_investment": [
@@ -51,6 +81,16 @@
 			{
 				"id": "px_investment_payment03_2",
 				"text": "Segue o boleto de pagamento: 345127"
+			},
+			{
+				"id": "px_investment_payment03_3",
+				"text": "Pagamento recebido. Obrigado pela colaboração!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "345127"
+					}
+				]
 			}
 		],
 		"task4_px_investment": [
@@ -65,6 +105,16 @@
 			{
 				"id": "px_investment_payment04_2",
 				"text": "Segue o boleto de pagamento: 393209"
+			},
+			{
+				"id": "px_investment_payment04_3",
+				"text": "Pagamento confirmado aqui. Muito obrigado!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "393209"
+					}
+				]
 			}
 		]
 	}

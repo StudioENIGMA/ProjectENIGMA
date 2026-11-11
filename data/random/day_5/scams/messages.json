@@ -1,12 +1,62 @@
 [
 	{
-		"conversation_id": "arthur_1",
-		"branch": "scan0_arthur",
+		"conversation_id": "arhtur_1",
+		"branch": "scan0_arhtur",
 		"required_app": "browser"
 	},
 	{
 		"conversation_id": "carla_2",
 		"branch": "scam0_carla2",
 		"required_app": "Email"
+	},
+	{
+		"conversation_id": "joseh_1",
+		"branch": "scan0_joseh",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "joseh_1",
+		"branch": "scan1_joseh",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josue_1",
+		"branch": "scan0_josue",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "josue_1",
+		"branch": "scan1_josue",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "jouse_1",
+		"branch": "scan0_jouse",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "jouse_1",
+		"branch": "scan1_jouse",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "jouse_1",
+		"branch": "scan2_jouse",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricarudo_1",
+		"branch": "scan0_ricarudo",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricarudo_1",
+		"branch": "scan2_ricarudo",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "ricarudo_1",
+		"branch": "scan1_ricarudo",
+		"required_app": "Bank"
 	}
 ]

@@ -29,6 +29,8 @@ func setup() -> void:
 	var today: Dictionary = board.get("days", {}).get(str(GameData.current_day), {})
 	subtitle_label.text = "Confira aqui antes de denunciar · Dia %d" % GameData.current_day
 
+	# What changes today (work hours, apps released), so the NPCs don't have to say it
+	_add_list_section("Hoje", GameData.current_day, today.get("agenda", []))
 	_add_trusted_contacts(board)
 	_add_list_section("Arquivos aceitos", 1, board.get("accepted_files", []))
 	_add_list_section("Padrões de pagamento", 1, board.get("payment_patterns", []))

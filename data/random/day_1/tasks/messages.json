@@ -41,31 +41,6 @@
 	},
 	{
 		"conversation_id": "marcão_1",
-		"branch": "task0_marcao",
-		"required_app": "browser"
-	},
-	{
-		"conversation_id": "marcão_1",
-		"branch": "task1_marcao",
-		"required_app": "browser"
-	},
-	{
-		"conversation_id": "marcão_1",
-		"branch": "task2_marcao",
-		"required_app": "browser"
-	},
-	{
-		"conversation_id": "marcão_1",
-		"branch": "task3_marcao",
-		"required_app": "browser"
-	},
-	{
-		"conversation_id": "marcão_1",
-		"branch": "task4_marcao",
-		"required_app": "browser"
-	},
-	{
-		"conversation_id": "marcão_1",
 		"branch": "task5_marcao",
 		"required_app": "Bank"
 	},

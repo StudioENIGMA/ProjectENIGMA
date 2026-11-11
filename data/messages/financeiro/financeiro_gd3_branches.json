@@ -1,0 +1,121 @@
+{
+	"conversation_id": "financeiro_gd3",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d3g03_financeiro": [
+			{
+				"id": "d3g03_financeiro_0",
+				"text": "Bom dia, estagiário. É a Simone."
+			},
+			{
+				"id": "d3g03_financeiro_1",
+				"text": "A Papelaria Central entregou as resmas de papel. Faça o Pix PC383, por favor: R$ 275,90, Compra de material.",
+				"choices": [
+					{
+						"id": "d3g03_financeiro_2_0",
+						"player_text": "PC383, R$ 275,90. É isso?",
+						"npc_reply": {
+							"goto_branch": "d3g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g03_financeiro_2_1",
+						"player_text": "Anotado, Simone!",
+						"npc_reply": {
+							"goto_branch": "d3g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g03_financeiro_fim": [
+			{
+				"id": "d3g03_financeiro_2",
+				"text": "Isso mesmo. Volto para o meu fechamento, qualquer coisa me chame."
+			},
+			{
+				"id": "d3g03_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PC383"
+					}
+				]
+			}
+		],
+		"d3g12_financeiro": [
+			{
+				"id": "d3g12_financeiro_0",
+				"text": "Bom dia! Preciso de 6 monitores para hoje. Compre na Libre Mercado, por favor.",
+				"choices": [
+					{
+						"id": "d3g12_financeiro_1_0",
+						"player_text": "Seis monitores pra quê, Simone?",
+						"npc_reply": {
+							"goto_branch": "d3g12_financeiro_planilha",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g12_financeiro_1_1",
+						"player_text": "Sem motivo não consigo lançar a compra",
+						"npc_reply": {
+							"goto_branch": "d3g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g12_financeiro_planilha": [
+			{
+				"id": "d3g12_financeiro_1",
+				"text": "Estou há nove horas nesta planilha e você me pergunta isso.",
+				"choices": [
+					{
+						"id": "d3g12_financeiro_2_0",
+						"player_text": "Mas preciso lançar com algo",
+						"npc_reply": {
+							"goto_branch": "d3g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g12_financeiro_2_1",
+						"player_text": "Posso ver com o Chefinho?",
+						"npc_reply": {
+							"goto_branch": "d3g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g12_financeiro_fim": [
+			{
+				"id": "d3g12_financeiro_2",
+				"text": "Não entendi a pergunta. Veio de cima e o fechamento está apertado, depois eu te explico.",
+				"event_id": "d3g12_financeiro"
+			},
+			{
+				"id": "d3g12_financeiro_end",
+				"text": "Os monitores chegaram, obrigada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 6,
+								"store": "libre_mercado"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

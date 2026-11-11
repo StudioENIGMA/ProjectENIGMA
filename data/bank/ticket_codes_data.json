@@ -61,7 +61,7 @@
 	},
 	"098471": {
 		"institution": "Negativa",
-		"value": 6449.0,
+		"value": 34990.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Banco Aurora"
 	},
@@ -90,7 +90,7 @@
 		"bank": "Banco Aurora"
 	},
 	"547925": {
-		"institution": "PX Investment ldta.",
+		"institution": "PX Investment ltda.",
 		"value": 25000.0,
 		"reason": "Investimento da empresa",
 		"bank": "Caixa Leste"
@@ -196,6 +196,18 @@
 		"value": 14000.0,
 		"reason": "Investimento da empresa",
 		"bank": "Banco Aurora"
+	},
+	"586934": {
+		"institution": "PX Investrnent ltda.",
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"536944": {
+		"institution": "PX Investrnent ltda.",
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
 	},
 	"586098": {
 		"institution": "Industrials",
@@ -316,5 +328,605 @@
 		"value": 1240.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Caixa Leste"
+	},
+	"R7U6M": {
+		"institution": "Forte Equipamentos Ltda",
+		"value": 3450.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"714402": {
+		"institution": "Viva Telecom",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"718830": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 478.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"716214": {
+		"institution": "Protege EPI",
+		"value": 520.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"719007": {
+		"institution": "PX Investment",
+		"value": 8500.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"724018": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 742.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"725563": {
+		"institution": "Ferragens Santa Luzia",
+		"value": 2915.75,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"727701": {
+		"institution": "Corretora Horizonte",
+		"value": 9600.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"728840": {
+		"institution": "NuvemSul Tecnologia",
+		"value": 1249.9,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"729315": {
+		"institution": "Talento Certo Consultoria",
+		"value": 3200.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"720146": {
+		"institution": "Viva",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"721904": {
+		"institution": "Regulariza Fácil Despachante",
+		"value": 4780.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Banco Aurora"
+	},
+	"726638": {
+		"institution": "Sindicato dos Estagiários",
+		"value": 1475.0,
+		"reason": "Contribuição sindical",
+		"bank": "Banco Aurora"
+	},
+	"722471": {
+		"institution": "Tintas Arco-Íris",
+		"value": 1160.5,
+		"reason": "Multa de trânsito",
+		"bank": "Banco Aurora"
+	},
+	"720588": {
+		"institution": "Viva",
+		"value": 412.9,
+		"reason": "Multa por atraso",
+		"bank": "Banco Aurora"
+	},
+	"723390": {
+		"institution": "Metalúrgica Forte",
+		"value": 3050.0,
+		"reason": "Imposto atrasado",
+		"bank": "Banco Aurora"
+	},
+	"724902": {
+		"institution": "Letra Viva Traduções",
+		"value": 2260.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"720733": {
+		"institution": "Viva",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"738214": {
+		"institution": "Conecta Cabos",
+		"value": 618.4,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"731906": {
+		"institution": "Negativa Telas",
+		"value": 4250.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"735527": {
+		"institution": "Negativa Telas",
+		"value": 1320.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"739041": {
+		"institution": "Contábil Horizonte",
+		"value": 2300.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"733468": {
+		"institution": "Gráfica Pontual",
+		"value": 372.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"730752": {
+		"institution": "Escudo Digital",
+		"value": 780.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"734180": {
+		"institution": "Rede Forte",
+		"value": 1890.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"736293": {
+		"institution": "Viva",
+		"value": 399.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"737615": {
+		"institution": "Viva",
+		"value": 210.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"732847": {
+		"institution": "Viva",
+		"value": 1045.75,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"733902": {
+		"institution": "Disco Sul",
+		"value": 6400.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"736071": {
+		"institution": "Negativa Telas",
+		"value": 3980.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"731288": {
+		"institution": "Buffet Sabor Feliz",
+		"value": 11500.0,
+		"reason": "Evento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"738530": {
+		"institution": "Volt Assistencia",
+		"value": 860.0,
+		"reason": "Taxa de urgência técnica",
+		"bank": "Banco Aurora"
+	},
+	"734716": {
+		"institution": "Viva",
+		"value": 849.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"739274": {
+		"institution": "SoftLar",
+		"value": 2750.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"735348": {
+		"institution": "Tecno Vale",
+		"value": 14800.0,
+		"reason": "Ajuste de cadastro",
+		"bank": "Banco Aurora"
+	},
+	"737189": {
+		"institution": "Gráfica Pontual",
+		"value": 690.0,
+		"reason": "Taxa de segunda via de crachá",
+		"bank": "Banco Aurora"
+	},
+	"730916": {
+		"institution": "Conecta Cabos",
+		"value": 9200.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"732563": {
+		"institution": "Negativa Telas",
+		"value": 2480.0,
+		"reason": "Multa de contrato",
+		"bank": "Banco Aurora"
+	},
+	"736845": {
+		"institution": "Etiqueta Norte",
+		"value": 17600.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"733175": {
+		"institution": "Central de Registros",
+		"value": 980.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Banco Aurora"
+	},
+	"739608": {
+		"institution": "Viva",
+		"value": 3599.0,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"741836": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 1284.5,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"743519": {
+		"institution": "Transportadora Rota Sete",
+		"value": 2310.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"744250": {
+		"institution": "Espaço Girassol",
+		"value": 3480.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"746781": {
+		"institution": "Instituto Vida Segura",
+		"value": 1890.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"747302": {
+		"institution": "Papelaria Bom Papel",
+		"value": 538.2,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"742690": {
+		"institution": "Dedetizadora Sem Bicho",
+		"value": 720.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"749036": {
+		"institution": "Central Sul Corretora",
+		"value": 5000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Central Sul"
+	},
+	"745913": {
+		"institution": "Clínica Bem Cuidar",
+		"value": 1260.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"748014": {
+		"institution": "Cabos e Cia",
+		"value": 975.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"742378": {
+		"institution": "Viva Telecom",
+		"value": 359.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"743946": {
+		"institution": "Viva Telecom",
+		"value": 412.3,
+		"reason": "Fatura de internet",
+		"bank": "Banco Central Sul"
+	},
+	"745108": {
+		"institution": "Buffet Sabor de Casa",
+		"value": 1760.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Norte"
+	},
+	"747519": {
+		"institution": "Treinamentos Alfa",
+		"value": 2150.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Litoral"
+	},
+	"746034": {
+		"institution": "Contábil Nova Era",
+		"value": 8900.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"744716": {
+		"institution": "Viva Telecom",
+		"value": 629.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
+	"748925": {
+		"institution": "NetPonto",
+		"value": 1430.0,
+		"reason": "Compra de material",
+		"bank": "Banco Pacífico"
+	},
+	"741462": {
+		"institution": "Madeireira São Bento",
+		"value": 765.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Caixa Leste"
+	},
+	"748236": {
+		"institution": "Renato Lima ME",
+		"value": 1120.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"749172": {
+		"institution": "Carlos Andrade",
+		"value": 4950.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"745640": {
+		"institution": "Consultoria Prisma",
+		"value": 1095.0,
+		"reason": "Adiantamento de consultoria",
+		"bank": "Banco Ipê"
+	},
+	"746395": {
+		"institution": "Marcos Vieira",
+		"value": 1980.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"743081": {
+		"institution": "Sandra Moura",
+		"value": 870.0,
+		"reason": "Acerto de pendência",
+		"bank": "Banco Aurora"
+	},
+	"742851": {
+		"institution": "Ivan Teixeira",
+		"value": 2640.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"747640": {
+		"institution": "Limpa Tudo",
+		"value": 3180.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"744387": {
+		"institution": "Brindes Ideal",
+		"value": 1340.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Norte"
+	},
+	"749561": {
+		"institution": "Roberto Nunes",
+		"value": 379.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"751204": {
+		"institution": "Papelaria Bom Traço",
+		"value": 742.15,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"751377": {
+		"institution": "Dedetizadora Sem Bicho",
+		"value": 618.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"752288": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 1120.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"752416": {
+		"institution": "Buffet Sabor da Vila",
+		"value": 2480.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Norte"
+	},
+	"753102": {
+		"institution": "Contábil Ampere",
+		"value": 1875.3,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"753240": {
+		"institution": "Toner & Cia",
+		"value": 469.9,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"754018": {
+		"institution": "Clínica Vida Plena",
+		"value": 1340.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"754299": {
+		"institution": "Reparo Express",
+		"value": 540.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"754501": {
+		"institution": "Viva",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"754622": {
+		"institution": "Transportadora Rota Certa",
+		"value": 860.45,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"755120": {
+		"institution": "R. Cavalcante Pagamentos",
+		"value": 1390.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"755233": {
+		"institution": "Transportadora Via Expressa",
+		"value": 934.75,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"755344": {
+		"institution": "TelePag Cobranças",
+		"value": 402.1,
+		"reason": "Fatura de internet",
+		"bank": "Banco Central Sul"
+	},
+	"755460": {
+		"institution": "Despachante Alves",
+		"value": 1215.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Caixa Leste"
+	},
+	"755391": {
+		"institution": "Copa Alimentos",
+		"value": 673.2,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"755577": {
+		"institution": "Hotel Serra Azul",
+		"value": 3640.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Imperial"
+	},
+	"755688": {
+		"institution": "Limpeza Brilho Certo",
+		"value": 7200.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"755799": {
+		"institution": "Sandro Mattos ME",
+		"value": 780.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"760101": {
+		"institution": "Industrials",
+		"value": 3480.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"760102": {
+		"institution": "Rota Sul",
+		"value": 1275.9,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"760103": {
+		"institution": "Espaço Jequitibá",
+		"value": 2350.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"760104": {
+		"institution": "Balões da Neide",
+		"value": 780.0,
+		"reason": "Evento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"760105": {
+		"institution": "Dedetiza Já",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"760106": {
+		"institution": "Viva",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"760107": {
+		"institution": "Nuvem Forte",
+		"value": 918.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"760108": {
+		"institution": "Viva",
+		"value": 459.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"760201": {
+		"institution": "Industrials",
+		"value": 2140.0,
+		"reason": "Compra de material",
+		"bank": "Banco Norte"
+	},
+	"760202": {
+		"institution": "Marcos V. Prado",
+		"value": 860.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"760203": {
+		"institution": "Jair Fontes",
+		"value": 1490.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"760204": {
+		"institution": "L. A. Cobranças ME",
+		"value": 512.4,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
+	"760205": {
+		"institution": "Forte Serviços",
+		"value": 1085.0,
+		"reason": "Taxa de cartório",
+		"bank": "Banco Central Sul"
+	},
+	"760207": {
+		"institution": "Waldir Campos",
+		"value": 1960.0,
+		"reason": "Taxa de liberação de carga",
+		"bank": "Banco Aurora"
+	},
+	"760212": {
+		"institution": "Industrials",
+		"value": 1740.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
 	}
 }

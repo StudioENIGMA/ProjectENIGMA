@@ -1,0 +1,356 @@
+{
+	"conversation_id": "marcia_td4",
+	"contact_name": "Marcia",
+	"branches": {
+		"d4t07_marcia": [
+			{
+				"id": "d4t07_marcia_0",
+				"text": "Oie! Vai ter gincana no sábado!!"
+			},
+			{
+				"id": "d4t07_marcia_1",
+				"text": "Você vem, né?",
+				"choices": [
+					{
+						"id": "d4t07_marcia_2_0",
+						"player_text": "Vou! Em qual time eu fico?",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_vou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t07_marcia_2_1",
+						"player_text": "Sábado? Estagiário também tem direito a sofá",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_sofa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t07_marcia_vou": [
+			{
+				"id": "d4t07_marcia_2",
+				"text": "Eba! Você fica no azul. Mas não conta pra ninguém que eu torço pro vermelho."
+			},
+			{
+				"id": "d4t07_marcia_3",
+				"text": "E o vermelho precisa de um favorzinho, pode ser?",
+				"choices": [
+					{
+						"id": "d4t07_marcia_4_0",
+						"player_text": "Pode falar, Marcia",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t07_marcia_4_1",
+						"player_text": "Ajudar o adversário? Tá, fala",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t07_marcia_sofa": [
+			{
+				"id": "d4t07_marcia_4",
+				"text": "Ai, é opcional, fica tranquilo! Mas vai ter brigadeiro, tá? Só digo isso."
+			},
+			{
+				"id": "d4t07_marcia_5",
+				"text": "E mesmo do sofá você pode me ajudar numa coisinha?",
+				"choices": [
+					{
+						"id": "d4t07_marcia_6_0",
+						"player_text": "Ajudo, o que é?",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t07_marcia_6_1",
+						"player_text": "Por brigadeiro eu faço qualquer coisa",
+						"npc_reply": {
+							"goto_branch": "d4t07_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t07_marcia_fim": [
+			{
+				"id": "d4t07_marcia_6",
+				"text": "O time vermelho está sem uniforme! O capitão é o Guilherme, ele fez até planilha e esqueceu de pedir.",
+				"event_id": "d4t07_marcia"
+			},
+			{
+				"id": "d4t07_marcia_7",
+				"text": "É Evento da empresa."
+			},
+			{
+				"id": "d4t07_marcia_8",
+				"text": "Você poderia comprar 8 Camisas Polo Vermelhas na A&C, por favor?"
+			},
+			{
+				"id": "d4t07_marcia_end",
+				"text": "Obrigadaa! O time vermelho já está se achando.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 36,
+								"quantity": 8,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d4t08_marcia": [
+			{
+				"id": "d4t08_marcia_0",
+				"text": "Boa tarde! Tudo bem?"
+			},
+			{
+				"id": "d4t08_marcia_1",
+				"text": "Você poderia pagar um boleto da confraternização para mim, por favor?",
+				"choices": [
+					{
+						"id": "d4t08_marcia_2_0",
+						"player_text": "Oi, Marcia! Pago sim, mas preciso de um motivo da lista.",
+						"npc_reply": {
+							"goto_branch": "d4t08_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t08_marcia_2_1",
+						"player_text": "Posso! Cadê o código e o motivo?",
+						"npc_reply": {
+							"goto_branch": "d4t08_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t08_marcia_2_2",
+						"player_text": "Opa! Vai ter karaokê?",
+						"npc_reply": {
+							"goto_branch": "d4t08_marcia_karaoke",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t08_marcia_karaoke": [
+			{
+				"id": "d4t08_marcia_2",
+				"text": "Ai, espero que não! Ano passado o Guilherme cantou um disco inteiro do Roberto Carlos."
+			},
+			{
+				"id": "d4t08_marcia_3",
+				"text": "Ele fez até agradecimento no final.",
+				"choices": [
+					{
+						"id": "d4t08_marcia_4_0",
+						"player_text": "Perdi essa, que pena. E esse boleto, é de quê?",
+						"npc_reply": {
+							"goto_branch": "d4t08_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t08_marcia_4_1",
+						"player_text": "Tô preparando a voz. Qual é o motivo do boleto?",
+						"npc_reply": {
+							"goto_branch": "d4t08_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t08_marcia_fim": [
+			{
+				"id": "d4t08_marcia_4",
+				"text": "Claro, que cabeça a minha! É Evento da empresa, o aluguel do salão do Espaço Girassol."
+			},
+			{
+				"id": "d4t08_marcia_5",
+				"text": "O valor é R$ 3.480,00 e o código do boleto é 744250."
+			},
+			{
+				"id": "d4t08_marcia_end",
+				"text": "Obrigada, nos salvou!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "744250"
+					}
+				]
+			}
+		],
+		"d4t09_marcia": [
+			{
+				"id": "d4t09_marcia_0",
+				"text": "Oi, como vai? Você pode encomendar 15 brigadeiros de maracujá, por favor?",
+				"choices": [
+					{
+						"id": "d4t09_marcia_1_0",
+						"player_text": "Encomendo sim, mas qual é o motivo da compra?",
+						"npc_reply": {
+							"goto_branch": "d4t09_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t09_marcia_1_1",
+						"player_text": "15 só? Tá bom, mas faltou o motivo",
+						"npc_reply": {
+							"goto_branch": "d4t09_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t09_marcia_fim": [
+			{
+				"id": "d4t09_marcia_1",
+				"text": "opa, desculpa! É Evento da empresa, a integração dos novatos do RH.",
+				"event_id": "d4t09_marcia"
+			},
+			{
+				"id": "d4t09_marcia_2",
+				"text": "Pode pedir na Emília Bolos! Os novatos ficam menos tímidos com açúcar."
+			},
+			{
+				"id": "d4t09_marcia_end",
+				"text": "Obrigada! Os novatos já perderam a timidez.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 22,
+								"quantity": 15,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d4t10_marcia": [
+			{
+				"id": "d4t10_marcia_0",
+				"text": "Oie! Sabe a impressora daqui do RH? Resolveu descansar bem no dia dos currículos."
+			},
+			{
+				"id": "d4t10_marcia_1",
+				"text": "Aí a Tatiane foi de táxi buscar tudo impresso na gráfica!",
+				"choices": [
+					{
+						"id": "d4t10_marcia_2_0",
+						"player_text": "De táxi? Quantos currículos eram, mil?",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_mil",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t10_marcia_2_1",
+						"player_text": "Essa impressora tá me devendo também",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_deve",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t10_marcia_mil": [
+			{
+				"id": "d4t10_marcia_2",
+				"text": "Quarenta! E um deles tinha foto de formatura com beca e tudo, a Tatiane adorou."
+			},
+			{
+				"id": "d4t10_marcia_3",
+				"text": "Pode fazer esse Reembolso de funcionário para ela, por favor? R$ 97,50, código MA462.",
+				"choices": [
+					{
+						"id": "d4t10_marcia_4_0",
+						"player_text": "Faço sim. Contrata o da beca!",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t10_marcia_4_1",
+						"player_text": "R$ 97,50, código MA462. Tá anotado",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t10_marcia_deve": [
+			{
+				"id": "d4t10_marcia_4",
+				"text": "Ai, ela deve pra todo mundo! Já chamei o Lorenz, ele só olhou e fez o sinal da cruz."
+			},
+			{
+				"id": "d4t10_marcia_5",
+				"text": "Pode fazer o Reembolso de funcionário da Tatiane, por favor? R$ 97,50, código MA462.",
+				"choices": [
+					{
+						"id": "d4t10_marcia_6_0",
+						"player_text": "Faço, e a Tatiane merece um adicional",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t10_marcia_6_1",
+						"player_text": "Deixa comigo. Código MA462, né?",
+						"npc_reply": {
+							"goto_branch": "d4t10_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t10_marcia_fim": [
+			{
+				"id": "d4t10_marcia_6",
+				"text": "Obrigada, vou avisar ela! Você é um amor."
+			},
+			{
+				"id": "d4t10_marcia_end",
+				"text": "Obrigada! Ela disse que nunca mais confia naquela impressora.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MA462"
+					}
+				]
+			}
+		]
+	}
+}

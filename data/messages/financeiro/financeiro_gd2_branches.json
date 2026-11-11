@@ -1,0 +1,134 @@
+{
+	"conversation_id": "financeiro_gd2",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d2g05_financeiro": [
+			{
+				"id": "d2g05_financeiro_0",
+				"text": "Bom dia! Aqui é a Simone, do Financeiro."
+			},
+			{
+				"id": "d2g05_financeiro_1",
+				"text": "Preciso de um Pix de R$ 2.340,00 para a Lúcia Prado.",
+				"choices": [
+					{
+						"id": "d2g05_financeiro_2_0",
+						"player_text": "Bom dia, Simone. Qual o motivo desse Pix?",
+						"npc_reply": {
+							"goto_branch": "d2g05_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g05_financeiro_2_1",
+						"player_text": "Sem motivo não consigo. É referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d2g05_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g05_financeiro_fim": [
+			{
+				"id": "d2g05_financeiro_2",
+				"text": "Agora o Financeiro precisa se explicar para o estagiário?"
+			},
+			{
+				"id": "d2g05_financeiro_3",
+				"text": "Eu ajudei a escrever essa regra."
+			},
+			{
+				"id": "d2g05_financeiro_4",
+				"text": "A diretoria pediu, faça antes do fechamento."
+			},
+			{
+				"id": "d2g05_financeiro_5",
+				"text": "Código: lp218"
+			},
+			{
+				"id": "d2g05_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "lp218"
+					}
+				]
+			}
+		],
+		"d2g11_financeiro": [
+			{
+				"id": "d2g11_financeiro_0",
+				"text": "Boa tarde! Aqui é a Simone de novo."
+			},
+			{
+				"id": "d2g11_financeiro_1",
+				"text": "É evento da empresa: o coquetel de fim de mês."
+			},
+			{
+				"id": "d2g11_financeiro_2",
+				"text": "Faça o Pix de R$ 890,00 para o Bufê Sabor, por favor. Código: BS2561",
+				"choices": [
+					{
+						"id": "d2g11_financeiro_3_0",
+						"player_text": "Certo, Simone. Vou lançar no Banco",
+						"npc_reply": {
+							"goto_branch": "d2g11_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g11_financeiro_3_1",
+						"player_text": "Tem convite pra estagiário?",
+						"npc_reply": {
+							"goto_branch": "d2g11_financeiro_convite",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g11_financeiro_convite": [
+			{
+				"id": "d2g11_financeiro_3",
+				"text": "Tem. Se sobrar empada, guardo uma para você.",
+				"choices": [
+					{
+						"id": "d2g11_financeiro_4_0",
+						"player_text": "Fechado!",
+						"npc_reply": {
+							"goto_branch": "d2g11_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g11_financeiro_4_1",
+						"player_text": "Duas, vai",
+						"npc_reply": {
+							"goto_branch": "d2g11_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g11_financeiro_fim": [
+			{
+				"id": "d2g11_financeiro_4",
+				"text": "Combinado. Bom trabalho."
+			},
+			{
+				"id": "d2g11_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "BS2561"
+					}
+				]
+			}
+		]
+	}
+}

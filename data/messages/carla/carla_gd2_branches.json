@@ -1,0 +1,170 @@
+{
+	"conversation_id": "carla_gd2",
+	"contact_name": "Carla",
+	"branches": {
+		"d2g01_carla": [
+			{
+				"id": "d2g01_carla_0",
+				"text": "Oi! Tudo bem? 😊"
+			},
+			{
+				"id": "d2g01_carla_1",
+				"text": "Faz um Pix de R$ 680,00 pra Patrícia Neves pra mim?",
+				"choices": [
+					{
+						"id": "d2g01_carla_2_0",
+						"player_text": "Faço sim, mas por qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_ocupada",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g01_carla_2_1",
+						"player_text": "Quem é Patrícia? Pix pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_patricia",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g01_carla_ocupada": [
+			{
+				"id": "d2g01_carla_2",
+				"text": "Ih, agora não consigo parar, tô no meio de mil coisas 😅"
+			},
+			{
+				"id": "d2g01_carla_3",
+				"text": "É coisa da equipe, depois te explico direitinho."
+			},
+			{
+				"id": "d2g01_carla_4",
+				"text": "Código do Pix: PN217",
+				"choices": [
+					{
+						"id": "d2g01_carla_5_0",
+						"player_text": "Coisa da equipe é o quê, exatamente?",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g01_carla_5_1",
+						"player_text": "Sem motivo aceito eu não sei se posso",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g01_carla_patricia": [
+			{
+				"id": "d2g01_carla_5",
+				"text": "A Patrícia, ué! Todo mundo conhece a Patrícia 😅"
+			},
+			{
+				"id": "d2g01_carla_6",
+				"text": "É coisa da equipe, depois te explico direitinho, tá?"
+			},
+			{
+				"id": "d2g01_carla_7",
+				"text": "Código do Pix: PN217",
+				"choices": [
+					{
+						"id": "d2g01_carla_8_0",
+						"player_text": "Eu não conheço. O que é da equipe?",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g01_carla_8_1",
+						"player_text": "Depois não vale, preciso disso agora",
+						"npc_reply": {
+							"goto_branch": "d2g01_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g01_carla_fim": [
+			{
+				"id": "d2g01_carla_8",
+				"text": "Ai, não me faz ficar explicando, por favor 😅"
+			},
+			{
+				"id": "d2g01_carla_9",
+				"text": "Confio tanto em você 💚"
+			},
+			{
+				"id": "d2g01_carla_end",
+				"text": "Obrigada! 💚",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PN217"
+					}
+				]
+			}
+		],
+		"d2g08_carla": [
+			{
+				"id": "d2g08_carla_0",
+				"text": "Oi! 😊 Tem um Pix aqui pro Eduardo, do Financeiro: R$ 275,30."
+			},
+			{
+				"id": "d2g08_carla_1",
+				"text": "É reembolso de funcionário: ele pagou o almoço da auditoria."
+			},
+			{
+				"id": "d2g08_carla_2",
+				"text": "Código do Pix: ED239"
+			},
+			{
+				"id": "d2g08_carla_3",
+				"text": "Os auditores pediram sobremesa duas vezes 😅",
+				"choices": [
+					{
+						"id": "d2g08_carla_4_0",
+						"player_text": "Auditor também é gente kkk",
+						"npc_reply": {
+							"goto_branch": "d2g08_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g08_carla_4_1",
+						"player_text": "Anotado, Carla. Vou olhar no Banco",
+						"npc_reply": {
+							"goto_branch": "d2g08_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g08_carla_fim": [
+			{
+				"id": "d2g08_carla_4",
+				"text": "Isso aí! Volto pras minhas planilhas 😊"
+			},
+			{
+				"id": "d2g08_carla_end",
+				"text": "Obrigada! 💚",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ED239"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,109 @@
+{
+	"conversation_id": "carollina_fd3",
+	"contact_name": "Carollina",
+	"branches": {
+		"d3g17_carollina": [
+			{
+				"id": "d3g17_carollina_0",
+				"text": "Oi, meu mouse e meu monitor brigaram e os dois perderam hahaha",
+				"choices": [
+					{
+						"id": "d3g17_carollina_1_0",
+						"player_text": "Quem começou?",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_quem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g17_carollina_1_1",
+						"player_text": "E você, tá bem?",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_voce",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g17_carollina_1_2",
+						"player_text": "Sinto muito. Precisa de quê?",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g17_carollina_quem": [
+			{
+				"id": "d3g17_carollina_1",
+				"text": "o mouse, sempre foi sonso hahaha",
+				"choices": [
+					{
+						"id": "d3g17_carollina_2_0",
+						"player_text": "Eu desconfiava dele",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g17_carollina_2_1",
+						"player_text": "E o teclado viu tudo?",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g17_carollina_voce": [
+			{
+				"id": "d3g17_carollina_2",
+				"text": "emocionalmente? n. o pé? tbm n, o monitor caiu nele hahaha",
+				"choices": [
+					{
+						"id": "d3g17_carollina_3_0",
+						"player_text": "Vai no ambulatório, hein",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g17_carollina_3_1",
+						"player_text": "Pelo menos o pé tá de pé",
+						"npc_reply": {
+							"goto_branch": "d3g17_carollina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g17_carollina_fim": [
+			{
+				"id": "d3g17_carollina_3",
+				"text": "vc compra 1 monitor na Amazônia pra mim? Compra de material, o chefe já sabe",
+				"event_id": "d3g17_carollina"
+			},
+			{
+				"id": "d3g17_carollina_end",
+				"text": "Obgdaa",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

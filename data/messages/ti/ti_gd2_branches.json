@@ -1,0 +1,61 @@
+{
+	"conversation_id": "ti_gd2",
+	"contact_name": "TI",
+	"branches": {
+		"d2g06_ti": [
+			{
+				"id": "d2g06_ti_0",
+				"text": "fala estagio, compra 4 furadeira pra mim no libre mercado"
+			},
+			{
+				"id": "d2g06_ti_1",
+				"text": "dps te explico pra q eh kkkk",
+				"choices": [
+					{
+						"id": "d2g06_ti_2_0",
+						"player_text": "Furadeira no TI? Pra quê, Lorenz?",
+						"npc_reply": {
+							"goto_branch": "d2g06_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g06_ti_2_1",
+						"player_text": "Explica agora. Sem motivo não rola",
+						"npc_reply": {
+							"goto_branch": "d2g06_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g06_ti_fim": [
+			{
+				"id": "d2g06_ti_2",
+				"text": "pra furar ue kkkkk",
+				"event_id": "d2g06_ti"
+			},
+			{
+				"id": "d2g06_ti_3",
+				"text": "relaxa estagio, coisa de ti"
+			},
+			{
+				"id": "d2g06_ti_end",
+				"text": "(b^_^)b",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 12,
+								"quantity": 4,
+								"store": "libre_mercado"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
