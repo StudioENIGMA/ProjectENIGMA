@@ -28,7 +28,6 @@ var bridge_duration_secs : float
 
 
 func _ready() -> void:
-	print("aaa")
 	SoundSignals.increase_music_intensity.connect(_on_increase_music_intensity)
 	SoundSignals.decrease_music_intensity.connect(_on_decrease_music_intensity)
 	last_intensity = intensity
@@ -59,10 +58,7 @@ func _ready() -> void:
 	stem_change()
 
 func _process(_delta: float) -> void:
-	print(intensity, " ", last_intensity)
-
 	if intensity > 0 and last_intensity <= 0:
-		print("HERE")
 		stem_change()
 		last_intensity = intensity
 
@@ -169,7 +165,6 @@ func stem_change() -> void:
 
 
 func _on_increase_music_intensity():
-	print("increase")
 	intensity = min(intensity + 1, 10.0)
 
 
