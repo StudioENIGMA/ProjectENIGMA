@@ -45,7 +45,7 @@ font = ExtResource("f_reg")
 font_size = 12
 font_color = Color(0.43137255, 0.44313726, 0.5019608, 1)
 
-[node name="ReviewsSite" type="Control" node_paths=PackedStringArray("v_box_container", "scroll_container")]
+[node name="ReviewsSite" type="Control" node_paths=PackedStringArray("v_box_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +55,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("s_reviews")
 v_box_container = NodePath("Screen/ScrollContainer/Margin/Column/CardsContainer")
-scroll_container = NodePath("Screen/ScrollContainer")
 
 [node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1

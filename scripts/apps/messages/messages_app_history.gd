@@ -9,6 +9,11 @@ extends Control
 signal subscreen_open_requested(subscreen_name: GameData.App, conversation_data: Dictionary)
 
 const CONVERSATION_ROW_SCENE = preload("res://scenes/apps/messages/conversation_row.tscn")
+const WEEKDAY_NAMES := ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+const MONTH_NAMES := [
+	"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+	"julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
+]
 const SEMI_FONT = preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
 const REGULAR_FONT = preload("res://assets/fonts/IBMPlexSans-Regular.ttf")
 const MEDIUM_FONT = preload("res://assets/fonts/IBMPlexSans-Medium.ttf")
@@ -92,7 +97,7 @@ func _date_text(date_dict: Dictionary) -> String:
 	if date_dict.is_empty():
 		return ""
 	return "%s, %d de %s" % [
-		GameData.weekday_name(date_dict),
+		WEEKDAY_NAMES[int(date_dict.get("weekday", 0)) % 7],
 		int(date_dict.get("day", 1)),
-		GameData.month_name(date_dict),
+		MONTH_NAMES[(int(date_dict.get("month", 1)) - 1) % 12],
 	]

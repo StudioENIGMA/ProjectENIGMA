@@ -12,24 +12,11 @@ extends Control
 @export var clock_timer: Timer
 #endregion CHILDREN NODES REFERENCES
 
-@export var intensity_reduction_interval_secs : float
-var intensity_reduction_timer : Timer
-
 @onready var base_window_height : int = int(ProjectSettings.get_setting("display/window/size/viewport_height"))
 
 #region INITIALIZATION
 ## Setup signal connections to redirect events to each app
 func _ready() -> void:
-	# Setup cooldown timer for music
-	intensity_reduction_timer = Timer.new()
-	intensity_reduction_timer.wait_time = intensity_reduction_interval_secs
-	intensity_reduction_timer.autostart = true
-	intensity_reduction_timer.one_shot = false
-	intensity_reduction_timer.timeout.connect(_on_intensity_reduction_timer_timeout)
-	self.add_child(intensity_reduction_timer)
-	intensity_reduction_timer.start()
-	SoundSignals.increase_music_intensity.connect(_reset_intensity_reduction_timer)
-
 	# Set timer according to the difficulty level
 	clock_timer.wait_time = GameData.clock_tick_interval
 	var difficulty_changer = ui.pause_game_ui.difficulty_changer
@@ -108,10 +95,6 @@ func _ready() -> void:
 	events_director.scam_fall_judged.connect(ui.notifications_control.send_scam_notification)
 	# Connected after the UI, which takes the conversation's answers away first
 	events_director.scam_blocked.connect(story_director.messages_director.offer_block_and_report)
-	# A scam sent by email offers to delete its thread, which lets the next chat come
-	events_director.scam_event_blocked.connect(emails_director.offer_delete)
-	emails_director.delete_offered.connect(ui.base_app.email_app_home.on_delete_offered)
-	ui.base_app.email_app_home.thread_deleted.connect(emails_director.on_thread_deleted)
 	events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
 
 	# UI
@@ -131,10 +114,7 @@ func _ready() -> void:
 	ui.day_introduction_ui.day_started.connect(event_handler.reset_data_for_new_day)
 	ui.day_introduction_ui.day_started.connect(story_director.reload_and_setup_today)
 	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_home._on_start_new_day)
-	ui.day_introduction_ui.day_started.connect(ui.base_app.messages_app_chat.on_start_new_day)
 	ui.day_introduction_ui.day_started.connect(ui.notification_center.clear_day_alerts)
-	# Passwords expire with the day: once it started (and they were reset), ask for new ones
-	ui.day_introduction_ui.day_started.connect(ui.base_app.settings_app.notify_outdated_passwords)
 	# UI tutorial ended, which has no time passing to end it
 	ui.finish_tutorial_requested.connect(event_handler.end_day)
 	# UI game paused
@@ -145,11 +125,6 @@ func _ready() -> void:
 	# show that day's introduction again and hold the clock until it is closed
 	clock_timer.stop()
 	ui.day_introduction_ui.preview_closed.connect(clock_timer.start, CONNECT_ONE_SHOT)
-	# The game always starts (or restarts) at the beginning of a day, the password alert is sent
-	# once that day's introduction is closed instead of behind it
-	ui.day_introduction_ui.preview_closed.connect(
-		ui.base_app.settings_app.notify_outdated_passwords, CONNECT_ONE_SHOT
-	)
 	ui.day_introduction_ui.show_introduction.call_deferred(GameData.current_day)
 #endregion INITIALIZATION
 
@@ -211,11 +186,3 @@ func _update_blur() -> void:
 func _on_end_game() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0) # 1 second fade
-
-
-func _reset_intensity_reduction_timer():
-	intensity_reduction_timer.start()
-
-func _on_intensity_reduction_timer_timeout():
-	SoundSignals.decrease_music_intensity.emit()
-	SoundSignals.decrease_music_intensity.emit()

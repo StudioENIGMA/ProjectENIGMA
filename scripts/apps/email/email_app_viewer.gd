@@ -5,11 +5,8 @@ extends Control
 ## section: "source", "section" ("subject", "sender", "content" or "attachment"),
 ## "email_id" and "excerpt"
 signal discrepancy_picked(section: Dictionary)
-## Emitted when the player taps an attachment that opens (an order document, a Pix QR Code or a
-## boleto)
+## Emitted when the player taps an attachment that opens (an order document or a Pix QR Code)
 signal attachment_opened(attachment: Dictionary)
-## Emitted when the player deletes the thread of a blocked scam
-signal delete_requested(thread_id: String)
 
 const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_message_instance.tscn")
 
@@ -20,19 +17,13 @@ const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_mess
 @export var scroll_container: ScrollContainer
 ## Lets the subject of the thread be pointed at as a scam discrepancy
 @export var subject_target: DiscrepancyTarget
-## Bar at the bottom offering to delete the thread once its scam is blocked
-@export var delete_bar: Control
-@export var delete_button: Button
 #endregion CHILDREN NODES REFERENCES
 
 ## Keeps the sections of the thread that can be pointed at as a discrepancy in step
 var _inspector := DiscrepancyInspector.new()
-## Thread on screen
-var _thread_id: String = ""
 
 func _ready() -> void:
 	_inspector.picked.connect(discrepancy_picked.emit) # Propagate signal to base app
-	delete_button.pressed.connect(func(): delete_requested.emit(_thread_id))
 
 func setup(email_data: Array) -> void:
 	# Clear previous messages
@@ -43,8 +34,6 @@ func setup(email_data: Array) -> void:
 
 	# Set up the top bar with the first email data
 	var starting_email = email_data[0]
-	_thread_id = str(starting_email.get("thread_id", ""))
-	delete_bar.visible = bool(starting_email.get("blocked", false))
 	subject_label.text = starting_email.get("subject")
 	subject_target.section = {
 		"source": "email",
@@ -74,12 +63,6 @@ func setup(email_data: Array) -> void:
 	# Opens the thread showing the latest email, once the messages just added are
 	# accounted for by the containers
 	scroll_container.jump_to_bottom()
-
-## Offers to delete the thread on screen once its scam is blocked, even while a boleto or the
-## bank covers it
-func on_thread_blocked(thread_id: String) -> void:
-	if thread_id == _thread_id:
-		delete_bar.visible = true
 
 ## Rules group the sections of this screen are checked against, see data/rules/rules.json
 func get_rules_app() -> String:

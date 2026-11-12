@@ -17,6 +17,36 @@
 		"reason": "Fatura de internet",
 		"bank": "Banco Aurora"
 	},
+	"120958": {
+		"institution": "Viva Inc.",
+		"value": 79.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
+	"568493": {
+		"institution": "Viva Inc.",
+		"value": 89.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"684936": {
+		"institution": "Viva Inc.",
+		"value": 69.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
+	"203948": {
+		"institution": "Viva Inc.",
+		"value": 129.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"238172": {
+		"institution": "Viva Inc.",
+		"value": 79.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
 	"274665": {
 		"institution": "Negativa",
 		"value": 6449.0,
@@ -83,11 +113,23 @@
 		"reason": "Fatura de internet",
 		"bank": "Banco Aurora"
 	},
+	"483234": {
+		"institution": "Vivas incs",
+		"value": 99.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
+	},
 	"932789": {
 		"institution": "Viva",
 		"value": 6666.0,
 		"reason": "Fatura de internet",
 		"bank": "Banco Aurora"
+	},
+	"896100": {
+		"institution": "Viva",
+		"value": 89.9,
+		"reason": "Fatura de internet",
+		"bank": "Caixa Leste"
 	},
 	"196108": {
 		"institution": "Vivs",
@@ -238,6 +280,54 @@
 		"value": 500.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Banco Aurora"
+	},
+	"056128": {
+		"institution": "Empório da Festa",
+		"value": 1688.0,
+		"reason": "Evento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"097341": {
+		"institution": "Industrials",
+		"value": 8670.12,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"554433": {
+		"institution": "Eros Company",
+		"value": 8999.99,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"063299": {
+		"institution": "Pagamentos Kospenski",
+		"value": 1700.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"731905": {
+		"institution": "Contábil Norte",
+		"value": 389.9,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Banco Aurora"
+	},
+	"418807": {
+		"institution": "Móveis Rocha",
+		"value": 8386.6,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"552210": {
+		"institution": "Gráfica Ponto Certo",
+		"value": 1240.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Nexo"
+	},
+	"339120": {
+		"institution": "M. L. Serviços Ltda",
+		"value": 1240.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	},
 	"R7U6M": {
 		"institution": "Forte Equipamentos Ltda",
@@ -837,24 +927,6 @@
 		"institution": "Industrials",
 		"value": 1740.0,
 		"reason": "Compra de material",
-		"bank": "Banco Aurora"
-	},
-	"097341": {
-		"institution": "Industrials",
-		"value": 8670.12,
-		"reason": "Compra de material",
-		"bank": "Banco Aurora"
-	},
-	"056128": {
-		"institution": "Empório da Festa",
-		"value": 1688.0,
-		"reason": "Evento da empresa",
-		"bank": "Caixa Leste"
-	},
-	"063299": {
-		"institution": "Pagamentos Kospenski",
-		"value": 1700.0,
-		"reason": "Serviço de fornecedor",
 		"bank": "Banco Aurora"
 	}
 }

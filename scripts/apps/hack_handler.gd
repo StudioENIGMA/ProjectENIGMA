@@ -21,7 +21,7 @@ func on_clock_tick() -> void:
 	var breaches = 0
 	# If breaches immunity timer has passed, check for breaches and increase the hack probability
 	if current_minutes > GameData.starting_hours_minutes + GameData.breaches_immunity_ticks:
-		if not GameData.get_outdated_password_apps().is_empty():
+		if not GameData.updated_password_today:
 			breaches += 1
 		if not GameData.updated_os_today:
 			breaches += 1
@@ -68,9 +68,6 @@ func on_hack_concluded() -> void:
 	GameData.is_hacked = false
 	GameData.current_hack_probability = 0.0
 	GameData.last_hacked_tick = GameData.hours_minutes
-	SoundSignals.increase_music_intensity.emit()
-	SoundSignals.increase_music_intensity.emit()
-	SoundSignals.increase_music_intensity.emit()
 
 ## Hacks the phone at once, like a hack rolled on a tick (a scam gave the account away)
 func force_hack() -> void:
@@ -78,11 +75,8 @@ func force_hack() -> void:
 		return
 	GameData.is_hacked = true
 	send_hack_notification.emit()
-	SoundSignals.increase_music_intensity.emit()
-	SoundSignals.increase_music_intensity.emit()
 
 func open_minigame() -> void:
-	SoundSignals.increase_music_intensity.emit()
 	GameData.is_in_minigame = true
 
 	# Select random hack minigame
@@ -92,6 +86,3 @@ func open_minigame() -> void:
 
 func virus_progression() -> void:
 	GameData.number_of_viruses += 1
-	if randf() < 0.01:
-		print("Music Intensity increased by virus!")
-		SoundSignals.increase_music_intensity.emit()

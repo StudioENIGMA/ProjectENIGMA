@@ -13,35 +13,5 @@
 		"thread_id": "mariana_task2",
 		"email_id": "mariana_payment0",
 		"required_app": "Bank"
-	},
-	{
-		"thread_id": "carolina_antivirus_d6",
-		"email_id": "carolina_antivirus_d6_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "jose_cafe_d6",
-		"email_id": "jose_cafe_d6_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "marcia_curso_d6",
-		"email_id": "marcia_curso_d6_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "ricardo_adesivos_d6",
-		"email_id": "ricardo_adesivos_d6_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "clima_revisao_d6",
-		"email_id": "clima_revisao_d6_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "Viva_task5",
-		"email_id": "Viva_payment5",
-		"required_app": "Bank"
 	}
 ]

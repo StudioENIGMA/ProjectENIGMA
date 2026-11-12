@@ -8,9 +8,8 @@ signal notification_posted(app: GameData.App, content: String, title: String)
 signal notification_tapped(app: GameData.App)
 
 const NOTIFICATION_POPUP = preload("res://scenes/apps/messages/notification_popup.tscn")
-## Alerts of the phone itself, sent whatever apps are installed: hacks, scams fallen for and
-## Settings (the daily password change)
-const SYSTEM_ALERTS = [GameData.App.HACK, GameData.App.SCAM, GameData.App.SETTINGS]
+## Alerts of the phone itself, sent whatever apps are installed
+const SYSTEM_ALERTS = [GameData.App.HACK, GameData.App.SCAM]
 
 @export var notification_timer:Timer
 @export var audio_stream_player:AudioStreamPlayer2D

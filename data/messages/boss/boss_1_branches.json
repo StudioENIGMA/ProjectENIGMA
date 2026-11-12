@@ -246,12 +246,6 @@
 							"delay_ticks": 2.0
 						}
 					}
-				],
-				"choices_requires": [
-					{
-						"flag": "seen",
-						"info": "news"
-					}
 				]
 			}
 		],

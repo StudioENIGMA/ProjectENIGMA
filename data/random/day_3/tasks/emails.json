@@ -3,35 +3,5 @@
 		"thread_id": "carolina_task4",
 		"email_id": "carolina_payment1",
 		"required_app": "Bank"
-	},
-	{
-		"thread_id": "marcia_crachas_d3",
-		"email_id": "marcia_crachas_d3_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "carolina_cabos_d3",
-		"email_id": "carolina_cabos_d3_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "ricardo_cafe_d3",
-		"email_id": "ricardo_cafe_d3_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "negativa_manutencao_d3",
-		"email_id": "negativa_manutencao_d3_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "guilherme_cadeiras_d3",
-		"email_id": "guilherme_cadeiras_d3_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "Viva_task2",
-		"email_id": "Viva_payment2",
-		"required_app": "Bank"
 	}
 ]

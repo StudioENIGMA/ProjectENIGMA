@@ -104,9 +104,7 @@ func update_news():
 
 			var browser_home_news = load("res://scenes/apps/browser/browser_home_news.tscn").instantiate()
 
-			browser_home_news.set_news_data(
-				str(news.get("id", "")), news["title"], news["content"], news["metadata"]
-			)
+			browser_home_news.set_news_data(news["title"], news["content"], news["metadata"])
 			browser_home_news.open_news.connect(_on_open_news)
 			news_container.add_child(browser_home_news)
 

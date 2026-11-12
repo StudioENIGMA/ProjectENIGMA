@@ -9,13 +9,11 @@ extends Node
 
 ## Emitted once a report is judged, for the phone to stamp the verdict
 ##
-## result: "verdict" ("found", "duplicate", "late", "wrong", "false", "early" or "stale"),
-## "title" and "subtitle" for the stamp, and "points" won or lost
+## result: "verdict" ("found", "duplicate", "late", "wrong", "false" or "stale"), "title" and
+## "subtitle" for the stamp, and "points" won or lost
 signal report_evaluated(result: Dictionary)
 ## Emitted when a report blocks a scam, with the conversations that take no more answers
 signal scam_blocked(conversation_ids: Array)
-## Emitted right after scam_blocked with the event blocked, for the emails it was sent in
-signal scam_event_blocked(event_id: String)
 ## Emitted when the player falls for a scam, with its conversations, kept to be compared later
 signal scam_fallen(conversation_ids: Array)
 ## Emitted when a task (not a scam) is done, so its sender can answer, see emails_director
@@ -80,14 +78,9 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.daily_reputation_points = 0
 	GameData.options_chose.clear()
 	GameData.read_emails.clear()
-	GameData.seen_info.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
 	GameData.purchased_items.clear()
-	GameData.scam_conversations.clear()
-	for event in events_dict.values():
-		if event.get("type", "") == "scam":
-			GameData.scam_conversations.append_array(_get_conversations(event))
 
 	rules_by_id.clear()
 	for rule in rules:
@@ -297,21 +290,9 @@ func evaluate_report(report: Dictionary) -> void:
 		)
 		return
 
-	# A scam of today given away by a rule not released yet is not the player's job either
-	for event_id in initiated_events:
-		for discrepancy in events_dict.get(event_id, {}).get("discrepancies", []):
-			for place in discrepancy.get("found_at", []):
-				if _is_same_piece(place, section):
-					report_evaluated.emit(
-						_verdict("early", "AINDA NÃO", "Essa regra ainda não vale hoje", 0)
-					)
-					return
-
 	# A scam of another day is left alone, it is no longer the player's job
-	for event_id in events_dict:
-		if initiated_events.has(event_id):
-			continue
-		for discrepancy in events_dict[event_id].get("discrepancies", []):
+	for event in events_dict.values():
+		for discrepancy in event.get("discrepancies", []):
 			for place in discrepancy.get("found_at", []):
 				if _is_same_piece(place, section):
 					report_evaluated.emit(
@@ -375,7 +356,6 @@ func _block_scam(event_id: String) -> void:
 
 	GameData.blocked_conversations.append_array(conversations)
 	scam_blocked.emit(conversations)
-	scam_event_blocked.emit(event_id)
 
 ## Conversations a scam is carried out in, as named by the places of its discrepancies
 func _get_conversations(event: Dictionary) -> Array:

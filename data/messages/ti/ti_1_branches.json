@@ -157,12 +157,6 @@
 							"delay_ticks": 2
 						}
 					}
-				],
-				"choices_requires": [
-					{
-						"flag": "seen",
-						"info": "screen:PasswordManager"
-					}
 				]
 			}
 		],
@@ -251,12 +245,6 @@
 			{
 				"id": "ti_2_1",
 				"text": "da uma olhada e dps volta aqui",
-				"choices_requires": [
-					{
-						"flag": "seen",
-						"info": "news:d2n3"
-					}
-				],
 				"choices": [
 					{
 						"id": "ti_2_1a_0",

@@ -5,7 +5,7 @@
 		"apps": ["MessagesHome", "Email", "Bank"],
 		"title": "Nome imitado",
 		"description": "O nome ou o endereço imita alguém conhecido, com letras trocadas, a mais ou faltando.",
-		"reference": "Notas › Contatos da empresa e Beneficiários"
+		"reference": "Notas › Contatos da empresa"
 	},
 	{
 		"id": "suspicious_attachment",
@@ -19,8 +19,8 @@
 		"id": "pix_code_format",
 		"day": 1,
 		"apps": ["Bank"],
-		"title": "Código fora do padrão",
-		"description": "O código Pix não tem 2 letras seguidas de 3 números, ou o código do boleto não tem 6 números.",
+		"title": "Código Pix fora do padrão",
+		"description": "O código Pix não tem 2 letras seguidas de 3 números.",
 		"reference": "Notas › Padrões de pagamento"
 	},
 	{
@@ -92,8 +92,8 @@
 		"day": 5,
 		"apps": ["Bank"],
 		"title": "Cedente errado",
-		"description": "Quem recebe o boleto não é a empresa que cobra, ou o CNPJ e a agência não são os dela.",
-		"reference": "Notas › Beneficiários e a tela do Banco"
+		"description": "Quem recebe o boleto não é a empresa citada no pedido.",
+		"reference": "Compare o pedido com a tela do Banco"
 	},
 	{
 		"id": "order_requester",

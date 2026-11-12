@@ -18,30 +18,5 @@
 		"thread_id": "yago_task3",
 		"email_id": "yago_payment0",
 		"required_app": "Bank"
-	},
-	{
-		"thread_id": "gilmar_papelaria_d2",
-		"email_id": "gilmar_papelaria_d2_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "jessica_cafe_d2",
-		"email_id": "jessica_cafe_d2_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "grafica_cartoes_d2",
-		"email_id": "grafica_cartoes_d2_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "marcao_limpeza_d2",
-		"email_id": "marcao_limpeza_d2_0",
-		"required_app": "Bank"
-	},
-	{
-		"thread_id": "Viva_task0",
-		"email_id": "Viva_payment0",
-		"required_app": "Bank"
 	}
 ]

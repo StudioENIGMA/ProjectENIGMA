@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
 [ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="1_8e4ax"]
 [ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
-[ext_resource type="PackedScene" uid="uid://cxedermdt10gv" path="res://scenes/tools/music_player_v2.tscn" id="2_040sx"]
+[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
@@ -42,7 +42,6 @@
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_center.tscn" id="37_center"]
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_widget.tscn" id="38_widget"]
 [ext_resource type="Script" uid="uid://e2dpvx21io03" path="res://scripts/utils/introduction_director.gd" id="40_s3pqv"]
-[ext_resource type="Script" path="res://scripts/utils/boletos_director.gd" id="41_boletos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widget_card"]
 content_margin_left = 12.0
@@ -504,10 +503,6 @@ event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
-intensity_reduction_interval_secs = 15.0
-
-[node name="MusicPlayerV2" parent="." unique_id=789101576 instance=ExtResource("2_040sx")]
-intensity = 5
 
 [node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "day_introduction_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui", "finish_tutorial_button")]
 layout_mode = 1
@@ -550,6 +545,11 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_3a7ej")
 expand_mode = 1
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
+stream = ExtResource("2_bd51b")
+autoplay = true
+bus = &"Music"
 
 [node name="PauseContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=1437380376]
 layout_mode = 0
@@ -1218,7 +1218,7 @@ autostart = true
 [node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
 script = ExtResource("25_5o8nl")
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "introduction_director", "boletos_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "introduction_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
@@ -1227,7 +1227,6 @@ bank_director = NodePath("BankDirector")
 randomness_director = NodePath("RandomnessDirector")
 events_director = NodePath("EventsDirector")
 introduction_director = NodePath("IntroductionsDirector")
-boletos_director = NodePath("BoletosDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
@@ -1263,9 +1262,6 @@ script = ExtResource("28_5o8nl")
 
 [node name="IntroductionsDirector" type="Node2D" parent="StoryDirector" unique_id=178480728]
 script = ExtResource("40_s3pqv")
-
-[node name="BoletosDirector" type="Node" parent="StoryDirector"]
-script = ExtResource("41_boletos")
 
 [node name="BlurBackBufferCopy" type="BackBufferCopy" parent="." unique_id=1133987199]
 copy_mode = 2

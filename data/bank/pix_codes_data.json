@@ -971,26 +971,5 @@
 		"email": "lia.mendes@mail.com.br",
 		"value": 430.0,
 		"reason": "Evento da empresa"
-	},
-	"GP614": {
-		"name": "Gráfica Ponto Certo",
-		"cpf": "08.771.430/0001-05",
-		"email": "cobranca@graficapontocerto.com.br",
-		"value": 380.0,
-		"reason": "Serviço de fornecedor"
-	},
-	"CL207": {
-		"name": "Clima Ar Refrigeração",
-		"cpf": "24.381.665/0001-09",
-		"email": "financeiro@climaar.com.br",
-		"value": 560.0,
-		"reason": "Serviço de fornecedor"
-	},
-	"KX913": {
-		"name": "K. X. Serviços",
-		"cpf": "45.009.317/0001-62",
-		"email": "kx.servicos@tempo-mail.com",
-		"value": 560.0,
-		"reason": "Serviço de fornecedor"
 	}
 }
