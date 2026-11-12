@@ -37,6 +37,33 @@
 				"id": "jessica_password0_2",
 				"text": "Me confirmaram e era isso memso, muito obrigada"
 			}
+		],
+		"from_jessica1_purchase0_0": [
+			{
+				"id": "jessica1_purchase0_1",
+				"text": "[correct_pattern]"
+			},
+			{
+				"id": "jessica1_purchase0_2",
+				"text": "obgdaa",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 31,
+								"quantity": 5,
+								"store": "aec"
+							},
+							{
+								"item_id": 32,
+								"quantity": 5,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
 		]
 	}
 }

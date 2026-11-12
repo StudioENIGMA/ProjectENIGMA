@@ -13,22 +13,25 @@ func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 	refresh_passwords_list()
 
-## Rebuilds one password instance per app that requires a password, then updates the
-## empty state
+## Rebuilds one password instance per installed app that requires a password, then updates
+## the empty state
 func refresh_passwords_list() -> void:
 	# Clear existing password instances
 	for child in password_container.get_children():
 		password_container.remove_child(child)
 		child.queue_free()
 
-	# Recreate password instances for each app that requires a password
-	for app in GameData.passwords.keys():
+	# Recreate password instances for each installed app that requires a password
+	var installed_gated_apps: Array = GameData.passwords.keys().filter(
+		func(app) -> bool: return GameData.downloaded_apps.has(app)
+	)
+	for app in installed_gated_apps:
 		var password_instance = STORED_PASSWORD_SCENE.instantiate()
 		password_container.add_child(password_instance)
 		password_instance.setup({"GatedApp": app})
 		password_instance.subscreen_open_requested.connect(password_change_requested.emit)
 
-	empty_state.visible = GameData.passwords.is_empty()
+	empty_state.visible = installed_gated_apps.is_empty()
 
 ## Reopening the screen re-reads GameData, so the list never shows a stale password
 func _on_visibility_changed() -> void:

@@ -18,6 +18,7 @@ signal discrepancy_reported(report: Dictionary)
 ## Title of the screens that are not named after the app they belong to
 const SUBSCREEN_TITLES = {
 	GameData.App.MESSAGESHISTORY: "Histórico",
+	GameData.App.BOLETO: "Boleto",
 }
 
 @export var close_app_button:TextureButton
@@ -112,8 +113,8 @@ var authenticator_app = preload(
 var bank_app = preload("res://scenes/apps/bank/bank_app.tscn").instantiate()
 var bank_payment_code = preload("res://scenes/apps/bank/payment_code.tscn").instantiate()
 var bank_payment_info = preload("res://scenes/apps/bank/payment_information.tscn").instantiate()
-var password_check_dialog = preload(
-	"res://scenes/settings/passwords_inserter.tscn"
+var password_lock_screen = preload(
+	"res://scenes/settings/passwords_lock.tscn"
 ).instantiate()
 var password_change_dialog = preload(
 	"res://scenes/settings/passwords_changer.tscn"
@@ -138,6 +139,9 @@ var notes_app = preload(
 ).instantiate()
 var order_document = preload(
 	"res://scenes/apps/email/order_document.tscn"
+).instantiate()
+var boleto_document = preload(
+	"res://scenes/apps/email/boleto_document.tscn"
 ).instantiate()
 
 ## List of currently open apps (as dictionaries with MainApp and SubScreen keys)
@@ -228,10 +232,10 @@ func _ready() -> void:
 	update_os_screen.visible = false
 	app_specific_screen.add_child(update_os_screen)
 
-	# Password Check Dialog (Password Manager)
-	password_check_dialog.visible = false
-	password_check_dialog.password_correct.connect(_on_back_button_pressed)
-	app_specific_screen.add_child(password_check_dialog)
+	# Password Lock Screen (covers an app whose password expired)
+	password_lock_screen.visible = false
+	password_lock_screen.password_change_requested.connect(open_passwords_manager)
+	app_specific_screen.add_child(password_lock_screen)
 
 	# Virus Scanner app (Virus Scanner app)
 	virus_scanner.visible = false
@@ -338,12 +342,19 @@ func _ready() -> void:
 	email_app_viewer.visible = false
 	email_app_viewer.discrepancy_picked.connect(_on_discrepancy_picked)
 	email_app_viewer.attachment_opened.connect(_on_attachment_opened)
+	email_app_viewer.delete_requested.connect(_on_email_delete_requested)
+	email_app_home.thread_blocked.connect(email_app_viewer.on_thread_blocked)
 	app_specific_screen.add_child(email_app_viewer)
 
 	# Order document, opened from an email attachment (Email app)
 	order_document.visible = false
 	order_document.discrepancy_picked.connect(_on_discrepancy_picked)
 	app_specific_screen.add_child(order_document)
+
+	# Boleto, opened from an email attachment (Email app)
+	boleto_document.visible = false
+	boleto_document.discrepancy_picked.connect(_on_discrepancy_picked)
+	app_specific_screen.add_child(boleto_document)
 
 	# Authenticator app
 	authenticator_app.visible = false
@@ -414,7 +425,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	var main_app:GameData.App
 
-	if (app != GameData.App.PASSWORDCHECK):
+	if (app != GameData.App.PASSWORDLOCK):
 		main_app = _get_main_app_enum(app)
 	else:
 		main_app = optional_data["GatedApp"]
@@ -422,6 +433,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
 	main_app_opened.emit(main_app)
+	# The story may wait for the player to look at a screen, see GameData.seen_info
+	var screen_name: String = GameData.apps_name_reverse.get(app, GameData.App.find_key(app))
+	GameData.mark_seen("screen:%s" % screen_name)
 
 	# Get specific app that should be opened
 	var specific_app = _get_app_by_enum(app)
@@ -459,9 +473,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	app_specific_screen.move_child(specific_app, app_specific_screen.get_child_count() - 1)
 
 	# Show back button if more than one app is open and hide previous app
-	# Also, do not show back button if the current app is the password check dialog
+	# Also, do not show back button if the current app is the password lock screen
 	var replaced_apps:Array = []
-	if open_apps.size() > 1 && app != GameData.App.PASSWORDCHECK:
+	if open_apps.size() > 1 && app != GameData.App.PASSWORDLOCK:
 		back_button.visible = true
 		close_app_button.visible = true
 		var previous_app_dict:Dictionary = open_apps[open_apps.size() - 2]
@@ -479,9 +493,9 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	else:
 		_transitions.push_app(specific_app, replaced_apps)
 
-	# Open password check dialog if the app is password protected
-	if app in GameData.passwords.keys(): # Single source of truth
-		_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": main_app})
+	# Lock the app behind its password if it was not changed today
+	if GameData.is_password_outdated(app):
+		_on_app_opened(GameData.App.PASSWORDLOCK, {"GatedApp": main_app})
 
 ## Handles the close app button press event
 func _on_back_button_pressed() -> void:
@@ -736,14 +750,18 @@ func _get_current_screen() -> Control:
 	return _get_app_by_enum(open_apps.back()["SubScreen"])
 #endregion DISCREPANCY
 
-## Opens an email attachment: an order document, or the payment a Pix QR Code reads to
+## Opens an email attachment: an order document, a boleto, or the payment a Pix QR Code reads to
 ##
-## attachment: "type" ("order_document" with its "document_id", or "pix_qr" with its
-## "read_code", the code the bank reads, which may not be the one printed under it)
+## attachment: "type" ("order_document" with its "document_id", "boleto" with its printed face,
+## or "pix_qr" with its "read_code", the code the bank reads, which may not be the one printed
+## under it)
 func _on_attachment_opened(attachment: Dictionary) -> void:
 	match str(attachment.get("type", "")):
 		"order_document":
 			_on_app_opened(GameData.App.ORDERDOCUMENT, attachment)
+		# Paid by typing its code in the bank app, the player compares both on the way
+		"boleto":
+			_on_app_opened(GameData.App.BOLETO, attachment)
 		"pix_qr":
 			# Reading a QR Code is a job for the bank app
 			if not GameData.downloaded_apps.has(GameData.App.BANK):
@@ -753,8 +771,9 @@ func _on_attachment_opened(attachment: Dictionary) -> void:
 			payment_code.type = GameData.PaymentType.PIX
 			payment_code.from_qr = true
 			_on_app_opened(GameData.App.PAYMENTINFORMATION, payment_code)
-			if GameData.passwords.has(GameData.App.BANK):
-				_on_app_opened(GameData.App.PASSWORDCHECK, {"GatedApp": GameData.App.BANK})
+			# The payment opens straight inside the bank, which stays locked until today's password
+			if GameData.is_password_outdated(GameData.App.BANK):
+				_on_app_opened(GameData.App.PASSWORDLOCK, {"GatedApp": GameData.App.BANK})
 
 
 ## Leaves the payment screen once paid, along with the code screen that led to it, if any
@@ -823,8 +842,13 @@ func _close_main_app(main_app_enum: GameData.App) -> void:
 
 ## Jumps into the app a notification came from, closing whatever else was open
 ##
-## Hack alerts ask the player to run the scanner, so they lead to Settings
+## Hack alerts ask the player to run the scanner, so they lead to Settings. Settings alerts
+## ask for the daily password change, so they lead to the passwords manager while any is due
 func open_app_from_notification(app:GameData.App) -> void:
+	if app == GameData.App.SETTINGS and not GameData.get_outdated_password_apps().is_empty():
+		open_passwords_manager()
+		return
+
 	var target_app:GameData.App = app
 	match app:
 		GameData.App.HACK:
@@ -832,8 +856,10 @@ func open_app_from_notification(app:GameData.App) -> void:
 		# A scam alert points at the board, to check the next request against it
 		GameData.App.SCAM:
 			target_app = GameData.App.NOTES
-	# The app may have been uninstalled since the notification arrived
-	if target_app == app and not GameData.downloaded_apps.has(app):
+	# The app may have been uninstalled since the notification arrived (the phone's own alerts and
+	# Settings never are)
+	var is_system_app:bool = target_app != app or app == GameData.App.SETTINGS
+	if not is_system_app and not GameData.downloaded_apps.has(app):
 		return
 
 	if not open_apps.is_empty():
@@ -843,6 +869,12 @@ func open_app_from_notification(app:GameData.App) -> void:
 		close_all_apps()
 
 	_on_app_opened(target_app)
+
+## Takes the player straight to the passwords manager, closing whatever else was open
+func open_passwords_manager() -> void:
+	close_all_apps()
+	_on_app_opened(GameData.App.SETTINGS)
+	_on_app_opened(GameData.App.PASSWORDMANAGER)
 
 func close_all_apps() -> void:
 	while not open_apps.is_empty():
@@ -863,6 +895,12 @@ func start_hack_minigame(hack_minigame: GameData.HackMinigame) -> void:
 func on_delete_conversation(_conversation_id: String) -> void:
 	_on_back_button_pressed()
 
+## Deletes the thread of a blocked scam, going back from it to the inbox
+func _on_email_delete_requested(thread_id: String) -> void:
+	if not open_apps.is_empty() and open_apps.back()["SubScreen"] == GameData.App.EMAILREAD:
+		_on_back_button_pressed()
+	email_app_home.delete_thread(thread_id)
+
 ## Returns the app node by its name
 func _get_app_by_enum(app_enum:GameData.App) -> Control:
 	var app_map = {
@@ -873,7 +911,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		# Settings app
 		GameData.App.SETTINGS: settings_app,
 		GameData.App.PASSWORDMANAGER: passwords_manager_app,
-		GameData.App.PASSWORDCHECK: password_check_dialog,
+		GameData.App.PASSWORDLOCK: password_lock_screen,
 		GameData.App.VIRUSSCANNER: virus_scanner,
 		GameData.App.UPDATEOS: update_os_screen,
 		# Store app
@@ -901,6 +939,7 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.EMAIL: email_app_home,
 		GameData.App.EMAILREAD: email_app_viewer,
 		GameData.App.ORDERDOCUMENT: order_document,
+		GameData.App.BOLETO: boleto_document,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: authenticator_app,
 		# Bank app
@@ -955,6 +994,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.EMAIL: GameData.App.EMAIL,
 		GameData.App.EMAILREAD: GameData.App.EMAIL,
 		GameData.App.ORDERDOCUMENT: GameData.App.EMAIL,
+		GameData.App.BOLETO: GameData.App.EMAIL,
 		# Authenticator app
 		GameData.App.AUTHENTICATOR: GameData.App.AUTHENTICATOR,
 		# Bank app

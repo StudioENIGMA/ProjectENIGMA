@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cxedermdt10gv"]
+
+[ext_resource type="Script" uid="uid://bdca4q5ffypdl" path="res://scripts/utils/sound and music/sound_director_v2.gd" id="1_7b51f"]
+[ext_resource type="Animation" uid="uid://po4ake2nhrg4" path="res://assets/sounds/music/v2/Music.res" id="1_umf4w"]
+[ext_resource type="AudioStream" uid="uid://c6lsmf3sq21ov" path="res://assets/sounds/music/v2/keys_melody_weak.ogg" id="3_7atyq"]
+[ext_resource type="AudioStream" uid="uid://bom5754ub5tro" path="res://assets/sounds/music/v2/keys_melody_mid.ogg" id="4_ypc0v"]
+[ext_resource type="AudioStream" uid="uid://bc8xukshs0nyy" path="res://assets/sounds/music/v2/keys_melody_intense.ogg" id="5_xc3rg"]
+[ext_resource type="AudioStream" uid="uid://cu60hlpssib4b" path="res://assets/sounds/music/v2/keys_acomp_weak.ogg" id="6_a2ehr"]
+[ext_resource type="AudioStream" uid="uid://cg35x42c8w6qk" path="res://assets/sounds/music/v2/keys_acomp_mid.ogg" id="7_ckxsl"]
+[ext_resource type="AudioStream" uid="uid://3daqtggnmgx2" path="res://assets/sounds/music/v2/bass.ogg" id="8_7vlw2"]
+[ext_resource type="AudioStream" uid="uid://dhakm63ukt2s1" path="res://assets/sounds/music/v2/bass_bridge.ogg" id="9_dy7j5"]
+[ext_resource type="AudioStream" uid="uid://c6hysfaup4tn6" path="res://assets/sounds/music/v2/drums.ogg" id="10_jtw2s"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umf4w"]
+_data = {
+&"Music": ExtResource("1_umf4w")
+}
+
+[node name="MusicPlayerV2" type="Node" unique_id=789101576 node_paths=PackedStringArray("animation_player", "KeysMelodyWeak", "KeysMelodyMid", "KeysMelodyIntense", "KeysAccompanimentWeak", "KeysAccompanimentMid", "Bass", "BassBridge", "Drums")]
+script = ExtResource("1_7b51f")
+animation_player = NodePath("AnimationPlayer")
+KeysMelodyWeak = NodePath("KeysMelody/KeysMelodyWeak")
+KeysMelodyMid = NodePath("KeysMelody/KeysMelodyMid")
+KeysMelodyIntense = NodePath("KeysMelody/KeysMelodyIntense")
+KeysAccompanimentWeak = NodePath("KeysAccompaniment/KeysAccompanimentWeak")
+KeysAccompanimentMid = NodePath("KeysAccompaniment/KeysAccompanimentMid")
+Bass = NodePath("Bass/Bass")
+BassBridge = NodePath("Bass/BassBridge")
+Drums = NodePath("Drums/Drums")
+bridge_cooldown_time = 120.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=720953441]
+libraries/ = SubResource("AnimationLibrary_umf4w")
+
+[node name="KeysMelody" type="Node" parent="." unique_id=1020013795]
+
+[node name="KeysMelodyWeak" type="AudioStreamPlayer" parent="KeysMelody" unique_id=934030211]
+stream = ExtResource("3_7atyq")
+
+[node name="KeysMelodyMid" type="AudioStreamPlayer" parent="KeysMelody" unique_id=213752682]
+stream = ExtResource("4_ypc0v")
+
+[node name="KeysMelodyIntense" type="AudioStreamPlayer" parent="KeysMelody" unique_id=150723882]
+stream = ExtResource("5_xc3rg")
+
+[node name="KeysAccompaniment" type="Node" parent="." unique_id=1993424300]
+
+[node name="KeysAccompanimentWeak" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=1921918717]
+stream = ExtResource("6_a2ehr")
+
+[node name="KeysAccompanimentMid" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=40332302]
+stream = ExtResource("7_ckxsl")
+
+[node name="Bass" type="Node" parent="." unique_id=1360393060]
+
+[node name="Bass" type="AudioStreamPlayer" parent="Bass" unique_id=1666518347]
+stream = ExtResource("8_7vlw2")
+
+[node name="BassBridge" type="AudioStreamPlayer" parent="Bass" unique_id=773901408]
+stream = ExtResource("9_dy7j5")
+
+[node name="Drums" type="Node" parent="." unique_id=190592936]
+
+[node name="Drums" type="AudioStreamPlayer" parent="Drums" unique_id=1914932921]
+stream = ExtResource("10_jtw2s")
