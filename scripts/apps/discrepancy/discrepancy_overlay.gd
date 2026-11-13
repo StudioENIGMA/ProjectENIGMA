@@ -28,6 +28,8 @@ const RULES_GROUPS := {
 const STAMP_FOUND_COLOR := Color(0.92156863, 0.039215688, 0.27058825)
 const STAMP_NEUTRAL_COLOR := Color(0.13333334, 0.28235295, 0.38431373)
 const STAMP_WRONG_COLOR := Color(0.101960786, 0.1254902, 0.2)
+## Orange (#FFA500) of a contact lost, which takes no report anymore
+const STAMP_LOST_COLOR := Color(1.0, 0.64705884, 0.0)
 ## Stamp titles longer than this are written smaller, so they fit the phone
 const STAMP_LONG_TITLE := 12
 ## Height of the bar shown at the bottom while pointing, the screen under it is shrunk by this
@@ -166,7 +168,7 @@ func stop() -> void:
 
 ## Slams the verdict of a report over the app, then fades it away
 ##
-## result: "verdict" ("found", "duplicate", "late", "early", "stale", "wrong" or "false"),
+## result: "verdict" ("found", "duplicate", "late", "early", "stale", "wrong", "false" or "lost"),
 ## "title" and "subtitle", as judged by events_director
 func play_stamp(result: Dictionary = {}) -> void:
 	if _stamp_tween:
@@ -185,6 +187,8 @@ func play_stamp(result: Dictionary = {}) -> void:
 			color = STAMP_NEUTRAL_COLOR
 		"wrong", "false":
 			color = STAMP_WRONG_COLOR
+		"lost":
+			color = STAMP_LOST_COLOR
 	var style := stamp.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
 	style.border_color = color
 	stamp.add_theme_stylebox_override("panel", style)

@@ -206,6 +206,11 @@ var seen_info: Array[String] = []
 ## Conversations and payment codes of the scams reported today, which can no longer go on
 var blocked_conversations: Array = []
 var blocked_payment_codes: Array = []
+## Conversations, email threads and payment codes of the random tasks and scams lost today, whose
+## contact went offline before they were done (see StoryDirector): none of them goes on
+var lost_conversations: Array = []
+var lost_threads: Array = []
+var lost_payment_codes: Array = []
 ## Conversations scams are carried out in, whose messages stand out in the Messages history
 var scam_conversations: Array = []
 

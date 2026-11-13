@@ -44,6 +44,9 @@ const STORE_FIND_RP := 5
 const WRONG_REPORT_RP := -2
 ## Points of a report on something that is not a scam
 const FALSE_REPORT_RP := -5
+## Points of a random task or scam lost, its contact gone offline before it was done, on every
+## difficulty
+const LOST_RP := -5
 #endregion CONSTANTS
 
 #region STATES
@@ -53,6 +56,10 @@ var events_to_check: Array[String]
 var initiated_events: Array[String] = []
 ## Scams the player fell for today
 var fallen_events: Array[String] = []
+## Random tasks and scams lost today, see lose_event()
+var lost_events: Array[String] = []
+## What the lost events are on (their chat, emails and payments), as a report points at it
+var _lost_pieces: Array[Dictionary] = []
 ## event_id -> ids of the discrepancies of that event found today
 var found_discrepancies: Dictionary = {}
 ## event_id -> {store: {item_id: quantity}} bought for that event today, see _hand_out_purchases()
@@ -72,6 +79,8 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	events_to_check = []
 	initiated_events = []
 	fallen_events = []
+	lost_events = []
+	_lost_pieces = []
 	found_discrepancies = {}
 	purchase_credits = {}
 	_report_entries = {}
@@ -83,6 +92,9 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.seen_info.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
+	GameData.lost_conversations.clear()
+	GameData.lost_threads.clear()
+	GameData.lost_payment_codes.clear()
 	GameData.purchased_items.clear()
 	GameData.scam_conversations.clear()
 	for event in events_dict.values():
@@ -112,6 +124,48 @@ func _on_event_initiated(event_id: String) -> void:
 ## neither fallen for nor blocked
 func is_event_pending(event_id: String) -> bool:
 	return events_to_check.has(event_id)
+
+## Loses a random task or scam whose contact went offline before it was done: it can no longer be
+## done, fallen for or reported, its payments are refused, and it costs LOST_RP
+##
+## pieces: What it was on besides its payments, as a report points at it: {"source": "messages",
+## "conversation"} for a chat, {"source": "email", "email_id"} for each email of a thread
+func lose_event(event_id: String, pieces: Array) -> void:
+	if not events_to_check.has(event_id):
+		return
+	events_to_check.erase(event_id)
+	lost_events.append(event_id)
+	_lost_pieces.append_array(pieces)
+
+	var event: Dictionary = events_dict.get(event_id, {})
+	for code in _get_payment_codes(event):
+		_lost_pieces.append({"source": "bank", "payment_code": code})
+		GameData.lost_payment_codes.append(code)
+
+	GameData.daily_reputation_points += LOST_RP
+	GameData.events_log.append({
+		"type": "lost",
+		"description": "Contato perdido: %s" % event.get("description", ""),
+		"reputation_points": LOST_RP,
+	})
+
+## Payment codes an event waits on or points its discrepancies at
+func _get_payment_codes(event: Dictionary) -> Array:
+	var codes: Array = []
+	for requirement in event.get("requires", []):
+		if requirement.has("payment_id"):
+			codes.append(str(requirement["payment_id"]))
+		for code in requirement.get("payment_array", []):
+			codes.append(str(code))
+	for discrepancy in event.get("discrepancies", []):
+		for place in discrepancy.get("found_at", []):
+			if place.has("payment_code"):
+				codes.append(str(place["payment_code"]))
+	return codes
+
+## Whether a section is on a random task or scam lost today
+func _is_lost_section(section: Dictionary) -> bool:
+	return _lost_pieces.any(func(piece: Dictionary) -> bool: return _is_same_piece(piece, section))
 
 func _on_clock_tick() -> void:
 	_hand_out_purchases()
@@ -273,6 +327,13 @@ func _apply_consequence(consequence: Dictionary) -> void:
 func evaluate_report(report: Dictionary) -> void:
 	var section: Dictionary = report.get("section", {})
 	var rule_id := str(report.get("rule", {}).get("id", ""))
+
+	# A lost contact is gone, nothing of it can be reported anymore
+	if _is_lost_section(section):
+		report_evaluated.emit(
+			_verdict("lost", "CONTATO PERDIDO", "O tempo para resolver acabou", 0)
+		)
+		return
 
 	# The scam delivered today that the section belongs to, if any
 	var scam_of_section := ""

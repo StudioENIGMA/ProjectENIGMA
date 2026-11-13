@@ -12,3 +12,8 @@ func setup(code: String) -> void:
 func setup_blocked(code: String) -> void:
 	not_found_label.text = "O pagamento \"%s\" foi bloqueado." % code
 	error_label.text = "Você denunciou esse golpe."
+
+## Tells the payment was refused because its contact was lost before the player did it
+func setup_lost(code: String) -> void:
+	not_found_label.text = "O pagamento \"%s\" não está mais disponível." % code
+	error_label.text = "O contato foi perdido: o tempo para resolver acabou."

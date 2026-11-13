@@ -195,7 +195,8 @@ func _add_to_history(day:int, conversations:Array) -> void:
 ## Marks how the scam of a conversation ended, so the history shows it
 ##
 ## conversation_id: The conversation of the scam
-## outcome: "fallen" when the player fell for it, "reported" when the player found it
+## outcome: "fallen" when the player fell for it, "reported" when the player found it, "lost"
+## when its contact went offline before the player did it
 func mark_outcome(conversation_id:String, outcome:String) -> void:
 	var idx = _find_conversation(conversation_id)
 	if idx == -1:

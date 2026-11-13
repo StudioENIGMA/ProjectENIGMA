@@ -71,6 +71,17 @@ func on_delete_offered(thread_id: String) -> void:
 	_sync_emails_to_game_data()
 	thread_blocked.emit(thread_id)
 
+## Marks the thread of a task or scam whose contact was lost before it was done (kept in the save)
+func on_thread_lost(thread_id: String) -> void:
+	var thread := _find_thread(thread_id)
+	if thread.is_empty():
+		return
+	thread[0]["lost"] = true
+	var email_row = _find_row(thread_id)
+	if email_row:
+		email_row.setup(thread, emails_to_read.has(thread_id))
+	_sync_emails_to_game_data()
+
 ## Takes a thread out of the inbox for good
 func delete_thread(thread_id: String) -> void:
 	var thread := _find_thread(thread_id)

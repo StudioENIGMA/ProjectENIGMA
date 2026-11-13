@@ -2,6 +2,11 @@ extends Node2D
 
 signal news_ready(day_news_data: Dictionary)
 signal update_news
+## Emitted when a random task or scam is lost, its contact gone offline before it was done:
+## channel_name "messages" or "emails", chat_id its conversation or thread
+signal chat_lost(channel_name: String, chat_id: String)
+## Emitted when the contacts online change, with the owners online now ("messages:<id>")
+signal online_chats_changed(owners: Array)
 
 ## Lanes of the story queue. Whenever no chat is in progress the main characters (the bosses of
 ## the company) go first, then the random employees asking the intern for help, by message or email
@@ -39,6 +44,9 @@ enum Lane { MAIN, RANDOM }
 ## Game minutes a chat in progress keeps holding the others while it waits for the player (an
 ## answer, an email to be read) with nothing else queued. 0 holds them for as long as it takes
 @export var lock_timeout_minutes: int = 60
+## Game minutes before its timeout a random task or scam warns that it is about to be lost, see
+## _warn_before_losing()
+@export var lock_warning_minutes: int = 20
 
 #region QUEUE STATE
 # One queue per lane for all apps that deliver story content over time
@@ -67,6 +75,12 @@ var active_awaiting_delete: bool = false
 var lock_last_activity: int = 0
 ## Lane each chat was last delivered in, so its next messages stay in it
 var lane_by_owner: Dictionary = {}
+## owner -> event its chat brought today, which keeps its contact online until done or lost
+var event_by_owner: Dictionary = {}
+## owner -> the last activity its contact was warned at, so it warns once per wait
+var _warned_owners: Dictionary = {}
+## Owners online at the last tick, see _publish_online_chats()
+var _online_owners: Array = []
 ## DEBUG: no chat starts by itself, only the ones fired from the debug task launcher go on
 var debug_isolated: bool = false
 #endregion LOCK STATE
@@ -298,6 +312,67 @@ func _end_chat(owner: String) -> void:
 			if queue[entry_index]["owner"] == owner:
 				queue.remove_at(entry_index)
 
+## Whether the chat in progress is a random task or scam still to be done, which its timeout loses
+func _is_losable() -> bool:
+	return active_owner != "" and lane_by_owner.get(active_owner, Lane.MAIN) == Lane.RANDOM \
+		and active_event_id != "" and not active_awaiting_delete \
+		and events_director.is_event_pending(active_event_id)
+
+## Has the contact of the random task or scam in progress ask if the player is still there, once
+## per wait, lock_warning_minutes before its timeout. It is no activity: the time left is the same
+func _warn_before_losing(current_minutes: int) -> void:
+	if lock_timeout_minutes <= 0 or not _is_losable():
+		return
+	if current_minutes - lock_last_activity < lock_timeout_minutes - lock_warning_minutes:
+		return
+	if _warned_owners.get(active_owner, -1) == lock_last_activity:
+		return
+	_warned_owners[active_owner] = lock_last_activity
+	var channel_name := active_owner.get_slice(":", 0)
+	var chat_id := active_owner.substr(channel_name.length() + 1)
+	if channel_name == "messages":
+		messages_director.send_nudge(chat_id)
+	else:
+		emails_director.send_nudge(chat_id)
+
+## Loses the random task or scam in progress when its time ran out before the player did it: its
+## contact goes offline and nothing of it goes on, see EventsDirector.lose_event()
+func _lose_timed_out_chat(current_minutes: int) -> void:
+	if lock_timeout_minutes <= 0 or not _is_losable():
+		return
+	if current_minutes - lock_last_activity < lock_timeout_minutes:
+		return
+	var owner := active_owner
+	var channel_name := owner.get_slice(":", 0)
+	var chat_id := owner.substr(channel_name.length() + 1)
+	var pieces: Array = []
+	if channel_name == "messages":
+		pieces.append({"source": "messages", "conversation": chat_id})
+		GameData.lost_conversations.append(chat_id)
+		messages_director.forget_chat(chat_id)
+	else:
+		for email in emails_director.emails_by_id.get(chat_id, []):
+			pieces.append({"source": "email", "email_id": str(email.get("email_id", ""))})
+		GameData.lost_threads.append(chat_id)
+	events_director.lose_event(active_event_id, pieces)
+	_end_chat(owner)
+	chat_lost.emit(channel_name, chat_id)
+	_publish_online_chats()
+
+## Tells the UI which contacts are online: the chat in progress, and every chat whose event of
+## today is still to be done. Once done or lost, the contact is offline
+func _publish_online_chats() -> void:
+	var owners: Array = []
+	if active_owner != "":
+		owners.append(active_owner)
+	for owner in event_by_owner:
+		if not owners.has(owner) and events_director.is_event_pending(event_by_owner[owner]):
+			owners.append(owner)
+	owners.sort()
+	if owners != _online_owners:
+		_online_owners = owners
+		online_chats_changed.emit(owners)
+
 ## Enqueues a story entry into the queue of its lane
 ##
 ## lane: Lane.RANDOM for random events. Left out, the entry goes in the lane its chat was last
@@ -340,15 +415,18 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary, lane
 func on_clock_tick(current_minutes: int) -> void:
 	events_director._on_clock_tick()
 	emails_director._on_clock_tick()
+	_publish_online_chats()
 	# Whatever chat is in progress, as the answers belong to a message already delivered
 	messages_director.present_held_choices(_are_requirements_met)
 
 	if active_owner != "" and not _should_release_lock(current_minutes):
+		_warn_before_losing(current_minutes)
 		for queue in [main_queue, random_queue]:
 			if _deliver_first_ready(queue, current_minutes, active_owner):
 				return
 		return
 
+	_lose_timed_out_chat(current_minutes)
 	_release_lock()
 	if debug_isolated:
 		for queue in [main_queue, random_queue]:
@@ -448,6 +526,8 @@ func _deliver(story_entry: Dictionary, current_minutes: int) -> void:
 	# The event a random task waits on comes with its first message
 	if not is_same_chat:
 		active_event_id = event_id if story_entry["lane"] == Lane.RANDOM else ""
+	if event_id != "" and not event_by_owner.has(active_owner):
+		event_by_owner[active_owner] = event_id
 
 	var controller: Node = channel_director_by_name[story_entry["channel"]]
 	events_director._on_event_initiated(event_id)
@@ -469,6 +549,10 @@ func _clear_story_queue() -> void:
 	story_enqueue_seq = 0
 	_release_lock()
 	lane_by_owner.clear()
+	event_by_owner.clear()
+	_warned_owners.clear()
+	_online_owners = []
+	online_chats_changed.emit(_online_owners)
 
 ## Inserts a story entry into a story queue maintaining order by due_at and seq
 ## This allows FIFO ordering for entries with the same due_at

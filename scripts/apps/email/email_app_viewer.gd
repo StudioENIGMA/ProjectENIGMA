@@ -12,6 +12,9 @@ signal attachment_opened(attachment: Dictionary)
 signal delete_requested(thread_id: String)
 
 const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_message_instance.tscn")
+const FOOTER_FONT := preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
+## Dark orange of the #FFA500 of a lost contact, readable on the thread
+const LOST_COLOR := Color(0.6, 0.36078432, 0.0)
 
 #region CHILDREN NODES REFERENCES
 @export var subject_label: Label
@@ -29,10 +32,21 @@ const EMAIL_MESSAGE_INSTANCE_SCENE = preload("res://scenes/apps/email/email_mess
 var _inspector := DiscrepancyInspector.new()
 ## Thread on screen
 var _thread_id: String = ""
+## Tells, under the thread, that its contact was lost
+var _lost_notice: Label
 
 func _ready() -> void:
 	_inspector.picked.connect(discrepancy_picked.emit) # Propagate signal to base app
 	delete_button.pressed.connect(func(): delete_requested.emit(_thread_id))
+	_lost_notice = Label.new()
+	_lost_notice.text = "Contato perdido: o tempo para resolver acabou"
+	_lost_notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_lost_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_lost_notice.add_theme_font_override("font", FOOTER_FONT)
+	_lost_notice.add_theme_font_size_override("font_size", 12)
+	_lost_notice.add_theme_color_override("font_color", LOST_COLOR)
+	_lost_notice.visible = false
+	delete_bar.add_sibling(_lost_notice)
 
 func setup(email_data: Array) -> void:
 	# Clear previous messages
@@ -45,6 +59,7 @@ func setup(email_data: Array) -> void:
 	var starting_email = email_data[0]
 	_thread_id = str(starting_email.get("thread_id", ""))
 	delete_bar.visible = bool(starting_email.get("blocked", false))
+	_lost_notice.visible = bool(starting_email.get("lost", false))
 	subject_label.text = starting_email.get("subject")
 	subject_target.section = {
 		"source": "email",
@@ -80,6 +95,11 @@ func setup(email_data: Array) -> void:
 func on_thread_blocked(thread_id: String) -> void:
 	if thread_id == _thread_id:
 		delete_bar.visible = true
+
+## Tells the thread on screen was lost, its contact gone before the player did it
+func on_thread_lost(thread_id: String) -> void:
+	if thread_id == _thread_id:
+		_lost_notice.visible = true
 
 ## Rules group the sections of this screen are checked against, see data/rules/rules.json
 func get_rules_app() -> String:

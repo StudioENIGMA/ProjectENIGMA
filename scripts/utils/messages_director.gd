@@ -35,6 +35,8 @@ const BLOCK_AND_REPORT_CHOICE := {
 	"player_text": "Bloquear e Denunciar",
 	"event_id": "block_and_report",
 }
+## What a contact asks when the player takes long on its task or scam, see send_nudge()
+const NUDGES := ["ainda tá aí?", "oi? conseguiu ver?", "consegue me responder?"]
 #endregion CONSTANTS
 
 #region CHILDREN NODES REFERENCES
@@ -137,8 +139,9 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	var branch := str(schedule_entry["branch"])
 	var node_index := int(schedule_entry["index"])
 
-	# A conversation reported as a scam goes no further
-	if GameData.blocked_conversations.has(conversation_id):
+	# A conversation reported as a scam, or lost, goes no further
+	if GameData.blocked_conversations.has(conversation_id) \
+			or GameData.lost_conversations.has(conversation_id):
 		conversation_finished.emit(conversation_id)
 		return
 
@@ -177,6 +180,9 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 
 	await  get_tree().create_timer(1).timeout
 	if setup_count != setup_at_delivery:
+		return
+	# Lost while its last message was being typed: nothing to answer anymore
+	if GameData.lost_conversations.has(conversation_id):
 		return
 
 	# Handle choices if any
@@ -271,6 +277,23 @@ func present_held_choices(requirements_met: Callable) -> void:
 			held["choices"],
 			GameData.hours_minutes
 		)
+
+## The contact of a conversation asks whether the player is still there, typing first like any
+## message. Called by the StoryDirector before a random task or scam is lost
+func send_nudge(conversation_id: String) -> void:
+	var contact := _get_contact(conversation_id)
+	var text: String = NUDGES.pick_random()
+	var setup_at_delivery := setup_count
+	npc_message_created.emit(contact)
+	await get_tree().create_timer(GameData.get_human_typing_time(text)).timeout
+	if setup_count != setup_at_delivery:
+		return
+	npc_message_sent.emit(contact, text, {}, GameData.Sender.NPC, GameData.hours_minutes)
+
+## Drops what a lost conversation still had to be answered, held or offered
+func forget_chat(conversation_id: String) -> void:
+	held_choices.erase(conversation_id)
+	answers_director.forget_answers(conversation_id)
 
 ## Offers "Bloquear e Denunciar" in each conversation of a scam the player found a discrepancy
 ## in, in place of the answers it had (connected after the UI takes those away)

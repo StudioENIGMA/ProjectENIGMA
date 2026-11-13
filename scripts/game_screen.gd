@@ -113,6 +113,9 @@ func _ready() -> void:
 	emails_director.delete_offered.connect(ui.base_app.email_app_home.on_delete_offered)
 	ui.base_app.email_app_home.thread_deleted.connect(emails_director.on_thread_deleted)
 	events_director.hack_requested.connect(event_handler.hack_handler.force_hack)
+	# A random task or scam lost, its contact gone offline before it was done, and who is online
+	story_director.chat_lost.connect(ui.base_app.on_chat_lost)
+	story_director.online_chats_changed.connect(ui.base_app.on_online_chats_changed)
 
 	# UI
 	# UI message answered to Story Director

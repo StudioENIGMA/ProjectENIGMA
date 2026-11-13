@@ -17,6 +17,11 @@ const OUTCOME_TAGS = {
 		"color": Color(0.039215688, 0.23137255, 0.19215687),
 		"background": Color(0.26666668, 0.8117647, 0.69803923, 0.28),
 	},
+	"lost": {
+		"text": "Contato perdido",
+		"color": Color(0.6, 0.36078432, 0.0),
+		"background": Color(1.0, 0.64705884, 0.0, 0.25),
+	},
 }
 const OUTCOME_FONT = preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
 
@@ -123,7 +128,7 @@ func _time_of(message:Dictionary) -> String:
 
 ## Puts the tag of how the scam of the conversation ended where the unread counter would be
 ##
-## outcome: "fallen", "reported", or anything else for no tag
+## outcome: "fallen", "reported", "lost", or anything else for no tag
 func _show_outcome(outcome:String) -> void:
 	if _outcome_tag:
 		_outcome_tag.queue_free()

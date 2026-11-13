@@ -38,6 +38,12 @@ func setup(code:GameData.PaymentCode) -> void:
 		not_found_container.visible = true
 		confirm_button.visible = false
 		return
+	# So is the payment of a task or scam whose contact was lost
+	if GameData.lost_payment_codes.has(payment_code.code):
+		not_found_container.setup_lost(payment_code.code)
+		not_found_container.visible = true
+		confirm_button.visible = false
+		return
 
 	var code_informations = codes_dict.get(payment_code.code)
 
@@ -135,8 +141,9 @@ func _on_codes_dict_updated(new_dict: Dictionary) -> void:
 	codes_dict = new_dict
 
 func _on_confirm_button_pressed() -> void:
-	# Reported while the screen was open
-	if GameData.blocked_payment_codes.has(payment_code.code):
+	# Reported, or lost, while the screen was open
+	if GameData.blocked_payment_codes.has(payment_code.code) \
+			or GameData.lost_payment_codes.has(payment_code.code):
 		setup(payment_code)
 		return
 

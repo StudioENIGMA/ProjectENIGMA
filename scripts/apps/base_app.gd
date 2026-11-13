@@ -150,6 +150,15 @@ var open_apps:Array = []
 ## Opening/closing animations of the window and the apps inside it
 var _transitions:AppTransitions
 
+## Dark green (the "Denunciado" tag's) of a contact online and crimson of one offline, next to the
+## account of the open chat, over the teal of the top bar
+const ONLINE_COLOR := Color(0.039215688, 0.23137255, 0.19215687)
+const OFFLINE_COLOR := Color(0.92156863, 0.039215688, 0.27058825)
+## Online or offline, next to the account of the contact of the open chat
+var _contact_status:Label
+## Chats whose contact is online now ("messages:<id>"), see StoryDirector.online_chats_changed
+var _online_owners:Array = []
+
 ## Whether the player is reporting a scam (picking a rule, then pointing at the section)
 var _is_inspecting := false
 ## Rule of the day the player said the scam breaks, empty while still picking it
@@ -172,6 +181,7 @@ var _picked_section: Dictionary = {}
 func _ready() -> void:
 	_transitions = AppTransitions.new(self, apps_ui)
 	_transitions.is_node_open = _is_app_node_open
+	_build_contact_status()
 
 	# Connect close app button signal
 	back_button.pressed.connect(_on_back_button_pressed)
@@ -569,6 +579,53 @@ func _on_app_uninstalled(app:GameData.App) -> void:
 	if _has_open_main_app(main_app):
 		_close_main_app(main_app)
 
+## Puts the online status on the line of the account, under the name of the open chat's contact
+func _build_contact_status() -> void:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var column := app_title_account.get_parent()
+	column.add_child(row)
+	column.move_child(row, app_title_account.get_index())
+	app_title_account.reparent(row)
+	# The line shows up with the account, on a chat only
+	row.visible = app_title_account.visible
+	app_title_account.visibility_changed.connect(func() -> void: row.visible = app_title_account.visible)
+
+	_contact_status = Label.new()
+	_contact_status.add_theme_font_override("font", app_title_account.get_theme_font("font"))
+	_contact_status.add_theme_font_size_override("font_size", 11)
+	_contact_status.visible = false
+	row.add_child(_contact_status)
+
+## Shows whether the contact of the open chat is online: it is while it has something to be done
+## today, and goes offline once that is done or lost. A chat of the history shows nothing
+func _refresh_contact_status() -> void:
+	var conversation_id := str(messages_app_chat.conversation_id)
+	_contact_status.visible = not conversation_id.is_empty() and not messages_app_chat.is_archived()
+	if not _contact_status.visible:
+		return
+	var is_online := _online_owners.has("messages:%s" % conversation_id)
+	_contact_status.text = "• online" if is_online else "• offline"
+	_contact_status.add_theme_color_override("font_color", ONLINE_COLOR if is_online else OFFLINE_COLOR)
+
+## Keeps the online status of the open chat in step with the story
+func on_online_chats_changed(owners: Array) -> void:
+	_online_owners = owners
+	_refresh_contact_status()
+
+## Ends what is left of a random task or scam whose contact went offline before the player did it:
+## its answers go away, and it stays tagged as lost for the history
+func on_chat_lost(channel_name: String, chat_id: String) -> void:
+	if channel_name == "messages":
+		messages_app_home.on_delete_answers(chat_id)
+		messages_app_chat.on_conversation_lost(chat_id)
+		messages_app_home.mark_outcome(chat_id, "lost")
+	else:
+		email_app_home.on_thread_lost(chat_id)
+		email_app_viewer.on_thread_lost(chat_id)
+	_refresh_contact_status()
+
 ## Fills the top bar title with the opened conversation contact
 func _on_chat_header_changed(
 	npc_name: String, photo: String, is_verified: bool, account: String
@@ -583,6 +640,7 @@ func _on_chat_header_changed(
 		"conversation": messages_app_chat.conversation_id,
 		"excerpt": "%s %s" % [npc_name, account],
 	}
+	_refresh_contact_status()
 
 ## Names the screen that is open: the contact on a chat, the app it belongs to everywhere else
 func _update_app_title() -> void:

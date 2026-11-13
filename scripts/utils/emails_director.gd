@@ -252,6 +252,24 @@ func send_reply(event_id: String) -> void:
 				"relative_due_time": float(GameData.hours_minutes - GameData.starting_hours_minutes),
 			})
 			return
+
+## The sender of a thread asks whether the player saw it, in the same thread. Called by the
+## StoryDirector before a random task or scam is lost
+func send_nudge(thread_id: String) -> void:
+	var thread: Array = emails_by_id.get(thread_id, [])
+	if thread.is_empty():
+		return
+	var first: Dictionary = thread[0]
+	email_received.emit({
+		"thread_id": thread_id,
+		"email_id": str(first.get("email_id", "")) + "_nudge",
+		"sender": first.get("sender"),
+		"subject": "Re: " + _resolve_boleto_fields(str(first.get("subject", ""))),
+		"content": "Oi, conseguiu ver o meu email? Preciso disso ainda hoje.",
+		"attachments": [],
+		"day": GameData.current_day,
+		"relative_due_time": float(GameData.hours_minutes - GameData.starting_hours_minutes),
+	})
 #endregion DELIVERY
 
 #region DELETION
