@@ -115,7 +115,6 @@
 			{
 				"id": "boss_0_2",
 				"text": "Lá está tudo do dia: seu horário, os apps liberados, quem pode te pedir algo hoje e as regras para não cair em golpe. Ele muda todo dia, confira sempre.",
-				"event_id": "tutorial_boss",
 				"choices": [
 					{
 						"id": "boss_0_2a_0",
