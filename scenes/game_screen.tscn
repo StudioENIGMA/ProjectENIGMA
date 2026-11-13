@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bspcbug4j3piu" path="res://scripts/utils/ui.gd" id="1_5o8nl"]
 [ext_resource type="Shader" uid="uid://d4ay0e3wikjbi" path="res://shaders/progressive_blur.gdshader" id="1_8e4ax"]
 [ext_resource type="Script" uid="uid://ch2vi0hggb4yh" path="res://scripts/game_screen.gd" id="1_8imdr"]
-[ext_resource type="AudioStream" uid="uid://c1kcm17tyunq0" path="res://assets/sounds/ost/[OLD]enigma_bg_ost_r1_2025-06-16.wav" id="2_bd51b"]
+[ext_resource type="PackedScene" uid="uid://cxedermdt10gv" path="res://scenes/tools/music_player_v2.tscn" id="2_040sx"]
 [ext_resource type="PackedScene" uid="uid://clmq5ocg6g06r" path="res://scenes/apps/BaseApp.tscn" id="3_qca60"]
 [ext_resource type="Texture2D" uid="uid://ctg4uii4rf8a5" path="res://assets/icons/door_exit.png" id="5_5o8nl"]
 [ext_resource type="Script" uid="uid://1sf2umnidf4m" path="res://scripts/apps/event_handler.gd" id="6_pur81"]
@@ -503,6 +503,10 @@ event_handler = NodePath("EventHandler")
 story_director = NodePath("StoryDirector")
 progressive_blur = NodePath("progressiveBlur")
 clock_timer = NodePath("EventHandler/ClockTimer")
+intensity_reduction_interval_secs = 15.0
+
+[node name="MusicPlayerV2" parent="." unique_id=789101576 instance=ExtResource("2_040sx")]
+intensity = 5
 
 [node name="UI" type="Control" parent="." unique_id=1087225146 node_paths=PackedStringArray("base_app", "day_over_ui", "day_introduction_ui", "notifications_control", "notification_center", "notification_widget", "apps_ui", "pause_game_ui", "finish_tutorial_button")]
 layout_mode = 1
@@ -545,11 +549,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_3a7ej")
 expand_mode = 1
-
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="UI/DesktopUI/Background" unique_id=1298632777]
-stream = ExtResource("2_bd51b")
-autoplay = true
-bus = &"Music"
 
 [node name="PauseContainer" type="MarginContainer" parent="UI/DesktopUI" unique_id=1437380376]
 layout_mode = 0
