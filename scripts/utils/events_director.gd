@@ -56,6 +56,9 @@ var events_to_check: Array[String]
 var initiated_events: Array[String] = []
 ## Scams the player fell for today
 var fallen_events: Array[String] = []
+## email_id of every email whose installer the player ran today, for the "installer_opened" and
+## "payment_or_installer" requirements
+var opened_installers: Array[String] = []
 ## Random tasks and scams lost today, see lose_event()
 var lost_events: Array[String] = []
 ## What the lost events are on (their chat, emails and payments), as a report points at it
@@ -79,6 +82,7 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	events_to_check = []
 	initiated_events = []
 	fallen_events = []
+	opened_installers = []
 	lost_events = []
 	_lost_pieces = []
 	found_discrepancies = {}
@@ -124,6 +128,13 @@ func _on_event_initiated(event_id: String) -> void:
 ## neither fallen for nor blocked
 func is_event_pending(event_id: String) -> bool:
 	return events_to_check.has(event_id)
+
+## Runs an installer attached to an email: the phone is hacked at once, even on a fall the
+## difficulty forgives, and the scam that sent it is fallen for on the next tick
+func on_installer_opened(email_id: String) -> void:
+	if not opened_installers.has(email_id):
+		opened_installers.append(email_id)
+	hack_requested.emit()
 
 ## Loses a random task or scam whose contact went offline before it was done: it can no longer be
 ## done, fallen for or reported, its payments are refused, and it costs LOST_RP
@@ -242,6 +253,12 @@ func evaluate_requirements(event: Dictionary, event_id: String) -> bool:
 			return true
 		elif flag == "email_read":
 			return GameData.read_emails.has(requirement.get("email_id", ""))
+		elif flag == "installer_opened":
+			return opened_installers.has(str(requirement.get("email_id", "")))
+		# A scam sending a boleto and an installer: paying it or running it, either is a fall
+		elif flag == "payment_or_installer":
+			return GameData.completed_payments.has(requirement.get("payment_id", "")) \
+				or opened_installers.has(str(requirement.get("email_id", "")))
 	return false
 
 ## Hands the orders paid since the last tick (GameData.purchased_items) out to the events waiting on

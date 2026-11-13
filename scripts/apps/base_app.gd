@@ -15,6 +15,9 @@ signal main_app_opened(main_app: GameData.App)
 ## day it breaks, as read from data/rules/rules.json) and "screen" (the GameData.App it was on)
 signal discrepancy_reported(report: Dictionary)
 
+## Emitted when the player runs an installer (.apk or .exe) attached to an email
+signal installer_opened(email_id: String)
+
 ## Title of the screens that are not named after the app they belong to
 const SUBSCREEN_TITLES = {
 	GameData.App.MESSAGESHISTORY: "Histórico",
@@ -832,6 +835,9 @@ func _on_attachment_opened(attachment: Dictionary) -> void:
 			# The payment opens straight inside the bank, which stays locked until today's password
 			if GameData.is_password_outdated(GameData.App.BANK):
 				_on_app_opened(GameData.App.PASSWORDLOCK, {"GatedApp": GameData.App.BANK})
+		# Nothing opens: the installer runs and hacks the phone
+		"installer":
+			installer_opened.emit(str(attachment.get("email_id", "")))
 
 
 ## Leaves the payment screen once paid, along with the code screen that led to it, if any

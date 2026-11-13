@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "kospenski_renovacao_anual_do_d6",
+		"email_id": "kospenski_renovacao_anual_do_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "ricardo_folhetos_da_feira_d6",
+		"email_id": "ricardo_folhetos_da_feira_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia_seu_holerite_do_mes_d6",
+		"email_id": "marcia_seu_holerite_do_mes_d6_0",
+		"required_app": "Email"
+	},
+	{
+		"thread_id": "jose_taxa_do_antivirus_d6",
+		"email_id": "jose_taxa_do_antivirus_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "arthur_roteadores_da_filial_d6",
+		"email_id": "arthur_roteadores_da_filial_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carla_fatura_com_token_d6",
+		"email_id": "carla_fatura_com_token_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_festa_de_fim_de_mes_d6_2",
+		"email_id": "jessica_festa_de_fim_de_mes_d6_2_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherme_seguro_das_cadeiras_d6",
+		"email_id": "guilherme_seguro_das_cadeiras_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "negativa_pedido_dos_celulares_d6",
+		"email_id": "negativa_pedido_dos_celulares_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "yago_relatorio_contabil_d6",
+		"email_id": "yago_relatorio_contabil_d6_0",
+		"required_app": "Bank"
+	}
+]

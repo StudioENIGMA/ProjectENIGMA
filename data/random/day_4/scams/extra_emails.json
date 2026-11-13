@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "carolina_licencas_do_antivirus_d4",
+		"email_id": "carolina_licencas_do_antivirus_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jose_conserto_do_ar_d4",
+		"email_id": "jose_conserto_do_ar_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_chapas_de_aluminio_d4_2",
+		"email_id": "gilmar_chapas_de_aluminio_d4_2_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "yago_liberacao_do_pagamento_d4",
+		"email_id": "yago_liberacao_do_pagamento_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "negativa_nota_fiscal_dos_d4",
+		"email_id": "negativa_nota_fiscal_dos_d4_0",
+		"required_app": "Email"
+	},
+	{
+		"thread_id": "ricardo_seguro_dos_cartoes_d4",
+		"email_id": "ricardo_seguro_dos_cartoes_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "arthur_certificado_de_seguranca_d4",
+		"email_id": "arthur_certificado_de_seguranca_d4_0",
+		"required_app": "Email"
+	},
+	{
+		"thread_id": "mariana_cabos_da_sala_de_vendas_d4",
+		"email_id": "mariana_cabos_da_sala_de_vendas_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia_coffee_break_da_d4_2",
+		"email_id": "marcia_coffee_break_da_d4_2_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carla_papel_do_trimestre_d4",
+		"email_id": "carla_papel_do_trimestre_d4_0",
+		"required_app": "Bank"
+	}
+]

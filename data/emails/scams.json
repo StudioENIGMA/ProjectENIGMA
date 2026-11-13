@@ -11,7 +11,8 @@
 				"boleto_id": "moveis_mesas_golpe"
 			},
 			{
-				"name": "LeitorBoleto.exe"
+				"name": "LeitorBoleto.exe",
+				"type": "installer"
 			}
 		],
 		"requires": []
@@ -47,7 +48,8 @@
 				"boleto_id": "kospenski_licenca_golpe"
 			},
 			{
-				"name": "Instalador_Kospenski.exe"
+				"name": "Instalador_Kospenski.exe",
+				"type": "installer"
 			}
 		],
 		"requires": []
