@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "grafica_crachas_novos_d5",
+		"email_id": "grafica_crachas_novos_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marta_ar_da_sala_de_vendas_d5",
+		"email_id": "marta_ar_da_sala_de_vendas_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina_licencas_da_vpn_d5_2",
+		"email_id": "carolina_licencas_da_vpn_d5_2_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherme_parafusos_da_montagem_d5",
+		"email_id": "guilherme_parafusos_da_montagem_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "viva_2_via_da_fatura_d5",
+		"email_id": "viva_2_via_da_fatura_d5_0",
+		"required_app": "Email"
+	},
+	{
+		"thread_id": "yago_suporte_tecnico_d5",
+		"email_id": "yago_suporte_tecnico_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_exames_admissionais_d5",
+		"email_id": "jessica_exames_admissionais_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_conserto_do_ar_do_galpao_d5",
+		"email_id": "marcao_conserto_do_ar_do_galpao_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "mariana_multa_dos_roteadores_d5",
+		"email_id": "mariana_multa_dos_roteadores_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_chapas_de_aluminio_d5",
+		"email_id": "gilmar_chapas_de_aluminio_d5_0",
+		"required_app": "Bank"
+	}
+]

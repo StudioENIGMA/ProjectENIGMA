@@ -429,3 +429,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_06fvf")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ScannerAnimation"]
 stream = ExtResource("6_8hb8s")
 volume_db = -5.0
+bus = &"SFX"

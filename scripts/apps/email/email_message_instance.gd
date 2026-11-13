@@ -1,10 +1,11 @@
 extends VBoxContainer
 
-## Emitted when the player taps an attachment that opens (an order document or a Pix QR Code)
+## Emitted when the player taps an attachment that opens (an order document, a Pix QR Code, a
+## boleto or an installer), with the "email_id" of the email it came in
 signal attachment_opened(attachment: Dictionary)
 
 ## Attachment types that open when tapped
-const OPENABLE_ATTACHMENTS := ["order_document", "pix_qr"]
+const OPENABLE_ATTACHMENTS := ["order_document", "pix_qr", "boleto", "installer"]
 
 #region CHILDREN NODES REFERENCES
 @export var profile_picture:Control
@@ -41,7 +42,8 @@ func setup(email_data: Dictionary) -> void:
 ##
 ## email_id: The email the attachments belong to, for the section each chip reports
 ## attachments: The attachments of the email, as names or dictionaries with a "name" (and a
-## "type" for the ones that open: "order_document" or "pix_qr" with its "printed_code")
+## "type" for the ones that open: "order_document", "pix_qr" with its "printed_code", "boleto" or
+## "installer", an .apk or .exe that hacks the phone)
 func _show_attachments(email_id: String, attachments: Array) -> void:
 	attachments_container.visible = not attachments.is_empty()
 
@@ -56,16 +58,27 @@ func _show_attachments(email_id: String, attachments: Array) -> void:
 		chip.visible = true
 		attachments_container.add_child(chip)
 
-		if attachment is Dictionary and OPENABLE_ATTACHMENTS.has(attachment.get("type", "")):
-			chip.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-			chip.gui_input.connect(_on_attachment_gui_input.bind(attachment))
-
 		var chip_target: DiscrepancyTarget = chip.get_node("AttachmentTarget")
 		chip_target.section = _section(email_id, "attachment", str(attachment_name))
 		discrepancy_targets.append(chip_target)
 
+		if attachment is Dictionary and OPENABLE_ATTACHMENTS.has(attachment.get("type", "")):
+			chip.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			chip.gui_input.connect(
+				_on_attachment_gui_input.bind(
+					attachment.merged({"email_id": email_id}), chip_target
+				)
+			)
+
 ## Opens the attachment on a tap (a release, so a drag scrolling the thread does not count)
-func _on_attachment_gui_input(event: InputEvent, attachment: Dictionary) -> void:
+##
+## chip_target: The chip as a discrepancy section. While inspecting, the chip is only reported,
+## never opened, an installer would hack the phone
+func _on_attachment_gui_input(
+	event: InputEvent, attachment: Dictionary, chip_target: DiscrepancyTarget
+) -> void:
+	if chip_target.armed:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not event.pressed:
 			attachment_opened.emit(attachment)

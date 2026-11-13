@@ -8,6 +8,10 @@ signal request_email_notification(
   title:String,
   time:int
 )
+## Emitted when a thread is marked as a blocked scam, which can then be deleted
+signal thread_blocked(thread_id: String)
+## Emitted once the player deletes a thread
+signal thread_deleted(thread_id: String)
 #endregion SIGNALS
 
 const EMAIL_ROW_SCENE = preload("res://scenes/apps/email/email_row.tscn")
@@ -54,7 +58,61 @@ func on_receive_email(email_data: Dictionary) -> void:
 func _on_open_email(app: GameData.App, email_data:Array) -> void:
 	emails_to_read.erase(email_data[0]["thread_id"])
 	subscreen_open_requested.emit(app, email_data)
+
+## Marks the thread of a blocked scam, which offers to be deleted from then on (kept in the save)
+func on_delete_offered(thread_id: String) -> void:
+	var thread := _find_thread(thread_id)
+	if thread.is_empty():
+		return
+	thread[0]["blocked"] = true
+	var email_row = _find_row(thread_id)
+	if email_row:
+		email_row.setup(thread, emails_to_read.has(thread_id))
+	_sync_emails_to_game_data()
+	thread_blocked.emit(thread_id)
+
+## Marks the thread of a task or scam whose contact was lost before it was done (kept in the save)
+func on_thread_lost(thread_id: String) -> void:
+	var thread := _find_thread(thread_id)
+	if thread.is_empty():
+		return
+	thread[0]["lost"] = true
+	var email_row = _find_row(thread_id)
+	if email_row:
+		email_row.setup(thread, emails_to_read.has(thread_id))
+	_sync_emails_to_game_data()
+
+## Takes a thread out of the inbox for good
+func delete_thread(thread_id: String) -> void:
+	var thread := _find_thread(thread_id)
+	if thread.is_empty():
+		return
+	emails_data.erase(thread)
+	emails_to_read.erase(thread_id)
+	var email_row = _find_row(thread_id)
+	if email_row:
+		list_of_emails.remove_child(email_row)
+		email_row.queue_free()
+	_refresh_empty_state()
+	_sync_emails_to_game_data()
+	thread_deleted.emit(thread_id)
 #endregion SIGNALS HANDLERS
+
+## The emails of a thread in the inbox, empty when it is not there
+func _find_thread(thread_id: String) -> Array:
+	for email_thread in emails_data:
+		if email_thread[0]["thread_id"] == thread_id:
+			return email_thread
+	return []
+
+## The row showing a thread in the inbox, null when there is none
+func _find_row(thread_id: String) -> Control:
+	for email_row in list_of_emails.get_children():
+		if email_row.is_queued_for_deletion():
+			continue
+		if email_row.email_data[0]["thread_id"] == thread_id:
+			return email_row
+	return null
 
 #region UI UPDATES
 ## Updates the list of emails in the UI

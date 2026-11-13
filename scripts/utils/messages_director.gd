@@ -6,6 +6,9 @@ extends Node
 ##   on the phone, so several conversations may share it (e.g. a scammer posing as a real contact)
 ##   Branches are sequences of messages, each message node can have choices for the player
 ##   that can lead to different branches or NPC replies
+##   A message node asking the player to look at something (a news article, a screen...) holds
+##   its choices until they do, its "choices_requires" (requires as "requires" takes them) tell
+##   what has to be seen, a look made before the ask does not count, see present_held_choices()
 
 
 #region SIGNALS
@@ -32,6 +35,8 @@ const BLOCK_AND_REPORT_CHOICE := {
 	"player_text": "Bloquear e Denunciar",
 	"event_id": "block_and_report",
 }
+## What a contact asks when the player takes long on its task or scam, see send_nudge()
+const NUDGES := ["ainda tá aí?", "oi? conseguiu ver?", "consegue me responder?"]
 #endregion CONSTANTS
 
 #region CHILDREN NODES REFERENCES
@@ -40,6 +45,9 @@ const BLOCK_AND_REPORT_CHOICE := {
 
 #region STATE
 var conversations_by_id: Dictionary = {}
+## Choices of the messages waiting for the player to look at something, see "choices_requires":
+## conversation_id -> {"choices": Array, "requires": Array}
+var held_choices: Dictionary = {}
 ## Changes on every setup (a new day), so a message still being typed when the day ends is dropped
 var setup_count: int = 0
 #endregion STATE
@@ -52,6 +60,7 @@ func _ready() -> void:
 ## Sets up conversations from JSON roots (called by StoryDirector)
 func setup_from_json_roots(json_roots: Array) -> void:
 	conversations_by_id.clear()
+	held_choices.clear()
 	setup_count += 1
 
 	for root in json_roots:
@@ -130,8 +139,9 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	var branch := str(schedule_entry["branch"])
 	var node_index := int(schedule_entry["index"])
 
-	# A conversation reported as a scam goes no further
-	if GameData.blocked_conversations.has(conversation_id):
+	# A conversation reported as a scam, or lost, goes no further
+	if GameData.blocked_conversations.has(conversation_id) \
+			or GameData.lost_conversations.has(conversation_id):
 		conversation_finished.emit(conversation_id)
 		return
 
@@ -171,10 +181,22 @@ func deliver_scheduled_entry(schedule_entry: Dictionary, current_minutes: int) -
 	await  get_tree().create_timer(1).timeout
 	if setup_count != setup_at_delivery:
 		return
+	# Lost while its last message was being typed: nothing to answer anymore
+	if GameData.lost_conversations.has(conversation_id):
+		return
 
 	# Handle choices if any
 	var choices: Array = message_node.get("choices", [])
 	if not choices.is_empty():
+		# Asked to look at something, the player answers only once they did
+		var choices_requires: Array = message_node.get("choices_requires", [])
+		if not choices_requires.is_empty():
+			# Only a look from now on counts, not one made before the ask (for another task, say)
+			for requirement in choices_requires:
+				if requirement.get("flag", "") == "seen":
+					GameData.forget_seen(str(requirement.get("info", "")))
+			held_choices[conversation_id] = {"choices": choices, "requires": choices_requires}
+			return
 		answers_director.present_choices(
 			contact,
 			choices,
@@ -239,6 +261,40 @@ func _on_answer_committed(
 	# No NPC reply to the answer, the conversation is over
 	conversation_finished.emit(conversation_id)
 
+## Presents the choices held until the player looked at what they were asked to (called by
+## StoryDirector every tick)
+##
+## requirements_met: Tells whether the requires of a "choices_requires" are met, see
+## StoryDirector._are_requirements_met()
+func present_held_choices(requirements_met: Callable) -> void:
+	for conversation_id in held_choices.keys():
+		var held: Dictionary = held_choices[conversation_id]
+		if not requirements_met.call(held["requires"]):
+			continue
+		held_choices.erase(conversation_id)
+		answers_director.present_choices(
+			_get_contact(conversation_id),
+			held["choices"],
+			GameData.hours_minutes
+		)
+
+## The contact of a conversation asks whether the player is still there, typing first like any
+## message. Called by the StoryDirector before a random task or scam is lost
+func send_nudge(conversation_id: String) -> void:
+	var contact := _get_contact(conversation_id)
+	var text: String = NUDGES.pick_random()
+	var setup_at_delivery := setup_count
+	npc_message_created.emit(contact)
+	await get_tree().create_timer(GameData.get_human_typing_time(text)).timeout
+	if setup_count != setup_at_delivery:
+		return
+	npc_message_sent.emit(contact, text, {}, GameData.Sender.NPC, GameData.hours_minutes)
+
+## Drops what a lost conversation still had to be answered, held or offered
+func forget_chat(conversation_id: String) -> void:
+	held_choices.erase(conversation_id)
+	answers_director.forget_answers(conversation_id)
+
 ## Offers "Bloquear e Denunciar" in each conversation of a scam the player found a discrepancy
 ## in, in place of the answers it had (connected after the UI takes those away)
 func offer_block_and_report(conversation_ids: Array) -> void:
@@ -246,6 +302,7 @@ func offer_block_and_report(conversation_ids: Array) -> void:
 		conversation_id = str(conversation_id)
 		if not conversations_by_id.has(conversation_id):
 			continue
+		held_choices.erase(conversation_id)
 		answers_director.forget_answers(conversation_id)
 		answers_director.present_choices(
 			_get_contact(conversation_id),

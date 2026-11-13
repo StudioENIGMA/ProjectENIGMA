@@ -1,0 +1,1098 @@
+{
+	"banks": {
+		"aurora": { "name": "Banco Aurora", "code": "907" },
+		"caixa_leste": { "name": "Caixa Leste", "code": "913" },
+		"central_sul": { "name": "Banco Central Sul", "code": "921" },
+		"norte": { "name": "Banco Norte", "code": "934" },
+		"nexo": { "name": "Banco Nexo", "code": "948" },
+		"mercurio": { "name": "Banco Mercúrio", "code": "952" },
+		"nova_caixa": { "name": "Nova Caixa Digital", "code": "967" }
+	},
+	"payees": {
+		"viva": {
+			"name": "Viva Inc.",
+			"cnpj": "12.345.678/0001-90",
+			"bank": "aurora",
+			"agency": "0412-7"
+		},
+		"industrials": {
+			"name": "Industrials",
+			"cnpj": "45.118.902/0001-33",
+			"bank": "caixa_leste",
+			"agency": "1180-2"
+		},
+		"emporio_festa": {
+			"name": "Empório da Festa",
+			"cnpj": "31.208.554/0001-71",
+			"bank": "caixa_leste",
+			"agency": "2204-9"
+		},
+		"kospenski": {
+			"name": "Pagamentos Kospenski",
+			"cnpj": "27.640.119/0001-48",
+			"bank": "aurora",
+			"agency": "0870-3"
+		},
+		"grafica_ponto_certo": {
+			"name": "Gráfica Ponto Certo",
+			"cnpj": "08.771.430/0001-05",
+			"bank": "aurora",
+			"agency": "0733-1"
+		},
+		"moveis_rocha": {
+			"name": "Móveis Rocha",
+			"cnpj": "19.502.337/0001-26",
+			"bank": "caixa_leste",
+			"agency": "3315-0"
+		},
+		"negativa": {
+			"name": "Negativa",
+			"cnpj": "22.874.601/0001-09",
+			"bank": "caixa_leste",
+			"agency": "1902-4"
+		},
+		"contabil_norte": {
+			"name": "Contábil Norte",
+			"cnpj": "40.993.218/0001-62",
+			"bank": "aurora",
+			"agency": "1046-8",
+			"listed": false
+		},
+		"papelaria_central": {
+			"name": "Papelaria Central",
+			"cnpj": "33.410.276/0001-58",
+			"bank": "central_sul",
+			"agency": "0219-6"
+		},
+		"prisma": {
+			"name": "Prisma Treinamentos",
+			"cnpj": "29.157.804/0001-37",
+			"bank": "central_sul",
+			"agency": "1534-0"
+		},
+		"limpa_bem": {
+			"name": "Limpa Bem Serviços",
+			"cnpj": "17.663.590/0001-14",
+			"bank": "norte",
+			"agency": "0688-5"
+		},
+		"cafe_serra_azul": {
+			"name": "Café Serra Azul",
+			"cnpj": "36.902.148/0001-81",
+			"bank": "norte",
+			"agency": "2471-3"
+		},
+		"clima_ar": {
+			"name": "Clima Ar Refrigeração",
+			"cnpj": "24.381.665/0001-09",
+			"bank": "aurora",
+			"agency": "0951-2"
+		},
+		"escudo_digital": {
+			"name": "Escudo Digital",
+			"cnpj": "11.169.729/0001-43",
+			"bank": "aurora",
+			"agency": "0583-6"
+		},
+		"conecta_cabos": {
+			"name": "Conecta Cabos",
+			"cnpj": "12.058.473/0001-11",
+			"bank": "aurora",
+			"agency": "1217-4"
+		},
+		"toner_cia": {
+			"name": "Toner & Cia",
+			"cnpj": "68.416.429/0001-45",
+			"bank": "caixa_leste",
+			"agency": "2058-1"
+		},
+		"ferragens_santa_luzia": {
+			"name": "Ferragens Santa Luzia",
+			"cnpj": "12.859.147/0001-12",
+			"bank": "caixa_leste",
+			"agency": "0346-9"
+		},
+		"transportadora_rota_sete": {
+			"name": "Transportadora Rota Sete",
+			"cnpj": "64.302.145/0001-74",
+			"bank": "central_sul",
+			"agency": "1702-5"
+		},
+		"clinica_bem_cuidar": {
+			"name": "Clínica Bem Cuidar",
+			"cnpj": "14.115.954/0001-30",
+			"bank": "central_sul",
+			"agency": "0891-7"
+		},
+		"buffet_sabor_da_vila": {
+			"name": "Buffet Sabor da Vila",
+			"cnpj": "53.508.150/0001-65",
+			"bank": "norte",
+			"agency": "2264-0"
+		},
+		"contabil_ampere": {
+			"name": "Contábil Ampere",
+			"cnpj": "37.342.410/0001-91",
+			"bank": "norte",
+			"agency": "1139-2"
+		}
+	},
+	"forgery_pools": {
+		"payee": [
+			"Marcelo Souza",
+			"M. L. Serviços Ltda",
+			"Pagamentos Rápidos ME",
+			"Eros Company",
+			"J. R. Cobranças"
+		],
+		"bank": ["nexo", "mercurio", "nova_caixa"],
+		"reason": [
+			"Taxa de regularização do CNPJ",
+			"Taxa de liberação",
+			"Multa por atraso",
+			"Seguro obrigatório"
+		]
+	},
+	"boletos": {
+		"viva_fatura_d2": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 79.9,
+			"event_id": "Viva_payment0"
+		},
+		"viva_fatura_d3": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 89.9,
+			"event_id": "Viva_payment2"
+		},
+		"viva_fatura_d4": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 69.9,
+			"event_id": "Viva_payment3"
+		},
+		"viva_fatura_d5": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 129.9,
+			"event_id": "Viva_payment4"
+		},
+		"viva_fatura_d6": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 79.9,
+			"event_id": "Viva_payment5"
+		},
+		"contabil_cnpj_d2": {
+			"payee": "contabil_norte",
+			"reason": "Serviço de fornecedor",
+			"value": 389.9,
+			"event_id": "scam_d2_contabil",
+			"forge": [{ "field": "reason", "on": "both", "value": "Taxa de regularização do CNPJ" }]
+		},
+		"moveis_cadeiras_d3": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 838.66,
+			"event_id": "scam_d3_compras",
+			"forge": [{ "field": "value", "on": "bank", "value": 8386.6 }]
+		},
+		"grafica_crachas_d4": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 1240.0,
+			"event_id": "scam_d4_grafica",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Nexo" }]
+		},
+		"grafica_folhetos_d5": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 1240.0,
+			"event_id": "scam_d5_marta",
+			"forge": [{ "field": "payee", "mode": "other", "on": "bank", "value": "M. L. Serviços Ltda" }]
+		},
+		"papelaria_resmas_d2": {
+			"payee": "papelaria_central",
+			"reason": "Compra de material",
+			"value": 436.8,
+			"event_id": "gilmar_papelaria_d2_0"
+		},
+		"cafe_boasvindas_d2": {
+			"payee": "cafe_serra_azul",
+			"reason": "Evento da empresa",
+			"value": 312.5,
+			"event_id": "jessica_cafe_d2_0"
+		},
+		"grafica_cartoes_d2": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 590.0,
+			"event_id": "grafica_cartoes_d2_0"
+		},
+		"limpabem_galpao_d2": {
+			"payee": "limpa_bem",
+			"reason": "Serviço de fornecedor",
+			"value": 980.0,
+			"event_id": "marcao_limpeza_d2_0"
+		},
+		"grafica_crachas_d3": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Compra de material",
+			"value": 742.0,
+			"event_id": "marcia_crachas_d3_0"
+		},
+		"industrials_cabos_d3": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 389.9,
+			"event_id": "carolina_cabos_d3_0"
+		},
+		"cafe_reuniao_d3": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 168.4,
+			"event_id": "ricardo_cafe_d3_0"
+		},
+		"negativa_manutencao_d3": {
+			"payee": "negativa",
+			"reason": "Serviço de fornecedor",
+			"value": 2340.0,
+			"event_id": "negativa_manutencao_d3_0"
+		},
+		"moveis_cadeiras_pc0471": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 4788.0,
+			"event_id": "guilherme_cadeiras_d3_0"
+		},
+		"grafica_banner_d4": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 860.0,
+			"event_id": "grafica_banner_d4_0"
+		},
+		"papelaria_perifericos_d4": {
+			"payee": "papelaria_central",
+			"reason": "Compra de material",
+			"value": 1325.6,
+			"event_id": "artur_perifericos_d4_0"
+		},
+		"clima_manutencao_d4": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 640.0,
+			"event_id": "marcao_ar_d4_0"
+		},
+		"emporio_aniversario_d4": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 645.0,
+			"event_id": "jessica_aniversariantes_d4_0"
+		},
+		"grafica_brindes_d5": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Compra de material",
+			"value": 2150.0,
+			"event_id": "mariana_brindes_d5_0"
+		},
+		"limpabem_obra_d5": {
+			"payee": "limpa_bem",
+			"reason": "Serviço de fornecedor",
+			"value": 1180.0,
+			"event_id": "marcao_limpeza_d5_0"
+		},
+		"kospenski_backup_d5": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 520.0,
+			"event_id": "kospenski_backup_d5_0"
+		},
+		"negativa_licencas_d5": {
+			"payee": "negativa",
+			"reason": "Serviço de fornecedor",
+			"value": 3120.0,
+			"event_id": "carla_licencas_d5_0"
+		},
+		"clima_sala_d5": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 480.0,
+			"event_id": "ricardo_ar_d5_0"
+		},
+		"kospenski_antivirus_d6": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1450.0,
+			"event_id": "carolina_antivirus_d6_0"
+		},
+		"cafe_copa_d6": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 274.9,
+			"event_id": "jose_cafe_d6_0"
+		},
+		"prisma_curso_d6": {
+			"payee": "prisma",
+			"reason": "Serviço de fornecedor",
+			"value": 2400.0,
+			"event_id": "marcia_curso_d6_0"
+		},
+		"clima_revisao_d6": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 320.0,
+			"event_id": "clima_revisao_d6_0"
+		},
+		"moveis_mesas_golpe": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 1150.0,
+			"event_id": "jose_leitor_d2_0"
+		},
+		"moveis_armarios_golpe": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 2970.0,
+			"event_id": "guilherme_armarios_d3_0"
+		},
+		"kospenski_licenca_golpe": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 890.0,
+			"event_id": "carolina_instalador_d3_0",
+			"forge": [{ "field": "code" }]
+		},
+		"kospenski_codigo_golpe": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1700.0,
+			"event_id": "carolina_codigo_d4_0",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Mercúrio" }]
+		},
+		"moveis_estantes_golpe": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 1890.0,
+			"event_id": "gilmar_estantes_d4_0",
+			"forge": [{ "field": "value", "on": "bank", "value": 18900.0 }]
+		},
+		"contabil_multa_golpe": {
+			"payee": "contabil_norte",
+			"reason": "Serviço de fornecedor",
+			"value": 470.0,
+			"event_id": "yago_multa_d4_0",
+			"forge": [{ "field": "reason", "on": "both", "value": "Multa por atraso" }]
+		},
+		"clima_conserto_golpe": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 1280.0,
+			"event_id": "marcao_conserto_d4_0",
+			"forge": [
+				{ "field": "code" },
+				{ "field": "bank", "on": "both", "value": "Nova Caixa Digital" }
+			]
+		},
+		"clima_revisao_golpe": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 760.0,
+			"event_id": "gilmar_imail_d5_0",
+			"forge": [{ "field": "agency", "value": "0915-2" }]
+		},
+		"grafica_brindes_golpe": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Compra de material",
+			"value": 2150.0,
+			"event_id": "mariana_brindes_golpe_d5_0",
+			"forge": [{ "field": "value", "on": "bank", "value": 21500.0 }]
+		},
+		"kospenski_antivirus_golpe": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1450.0,
+			"event_id": "carolina_assinatura_d6_0",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Nexo" }]
+		},
+		"cafe_copa_golpe": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 274.9,
+			"event_id": "jose_imail_d6_0",
+			"forge": [
+				{ "field": "payee", "mode": "other", "value": "J. R. Cobranças" },
+				{ "field": "bank", "on": "both", "value": "Banco Mercúrio" }
+			]
+		},
+		"viva_multa_golpe": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 149.9,
+			"event_id": "viva_multa_d6_0",
+			"forge": [
+				{ "field": "reason", "on": "both", "value": "Multa por atraso" },
+				{ "field": "value", "on": "bank", "value": 1499.0 }
+			]
+		},
+		"negativa_codigo_golpe": {
+			"payee": "negativa",
+			"reason": "Compra de material",
+			"value": 6449.0,
+			"event_id": "yago_codigo_d6_0",
+			"forge": [
+				{ "field": "payee", "mode": "lookalike", "value": "Negatlva" },
+				{ "field": "bank", "on": "both", "value": "Nova Caixa Digital" }
+			]
+		},
+		"escudo_digital_renovacao_do_d2": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 489.9,
+			"event_id": "carolina_renovacao_do_antivirus_d2_0"
+		},
+		"clima_ar_limpeza_dos__d2": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 380.0,
+			"event_id": "marcao_limpeza_dos_filtros_do_d2_0"
+		},
+		"viva_fatura_do_li_d2": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 149.9,
+			"event_id": "viva_fatura_do_link_da_d2_0"
+		},
+		"industrials_barras_de_ac_d2": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 2140.0,
+			"event_id": "gilmar_barras_de_aco_da_d2_0"
+		},
+		"emporio_festa_decoracao_do_d2": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 620.0,
+			"event_id": "jessica_decoracao_do_aniversario_d2_0"
+		},
+		"moveis_rocha_cadeiras_da__d2": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 1890.0,
+			"event_id": "guilherme_cadeiras_da_recepcao_d2_0"
+		},
+		"papelaria_central_material_de__d2": {
+			"payee": "papelaria_central",
+			"reason": "Compra de material",
+			"value": 312.4,
+			"event_id": "jose_material_de_escritorio_d2_0"
+		},
+		"prisma_treinamento__d2": {
+			"payee": "prisma",
+			"reason": "Serviço de fornecedor",
+			"value": 1250.0,
+			"event_id": "marcia_treinamento_de_d2_0"
+		},
+		"cafe_serra_azul_cafe_da_reun_d2": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 268.0,
+			"event_id": "ricardo_cafe_da_reuniao_com_d2_0"
+		},
+		"limpa_bem_faxina_pesad_d2": {
+			"payee": "limpa_bem",
+			"reason": "Serviço de fornecedor",
+			"value": 890.0,
+			"event_id": "marcao_faxina_pesada_do_galpao_d2_0"
+		},
+		"conecta_cabos_cabos_de_red_d3": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 742.5,
+			"event_id": "arthur_cabos_de_rede_do_segundo_d3_0"
+		},
+		"kospenski_backup_em_nu_d3": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 650.0,
+			"event_id": "kospenski_backup_em_nuvem_do_mes_d3_0"
+		},
+		"grafica_ponto_certo_catalogos_da_d3": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 980.0,
+			"event_id": "mariana_catalogos_da_feira_d3_0"
+		},
+		"negativa_manutencao_d_d3": {
+			"payee": "negativa",
+			"reason": "Serviço de fornecedor",
+			"value": 3480.0,
+			"event_id": "negativa_manutencao_das_telas_da_d3_0"
+		},
+		"toner_cia_toner_das_im_d3": {
+			"payee": "toner_cia",
+			"reason": "Compra de material",
+			"value": 469.9,
+			"event_id": "jose_toner_das_impressoras_d3_0"
+		},
+		"ferragens_santa_luzia_fechaduras_d_d3": {
+			"payee": "ferragens_santa_luzia",
+			"reason": "Compra de material",
+			"value": 315.75,
+			"event_id": "carla_fechaduras_do_arquivo_d3_0"
+		},
+		"transportadora_rota_sete_frete_das_me_d3": {
+			"payee": "transportadora_rota_sete",
+			"reason": "Serviço de fornecedor",
+			"value": 1340.0,
+			"event_id": "guilherme_frete_das_mesas_novas_d3_0"
+		},
+		"clinica_bem_cuidar_exames_perio_d3": {
+			"payee": "clinica_bem_cuidar",
+			"reason": "Serviço de fornecedor",
+			"value": 1980.0,
+			"event_id": "jessica_exames_periodicos_do_mes_d3_0"
+		},
+		"buffet_sabor_da_vila_coquetel_do__d3": {
+			"payee": "buffet_sabor_da_vila",
+			"reason": "Evento da empresa",
+			"value": 2350.0,
+			"event_id": "ricardo_coquetel_do_lancamento_d3_0"
+		},
+		"contabil_ampere_fechamento_c_d3": {
+			"payee": "contabil_ampere",
+			"reason": "Serviço de fornecedor",
+			"value": 1875.3,
+			"event_id": "yago_fechamento_contabil_do_d3_0"
+		},
+		"escudo_digital_firewall_da__d4": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 1290.0,
+			"event_id": "carolina_firewall_da_filial_d4_0"
+		},
+		"clima_ar_conserto_do__d4": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 560.0,
+			"event_id": "marcao_conserto_do_ar_da_d4_0"
+		},
+		"grafica_ponto_certo_cartoes_de_v_d4": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 420.0,
+			"event_id": "marta_cartoes_de_visita_da_d4_0"
+		},
+		"conecta_cabos_switch_novo__d4": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 2190.0,
+			"event_id": "arthur_switch_novo_do_servidor_d4_0"
+		},
+		"viva_fatura_do_po_d4": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 129.9,
+			"event_id": "viva_fatura_do_ponto_d4_0"
+		},
+		"industrials_chapas_de_al_d4": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 3480.0,
+			"event_id": "gilmar_chapas_de_aluminio_d4_0"
+		},
+		"emporio_festa_coffee_break_d4": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 780.0,
+			"event_id": "marcia_coffee_break_da_d4_0"
+		},
+		"moveis_rocha_estantes_do__d4": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 1560.0,
+			"event_id": "jose_estantes_do_almoxarifado_d4_0"
+		},
+		"prisma_treinamento__d4": {
+			"payee": "prisma",
+			"reason": "Serviço de fornecedor",
+			"value": 2400.0,
+			"event_id": "mariana_treinamento_de_vendas_d4_0"
+		},
+		"transportadora_rota_sete_frete_das_ma_d4": {
+			"payee": "transportadora_rota_sete",
+			"reason": "Serviço de fornecedor",
+			"value": 1810.0,
+			"event_id": "guilherme_frete_das_materias_d4_0"
+		},
+		"clima_ar_revisao_trim_d5": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 640.0,
+			"event_id": "clima_revisao_trimestral_do_ar_d5_0"
+		},
+		"grafica_ponto_certo_crachas_dos__d5": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Compra de material",
+			"value": 372.0,
+			"event_id": "jessica_crachas_dos_novos_d5_0"
+		},
+		"escudo_digital_licencas_da__d5": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 890.0,
+			"event_id": "carolina_licencas_da_vpn_d5_0"
+		},
+		"kospenski_suporte_tecn_d5": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1150.0,
+			"event_id": "kospenski_suporte_tecnico_do_mes_d5_0"
+		},
+		"conecta_cabos_roteadores_d_d5": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 1380.0,
+			"event_id": "arthur_roteadores_da_sala_de_d5_0"
+		},
+		"toner_cia_papel_e_tone_d5": {
+			"payee": "toner_cia",
+			"reason": "Compra de material",
+			"value": 1120.0,
+			"event_id": "carla_papel_e_toner_do_d5_0"
+		},
+		"emporio_festa_brindes_da_f_d5": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 860.0,
+			"event_id": "ricardo_brindes_da_feira_d5_0"
+		},
+		"ferragens_santa_luzia_ferramentas__d5": {
+			"payee": "ferragens_santa_luzia",
+			"reason": "Compra de material",
+			"value": 2915.75,
+			"event_id": "marcao_ferramentas_da_d5_0"
+		},
+		"buffet_sabor_da_vila_almoco_com_c_d5": {
+			"payee": "buffet_sabor_da_vila",
+			"reason": "Evento da empresa",
+			"value": 1480.0,
+			"event_id": "marta_almoco_com_clientes_d5_0"
+		},
+		"contabil_ampere_declaracao_d_d5": {
+			"payee": "contabil_ampere",
+			"reason": "Serviço de fornecedor",
+			"value": 2300.0,
+			"event_id": "yago_declaracao_de_impostos_d5_0"
+		},
+		"viva_fatura_da_fi_d6": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 389.9,
+			"event_id": "viva_fatura_da_filial_d6_0"
+		},
+		"grafica_ponto_certo_certificados_d6": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 290.0,
+			"event_id": "marcia_certificados_do_curso_d6_0"
+		},
+		"clima_ar_ar_condicion_d6": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 3280.0,
+			"event_id": "marcao_ar_condicionado_do_d6_0"
+		},
+		"kospenski_renovacao_an_d6": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 4800.0,
+			"event_id": "carolina_renovacao_anual_do_d6_0"
+		},
+		"escudo_digital_antivirus_do_d6": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 560.0,
+			"event_id": "arthur_antivirus_dos_celulares_d6_0"
+		},
+		"industrials_parafusos_e__d6": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 980.4,
+			"event_id": "gilmar_parafusos_e_porcas_d6_0"
+		},
+		"negativa_celulares_co_d6": {
+			"payee": "negativa",
+			"reason": "Compra de material",
+			"value": 6449.0,
+			"event_id": "negativa_celulares_corporativos_d6_0"
+		},
+		"emporio_festa_festa_de_fim_d6": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 1350.0,
+			"event_id": "jessica_festa_de_fim_de_mes_d6_0"
+		},
+		"papelaria_central_pastas_e_eti_d6": {
+			"payee": "papelaria_central",
+			"reason": "Compra de material",
+			"value": 238.6,
+			"event_id": "jose_pastas_e_etiquetas_do_d6_0"
+		},
+		"cafe_serra_azul_cafe_do_come_d6": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 420.0,
+			"event_id": "ricardo_cafe_do_comercial_do_mes_d6_0"
+		},
+		"limpa_bem_golpe_faxina_ext_d2": {
+			"payee": "limpa_bem",
+			"reason": "Serviço de fornecedor",
+			"value": 690.0,
+			"event_id": "marcao_faxina_extra_do_galpao_d2_0"
+		},
+		"clima_ar_golpe_limpeza_do_d2": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 420.0,
+			"event_id": "clima_limpeza_dos_dutos_d2_0"
+		},
+		"moveis_rocha_golpe_taxa_da_en_d2": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 980.0,
+			"event_id": "guilherme_taxa_da_entrega_dos_d2_0",
+			"forge": [{ "field": "reason", "on": "both", "value": "Taxa de liberação" }]
+		},
+		"grafica_ponto_certo_golpe_banners_da_d2": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 540.0,
+			"event_id": "grafica_banners_da_recepcao_d2_0",
+			"forge": [{ "field": "code" }]
+		},
+		"industrials_golpe_multa_da_i_d2": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 1290.0,
+			"event_id": "yago_multa_da_industrials_d2_0",
+			"forge": [{ "field": "reason", "on": "both", "value": "Multa por atraso" }]
+		},
+		"viva_golpe_2_via_da_s_d2": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 189.9,
+			"event_id": "viva_2_via_da_sua_fatura_d2_0",
+			"forge": [{ "field": "code" }]
+		},
+		"papelaria_central_golpe_seguro_das_d2": {
+			"payee": "papelaria_central",
+			"reason": "Compra de material",
+			"value": 312.4,
+			"event_id": "jose_seguro_das_entregas_d2_0",
+			"forge": [
+				{ "field": "payee", "mode": "lookalike", "value": "Papelaria Centrall" },
+				{ "field": "reason", "on": "both", "value": "Seguro obrigatório" },
+				{ "field": "code" }
+			]
+		},
+		"emporio_festa_golpe_festinha_d_d2": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 760.0,
+			"event_id": "marta_festinha_do_comercial_d2_0",
+			"forge": [
+				{ "field": "code" },
+				{ "field": "reason", "on": "both", "value": "Taxa de liberação" }
+			]
+		},
+		"negativa_golpe_multa_de_c_d2": {
+			"payee": "negativa",
+			"reason": "Serviço de fornecedor",
+			"value": 2480.0,
+			"event_id": "negativa_multa_de_contrato_d2_0",
+			"forge": [
+				{ "field": "payee", "mode": "lookalike", "value": "Negatlva" },
+				{ "field": "reason", "on": "both", "value": "Multa por atraso" },
+				{ "field": "code" }
+			]
+		},
+		"toner_cia_golpe_toner_das__d3": {
+			"payee": "toner_cia",
+			"reason": "Compra de material",
+			"value": 469.9,
+			"event_id": "carla_toner_das_impressoras_d3_0"
+		},
+		"kospenski_golpe_suporte_te_d3": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1150.0,
+			"event_id": "kospenski_suporte_tecnico_d3_0"
+		},
+		"cafe_serra_azul_golpe_cafe_da_re_d3": {
+			"payee": "cafe_serra_azul",
+			"reason": "Compra de material",
+			"value": 268.0,
+			"event_id": "ricardo_cafe_da_reuniao_d3_0",
+			"forge": [{ "field": "value", "on": "bank", "value": 2680.0 }]
+		},
+		"grafica_ponto_certo_golpe_taxa_da_gr_d3": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 760.0,
+			"event_id": "mariana_taxa_da_grafica_d3_0",
+			"forge": [{ "field": "reason", "on": "both", "value": "Taxa de liberação" }]
+		},
+		"ferragens_santa_luzia_golpe_ferramenta_d3": {
+			"payee": "ferragens_santa_luzia",
+			"reason": "Compra de material",
+			"value": 315.75,
+			"event_id": "marcao_ferramentas_novas_d3_0",
+			"forge": [
+				{ "field": "value", "on": "bank", "value": 3915.75 },
+				{ "field": "code" }
+			]
+		},
+		"clinica_bem_cuidar_golpe_exames_do__d3": {
+			"payee": "clinica_bem_cuidar",
+			"reason": "Serviço de fornecedor",
+			"value": 1980.0,
+			"event_id": "jessica_exames_do_pessoal_d3_0",
+			"forge": [{ "field": "value", "on": "bank", "value": 9180.0 }]
+		},
+		"industrials_golpe_multa_da_i_d3": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 2140.0,
+			"event_id": "gilmar_multa_da_industrials_d3_0",
+			"forge": [
+				{ "field": "payee", "mode": "lookalike", "value": "Industriais" },
+				{ "field": "value", "on": "bank", "value": 5140.0 },
+				{ "field": "reason", "on": "both", "value": "Multa por atraso" }
+			]
+		},
+		"prisma_golpe_certificad_d3": {
+			"payee": "prisma",
+			"reason": "Serviço de fornecedor",
+			"value": 1250.0,
+			"event_id": "marcia_certificado_do_d3_0",
+			"forge": [
+				{ "field": "code" },
+				{ "field": "reason", "on": "both", "value": "Taxa de regularização do CNPJ" }
+			]
+		},
+		"viva_golpe_fatura_de__d3": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 149.9,
+			"event_id": "viva_fatura_de_abril_d3_0",
+			"forge": [
+				{ "field": "payee", "mode": "lookalike", "value": "Vlva Inc." },
+				{ "field": "value", "on": "bank", "value": 1499.0 },
+				{ "field": "code" }
+			]
+		},
+		"escudo_digital_golpe_licencas_d_d4": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 890.0,
+			"event_id": "carolina_licencas_do_antivirus_d4_0"
+		},
+		"clima_ar_golpe_conserto_d_d4": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 560.0,
+			"event_id": "jose_conserto_do_ar_d4_0"
+		},
+		"industrials_golpe_chapas_de__d4": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 3480.0,
+			"event_id": "gilmar_chapas_de_aluminio_d4_2_0",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Nexo" }]
+		},
+		"kospenski_golpe_liberacao__d4": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1150.0,
+			"event_id": "yago_liberacao_do_pagamento_d4_0"
+		},
+		"grafica_ponto_certo_golpe_seguro_dos_d4": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 420.0,
+			"event_id": "ricardo_seguro_dos_cartoes_d4_0",
+			"forge": [
+				{ "field": "bank", "on": "both", "value": "Banco Mercúrio" },
+				{ "field": "reason", "on": "both", "value": "Seguro obrigatório" }
+			]
+		},
+		"conecta_cabos_golpe_cabos_da_s_d4": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 742.5,
+			"event_id": "mariana_cabos_da_sala_de_vendas_d4_0",
+			"forge": [
+				{ "field": "value", "on": "bank", "value": 7425.0 },
+				{ "field": "code" }
+			]
+		},
+		"emporio_festa_golpe_coffee_bre_d4": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 780.0,
+			"event_id": "marcia_coffee_break_da_d4_2_0",
+			"forge": [
+				{ "field": "bank", "on": "both", "value": "Nova Caixa Digital" },
+				{ "field": "reason", "on": "both", "value": "Taxa de liberação" }
+			]
+		},
+		"toner_cia_golpe_papel_do_t_d4": {
+			"payee": "toner_cia",
+			"reason": "Compra de material",
+			"value": 1120.0,
+			"event_id": "carla_papel_do_trimestre_d4_0",
+			"forge": [{ "field": "value", "on": "bank", "value": 4120.0 }]
+		},
+		"grafica_ponto_certo_golpe_crachas_no_d5": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Compra de material",
+			"value": 372.0,
+			"event_id": "grafica_crachas_novos_d5_0"
+		},
+		"clima_ar_golpe_ar_da_sala_d5": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 640.0,
+			"event_id": "marta_ar_da_sala_de_vendas_d5_0"
+		},
+		"escudo_digital_golpe_licencas_d_d5": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 890.0,
+			"event_id": "carolina_licencas_da_vpn_d5_2_0",
+			"forge": [{ "field": "payee", "mode": "other", "on": "bank", "value": "M. L. Serviços Ltda" }]
+		},
+		"industrials_golpe_parafusos__d5": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 980.4,
+			"event_id": "guilherme_parafusos_da_montagem_d5_0",
+			"forge": [{ "field": "cnpj", "value": "45.118.920/0001-33" }]
+		},
+		"kospenski_golpe_suporte_te_d5": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 1150.0,
+			"event_id": "yago_suporte_tecnico_d5_0",
+			"forge": [
+				{ "field": "agency", "value": "0807-3" },
+				{ "field": "value", "on": "bank", "value": 3150.0 }
+			]
+		},
+		"clinica_bem_cuidar_golpe_exames_adm_d5": {
+			"payee": "clinica_bem_cuidar",
+			"reason": "Serviço de fornecedor",
+			"value": 1980.0,
+			"event_id": "jessica_exames_admissionais_d5_0",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Nexo" }]
+		},
+		"clima_ar_golpe_conserto_d_d5": {
+			"payee": "clima_ar",
+			"reason": "Serviço de fornecedor",
+			"value": 560.0,
+			"event_id": "marcao_conserto_do_ar_do_galpao_d5_0",
+			"forge": [{ "field": "payee", "mode": "other", "on": "bank", "value": "Pagamentos Rápidos ME" }]
+		},
+		"conecta_cabos_golpe_multa_dos__d5": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 1380.0,
+			"event_id": "mariana_multa_dos_roteadores_d5_0",
+			"forge": [
+				{ "field": "reason", "on": "both", "value": "Multa por atraso" },
+				{ "field": "payee", "mode": "other", "on": "bank", "value": "J. R. Cobranças" }
+			]
+		},
+		"industrials_golpe_chapas_de__d5": {
+			"payee": "industrials",
+			"reason": "Compra de material",
+			"value": 3480.0,
+			"event_id": "gilmar_chapas_de_aluminio_d5_0",
+			"forge": [
+				{ "field": "bank", "on": "both", "value": "Banco Mercúrio" },
+				{ "field": "code" },
+				{ "field": "value", "on": "bank", "value": 8480.0 }
+			]
+		},
+		"kospenski_golpe_renovacao__d6": {
+			"payee": "kospenski",
+			"reason": "Serviço de fornecedor",
+			"value": 4800.0,
+			"event_id": "kospenski_renovacao_anual_do_d6_0"
+		},
+		"grafica_ponto_certo_golpe_folhetos_d_d6": {
+			"payee": "grafica_ponto_certo",
+			"reason": "Serviço de fornecedor",
+			"value": 290.0,
+			"event_id": "ricardo_folhetos_da_feira_d6_0"
+		},
+		"escudo_digital_golpe_taxa_do_an_d6": {
+			"payee": "escudo_digital",
+			"reason": "Serviço de fornecedor",
+			"value": 560.0,
+			"event_id": "jose_taxa_do_antivirus_d6_0",
+			"forge": [{ "field": "reason", "on": "both", "value": "Taxa de liberação" }]
+		},
+		"conecta_cabos_golpe_roteadores_d6": {
+			"payee": "conecta_cabos",
+			"reason": "Compra de material",
+			"value": 1380.0,
+			"event_id": "arthur_roteadores_da_filial_d6_0",
+			"forge": [{ "field": "cnpj", "value": "12.058.437/0001-11" }]
+		},
+		"viva_golpe_fatura_com_d6": {
+			"payee": "viva",
+			"reason": "Fatura de internet",
+			"value": 389.9,
+			"event_id": "carla_fatura_com_token_d6_0"
+		},
+		"emporio_festa_golpe_festa_de_f_d6": {
+			"payee": "emporio_festa",
+			"reason": "Evento da empresa",
+			"value": 1350.0,
+			"event_id": "jessica_festa_de_fim_de_mes_d6_2_0",
+			"forge": [
+				{ "field": "bank", "on": "both", "value": "Banco Nexo" },
+				{ "field": "value", "on": "bank", "value": 6350.0 }
+			]
+		},
+		"moveis_rocha_golpe_seguro_das_d6": {
+			"payee": "moveis_rocha",
+			"reason": "Compra de material",
+			"value": 1890.0,
+			"event_id": "guilherme_seguro_das_cadeiras_d6_0",
+			"forge": [
+				{ "field": "code" },
+				{ "field": "reason", "on": "both", "value": "Seguro obrigatório" }
+			]
+		},
+		"negativa_golpe_pedido_dos_d6": {
+			"payee": "negativa",
+			"reason": "Compra de material",
+			"value": 6449.0,
+			"event_id": "negativa_pedido_dos_celulares_d6_0",
+			"forge": [
+				{ "field": "payee", "mode": "other", "on": "bank", "value": "Eros Company" },
+				{ "field": "value", "on": "bank", "value": 9449.0 }
+			]
+		},
+		"contabil_ampere_golpe_relatorio__d6": {
+			"payee": "contabil_ampere",
+			"reason": "Serviço de fornecedor",
+			"value": 2300.0,
+			"event_id": "yago_relatorio_contabil_d6_0",
+			"forge": [{ "field": "bank", "on": "both", "value": "Banco Mercúrio" }]
+		}
+	}
+}

@@ -16,7 +16,6 @@ signal rule_change_requested()
 signal report_confirmed()
 
 const RULE_ROW = preload("res://scenes/apps/discrepancy/discrepancy_rule_row.tscn")
-const RULES_PATH := "res://data/rules/rules.json"
 const GROUP_FONT = preload("res://assets/fonts/GloriaHallelujah-Regular.ttf")
 ## Rules groups of the notepad, in the order they are listed: the "apps" of the rules
 const RULES_GROUPS := {
@@ -29,6 +28,8 @@ const RULES_GROUPS := {
 const STAMP_FOUND_COLOR := Color(0.92156863, 0.039215688, 0.27058825)
 const STAMP_NEUTRAL_COLOR := Color(0.13333334, 0.28235295, 0.38431373)
 const STAMP_WRONG_COLOR := Color(0.101960786, 0.1254902, 0.2)
+## Orange (#FFA500) of a contact lost, which takes no report anymore
+const STAMP_LOST_COLOR := Color(1.0, 0.64705884, 0.0)
 ## Stamp titles longer than this are written smaller, so they fit the phone
 const STAMP_LONG_TITLE := 12
 ## Height of the bar shown at the bottom while pointing, the screen under it is shrunk by this
@@ -167,8 +168,8 @@ func stop() -> void:
 
 ## Slams the verdict of a report over the app, then fades it away
 ##
-## result: "verdict" ("found", "duplicate", "late", "stale", "wrong" or "false"), "title" and
-## "subtitle", as judged by events_director
+## result: "verdict" ("found", "duplicate", "late", "early", "stale", "wrong", "false" or "lost"),
+## "title" and "subtitle", as judged by events_director
 func play_stamp(result: Dictionary = {}) -> void:
 	if _stamp_tween:
 		_stamp_tween.kill()
@@ -182,10 +183,12 @@ func play_stamp(result: Dictionary = {}) -> void:
 
 	var color := STAMP_FOUND_COLOR
 	match str(result.get("verdict", "found")):
-		"duplicate", "late", "stale":
+		"duplicate", "late", "early", "stale":
 			color = STAMP_NEUTRAL_COLOR
 		"wrong", "false":
 			color = STAMP_WRONG_COLOR
+		"lost":
+			color = STAMP_LOST_COLOR
 	var style := stamp.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
 	style.border_color = color
 	stamp.add_theme_stylebox_override("panel", style)
@@ -302,7 +305,7 @@ func _fill_rules() -> void:
 	_chosen_row = null
 	next_button.disabled = true
 
-	var rules := _load_rules()
+	var rules := GameData.load_rules()
 	var groups: Array = RULES_GROUPS.keys()
 	if groups.has(_rules_app):
 		groups.erase(_rules_app)
@@ -352,20 +355,6 @@ func _add_group_heading(text: String) -> void:
 	margin.add_child(label)
 	rules_list.add_child(margin)
 	RulesNotebook.fit_to_ruling(label)
-
-
-## Reads the whole rulebook, every day included
-func _load_rules() -> Array:
-	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
-	if file == null:
-		push_error("Could not open rules file: %s" % RULES_PATH)
-		return []
-
-	var rules = JSON.parse_string(file.get_as_text())
-	if not rules is Array:
-		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
-		return []
-	return rules
 
 
 func _restart_sheet_tween() -> void:

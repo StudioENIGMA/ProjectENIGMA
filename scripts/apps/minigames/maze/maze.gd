@@ -40,7 +40,9 @@ func setup() -> void:
 	reset_minigame()
 
 func reset_minigame() -> void:
-	maze_player.position_changed.connect(_check_finish)
+	# Reset again when the time runs out, while still connected
+	if not maze_player.position_changed.is_connected(_check_finish):
+		maze_player.position_changed.connect(_check_finish)
 	
 	tilemap.clear()
 	define_maze_difficult()

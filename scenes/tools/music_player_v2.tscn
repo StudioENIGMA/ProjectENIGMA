@@ -36,30 +36,38 @@ libraries/ = SubResource("AnimationLibrary_umf4w")
 
 [node name="KeysMelodyWeak" type="AudioStreamPlayer" parent="KeysMelody" unique_id=934030211]
 stream = ExtResource("3_7atyq")
+bus = &"Music"
 
 [node name="KeysMelodyMid" type="AudioStreamPlayer" parent="KeysMelody" unique_id=213752682]
 stream = ExtResource("4_ypc0v")
+bus = &"Music"
 
 [node name="KeysMelodyIntense" type="AudioStreamPlayer" parent="KeysMelody" unique_id=150723882]
 stream = ExtResource("5_xc3rg")
+bus = &"Music"
 
 [node name="KeysAccompaniment" type="Node" parent="." unique_id=1993424300]
 
 [node name="KeysAccompanimentWeak" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=1921918717]
 stream = ExtResource("6_a2ehr")
+bus = &"Music"
 
 [node name="KeysAccompanimentMid" type="AudioStreamPlayer" parent="KeysAccompaniment" unique_id=40332302]
 stream = ExtResource("7_ckxsl")
+bus = &"Music"
 
 [node name="Bass" type="Node" parent="." unique_id=1360393060]
 
 [node name="Bass" type="AudioStreamPlayer" parent="Bass" unique_id=1666518347]
 stream = ExtResource("8_7vlw2")
+bus = &"Music"
 
 [node name="BassBridge" type="AudioStreamPlayer" parent="Bass" unique_id=773901408]
 stream = ExtResource("9_dy7j5")
+bus = &"Music"
 
 [node name="Drums" type="Node" parent="." unique_id=190592936]
 
 [node name="Drums" type="AudioStreamPlayer" parent="Drums" unique_id=1914932921]
 stream = ExtResource("10_jtw2s")
+bus = &"Music"

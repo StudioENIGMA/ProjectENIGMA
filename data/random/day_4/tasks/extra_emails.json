@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "carolina_firewall_da_filial_d4",
+		"email_id": "carolina_firewall_da_filial_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_conserto_do_ar_da_d4",
+		"email_id": "marcao_conserto_do_ar_da_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marta_cartoes_de_visita_da_d4",
+		"email_id": "marta_cartoes_de_visita_da_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "arthur_switch_novo_do_servidor_d4",
+		"email_id": "arthur_switch_novo_do_servidor_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "viva_fatura_do_ponto_d4",
+		"email_id": "viva_fatura_do_ponto_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_chapas_de_aluminio_d4",
+		"email_id": "gilmar_chapas_de_aluminio_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia_coffee_break_da_d4",
+		"email_id": "marcia_coffee_break_da_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jose_estantes_do_almoxarifado_d4",
+		"email_id": "jose_estantes_do_almoxarifado_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "mariana_treinamento_de_vendas_d4",
+		"email_id": "mariana_treinamento_de_vendas_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "guilherme_frete_das_materias_d4",
+		"email_id": "guilherme_frete_das_materias_d4_0",
+		"required_app": "Bank"
+	}
+]

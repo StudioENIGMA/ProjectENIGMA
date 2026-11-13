@@ -1,0 +1,758 @@
+[
+	{
+		"thread_id": "marcao_faxina_extra_do_galpao_d2",
+		"email_id": "marcao_faxina_extra_do_galpao_d2_0",
+		"sender": "marcao@enigrna.com.br",
+		"subject": "Faxina extra do galpão",
+		"content": "Fala, meu bom!\n\nA Limpa Bem fez uma faxina extra no galpão depois da obra. Paga hoje pra mim?\n\nO boleto da Limpa Bem Serviços vai em anexo.\nMotivo: {boleto:limpa_bem_golpe_faxina_ext_d2.reason}\nValor: {boleto:limpa_bem_golpe_faxina_ext_d2.value}\n\nValeu!\nMarcão",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "limpa_bem_golpe_faxina_ext_d2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "clima_limpeza_dos_dutos_d2",
+		"email_id": "clima_limpeza_dos_dutos_d2_0",
+		"sender": "financeiro@climaarr.com.br",
+		"subject": "Limpeza dos dutos",
+		"content": "Prezado cliente,\n\nA limpeza dos dutos do ar-condicionado foi concluída. Segue o boleto para pagamento ainda hoje.\n\nMotivo: {boleto:clima_ar_golpe_limpeza_do_d2.reason}\nValor: {boleto:clima_ar_golpe_limpeza_do_d2.value}\n\nAtenciosamente,\nFinanceiro Clima Ar",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_ar_golpe_limpeza_do_d2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_convite_da_festa_do_d2",
+		"email_id": "jessica_convite_da_festa_do_d2_0",
+		"sender": "jessica@enigma.rh.corn.br",
+		"subject": "Convite da festa do setor",
+		"content": "Oii!\n\nVai ter festa do setor na sexta! O convite com o cardápio vai em anexo, abre e me confirma?\n\nBeijos,\nJessica",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "Convite_Festa.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "guilherme_taxa_da_entrega_dos_d2",
+		"email_id": "guilherme_taxa_da_entrega_dos_d2_0",
+		"sender": "guilherrne@enigma.com.br",
+		"subject": "Taxa da entrega dos armários",
+		"content": "E aí, estagiário!\n\nA Móveis Rocha cobrou uma taxa pra liberar a entrega dos armários. Paga hoje que eles entregam amanhã.\n\nMandei o boleto da Móveis Rocha em anexo.\nMotivo: {boleto:moveis_rocha_golpe_taxa_da_en_d2.reason}\nValor: {boleto:moveis_rocha_golpe_taxa_da_en_d2.value}\n\nValeu!\nGuilherme",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_rocha_golpe_taxa_da_en_d2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "grafica_banners_da_recepcao_d2",
+		"email_id": "grafica_banners_da_recepcao_d2_0",
+		"sender": "cobranca@graficapontocerta.com.br",
+		"subject": "Banners da recepção",
+		"content": "Olá!\n\nOs banners da recepção ficaram prontos. O boleto segue em anexo.\n\nMotivo: {boleto:grafica_ponto_certo_golpe_banners_da_d2.reason}\nValor: {boleto:grafica_ponto_certo_golpe_banners_da_d2.value}\n\nAtenciosamente,\nGráfica Ponto Certo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_ponto_certo_golpe_banners_da_d2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_multa_da_industrials_d2",
+		"email_id": "yago_multa_da_industrials_d2_0",
+		"sender": "yagob@enigma.fin.corn.br",
+		"subject": "Multa da Industrials",
+		"content": "Olá, estagiário,\n\nA Industrials mandou uma cobrança de multa. Se o boleto não abrir, instala o visualizador que vai junto.\n\nMotivo: {boleto:industrials_golpe_multa_da_i_d2.reason}\nValor: {boleto:industrials_golpe_multa_da_i_d2.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_golpe_multa_da_i_d2"
+			},
+			{
+				"type": "installer",
+				"name": "VisualizadorBoleto.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "viva_2_via_da_sua_fatura_d2",
+		"email_id": "viva_2_via_da_sua_fatura_d2_0",
+		"sender": "pagamentos@Vivva.com.br",
+		"subject": "2ª via da sua fatura",
+		"content": "Prezado cliente,\n\nSua fatura fecha hoje! Segue a 2ª via do boleto e também a versão da fatura para celular.\n\nMotivo: {boleto:viva_golpe_2_via_da_s_d2.reason}\nValor: {boleto:viva_golpe_2_via_da_s_d2.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_golpe_2_via_da_s_d2"
+			},
+			{
+				"type": "installer",
+				"name": "Fatura_Viva.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jose_seguro_das_entregas_d2",
+		"email_id": "jose_seguro_das_entregas_d2_0",
+		"sender": "jose@enlgma.com.br",
+		"subject": "Seguro das entregas",
+		"content": "Boa tarde, estagiário.\n\nA papelaria passou a cobrar seguro das entregas. Segue o boleto.\n\nMotivo: {boleto:papelaria_central_golpe_seguro_das_d2.reason}\nValor: {boleto:papelaria_central_golpe_seguro_das_d2.value}\n\nAtenciosamente,\nJosé",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "papelaria_central_golpe_seguro_das_d2"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marta_festinha_do_comercial_d2",
+		"email_id": "marta_festinha_do_comercial_d2_0",
+		"sender": "marta@enigma.corn.br",
+		"subject": "Festinha do Comercial",
+		"content": "Oiê!\n\nAmigaaa, a festinha do Comercial! Pra pagar é só abrir o comprovante que mandei junto.\n\nO boleto do Empório da Festa vai em anexo.\nMotivo: {boleto:emporio_festa_golpe_festinha_d_d2.reason}\nValor: {boleto:emporio_festa_golpe_festinha_d_d2.value}\n\nObrigadaaa!\nMarta",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "emporio_festa_golpe_festinha_d_d2"
+			},
+			{
+				"type": "installer",
+				"name": "Comprovante_Pix.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "negativa_multa_de_contrato_d2",
+		"email_id": "negativa_multa_de_contrato_d2_0",
+		"sender": "pagamentos@negatlva.com",
+		"subject": "Multa de contrato",
+		"content": "Caro cliente,\n\nIdentificamos atraso no contrato de manutenção. Segue o boleto da multa e o boleto em PDF.\n\nMotivo: {boleto:negativa_golpe_multa_de_c_d2.reason}\nValor: {boleto:negativa_golpe_multa_de_c_d2.value}\n\nAtenciosamente,\nNegativa",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_golpe_multa_de_c_d2"
+			},
+			{
+				"type": "installer",
+				"name": "Boleto_Negativa.pdf.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carla_toner_das_impressoras_d3",
+		"email_id": "carla_toner_das_impressoras_d3_0",
+		"sender": "carla.financeiro@imail.com",
+		"subject": "Toner das impressoras",
+		"content": "Oi, estagiário!\n\nTô sem acesso ao email da empresa, por isso mando daqui. Paga o toner da Toner & Cia pra mim?\n\nO boleto da Toner & Cia tá no anexo.\nMotivo: {boleto:toner_cia_golpe_toner_das__d3.reason}\nValor: {boleto:toner_cia_golpe_toner_das__d3.value}\n\nObrigada!\nCarla",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "toner_cia_golpe_toner_das__d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "kospenski_suporte_tecnico_d3",
+		"email_id": "kospenski_suporte_tecnico_d3_0",
+		"sender": "cobranca@kospensky.com.br",
+		"subject": "Suporte técnico",
+		"content": "Prezado cliente,\n\nSegue o boleto do suporte técnico deste mês. Pedimos o pagamento ainda hoje.\n\nMotivo: {boleto:kospenski_golpe_suporte_te_d3.reason}\nValor: {boleto:kospenski_golpe_suporte_te_d3.value}\n\nAtenciosamente,\nKospenski",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_golpe_suporte_te_d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "arthur_atualizacao_de_seguranca_d3",
+		"email_id": "arthur_atualizacao_de_seguranca_d3_0",
+		"sender": "artur.enigma@imail.com",
+		"subject": "Atualização de segurança",
+		"content": "Fala, estagiário!\n\nto de home office, mas manda instalar a atualização de segurança que vai em anexo, eh urgente.\n\nvlw!\nArthur",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "AtualizacaoSistema.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "ricardo_cafe_da_reuniao_d3",
+		"email_id": "ricardo_cafe_da_reuniao_d3_0",
+		"sender": "ricardo@enigma.corn.br",
+		"subject": "Café da reunião",
+		"content": "Estagiário,\n\no café da reunião com cliente chegou, paga aí pra mim.\n\nSegue em anexo o boleto do Café Serra Azul.\nMotivo: {boleto:cafe_serra_azul_golpe_cafe_da_re_d3.reason}\nValor: {boleto:cafe_serra_azul_golpe_cafe_da_re_d3.value}\n\nAbs,\nRicardo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "cafe_serra_azul_golpe_cafe_da_re_d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_taxa_da_grafica_d3",
+		"email_id": "mariana_taxa_da_grafica_d3_0",
+		"sender": "mariana.comercial@imail.com",
+		"subject": "Taxa da gráfica",
+		"content": "Bom dia, estagiário.\n\nEstou fora e mando pelo meu email pessoal. A gráfica cobrou uma taxa para liberar os catálogos.\n\nO boleto da Gráfica Ponto Certo tá no anexo.\nMotivo: {boleto:grafica_ponto_certo_golpe_taxa_da_gr_d3.reason}\nValor: {boleto:grafica_ponto_certo_golpe_taxa_da_gr_d3.value}\n\nObrigada,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_ponto_certo_golpe_taxa_da_gr_d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcao_ferramentas_novas_d3",
+		"email_id": "marcao_ferramentas_novas_d3_0",
+		"sender": "marcao@enigrna.com.br",
+		"subject": "Ferramentas novas",
+		"content": "Fala, meu bom!\n\nAs ferramentas novas chegaram. Paga logo que o pessoal tá esperando.\n\nMandei o boleto da Ferragens Santa Luzia em anexo.\nMotivo: {boleto:ferragens_santa_luzia_golpe_ferramenta_d3.reason}\nValor: {boleto:ferragens_santa_luzia_golpe_ferramenta_d3.value}\n\nValeu!\nMarcão",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "ferragens_santa_luzia_golpe_ferramenta_d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_exames_do_pessoal_d3",
+		"email_id": "jessica_exames_do_pessoal_d3_0",
+		"sender": "jessica.rh@imail.com",
+		"subject": "Exames do pessoal",
+		"content": "Oii!\n\nSaíram os resultados dos exames! Vai o boleto da clínica e o arquivo com os resultados.\n\nMotivo: {boleto:clinica_bem_cuidar_golpe_exames_do__d3.reason}\nValor: {boleto:clinica_bem_cuidar_golpe_exames_do__d3.value}\n\nBeijos,\nJessica",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clinica_bem_cuidar_golpe_exames_do__d3"
+			},
+			{
+				"type": "installer",
+				"name": "Resultado_Exames.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "gilmar_multa_da_industrials_d3",
+		"email_id": "gilmar_multa_da_industrials_d3_0",
+		"sender": "gilmar@enigma-compras.com.br",
+		"subject": "Multa da Industrials",
+		"content": "Bom dia.\n\nA Industrials cobrou multa por atraso no pagamento das barras. Pague hoje.\n\nSegue em anexo o boleto da Industrials.\nMotivo: {boleto:industrials_golpe_multa_da_i_d3.reason}\nValor: {boleto:industrials_golpe_multa_da_i_d3.value}\n\nAtt,\nGilmar",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_golpe_multa_da_i_d3"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_certificado_do_d3",
+		"email_id": "marcia_certificado_do_d3_0",
+		"sender": "marcia.rh.enigma@imail.com",
+		"subject": "Certificado do treinamento",
+		"content": "Olá, estagiário.\n\nPara emitir o certificado do treinamento, a Prisma cobra a taxa abaixo. O certificado vai em anexo.\n\nO boleto da Prisma Treinamentos tá no anexo.\nMotivo: {boleto:prisma_golpe_certificad_d3.reason}\nValor: {boleto:prisma_golpe_certificad_d3.value}\n\nAtenciosamente,\nMarcia",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "prisma_golpe_certificad_d3"
+			},
+			{
+				"type": "installer",
+				"name": "Certificado_Curso.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "viva_fatura_de_abril_d3",
+		"email_id": "viva_fatura_de_abril_d3_0",
+		"sender": "pagamentos@viva-fatura.com.br",
+		"subject": "Fatura de abril",
+		"content": "Prezado cliente,\n\nSua fatura de abril está disponível. Segue o boleto e o arquivo da fatura.\n\nMotivo: {boleto:viva_golpe_fatura_de__d3.reason}\nValor: {boleto:viva_golpe_fatura_de__d3.value}\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_golpe_fatura_de__d3"
+			},
+			{
+				"type": "installer",
+				"name": "Fatura_Abril.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_licencas_do_antivirus_d4",
+		"email_id": "carolina_licencas_do_antivirus_d4_0",
+		"sender": "carolina@enigma.ti.corn.br",
+		"subject": "Licenças do antivírus",
+		"content": "Oi estagiário,\n\nas licenças do antivírus venceram, paga a Escudo Digital pra mim?\n\nO boleto da Escudo Digital vai em anexo.\nMotivo: {boleto:escudo_digital_golpe_licencas_d_d4.reason}\nValor: {boleto:escudo_digital_golpe_licencas_d_d4.value}\n\nobgda!\nCarolina",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "escudo_digital_golpe_licencas_d_d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jose_conserto_do_ar_d4",
+		"email_id": "jose_conserto_do_ar_d4_0",
+		"sender": "jose.compras@imail.com",
+		"subject": "Conserto do ar",
+		"content": "Boa tarde, estagiário.\n\nEscrevo do meu email pessoal. A Clima Ar consertou o ar da sala do Comercial.\n\nSegue em anexo o boleto da Clima Ar Refrigeração.\nMotivo: {boleto:clima_ar_golpe_conserto_d_d4.reason}\nValor: {boleto:clima_ar_golpe_conserto_d_d4.value}\n\nAtenciosamente,\nJosé",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_ar_golpe_conserto_d_d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "gilmar_chapas_de_aluminio_d4_2",
+		"email_id": "gilmar_chapas_de_aluminio_d4_2_0",
+		"sender": "gilmar@enigrna.com.br",
+		"subject": "Chapas de alumínio",
+		"content": "Bom dia.\n\nAs chapas de alumínio chegaram. Pague hoje, por favor.\n\nO boleto da Industrials tá no anexo.\nMotivo: {boleto:industrials_golpe_chapas_de__d4.reason}\nValor: {boleto:industrials_golpe_chapas_de__d4.value}\n\nAtt,\nGilmar",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_golpe_chapas_de__d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_liberacao_do_pagamento_d4",
+		"email_id": "yago_liberacao_do_pagamento_d4_0",
+		"sender": "yago.financeiro@imail.com",
+		"subject": "Liberação do pagamento",
+		"content": "Olá, estagiário,\n\nO Banco travou os pagamentos de hoje. Responda este email com o código do autenticador do Banco para eu liberar, e depois pague o boleto em anexo.\n\nMotivo: {boleto:kospenski_golpe_liberacao__d4.reason}\nValor: {boleto:kospenski_golpe_liberacao__d4.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_golpe_liberacao__d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "negativa_nota_fiscal_dos_d4",
+		"email_id": "negativa_nota_fiscal_dos_d4_0",
+		"sender": "pagamentos@negativa.com.br",
+		"subject": "Nota fiscal dos celulares",
+		"content": "Caro cliente,\n\nSegue a nota fiscal dos celulares corporativos. Abra o arquivo em anexo para conferir.\n\nAtenciosamente,\nNegativa",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "NotaFiscal_Negativa.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "ricardo_seguro_dos_cartoes_d4",
+		"email_id": "ricardo_seguro_dos_cartoes_d4_0",
+		"sender": "ricardo@enlgma.com.br",
+		"subject": "Seguro dos cartões",
+		"content": "Estagiário,\n\na gráfica cobra um seguro pra mandar os cartões de visita, paga aí.\n\nSegue em anexo o boleto da Gráfica Ponto Certo.\nMotivo: {boleto:grafica_ponto_certo_golpe_seguro_dos_d4.reason}\nValor: {boleto:grafica_ponto_certo_golpe_seguro_dos_d4.value}\n\nAbs,\nRicardo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_ponto_certo_golpe_seguro_dos_d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "arthur_certificado_de_seguranca_d4",
+		"email_id": "arthur_certificado_de_seguranca_d4_0",
+		"sender": "ti.suporte@imail.com",
+		"subject": "Certificado de segurança",
+		"content": "Fala, estagiário!\n\neh do TI. instala o certificado de segurança que vai em anexo e me manda o código que aparecer no autenticador.\n\nvlw!\nArthur",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "CertificadoSeguranca.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_cabos_da_sala_de_vendas_d4",
+		"email_id": "mariana_cabos_da_sala_de_vendas_d4_0",
+		"sender": "mariana@enigma.corn.br",
+		"subject": "Cabos da sala de vendas",
+		"content": "Bom dia, estagiário.\n\nA Conecta Cabos trocou os cabos da sala de vendas. Segue o boleto.\n\nMotivo: {boleto:conecta_cabos_golpe_cabos_da_s_d4.reason}\nValor: {boleto:conecta_cabos_golpe_cabos_da_s_d4.value}\n\nObrigada,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "conecta_cabos_golpe_cabos_da_s_d4"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_coffee_break_da_d4_2",
+		"email_id": "marcia_coffee_break_da_d4_2_0",
+		"sender": "marcia@enigma.rh.corn.br",
+		"subject": "Coffee break da integração",
+		"content": "Olá, estagiário.\n\nO coffee break da integração vai pelo Empório da Festa. A lista de convidados vai junto com o boleto.\n\nMotivo: {boleto:emporio_festa_golpe_coffee_bre_d4.reason}\nValor: {boleto:emporio_festa_golpe_coffee_bre_d4.value}\n\nAtenciosamente,\nMarcia",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "emporio_festa_golpe_coffee_bre_d4"
+			},
+			{
+				"type": "installer",
+				"name": "Lista_Convidados.pdf.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carla_papel_do_trimestre_d4",
+		"email_id": "carla_papel_do_trimestre_d4_0",
+		"sender": "carla.fin@imail.com",
+		"subject": "Papel do trimestre",
+		"content": "Oi, estagiário!\n\nTô fora hoje. Paga o papel do trimestre e, se o Banco pedir, me manda o código que chegar no seu celular. A planilha dos gastos vai junto.\n\nSegue em anexo o boleto da Toner & Cia.\nMotivo: {boleto:toner_cia_golpe_papel_do_t_d4.reason}\nValor: {boleto:toner_cia_golpe_papel_do_t_d4.value}\n\nObrigada!\nCarla",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "toner_cia_golpe_papel_do_t_d4"
+			},
+			{
+				"type": "installer",
+				"name": "Planilha_Gastos.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "grafica_crachas_novos_d5",
+		"email_id": "grafica_crachas_novos_d5_0",
+		"sender": "cobranca@graficapontocertto.com.br",
+		"subject": "Crachás novos",
+		"content": "Olá!\n\nOs crachás dos novos funcionários estão prontos. Segue o boleto.\n\nMotivo: {boleto:grafica_ponto_certo_golpe_crachas_no_d5.reason}\nValor: {boleto:grafica_ponto_certo_golpe_crachas_no_d5.value}\n\nAtenciosamente,\nGráfica Ponto Certo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_ponto_certo_golpe_crachas_no_d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marta_ar_da_sala_de_vendas_d5",
+		"email_id": "marta_ar_da_sala_de_vendas_d5_0",
+		"sender": "marta.comercial@imail.com",
+		"subject": "Ar da sala de vendas",
+		"content": "Oiê!\n\nAmigaaa, tô sem acesso ao email da empresa! O ar da sala de vendas foi consertado, paga pra mim?\n\nMandei o boleto da Clima Ar Refrigeração em anexo.\nMotivo: {boleto:clima_ar_golpe_ar_da_sala_d5.reason}\nValor: {boleto:clima_ar_golpe_ar_da_sala_d5.value}\n\nObrigadaaa!\nMarta",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_ar_golpe_ar_da_sala_d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carolina_licencas_da_vpn_d5_2",
+		"email_id": "carolina_licencas_da_vpn_d5_2_0",
+		"sender": "carolina@enigma-ti.com.br",
+		"subject": "Licenças da VPN",
+		"content": "Oi estagiário,\n\nrenovaram as licenças da VPN, paga a Escudo Digital pra mim.\n\nO boleto da Escudo Digital vai em anexo.\nMotivo: {boleto:escudo_digital_golpe_licencas_d_d5.reason}\nValor: {boleto:escudo_digital_golpe_licencas_d_d5.value}\n\nobgda!\nCarolina",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "escudo_digital_golpe_licencas_d_d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "guilherme_parafusos_da_montagem_d5",
+		"email_id": "guilherme_parafusos_da_montagem_d5_0",
+		"sender": "guilherme.enigma@imail.com",
+		"subject": "Parafusos da montagem",
+		"content": "E aí, estagiário!\n\nMando do meu email pessoal. Os parafusos da Industrials chegaram, paga pra mim?\n\nSegue em anexo o boleto da Industrials.\nMotivo: {boleto:industrials_golpe_parafusos__d5.reason}\nValor: {boleto:industrials_golpe_parafusos__d5.value}\n\nValeu!\nGuilherme",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_golpe_parafusos__d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "viva_2_via_da_fatura_d5",
+		"email_id": "viva_2_via_da_fatura_d5_0",
+		"sender": "faturas@vivaa.com.br",
+		"subject": "2ª via da fatura",
+		"content": "Prezado cliente,\n\nSua fatura está atrasada! Abra a 2ª via em anexo para evitar o corte da internet.\n\n- © Viva",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "2via_Fatura.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_suporte_tecnico_d5",
+		"email_id": "yago_suporte_tecnico_d5_0",
+		"sender": "yagob@enigma.fin.corn.br",
+		"subject": "Suporte técnico",
+		"content": "Olá, estagiário,\n\nSegue o boleto do suporte técnico da Kospenski para pagamento hoje.\n\nMotivo: {boleto:kospenski_golpe_suporte_te_d5.reason}\nValor: {boleto:kospenski_golpe_suporte_te_d5.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_golpe_suporte_te_d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_exames_admissionais_d5",
+		"email_id": "jessica_exames_admissionais_d5_0",
+		"sender": "jessica.enigma@imail.com",
+		"subject": "Exames admissionais",
+		"content": "Oii!\n\nTô no meu email pessoal! Paga os exames admissionais e me manda o código que chegou no seu celular, que a clínica pede.\n\nO boleto da Clínica Bem Cuidar vai em anexo.\nMotivo: {boleto:clinica_bem_cuidar_golpe_exames_adm_d5.reason}\nValor: {boleto:clinica_bem_cuidar_golpe_exames_adm_d5.value}\n\nBeijos,\nJessica",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clinica_bem_cuidar_golpe_exames_adm_d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcao_conserto_do_ar_do_galpao_d5",
+		"email_id": "marcao_conserto_do_ar_do_galpao_d5_0",
+		"sender": "marcao@enigma.corn.br",
+		"subject": "Conserto do ar do galpão",
+		"content": "Fala, meu bom!\n\nO ar do galpão foi arrumado. As fotos do conserto vão junto com o boleto.\n\nMotivo: {boleto:clima_ar_golpe_conserto_d_d5.reason}\nValor: {boleto:clima_ar_golpe_conserto_d_d5.value}\n\nValeu!\nMarcão",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "clima_ar_golpe_conserto_d_d5"
+			},
+			{
+				"type": "installer",
+				"name": "Fotos_Conserto.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "mariana_multa_dos_roteadores_d5",
+		"email_id": "mariana_multa_dos_roteadores_d5_0",
+		"sender": "mariana.vendas@imail.com",
+		"subject": "Multa dos roteadores",
+		"content": "Bom dia, estagiário.\n\nEstou fora e mando pelo email pessoal. A Conecta Cabos cobrou uma multa. O contrato assinado vai em anexo.\n\nO boleto da Conecta Cabos tá no anexo.\nMotivo: {boleto:conecta_cabos_golpe_multa_dos__d5.reason}\nValor: {boleto:conecta_cabos_golpe_multa_dos__d5.value}\n\nObrigada,\nMariana",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "conecta_cabos_golpe_multa_dos__d5"
+			},
+			{
+				"type": "installer",
+				"name": "Contrato_Assinado.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "gilmar_chapas_de_aluminio_d5",
+		"email_id": "gilmar_chapas_de_aluminio_d5_0",
+		"sender": "gilmar@enigrna.com.br",
+		"subject": "Chapas de alumínio",
+		"content": "Bom dia.\n\nAs chapas de alumínio chegaram. Pague hoje.\n\nMandei o boleto da Industrials em anexo.\nMotivo: {boleto:industrials_golpe_chapas_de__d5.reason}\nValor: {boleto:industrials_golpe_chapas_de__d5.value}\n\nAtt,\nGilmar",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "industrials_golpe_chapas_de__d5"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "kospenski_renovacao_anual_do_d6",
+		"email_id": "kospenski_renovacao_anual_do_d6_0",
+		"sender": "cobranca@kospenski.co",
+		"subject": "Renovação anual do firewall",
+		"content": "Prezado cliente,\n\nO firewall da sua empresa vence hoje. Segue o boleto da renovação anual.\n\nMotivo: {boleto:kospenski_golpe_renovacao__d6.reason}\nValor: {boleto:kospenski_golpe_renovacao__d6.value}\n\nAtenciosamente,\nKospenski",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "kospenski_golpe_renovacao__d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "ricardo_folhetos_da_feira_d6",
+		"email_id": "ricardo_folhetos_da_feira_d6_0",
+		"sender": "ricardo.comercial@imail.com",
+		"subject": "Folhetos da feira",
+		"content": "Estagiário,\n\nto no email pessoal, paga os folhetos da feira pra mim.\n\nSegue em anexo o boleto da Gráfica Ponto Certo.\nMotivo: {boleto:grafica_ponto_certo_golpe_folhetos_d_d6.reason}\nValor: {boleto:grafica_ponto_certo_golpe_folhetos_d_d6.value}\n\nAbs,\nRicardo",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "grafica_ponto_certo_golpe_folhetos_d_d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "marcia_seu_holerite_do_mes_d6",
+		"email_id": "marcia_seu_holerite_do_mes_d6_0",
+		"sender": "marcia@enigma.rh.corn.br",
+		"subject": "Seu holerite do mês",
+		"content": "Olá, estagiário.\n\nSeu holerite do mês está disponível. Abra o arquivo em anexo para conferir.\n\nAtenciosamente,\nMarcia",
+		"attachments": [
+			{
+				"type": "installer",
+				"name": "Holerite_Mes.pdf.exe"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jose_taxa_do_antivirus_d6",
+		"email_id": "jose_taxa_do_antivirus_d6_0",
+		"sender": "jose.enigma@imail.com",
+		"subject": "Taxa do antivírus",
+		"content": "Boa tarde, estagiário.\n\nEscrevo do email pessoal. A Escudo Digital cobra uma taxa para liberar o antivírus dos celulares.\n\nMandei o boleto da Escudo Digital em anexo.\nMotivo: {boleto:escudo_digital_golpe_taxa_do_an_d6.reason}\nValor: {boleto:escudo_digital_golpe_taxa_do_an_d6.value}\n\nAtenciosamente,\nJosé",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "escudo_digital_golpe_taxa_do_an_d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "arthur_roteadores_da_filial_d6",
+		"email_id": "arthur_roteadores_da_filial_d6_0",
+		"sender": "artur@enigma.ti.corn.br",
+		"subject": "Roteadores da filial",
+		"content": "Fala, estagiário!\n\nos roteadores da filial chegaram, paga a Conecta Cabos pra mim.\n\nO boleto da Conecta Cabos vai em anexo.\nMotivo: {boleto:conecta_cabos_golpe_roteadores_d6.reason}\nValor: {boleto:conecta_cabos_golpe_roteadores_d6.value}\n\nvlw!\nArthur",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "conecta_cabos_golpe_roteadores_d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "carla_fatura_com_token_d6",
+		"email_id": "carla_fatura_com_token_d6_0",
+		"sender": "carla@enigma.fin.corn.br",
+		"subject": "Fatura com token",
+		"content": "Oi, estagiário!\n\nPra pagar a fatura da Viva hoje o Banco pede o código do token. Instala o token em anexo e me responde com o código.\n\nSegue em anexo o boleto da Viva.\nMotivo: {boleto:viva_golpe_fatura_com_d6.reason}\nValor: {boleto:viva_golpe_fatura_com_d6.value}\n\nObrigada!\nCarla",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "viva_golpe_fatura_com_d6"
+			},
+			{
+				"type": "installer",
+				"name": "Token_Seguranca.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "jessica_festa_de_fim_de_mes_d6_2",
+		"email_id": "jessica_festa_de_fim_de_mes_d6_2_0",
+		"sender": "jessica.festa@imail.com",
+		"subject": "Festa de fim de mês",
+		"content": "Oii!\n\nTô no meu email pessoal! A festa de fim de mês tá quase paga, só falta você pagar o boleto.\n\nMotivo: {boleto:emporio_festa_golpe_festa_de_f_d6.reason}\nValor: {boleto:emporio_festa_golpe_festa_de_f_d6.value}\n\nBeijos,\nJessica",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "emporio_festa_golpe_festa_de_f_d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "guilherme_seguro_das_cadeiras_d6",
+		"email_id": "guilherme_seguro_das_cadeiras_d6_0",
+		"sender": "guilherme@enlgma.com.br",
+		"subject": "Seguro das cadeiras",
+		"content": "E aí, estagiário!\n\nA Móveis Rocha cobra seguro para entregar as cadeiras novas. Segue o boleto.\n\nMotivo: {boleto:moveis_rocha_golpe_seguro_das_d6.reason}\nValor: {boleto:moveis_rocha_golpe_seguro_das_d6.value}\n\nValeu!\nGuilherme",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "moveis_rocha_golpe_seguro_das_d6"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "negativa_pedido_dos_celulares_d6",
+		"email_id": "negativa_pedido_dos_celulares_d6_0",
+		"sender": "pagamentos@negativa.co",
+		"subject": "Pedido dos celulares",
+		"content": "Caro cliente,\n\nSegue o boleto do pedido dos celulares e o pedido em PDF para conferência.\n\nMotivo: {boleto:negativa_golpe_pedido_dos_d6.reason}\nValor: {boleto:negativa_golpe_pedido_dos_d6.value}\n\nAtenciosamente,\nNegativa",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "negativa_golpe_pedido_dos_d6"
+			},
+			{
+				"type": "installer",
+				"name": "Pedido_Celulares.pdf.apk"
+			}
+		],
+		"requires": []
+	},
+	{
+		"thread_id": "yago_relatorio_contabil_d6",
+		"email_id": "yago_relatorio_contabil_d6_0",
+		"sender": "yago.fin.enigma@imail.com",
+		"subject": "Relatório contábil",
+		"content": "Olá, estagiário,\n\nEstou fora. Pague a Contábil Ampere e me responda com o código do autenticador para eu conferir. O relatório vai em anexo.\n\nSegue em anexo o boleto da Contábil Ampere.\nMotivo: {boleto:contabil_ampere_golpe_relatorio__d6.reason}\nValor: {boleto:contabil_ampere_golpe_relatorio__d6.value}\n\nCordialmente,\nYago",
+		"attachments": [
+			{
+				"type": "boleto",
+				"boleto_id": "contabil_ampere_golpe_relatorio__d6"
+			},
+			{
+				"type": "installer",
+				"name": "Relatorio_Contabil.exe"
+			}
+		],
+		"requires": []
+	}
+]

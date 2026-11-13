@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "viva_fatura_da_filial_d6",
+		"email_id": "viva_fatura_da_filial_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia_certificados_do_curso_d6",
+		"email_id": "marcia_certificados_do_curso_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_ar_condicionado_do_d6",
+		"email_id": "marcao_ar_condicionado_do_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina_renovacao_anual_do_d6",
+		"email_id": "carolina_renovacao_anual_do_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "arthur_antivirus_dos_celulares_d6",
+		"email_id": "arthur_antivirus_dos_celulares_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_parafusos_e_porcas_d6",
+		"email_id": "gilmar_parafusos_e_porcas_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "negativa_celulares_corporativos_d6",
+		"email_id": "negativa_celulares_corporativos_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_festa_de_fim_de_mes_d6",
+		"email_id": "jessica_festa_de_fim_de_mes_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jose_pastas_e_etiquetas_do_d6",
+		"email_id": "jose_pastas_e_etiquetas_do_d6_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "ricardo_cafe_do_comercial_do_mes_d6",
+		"email_id": "ricardo_cafe_do_comercial_do_mes_d6_0",
+		"required_app": "Bank"
+	}
+]

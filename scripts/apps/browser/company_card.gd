@@ -14,9 +14,13 @@ const VERDICTS = [
 @export var logo_texture_rect: TextureRect
 @export var verdict_label: Label
 
+## Name of the company on the card, as data/browser/reviewed_companies.json names it
+var company_name: String = ""
+
 func setup(company_data: Dictionary) -> void:
 	logo_texture_rect.texture = load(company_data['logo'])
 
+	company_name = company_data['name']
 	name_label.text = company_data['name']
 	summary_label.text = company_data['summary']
 	score_label.text = "%d" % company_data['score']

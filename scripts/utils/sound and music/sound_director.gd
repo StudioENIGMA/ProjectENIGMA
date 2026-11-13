@@ -60,10 +60,7 @@ func _ready() -> void:
 	sound_signaler.connect("set_should_generate_music", set_should_generate_music)
 	sound_signaler.connect("start_music_early", on_start_music_early)
 
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), convert_float_to_db(50.0))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), convert_float_to_db(50.0))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), convert_float_to_db(100.0))
-
+	# The volumes are the player's, set from the settings screen, see GameData.apply_audio_settings()
 	reset_melody_modulation()
 	calculate_max_stem_amount()
 	check_for_music()

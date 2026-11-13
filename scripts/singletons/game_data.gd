@@ -12,7 +12,7 @@ enum App {
 	# Settings app
 	SETTINGS,
 	PASSWORDMANAGER,
-	PASSWORDCHECK,
+	PASSWORDLOCK,
 	PASSWORDCHANGE,
 	VIRUSSCANNER,
 	UPDATEOS,
@@ -61,6 +61,8 @@ enum App {
 	MESSAGESHISTORY,
 	# Alert of a scam the player fell for, used only for notifications like HACK
 	SCAM,
+	# Boleto, opened from an email attachment (Email app), after the others for the same reason
+	BOLETO,
 }
 
 enum HackMinigame {
@@ -73,6 +75,27 @@ enum PaymentType {
 	PIX,
 	TICKET,
 }
+
+## Picked in the pause menu as the clock speed, see get_difficulty()
+enum Difficulty {
+	EASY,
+	NORMAL,
+	HARD,
+}
+
+## Rules the player reports scams against, see load_rules()
+const RULES_PATH := "res://data/rules/rules.json"
+## Names of a date_dict's "weekday" (0 is Sunday), see weekday_name()
+const WEEKDAY_NAMES := ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+## Names of a date_dict's "month" (1 is January), see month_name()
+const MONTH_NAMES := [
+	"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+	"julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
+]
+## Where the settings screen keeps the volume and mute of each bus between games
+const AUDIO_SETTINGS_PATH := "user://settings.cfg"
+## Buses the settings screen changes, with their volume (0 to 100) before the player sets one
+const DEFAULT_VOLUMES := {"Master": 100.0, "Music": 50.0, "SFX": 50.0}
 
 class PaymentCode:
 	var code: String
@@ -135,6 +158,9 @@ var purchased_items = {}
 var options_chose = {}
 
 var random_events_history = []
+## Seed of this game, drawn when it starts: the boletos of a day are made from it, so playing the
+## same day again makes the same boletos
+var run_seed: int = randi()
 
 var clock_tick_interval: float = 1.5 # Time between clock ticks in seconds
 var start_date_dict: Dictionary # {year, month, day, weekday}
@@ -150,7 +176,12 @@ var passwords: Dictionary = {
 	App.BANK: str(randi_range(0, 9999)).pad_zeros(4), # Random default password each time
 }
 
-var updated_password_today: bool = false
+## Password protected apps whose password was already changed today. Passwords expire every day,
+## so this is cleared when a new day starts and a gated app stays locked until it is back in here
+var passwords_updated_today: Array[App] = []
+## First day passwords expire: on day 1 the Bank opens without a change, as the TI only shows the
+## passwords manager that day
+var passwords_expire_from_day: int = 2
 var updated_os_today: bool = false
 var breaches_immunity_ticks: int = 45
 
@@ -168,9 +199,20 @@ var unsafe_apps: Array[App] = [App.FAKESTORE]
 
 ## email_id of every email the player opened today, for the "email_read" requirement
 var read_emails: Array = []
+## What the player looked at today, for the "seen" requirement: "news:<id>" for a news article
+## opened, "review:<company>" for a company shown whole on Elogie Lá and "screen:<app>" for a
+## screen opened (named as apps_name names it, "screen:PasswordManager"), see mark_seen()
+var seen_info: Array[String] = []
 ## Conversations and payment codes of the scams reported today, which can no longer go on
 var blocked_conversations: Array = []
 var blocked_payment_codes: Array = []
+## Conversations, email threads and payment codes of the random tasks and scams lost today, whose
+## contact went offline before they were done (see StoryDirector): none of them goes on
+var lost_conversations: Array = []
+var lost_threads: Array = []
+var lost_payment_codes: Array = []
+## Conversations scams are carried out in, whose messages stand out in the Messages history
+var scam_conversations: Array = []
 
 var saved_messages_conversations: Array[Dictionary] = []
 ## Conversations of the days gone by, read-only in the Messages history, oldest day first
@@ -182,6 +224,9 @@ var introductions: Array[Introduction] = []
 ## Who sends the random tasks of today, the only ones besides the bosses that can ask for something:
 ## {"name", "account", "verified"} for a Messages contact, {"email"} for an email sender
 var trusted_senders_today: Array[Dictionary] = []
+## Banks the company accepts boletos from today, as the difficulty picked when the day started lists
+## them in data/notes/board.json (more of them the harder it is). Empty before banks are checked
+var accepted_banks_today: Array = []
 
 var apps_name: Dictionary = {
 	# Messages app
@@ -220,13 +265,14 @@ var apps_name: Dictionary = {
 	# Authenticator app
 	"Authenticator": App.AUTHENTICATOR,
 	# Password app
-	"PasswordCheck": App.PASSWORDCHECK,
+	"PasswordLock": App.PASSWORDLOCK,
 	# Pause Menu
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
 	"Notes": App.NOTES,
-	# Email app (order documents open from attachments)
+	# Email app (order documents and boletos open from attachments)
 	"OrderDocument": App.ORDERDOCUMENT,
+	"Boleto": App.BOLETO,
 }
 
 var apps_name_reverse: Dictionary = {}
@@ -345,6 +391,74 @@ func _ready() -> void:
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
 
+	apply_audio_settings()
+
+#region AUDIO SETTINGS
+## Sets every bus of the settings screen to the volume and mute the player left, or its default
+func apply_audio_settings() -> void:
+	var config := ConfigFile.new()
+	# No file yet: every bus gets its default
+	config.load(AUDIO_SETTINGS_PATH)
+	for bus_name in DEFAULT_VOLUMES:
+		var bus := AudioServer.get_bus_index(bus_name)
+		if bus < 0:
+			continue
+		var volume: float = config.get_value("volume", bus_name, DEFAULT_VOLUMES[bus_name])
+		AudioServer.set_bus_volume_db(bus, volume_to_db(volume))
+		AudioServer.set_bus_mute(bus, bool(config.get_value("mute", bus_name, false)))
+
+## Keeps the volume (0 to 100) and mute of a bus for the next games
+func save_audio_setting(bus_name: String, volume: float, muted: bool) -> void:
+	var config := ConfigFile.new()
+	config.load(AUDIO_SETTINGS_PATH)
+	config.set_value("volume", bus_name, volume)
+	config.set_value("mute", bus_name, muted)
+	config.save(AUDIO_SETTINGS_PATH)
+
+## A volume of the settings screen as decibels: the share (0 to 100) of the full loudness, 0 silent
+static func volume_to_db(volume: float) -> float:
+	return linear_to_db(volume / 100.0) if volume > 0.0 else -80.0
+
+static func db_to_volume(volume_db: float) -> float:
+	return clampf(db_to_linear(volume_db) * 100.0, 0.0, 100.0)
+#endregion AUDIO SETTINGS
+
+## Tells whether the app is password protected and its password was not changed today yet,
+## which keeps it locked. Before passwords_expire_from_day none is
+func is_password_outdated(app: App) -> bool:
+	if current_day < passwords_expire_from_day:
+		return false
+	return passwords.has(app) and not passwords_updated_today.has(app)
+
+## Keeps something the player looked at today, see seen_info
+func mark_seen(info: String) -> void:
+	if not seen_info.has(info):
+		seen_info.append(info)
+
+## Whether the player looked at something today, see seen_info. A kind alone ("news") stands for
+## anything of that kind
+func has_seen(info: String) -> bool:
+	return seen_info.any(_is_seen_info.bind(info))
+
+## Forgets something the player looked at, so a task asking for it again waits for another look.
+## A kind alone ("news") forgets everything of that kind
+func forget_seen(info: String) -> void:
+	for index in range(seen_info.size() - 1, -1, -1):
+		if _is_seen_info(seen_info[index], info):
+			seen_info.remove_at(index)
+
+## Whether an entry of seen_info is the info, or of its kind when the info is a kind alone
+func _is_seen_info(seen: String, info: String) -> bool:
+	return seen == info or seen.begins_with(info + ":")
+
+## Installed password protected apps that are still waiting for today's password change
+func get_outdated_password_apps() -> Array[App]:
+	var outdated_apps: Array[App] = []
+	for app in passwords.keys():
+		if downloaded_apps.has(app) and is_password_outdated(app):
+			outdated_apps.append(app)
+	return outdated_apps
+
 func get_human_typing_time(message: String) -> int:
 	var word_count = message.split(" ").size()
 
@@ -360,19 +474,27 @@ func get_human_typing_time(message: String) -> int:
 
 	return total_time
 
+## The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
+func get_difficulty() -> Difficulty:
+	if clock_tick_interval >= 2.0:
+		return Difficulty.EASY
+	if clock_tick_interval >= 1.5:
+		return Difficulty.NORMAL
+	return Difficulty.HARD
+
+## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on hard
+func get_free_scam_falls() -> int:
+	match get_difficulty():
+		Difficulty.EASY:
+			return 2
+		Difficulty.NORMAL:
+			return 1
+	return 0
+
 ## The account name a contact gets when its conversation names none: "@" and the name in
 ## lowercase, without accents, spaces or symbols ("Marcão" is "@marcao")
 ##
 ## Conversations and the Notes app's company contacts both get their accounts from it.
-## Scams a day the player can fall for without losing points: 2 on easy, 1 on normal, none on
-## hard. The difficulty is the clock speed picked in the pause menu, see difficulty_changer.gd
-func get_free_scam_falls() -> int:
-	if clock_tick_interval >= 2.0:
-		return 2
-	if clock_tick_interval >= 1.5:
-		return 1
-	return 0
-
 func account_from_name(contact_name: String) -> String:
 	var plain := contact_name.to_lower()
 	var accents := {"á": "a", "à": "a", "â": "a", "ã": "a", "é": "e", "ê": "e", "í": "i",
@@ -384,6 +506,27 @@ func account_from_name(contact_name: String) -> String:
 		if (character >= "a" and character <= "z") or (character >= "0" and character <= "9"):
 			handle += character
 	return "@" + handle
+
+## Name of the weekday of a date ("Quarta"), date_dict as get_current_date_dict() gives it
+func weekday_name(date_dict: Dictionary) -> String:
+	return WEEKDAY_NAMES[int(date_dict.get("weekday", 0)) % 7]
+
+## Name of the month of a date ("outubro"), date_dict as get_current_date_dict() gives it
+func month_name(date_dict: Dictionary) -> String:
+	return MONTH_NAMES[(int(date_dict.get("month", 1)) - 1) % 12]
+
+## Reads the whole rulebook, every day included
+func load_rules() -> Array:
+	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
+	if file == null:
+		push_error("Could not open rules file: %s" % RULES_PATH)
+		return []
+
+	var rules = JSON.parse_string(file.get_as_text())
+	if not rules is Array:
+		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
+		return []
+	return rules
 
 func format_brl(value: float) -> String:
 	var result = "-" if sign(value) == -1 else ""
@@ -469,6 +612,7 @@ func save_game() -> void:
 		"saved_messages_history": saved_messages_history,
 		"saved_email_threads": saved_email_threads,
 		"random_events_history": random_events_history,
+		"run_seed": run_seed,
 		"bank_balance": bank_balance,
 		"apps_with_available_updates": apps_with_available_updates,
 		"clock_tick_interval": clock_tick_interval,
@@ -543,6 +687,9 @@ func load_game() -> void:
 	random_events_history.clear()
 	for thread in raw_random_events_history:
 		random_events_history.append(thread)
+
+	# Saves made before the seed existed keep the one drawn for this session
+	run_seed = int(game_state.get("run_seed", run_seed))
 
 	var raw_apps_with_available_updates: Array = game_state.get("apps_with_available_updates", [])
 	apps_with_available_updates.clear()

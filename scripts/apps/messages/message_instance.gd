@@ -10,6 +10,14 @@ const MAX_BUBBLE_WIDTH := 250.0
 const BUBBLE_WIDTH_SLACK := 2.0
 ## Caption color once the annex can no longer be tapped (expired, downloading, installed)
 const ANNEX_DISABLED_COLOR := Color(0.43137255, 0.44313726, 0.5019608)
+## Crimson washed over the app background, opaque so the bubble's shadow does not show through
+const SCAM_BUBBLE_COLOR := Color(0.9875, 0.8463, 0.8602)
+const SCAM_BORDER_COLOR := Color(0.92156863, 0.039215688, 0.27058825, 0.4)
+const SCAM_TIME_COLOR := Color(0.5686275, 0.101960786, 0.21960784)
+## Orange (#FFA500) of a contact lost before its task or scam was done
+const LOST_BUBBLE_COLOR := Color(1.0, 0.89411765, 0.7490196)
+const LOST_BORDER_COLOR := Color(1.0, 0.64705884, 0.0)
+const LOST_TIME_COLOR := Color(0.6, 0.36078432, 0.0)
 
 @export var align: Align = Align.RIGHT
 
@@ -57,6 +65,28 @@ func setup(message: String, annex: Dictionary, time : int, play_animation: bool 
 		time_label.text = GameData.hours_minutes_as_string(time - GameData.starting_hours_minutes)
 	_apply_annex(annex)
 	_reflow()
+
+
+## Paints the bubble pink, telling a message of a scam apart in the Messages history
+func mark_as_scam() -> void:
+	_paint(SCAM_BUBBLE_COLOR, SCAM_BORDER_COLOR, SCAM_TIME_COLOR)
+
+
+## Paints the bubble orange, telling a message of a lost contact apart in the Messages history
+func mark_as_lost() -> void:
+	_paint(LOST_BUBBLE_COLOR, LOST_BORDER_COLOR, LOST_TIME_COLOR)
+
+
+func _paint(bubble_color: Color, border_color: Color, time_color: Color) -> void:
+	# Copies: the style and the settings are shared by every message of the scene
+	var style: StyleBoxFlat = panel_container.get_theme_stylebox("panel").duplicate()
+	style.bg_color = bubble_color
+	style.border_color = border_color
+	panel_container.add_theme_stylebox_override("panel", style)
+
+	var time_settings: LabelSettings = time_label.label_settings.duplicate()
+	time_settings.font_color = time_color
+	time_label.label_settings = time_settings
 
 
 ## Applies the annex data to the message instance

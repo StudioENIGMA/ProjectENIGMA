@@ -77,6 +77,10 @@ const OUTCOME_LINES = {
 		"text": "Você denunciou este golpe",
 		"color": Color(0.05490196, 0.41960785, 0.34509805),
 	},
+	"lost": {
+		"text": "Contato perdido: o tempo para resolver acabou",
+		"color": Color(0.6, 0.36078432, 0.0),
+	},
 }
 
 @export var messages_list:VBoxContainer
@@ -260,6 +264,26 @@ func on_conversation_blocked(blocked_conversation_id:String) -> void:
 	if blocked_conversation_id == conversation_id:
 		answers_panel.clear_ui()
 
+## Takes the answers of a lost contact away, telling why in place of the answers bar
+func on_conversation_lost(lost_conversation_id:String) -> void:
+	if lost_conversation_id != conversation_id:
+		return
+	answers_panel.clear_ui()
+	conversation_dict["outcome"] = "lost"
+	_show_archived_footer("lost")
+
+## Whether the open chat is one of the history, read-only
+func is_archived() -> bool:
+	return _is_archived()
+
+## Stops every "typing" of the day that ended, the messages they announced are never sent
+func on_start_new_day() -> void:
+	if messages_typing.get(conversation_id, false):
+		var typing_instance = messages_list.get_child(messages_list.get_child_count() - 1)
+		messages_list.remove_child(typing_instance)
+		typing_instance.queue_free()
+	messages_typing.clear()
+
 ## Rules group the sections of this screen are checked against, see data/rules/rules.json
 func get_rules_app() -> String:
 	return "MessagesHome"
@@ -322,6 +346,10 @@ func _add_message(sender:int, message:String, annex:Dictionary, time:int) -> voi
 	message_instance.setup(message, annex, time)
 	# A chat of the history is only read: its annexes install nothing, nothing is reported in it
 	if _is_archived():
+		if sender == GameData.Sender.NPC and conversation_dict.get("outcome", "") == "lost":
+			message_instance.mark_as_lost()
+		elif sender == GameData.Sender.NPC and GameData.scam_conversations.has(conversation_dict["id"]):
+			message_instance.mark_as_scam()
 		_last_sender = sender
 		return
 
@@ -442,11 +470,14 @@ func _footer_label(color:Color) -> Label:
 ##
 ## outcome: How the scam of the conversation ended, see messages_app_home.mark_outcome()
 func _show_archived_footer(outcome:String) -> void:
-	answers_panel.visible = not _is_archived()
-	_archived_footer.visible = _is_archived()
-	if not _is_archived():
+	# A lost contact takes no answers either, today as in the history
+	var is_lost := outcome == "lost"
+	answers_panel.visible = not _is_archived() and not is_lost
+	_archived_footer.visible = _is_archived() or is_lost
+	if not _archived_footer.visible:
 		return
 
+	_archived_label.visible = _is_archived()
 	var day_name:String = "do tutorial" if _archived_day == 0 else "do Dia %d" % _archived_day
 	_archived_label.text = "Conversa %s · somente leitura" % day_name
 

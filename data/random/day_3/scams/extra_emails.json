@@ -1,0 +1,52 @@
+[
+	{
+		"thread_id": "carla_toner_das_impressoras_d3",
+		"email_id": "carla_toner_das_impressoras_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "kospenski_suporte_tecnico_d3",
+		"email_id": "kospenski_suporte_tecnico_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "arthur_atualizacao_de_seguranca_d3",
+		"email_id": "arthur_atualizacao_de_seguranca_d3_0",
+		"required_app": "Email"
+	},
+	{
+		"thread_id": "ricardo_cafe_da_reuniao_d3",
+		"email_id": "ricardo_cafe_da_reuniao_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "mariana_taxa_da_grafica_d3",
+		"email_id": "mariana_taxa_da_grafica_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_ferramentas_novas_d3",
+		"email_id": "marcao_ferramentas_novas_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "jessica_exames_do_pessoal_d3",
+		"email_id": "jessica_exames_do_pessoal_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_multa_da_industrials_d3",
+		"email_id": "gilmar_multa_da_industrials_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcia_certificado_do_d3",
+		"email_id": "marcia_certificado_do_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "viva_fatura_de_abril_d3",
+		"email_id": "viva_fatura_de_abril_d3_0",
+		"required_app": "Bank"
+	}
+]

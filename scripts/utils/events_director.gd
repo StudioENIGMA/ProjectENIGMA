@@ -9,11 +9,13 @@ extends Node
 
 ## Emitted once a report is judged, for the phone to stamp the verdict
 ##
-## result: "verdict" ("found", "duplicate", "late", "wrong", "false" or "stale"), "title" and
-## "subtitle" for the stamp, and "points" won or lost
+## result: "verdict" ("found", "duplicate", "late", "wrong", "false", "early" or "stale"),
+## "title" and "subtitle" for the stamp, and "points" won or lost
 signal report_evaluated(result: Dictionary)
 ## Emitted when a report blocks a scam, with the conversations that take no more answers
 signal scam_blocked(conversation_ids: Array)
+## Emitted right after scam_blocked with the event blocked, for the emails it was sent in
+signal scam_event_blocked(event_id: String)
 ## Emitted when the player falls for a scam, with its conversations, kept to be compared later
 signal scam_fallen(conversation_ids: Array)
 ## Emitted when a task (not a scam) is done, so its sender can answer, see emails_director
@@ -42,6 +44,9 @@ const STORE_FIND_RP := 5
 const WRONG_REPORT_RP := -2
 ## Points of a report on something that is not a scam
 const FALSE_REPORT_RP := -5
+## Points of a random task or scam lost, its contact gone offline before it was done, on every
+## difficulty
+const LOST_RP := -5
 #endregion CONSTANTS
 
 #region STATES
@@ -51,6 +56,13 @@ var events_to_check: Array[String]
 var initiated_events: Array[String] = []
 ## Scams the player fell for today
 var fallen_events: Array[String] = []
+## email_id of every email whose installer the player ran today, for the "installer_opened" and
+## "payment_or_installer" requirements
+var opened_installers: Array[String] = []
+## Random tasks and scams lost today, see lose_event()
+var lost_events: Array[String] = []
+## What the lost events are on (their chat, emails and payments), as a report points at it
+var _lost_pieces: Array[Dictionary] = []
 ## event_id -> ids of the discrepancies of that event found today
 var found_discrepancies: Dictionary = {}
 ## event_id -> {store: {item_id: quantity}} bought for that event today, see _hand_out_purchases()
@@ -70,6 +82,9 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	events_to_check = []
 	initiated_events = []
 	fallen_events = []
+	opened_installers = []
+	lost_events = []
+	_lost_pieces = []
 	found_discrepancies = {}
 	purchase_credits = {}
 	_report_entries = {}
@@ -78,9 +93,17 @@ func setup_from_json_file(events_json: Variant, rules: Array) -> void:
 	GameData.daily_reputation_points = 0
 	GameData.options_chose.clear()
 	GameData.read_emails.clear()
+	GameData.seen_info.clear()
 	GameData.blocked_conversations.clear()
 	GameData.blocked_payment_codes.clear()
+	GameData.lost_conversations.clear()
+	GameData.lost_threads.clear()
+	GameData.lost_payment_codes.clear()
 	GameData.purchased_items.clear()
+	GameData.scam_conversations.clear()
+	for event in events_dict.values():
+		if event.get("type", "") == "scam":
+			GameData.scam_conversations.append_array(_get_conversations(event))
 
 	rules_by_id.clear()
 	for rule in rules:
@@ -105,6 +128,55 @@ func _on_event_initiated(event_id: String) -> void:
 ## neither fallen for nor blocked
 func is_event_pending(event_id: String) -> bool:
 	return events_to_check.has(event_id)
+
+## Runs an installer attached to an email: the phone is hacked at once, even on a fall the
+## difficulty forgives, and the scam that sent it is fallen for on the next tick
+func on_installer_opened(email_id: String) -> void:
+	if not opened_installers.has(email_id):
+		opened_installers.append(email_id)
+	hack_requested.emit()
+
+## Loses a random task or scam whose contact went offline before it was done: it can no longer be
+## done, fallen for or reported, its payments are refused, and it costs LOST_RP
+##
+## pieces: What it was on besides its payments, as a report points at it: {"source": "messages",
+## "conversation"} for a chat, {"source": "email", "email_id"} for each email of a thread
+func lose_event(event_id: String, pieces: Array) -> void:
+	if not events_to_check.has(event_id):
+		return
+	events_to_check.erase(event_id)
+	lost_events.append(event_id)
+	_lost_pieces.append_array(pieces)
+
+	var event: Dictionary = events_dict.get(event_id, {})
+	for code in _get_payment_codes(event):
+		_lost_pieces.append({"source": "bank", "payment_code": code})
+		GameData.lost_payment_codes.append(code)
+
+	GameData.daily_reputation_points += LOST_RP
+	GameData.events_log.append({
+		"type": "lost",
+		"description": "Contato perdido: %s" % event.get("description", ""),
+		"reputation_points": LOST_RP,
+	})
+
+## Payment codes an event waits on or points its discrepancies at
+func _get_payment_codes(event: Dictionary) -> Array:
+	var codes: Array = []
+	for requirement in event.get("requires", []):
+		if requirement.has("payment_id"):
+			codes.append(str(requirement["payment_id"]))
+		for code in requirement.get("payment_array", []):
+			codes.append(str(code))
+	for discrepancy in event.get("discrepancies", []):
+		for place in discrepancy.get("found_at", []):
+			if place.has("payment_code"):
+				codes.append(str(place["payment_code"]))
+	return codes
+
+## Whether a section is on a random task or scam lost today
+func _is_lost_section(section: Dictionary) -> bool:
+	return _lost_pieces.any(func(piece: Dictionary) -> bool: return _is_same_piece(piece, section))
 
 func _on_clock_tick() -> void:
 	_hand_out_purchases()
@@ -181,6 +253,12 @@ func evaluate_requirements(event: Dictionary, event_id: String) -> bool:
 			return true
 		elif flag == "email_read":
 			return GameData.read_emails.has(requirement.get("email_id", ""))
+		elif flag == "installer_opened":
+			return opened_installers.has(str(requirement.get("email_id", "")))
+		# A scam sending a boleto and an installer: paying it or running it, either is a fall
+		elif flag == "payment_or_installer":
+			return GameData.completed_payments.has(requirement.get("payment_id", "")) \
+				or opened_installers.has(str(requirement.get("email_id", "")))
 	return false
 
 ## Hands the orders paid since the last tick (GameData.purchased_items) out to the events waiting on
@@ -267,6 +345,13 @@ func evaluate_report(report: Dictionary) -> void:
 	var section: Dictionary = report.get("section", {})
 	var rule_id := str(report.get("rule", {}).get("id", ""))
 
+	# A lost contact is gone, nothing of it can be reported anymore
+	if _is_lost_section(section):
+		report_evaluated.emit(
+			_verdict("lost", "CONTATO PERDIDO", "O tempo para resolver acabou", 0)
+		)
+		return
+
 	# The scam delivered today that the section belongs to, if any
 	var scam_of_section := ""
 	for event_id in initiated_events:
@@ -290,9 +375,21 @@ func evaluate_report(report: Dictionary) -> void:
 		)
 		return
 
+	# A scam of today given away by a rule not released yet is not the player's job either
+	for event_id in initiated_events:
+		for discrepancy in events_dict.get(event_id, {}).get("discrepancies", []):
+			for place in discrepancy.get("found_at", []):
+				if _is_same_piece(place, section):
+					report_evaluated.emit(
+						_verdict("early", "AINDA NÃO", "Essa regra ainda não vale hoje", 0)
+					)
+					return
+
 	# A scam of another day is left alone, it is no longer the player's job
-	for event in events_dict.values():
-		for discrepancy in event.get("discrepancies", []):
+	for event_id in events_dict:
+		if initiated_events.has(event_id):
+			continue
+		for discrepancy in events_dict[event_id].get("discrepancies", []):
 			for place in discrepancy.get("found_at", []):
 				if _is_same_piece(place, section):
 					report_evaluated.emit(
@@ -356,6 +453,7 @@ func _block_scam(event_id: String) -> void:
 
 	GameData.blocked_conversations.append_array(conversations)
 	scam_blocked.emit(conversations)
+	scam_event_blocked.emit(event_id)
 
 ## Conversations a scam is carried out in, as named by the places of its discrepancies
 func _get_conversations(event: Dictionary) -> Array:
