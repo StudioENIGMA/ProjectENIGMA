@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"thread_id": "guilherme_armarios_d3",
+		"email_id": "guilherme_armarios_d3_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "carolina_instalador_d3",
+		"email_id": "carolina_instalador_d3_0",
+		"required_app": "Bank"
+	}
+]

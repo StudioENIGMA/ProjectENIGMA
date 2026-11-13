@@ -6,7 +6,40 @@
 [ext_resource type="FontFile" uid="uid://b778cnyygqp4l" path="res://assets/fonts/IBMPlexSans-Regular.ttf" id="4_reg"]
 [ext_resource type="Script" path="res://scripts/apps/discrepancy/discrepancy_target.gd" id="5_target"]
 
-[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "thread_size_label", "email_messages_container", "scroll_container", "subject_target")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_delete_bar"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 1
+border_color = Color(0.85882354, 0.84705883, 0.8117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_delete_normal"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_delete_pressed"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.74509805, 0.023529412, 0.21568628, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 8
+
+[node name="EmailAppViewer" type="VBoxContainer" node_paths=PackedStringArray("subject_label", "thread_size_label", "email_messages_container", "scroll_container", "subject_target", "delete_bar", "delete_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,6 +51,8 @@ thread_size_label = NodePath("ScrollContainer/FullEmailContainer/Header/HeaderCo
 email_messages_container = NodePath("ScrollContainer/FullEmailContainer/EmailMessagesContainer")
 scroll_container = NodePath("ScrollContainer")
 subject_target = NodePath("ScrollContainer/FullEmailContainer/Header/SubjectTarget")
+delete_bar = NodePath("DeleteBar")
+delete_button = NodePath("DeleteBar/Row/DeleteButton")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -74,3 +109,37 @@ color = Color(0.85882354, 0.84705883, 0.8117647, 1)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
+
+[node name="DeleteBar" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_delete_bar")
+
+[node name="Row" type="HBoxContainer" parent="DeleteBar"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Caption" type="Label" parent="DeleteBar/Row"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92156863, 0.039215688, 0.27058825, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 13
+text = "Golpe bloqueado"
+autowrap_mode = 3
+
+[node name="DeleteButton" type="Button" parent="DeleteBar/Row"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.972549, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.972549, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_delete_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_delete_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_delete_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_delete_normal")
+text = "Excluir email"

@@ -4,6 +4,9 @@ extends Control
 signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 #endregion SIGNALS
 
+const CRIMSON := Color(0.92156863, 0.039215688, 0.27058825)
+const FONT_BOLD := preload("res://assets/fonts/IBMPlexSans-Bold.ttf")
+
 #region CHILDREN NODES REFERENCES
 @export var profile_picture:Control
 @export var email_sender_label: Label
@@ -21,6 +24,8 @@ signal subscreen_open_requested(subscreen_name: GameData.App, email_data: Array)
 
 # The data of the email is an array os individual email messages
 var email_data: Array
+## Tag of a blocked scam, made the first time the thread is blocked
+var _blocked_tag: PanelContainer
 
 func _ready() -> void:
 	open_email_button.pressed.connect(_on_open_email_button_pressed)
@@ -44,6 +49,7 @@ func setup(p_email_data, is_to_read: bool) -> void:
 
 	# The clip shows up when any message of the thread carries an attachment
 	annex_icon.visible = email_data.any(_has_attachment)
+	_set_blocked_tag(bool(email_data[0].get("blocked", false)))
 
 	to_read_bubble.visible = is_to_read
 	email_subject_label.label_settings = unread_subject_settings if is_to_read else read_subject_settings
@@ -56,6 +62,35 @@ func _has_attachment(email_message: Dictionary) -> bool:
 	var attachments: Array = email_message.get("attachments", [])
 	var annex: Dictionary = email_message.get("annex", {})
 	return not attachments.is_empty() or not annex.is_empty()
+
+## Shows the "Golpe bloqueado" tag next to the subject of a blocked scam, waiting to be deleted
+func _set_blocked_tag(is_blocked: bool) -> void:
+	if _blocked_tag == null:
+		if not is_blocked:
+			return
+		_blocked_tag = _new_blocked_tag()
+		email_subject_label.get_parent().add_child(_blocked_tag)
+	_blocked_tag.visible = is_blocked
+
+func _new_blocked_tag() -> PanelContainer:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(CRIMSON, 0.12)
+	style.set_corner_radius_all(100)
+	style.content_margin_left = 8
+	style.content_margin_right = 8
+	style.content_margin_top = 1
+	style.content_margin_bottom = 1
+
+	var tag := PanelContainer.new()
+	tag.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	tag.add_theme_stylebox_override("panel", style)
+	var label := Label.new()
+	label.text = "Golpe bloqueado"
+	label.add_theme_font_override("font", FONT_BOLD)
+	label.add_theme_font_size_override("font_size", 10)
+	label.add_theme_color_override("font_color", CRIMSON)
+	tag.add_child(label)
+	return tag
 #endregion SETUP
 
 func _on_open_email_button_pressed() -> void:

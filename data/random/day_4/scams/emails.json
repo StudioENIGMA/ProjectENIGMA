@@ -1,1 +1,22 @@
-[]
+[
+	{
+		"thread_id": "carolina_codigo_d4",
+		"email_id": "carolina_codigo_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "gilmar_estantes_d4",
+		"email_id": "gilmar_estantes_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "yago_multa_d4",
+		"email_id": "yago_multa_d4_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "marcao_conserto_d4",
+		"email_id": "marcao_conserto_d4_0",
+		"required_app": "Bank"
+	}
+]

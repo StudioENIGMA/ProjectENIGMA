@@ -972,6 +972,27 @@
 		"value": 430.0,
 		"reason": "Evento da empresa"
 	},
+	"GP614": {
+		"name": "Gráfica Ponto Certo",
+		"cpf": "08.771.430/0001-05",
+		"email": "cobranca@graficapontocerto.com.br",
+		"value": 380.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"CL207": {
+		"name": "Clima Ar Refrigeração",
+		"cpf": "24.381.665/0001-09",
+		"email": "financeiro@climaar.com.br",
+		"value": 560.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"KX913": {
+		"name": "K. X. Serviços",
+		"cpf": "45.009.317/0001-62",
+		"email": "kx.servicos@tempo-mail.com",
+		"value": 560.0,
+		"reason": "Serviço de fornecedor"
+	},
 	"R7U6M": {
 		"name": "Forte Equipamentos Ltda",
 		"cpf": "11.949.730/0001-59",
@@ -1046,8 +1067,8 @@
 	},
 	"GP830": {
 		"name": "Gráfica Ponto Certo",
-		"cpf": "12.168.920/0001-61",
-		"email": "financeiro@graficapontocerto.com.br",
+		"cpf": "08.771.430/0001-05",
+		"email": "cobranca@graficapontocerto.com.br",
 		"value": 478.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Caixa Leste"
@@ -1166,8 +1187,8 @@
 	},
 	"GP018": {
 		"name": "Gráfica Ponto Certo",
-		"cpf": "12.168.920/0001-61",
-		"email": "financeiro@graficapontocerto.com.br",
+		"cpf": "08.771.430/0001-05",
+		"email": "cobranca@graficapontocerto.com.br",
 		"value": 742.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Banco Aurora"
@@ -1438,8 +1459,8 @@
 	},
 	"GP836": {
 		"name": "Gráfica Ponto Certo",
-		"cpf": "12.168.920/0001-61",
-		"email": "financeiro@graficapontocerto.com.br",
+		"cpf": "08.771.430/0001-05",
+		"email": "cobranca@graficapontocerto.com.br",
 		"value": 1284.5,
 		"reason": "Serviço de fornecedor",
 		"bank": "Caixa Leste"
@@ -1566,8 +1587,8 @@
 	},
 	"GP288": {
 		"name": "Gráfica Ponto Certo",
-		"cpf": "12.168.920/0001-61",
-		"email": "financeiro@graficapontocerto.com.br",
+		"cpf": "08.771.430/0001-05",
+		"email": "cobranca@graficapontocerto.com.br",
 		"value": 1120.0,
 		"reason": "Serviço de fornecedor",
 		"bank": "Caixa Leste"

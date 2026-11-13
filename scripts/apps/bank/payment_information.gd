@@ -5,7 +5,8 @@ signal request_transaction_notification(app:GameData.App, content:String, title:
 ## Emitted when the player, inspecting, points at a field as a scam discrepancy
 ##
 ## section: "source" ("bank"), "section" ("pix_code", "qr_read", "recipient", "reason",
-## "value", "ticket_payee" or "ticket_bank"), "payment_code" and "excerpt"
+## "value", "ticket_code", "ticket_payee", "ticket_cnpj", "ticket_bank" or "ticket_agency"),
+## "payment_code" and "excerpt"
 signal discrepancy_picked(section: Dictionary)
 
 @export var informations_container : VBoxContainer
@@ -66,8 +67,14 @@ func setup(code:GameData.PaymentCode) -> void:
 		_add_field("Valor", value, "value")
 
 	elif payment_code.type == GameData.PaymentType.TICKET:
+		_add_field("Código do boleto", payment_code.code, "ticket_code")
 		_add_field("Cedente", code_informations["institution"], "ticket_payee")
+		# Only the boletos of the email attachments register whose account they are paid into
+		if code_informations.has("cnpj"):
+			_add_field("CNPJ", str(code_informations["cnpj"]), "ticket_cnpj")
 		_add_field("Banco", str(code_informations.get("bank", "—")), "ticket_bank")
+		if code_informations.has("agency"):
+			_add_field("Agência", str(code_informations["agency"]), "ticket_agency")
 		_add_field("Motivo", reason, "reason")
 		_add_field("Valor", value, "value")
 

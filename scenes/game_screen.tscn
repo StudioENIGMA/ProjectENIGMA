@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_center.tscn" id="37_center"]
 [ext_resource type="PackedScene" path="res://scenes/notifications/notification_widget.tscn" id="38_widget"]
 [ext_resource type="Script" uid="uid://e2dpvx21io03" path="res://scripts/utils/introduction_director.gd" id="40_s3pqv"]
+[ext_resource type="Script" path="res://scripts/utils/boletos_director.gd" id="41_boletos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_widget_card"]
 content_margin_left = 12.0
@@ -1217,7 +1218,7 @@ autostart = true
 [node name="HackHandler" type="Node2D" parent="EventHandler" unique_id=1179085021]
 script = ExtResource("25_5o8nl")
 
-[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "introduction_director", "ui", "event_handler")]
+[node name="StoryDirector" type="Node2D" parent="." unique_id=1123706749 node_paths=PackedStringArray("messages_director", "emails_director", "browser_director", "bank_director", "randomness_director", "events_director", "introduction_director", "boletos_director", "ui", "event_handler")]
 script = ExtResource("18_oknyi")
 messages_director = NodePath("MessagesDirector")
 emails_director = NodePath("EmailsDirector")
@@ -1226,6 +1227,7 @@ bank_director = NodePath("BankDirector")
 randomness_director = NodePath("RandomnessDirector")
 events_director = NodePath("EventsDirector")
 introduction_director = NodePath("IntroductionsDirector")
+boletos_director = NodePath("BoletosDirector")
 ui = NodePath("../UI")
 event_handler = NodePath("../EventHandler")
 
@@ -1261,6 +1263,9 @@ script = ExtResource("28_5o8nl")
 
 [node name="IntroductionsDirector" type="Node2D" parent="StoryDirector" unique_id=178480728]
 script = ExtResource("40_s3pqv")
+
+[node name="BoletosDirector" type="Node" parent="StoryDirector"]
+script = ExtResource("41_boletos")
 
 [node name="BlurBackBufferCopy" type="BackBufferCopy" parent="." unique_id=1133987199]
 copy_mode = 2

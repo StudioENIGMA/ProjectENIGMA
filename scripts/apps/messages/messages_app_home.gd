@@ -160,25 +160,37 @@ func _archive_conversations(day:int) -> void:
 	if conversations_data.is_empty():
 		return
 
-	var archived_conversations:Array[Dictionary] = []
-	for conversation in conversations_data:
-		var archived_conversation:Dictionary = conversation.duplicate(true)
-		# The day is over: nothing is left to answer nor to read as new
-		archived_conversation["options"] = []
-		archived_conversation["notification_count"] = 0
-		archived_conversations.append(archived_conversation)
-
-	GameData.saved_messages_history.append({
-		"day": day,
-		"date_dict": conversations_data[0]["messages"].back().get("date_dict", {}),
-		"conversations": archived_conversations,
-	})
+	_add_to_history(day, conversations_data)
 
 	conversations_data.clear()
 	for child in list_of_chats.get_children():
 		child.queue_free()
 	_sync_conversations_to_game_data()
 	_refresh_empty_state()
+
+## Puts conversations in the history of a day, joining the ones already archived on it
+##
+## day: The day the conversations belong to
+## conversations: The conversations, archived as copies with nothing left to answer
+func _add_to_history(day:int, conversations:Array) -> void:
+	var archived_conversations:Array[Dictionary] = []
+	for conversation in conversations:
+		var archived_conversation:Dictionary = conversation.duplicate(true)
+		# The day is over: nothing is left to answer nor to read as new
+		archived_conversation["options"] = []
+		archived_conversation["notification_count"] = 0
+		archived_conversations.append(archived_conversation)
+
+	var history:Array = GameData.saved_messages_history
+	if not history.is_empty() and int(history.back().get("day", -1)) == day:
+		history.back()["conversations"].append_array(archived_conversations)
+		return
+
+	history.append({
+		"day": day,
+		"date_dict": conversations[0]["messages"].back().get("date_dict", {}),
+		"conversations": archived_conversations,
+	})
 
 ## Marks how the scam of a conversation ended, so the history shows it
 ##
@@ -224,6 +236,9 @@ func on_delete_conversation(conversation_id: String) -> void:
 	var idx = _find_conversation(conversation_id)
 	if idx == -1:
 		return
+	# A scam blocked after being reported leaves the list, but the history keeps how it ended
+	if conversations_data[idx].has("outcome"):
+		_add_to_history(GameData.current_day, [conversations_data[idx]])
 	conversations_data.remove_at(idx)
 	_sync_conversations_to_game_data()
 

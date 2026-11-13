@@ -90,6 +90,12 @@
 				"id": "rh_2_1",
 				"text": "Me diz: qual a nota da A&C no Elogie Lá? ( > ^ _ ^ )>",
 				"event_id": "rh_check0",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "review:A&C"
+					}
+				],
 				"choices": [
 					{
 						"id": "rh_2_1a_0",
@@ -135,6 +141,12 @@
 							"goto_branch": "from_rh_3_3",
 							"delay_ticks": 2.0
 						}
+					}
+				],
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "news:d3n2"
 					}
 				]
 			}

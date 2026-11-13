@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"thread_id": "gilmar_imail_d5",
+		"email_id": "gilmar_imail_d5_0",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "mariana_brindes_golpe_d5",
+		"email_id": "mariana_brindes_golpe_d5_0",
+		"required_app": "Bank"
+	}
+]
