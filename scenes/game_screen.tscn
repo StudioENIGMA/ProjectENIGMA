@@ -783,6 +783,7 @@ app = 38
 position = Vector2(-9.5, -231.5)
 stream = ExtResource("13_51grn")
 script = ExtResource("14_yc1wb")
+bus = &"SFX"
 
 [node name="FinishTutorialButton" type="Button" parent="UI/DesktopUI" unique_id=109865786]
 layout_mode = 1

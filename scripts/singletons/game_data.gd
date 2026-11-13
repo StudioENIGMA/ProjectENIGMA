@@ -92,6 +92,10 @@ const MONTH_NAMES := [
 	"janeiro", "fevereiro", "março", "abril", "maio", "junho",
 	"julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
 ]
+## Where the settings screen keeps the volume and mute of each bus between games
+const AUDIO_SETTINGS_PATH := "user://settings.cfg"
+## Buses the settings screen changes, with their volume (0 to 100) before the player sets one
+const DEFAULT_VOLUMES := {"Master": 100.0, "Music": 50.0, "SFX": 50.0}
 
 class PaymentCode:
 	var code: String
@@ -381,6 +385,38 @@ func _ready() -> void:
 
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
+
+	apply_audio_settings()
+
+#region AUDIO SETTINGS
+## Sets every bus of the settings screen to the volume and mute the player left, or its default
+func apply_audio_settings() -> void:
+	var config := ConfigFile.new()
+	# No file yet: every bus gets its default
+	config.load(AUDIO_SETTINGS_PATH)
+	for bus_name in DEFAULT_VOLUMES:
+		var bus := AudioServer.get_bus_index(bus_name)
+		if bus < 0:
+			continue
+		var volume: float = config.get_value("volume", bus_name, DEFAULT_VOLUMES[bus_name])
+		AudioServer.set_bus_volume_db(bus, volume_to_db(volume))
+		AudioServer.set_bus_mute(bus, bool(config.get_value("mute", bus_name, false)))
+
+## Keeps the volume (0 to 100) and mute of a bus for the next games
+func save_audio_setting(bus_name: String, volume: float, muted: bool) -> void:
+	var config := ConfigFile.new()
+	config.load(AUDIO_SETTINGS_PATH)
+	config.set_value("volume", bus_name, volume)
+	config.set_value("mute", bus_name, muted)
+	config.save(AUDIO_SETTINGS_PATH)
+
+## A volume of the settings screen as decibels: the share (0 to 100) of the full loudness, 0 silent
+static func volume_to_db(volume: float) -> float:
+	return linear_to_db(volume / 100.0) if volume > 0.0 else -80.0
+
+static func db_to_volume(volume_db: float) -> float:
+	return clampf(db_to_linear(volume_db) * 100.0, 0.0, 100.0)
+#endregion AUDIO SETTINGS
 
 ## Tells whether the app is password protected and its password was not changed today yet,
 ## which keeps it locked. Before passwords_expire_from_day none is
