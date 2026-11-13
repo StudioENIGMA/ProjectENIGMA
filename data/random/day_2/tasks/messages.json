@@ -33,5 +33,10 @@
 		"conversation_id": "marcão_1",
 		"branch": "task4_marcao",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "jessica_1",
+		"branch": "task2_jessica",
+		"required_app": "MessagesHome"
 	}
 ]

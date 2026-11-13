@@ -61,11 +61,17 @@
 			},
 			{
 				"id": "gilmar_password0_1",
-				"text": "Chefe falou que você pode me ajudar a melhorar a senha, qual dessas é melhor? k93@ ou j89asd72nca43ds",
+				"text": "Minha senha nova foi recusada. Tem 12 caracteres: maiúsculas, minúsculas, 1 número e 1 símbolo. O que falta?",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "gilmar_password0_1a_0",
-						"player_text": "k93@",
+						"player_text": "Falta mais um símbolo",
 						"npc_reply": {
 							"goto_branch": "from_gilmar_password0_2",
 							"delay_ticks": 2
@@ -73,9 +79,17 @@
 					},
 					{
 						"id": "gilmar_password0_1a_1",
-						"player_text": "j89asd72nca43ds",
+						"player_text": "Falta mais um número",
 						"npc_reply": {
 							"goto_branch": "from_gilmar_password0_3",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "gilmar_password0_1a_2",
+						"player_text": "Já passa",
+						"npc_reply": {
+							"goto_branch": "from_gilmar_password0_2",
 							"delay_ticks": 2
 						}
 					}
@@ -85,13 +99,13 @@
 		"from_gilmar_password0_2": [
 			{
 				"id": "gilmar_password0_2",
-				"text": "Eu tomaria cuidado com tanta certeza."
+				"text": "Recusou de novo. Eu tomaria mais cuidado."
 			}
 		],
 		"from_gilmar_password0_3": [
 			{
 				"id": "gilmar_password0_3",
-				"text": "Você tem razão."
+				"text": "Você tem razão. Passou."
 			}
 		]
 	}

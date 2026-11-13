@@ -175,20 +175,26 @@
 		"d1_task": [
 			{
 				"id": "ti_1_12",
-				"text": "falando em senha: misturar numero, letra e simbolo (/, #, @) deixa ela mais forte"
+				"text": "falando em senha: aqui toda senha tem q seguir a politica do dia, e ela muda todo dia"
 			},
 			{
 				"id": "ti_1_13",
-				"text": "e quanto maior, melhor"
+				"text": "ta nas Notas, em Política de senha de hoje. confere sempre la"
 			},
 			{
 				"id": "ti_1_15",
-				"text": "teste rapido: qual eh mais segura, 1234jpwv5 ou L6s*(23v@?",
+				"text": "teste rapido: o Arthur fez uma senha nova com 5 letras e nenhum numero. o q falta pra ela passar hj?",
 				"event_id": "ti_password0",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "ti_1_15a_0",
-						"player_text": "1234jpwv5",
+						"player_text": "Só falta um número",
 						"npc_reply": {
 							"goto_branch": "from_ti_1_16",
 							"delay_ticks": 2
@@ -196,9 +202,17 @@
 					},
 					{
 						"id": "ti_1_15a_1",
-						"player_text": "L6s*(23v@",
+						"player_text": "Faltam caracteres e um número",
 						"npc_reply": {
 							"goto_branch": "from_ti_1_19",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "ti_1_15a_2",
+						"player_text": "Ela já passa hoje",
+						"npc_reply": {
+							"goto_branch": "from_ti_1_16",
 							"delay_ticks": 2
 						}
 					}
@@ -208,13 +222,17 @@
 		"from_ti_1_16": [
 			{
 				"id": "ti_1_16",
-				"text": "era a outra kkkk, ela mistura numero, letra e simbolo"
+				"text": "quase kkkk, hj eh no minimo 6 caracteres e 1 numero, ent faltam os dois"
 			}
 		],
 		"from_ti_1_19": [
 			{
 				"id": "ti_1_19",
-				"text": "voa mlk, entendeu tudo"
+				"text": "voa mlk, eh isso: minimo 6 caracteres e 1 numero"
+			},
+			{
+				"id": "ti_1_20",
+				"text": "e repara: ele so me falou o formato. ngm precisa ver a senha de ngm pra conferir"
 			}
 		],
 		"d2_start": [

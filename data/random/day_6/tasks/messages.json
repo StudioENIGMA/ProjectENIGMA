@@ -33,10 +33,5 @@
 		"conversation_id": "gilmar_1",
 		"branch": "task1_gilmar",
 		"required_app": "browser"
-	},
-	{
-		"conversation_id": "gilmar_1",
-		"branch": "task2_gilmar",
-		"required_app": "MessagesHome"
 	}
 ]

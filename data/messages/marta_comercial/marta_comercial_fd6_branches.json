@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "d6g17_marta_comercial_1",
-				"text": "Meu acesso travou… preciso da sua senha só por hoje, pra lançar um pedido aqui."
+				"text": "Minha senha nova foi recusada e não entendo o que falta… me mostra a sua senha, só pra eu ver o formato que passa?"
 			},
 			{
 				"id": "d6g17_marta_comercial_2",
@@ -17,7 +17,7 @@
 				"choices": [
 					{
 						"id": "d6g17_marta_comercial_3_0",
-						"player_text": "Tá bom, minha senha é Enigma@2024",
+						"player_text": "Tá bom, minha senha é $bank_password",
 						"npc_reply": {
 							"goto_branch": "d6g17_marta_comercial_deu",
 							"delay_ticks": 3
@@ -49,11 +49,11 @@
 			},
 			{
 				"id": "d6g17_marta_comercial_4",
-				"text": "E já me trancaram pra fora, acredita? Por favorzinho…",
+				"text": "E a senha nova não passa de jeito nenhum. Por favorzinho…",
 				"choices": [
 					{
 						"id": "d6g17_marta_comercial_5_0",
-						"player_text": "Tá bom, minha senha é Enigma@2024",
+						"player_text": "Tá bom, minha senha é $bank_password",
 						"npc_reply": {
 							"goto_branch": "d6g17_marta_comercial_deu",
 							"delay_ticks": 3

@@ -31,11 +31,11 @@
 	},
 	"ti_password0": {
 		"type": "main-task",
-		"description": "Teste de Senha",
+		"description": "Conferir uma senha com a política do dia",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "L6s*(23v@"
+				"choice": "Faltam caracteres e um número"
 			}
 		]
 	},
@@ -199,11 +199,11 @@
 	},
 	"task0_mariana": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "58lcws142q"
+				"choice": "Falta mais um símbolo nela"
 			}
 		]
 	},
@@ -426,21 +426,21 @@
 	},
 	"task1_arthur1": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "s2s2s2s2"
+				"choice": "Falta um número"
 			}
 		]
 	},
 	"task2_jessica": {
 		"type": "random-task",
-		"description": "Sugerir uma senha segura",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "J@5v48!a#Q2m"
+				"choice": "Passa, está dentro da política"
 			}
 		]
 	},
@@ -650,11 +650,11 @@
 	},
 	"task2_gilmar": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "j89asd72nca43ds"
+				"choice": "Falta mais um número"
 			}
 		]
 	},
@@ -707,21 +707,21 @@
 	},
 	"task3_carolina": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "k7.i3@m2t"
+				"choice": "Falta uma letra maiúscula"
 			}
 		]
 	},
 	"task4_guilherme": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "?wRF924%qerF+AF^"
+				"choice": "Falta um símbolo só"
 			}
 		]
 	},
@@ -2414,11 +2414,11 @@
 	},
 	"task0_yago": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "\\aFovfd%#_A(FG"
+				"choice": "Falta 1 caractere"
 			}
 		]
 	},
@@ -6863,7 +6863,7 @@
 	},
 	"d5g12_ti": {
 		"type": "scam",
-		"description": "Pede a senha do Banco",
+		"description": "Pede a senha do Banco para conferir a política",
 		"requires": [
 			{
 				"flag": "option",
@@ -8029,11 +8029,11 @@
 	},
 	"d6g17_marta_comercial": {
 		"type": "scam",
-		"description": "Selo escrito no nome e pede senha",
+		"description": "Selo escrito no nome e pede a senha para copiar o formato",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "Tá bom, minha senha é Enigma@2024"
+				"choice": "Tá bom, minha senha é $bank_password"
 			}
 		],
 		"discrepancies": [

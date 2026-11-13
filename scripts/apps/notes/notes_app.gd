@@ -13,6 +13,14 @@ const MUTED := Color(0.43137255, 0.44313726, 0.5019608)
 const TEAL := Color(0.13333334, 0.28235295, 0.38431373)
 const MINT := Color(0.30980393, 0.79607844, 0.68235296)
 const HAIRLINE := Color(0.85882354, 0.84705883, 0.8117647)
+## Character classes of a day's "password_policy" in data/notes/board.json: key, line for one and
+## line for more
+const PASSWORD_CLASSES := [
+	["digits", "Pelo menos %d número", "Pelo menos %d números"],
+	["lowercase", "Pelo menos %d letra minúscula", "Pelo menos %d letras minúsculas"],
+	["uppercase", "Pelo menos %d letra maiúscula", "Pelo menos %d letras maiúsculas"],
+	["symbols", "Pelo menos %d símbolo (como @, #, !)", "Pelo menos %d símbolos (como @, #, !)"],
+]
 
 @export var subtitle_label: Label
 @export var sections_list: VBoxContainer
@@ -34,6 +42,7 @@ func setup() -> void:
 	_add_trusted_contacts(board)
 	_add_list_section("Arquivos aceitos", 1, board.get("accepted_files", []))
 	_add_list_section("Padrões de pagamento", 1, board.get("payment_patterns", []))
+	_add_password_policy(today.get("password_policy", {}))
 	_add_list_section("Lojas", 1, [
 		"Antes de comprar, veja a nota da loja no site de avaliações do Navegador.",
 		"Nota abaixo de 50: não compre e denuncie.",
@@ -185,6 +194,21 @@ func _add_orders(orders: Array) -> void:
 		_add_label(row, "Pedido por %s · %s" % [
 			order.get("requested_by", ""), order.get("department", "")
 		], FONT_REGULAR, 12, MUTED)
+
+
+## What a password needs today, to check a colleague's from what they say it has. It changes every
+## day, so it is tagged as new every day
+func _add_password_policy(policy: Dictionary) -> void:
+	if policy.is_empty():
+		return
+	var body := _add_section("Política de senha de hoje", GameData.current_day)
+	_add_line(body, "Muda todo dia. Para conferir a senha de alguém basta saber o formato: ninguém "
+		+ "precisa ver a senha.", MUTED)
+	_add_line(body, "• Pelo menos %d caracteres" % int(policy.get("length", 0)), INK)
+	for character_class in PASSWORD_CLASSES:
+		var count := int(policy.get(character_class[0], 0))
+		if count > 0:
+			_add_line(body, "• " + (character_class[1] if count == 1 else character_class[2]) % count, INK)
 
 
 ## Who signs the orders of each sector

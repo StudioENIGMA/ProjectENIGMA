@@ -5,23 +5,37 @@
 		"task0_yago": [
 			{
 				"id": "yago_password0_0",
-				"text": "Olá estagiário, como procedimento de segurança da empresa, gostaria de te perguntar algumas coisas sobre segurança na web. Se eu quisesse escolher uma senha, qual seria a mais segura?"
+				"text": "Olá, estagiário. A política de senhas mudou hoje e o sistema recusou a minha senha nova."
 			},
 			{
 				"id": "yago_password0_1",
-				"text": "f??Aerg ou \\aFovfd%#_A(FG",
+				"text": "Ela tem 7 caracteres, entre letras minúsculas e números. Poderia conferir o que está faltando?",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "yago_password0_1a_0",
-						"player_text": "\\aFovfd%#_A(FG",
+						"player_text": "Falta uma maiúscula",
+						"npc_reply": {
+							"goto_branch": "from_yago_password0_3",
+							"delay_ticks": 12
+						}
+					},
+					{
+						"id": "yago_password0_1a_1",
+						"player_text": "Falta 1 caractere",
 						"npc_reply": {
 							"goto_branch": "from_yago_password0_2",
 							"delay_ticks": 12
 						}
 					},
 					{
-						"id": "yago_password0_1a_1",
-						"player_text": "f??Aerg",
+						"id": "yago_password0_1a_2",
+						"player_text": "Ela já está dentro da política",
 						"npc_reply": {
 							"goto_branch": "from_yago_password0_3",
 							"delay_ticks": 12
@@ -33,13 +47,13 @@
 		"from_yago_password0_2": [
 			{
 				"id": "yago_password0_2",
-				"text": "Obrigado."
+				"text": "Acrescentei um caractere e foi aceita. Obrigado."
 			}
 		],
 		"from_yago_password0_3": [
 			{
 				"id": "yago_password0_3",
-				"text": "Hm, o sistema de segurança diz que essa é fraca. Senhas curtas são fáceis de quebrar."
+				"text": "O sistema recusou de novo. Vou conferir a política com o TI."
 			}
 		]
 	}

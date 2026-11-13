@@ -62,6 +62,7 @@
 			"agenda": ["Sem tarefas hoje: explore o celular e leia as mensagens de apresentação."]
 		},
 		"1": {
+			"password_policy": { "length": 6, "digits": 1, "lowercase": 0, "uppercase": 0, "symbols": 0 },
 			"agenda": [
 				"Expediente até 14:00.",
 				"Novo na loja: Banco.",
@@ -69,6 +70,7 @@
 			]
 		},
 		"2": {
+			"password_policy": { "length": 8, "digits": 1, "lowercase": 1, "uppercase": 0, "symbols": 0 },
 			"agenda": [
 				"Expediente até 16:00.",
 				"Novo na loja: Email e Navegador.",
@@ -76,6 +78,7 @@
 			]
 		},
 		"3": {
+			"password_policy": { "length": 8, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 0 },
 			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0455", "department": "RH", "requested_by": "Marcia", "items": "Crachás novos" },
@@ -84,6 +87,7 @@
 			]
 		},
 		"4": {
+			"password_policy": { "length": 10, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 1 },
 			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" },
@@ -92,6 +96,7 @@
 			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
 		},
 		"5": {
+			"password_policy": { "length": 12, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 1 },
 			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" },
@@ -100,6 +105,7 @@
 			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
 		},
 		"6": {
+			"password_policy": { "length": 14, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 2 },
 			"agenda": ["Expediente até 18:00.", "Último dia do estágio."],
 			"orders": [
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" },

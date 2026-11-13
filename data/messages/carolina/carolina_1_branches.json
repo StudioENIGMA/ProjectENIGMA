@@ -82,11 +82,21 @@
 		"task3_carolina": [
 			{
 				"id": "carolina_password0_0",
-				"text": "Oi estagiário, vc pode me ajudar a entender melhor sobre senhas? Quero trocar a minha, mas n sei qual modelo é mais seguro, estou em duvida entre 6721839812 ou k7.i3@m2t",
+				"text": "Oi estagiário, vc pode me ajudar com a senha nova? o sistema n aceitou"
+			},
+			{
+				"id": "carolina_password0_3",
+				"text": "ela tem 10 caracteres: letras minúsculas e 3 números, nenhuma maiúscula. o q falta?",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "carolina_password0_0a_0",
-						"player_text": "k7.i3@m2t",
+						"player_text": "Falta uma letra maiúscula",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_1",
 							"delay_ticks": 15
@@ -94,7 +104,15 @@
 					},
 					{
 						"id": "carolina_password0_0a_1",
-						"player_text": "6721839812",
+						"player_text": "Falta um símbolo nela",
+						"npc_reply": {
+							"goto_branch": "from_carolina_password0_2",
+							"delay_ticks": 15
+						}
+					},
+					{
+						"id": "carolina_password0_0a_2",
+						"player_text": "Faltam caracteres nela",
 						"npc_reply": {
 							"goto_branch": "from_carolina_password0_2",
 							"delay_ticks": 15
@@ -106,13 +124,13 @@
 		"from_carolina_password0_1": [
 			{
 				"id": "carolina_password0_1",
-				"text": "Obrigadaa agora eu aprendi"
+				"text": "Obrigadaa, coloquei uma maiúscula e passou"
 			}
 		],
 		"from_carolina_password0_2": [
 			{
 				"id": "carolina_password0_2",
-				"text": "O sistema disse q ela é fraca :("
+				"text": "tentei e o sistema recusou de novo :("
 			}
 		]
 	}

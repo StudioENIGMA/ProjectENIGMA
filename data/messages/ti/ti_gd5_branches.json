@@ -57,11 +57,11 @@
 			},
 			{
 				"id": "d5g12_ti_1",
-				"text": "ta uma bagunca, achei gente com a senha 'senha' kkkk"
+				"text": "a politica nova recusou a senha de mta gente, ta uma bagunca kkkk"
 			},
 			{
 				"id": "d5g12_ti_2",
-				"text": "me passa tua senha do banco ai pra eu testar, rapidinho",
+				"text": "me passa tua senha do banco q eu vejo se ela passa na politica de hj, rapidinho",
 				"choices": [
 					{
 						"id": "d5g12_ti_3_0",
@@ -93,7 +93,7 @@
 		"d5g12_ti_insiste": [
 			{
 				"id": "d5g12_ti_3",
-				"text": "tenho, mas a tua n migrou. eh 1 min so"
+				"text": "tenho, mas a tua n migrou. so vendo ela eu sei se passa"
 			},
 			{
 				"id": "d5g12_ti_4",
