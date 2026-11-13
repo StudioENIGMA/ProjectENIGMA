@@ -46,55 +46,50 @@
 		"d0_start": [
 			{
 				"id": "rh_0_0",
-				"text": "Olá! Eu sou a Helena, representante do RH que ficará responsável por fazer essa ponte entre os setores \\(*^ o ^*)/ ",
-				"effects": [
-					{
-						"task_type": "daily"
-					}
-				]
+				"text": "Oi! Sou a Helena, do RH \\(*^ o ^*)/"
 			},
 			{
 				"id": "rh_0_1",
-				"text": "Vou deixar com que você fique mais à vontade com o seu novo BananaPhone, mas nos próximos dias meus funcionários vão te passando mais tarefas da nossa área pra você poder se integrar melhor com a equipe! ( * ^ _ ^ * )",
+				"text": "Nos próximos dias a Marcia e a Jéssica, da minha equipe, vão te passar algumas tarefas ( * ^ _ ^ * )",
 				"choices": [
 					{
 						"id": "rh_0_1a_0",
-						"player_text": "Pode contar comigo! (^ - ^)"
+						"player_text": "Pode contar comigo! (^ - ^)",
+						"npc_reply": {
+							"goto_branch": "from_rh_0_2",
+							"delay_ticks": 2.0
+						}
 					},
 					{
 						"id": "rh_0_1a_1",
-						"player_text": "Beleza."
+						"player_text": "Beleza.",
+						"npc_reply": {
+							"goto_branch": "from_rh_0_2",
+							"delay_ticks": 2.0
+						}
 					}
 				]
-			},
+			}
+		],
+		"from_rh_0_2": [
 			{
 				"id": "rh_0_2",
-				"text": "As membros da minha equipe além de mim são a Marcia e a Jéssica"
-			},
-			{
-				"id": "rh_0_3",
-				"text": "Elas podem pedir tarefas como pagementos, compras ou alguma outra ajuda. Você pode voltar nessa parte da nossa conversa para lembrar que os nomes delas ( * ^ . ^ * )."
+				"text": "Qualquer dúvida, é só chamar! (^ _ ^)"
 			}
 		],
 		"d2_start": [
 			{
 				"id": "rh_2_0",
-				"text": "Olá! Quero te apresentar o Elogie Lá (@ ^ _ ^ @), o site que a nossa empresa usa para saber se uma loja online é confiável. Quanto maior a nota, mais confiável. E se a loja nem aparece lá, com certeza é falsa!"
+				"text": "Oi! Antes de comprar em qualquer loja, veja a nota dela no Elogie Lá (@ ^ _ ^ @). Nota abaixo de 50 ou loja sem página lá: não compre!"
+			},
+			{
+				"id": "rh_2_1_0",
+				"text": "E desconfie de preço baixo demais, é isca de loja falsa."
 			},
 			{
 				"id": "rh_2_1",
-				"text": "Desconfie também de preços muito abaixo do mercado, lojas falsas fazem promoções enormes para atrair os desatentos."
-			},
-			{
-				"id": "rh_2_1",
-				"text": "Aproveitando, entre no Elogie Lá e me diga qual a nota da A&C, por favor. Queremos fazer umas compras lá ( > ^ _ ^ )>",
+				"text": "Me diz: qual a nota da A&C no Elogie Lá? ( > ^ _ ^ )>",
 				"event_id": "rh_check0",
-				"choices_requires": [
-					{
-						"flag": "seen",
-						"info": "review:A&C"
-					}
-				],
 				"choices": [
 					{
 						"id": "rh_2_1a_0",
@@ -118,18 +113,12 @@
 		"d3_start": [
 			{
 				"id": "rh_3_0",
-				"text": "Olá! Saiu uma notícia importante sobre os aplicativos .apk ( = ^ w ^ = )"
+				"text": "Oi! Saiu uma notícia sobre o perigo dos apps .apk ( = ^ w ^ = )"
 			},
 			{
 				"id": "rh_3_1",
-				"text": "Pode ler no Navegador e me dizer o que eles têm de tão perigoso?",
+				"text": "Lê e me conta: qual é o perigo deles?",
 				"event_id": "rh_news0",
-				"choices_requires": [
-					{
-						"flag": "seen",
-						"info": "news:d3n2"
-					}
-				],
 				"choices": [
 					{
 						"id": "rh_3_1a_0",
@@ -153,35 +142,31 @@
 		"from_rh_2_2": [
 			{
 				"id": "rh_2_2",
-				"text": "Isso mesmo! Ela é uma loja muito confiável."
+				"text": "Isso! Ela é bem confiável."
 			}
 		],
 		"from_rh_2_3": [
 			{
 				"id": "rh_2_3",
-				"text": "Acho que você olhou errado, a nota da A&C é bem alta. Sempre compramos lá."
+				"text": "Acho que você olhou errado, a nota da A&C é bem alta."
 			}
 		],
 		"from_rh_3_2": [
 			{
 				"id": "rh_3_2",
-				"text": "Isso pode ser verdade também, mas não é o foco da notícia."
+				"text": "Pode até ser, mas não é o foco da notícia."
 			}
 		],
 		"from_rh_3_3": [
 			{
 				"id": "rh_3_3",
-				"text": "Exatamente! Por isso é perigoso baixar .apk desconhecido."
+				"text": "Exatamente! Por isso nunca baixe .apk desconhecido."
 			}
 		],
 		"d7_good_ending": [
 			{
-				"id": "rh_7_11",
-				"text": "Meus parabéns por sua promoção! ( * ^ _ ^ * )"
-			},
-			{
 				"id": "rh_7_12",
-				"text": "Nós da equipe do RH ficamos muito contentes pelo ingresso de mais um membro nessa equipe de primeira que é a Enigma \\(*^ O ^*)/",
+				"text": "Parabéns pela efetivação! Bem-vindo à equipe Enigma \\(*^ O ^*)/",
 				"choices": [
 					{
 						"id": "rh_7_1a_0",
@@ -197,15 +182,11 @@
 		"d7_bad_ending": [
 			{
 				"id": "rh_7_21",
-				"text": "É com muita tristeza que eu venho te informar do seu desligamento de nossa empresa."
-			},
-			{
-				"id": "rh_7_22",
-				"text": "Nós agradecemos por sua contribuição para a Enigma e por seu tempo nela mas, depois deste período probatório, percebemos que não houve um encaixe com o fit cultural de nossa empresa."
+				"text": "Sinto muito, mas seu estágio na Enigma foi encerrado."
 			},
 			{
 				"id": "rh_7_23",
-				"text": "Nossas portas sempre estarão abertas para oportunidades futuras, e seu currículo será mantido em nosso banco de talentos caso abra uma vaga que seja melhor de seu perfil."
+				"text": "Seu currículo fica no nosso banco de talentos para oportunidades futuras."
 			}
 		]
 	}

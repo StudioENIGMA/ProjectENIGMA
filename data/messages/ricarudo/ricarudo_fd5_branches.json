@@ -1,0 +1,102 @@
+{
+	"conversation_id": "ricarudo_fd5",
+	"contact_name": "Ricarudo",
+	"branches": {
+		"d5g17_ricarudo": [
+			{
+				"id": "d5g17_ricarudo_0",
+				"text": "Estagiário, chefe fechou o Hotel Serra Azul pro encontro de vendas"
+			},
+			{
+				"id": "d5g17_ricarudo_1",
+				"text": "vai ter karaokê campeão. vc canta?",
+				"choices": [
+					{
+						"id": "d5g17_ricarudo_2_0",
+						"player_text": "Canto! No chuveiro sou imbatível",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_canta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g17_ricarudo_2_1",
+						"player_text": "Nem sob tortura, Ricardo",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_nao",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g17_ricarudo_canta": [
+			{
+				"id": "d5g17_ricarudo_2",
+				"text": "boa, se te levarem vc faz dupla comigo em Evidências kkkkkk",
+				"choices": [
+					{
+						"id": "d5g17_ricarudo_3_0",
+						"player_text": "Fechado, eu faço a segunda voz",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g17_ricarudo_3_1",
+						"player_text": "Só se eu ganhar hora extra",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g17_ricarudo_nao": [
+			{
+				"id": "d5g17_ricarudo_3",
+				"text": "todo mundo fala isso até a segunda rodada kkkkkk",
+				"choices": [
+					{
+						"id": "d5g17_ricarudo_4_0",
+						"player_text": "Comigo não, violão",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g17_ricarudo_4_1",
+						"player_text": "Tá, talvez uma do Roupa Nova",
+						"npc_reply": {
+							"goto_branch": "d5g17_ricarudo_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g17_ricarudo_fim": [
+			{
+				"id": "d5g17_ricarudo_4",
+				"text": "É Evento da empresa, Pix HS577 de R$ 3.640,00"
+			},
+			{
+				"id": "d5g17_ricarudo_5",
+				"text": "Paga ai faz o favor, minha voz agradece"
+			},
+			{
+				"id": "d5g17_ricarudo_end",
+				"text": "Obrigado campeão, Deus abençoe",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "HS577"
+					}
+				]
+			}
+		]
+	}
+}

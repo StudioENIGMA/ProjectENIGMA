@@ -1,0 +1,329 @@
+{
+	"conversation_id": "gilmar_td6",
+	"contact_name": "Gilmar",
+	"branches": {
+		"d6t01_gilmar": [
+			{
+				"id": "d6t01_gilmar_0",
+				"text": "Oi."
+			},
+			{
+				"id": "d6t01_gilmar_1",
+				"text": "O estoque de aço acabou antes do previsto."
+			},
+			{
+				"id": "d6t01_gilmar_2",
+				"text": "Alguém contou errado.",
+				"choices": [
+					{
+						"id": "d6t01_gilmar_3_0",
+						"player_text": "Foi o senhor que contou?",
+						"npc_reply": {
+							"goto_branch": "d6t01_gilmar_foi",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t01_gilmar_3_1",
+						"player_text": "Quanto o senhor precisa?",
+						"npc_reply": {
+							"goto_branch": "d6t01_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t01_gilmar_foi": [
+			{
+				"id": "d6t01_gilmar_3",
+				"text": "Foi."
+			},
+			{
+				"id": "d6t01_gilmar_4",
+				"text": "Por isso agora quem compra é você.",
+				"choices": [
+					{
+						"id": "d6t01_gilmar_5_0",
+						"player_text": "Justo. Prometo contar direito",
+						"npc_reply": {
+							"goto_branch": "d6t01_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t01_gilmar_5_1",
+						"player_text": "Vou contar duas vezes, então",
+						"npc_reply": {
+							"goto_branch": "d6t01_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t01_gilmar_fim": [
+			{
+				"id": "d6t01_gilmar_5",
+				"text": "Compre 12kg de barra de aço na Amazônia.",
+				"event_id": "d6t01_gilmar"
+			},
+			{
+				"id": "d6t01_gilmar_6",
+				"text": "É Compra de material."
+			},
+			{
+				"id": "d6t01_gilmar_end",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 11,
+								"quantity": 12,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6t02_gilmar": [
+			{
+				"id": "d6t02_gilmar_0",
+				"text": "Olá."
+			},
+			{
+				"id": "d6t02_gilmar_1",
+				"text": "Chegou o Pix das chapas da Industrials."
+			},
+			{
+				"id": "d6t02_gilmar_2",
+				"text": "Compra de material, R$ 3.480,00."
+			},
+			{
+				"id": "d6t02_gilmar_3",
+				"text": "Código IN101.",
+				"choices": [
+					{
+						"id": "d6t02_gilmar_4_0",
+						"player_text": "Conferindo: IN101, R$ 3.480,00, Industrials?",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_certo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t02_gilmar_4_1",
+						"player_text": "Chapa de quê, seu Gilmar?",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_chapa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t02_gilmar_certo": [
+			{
+				"id": "d6t02_gilmar_4",
+				"text": "Correto."
+			},
+			{
+				"id": "d6t02_gilmar_5",
+				"text": "Você repete tudo assim em casa?",
+				"choices": [
+					{
+						"id": "d6t02_gilmar_6_0",
+						"player_text": "Só quando é dinheiro dos outros",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t02_gilmar_6_1",
+						"player_text": "Minha mãe diz que sim",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t02_gilmar_chapa": [
+			{
+				"id": "d6t02_gilmar_6",
+				"text": "Aço. Aqui quase tudo é aço."
+			},
+			{
+				"id": "d6t02_gilmar_7",
+				"text": "O café também, pelo gosto.",
+				"choices": [
+					{
+						"id": "d6t02_gilmar_8_0",
+						"player_text": "Achei que só eu sentia isso",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t02_gilmar_8_1",
+						"player_text": "Vou trazer garrafa de casa",
+						"npc_reply": {
+							"goto_branch": "d6t02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t02_gilmar_fim": [
+			{
+				"id": "d6t02_gilmar_8",
+				"text": "Bom. Pode seguir."
+			},
+			{
+				"id": "d6t02_gilmar_end",
+				"text": "Obrigado.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "IN101"
+					}
+				]
+			}
+		],
+		"d6t03_gilmar": [
+			{
+				"id": "d6t03_gilmar_0",
+				"text": "Olá."
+			},
+			{
+				"id": "d6t03_gilmar_1",
+				"text": "Preciso que faça um Pix hoje.",
+				"choices": [
+					{
+						"id": "d6t03_gilmar_2_0",
+						"player_text": "Pra quê, seu Gilmar? Tenho que lançar o motivo",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t03_gilmar_2_1",
+						"player_text": "Sem motivo eu não registro, qual é?",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t03_gilmar_r": [
+			{
+				"id": "d6t03_gilmar_2",
+				"text": "Certo. Serviço de fornecedor."
+			},
+			{
+				"id": "d6t03_gilmar_3",
+				"text": "A Ferreira Chaves trocou o miolo do almoxarifado. Alguém trancou a chave lá dentro.",
+				"choices": [
+					{
+						"id": "d6t03_gilmar_4_0",
+						"player_text": "E não tinha uma chave reserva?",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_reserva",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t03_gilmar_4_1",
+						"player_text": "Ainda bem que não trancaram ninguém junto",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_junto",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t03_gilmar_reserva": [
+			{
+				"id": "d6t03_gilmar_4",
+				"text": "Tinha."
+			},
+			{
+				"id": "d6t03_gilmar_5",
+				"text": "Estava lá dentro também.",
+				"choices": [
+					{
+						"id": "d6t03_gilmar_6_0",
+						"player_text": "Onde fica a reserva da reserva?",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t03_gilmar_6_1",
+						"player_text": "Agora entendi esse Pix",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t03_gilmar_junto": [
+			{
+				"id": "d6t03_gilmar_6",
+				"text": "Trancaram. Vinte minutos."
+			},
+			{
+				"id": "d6t03_gilmar_7",
+				"text": "Ele disse que foi o melhor descanso da semana.",
+				"choices": [
+					{
+						"id": "d6t03_gilmar_8_0",
+						"player_text": "Posso me trancar lá amanhã?",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t03_gilmar_8_1",
+						"player_text": "Vou guardar a chave nova longe dele",
+						"npc_reply": {
+							"goto_branch": "d6t03_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t03_gilmar_fim": [
+			{
+				"id": "d6t03_gilmar_8",
+				"text": "R$ 420,00, código FC614."
+			},
+			{
+				"id": "d6t03_gilmar_end",
+				"text": "Recebido. Obrigado. A chave nova fica comigo.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FC614"
+					}
+				]
+			}
+		]
+	}
+}

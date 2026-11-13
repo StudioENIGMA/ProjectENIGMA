@@ -1,0 +1,364 @@
+{
+	"conversation_id": "guilherme_gd4",
+	"contact_name": "Guilherme",
+	"branches": {
+		"d4g01_guilherme": [
+			{
+				"id": "d4g01_guilherme_0",
+				"text": "Boa jornada, estagiário."
+			},
+			{
+				"id": "d4g01_guilherme_1",
+				"text": "O Buffet Sabor de Casa vai servir o almoço com o cliente. É Evento da empresa, R$ 1.760,00."
+			},
+			{
+				"id": "d4g01_guilherme_2",
+				"text": "Segue o código Pix: BS108."
+			},
+			{
+				"id": "d4g01_guilherme_3",
+				"text": "E por sinal: pudim ou mousse? Compras está dividida.",
+				"choices": [
+					{
+						"id": "d4g01_guilherme_4_0",
+						"player_text": "Pudim, sempre",
+						"npc_reply": {
+							"goto_branch": "d4g01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g01_guilherme_4_1",
+						"player_text": "Mousse, parece mais chique",
+						"npc_reply": {
+							"goto_branch": "d4g01_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g01_guilherme_fim": [
+			{
+				"id": "d4g01_guilherme_4",
+				"text": "Registrado, com o seu nome na ata."
+			},
+			{
+				"id": "d4g01_guilherme_end",
+				"text": "Valeu cara",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "BS108"
+					}
+				]
+			}
+		],
+		"d4g07_guilherme": [
+			{
+				"id": "d4g07_guilherme_0",
+				"text": "Oi estagiário, você está por aí?"
+			},
+			{
+				"id": "d4g07_guilherme_1",
+				"text": "A Madeireira São Bento entregou os paletes do estoque."
+			},
+			{
+				"id": "d4g07_guilherme_2",
+				"text": "Só que agora não sei onde coloquei a nota. Um momento.",
+				"choices": [
+					{
+						"id": "d4g07_guilherme_3_0",
+						"player_text": "Tá, sem problema",
+						"npc_reply": {
+							"goto_branch": "d4g07_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g07_guilherme_3_1",
+						"player_text": "Olha embaixo do teclado",
+						"npc_reply": {
+							"goto_branch": "d4g07_guilherme_teclado",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g07_guilherme_teclado": [
+			{
+				"id": "d4g07_guilherme_3",
+				"text": "Como você sabia? Tinha mais três notas lá. E um pão de queijo."
+			},
+			{
+				"id": "d4g07_guilherme_4",
+				"text": "Descarto o pão de queijo?",
+				"choices": [
+					{
+						"id": "d4g07_guilherme_5_0",
+						"player_text": "Joga fora, pelo amor",
+						"npc_reply": {
+							"goto_branch": "d4g07_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g07_guilherme_5_1",
+						"player_text": "Guarda, é patrimônio da empresa",
+						"npc_reply": {
+							"goto_branch": "d4g07_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g07_guilherme_fim": [
+			{
+				"id": "d4g07_guilherme_5",
+				"text": "Bom, achei a nota dos paletes, cara."
+			},
+			{
+				"id": "d4g07_guilherme_6",
+				"text": "É Compra de material, R$ 765,00."
+			},
+			{
+				"id": "d4g07_guilherme_7",
+				"text": "Por favor, faça esse pagamento pelo código MS462."
+			},
+			{
+				"id": "d4g07_guilherme_end",
+				"text": "Pagamento feito, obrigado estagiário.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MS462"
+					}
+				]
+			}
+		],
+		"d4g10_guilherme": [
+			{
+				"id": "d4g10_guilherme_0",
+				"text": "Oi estagiário."
+			},
+			{
+				"id": "d4g10_guilherme_1",
+				"text": "Preciso de uma ajuda com um pagamento aqui de Compras. Consegue fazer para mim?",
+				"choices": [
+					{
+						"id": "d4g10_guilherme_2_0",
+						"player_text": "Consigo, se tiver um motivo da lista. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_chefe",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g10_guilherme_2_1",
+						"player_text": "Pagamento de quê? Sem motivo eu travo",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_chefe",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g10_guilherme_chefe": [
+			{
+				"id": "d4g10_guilherme_2",
+				"text": "Cara, o Chefinho já autorizou, só paga."
+			},
+			{
+				"id": "d4g10_guilherme_3",
+				"text": "São R$ 1.095,00, código Pix: CP640.",
+				"choices": [
+					{
+						"id": "d4g10_guilherme_4_0",
+						"player_text": "Autorizou como? Tem algo escrito?",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_escrito",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g10_guilherme_4_1",
+						"player_text": "Sem motivo fica estranho, Guilherme",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_estranho",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g10_guilherme_escrito": [
+			{
+				"id": "d4g10_guilherme_4",
+				"text": "Foi no corredor. Ele fez assim com a cabeça."
+			},
+			{
+				"id": "d4g10_guilherme_5",
+				"text": "Quer que eu peça para ele repetir o gesto?",
+				"choices": [
+					{
+						"id": "d4g10_guilherme_6_0",
+						"player_text": "Não precisa kkk",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g10_guilherme_6_1",
+						"player_text": "Se puder, queria sim",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g10_guilherme_estranho": [
+			{
+				"id": "d4g10_guilherme_6",
+				"text": "Estagiário, são quantos dias de empresa? Eu estou aqui há nove anos."
+			},
+			{
+				"id": "d4g10_guilherme_7",
+				"text": "Confie no processo.",
+				"choices": [
+					{
+						"id": "d4g10_guilherme_8_0",
+						"player_text": "Entendi, Guilherme",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g10_guilherme_8_1",
+						"player_text": "Nove anos e ainda sem motivo?",
+						"npc_reply": {
+							"goto_branch": "d4g10_guilherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g10_guilherme_fim": [
+			{
+				"id": "d4g10_guilherme_8",
+				"text": "Depois te explico melhor, boa jornada."
+			},
+			{
+				"id": "d4g10_guilherme_end",
+				"text": "Valeu cara",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CP640"
+					}
+				]
+			}
+		],
+		"d4g15_guilherme": [
+			{
+				"id": "d4g15_guilherme_0",
+				"text": "Olá estagiário, boa jornada!"
+			},
+			{
+				"id": "d4g15_guilherme_1",
+				"text": "Estamos migrando as contas de Compras e o sistema pede o seu código de recuperação."
+			},
+			{
+				"id": "d4g15_guilherme_2",
+				"text": "Você pode me mandar? Por favor.",
+				"choices": [
+					{
+						"id": "d4g15_guilherme_3_0",
+						"player_text": "Pode deixar, já te mando o código.",
+						"npc_reply": {
+							"goto_branch": "d4g15_guilherme_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g15_guilherme_3_1",
+						"player_text": "Esse código é só meu, não vou repassar.",
+						"npc_reply": {
+							"goto_branch": "d4g15_guilherme_nao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g15_guilherme_3_2",
+						"player_text": "Migrando? A Simone sabe disso?",
+						"npc_reply": {
+							"goto_branch": "d4g15_guilherme_simone",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g15_guilherme_simone": [
+			{
+				"id": "d4g15_guilherme_3",
+				"text": "A Simone me orientou, naturalmente."
+			},
+			{
+				"id": "d4g15_guilherme_4",
+				"text": "Não precisa incomodar. Ela está em reunião até o fim do dia, cara.",
+				"choices": [
+					{
+						"id": "d4g15_guilherme_5_0",
+						"player_text": "Pode deixar, já te mando o código.",
+						"npc_reply": {
+							"goto_branch": "d4g15_guilherme_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g15_guilherme_5_1",
+						"player_text": "Espero ela sair da reunião, então",
+						"npc_reply": {
+							"goto_branch": "d4g15_guilherme_espera",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g15_guilherme_espera": [
+			{
+				"id": "d4g15_guilherme_5",
+				"text": "Perfeitamente."
+			},
+			{
+				"id": "d4g15_guilherme_6",
+				"text": "Sua conta pode ficar de fora da migração, mas tudo bem."
+			}
+		],
+		"d4g15_guilherme_nao": [
+			{
+				"id": "d4g15_guilherme_7",
+				"text": "Beleza então."
+			},
+			{
+				"id": "d4g15_guilherme_8",
+				"text": "Vou registrar que você não colaborou. Boa jornada."
+			}
+		],
+		"d4g15_guilherme_deu": [
+			{
+				"id": "d4g15_guilherme_9",
+				"text": "Valeu cara, migração concluída em breve."
+			}
+		]
+	}
+}

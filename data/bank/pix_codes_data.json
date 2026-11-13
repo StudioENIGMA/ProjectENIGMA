@@ -24,7 +24,7 @@
 		"name": "Negativa",
 		"cpf": "406.717.252-32",
 		"email": "pagamentos@negativa.com",
-		"value": 6449.0,
+		"value": 34990.0,
 		"reason": "Serviço de fornecedor"
 	},
 	"53IUY": {
@@ -120,7 +120,7 @@
 	},
 	"RM608": {
 		"name": "Ricardo",
-		"cpf": "563.765.252-30",
+		"cpf": "573.165.252-41",
 		"email": "ricardo@enigma.com.br",
 		"value": 1225.09,
 		"reason": "Reembolso de funcionário"
@@ -140,9 +140,9 @@
 		"reason": "Serviço de fornecedor"
 	},
 	"OL349": {
-		"name": "Artur",
+		"name": "Arthur",
 		"cpf": "963.905.252-86",
-		"email": "artur@enigma.com.br",
+		"email": "artur@enigma.ti.com.br",
 		"value": 1566.7,
 		"reason": "Reembolso de funcionário"
 	},
@@ -244,6 +244,13 @@
 		"value": 312.0,
 		"reason": "Compra de material"
 	},
+	"AUR39": {
+		"name": "Distribuidora Aurora",
+		"cpf": "08.113.402/0001-51",
+		"email": "financeiro@distribuidoraaurora.com.br",
+		"value": 189.9,
+		"reason": "Compra de material"
+	},
 	"BF450": {
 		"name": "Buffet Bom Sabor",
 		"cpf": "22.918.330/0001-07",
@@ -258,25 +265,1407 @@
 		"value": 450.0,
 		"reason": "Evento da empresa"
 	},
-	"GP614": {
-		"name": "Gráfica Ponto Certo",
-		"cpf": "08.771.430/0001-05",
-		"email": "cobranca@graficapontocerto.com.br",
+	"EAC16": {
+		"name": "Maquinário Forte Ltda",
+		"cpf": "27.604.118/0001-63",
+		"email": "financeiro@maquinarioforte.com.br",
+		"value": 8900.0,
+		"reason": "Compra de material"
+	},
+	"SD3A4": {
+		"name": "Jilmar",
+		"cpf": "563.765.525-03",
+		"email": "jilmar@enigma.com.br",
+		"value": 750.0,
+		"reason": "Compra de material"
+	},
+	"I83G9": {
+		"name": "Marrta",
+		"cpf": "391.828.474-51",
+		"email": "marrta@enigma.com.br",
+		"value": 1200.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"TK147": {
+		"name": "Arthur Nogueira",
+		"cpf": "284.615.930-17",
+		"email": "arthurnogueira@imail.com",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"FR162": {
+		"name": "Friopeças Climatização",
+		"cpf": "41.502.776/0001-90",
+		"email": "contato@friopecas.com.br",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"DN128": {
+		"name": "Confeitaria Dona Nena",
+		"cpf": "27.318.904/0001-62",
+		"email": "donanena@imail.com",
+		"value": 215.0,
+		"reason": "Evento da empresa"
+	},
+	"VG153": {
+		"name": "Valdir Gomes",
+		"cpf": "512.078.346-22",
+		"email": "valdirgomes@imail.com",
+		"value": 92.3,
+		"reason": "Reembolso de funcionário"
+	},
+	"SA119": {
+		"name": "Ferragens Santo Antônio",
+		"cpf": "19.774.230/0001-08",
+		"email": "vendas@ferragenssa.com.br",
+		"value": 1340.75,
+		"reason": "Compra de material"
+	},
+	"CT171": {
+		"name": "Chaveiro do Tião",
+		"cpf": "703.219.584-41",
+		"email": "chaveirodotiao@imail.com",
+		"value": 150.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"PI135": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 12000.0,
+		"reason": "Investimento da empresa"
+	},
+	"PG186": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0002-58",
+		"email": "carteiras@pxinvestment.com.br",
+		"value": 5750.0,
+		"reason": "Investimento da empresa"
+	},
+	"PC194": {
+		"name": "Papelaria Central",
+		"cpf": "52.097.113/0001-34",
+		"email": "pedidos@papelariacentral.com.br",
+		"value": 274.6,
+		"reason": "Compra de material"
+	},
+	"HB112": {
+		"name": "Padaria Bom Grão",
+		"cpf": "38.241.667/0001-85",
+		"email": "bomgrao@imail.com",
+		"value": 330.0,
+		"reason": "Evento da empresa"
+	},
+	"ML158": {
+		"name": "InfoTec Informática",
+		"cpf": "46.885.320/0001-51",
+		"email": "vendas@infotec.com.br",
+		"value": 418.0,
+		"reason": "Compra de material"
+	},
+	"at174": {
+		"name": "Arthur Nogueira",
+		"cpf": "284.615.930-71",
+		"email": "arthur.nog@imail.com",
+		"value": 299.0,
+		"reason": "Reembolso de funcionário"
+	},
+	"FJ1752": {
+		"name": "Bandeirinha Festas",
+		"cpf": "29.430.118/0001-46",
+		"email": "bandeirinhafestas@imail.com",
+		"value": 460.0,
+		"reason": "Evento da empresa"
+	},
+	"TP13": {
+		"name": "Casa das Tintas",
+		"cpf": "15.662.907/0001-23",
+		"email": "casadastintas@imail.com",
+		"value": 735.2,
+		"reason": "Compra de material"
+	},
+	"PX-14": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0003-39",
+		"email": "ofertas@pxinvestment.com.br",
+		"value": 15000.0,
+		"reason": "Investimento da empresa"
+	},
+	"DZ-163": {
+		"name": "Dedetiza Já",
+		"cpf": "44.109.872/0001-16",
+		"email": "dedetizaja@imail.com",
+		"value": 580.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"fc185": {
+		"name": "Estúdio Foco",
+		"cpf": "31.558.046/0001-70",
+		"email": "estudiofoco@imail.com",
+		"value": 690.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"NB19": {
+		"name": "Voltz Energia",
+		"cpf": "22.736.590/0001-97",
+		"email": "vendas@voltzenergia.com.br",
+		"value": 1120.0,
+		"reason": "Compra de material"
+	},
+	"ep142": {
+		"name": "MecaPlus Empilhadeiras",
+		"cpf": "18.903.244/0001-65",
+		"email": "oficina@mecaplus.com.br",
+		"value": 1875.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"HD15": {
+		"name": "DiscoBom Informática",
+		"cpf": "37.210.659/0001-02",
+		"email": "discobom@imail.com",
+		"value": 870.0,
+		"reason": "Compra de material"
+	},
+	"vt163": {
+		"name": "Larissa Prado",
+		"cpf": "640.391.275-08",
+		"email": "larissaprado@imail.com",
+		"value": 124.8,
+		"reason": "Reembolso de funcionário"
+	},
+	"CC1904": {
+		"name": "Caçamba Rápida",
+		"cpf": "26.487.031/0001-49",
+		"email": "cacambarapida@imail.com",
+		"value": 410.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"XP12": {
+		"name": "PX Investment Fundos",
+		"cpf": "58.144.920/0001-11",
+		"email": "fundos.pxinvestment@imail.com",
+		"value": 30000.0,
+		"reason": "Investimento da empresa"
+	},
+	"VV-18": {
+		"name": "Viva Cobranças",
+		"cpf": "60.327.415/0001-83",
+		"email": "cobrancas.viva@imail.com",
+		"value": 249.9,
+		"reason": "Fatura de internet"
+	},
+	"MG1620": {
+		"name": "Mimos & Cia",
+		"cpf": "34.871.206/0001-58",
+		"email": "mimosecia@imail.com",
 		"value": 380.0,
+		"reason": "Evento da empresa"
+	},
+	"LB137": {
+		"name": "EletroLuz Materiais",
+		"cpf": "49.016.783/0001-27",
+		"email": "eletroluz@imail.com",
+		"value": 163.5,
+		"reason": "Compra de material"
+	},
+	"RE214": {
+		"name": "Renata Lobo",
+		"cpf": "214.803.667-12",
+		"email": "renata.lobo@imail.com",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"DR238": {
+		"name": "Dirceu Almeida",
+		"cpf": "308.114.925-40",
+		"email": "dirceu.oficina@imail.com",
+		"value": 1380.0,
 		"reason": "Serviço de fornecedor"
 	},
-	"CL207": {
-		"name": "Clima Ar Refrigeração",
-		"cpf": "24.381.665/0001-09",
-		"email": "financeiro@climaar.com.br",
+	"SE246": {
+		"name": "Sonora Eventos",
+		"cpf": "41.502.776/0001-46",
+		"email": "contato@sonoraeventos.com",
+		"value": 1120.0,
+		"reason": "Evento da empresa"
+	},
+	"TG251": {
+		"name": "Tiago Moura",
+		"cpf": "517.230.846-09",
+		"email": "tiago.moura@imail.com",
+		"value": 94.9,
+		"reason": "Reembolso de funcionário"
+	},
+	"CF263": {
+		"name": "ClimaFrio Refrigeração",
+		"cpf": "41.502.776/0001-63",
+		"email": "financeiro@climafrio.com",
 		"value": 560.0,
 		"reason": "Serviço de fornecedor"
 	},
-	"KX913": {
-		"name": "K. X. Serviços",
-		"cpf": "45.009.317/0001-62",
-		"email": "kx.servicos@tempo-mail.com",
-		"value": 560.0,
+	"BN272": {
+		"name": "Buffet da Neide",
+		"cpf": "41.502.776/0001-72",
+		"email": "neide@buffetdaneide.com",
+		"value": 430.0,
+		"reason": "Evento da empresa"
+	},
+	"PC284": {
+		"name": "Papelaria Central",
+		"cpf": "41.502.776/0001-84",
+		"email": "vendas@papelariacentral.com",
+		"value": 318.6,
+		"reason": "Compra de material"
+	},
+	"PN217": {
+		"name": "Patrícia Neves",
+		"cpf": "602.418.733-21",
+		"email": "patricia.neves@imail.com",
+		"value": 680.0,
+		"reason": "Vaquinha da equipe"
+	},
+	"VD2417": {
+		"name": "Valdir Ramos",
+		"cpf": "711.905.284-33",
+		"email": "valdir.ramos@imail.com",
+		"value": 1950.0,
+		"reason": "Acerto de conta"
+	},
+	"lp218": {
+		"name": "Lúcia Prado",
+		"cpf": "825.340.196-47",
+		"email": "lucia.prado@imail.com",
+		"value": 2340.0,
+		"reason": "Ajuste interno"
+	},
+	"ED239": {
+		"name": "Eduardo Lima",
+		"cpf": "934.207.158-60",
+		"email": "eduardo.lima@imail.com",
+		"value": 275.3,
+		"reason": "Empréstimo pessoal"
+	},
+	"LB242": {
+		"name": "Limpeza Brilho",
+		"cpf": "41.502.776/0001-42",
+		"email": "contato@limpezabrilho.com",
+		"value": 1890.0,
+		"reason": "Taxa de liberação de crédito"
+	},
+	"BS2561": {
+		"name": "Bufê Sabor",
+		"cpf": "41.502.776/0001-61",
+		"email": "bufesabor@imail.com",
+		"value": 890.0,
+		"reason": "Adiantamento de premiação"
+	},
+	"JL24": {
+		"name": "Júlio Antunes",
+		"cpf": "146.872.309-55",
+		"email": "julio.antunes@imail.com",
+		"value": 212.0,
+		"reason": "Cota de rifa"
+	},
+	"EL25": {
+		"name": "Elétrica Faísca",
+		"cpf": "41.502.776/0001-25",
+		"email": "eletricafaisca@imail.com",
+		"value": 640.0,
 		"reason": "Serviço de fornecedor"
+	},
+	"CR317": {
+		"name": "Carolina Prado",
+		"cpf": "312.884.650-21",
+		"email": "carolina@enigma.ti.com.br",
+		"value": 89.9,
+		"reason": "Reembolso de funcionário"
+	},
+	"FN372": {
+		"name": "Aurora Capital",
+		"cpf": "41.502.776/0001-37",
+		"email": "contato@auroracapital.com.br",
+		"value": 5000.0,
+		"reason": "Investimento da empresa"
+	},
+	"RH341": {
+		"name": "Jessica Moura",
+		"cpf": "204.771.390-58",
+		"email": "jessica@enigma.rh.com.br",
+		"value": 64.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"TX358": {
+		"name": "Teclaria Informática",
+		"cpf": "27.918.340/0001-62",
+		"email": "vendas@teclaria.com.br",
+		"value": 245.3,
+		"reason": "Compra de material"
+	},
+	"PZ326": {
+		"name": "Pizzaria Bella Massa",
+		"cpf": "33.610.245/0001-18",
+		"email": "pedidos@bellamassa.com.br",
+		"value": 540.0,
+		"reason": "Evento da empresa"
+	},
+	"VV345": {
+		"name": "Viva",
+		"cpf": "18.203.557/0001-44",
+		"email": "pagamentos@Viva.com.br",
+		"value": 129.9,
+		"reason": "Fatura de internet"
+	},
+	"PC383": {
+		"name": "Papelaria Central",
+		"cpf": "29.144.803/0001-07",
+		"email": "vendas@papelariacentral.com.br",
+		"value": 725.9,
+		"reason": "Compra de material"
+	},
+	"JM394": {
+		"name": "Jessica Moura",
+		"cpf": "204.771.390-58",
+		"email": "jessica@enigma.rh.com.br",
+		"value": 118.0,
+		"reason": "Contribuição sindical avulsa"
+	},
+	"FX3107": {
+		"name": "Fix Tech",
+		"cpf": "36.780.112/0001-29",
+		"email": "contato@fixtech.com.br",
+		"value": 320.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"NG329": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 1760.5,
+		"reason": "Taxa de liberação de contrato"
+	},
+	"TI-32": {
+		"name": "Lorenz Almeida",
+		"cpf": "418.206.733-40",
+		"email": "lorenz@enigma.ti.com.br",
+		"value": 450.0,
+		"reason": "Acerto interno"
+	},
+	"ch356": {
+		"name": "Contábil Horizonte",
+		"cpf": "30.517.664/0001-81",
+		"email": "contato@contabilhorizonte.com.br",
+		"value": 1150.5,
+		"reason": "Serviço de fornecedor"
+	},
+	"GR427": {
+		"name": "Paulo Henrique Duarte",
+		"cpf": "214.873.650-12",
+		"email": "paulo.duarte@enigma.com.br",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"LT441": {
+		"name": "Café Serra Azul",
+		"cpf": "41.502.776/0001-48",
+		"email": "vendas@cafeserraazul.com.br",
+		"value": 412.0,
+		"reason": "Compra de material"
+	},
+	"MA462": {
+		"name": "Tatiane Rocha",
+		"cpf": "305.118.742-60",
+		"email": "tatiane.rocha@enigma.rh.com.br",
+		"value": 97.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"RC409": {
+		"name": "Ergo Postura Ltda",
+		"cpf": "28.641.903/0001-17",
+		"email": "contato@ergopostura.com.br",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"HL435": {
+		"name": "DJ Marquinhos",
+		"cpf": "187.530.264-08",
+		"email": "djmarquinhos@festamail.com.br",
+		"value": 350.0,
+		"reason": "Evento da empresa"
+	},
+	"TK452": {
+		"name": "Tec Print Serviços",
+		"cpf": "33.207.418/0001-55",
+		"email": "financeiro@tecprint.com.br",
+		"value": 280.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"RB41": {
+		"name": "Jéssica Almeida",
+		"cpf": "402.665.190-33",
+		"email": "jessica.almeida@enigma.rh.com.br",
+		"value": 124.0,
+		"reason": "Reembolso de funcionário"
+	},
+	"MC438": {
+		"name": "Lucas Ferraz",
+		"cpf": "519.240.876-41",
+		"email": "lucasf@mailrapido.com.br",
+		"value": 450.0,
+		"reason": "Ajuda de custo particular"
+	},
+	"FD527": {
+		"name": "Ferragens Dois Irmãos",
+		"cpf": "42.509.773/0001-11",
+		"email": "ferragensdoisirmaos@imail.com",
+		"value": 386.4,
+		"reason": "Compra de material"
+	},
+	"JS541": {
+		"name": "José",
+		"cpf": "129.454.779-12",
+		"email": "jose@imail.com",
+		"value": 96.8,
+		"reason": "Reembolso de funcionário"
+	},
+	"RM562": {
+		"name": "Ricardo",
+		"cpf": "132.453.774-13",
+		"email": "ricardo@imail.com",
+		"value": 214.7,
+		"reason": "Reembolso de funcionário"
+	},
+	"EV553": {
+		"name": "Expo Vale Eventos",
+		"cpf": "45.530.764/0001-14",
+		"email": "expovaleeventos@imail.com",
+		"value": 3200.0,
+		"reason": "Investimento da empresa"
+	},
+	"YB553": {
+		"name": "Yago Bastos",
+		"cpf": "138.451.764-15",
+		"email": "yagobastos@imail.com",
+		"value": 158.25,
+		"reason": "Reembolso de funcionário"
+	},
+	"DT564": {
+		"name": "Doceria da Tia Neide",
+		"cpf": "47.544.758/0001-16",
+		"email": "doceriadatianeide@imail.com",
+		"value": 275.0,
+		"reason": "Evento da empresa"
+	},
+	"CC575": {
+		"name": "Cabos & Conectores",
+		"cpf": "48.551.755/0001-17",
+		"email": "cabosconectores@imail.com",
+		"value": 327.6,
+		"reason": "Compra de material"
+	},
+	"VV534": {
+		"name": "Viva",
+		"cpf": "49.558.752/0001-18",
+		"email": "viva@imail.com",
+		"value": 129.9,
+		"reason": "Fatura de internet"
+	},
+	"SB528": {
+		"name": "Wellington Souza",
+		"cpf": "150.447.744-19",
+		"email": "wellingtonsouza@imail.com",
+		"value": 512.3,
+		"reason": "Compra de material"
+	},
+	"RS545": {
+		"name": "Marcos Teles",
+		"cpf": "153.446.739-20",
+		"email": "marcosteles@imail.com",
+		"value": 828.0,
+		"reason": "Compra de material"
+	},
+	"JP576": {
+		"name": "Renan Ferraz",
+		"cpf": "156.445.734-21",
+		"email": "renanferraz@imail.com",
+		"value": 173.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"EJ587": {
+		"name": "Thiago Lemos",
+		"cpf": "159.444.729-22",
+		"email": "thiagolemos@imail.com",
+		"value": 1950.0,
+		"reason": "Evento da empresa"
+	},
+	"JA536": {
+		"name": "José",
+		"cpf": "162.443.724-23",
+		"email": "jose@imail.com",
+		"value": 450.0,
+		"reason": "Acerto interno"
+	},
+	"PL571": {
+		"name": "Paulo Lacerda",
+		"cpf": "165.442.719-24",
+		"email": "paulolacerda@imail.com",
+		"value": 1760.0,
+		"reason": "Adiantamento de comissão"
+	},
+	"MS5281": {
+		"name": "Madeireira Santa Rita",
+		"cpf": "56.607.731/0001-25",
+		"email": "madeireirasantarita@imail.com",
+		"value": 2105.0,
+		"reason": "Compra de material"
+	},
+	"CH529": {
+		"name": "Diego Prates",
+		"cpf": "171.440.709-26",
+		"email": "diegoprates@imail.com",
+		"value": 345.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"VV-52": {
+		"name": "Viva",
+		"cpf": "58.621.725/0001-27",
+		"email": "viva@imail.com",
+		"value": 412.6,
+		"reason": "Fatura de internet"
+	},
+	"DA598": {
+		"name": "Decorações Arraiá",
+		"cpf": "59.628.722/0001-28",
+		"email": "decoracoesarraia@imail.com",
+		"value": 365.0,
+		"reason": "Evento da empresa"
+	},
+	"FC614": {
+		"name": "Ferreira Chaves",
+		"cpf": "83.941.182/0001-72",
+		"email": "ferreira.chaves@empresa.com.br",
+		"value": 420.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"MB627": {
+		"name": "Metalúrgica Bonfim",
+		"cpf": "43.137.100/0001-28",
+		"email": "metalurgica.bonfim@empresa.com.br",
+		"value": 689.0,
+		"reason": "Compra de material"
+	},
+	"CC615": {
+		"name": "Canecas & Cia",
+		"cpf": "94.700.581/0001-57",
+		"email": "canecas.cia@empresa.com.br",
+		"value": 1140.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"MZ628": {
+		"name": "Mariana",
+		"cpf": "427.888.122-44",
+		"email": "mariana@mail.com.br",
+		"value": 186.4,
+		"reason": "Reembolso de funcionário"
+	},
+	"MT631": {
+		"name": "Marta",
+		"cpf": "600.921.302-62",
+		"email": "marta@mail.com.br",
+		"value": 94.5,
+		"reason": "Reembolso de funcionário"
+	},
+	"VA616": {
+		"name": "Corretora Vale Azul",
+		"cpf": "78.652.798/0001-22",
+		"email": "corretora.vale.azul@empresa.com.br",
+		"value": 5000.0,
+		"reason": "Investimento da empresa"
+	},
+	"DJ617": {
+		"name": "DJ Tiãozinho",
+		"cpf": "297.676.666-99",
+		"email": "dj.tiaozinho@mail.com.br",
+		"value": 550.0,
+		"reason": "Evento da empresa"
+	},
+	"ML638": {
+		"name": "Rogério Lemos",
+		"cpf": "924.846.371-94",
+		"email": "rogerio.lemos@mail.com.br",
+		"value": 212.3,
+		"reason": "Reembolso de funcionário"
+	},
+	"GP639": {
+		"name": "Gráfica Pontual",
+		"cpf": "88.802.190/0001-64",
+		"email": "grafica.pontual@empresa.com.br",
+		"value": 3200.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"PC640": {
+		"name": "Papelaria Central",
+		"cpf": "52.195.470/0001-62",
+		"email": "papelaria.central@empresa.com.br",
+		"value": 275.0,
+		"reason": "Taxa de regularização do CNPJ"
+	},
+	"TA641": {
+		"name": "Diego R. Tavares",
+		"cpf": "924.356.555-99",
+		"email": "diego.r.tavares@mail.com.br",
+		"value": 1890.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"GL642": {
+		"name": "Renato Quirino",
+		"cpf": "196.873.301-99",
+		"email": "renato.quirino@mail.com.br",
+		"value": 730.0,
+		"reason": "Adiantamento de caixinha"
+	},
+	"hl6123": {
+		"name": "Helena",
+		"cpf": "750.915.398-22",
+		"email": "helena@mail.com.br",
+		"value": 348.0,
+		"reason": "Ajuste de folha"
+	},
+	"SM643": {
+		"name": "Simone",
+		"cpf": "146.702.305-93",
+		"email": "simone@mail.com.br",
+		"value": 8700.0,
+		"reason": "Multa de atraso"
+	},
+	"AB644": {
+		"name": "Ferragens Aço Bom",
+		"cpf": "56.598.952/0001-34",
+		"email": "ferragens.aco.bom@empresa.com.br",
+		"value": 1250.0,
+		"reason": "Caução de entrega"
+	},
+	"ZK645": {
+		"name": "Zeca Kuster",
+		"cpf": "627.689.760-99",
+		"email": "zeca.kuster@mail.com.br",
+		"value": 1015.0,
+		"reason": "Compra de material"
+	},
+	"FL634": {
+		"name": "Flor de Lis",
+		"cpf": "74.129.748/0001-56",
+		"email": "flor.de.lis@empresa.com.br",
+		"value": 265.0,
+		"reason": "Evento da empresa"
+	},
+	"RM652": {
+		"name": "Agência Lumière",
+		"cpf": "41.716.540/0001-48",
+		"email": "agencia.lumiere@empresa.com.br",
+		"value": 4900.0,
+		"reason": "Serviço de fornecedor"
+	},
+	"LJ653": {
+		"name": "Lia Mendes",
+		"cpf": "465.703.222-21",
+		"email": "lia.mendes@mail.com.br",
+		"value": 430.0,
+		"reason": "Evento da empresa"
+	},
+	"R7U6M": {
+		"name": "Forte Equipamentos Ltda",
+		"cpf": "11.949.730/0001-59",
+		"email": "financeiro@forteequipamentos.com.br",
+		"value": 3450.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"EN382": {
+		"name": "ENIGMAZ",
+		"cpf": "89.453.844/0001-80",
+		"email": "financeiro@enigmaz.com.br",
+		"value": 500.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"MA567": {
+		"name": "Marcelo",
+		"cpf": "160.141.132-48",
+		"email": "marcelo@imail.com",
+		"value": 10000.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"MA431": {
+		"name": "Marcelo",
+		"cpf": "160.141.132-48",
+		"email": "marcelo@imail.com",
+		"value": 5999.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"PI934": {
+		"name": "PX Investrnent ltda.",
+		"cpf": "20.553.716/0001-49",
+		"email": "financeiro@pxinvestrnent.com.br",
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"PI944": {
+		"name": "PX Investrnent ltda.",
+		"cpf": "20.553.716/0001-49",
+		"email": "financeiro@pxinvestrnent.com.br",
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"GP054": {
+		"name": "Gerente PX Investment",
+		"cpf": "912.247.412-58",
+		"email": "gerente.px.investment@imail.com",
+		"value": 14000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"VT402": {
+		"name": "Viva Telecom",
+		"cpf": "18.203.557/0001-44",
+		"email": "pagamentos@Viva.com.br",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"PI007": {
+		"name": "PX Investment",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 8500.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"GP830": {
+		"name": "Gráfica Ponto Certo",
+		"cpf": "12.168.920/0001-61",
+		"email": "financeiro@graficapontocerto.com.br",
+		"value": 478.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"PE214": {
+		"name": "Protege EPI",
+		"cpf": "10.872.317/0001-16",
+		"email": "financeiro@protegeepi.com.br",
+		"value": 520.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"IN098": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 3299.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"IN092": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 1349.9,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"IN340": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 1430.9,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"IN341": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 17990.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"PI423": {
+		"name": "PX Investment ltda.",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 19822.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"PI254": {
+		"name": "PX Investment ltda.",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 20000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"PI925": {
+		"name": "PX Investment ltda.",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 25000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"PI127": {
+		"name": "PX Investment ltda.",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 7844.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"PI209": {
+		"name": "PX Investment ltda.",
+		"cpf": "33.610.458/0001-77",
+		"email": "investimentos@pxinvestment.com.br",
+		"value": 4798.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"MF390": {
+		"name": "Metalúrgica Forte",
+		"cpf": "80.155.263/0001-03",
+		"email": "financeiro@metalurgicaforte.com.br",
+		"value": 3050.0,
+		"reason": "Imposto atrasado",
+		"bank": "Banco Aurora"
+	},
+	"TA471": {
+		"name": "Tintas Arco-Íris",
+		"cpf": "21.332.920/0001-17",
+		"email": "financeiro@tintasarcoiris.com.br",
+		"value": 1160.5,
+		"reason": "Multa de trânsito",
+		"bank": "Banco Aurora"
+	},
+	"SE638": {
+		"name": "Sindicato dos Estagiários",
+		"cpf": "76.909.662/0001-36",
+		"email": "financeiro@sindicatoestagiarios.com.br",
+		"value": 1475.0,
+		"reason": "Contribuição sindical",
+		"bank": "Banco Aurora"
+	},
+	"RF904": {
+		"name": "Regulariza Fácil Despachante",
+		"cpf": "69.335.881/0001-50",
+		"email": "financeiro@regularizafacildespachante.com.br",
+		"value": 4780.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Banco Aurora"
+	},
+	"GP018": {
+		"name": "Gráfica Ponto Certo",
+		"cpf": "12.168.920/0001-61",
+		"email": "financeiro@graficapontocerto.com.br",
+		"value": 742.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"CH701": {
+		"name": "Corretora Horizonte",
+		"cpf": "11.388.232/0001-09",
+		"email": "financeiro@corretorahorizonte.com.br",
+		"value": 9600.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"FS563": {
+		"name": "Ferragens Santa Luzia",
+		"cpf": "12.859.147/0001-12",
+		"email": "financeiro@ferragenssantaluzia.com.br",
+		"value": 2915.75,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"NT840": {
+		"name": "NuvemSul Tecnologia",
+		"cpf": "13.047.789/0001-67",
+		"email": "financeiro@nuvemsultecnologia.com.br",
+		"value": 1249.9,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"DS902": {
+		"name": "Disco Sul",
+		"cpf": "83.159.564/0001-26",
+		"email": "financeiro@discosul.com.br",
+		"value": 6400.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"TV348": {
+		"name": "Tecno Vale",
+		"cpf": "10.956.227/0001-49",
+		"email": "financeiro@tecnovale.com.br",
+		"value": 14800.0,
+		"reason": "Ajuste de cadastro",
+		"bank": "Banco Aurora"
+	},
+	"CC916": {
+		"name": "Conecta Cabos",
+		"cpf": "12.058.473/0001-11",
+		"email": "financeiro@conectacabos.com.br",
+		"value": 9200.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"NT071": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 3980.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"NT563": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 2480.0,
+		"reason": "Multa de contrato",
+		"bank": "Banco Aurora"
+	},
+	"BS288": {
+		"name": "Buffet Sabor Feliz",
+		"cpf": "44.578.248/0001-63",
+		"email": "financeiro@buffetsaborfeliz.com.br",
+		"value": 11500.0,
+		"reason": "Evento da empresa",
+		"bank": "Caixa Leste"
+	},
+	"GP189": {
+		"name": "Gráfica Pontual",
+		"cpf": "88.802.190/0001-64",
+		"email": "grafica.pontual@empresa.com.br",
+		"value": 690.0,
+		"reason": "Taxa de segunda via de crachá",
+		"bank": "Banco Aurora"
+	},
+	"VA530": {
+		"name": "Volt Assistencia",
+		"cpf": "68.874.161/0001-77",
+		"email": "financeiro@voltassistencia.com.br",
+		"value": 860.0,
+		"reason": "Taxa de urgência técnica",
+		"bank": "Banco Aurora"
+	},
+	"VI721": {
+		"name": "Viva Inc.",
+		"cpf": "18.203.557/0001-44",
+		"email": "pagamentos@Viva.com.br",
+		"value": 69.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"CC214": {
+		"name": "Conecta Cabos",
+		"cpf": "12.058.473/0001-11",
+		"email": "financeiro@conectacabos.com.br",
+		"value": 618.4,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"CH041": {
+		"name": "Contábil Horizonte",
+		"cpf": "30.517.664/0001-81",
+		"email": "contato@contabilhorizonte.com.br",
+		"value": 2300.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"NT906": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 4250.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"NT527": {
+		"name": "Negativa Telas",
+		"cpf": "22.415.906/0001-73",
+		"email": "cobranca@negativatelas.com.br",
+		"value": 1320.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"GP468": {
+		"name": "Gráfica Pontual",
+		"cpf": "88.802.190/0001-64",
+		"email": "grafica.pontual@empresa.com.br",
+		"value": 372.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"ED752": {
+		"name": "Escudo Digital",
+		"cpf": "11.169.729/0001-43",
+		"email": "financeiro@escudodigital.com.br",
+		"value": 780.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"LT640": {
+		"name": "Limpa Tudo",
+		"cpf": "14.098.060/0001-35",
+		"email": "financeiro@limpatudo.com.br",
+		"value": 3180.0,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"CN034": {
+		"name": "Contábil Nova Era",
+		"cpf": "57.743.300/0001-71",
+		"email": "financeiro@contabilnovaera.com.br",
+		"value": 8900.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"MV395": {
+		"name": "Marcos Vieira",
+		"cpf": "266.015.170-48",
+		"email": "marcos.vieira@imail.com",
+		"value": 1980.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"BS108": {
+		"name": "Buffet Sabor de Casa",
+		"cpf": "47.642.560/0001-72",
+		"email": "financeiro@buffetsaborcasa.com.br",
+		"value": 1760.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Norte"
+	},
+	"MS462": {
+		"name": "Madeireira São Bento",
+		"cpf": "88.605.661/0001-63",
+		"email": "financeiro@madeireirasaobento.com.br",
+		"value": 765.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Caixa Leste"
+	},
+	"CP640": {
+		"name": "Consultoria Prisma",
+		"cpf": "29.326.833/0001-03",
+		"email": "financeiro@consultoriaprisma.com.br",
+		"value": 1095.0,
+		"reason": "Adiantamento de consultoria",
+		"bank": "Banco Ipê"
+	},
+	"IT851": {
+		"name": "Ivan Teixeira",
+		"cpf": "117.391.771-57",
+		"email": "ivan.teixeira@imail.com",
+		"value": 2640.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"SM081": {
+		"name": "Sandra Moura",
+		"cpf": "912.249.776-40",
+		"email": "sandra.moura@imail.com",
+		"value": 870.0,
+		"reason": "Acerto de pendência",
+		"bank": "Banco Aurora"
+	},
+	"RL236": {
+		"name": "Renato Lima ME",
+		"cpf": "73.348.406/0001-74",
+		"email": "financeiro@renatolima.com.br",
+		"value": 1120.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"NE925": {
+		"name": "NetPonto",
+		"cpf": "72.687.363/0001-74",
+		"email": "financeiro@netponto.com.br",
+		"value": 1430.0,
+		"reason": "Compra de material",
+		"bank": "Banco Pacífico"
+	},
+	"PB302": {
+		"name": "Papelaria Bom Papel",
+		"cpf": "11.373.522/0001-93",
+		"email": "financeiro@papelariabompapel.com.br",
+		"value": 538.2,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"DS690": {
+		"name": "Dedetizadora Sem Bicho",
+		"cpf": "89.436.777/0001-79",
+		"email": "financeiro@dedetizadorasembicho.com.br",
+		"value": 720.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"CS036": {
+		"name": "Central Sul Corretora",
+		"cpf": "10.630.206/0001-09",
+		"email": "financeiro@centralsulcorretora.com.br",
+		"value": 5000.0,
+		"reason": "Investimento da empresa",
+		"bank": "Banco Central Sul"
+	},
+	"FI623": {
+		"name": "Financeiro",
+		"cpf": "27.904.316/0001-50",
+		"email": "financeiro@enigma.fin.com.br",
+		"value": 9780.9,
+		"reason": "Reembolso de funcionário",
+		"bank": "Banco Aurora"
+	},
+	"FI624": {
+		"name": "Financeiro",
+		"cpf": "27.904.316/0001-50",
+		"email": "financeiro@enigma.fin.com.br",
+		"value": 3467.98,
+		"reason": "Reembolso de funcionário",
+		"bank": "Caixa Leste"
+	},
+	"GP836": {
+		"name": "Gráfica Ponto Certo",
+		"cpf": "12.168.920/0001-61",
+		"email": "financeiro@graficapontocerto.com.br",
+		"value": 1284.5,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"TR519": {
+		"name": "Transportadora Rota Sete",
+		"cpf": "64.302.145/0001-74",
+		"email": "financeiro@transportadorarotasete.com.br",
+		"value": 2310.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"EG250": {
+		"name": "Espaço Girassol",
+		"cpf": "12.993.098/0001-58",
+		"email": "financeiro@espacogirassol.com.br",
+		"value": 3480.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Aurora"
+	},
+	"CB913": {
+		"name": "Clínica Bem Cuidar",
+		"cpf": "14.115.954/0001-30",
+		"email": "financeiro@clinicabemcuidar.com.br",
+		"value": 1260.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"CA014": {
+		"name": "Cabos e Cia",
+		"cpf": "11.244.808/0001-52",
+		"email": "financeiro@cabos.com.br",
+		"value": 975.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"LB688": {
+		"name": "Limpeza Brilho Certo",
+		"cpf": "14.416.867/0001-80",
+		"email": "financeiro@limpezabrilhocerto.com.br",
+		"value": 7200.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"TV233": {
+		"name": "Transportadora Via Expressa",
+		"cpf": "13.538.192/0001-34",
+		"email": "financeiro@transportadoraviaexpressa.com.br",
+		"value": 934.75,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"DA460": {
+		"name": "Despachante Alves",
+		"cpf": "11.248.828/0001-31",
+		"email": "financeiro@despachantealves.com.br",
+		"value": 1215.0,
+		"reason": "Taxa de regularização do CNPJ",
+		"bank": "Caixa Leste"
+	},
+	"RC120": {
+		"name": "R. Cavalcante Pagamentos",
+		"cpf": "72.362.529/0001-80",
+		"email": "financeiro@rcavalcantepagamentos.com.br",
+		"value": 1390.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"CA391": {
+		"name": "Copa Alimentos",
+		"cpf": "75.191.723/0001-78",
+		"email": "financeiro@copaalimentos.com.br",
+		"value": 673.2,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"HS577": {
+		"name": "Hotel Serra Azul",
+		"cpf": "25.253.989/0001-40",
+		"email": "financeiro@hotelserraazul.com.br",
+		"value": 3640.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Imperial"
+	},
+	"CA102": {
+		"name": "Contábil Ampere",
+		"cpf": "37.342.410/0001-91",
+		"email": "financeiro@contabilampere.com.br",
+		"value": 1875.3,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"TO240": {
+		"name": "Toner & Cia",
+		"cpf": "68.416.429/0001-45",
+		"email": "financeiro@toner.com.br",
+		"value": 469.9,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"PB204": {
+		"name": "Papelaria Bom Traço",
+		"cpf": "14.286.807/0001-64",
+		"email": "financeiro@papelariabomtraco.com.br",
+		"value": 742.15,
+		"reason": "Compra de material",
+		"bank": "Banco Aurora"
+	},
+	"DS377": {
+		"name": "Dedetizadora Sem Bicho",
+		"cpf": "89.436.777/0001-79",
+		"email": "financeiro@dedetizadorasembicho.com.br",
+		"value": 618.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Norte"
+	},
+	"CV018": {
+		"name": "Clínica Vida Plena",
+		"cpf": "10.631.078/0001-77",
+		"email": "financeiro@clinicavidaplena.com.br",
+		"value": 1340.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"GP288": {
+		"name": "Gráfica Ponto Certo",
+		"cpf": "12.168.920/0001-61",
+		"email": "financeiro@graficapontocerto.com.br",
+		"value": 1120.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
+	},
+	"BS416": {
+		"name": "Buffet Sabor da Vila",
+		"cpf": "53.508.150/0001-65",
+		"email": "financeiro@buffetsaborvila.com.br",
+		"value": 2480.0,
+		"reason": "Evento da empresa",
+		"bank": "Banco Norte"
+	},
+	"RE299": {
+		"name": "Reparo Express",
+		"cpf": "21.298.326/0001-68",
+		"email": "financeiro@reparoexpress.com.br",
+		"value": 540.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"IN201": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 2140.0,
+		"reason": "Compra de material",
+		"bank": "Banco Norte"
+	},
+	"MV202": {
+		"name": "Marcos V. Prado",
+		"cpf": "140.901.322-37",
+		"email": "marcos.v.prado@imail.com",
+		"value": 860.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"IH623": {
+		"name": "Industrias Habitat",
+		"cpf": "19.679.980/0001-91",
+		"email": "financeiro@industriashabitat.com.br",
+		"value": 6500.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"WC207": {
+		"name": "Waldir Campos",
+		"cpf": "658.840.391-41",
+		"email": "waldir.campos@imail.com",
+		"value": 1960.0,
+		"reason": "Taxa de liberação de carga",
+		"bank": "Banco Aurora"
+	},
+	"FS205": {
+		"name": "Forte Serviços",
+		"cpf": "11.706.176/0001-41",
+		"email": "financeiro@forteservicos.com.br",
+		"value": 1085.0,
+		"reason": "Taxa de cartório",
+		"bank": "Banco Central Sul"
+	},
+	"JF203": {
+		"name": "Jair Fontes",
+		"cpf": "763.488.905-42",
+		"email": "jair.fontes@imail.com",
+		"value": 1490.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Central Sul"
+	},
+	"VI106": {
+		"name": "Viva",
+		"cpf": "18.203.557/0001-44",
+		"email": "pagamentos@Viva.com.br",
+		"value": 389.9,
+		"reason": "Fatura de internet",
+		"bank": "Banco Aurora"
+	},
+	"IN101": {
+		"name": "Industrials",
+		"cpf": "85.210.109/0001-97",
+		"email": "financeiro@industrials.com.br",
+		"value": 3480.0,
+		"reason": "Compra de material",
+		"bank": "Caixa Leste"
+	},
+	"DJ105": {
+		"name": "Dedetiza Já",
+		"cpf": "44.109.872/0001-16",
+		"email": "dedetizaja@imail.com",
+		"value": 640.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Banco Aurora"
+	},
+	"NF107": {
+		"name": "Nuvem Forte",
+		"cpf": "78.918.932/0001-28",
+		"email": "financeiro@nuvemforte.com.br",
+		"value": 918.0,
+		"reason": "Serviço de fornecedor",
+		"bank": "Caixa Leste"
 	}
 }

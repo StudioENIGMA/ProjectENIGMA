@@ -11,21 +11,12 @@ var ticket_codes_static: Dictionary
 
 var pix_codes_dynamic: Dictionary
 var ticket_codes_dynamic: Dictionary
-## The boletos of today as registered at the bank, made again every day by the BoletosDirector
-var boleto_codes: Dictionary
 #endregion STATE
 
 #region SETUP
 func setup_from_json_file(pix_codes: Dictionary, ticket_codes: Dictionary) -> void:
 	pix_codes_static = pix_codes
 	ticket_codes_static = ticket_codes
-	update_codes_dict()
-
-## Registers the boletos of today, in place of the ones of the day before
-##
-## codes: code -> "institution", "cnpj", "bank", "agency", "value", "reason" and "boleto_id"
-func set_boletos(codes: Dictionary) -> void:
-	boleto_codes = codes
 	update_codes_dict()
 #endregion SETUP
 
@@ -36,8 +27,6 @@ func update_codes_dict() -> void:
 	codes_dict.merge(ticket_codes_static)
 	codes_dict.merge(pix_codes_dynamic)
 	codes_dict.merge(ticket_codes_dynamic)
-	# What the bank registers for a boleto of today is what it pays, whatever else had the code
-	codes_dict.merge(boleto_codes, true)
 	emit_signal.call_deferred("send_codes_dict", codes_dict.duplicate(true))
 
 func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
@@ -46,7 +35,6 @@ func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
 			pix_codes_dynamic.erase(payment_code.code)
 		GameData.PaymentType.TICKET:
 			ticket_codes_dynamic.erase(payment_code.code)
-			boleto_codes.erase(payment_code.code)
 	GameData.completed_payments.append(payment_code.code)
 	update_codes_dict()
 
@@ -95,7 +83,7 @@ func generate_numeric_code() -> String:
 	for i in range(6):
 		code += str(randi_range(0,9))
 
-	if ticket_codes_dynamic.has(code) or ticket_codes_static.has(code) or boleto_codes.has(code):
+	if ticket_codes_dynamic.has(code) or ticket_codes_static.has(code):
 		return generate_numeric_code()
 
 	return code

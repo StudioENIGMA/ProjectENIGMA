@@ -1,0 +1,289 @@
+{
+	"conversation_id": "ti_td3",
+	"contact_name": "TI",
+	"branches": {
+		"d3t14_ti": [
+			{
+				"id": "d3t14_ti_0",
+				"text": "e ai estagio, Lorenz aqui"
+			},
+			{
+				"id": "d3t14_ti_1",
+				"text": "venceu o antivirus da firma. adivinha quem deixou vencer",
+				"choices": [
+					{
+						"id": "d3t14_ti_2_0",
+						"player_text": "Foi você?",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_voce",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t14_ti_2_1",
+						"player_text": "O Artur, aposto",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_artur",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t14_ti_voce": [
+			{
+				"id": "d3t14_ti_2",
+				"text": "foi kkkk mas fala baixo",
+				"choices": [
+					{
+						"id": "d3t14_ti_3_0",
+						"player_text": "Seu segredo tá seguro",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t14_ti_3_1",
+						"player_text": "Vou contar pro Chefinho",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t14_ti_artur": [
+			{
+				"id": "d3t14_ti_3",
+				"text": "kkkkkkk todo problema aqui eh o artur ate provarem o contrario"
+			},
+			{
+				"id": "d3t14_ti_4",
+				"text": "mas hj fui eu msm",
+				"choices": [
+					{
+						"id": "d3t14_ti_5_0",
+						"player_text": "Eu sabia",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t14_ti_5_1",
+						"player_text": "Coitado do Artur",
+						"npc_reply": {
+							"goto_branch": "d3t14_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t14_ti_fim": [
+			{
+				"id": "d3t14_ti_5",
+				"text": "a Escudo Digital mandou o Pix ED752"
+			},
+			{
+				"id": "d3t14_ti_6",
+				"text": "R$ 780,00, Serviço de fornecedor. paga pra mim?"
+			},
+			{
+				"id": "d3t14_ti_end",
+				"text": "pagou, salvou kkkk (b^_^)b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ED752"
+					}
+				]
+			}
+		],
+		"d3t15_ti": [
+			{
+				"id": "d3t15_ti_0",
+				"text": "fala estagio, preciso de um pix qnd der",
+				"choices": [
+					{
+						"id": "d3t15_ti_1_0",
+						"player_text": "Pix de quê, Lorenz?",
+						"npc_reply": {
+							"goto_branch": "d3t15_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t15_ti_1_1",
+						"player_text": "Me passa o motivo, é regra da empresa",
+						"npc_reply": {
+							"goto_branch": "d3t15_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t15_ti_fim": [
+			{
+				"id": "d3t15_ti_1",
+				"text": "eita kkkk o estagio ta afiado. eh Compra de material, teclados da sala de treinamento na Teclaria Informática"
+			},
+			{
+				"id": "d3t15_ti_2",
+				"text": "a turma arrancou tudo, tem um q so sobrou vogal"
+			},
+			{
+				"id": "d3t15_ti_3",
+				"text": "pix TX358, R$ 245,30"
+			},
+			{
+				"id": "d3t15_ti_end",
+				"text": "caiu aqui, tamo junto (b^_^)b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TX358"
+					}
+				]
+			}
+		],
+		"d3t16_ti": [
+			{
+				"id": "d3t16_ti_0",
+				"text": "entao estagio, o servidor ta mais quente q a copa",
+				"choices": [
+					{
+						"id": "d3t16_ti_1_0",
+						"player_text": "Já tentou desligar e ligar?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_desliga",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t16_ti_1_1",
+						"player_text": "Tentou abrir a janela?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_janela",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t16_ti_1_2",
+						"player_text": "Quente quanto?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_quanto",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t16_ti_desliga": [
+			{
+				"id": "d3t16_ti_1",
+				"text": "vc ta falando isso pra MIM? kkkkkk"
+			},
+			{
+				"id": "d3t16_ti_2",
+				"text": "respeita o teu senior",
+				"choices": [
+					{
+						"id": "d3t16_ti_3_0",
+						"player_text": "Foi mal, mestre",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t16_ti_3_1",
+						"player_text": "É o procedimento oficial do TI",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t16_ti_janela": [
+			{
+				"id": "d3t16_ti_3",
+				"text": "a sala n tem janela, estagio. tem um ventilador e fé kkkk",
+				"choices": [
+					{
+						"id": "d3t16_ti_4_0",
+						"player_text": "Então é caso grave",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t16_ti_4_1",
+						"player_text": "E a fé tá resolvendo?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t16_ti_quanto": [
+			{
+				"id": "d3t16_ti_4",
+				"text": "da pra fritar ovo no rack. ja tentaram",
+				"choices": [
+					{
+						"id": "d3t16_ti_5_0",
+						"player_text": "Quem tentou? Foi o Artur?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t16_ti_5_1",
+						"player_text": "E ficou bom o ovo?",
+						"npc_reply": {
+							"goto_branch": "d3t16_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t16_ti_fim": [
+			{
+				"id": "d3t16_ti_5",
+				"text": "compra 2 litros de nitrogenio na Amazonia pra mim? nao eh pra beber kkkk",
+				"event_id": "d3t16_ti"
+			},
+			{
+				"id": "d3t16_ti_6",
+				"text": "Compra de material, ja falei com o Chefinho"
+			},
+			{
+				"id": "d3t16_ti_end",
+				"text": "chegou, agr o servidor respira kkkk",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 15,
+								"quantity": 2,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

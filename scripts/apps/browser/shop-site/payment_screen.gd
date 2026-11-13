@@ -53,9 +53,8 @@ func _on_transaction_completed(payment_code: GameData.PaymentCode) -> void:
 		create_purchase_log(key)
 		remove_code(key)
 
+## Adds the order paid to the ones the EventsDirector hands out to the events on its next tick
 func create_purchase_log(shop_enum: GameData.App) -> void:
-	var purchased_items = {}
+	var purchased_items: Dictionary = GameData.purchased_items.get_or_add(shop_enum, {})
 	for item in cart_by_enum[shop_enum]:
-		purchased_items[item.id] = item.quantity
-
-	GameData.purchased_items[shop_enum] = purchased_items
+		purchased_items[int(item.id)] = int(purchased_items.get(int(item.id), 0)) + int(item.quantity)

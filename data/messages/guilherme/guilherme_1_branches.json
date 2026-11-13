@@ -81,15 +81,15 @@
 			},
 			{
 				"id": "guilherme_payment0_2",
-				"text": "Segue o código do boleto: 769623."
-			}, 
+				"text": "Segue o código Pix: FI623."
+			},
 			{
 				"id": "guilherme_payment0_3",
 				"text": "Valeu cara",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "769623"
+						"payment_id": "FI623"
 					}
 				]
 			}
@@ -100,12 +100,22 @@
 				"text": "Oi estagiário."
 			},
 			{
-				"id": "guilherme_purchase1_1",
+				"id": "guilherme_payment1_1",
 				"text": "Estamos fazendo uma melhoria no departamento do financeiro, e precisamos de uma ajuda com alguns pagamentos."
 			},
 			{
-				"id": "guilherme_purchase1_2",
-				"text": "Por favor, faça esse pagamento pelo código 760623."
+				"id": "guilherme_payment1_2",
+				"text": "Por favor, faça esse pagamento pelo código FI624."
+			},
+			{
+				"id": "guilherme_payment1_3",
+				"text": "Pagamento feito, obrigado estagiário.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FI624"
+					}
+				]
 			}
 		],
 		"task4_guilherme": [
@@ -115,26 +125,40 @@
 			},
 			{
 				"id": "guilherme_password0_1",
-				"text": "Você pode me ajudar a entender melhor sobre senhas?"
+				"text": "O sistema recusou a minha senha nova e não sei o que está faltando."
 			},
 			{
 				"id": "guilherme_password0_2",
-				"text": "Quero trocar a minha, mas não sei qual modelo é mais seguro, estou em duvida entre ?wRF924%qerF+AF^ ou a987652fl",
+				"text": "Ela tem 11 caracteres, com letras maiúsculas, minúsculas e números. O que falta pela política de hoje?",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "guilherme_password0_2a_0",
-						"player_text": "?wRF924%qerF+AF^",
+						"player_text": "Faltam caracteres, Guilherme",
 						"npc_reply": {
-							"goto_branch": "from_guilherme_password0_3",
+							"goto_branch": "from_guilherme_password0_4",
 							"delay_ticks": 12
 						}
 					},
 					{
 						"id": "guilherme_password0_2a_1",
-						"player_text": "a987652fl",
+						"player_text": "Ela já passa, Guilherme",
 						"npc_reply": {
 							"goto_branch": "from_guilherme_password0_4",
-							"delay_ticks": 15
+							"delay_ticks": 12
+						}
+					},
+					{
+						"id": "guilherme_password0_2a_2",
+						"player_text": "Falta um símbolo só",
+						"npc_reply": {
+							"goto_branch": "from_guilherme_password0_3",
+							"delay_ticks": 12
 						}
 					}
 				]
@@ -143,13 +167,13 @@
 		"from_guilherme_password0_3": [
 			{
 				"id": "guilherme_password0_3",
-				"text": "O sistema reconheceu, é realmente forte!"
+				"text": "Coloquei um símbolo e o sistema aceitou. Valeu!"
 			}
 		],
 		"from_guilherme_password0_4": [
 			{
 				"id": "guilherme_password0_4",
-				"text": "O sistema que eu coloquei afirmou ser uma senha mediana"
+				"text": "O sistema recusou de novo. Vou olhar a política com mais calma."
 			}
 		]
 	}

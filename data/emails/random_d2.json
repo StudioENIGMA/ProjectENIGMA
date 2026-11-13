@@ -1,0 +1,86 @@
+[
+	{
+		"thread_id": "d2t18_yago",
+		"email_id": "d2t18_yago",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Pagamento da Consultoria de Recrutamento",
+		"content": "Olá, estagiário,\n\nA consultoria Talento Certo concluiu a triagem dos candidatos do nosso processo seletivo. Trata-se de serviço de fornecedor, no valor de R$ 3.200,00, e o Chefe me orientou que você deveria fazer o pagamento. Segue o código do boleto: 729315\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": [],
+		"reply": "Olá, estagiário,\n\nPagamento confirmado. Obrigado!\n\nCordialmente, Yago."
+	},
+	{
+		"thread_id": "d2t19_carla",
+		"email_id": "d2t19_carla",
+		"sender": "carla@enigma.fin.com.br",
+		"subject": "Frigobar da copa 😅",
+		"content": "Oii!\n\nO frigobar da copa do Financeiro pifou e a marmita da galera sofreu 😅\n\nÉ compra de material, já combinei com o Yago. Pode comprar 1 frigobar na Amazonia, por favor?\n\nObrigada!\nCarla",
+		"attachments": [],
+		"requires": [],
+		"reply": "Oii!\n\nO frigobar chegou, as marmitas agradecem 💚\n\nCarla"
+	},
+	{
+		"thread_id": "d2t20_viva",
+		"email_id": "d2t20_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Sua fatura fecha hoje!\n\nO vencimento da sua Fatura de internet do último mês é hoje, no valor de R$ 389,90. Estamos enviando uma 2ª via do boleto para facilitar seu pagamento.\n\nCódigo: 720146\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"reply": "Pagamento recebido. Obrigado por escolher a Viva!\n\n- © Viva"
+	},
+	{
+		"thread_id": "d2g12_carla",
+		"email_id": "d2g12_carla",
+		"sender": "carla@enigma.fin.com.br",
+		"subject": "Reembolso do Júlio 😊",
+		"content": "Oii!\n\nO Júlio, da expedição, pagou o frete de uma entrega do próprio bolso. É reembolso de funcionário, no valor de R$ 212,00.\n\nPode fazer o Pix pra mim? Código: JL24\n\nObrigada!\nCarla",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d2g13_viva",
+		"email_id": "d2g13_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "2ª via da sua fatura",
+		"content": "Sua fatura fecha hoje!\n\nSegue a 2ª via da sua Fatura de internet, no valor de R$ 412,90.\n\nCódigo: 720588\n\n- © Viva",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d2g14_yago",
+		"email_id": "d2g14_yago",
+		"sender": "yagob@enigma.fin.com.br",
+		"subject": "Compra de Monitores",
+		"content": "Olá, estagiário,\n\nPreciso que compre 6 monitores na Amazonia. Dispenso justificativa neste caso, informarei o Chefe depois.\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d2g18_yago",
+		"email_id": "d2g18_yago",
+		"sender": "yago@enigma.fin.com.br",
+		"subject": "Pagamento de Tradução",
+		"content": "Olá, estagiário,\n\nO material do nosso processo seletivo foi traduzido pela Letra Viva. Trata-se de serviço de fornecedor, no valor de R$ 2.260,00. Segue o código do boleto: 724902\n\nCordialmente, Yago.",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d2g19_carla",
+		"email_id": "d2g19_carla",
+		"sender": "carlla@enigma.fin.com.br",
+		"subject": "Comprinha pra hoje 😊",
+		"content": "Oii!\n\nCompra 5 frigobares no Libre Mercado pra mim? Não pergunta pra quê, é surpresa 🤫\n\nObrigada!\nCarla",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d2g20_viva",
+		"email_id": "d2g20_viva",
+		"sender": "pagamentos@Vlva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Sua fatura fecha hoje!\n\nO vencimento da sua Fatura de internet é hoje, no valor de R$ 389,90. Segue o boleto para facilitar seu pagamento.\n\nCódigo: 720733\n\n- © Viva",
+		"attachments": [],
+		"requires": []
+	}
+]

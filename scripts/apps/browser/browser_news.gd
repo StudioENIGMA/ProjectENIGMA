@@ -12,11 +12,8 @@ const WORDS_PER_MINUTE = 200
 
 var _news_data: Dictionary = {}
 
-## Opens a news article, which the player then read for the "seen" requirement ("news:<id>")
 func setup(data: Dictionary) -> void:
 	_news_data = data
-	if data.has("id"):
-		GameData.mark_seen("news:%s" % data["id"])
 
 	if is_inside_tree():
 		_apply_data()

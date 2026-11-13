@@ -1,0 +1,130 @@
+{
+	"conversation_id": "gilrnar_fd6",
+	"contact_name": "Gilrnar",
+	"branches": {
+		"d6g15_gilrnar": [
+			{
+				"id": "d6g15_gilrnar_0",
+				"text": "Oi. É o Gilmar."
+			},
+			{
+				"id": "d6g15_gilrnar_1",
+				"text": "Faça um Pix para a Ferragens Aço Bom.",
+				"choices": [
+					{
+						"id": "d6g15_gilrnar_2_0",
+						"player_text": "Pra Ferragens? Referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g15_gilrnar_2_1",
+						"player_text": "Sem motivo não dá, seu Gilmar",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g15_gilrnar_r": [
+			{
+				"id": "d6g15_gilrnar_2",
+				"text": "Não tenho tempo para isso, o caminhão está na porta.",
+				"choices": [
+					{
+						"id": "d6g15_gilrnar_3_0",
+						"player_text": "Seu nome apareceu esquisito aqui",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_nome",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g15_gilrnar_3_1",
+						"player_text": "Caminhão de quê?",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_caminhao",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g15_gilrnar_nome": [
+			{
+				"id": "d6g15_gilrnar_3",
+				"text": "Deve ser seu celular."
+			},
+			{
+				"id": "d6g15_gilrnar_4",
+				"text": "Aqui está certo.",
+				"choices": [
+					{
+						"id": "d6g15_gilrnar_5_0",
+						"player_text": "Esse nome não tá me cheirando bem",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g15_gilrnar_5_1",
+						"player_text": "Nunca vi o senhor com tanta pressa",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g15_gilrnar_caminhao": [
+			{
+				"id": "d6g15_gilrnar_5",
+				"text": "De aço."
+			},
+			{
+				"id": "d6g15_gilrnar_6",
+				"text": "O motorista está buzinando. Escute.",
+				"choices": [
+					{
+						"id": "d6g15_gilrnar_7_0",
+						"player_text": "Daqui não dá pra escutar, seu Gilmar",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g15_gilrnar_7_1",
+						"player_text": "Buzina não entra no lançamento",
+						"npc_reply": {
+							"goto_branch": "d6g15_gilrnar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g15_gilrnar_fim": [
+			{
+				"id": "d6g15_gilrnar_7",
+				"text": "R$ 1.250,00, código AB644."
+			},
+			{
+				"id": "d6g15_gilrnar_end",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "AB644"
+					}
+				]
+			}
+		]
+	}
+}

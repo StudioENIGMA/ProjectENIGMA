@@ -1,0 +1,211 @@
+{
+	"conversation_id": "negativa_gd3",
+	"contact_name": "Negativa",
+	"verified": true,
+	"branches": {
+		"d3g02_negativa": [
+			{
+				"id": "d3g02_negativa_0",
+				"text": "Caro cliente, antes de prosseguirmos, uma breve pesquisa."
+			},
+			{
+				"id": "d3g02_negativa_1",
+				"text": "De 0 a 10, qual a chance de recomendar a Negativa Telas a um amigo?",
+				"choices": [
+					{
+						"id": "d3g02_negativa_2_0",
+						"player_text": "10, adoro uma película",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_dez",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g02_negativa_2_1",
+						"player_text": "Depende do amigo",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_depende",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g02_negativa_dez": [
+			{
+				"id": "d3g02_negativa_2",
+				"text": "Agradecemos. Sua nota será analisada em até 90 dias.",
+				"choices": [
+					{
+						"id": "d3g02_negativa_3_0",
+						"player_text": "Tudo isso pra ler um 10?",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g02_negativa_3_1",
+						"player_text": "Pode analisar com calma",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g02_negativa_depende": [
+			{
+				"id": "d3g02_negativa_3",
+				"text": "Resposta registrada como nota 7, caro cliente. Agradecemos a sinceridade.",
+				"choices": [
+					{
+						"id": "d3g02_negativa_4_0",
+						"player_text": "Mas eu não disse 7",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g02_negativa_4_1",
+						"player_text": "É, 7 tá justo",
+						"npc_reply": {
+							"goto_branch": "d3g02_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g02_negativa_fim": [
+			{
+				"id": "d3g02_negativa_4",
+				"text": "O pagamento referente às películas dos 40 celulares tem vencimento para hoje, conforme combinado com o Gerente."
+			},
+			{
+				"id": "d3g02_negativa_5",
+				"text": "Pix NT071 da Negativa Telas, no valor de R$ 3.890,00. Motivo: Compra de material."
+			},
+			{
+				"id": "d3g02_negativa_end",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NT071"
+					}
+				]
+			}
+		],
+		"d3g11_negativa": [
+			{
+				"id": "d3g11_negativa_0",
+				"text": "Caro cliente"
+			},
+			{
+				"id": "d3g11_negativa_1",
+				"text": "Consta um pagamento pendente referente ao seu contrato, com vencimento para hoje, conforme combinado com o Gerente.",
+				"choices": [
+					{
+						"id": "d3g11_negativa_2_0",
+						"player_text": "Contrato de quê? Preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_duvida",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g11_negativa_2_1",
+						"player_text": "Quem é esse Gerente? Isso é pra quê?",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_gerente",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g11_negativa_duvida": [
+			{
+				"id": "d3g11_negativa_2",
+				"text": "Sua dúvida é muito importante para nós."
+			},
+			{
+				"id": "d3g11_negativa_3",
+				"text": "Ela será respondida por ordem de chegada.",
+				"choices": [
+					{
+						"id": "d3g11_negativa_4_0",
+						"player_text": "Só tem eu na fila",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g11_negativa_4_1",
+						"player_text": "Quero só o motivo, nada mais",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g11_negativa_gerente": [
+			{
+				"id": "d3g11_negativa_4",
+				"text": "O Gerente é o Gerente, caro cliente.",
+				"choices": [
+					{
+						"id": "d3g11_negativa_5_0",
+						"player_text": "Posso falar com ele?",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g11_negativa_5_1",
+						"player_text": "Isso não é resposta",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g11_negativa_5_2",
+						"player_text": "Tá, e o motivo?",
+						"npc_reply": {
+							"goto_branch": "d3g11_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g11_negativa_fim": [
+			{
+				"id": "d3g11_negativa_5",
+				"text": "O Gerente já autorizou, caro cliente, e não cabe a nós detalhar."
+			},
+			{
+				"id": "d3g11_negativa_6",
+				"text": "Código pix: NG329, no valor de R$ 1.760,50."
+			},
+			{
+				"id": "d3g11_negativa_end",
+				"text": "Recebemos seu pagamento!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NG329"
+					}
+				]
+			}
+		]
+	}
+}

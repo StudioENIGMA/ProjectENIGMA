@@ -1,0 +1,253 @@
+{
+	"conversation_id": "rh_td5",
+	"contact_name": "RH",
+	"branches": {
+		"d5t15_rh": [
+			{
+				"id": "d5t15_rh_0",
+				"text": "Oi! Hoje tem bolo dos aniversariantes do mês \\(*^ o ^*)/"
+			},
+			{
+				"id": "d5t15_rh_1",
+				"text": "Qual é o seu sabor? Estou fazendo uma pesquisa muito séria ( = ^ w ^ = )",
+				"choices": [
+					{
+						"id": "d5t15_rh_2_0",
+						"player_text": "Chocolate, sem discussão",
+						"npc_reply": {
+							"goto_branch": "d5t15_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t15_rh_2_1",
+						"player_text": "Bolo não é muito a minha praia...",
+						"npc_reply": {
+							"goto_branch": "d5t15_rh_sem",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t15_rh_sem": [
+			{
+				"id": "d5t15_rh_2",
+				"text": "Como assim?! Vou ter que abrir um processo interno (@ ^ _ ^ @)",
+				"choices": [
+					{
+						"id": "d5t15_rh_3_0",
+						"player_text": "Brincadeira, quero uma fatia",
+						"npc_reply": {
+							"goto_branch": "d5t15_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t15_rh_3_1",
+						"player_text": "Aceito um pedaço, por educação",
+						"npc_reply": {
+							"goto_branch": "d5t15_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t15_rh_fim": [
+			{
+				"id": "d5t15_rh_3",
+				"text": "Aí sim! A Tia Neide capricha, ninguém sai sem repetir (^ _ ^)"
+			},
+			{
+				"id": "d5t15_rh_4",
+				"text": "É Evento da empresa! Faz um Pix pra Doceria da Tia Neide, R$ 275,00, código DT564 ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d5t15_rh_end",
+				"text": "Oba, obrigada! Sua fatia tá guardada (^ _ ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DT564"
+					}
+				]
+			}
+		],
+		"d5t16_rh": [
+			{
+				"id": "d5t16_rh_0",
+				"text": "Oi! Pode pagar um Pix pra mim? ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d5t16_rh_1_0",
+						"player_text": "Não veio motivo nenhum. Do que se trata?",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_motivo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t16_rh_1_1",
+						"player_text": "Só faço com motivo da lista. Qual é o seu?",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_motivo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t16_rh_motivo": [
+			{
+				"id": "d5t16_rh_1",
+				"text": "Ih! Esqueci de contar ( = ^ w ^ = )"
+			},
+			{
+				"id": "d5t16_rh_2",
+				"text": "É Serviço de fornecedor, os exames periódicos da Clínica Vida Plena."
+			},
+			{
+				"id": "d5t16_rh_3",
+				"text": "Falando nisso, você já fez o seu?",
+				"choices": [
+					{
+						"id": "d5t16_rh_4_0",
+						"player_text": "Ainda não. Tem agulha?",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_agulha",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t16_rh_4_1",
+						"player_text": "Nem sabia que tinha que fazer",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_sabia",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t16_rh_agulha": [
+			{
+				"id": "d5t16_rh_4",
+				"text": "Tem, mas a enfermeira é um amor! O Ricardo desmaiou e ela nem riu ( * ^ _ ^ * )",
+				"choices": [
+					{
+						"id": "d5t16_rh_5_0",
+						"player_text": "O Ricardo desmaiou?!",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t16_rh_5_1",
+						"player_text": "Isso não me acalmou",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t16_rh_sabia": [
+			{
+				"id": "d5t16_rh_5",
+				"text": "Tem sim! Ainda bem que perguntei, senão você ia parar na minha planilha vermelha ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d5t16_rh_6_0",
+						"player_text": "Socorro, tem planilha vermelha?",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t16_rh_6_1",
+						"player_text": "Me marca então, por favor",
+						"npc_reply": {
+							"goto_branch": "d5t16_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t16_rh_fim": [
+			{
+				"id": "d5t16_rh_6",
+				"text": "Depois eu te conto tudo! Agora o Pix: é o CV018, R$ 1.340,00 \\(*^ o ^*)/"
+			},
+			{
+				"id": "d5t16_rh_end",
+				"text": "Tudo certo, obrigada! Agora é só marcar o seu (@ ^ _ ^ @)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CV018"
+					}
+				]
+			}
+		],
+		"d5t17_rh": [
+			{
+				"id": "d5t17_rh_0",
+				"text": "Oi! Chegam três novatos na segunda e não temos camiseta ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d5t17_rh_1",
+				"text": "Compra de material, tá? Pega 3 camisetas azuis na A&C, por favor!",
+				"choices": [
+					{
+						"id": "d5t17_rh_2_0",
+						"player_text": "Só 3? Achei que eu ganhava uma também kkk",
+						"npc_reply": {
+							"goto_branch": "d5t17_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t17_rh_2_1",
+						"player_text": "Beleza, 3 azuis na A&C",
+						"npc_reply": {
+							"goto_branch": "d5t17_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t17_rh_fim": [
+			{
+				"id": "d5t17_rh_2",
+				"text": "Você é um anjo! ( = ^ w ^ = )",
+				"event_id": "d5t17_rh"
+			},
+			{
+				"id": "d5t17_rh_3",
+				"text": "Ano passado um novato passou o primeiro dia inteiro achando que era visitante (^ _ ^)"
+			},
+			{
+				"id": "d5t17_rh_end",
+				"text": "Chegaram, obrigada! \\(*^ o ^*)/ Azuis e sem ninguém perdido.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 33,
+								"quantity": 3,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

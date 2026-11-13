@@ -1,0 +1,282 @@
+{
+	"conversation_id": "negativa_td3",
+	"contact_name": "Negativa",
+	"verified": true,
+	"branches": {
+		"d3t05_negativa": [
+			{
+				"id": "d3t05_negativa_0",
+				"text": "Caro cliente, esta conversa poderá ser gravada para fins de qualidade."
+			},
+			{
+				"id": "d3t05_negativa_1",
+				"text": "Deseja tratar de: pagamento ou outros assuntos?",
+				"choices": [
+					{
+						"id": "d3t05_negativa_2_0",
+						"player_text": "Pagamento",
+						"npc_reply": {
+							"goto_branch": "d3t05_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t05_negativa_2_1",
+						"player_text": "Outros assuntos",
+						"npc_reply": {
+							"goto_branch": "d3t05_negativa_outros",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t05_negativa_outros": [
+			{
+				"id": "d3t05_negativa_2",
+				"text": "A opção 'outros assuntos' encontra-se indisponível desde a fundação da empresa."
+			},
+			{
+				"id": "d3t05_negativa_3",
+				"text": "Deseja receber ofertas de películas?",
+				"choices": [
+					{
+						"id": "d3t05_negativa_4_0",
+						"player_text": "Não, obrigado",
+						"npc_reply": {
+							"goto_branch": "d3t05_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t05_negativa_4_1",
+						"player_text": "Tem alguém de verdade aí?",
+						"npc_reply": {
+							"goto_branch": "d3t05_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t05_negativa_fim": [
+			{
+				"id": "d3t05_negativa_4",
+				"text": "Estamos entrando em contato para avisar sobre o pagamento dos 5 aparelhos celulares, conforme combinado com o Gerente."
+			},
+			{
+				"id": "d3t05_negativa_5",
+				"text": "Pix NT906 da Negativa Telas, no valor de R$ 4.250,00. Motivo: Compra de material."
+			},
+			{
+				"id": "d3t05_negativa_end",
+				"text": "Recebemos seu pagamento! Avalie este atendimento de 1 a 1.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NT906"
+					}
+				]
+			}
+		],
+		"d3t06_negativa": [
+			{
+				"id": "d3t06_negativa_0",
+				"text": "Caro cliente"
+			},
+			{
+				"id": "d3t06_negativa_1",
+				"text": "Consta em nosso sistema um pagamento pendente com vencimento para o dia de hoje.",
+				"choices": [
+					{
+						"id": "d3t06_negativa_2_0",
+						"player_text": "Pendente de quê? Sem motivo não lanço",
+						"npc_reply": {
+							"goto_branch": "d3t06_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t06_negativa_2_1",
+						"player_text": "Sou o estagiário. Faltou dizer pra que é",
+						"npc_reply": {
+							"goto_branch": "d3t06_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t06_negativa_2_2",
+						"player_text": "Pode me passar o protocolo?",
+						"npc_reply": {
+							"goto_branch": "d3t06_negativa_protocolo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t06_negativa_protocolo": [
+			{
+				"id": "d3t06_negativa_2",
+				"text": "Protocolo em elaboração. Nosso prazo de geração é de 7 a 10 dias úteis."
+			},
+			{
+				"id": "d3t06_negativa_3",
+				"text": "Posso ajudar em algo mais, caro cliente?",
+				"choices": [
+					{
+						"id": "d3t06_negativa_4_0",
+						"player_text": "Pode. Me diga a que se refere esse valor",
+						"npc_reply": {
+							"goto_branch": "d3t06_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t06_negativa_4_1",
+						"player_text": "Sim: o motivo. É regra aqui da empresa",
+						"npc_reply": {
+							"goto_branch": "d3t06_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t06_negativa_fim": [
+			{
+				"id": "d3t06_negativa_4",
+				"text": "Perdão, caro cliente. Consta aqui um campo em branco, e era justamente esse."
+			},
+			{
+				"id": "d3t06_negativa_5",
+				"text": "Trata-se de Serviço de fornecedor, a manutenção das telas da recepção."
+			},
+			{
+				"id": "d3t06_negativa_6",
+				"text": "Código Pix: NT527, no valor de R$ 1.320,00."
+			},
+			{
+				"id": "d3t06_negativa_end",
+				"text": "Recebemos seu pagamento! Agradecemos a preferência.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NT527"
+					}
+				]
+			}
+		],
+		"d3t07_negativa": [
+			{
+				"id": "d3t07_negativa_0",
+				"text": "Bom dia, aqui é o Gerente do Departamento de Telas",
+				"choices": [
+					{
+						"id": "d3t07_negativa_1_0",
+						"player_text": "Bom dia! Tudo bem com o senhor?",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_bem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t07_negativa_1_1",
+						"player_text": "O famoso Gerente! Prazer",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_fama",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t07_negativa_bem": [
+			{
+				"id": "d3t07_negativa_1",
+				"text": "Estou bem, caro cliente, conforme combinado."
+			},
+			{
+				"id": "d3t07_negativa_2",
+				"text": "Posso prosseguir?",
+				"choices": [
+					{
+						"id": "d3t07_negativa_3_0",
+						"player_text": "Pode prosseguir",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t07_negativa_3_1",
+						"player_text": "Combinado com quem?",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t07_negativa_fama": [
+			{
+				"id": "d3t07_negativa_3",
+				"text": "O Departamento agradece o reconhecimento."
+			},
+			{
+				"id": "d3t07_negativa_4",
+				"text": "Seu elogio será encaminhado ao Gerente."
+			},
+			{
+				"id": "d3t07_negativa_5",
+				"text": "Que sou eu.",
+				"choices": [
+					{
+						"id": "d3t07_negativa_6_0",
+						"player_text": "Manda um abraço pra ele",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t07_negativa_6_1",
+						"player_text": "Certo. O que o senhor manda?",
+						"npc_reply": {
+							"goto_branch": "d3t07_negativa_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t07_negativa_fim": [
+			{
+				"id": "d3t07_negativa_6",
+				"text": "Caro cliente, a compra de 2 monitores deve ser completada na Amazônia, como previsto na parceria. Motivo: Compra de material.",
+				"event_id": "d3t07_negativa"
+			},
+			{
+				"id": "d3t07_negativa_7",
+				"text": "Muito obrigado pela atenção."
+			},
+			{
+				"id": "d3t07_negativa_end",
+				"text": "Compra dos monitores confirmada. Agradecemos!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 2,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

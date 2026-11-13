@@ -6,6 +6,16 @@
 			{
 				"id": "mancia_purchase0_0",
 				"text": "boa tarde! :] acabaram as rosquinha. Você pode encomendar 10 tiramisu no emporio dos bolos, por favor? ;))))"
+			},
+			{
+				"id": "mancia_purchase0_1",
+				"text": "brigadaaa ;))",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [{ "item_id": 26, "quantity": 10, "store": "emporio_bolos" }]
+					}
+				]
 			}
 		],
 		"scan2_mancia": [
@@ -20,7 +30,7 @@
 					{
 						"flag": "purchase",
 						"items": [
-							{ "item_id": 25, "quantity": 22, "store": "emilia_bolos" }]
+							{ "item_id": 25, "quantity": 22, "store": ["emilia_bolos", "emporio_bolos"] }]
 					}
 				]
 			}

@@ -1,0 +1,138 @@
+{
+	"conversation_id": "arthvr_fd1",
+	"contact_name": "Arthvr",
+	"branches": {
+		"d1g15_arthvr": [
+			{
+				"id": "d1g15_arthvr_0",
+				"text": "Eai estagiário, tô pelo celular"
+			},
+			{
+				"id": "d1g15_arthvr_1",
+				"text": "a régua de tomada da sala de reunião derreteu kkkkk",
+				"choices": [
+					{
+						"id": "d1g15_arthvr_2_0",
+						"player_text": "Derreteu?! Ligaram o quê nela?",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_derreteu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g15_arthvr_2_1",
+						"player_text": "Arthur, seu nome tá estranho aqui",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_nome",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g15_arthvr_derreteu": [
+			{
+				"id": "d1g15_arthvr_2",
+				"text": "cafeteira, ventilador e o carregador de todo mundo kkkkk"
+			},
+			{
+				"id": "d1g15_arthvr_3",
+				"text": "tá um cheiro de plástico até agora",
+				"choices": [
+					{
+						"id": "d1g15_arthvr_4_0",
+						"player_text": "Que perigo, gente",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g15_arthvr_4_1",
+						"player_text": "Pelo menos o café saiu?",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g15_arthvr_nome": [
+			{
+				"id": "d1g15_arthvr_4",
+				"text": "o corretor fez isso kkkk, falei que tô pelo celular"
+			},
+			{
+				"id": "d1g15_arthvr_5",
+				"text": "vai dizer que vc nunca errou o próprio nome?",
+				"choices": [
+					{
+						"id": "d1g15_arthvr_6_0",
+						"player_text": "Vou confirmar com o TI antes",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_ti",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g15_arthvr_6_1",
+						"player_text": "Justo. O que você precisa?",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g15_arthvr_ti": [
+			{
+				"id": "d1g15_arthvr_6",
+				"text": "mano, eu SOU o TI kkkkk"
+			},
+			{
+				"id": "d1g15_arthvr_7",
+				"text": "fica tranquilo, sério. é coisa pequena",
+				"choices": [
+					{
+						"id": "d1g15_arthvr_8_0",
+						"player_text": "Mesmo assim vou olhar",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g15_arthvr_8_1",
+						"player_text": "Tá, me conta o que foi",
+						"npc_reply": {
+							"goto_branch": "d1g15_arthvr_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g15_arthvr_fim": [
+			{
+				"id": "d1g15_arthvr_8",
+				"text": "pedi umas réguas novas na EletroLuz, Compra de material, R$ 163,50"
+			},
+			{
+				"id": "d1g15_arthvr_9",
+				"text": "código pix: LB137"
+			},
+			{
+				"id": "d1g15_arthvr_end",
+				"text": "Valeu tmj, sem tomada não tem reunião kkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "LB137"
+					}
+				]
+			}
+		]
+	}
+}

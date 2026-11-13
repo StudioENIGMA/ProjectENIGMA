@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "marcaao_payment0_1",
-				"text": "pode pagar esse boleto de materiais por favor o boleto é 234567"
+				"text": "pode pagar esse pix de materiais por favor o pix é MA567"
 			},
 			{
 				"id": "marcaao_payment0_2",
@@ -17,7 +17,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "234567"
+						"payment_id": "MA567"
 					}
 				]
 			}
@@ -29,11 +29,11 @@
 			},
 			{
 				"id": "marcaao_payment1_1",
-				"text": "quero ajuda com uns materiais paga o boleto"
+				"text": "quero ajuda com uns materiais paga o pix"
 			},
 			{
 				"id": "marcaao_payment1_2",
-				"text": "paga o boleto: 468431"
+				"text": "paga o pix: MA431"
 			},
 			{
 				"id": "marcaao_payment1_3",
@@ -41,7 +41,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "468431"
+						"payment_id": "MA431"
 					}
 				]
 			}

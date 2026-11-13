@@ -1,0 +1,185 @@
+{
+	"conversation_id": "financeiro_td3",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d3t08_financeiro": [
+			{
+				"id": "d3t08_financeiro_0",
+				"text": "Simone, do Financeiro, por aqui."
+			},
+			{
+				"id": "d3t08_financeiro_1",
+				"text": "A Contábil Horizonte fechou o mês. Pague o Pix CH041, por favor: R$ 2.300,00, Serviço de fornecedor."
+			},
+			{
+				"id": "d3t08_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CH041"
+					}
+				]
+			}
+		],
+		"d3t09_financeiro": [
+			{
+				"id": "d3t09_financeiro_0",
+				"text": "Bom dia! Faça um Pix para mim, por favor. Já te passo os dados.",
+				"choices": [
+					{
+						"id": "d3t09_financeiro_1_0",
+						"player_text": "Tá faltando o motivo aí",
+						"npc_reply": {
+							"goto_branch": "d3t09_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t09_financeiro_1_1",
+						"player_text": "Isso é pra quê? Preciso anotar",
+						"npc_reply": {
+							"goto_branch": "d3t09_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t09_financeiro_1_2",
+						"player_text": "Simone, foi você que me ensinou a cobrar",
+						"npc_reply": {
+							"goto_branch": "d3t09_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t09_financeiro_fim": [
+			{
+				"id": "d3t09_financeiro_1",
+				"text": "Desculpe! Tem razão. Eu mesma ensino e eu mesma esqueço."
+			},
+			{
+				"id": "d3t09_financeiro_2",
+				"text": "É Investimento da empresa, o aporte mensal na Aurora Capital."
+			},
+			{
+				"id": "d3t09_financeiro_3",
+				"text": "Código FN372, na área Pix do Banco. Valor: R$ 5.000,00."
+			},
+			{
+				"id": "d3t09_financeiro_end",
+				"text": "Pix recebido, obrigada! E continue cobrando.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FN372"
+					}
+				]
+			}
+		],
+		"d3t10_financeiro": [
+			{
+				"id": "d3t10_financeiro_0",
+				"text": "Bom dia! Chegam dois estagiários novos na segunda.",
+				"choices": [
+					{
+						"id": "d3t10_financeiro_1_0",
+						"player_text": "Vou virar veterano agora?",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_veterano",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t10_financeiro_1_1",
+						"player_text": "Eles vão sentar onde?",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_onde",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t10_financeiro_veterano": [
+			{
+				"id": "d3t10_financeiro_1",
+				"text": "Por uma semana, sim. Não deixe subir à cabeça.",
+				"choices": [
+					{
+						"id": "d3t10_financeiro_2_0",
+						"player_text": "Já posso mandar eles buscarem café?",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t10_financeiro_2_1",
+						"player_text": "Prometo ser um veterano humilde",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t10_financeiro_onde": [
+			{
+				"id": "d3t10_financeiro_2",
+				"text": "Ótima pergunta. O RH diz que o problema é do Financeiro. Eu digo que é do RH."
+			},
+			{
+				"id": "d3t10_financeiro_3",
+				"text": "Aceito sugestões.",
+				"choices": [
+					{
+						"id": "d3t10_financeiro_4_0",
+						"player_text": "Na sala do TI, é a mais gelada",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t10_financeiro_4_1",
+						"player_text": "Divido minha cadeira, sem problema",
+						"npc_reply": {
+							"goto_branch": "d3t10_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t10_financeiro_fim": [
+			{
+				"id": "d3t10_financeiro_4",
+				"text": "O que me cabe é o uniforme.",
+				"event_id": "d3t10_financeiro"
+			},
+			{
+				"id": "d3t10_financeiro_5",
+				"text": "Compre 4 camisas sociais azuis na A&C, por favor. Pode registrar como Compra de material."
+			},
+			{
+				"id": "d3t10_financeiro_end",
+				"text": "As camisas chegaram, obrigada! Já estão etiquetadas na minha mesa.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 31,
+								"quantity": 4,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

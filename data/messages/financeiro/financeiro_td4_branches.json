@@ -1,0 +1,186 @@
+{
+	"conversation_id": "financeiro_td4",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d4t14_financeiro": [
+			{
+				"id": "d4t14_financeiro_0",
+				"text": "Com licença, é a Simone."
+			},
+			{
+				"id": "d4t14_financeiro_1",
+				"text": "A Papelaria Bom Papel entregou o material do mês. É Compra de material, R$ 538,20."
+			},
+			{
+				"id": "d4t14_financeiro_2",
+				"text": "Pix PB302, na área Pix do Banco. Confira comigo, por favor.",
+				"choices": [
+					{
+						"id": "d4t14_financeiro_3_0",
+						"player_text": "R$ 538,20, código PB302. Confere?",
+						"npc_reply": {
+							"goto_branch": "d4t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t14_financeiro_3_1",
+						"player_text": "Anotado! Veio caneta azul dessa vez?",
+						"npc_reply": {
+							"goto_branch": "d4t14_financeiro_caneta",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t14_financeiro_caneta": [
+			{
+				"id": "d4t14_financeiro_3",
+				"text": "Veio. Duram até sexta, ninguém sabe para onde vão."
+			},
+			{
+				"id": "d4t14_financeiro_4",
+				"text": "Foi você?",
+				"choices": [
+					{
+						"id": "d4t14_financeiro_5_0",
+						"player_text": "Juro que não",
+						"npc_reply": {
+							"goto_branch": "d4t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t14_financeiro_5_1",
+						"player_text": "Só uma, pra assinar o contrato",
+						"npc_reply": {
+							"goto_branch": "d4t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t14_financeiro_fim": [
+			{
+				"id": "d4t14_financeiro_5",
+				"text": "Pode seguir com o Pix, por favor."
+			},
+			{
+				"id": "d4t14_financeiro_end",
+				"text": "Pagamento recebido, obrigada! Guarde uma caneta para você enquanto dá tempo.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PB302"
+					}
+				]
+			}
+		],
+		"d4t15_financeiro": [
+			{
+				"id": "d4t15_financeiro_0",
+				"text": "Bom dia! Tenho mais um pagamento para você."
+			},
+			{
+				"id": "d4t15_financeiro_1",
+				"text": "Depois do que apareceu ontem na copa, é melhor resolver isso.",
+				"choices": [
+					{
+						"id": "d4t15_financeiro_2_0",
+						"player_text": "O que apareceu na copa, Simone?",
+						"npc_reply": {
+							"goto_branch": "d4t15_financeiro_copa",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t15_financeiro_2_1",
+						"player_text": "Bom dia, Simone! Motivo e código, por favor?",
+						"npc_reply": {
+							"goto_branch": "d4t15_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t15_financeiro_copa": [
+			{
+				"id": "d4t15_financeiro_2",
+				"text": "Prefiro não descrever."
+			},
+			{
+				"id": "d4t15_financeiro_3",
+				"text": "Digo apenas que tinha patas e não tinha crachá.",
+				"choices": [
+					{
+						"id": "d4t15_financeiro_4_0",
+						"player_text": "Entendido. E qual motivo eu coloco no pagamento?",
+						"npc_reply": {
+							"goto_branch": "d4t15_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4t15_financeiro_4_1",
+						"player_text": "Credo. Me passa o motivo e o código?",
+						"npc_reply": {
+							"goto_branch": "d4t15_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4t15_financeiro_fim": [
+			{
+				"id": "d4t15_financeiro_4",
+				"text": "Verdade, nem te falei o principal! É Serviço de fornecedor, da Dedetizadora Sem Bicho."
+			},
+			{
+				"id": "d4t15_financeiro_5",
+				"text": "O valor é R$ 720,00 e o código Pix é DS690."
+			},
+			{
+				"id": "d4t15_financeiro_end",
+				"text": "Pagamento recebido, obrigada! Pode voltar a usar a copa.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DS690"
+					}
+				]
+			}
+		],
+		"d4t16_financeiro": [
+			{
+				"id": "d4t16_financeiro_0",
+				"text": "Bom dia. Hoje é dia da aplicação mensal do caixa, combinada com a Central Sul Corretora."
+			},
+			{
+				"id": "d4t16_financeiro_1",
+				"text": "É Investimento da empresa, R$ 5.000,00."
+			},
+			{
+				"id": "d4t16_financeiro_2",
+				"text": "Pague este Pix, por favor: código CS036."
+			},
+			{
+				"id": "d4t16_financeiro_3",
+				"text": "E não se anime. O rendimento também não é seu."
+			},
+			{
+				"id": "d4t16_financeiro_end",
+				"text": "Aplicação confirmada, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CS036"
+					}
+				]
+			}
+		]
+	}
+}

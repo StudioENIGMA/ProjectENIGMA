@@ -1,0 +1,416 @@
+{
+	"conversation_id": "carolina_td3",
+	"contact_name": "Carolina",
+	"branches": {
+		"d3t01_carolina": [
+			{
+				"id": "d3t01_carolina_0",
+				"text": "Oii, preciso de um cúmplice"
+			},
+			{
+				"id": "d3t01_carolina_1",
+				"text": "o Lorenz faz aniversário amanhã e ele acha q a gente esqueceu hahaha",
+				"choices": [
+					{
+						"id": "d3t01_carolina_2_0",
+						"player_text": "Ele tá achando isso mesmo?",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_triste",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t01_carolina_2_1",
+						"player_text": "Tô dentro. Qual é o plano?",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_plano",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t01_carolina_triste": [
+			{
+				"id": "d3t01_carolina_2",
+				"text": "ontem ele suspirou 'ninguém lembra de mim' olhando pro servidor"
+			},
+			{
+				"id": "d3t01_carolina_3",
+				"text": "e o servidor tbm n respondeu hahaha"
+			},
+			{
+				"id": "d3t01_carolina_4",
+				"text": "ajuda a gente a salvar esse homem?",
+				"choices": [
+					{
+						"id": "d3t01_carolina_5_0",
+						"player_text": "Bora salvar o Lorenz",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t01_carolina_5_1",
+						"player_text": "Tadinho. O que eu faço?",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t01_carolina_plano": [
+			{
+				"id": "d3t01_carolina_5",
+				"text": "o plano é bolo. só isso. n sou complexa hahaha"
+			},
+			{
+				"id": "d3t01_carolina_6",
+				"text": "topa?",
+				"choices": [
+					{
+						"id": "d3t01_carolina_7_0",
+						"player_text": "Bolo é um ótimo plano",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t01_carolina_7_1",
+						"player_text": "Só se sobrar um pedaço pra mim",
+						"npc_reply": {
+							"goto_branch": "d3t01_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t01_carolina_fim": [
+			{
+				"id": "d3t01_carolina_7",
+				"text": "vc compra 2 bolos de chocolate na Emilia Bolos pra mim? é Evento da empresa, o chefe liberou",
+				"event_id": "d3t01_carolina"
+			},
+			{
+				"id": "d3t01_carolina_8",
+				"text": "e bico fechado, se ele perguntar vc n sabe de nada hahaha"
+			},
+			{
+				"id": "d3t01_carolina_end",
+				"text": "Chegaram!! ele quase chorou hahaha obgdaa",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 27,
+								"quantity": 2,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d3t02_carolina": [
+			{
+				"id": "d3t02_carolina_0",
+				"text": "Oi estagiário, lembra do pedido PC-0462 dos cabos de rede? tá nas notas",
+				"choices": [
+					{
+						"id": "d3t02_carolina_1_0",
+						"player_text": "Lembro sim, pode falar",
+						"npc_reply": {
+							"goto_branch": "d3t02_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t02_carolina_1_1",
+						"player_text": "Peraí, vou conferir nas notas",
+						"npc_reply": {
+							"goto_branch": "d3t02_carolina_notas",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t02_carolina_notas": [
+			{
+				"id": "d3t02_carolina_1",
+				"text": "confere msm, gosto de estagiário q confere hahaha"
+			},
+			{
+				"id": "d3t02_carolina_2",
+				"text": "achou?",
+				"choices": [
+					{
+						"id": "d3t02_carolina_3_0",
+						"player_text": "Achei, PC-0462 dos cabos de rede",
+						"npc_reply": {
+							"goto_branch": "d3t02_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t02_carolina_3_1",
+						"player_text": "Tá aqui. Era só esse o susto?",
+						"npc_reply": {
+							"goto_branch": "d3t02_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t02_carolina_fim": [
+			{
+				"id": "d3t02_carolina_3",
+				"text": "a Conecta Cabos mandou o Pix CC214, é R$ 618,40. Compra de material"
+			},
+			{
+				"id": "d3t02_carolina_4",
+				"text": "paga pra mim? tô debaixo da mesa da sala grande, enrolada com um cabo q n acaba mais hahaha"
+			},
+			{
+				"id": "d3t02_carolina_end",
+				"text": "Obgdaa, agr só falta passar os cabos e alguém me tirar daqui debaixo",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CC214"
+					}
+				]
+			}
+		],
+		"d3t03_carolina": [
+			{
+				"id": "d3t03_carolina_0",
+				"text": "Oii, vc tem café aí nesse andar?"
+			},
+			{
+				"id": "d3t03_carolina_1",
+				"text": "o nosso acabou e o Lorenz tá agindo como se fosse culpa minha hahaha",
+				"choices": [
+					{
+						"id": "d3t03_carolina_2_0",
+						"player_text": "Aqui tem, mas é horrível",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_horrivel",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t03_carolina_2_1",
+						"player_text": "E foi culpa sua?",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_culpa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t03_carolina_horrivel": [
+			{
+				"id": "d3t03_carolina_2",
+				"text": "horrível eu aceito, tô nesse nível"
+			},
+			{
+				"id": "d3t03_carolina_3",
+				"text": "aproveitando, vc consegue fzr um pix pra mim?",
+				"choices": [
+					{
+						"id": "d3t03_carolina_4_0",
+						"player_text": "Consigo, é pra quê?",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t03_carolina_4_1",
+						"player_text": "Só me diz o motivo que eu lanço",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t03_carolina_culpa": [
+			{
+				"id": "d3t03_carolina_4",
+				"text": "foi, mas n espalha hahaha"
+			},
+			{
+				"id": "d3t03_carolina_5",
+				"text": "falando em coisa séria, vc faz um pix pra mim?",
+				"choices": [
+					{
+						"id": "d3t03_carolina_6_0",
+						"player_text": "Depende, é referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t03_carolina_6_1",
+						"player_text": "Pix sem motivo não passa, Carolina",
+						"npc_reply": {
+							"goto_branch": "d3t03_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t03_carolina_fim": [
+			{
+				"id": "d3t03_carolina_6",
+				"text": "ai verdade hahaha"
+			},
+			{
+				"id": "d3t03_carolina_7",
+				"text": "é Reembolso de funcionário, comprei um adaptador do meu bolso pra reunião de ontem"
+			},
+			{
+				"id": "d3t03_carolina_8",
+				"text": "a tv da sala só aceita um cabo q nem existe mais"
+			},
+			{
+				"id": "d3t03_carolina_9",
+				"text": "o pix é CR317, R$ 89,90"
+			},
+			{
+				"id": "d3t03_carolina_end",
+				"text": "Caiu aqui, obgdaa!! já pode virar café",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CR317"
+					}
+				]
+			}
+		],
+		"d3t04_carolina": [
+			{
+				"id": "d3t04_carolina_0",
+				"text": "Oi, o frigobar do TI morreu e levou meu iogurte junto hahaha",
+				"choices": [
+					{
+						"id": "d3t04_carolina_1_0",
+						"player_text": "Meus pêsames ao iogurte",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_luto",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t04_carolina_1_1",
+						"player_text": "Morreu como?",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_como",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t04_carolina_luto": [
+			{
+				"id": "d3t04_carolina_1",
+				"text": "obgda. era de morango, tinha a vida inteira pela frente (vencia sexta)"
+			},
+			{
+				"id": "d3t04_carolina_2",
+				"text": "vc compra 1 novo na Amazônia pra gente?",
+				"choices": [
+					{
+						"id": "d3t04_carolina_3_0",
+						"player_text": "Compro, mas lanço com qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t04_carolina_3_1",
+						"player_text": "Pelo iogurte eu faço. É pra quê no sistema?",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t04_carolina_como": [
+			{
+				"id": "d3t04_carolina_3",
+				"text": "fez um barulho de trator e parou. o Lorenz disse q foi 'fim de ciclo' hahaha"
+			},
+			{
+				"id": "d3t04_carolina_4",
+				"text": "vc pede 1 novo na Amazônia pra gente?",
+				"choices": [
+					{
+						"id": "d3t04_carolina_5_0",
+						"player_text": "Preciso do motivo antes, tá?",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t04_carolina_5_1",
+						"player_text": "Peço. Vai como o quê no registro?",
+						"npc_reply": {
+							"goto_branch": "d3t04_carolina_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t04_carolina_fim": [
+			{
+				"id": "d3t04_carolina_5",
+				"text": "ih, nem falei né",
+				"event_id": "d3t04_carolina"
+			},
+			{
+				"id": "d3t04_carolina_6",
+				"text": "é Compra de material, o chefe já autorizou"
+			},
+			{
+				"id": "d3t04_carolina_7",
+				"text": "meu iogurte reserva tá na janela, torcendo por vc"
+			},
+			{
+				"id": "d3t04_carolina_end",
+				"text": "Chegou!! meu iogurte agradece, obgda",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 16,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

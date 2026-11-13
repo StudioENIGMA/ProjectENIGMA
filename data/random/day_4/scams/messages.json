@@ -1,7 +1,47 @@
 [
-    {
+	{
 		"conversation_id": "arhtur_1",
 		"branch": "scan0_arhtur",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "guillherme_1",
+		"branch": "scan0_guillherme",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marciia_1",
+		"branch": "scan0_marciia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "marciia_1",
+		"branch": "scan1_marciia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "mancia_1",
+		"branch": "scan0_mancia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "mancia_1",
+		"branch": "scan2_mancia",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "carolinda_1",
+		"branch": "scan0_carolinda",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "false_px_investment_1",
+		"branch": "scan1_false_px_investment",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "guilherrne_1",
+		"branch": "scan0_guilherrne",
+		"required_app": "Bank"
 	}
 ]

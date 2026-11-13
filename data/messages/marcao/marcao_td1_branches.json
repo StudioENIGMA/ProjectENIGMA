@@ -1,0 +1,346 @@
+{
+	"conversation_id": "marcao_td1",
+	"contact_name": "Marcão",
+	"branches": {
+		"d1t07_marcao": [
+			{
+				"id": "d1t07_marcao_0",
+				"text": "Fala meu camarada estagiário"
+			},
+			{
+				"id": "d1t07_marcao_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "d1t07_marcao_2",
+				"text": "já conhece a linha 2?",
+				"choices": [
+					{
+						"id": "d1t07_marcao_3_0",
+						"player_text": "É a que faz aquele barulhão?",
+						"npc_reply": {
+							"goto_branch": "d1t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t07_marcao_3_1",
+						"player_text": "Ainda não, só de ouvir falar",
+						"npc_reply": {
+							"goto_branch": "d1t07_marcao_conhece",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t07_marcao_conhece": [
+			{
+				"id": "d1t07_marcao_3",
+				"text": "tu precisa descer aqui um dia"
+			},
+			{
+				"id": "d1t07_marcao_4",
+				"text": "capacete é por minha conta, só não encosta em nada kkkkk",
+				"choices": [
+					{
+						"id": "d1t07_marcao_5_0",
+						"player_text": "Fechado, desço sim",
+						"npc_reply": {
+							"goto_branch": "d1t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t07_marcao_5_1",
+						"player_text": "Só se tiver café lá embaixo",
+						"npc_reply": {
+							"goto_branch": "d1t07_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t07_marcao_fim": [
+			{
+				"id": "d1t07_marcao_5",
+				"text": "seguinte: a linha 2 tá pedindo parafuso, vibra que nem liquidificador kkkkk"
+			},
+			{
+				"id": "d1t07_marcao_6",
+				"text": "a Ferragens Santo Antônio separou pra mim"
+			},
+			{
+				"id": "d1t07_marcao_7",
+				"text": "Compra de material, R$ 1.340,75"
+			},
+			{
+				"id": "d1t07_marcao_8",
+				"text": "paga esse pix faz o favor: SA119"
+			},
+			{
+				"id": "d1t07_marcao_end",
+				"text": "Valeu! parafuso garantido, obrigado camarada",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SA119"
+					}
+				]
+			}
+		],
+		"d1t08_marcao": [
+			{
+				"id": "d1t08_marcao_0",
+				"text": "Cara você não vai acreditar"
+			},
+			{
+				"id": "d1t08_marcao_1",
+				"text": "é o Marcão",
+				"choices": [
+					{
+						"id": "d1t08_marcao_2_0",
+						"player_text": "O que aprontaram agora?",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_caixa",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t08_marcao_2_1",
+						"player_text": "Acredito sim, pode contar",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_caixa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t08_marcao_caixa": [
+			{
+				"id": "d1t08_marcao_2",
+				"text": "a empilhadeira passou em cima da caixa de luvas kkkkkkk"
+			},
+			{
+				"id": "d1t08_marcao_3",
+				"text": "novinha, nem tinha aberto",
+				"choices": [
+					{
+						"id": "d1t08_marcao_4_0",
+						"player_text": "Alguém se machucou?",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_machucou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t08_marcao_4_1",
+						"player_text": "Virou luva tamanho família?",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t08_marcao_machucou": [
+			{
+				"id": "d1t08_marcao_4",
+				"text": "não não, só a caixa e o orgulho do motorista kkkkk"
+			},
+			{
+				"id": "d1t08_marcao_5",
+				"text": "tá lá até agora dizendo que a caixa pulou na frente",
+				"choices": [
+					{
+						"id": "d1t08_marcao_6_0",
+						"player_text": "Caixa traiçoeira mesmo",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t08_marcao_6_1",
+						"player_text": "Ainda bem. E agora?",
+						"npc_reply": {
+							"goto_branch": "d1t08_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t08_marcao_fim": [
+			{
+				"id": "d1t08_marcao_6",
+				"text": "pedi outra na Protege EPI, Compra de material, R$ 520,00"
+			},
+			{
+				"id": "d1t08_marcao_7",
+				"text": "o pix é PE214"
+			},
+			{
+				"id": "d1t08_marcao_end",
+				"text": "Salvou as mãos da galera kkkkk valeu",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PE214"
+					}
+				]
+			}
+		],
+		"d1t09_marcao": [
+			{
+				"id": "d1t09_marcao_0",
+				"text": "Bom dia meu bom"
+			},
+			{
+				"id": "d1t09_marcao_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "d1t09_marcao_2",
+				"text": "trancaram a chave do galpão lá dentro. adivinha quem kkkkk",
+				"choices": [
+					{
+						"id": "d1t09_marcao_3_0",
+						"player_text": "Foi você, né?",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_voce",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t09_marcao_3_1",
+						"player_text": "O chefe?",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_chefe",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t09_marcao_3_2",
+						"player_text": "O seu Valdir?",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_valdir",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t09_marcao_voce": [
+			{
+				"id": "d1t09_marcao_3",
+				"text": "como tu adivinhou rapaz"
+			},
+			{
+				"id": "d1t09_marcao_4",
+				"text": "tá ficando bom nisso, nem precisa mais da gente",
+				"choices": [
+					{
+						"id": "d1t09_marcao_5_0",
+						"player_text": "Sou bom de investigação",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t09_marcao_5_1",
+						"player_text": "Foi chute, você tem cara",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t09_marcao_chefe": [
+			{
+				"id": "d1t09_marcao_5",
+				"text": "antes fosse kkkkk"
+			},
+			{
+				"id": "d1t09_marcao_6",
+				"text": "foi eu mesmo, meu bom. fiquei olhando a chave pelo vidro",
+				"choices": [
+					{
+						"id": "d1t09_marcao_7_0",
+						"player_text": "Deixa eu adivinhar: chorou",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t09_marcao_7_1",
+						"player_text": "Eita. E como abriu?",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t09_marcao_valdir": [
+			{
+				"id": "d1t09_marcao_7",
+				"text": "o Valdir? jamais, o homem é um relógio"
+			},
+			{
+				"id": "d1t09_marcao_8",
+				"text": "foi eu mesmo kkkkk",
+				"choices": [
+					{
+						"id": "d1t09_marcao_9_0",
+						"player_text": "Devia ter chamado ele",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t09_marcao_9_1",
+						"player_text": "Mas como que abriu?",
+						"npc_reply": {
+							"goto_branch": "d1t09_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t09_marcao_fim": [
+			{
+				"id": "d1t09_marcao_9",
+				"text": "o Chaveiro do Tião abriu em dois minutos. dois!"
+			},
+			{
+				"id": "d1t09_marcao_10",
+				"text": "Serviço de fornecedor, R$ 150,00, fora a vergonha"
+			},
+			{
+				"id": "d1t09_marcao_11",
+				"text": "pix dele é CT171"
+			},
+			{
+				"id": "d1t09_marcao_end",
+				"text": "pago, valeu meu bom. próxima vez a chave fica no meu pescoço kkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CT171"
+					}
+				]
+			}
+		]
+	}
+}

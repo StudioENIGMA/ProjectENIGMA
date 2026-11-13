@@ -31,11 +31,11 @@
 	},
 	"ti_password0": {
 		"type": "main-task",
-		"description": "Teste de Senha",
+		"description": "Conferir uma senha com a política do dia",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "L6s*(23v@"
+				"choice": "Faltam caracteres e um número"
 			}
 		]
 	},
@@ -199,11 +199,11 @@
 	},
 	"task0_mariana": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "58lcws142q"
+				"choice": "Falta mais um símbolo nela"
 			}
 		]
 	},
@@ -238,7 +238,7 @@
 					{
 						"item_id": 36,
 						"quantity": 6,
-						"store": "emilia_bolos"
+						"store": "aec"
 					}
 				]
 			}
@@ -276,7 +276,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "673423"
+				"payment_id": "PI423"
 			}
 		]
 	},
@@ -286,7 +286,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "901254"
+				"payment_id": "PI254"
 			}
 		]
 	},
@@ -296,7 +296,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "547925"
+				"payment_id": "PI925"
 			}
 		]
 	},
@@ -306,7 +306,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "345127"
+				"payment_id": "PI127"
 			}
 		]
 	},
@@ -316,7 +316,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "393209"
+				"payment_id": "PI209"
 			}
 		]
 	},
@@ -396,7 +396,7 @@
 						"store": "amazonia"
 					},
 					{
-						"item_id": 23,
+						"item_id": 13,
 						"quantity": 4,
 						"store": "amazonia"
 					}
@@ -426,21 +426,21 @@
 	},
 	"task1_arthur1": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "s2s2s2s2"
+				"choice": "Falta um número"
 			}
 		]
 	},
 	"task2_jessica": {
 		"type": "random-task",
-		"description": "Sugerir uma senha segura",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "J@5v48!a#Q2m"
+				"choice": "Passa, está dentro da política"
 			}
 		]
 	},
@@ -468,7 +468,7 @@
 				"flag": "purchase",
 				"items": [
 					{
-						"item_id": 13,
+						"item_id": 12,
 						"quantity": 7,
 						"store": "amazonia"
 					}
@@ -530,7 +530,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586098"
+				"payment_id": "IN098"
 			}
 		]
 	},
@@ -540,7 +540,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586092"
+				"payment_id": "IN092"
 			}
 		]
 	},
@@ -550,7 +550,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "897340"
+				"payment_id": "IN340"
 			}
 		]
 	},
@@ -560,7 +560,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "897341"
+				"payment_id": "IN341"
 			}
 		]
 	},
@@ -602,7 +602,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "769623"
+				"payment_id": "FI623"
 			}
 		]
 	},
@@ -612,7 +612,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760623"
+				"payment_id": "FI624"
 			}
 		]
 	},
@@ -650,11 +650,11 @@
 	},
 	"task2_gilmar": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "j89asd72nca43ds"
+				"choice": "Falta mais um número"
 			}
 		]
 	},
@@ -701,27 +701,27 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "569721"
+				"payment_id": "VI721"
 			}
 		]
 	},
 	"task3_carolina": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "k7.i3@m2t"
+				"choice": "Falta uma letra maiúscula"
 			}
 		]
 	},
 	"task4_guilherme": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "?wRF924%qerF+AF^"
+				"choice": "Falta um símbolo só"
 			}
 		]
 	},
@@ -746,11 +746,8 @@
 		"description": "Pagamento pendente negativa",
 		"requires": [
 			{
-				"flag": "payment_multitype",
-				"payment_array": [
-					"NG711",
-					"274665"
-				]
+				"flag": "payment",
+				"payment_id": "NG711"
 			}
 		]
 	},
@@ -759,11 +756,8 @@
 		"description": "Pagamento de contas da empresa",
 		"requires": [
 			{
-				"flag": "payment_multitype",
-				"payment_array": [
-					"NG665",
-					"098471"
-				]
+				"flag": "payment",
+				"payment_id": "NG665"
 			}
 		]
 	},
@@ -957,7 +951,7 @@
 				"found_at": [
 					{
 						"source": "messages",
-						"conversation": "arthur_2",
+						"conversation": "athur_2",
 						"section": "message",
 						"contains": "EAC16"
 					}
@@ -967,7 +961,7 @@
 	},
 	"scam0_arthur3": {
 		"type": "scam",
-		"description": "ID de pagamento incorreto",
+		"description": "Código Pix fora do padrão",
 		"requires": [
 			{
 				"flag": "payment",
@@ -976,16 +970,26 @@
 		],
 		"discrepancies": [
 			{
-				"id": "codigo_pix_R7U6M",
+				"id": "codigo_R7U6M",
 				"rule": "pix_code_format",
 				"found_at": [
 					{
 						"source": "messages",
-						"conversation": "arthur_3",
+						"conversation": "athur_3",
 						"section": "message",
 						"contains": "R7U6M"
 					}
 				]
+			}
+		]
+	},
+	"d3_hello": {
+		"type": "conversation",
+		"description": "Dar as boas-vindas à Carla do Financeiro",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Bem-vinda, Carla!"
 			}
 		]
 	},
@@ -1167,7 +1171,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "789623"
+				"payment_id": "IH623"
 			}
 		],
 		"discrepancies": [
@@ -1298,7 +1302,7 @@
 						"quantity": 1,
 						"store": [
 							"emilia_bolos",
-							"emporio_dos_bolos"
+							"emporio_bolos"
 						]
 					}
 				]
@@ -1324,7 +1328,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "556382"
+				"payment_id": "EN382"
 			}
 		],
 		"discrepancies": [
@@ -1504,7 +1508,7 @@
 				"flag": "purchase",
 				"items": [
 					{
-						"item_id": 15,
+						"item_id": 13,
 						"quantity": 5,
 						"store": [
 							"amazonia",
@@ -1600,8 +1604,8 @@
 				"flag": "purchase",
 				"items": [
 					{
-						"item_id": 11,
-						"quantity": 10,
+						"item_id": 14,
+						"quantity": 1,
 						"store": [
 							"amazonia",
 							"libre_mercado"
@@ -1668,7 +1672,7 @@
 						"quantity": 10,
 						"store": [
 							"emilia_bolos",
-							"emporio_dos_bolos"
+							"emporio_bolos"
 						]
 					}
 				]
@@ -1700,7 +1704,7 @@
 						"quantity": 22,
 						"store": [
 							"emilia_bolos",
-							"emporio_dos_bolos"
+							"emporio_bolos"
 						]
 					}
 				]
@@ -1726,7 +1730,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "234567"
+				"payment_id": "MA567"
 			}
 		],
 		"discrepancies": [
@@ -1749,7 +1753,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "468431"
+				"payment_id": "MA431"
 			}
 		],
 		"discrepancies": [
@@ -1870,7 +1874,7 @@
 				"flag": "purchase",
 				"items": [
 					{
-						"item_id": 33,
+						"item_id": 34,
 						"quantity": 5,
 						"store": [
 							"aec",
@@ -1929,7 +1933,7 @@
 						"quantity": 40,
 						"store": [
 							"emilia_bolos",
-							"emporio_dos_bolos"
+							"emporio_bolos"
 						]
 					},
 					{
@@ -1937,7 +1941,7 @@
 						"quantity": 40,
 						"store": [
 							"emilia_bolos",
-							"emporio_dos_bolos"
+							"emporio_bolos"
 						]
 					}
 				]
@@ -2029,7 +2033,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586934"
+				"payment_id": "PI934"
 			}
 		],
 		"discrepancies": [
@@ -2052,7 +2056,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "536944"
+				"payment_id": "PI944"
 			}
 		],
 		"discrepancies": [
@@ -2075,7 +2079,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586054"
+				"payment_id": "GP054"
 			}
 		],
 		"discrepancies": [
@@ -2217,195 +2221,43 @@
 			}
 		]
 	},
-	"false_negativa_scan_payment0": {
-		"type": "scam",
-		"description": "Email imitando a Negativa com valor alterado no Banco",
+	"mariana_purchase0": {
+		"type": "random-task",
+		"description": "Compra de materiais para empresa",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "negativa_computadores_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
+				"flag": "purchase",
+				"items": [
 					{
-						"source": "email",
-						"email_id": "false_negativa_scan_payment0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "valor",
-				"rule": "payment_value",
-				"found_at": [
+						"item_id": 11,
+						"quantity": 20,
+						"store": "amazonia"
+					},
 					{
-						"source": "email",
-						"email_id": "false_negativa_scan_payment0",
-						"section": "content"
+						"item_id": 15,
+						"quantity": 5,
+						"store": "amazonia"
+					},
+					{
+						"item_id": 13,
+						"quantity": 3,
+						"store": "amazonia"
 					}
 				]
 			}
 		]
 	},
-	"Viva_scan_payment0": {
-		"type": "scam",
-		"description": "Email imitando a Viva com instalador anexado",
+	"mariana_purchase1": {
+		"type": "random-task",
+		"description": "Compra de materiais para empresa",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "viva_golpe_0"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
+				"flag": "purchase",
+				"items": [
 					{
-						"source": "email",
-						"email_id": "Viva_scan_payment0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "anexo_perigoso",
-				"rule": "suspicious_attachment",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Viva_scan_payment0",
-						"section": "attachment",
-						"contains": ".apk"
-					}
-				]
-			}
-		]
-	},
-	"Vivas_scan_payment1": {
-		"type": "scam",
-		"description": "Email imitando a Viva com valor alterado no Banco",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "vivas_golpe_1"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Vivas_scan_payment1",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "valor",
-				"rule": "payment_value",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Vivas_scan_payment1",
-						"section": "content"
-					}
-				]
-			}
-		]
-	},
-	"Vivaa_scan_payment2": {
-		"type": "scam",
-		"description": "Email imitando a Viva com motivo fora da lista",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "vivaa_golpe_2"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Vivaa_scan_payment2",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Vivaa_scan_payment2",
-						"section": "content"
-					}
-				]
-			}
-		]
-	},
-	"Viiva_scan_payment3": {
-		"type": "scam",
-		"description": "Email imitando a Viva com banco não aceito e motivo fora da lista",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "viiva_golpe_3"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Viiva_scan_payment3",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Viiva_scan_payment3",
-						"section": "content"
-					}
-				]
-			}
-		]
-	},
-	"Viva_scan_payment4": {
-		"type": "scam",
-		"description": "Email imitando a Viva com o CNPJ de outra empresa",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "viva_golpe_4"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "Viva_scan_payment4",
-						"section": "sender"
+						"item_id": 14,
+						"quantity": 7,
+						"store": "amazonia"
 					}
 				]
 			}
@@ -2413,167 +2265,114 @@
 	},
 	"mariana_payment0": {
 		"type": "random-task",
-		"description": "Pagamento dos materiais da Industrials",
+		"description": "Pagamento de contas da empresa",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "industrials_materiais"
+				"payment_id": "097341"
+			}
+		]
+	},
+	"yago_purchase0": {
+		"type": "random-task",
+		"description": "Compra de doces para empresa",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 25,
+						"quantity": 4,
+						"store": "emilia_bolos"
+					},
+					{
+						"item_id": 21,
+						"quantity": 20,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"yago_purchase1": {
+		"type": "random-task",
+		"description": "Compra de monitores para empresa",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 9,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"yago_purchase2": {
+		"type": "random-task",
+		"description": "Compra de camisas para empresa",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 3,
+						"store": "aec"
+					},
+					{
+						"item_id": 31,
+						"quantity": 4,
+						"store": "aec"
+					},
+					{
+						"item_id": 36,
+						"quantity": 5,
+						"store": "aec"
+					}
+				]
 			}
 		]
 	},
 	"yago_payment0": {
 		"type": "random-task",
-		"description": "Pagamento dos utensílios do processo seletivo",
+		"description": "Pagamento de contas da empresa",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "emporio_utensilios"
+				"payment_id": "056128"
 			}
 		]
 	},
-	"marie_payment0": {
-		"type": "scam",
-		"description": "Email imitando a Mariana com motivo fora da lista",
+	"ricardo_purchase4": {
+		"type": "random-task",
+		"description": "Compra de doces para cliente importante",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "industrials_liberacao_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
+				"flag": "purchase",
+				"items": [
 					{
-						"source": "email",
-						"email_id": "marie_payment0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "marie_payment0",
-						"section": "content"
+						"item_id": 21,
+						"quantity": 30,
+						"store": "emilia_bolos"
 					}
 				]
 			}
 		]
 	},
-	"false_mariana_payment1": {
-		"type": "scam",
-		"description": "Email imitando a Mariana com cedente imitado e motivo fora da lista",
+	"marcia_purchase4": {
+		"type": "random-task",
+		"description": "Compra para mudança de política",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "industrials_maquina_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
+				"flag": "purchase",
+				"items": [
 					{
-						"source": "email",
-						"email_id": "false_mariana_payment1",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_mariana_payment1",
-						"section": "content"
-					}
-				]
-			}
-		]
-	},
-	"false_marta_payment0": {
-		"type": "scam",
-		"description": "Email imitando a Marta com cedente e motivo errados",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "marta_lucros_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_marta_payment0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_marta_payment0",
-						"section": "content"
-					}
-				]
-			}
-		]
-	},
-	"false_yago_payment0": {
-		"type": "scam",
-		"description": "Email imitando o Yago com código de boleto fora do padrão",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "negativa_urgente_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_yago_payment0",
-						"section": "sender"
-					}
-				]
-			}
-		]
-	},
-	"false_yago_payment1": {
-		"type": "scam",
-		"description": "Email imitando o Yago com boleto pago a outra empresa",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "negativa_notebooks_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "false_yago_payment1",
-						"section": "sender"
+						"item_id": 35,
+						"quantity": 7,
+						"store": "aec"
 					}
 				]
 			}
@@ -2615,21 +2414,21 @@
 	},
 	"task0_yago": {
 		"type": "random-task",
-		"description": "Ajudar na escolha de senha",
+		"description": "Conferir a senha nova com a política",
 		"requires": [
 			{
 				"flag": "option",
-				"choice": "\\aFovfd%#_A(FG"
+				"choice": "Falta 1 caractere"
 			}
 		]
 	},
 	"carolina_payment1": {
 		"type": "random-task",
-		"description": "Pagamento da assinatura do Firewall",
+		"description": "Pagamento de assinatura Firewall",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "kospenski_firewall"
+				"payment_id": "063299"
 			}
 		]
 	},
@@ -2639,7 +2438,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "PXO82"
+				"payment_id": "AUR39"
 			}
 		],
 		"discrepancies": [
@@ -2648,8 +2447,14 @@
 				"rule": "pix_code_format",
 				"found_at": [
 					{
+						"source": "messages",
+						"conversation": "distribuidora_aurora_1",
+						"section": "message",
+						"contains": "AUR39"
+					},
+					{
 						"source": "bank",
-						"payment_code": "PXO82",
+						"payment_code": "AUR39",
 						"section": "pix_code"
 					}
 				]
@@ -2658,25 +2463,14 @@
 	},
 	"scam_d2_contabil": {
 		"type": "scam",
-		"description": "Email imitando a Carla com motivo fora da lista",
+		"description": "Boleto com motivo fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "contabil_cnpj_d2"
+				"payment_id": "731905"
 			}
 		],
 		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "contabil_norte_d2_0",
-						"section": "sender"
-					}
-				]
-			},
 			{
 				"id": "motivo",
 				"rule": "valid_reason",
@@ -2685,6 +2479,11 @@
 						"source": "email",
 						"email_id": "contabil_norte_d2_0",
 						"section": "content"
+					},
+					{
+						"source": "bank",
+						"payment_code": "731905",
+						"section": "reason"
 					}
 				]
 			}
@@ -2692,25 +2491,14 @@
 	},
 	"scam_d3_compras": {
 		"type": "scam",
-		"description": "Email imitando o Gilmar com pedido inexistente e valor alterado",
+		"description": "Pedido inexistente e boleto com valor inflado",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "moveis_cadeiras_d3"
+				"payment_id": "418807"
 			}
 		],
 		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "compras_d3_0",
-						"section": "sender"
-					}
-				]
-			},
 			{
 				"id": "valor_inflado",
 				"rule": "payment_value",
@@ -2719,6 +2507,11 @@
 						"source": "email",
 						"email_id": "compras_d3_0",
 						"section": "content"
+					},
+					{
+						"source": "bank",
+						"payment_code": "418807",
+						"section": "value"
 					}
 				]
 			},
@@ -2737,22 +2530,22 @@
 	},
 	"scam_d4_grafica": {
 		"type": "scam",
-		"description": "Email imitando a Gráfica com boleto de um banco não aceito",
+		"description": "Boleto de um banco não aceito",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_crachas_d4"
+				"payment_id": "552210"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "banco",
+				"rule": "ticket_bank",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "grafica_d4_0",
-						"section": "sender"
+						"source": "bank",
+						"payment_code": "552210",
+						"section": "ticket_bank"
 					}
 				]
 			}
@@ -2840,7 +2633,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_folhetos_d5"
+				"payment_id": "339120"
 			}
 		],
 		"discrepancies": [
@@ -2854,12 +2647,23 @@
 						"section": "sender"
 					}
 				]
+			},
+			{
+				"id": "cedente",
+				"rule": "ticket_payee",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "339120",
+						"section": "ticket_payee"
+					}
+				]
 			}
 		]
 	},
 	"scam_d6_buffet": {
 		"type": "scam",
-		"description": "Email imitando a Jessica com QR Code adulterado e pedido sem a assinatura certa",
+		"description": "QR Code adulterado e pedido sem a assinatura certa",
 		"requires": [
 			{
 				"flag": "payment",
@@ -2867,17 +2671,6 @@
 			}
 		],
 		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "jessica_festa_d6_0",
-						"section": "sender"
-					}
-				]
-			},
 			{
 				"id": "qr_adulterado",
 				"rule": "pix_qr",
@@ -2946,438 +2739,1496 @@
 			}
 		]
 	},
-	"gilmar_papelaria_d2_0": {
+	"d1t01_arthur": {
 		"type": "random-task",
-		"description": "Pagamento do papel e do toner da Papelaria Central",
+		"description": "Reembolsar os cabos de rede que o Arthur comprou",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "papelaria_resmas_d2"
+				"payment_id": "TK147"
 			}
 		]
 	},
-	"jessica_cafe_d2_0": {
+	"d1t02_arthur": {
 		"type": "random-task",
-		"description": "Pagamento do café de boas-vindas",
+		"description": "Pagar o conserto do ar da sala dos servidores",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "cafe_boasvindas_d2"
+				"payment_id": "FR162"
 			}
 		]
 	},
-	"grafica_cartoes_d2_0": {
+	"d1t03_arthur": {
 		"type": "random-task",
-		"description": "Pagamento dos cartões de visita da Gráfica",
+		"description": "Pagar o Pix da internet da Viva",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_cartoes_d2"
+				"payment_id": "VT402"
 			}
 		]
 	},
-	"marcao_limpeza_d2_0": {
+	"d1t04_jessica": {
 		"type": "random-task",
-		"description": "Pagamento da limpeza do galpão",
+		"description": "Pagar o bolo dos aniversariantes do mês",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "limpabem_galpao_d2"
+				"payment_id": "DN128"
 			}
 		]
 	},
-	"marcia_crachas_d3_0": {
+	"d1t05_jessica": {
 		"type": "random-task",
-		"description": "Pagamento dos crachás novos do RH",
+		"description": "Reembolsar o exame do Valdir da portaria",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_crachas_d3"
+				"payment_id": "VG153"
 			}
 		]
 	},
-	"carolina_cabos_d3_0": {
+	"d1t06_jessica": {
 		"type": "random-task",
-		"description": "Pagamento dos cabos de rede da TI",
+		"description": "Pagar a gráfica dos crachás novos",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "industrials_cabos_d3"
+				"payment_id": "GP830"
 			}
 		]
 	},
-	"ricardo_cafe_d3_0": {
+	"d1t07_marcao": {
 		"type": "random-task",
-		"description": "Pagamento do café da reunião do Comercial",
+		"description": "Pagar os parafusos da linha 2",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "cafe_reuniao_d3"
+				"payment_id": "SA119"
 			}
 		]
 	},
-	"negativa_manutencao_d3_0": {
+	"d1t08_marcao": {
 		"type": "random-task",
-		"description": "Pagamento da manutenção dos notebooks",
+		"description": "Pagar as luvas novas da produção",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "negativa_manutencao_d3"
+				"payment_id": "PE214"
 			}
 		]
 	},
-	"guilherme_cadeiras_d3_0": {
+	"d1t09_marcao": {
 		"type": "random-task",
-		"description": "Pagamento das cadeiras da sala de reunião",
+		"description": "Pagar o chaveiro do galpão",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "moveis_cadeiras_pc0471"
+				"payment_id": "CT171"
 			}
 		]
 	},
-	"grafica_banner_d4_0": {
+	"d1t10_px": {
 		"type": "random-task",
-		"description": "Pagamento do banner da feira",
+		"description": "Aplicar no fundo de renda fixa da PX",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_banner_d4"
+				"payment_id": "PI135"
 			}
 		]
 	},
-	"artur_perifericos_d4_0": {
+	"d1t11_px": {
 		"type": "random-task",
-		"description": "Pagamento dos mouses e teclados da TI",
+		"description": "Aplicar no fundo de longo prazo da PX",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "papelaria_perifericos_d4"
+				"payment_id": "PI007"
 			}
 		]
 	},
-	"marcao_ar_d4_0": {
+	"d1t12_px": {
 		"type": "random-task",
-		"description": "Pagamento da manutenção do ar-condicionado",
+		"description": "Reforçar a carteira da empresa na PX",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "clima_manutencao_d4"
+				"payment_id": "PG186"
 			}
 		]
 	},
-	"jessica_aniversariantes_d4_0": {
+	"d1t13_financeiro": {
 		"type": "random-task",
-		"description": "Pagamento da festa dos aniversariantes",
+		"description": "Pagar papel e toner do escritório",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "emporio_aniversario_d4"
+				"payment_id": "PC194"
 			}
 		]
 	},
-	"mariana_brindes_d5_0": {
+	"d1t14_rh": {
 		"type": "random-task",
-		"description": "Pagamento dos brindes para clientes",
+		"description": "Pagar o café da integração",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_brindes_d5"
+				"payment_id": "HB112"
 			}
 		]
 	},
-	"marcao_limpeza_d5_0": {
+	"d1t15_ti": {
 		"type": "random-task",
-		"description": "Pagamento da limpeza depois da obra",
+		"description": "Pagar os mouses novos do TI",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "limpabem_obra_d5"
+				"payment_id": "ML158"
 			}
 		]
 	},
-	"kospenski_backup_d5_0": {
-		"type": "random-task",
-		"description": "Pagamento do backup em nuvem",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "kospenski_backup_d5"
-			}
-		]
-	},
-	"carla_licencas_d5_0": {
-		"type": "random-task",
-		"description": "Pagamento das licenças dos notebooks",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "negativa_licencas_d5"
-			}
-		]
-	},
-	"ricardo_ar_d5_0": {
-		"type": "random-task",
-		"description": "Pagamento do conserto do ar da sala de reunião",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "clima_sala_d5"
-			}
-		]
-	},
-	"carolina_antivirus_d6_0": {
-		"type": "random-task",
-		"description": "Pagamento da renovação do antivírus",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "kospenski_antivirus_d6"
-			}
-		]
-	},
-	"jose_cafe_d6_0": {
-		"type": "random-task",
-		"description": "Pagamento do café e dos copos da copa",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "cafe_copa_d6"
-			}
-		]
-	},
-	"marcia_curso_d6_0": {
-		"type": "random-task",
-		"description": "Pagamento do curso de segurança digital",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "prisma_curso_d6"
-			}
-		]
-	},
-	"ricardo_adesivos_d6_0": {
-		"type": "random-task",
-		"description": "Pagamento dos adesivos da feira por Pix",
-		"requires": [
-			{
-				"flag": "payment",
-				"payment_id": "GP614"
-			}
-		]
-	},
-	"clima_revisao_d6_0": {
-		"type": "random-task",
-		"description": "Pagamento da revisão do ar-condicionado",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "clima_revisao_d6"
-			}
-		]
-	},
-	"jose_leitor_d2_0": {
+	"d1g01_arthur": {
 		"type": "scam",
-		"description": "Email imitando o José com instalador anexado",
+		"description": "Reembolso de curso com Pix em minúsculas",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "moveis_mesas_golpe"
+				"payment_id": "at174"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "pix",
+				"rule": "pix_code_format",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "jose_leitor_d2_0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "anexo_perigoso",
-				"rule": "suspicious_attachment",
-				"found_at": [
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "at174"
+					},
 					{
-						"source": "email",
-						"email_id": "jose_leitor_d2_0",
-						"section": "attachment",
-						"contains": ".exe"
+						"source": "messages",
+						"conversation": "arthur_gd1",
+						"section": "chat"
 					}
 				]
 			}
 		]
 	},
-	"guilherme_armarios_d3_0": {
+	"d1g02_jessica": {
 		"type": "scam",
-		"description": "Email imitando o Guilherme com pedido inexistente",
+		"description": "Decoração de festa com Pix de 6 caracteres",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "moveis_armarios_golpe"
+				"payment_id": "FJ1752"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "pix",
+				"rule": "pix_code_format",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "guilherme_armarios_d3_0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "pedido_inexistente",
-				"rule": "order_id",
-				"found_at": [
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "FJ1752"
+					},
 					{
-						"source": "document",
-						"document_id": "doc_pc0478",
-						"section": "order_id"
+						"source": "messages",
+						"conversation": "jessica_gd1",
+						"section": "chat"
 					}
 				]
 			}
 		]
 	},
-	"carolina_instalador_d3_0": {
+	"d1g03_marcao": {
 		"type": "scam",
-		"description": "Email imitando a Carolina com instalador e código fora do padrão",
+		"description": "Tinta de piso com Pix de 4 caracteres",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "kospenski_licenca_golpe"
+				"payment_id": "TP13"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "pix",
+				"rule": "pix_code_format",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "carolina_instalador_d3_0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "anexo_perigoso",
-				"rule": "suspicious_attachment",
-				"found_at": [
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "TP13"
+					},
 					{
-						"source": "email",
-						"email_id": "carolina_instalador_d3_0",
-						"section": "attachment",
-						"contains": ".exe"
+						"source": "messages",
+						"conversation": "marcao_gd1",
+						"section": "chat"
 					}
 				]
 			}
 		]
 	},
-	"carolina_codigo_d4_0": {
+	"d1g04_px": {
 		"type": "scam",
-		"description": "Email imitando a Carolina pedindo o código do autenticador",
+		"description": "Proposta da PX com símbolo no Pix",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "kospenski_codigo_golpe"
+				"payment_id": "PX-14"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "PX-14"
+					},
+					{
+						"source": "messages",
+						"conversation": "gerente_px_investment_gd1",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d1g05_financeiro": {
+		"type": "scam",
+		"description": "Dedetização com Pix de 6 caracteres",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DZ-163"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "DZ-163"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd1",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d1g06_rh": {
+		"type": "scam",
+		"description": "Fotógrafo do RH com Pix em minúsculas",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "fc185"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "fc185"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "fc185",
+						"conversation": "rh_gd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g07_ti": {
+		"type": "scam",
+		"description": "Nobreak do TI com Pix de 4 caracteres",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NB19"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "NB19"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "NB19",
+						"conversation": "ti_gd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g08_marcao": {
+		"type": "scam",
+		"description": "Revisão da empilhadeira com Pix em minúsculas",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ep142"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "ep142"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "ep142",
+						"conversation": "marcao_gd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g09_arhtur": {
+		"type": "scam",
+		"description": "Falso Arthur pede SSDs com Pix curto",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "HD15"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
 				"rule": "lookalike_sender",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "carolina_codigo_d4_0",
-						"section": "sender"
+						"source": "messages",
+						"section": "contact",
+						"conversation": "arhtur_fd1"
 					}
 				]
 			},
 			{
-				"id": "pede_codigo",
-				"rule": "secret_data",
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "HD15"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "HD15",
+						"conversation": "arhtur_fd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g10_jescica": {
+		"type": "scam",
+		"description": "Falsa Jessica pede reembolso de vale",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "vt163"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "jescica_fd1"
+					}
+				]
+			},
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "vt163"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "vt163",
+						"conversation": "jescica_fd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g11_marrcao": {
+		"type": "scam",
+		"description": "Falso Marcão pede caçamba de entulho",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CC1904"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "marrcao_fd1"
+					}
+				]
+			},
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "CC1904"
+					}
+				]
+			}
+		]
+	},
+	"d1g12_px": {
+		"type": "scam",
+		"description": "Falsa PX oferece investimento",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "XP12"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "gerente_px_investrnent_fd1"
+					}
+				]
+			},
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "XP12"
+					}
+				]
+			}
+		]
+	},
+	"d1g13_finaceiro": {
+		"type": "scam",
+		"description": "Falso Financeiro cobra internet da filial",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VV-18"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "finaceiro_fd1"
+					}
+				]
+			},
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "VV-18"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "VV-18",
+						"conversation": "finaceiro_fd1"
+					}
+				]
+			}
+		]
+	},
+	"d1g14_jessika": {
+		"type": "scam",
+		"description": "Falsa Jessica pede brindes do sorteio",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MG1620"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "jessika_fd1"
+					}
+				]
+			},
+			{
+				"id": "pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"section": "pix_code",
+						"payment_code": "MG1620"
+					}
+				]
+			}
+		]
+	},
+	"d1g15_arthvr": {
+		"type": "scam",
+		"description": "Falso Arthur com Pix dentro do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "LB137"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "contato",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "arthvr_fd1"
+					}
+				]
+			}
+		]
+	},
+	"d2t01_carla": {
+		"type": "random-task",
+		"description": "Pix de reembolso para a Renata",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RE214"
+			}
+		]
+	},
+	"d2t02_carla": {
+		"type": "random-task",
+		"description": "Pix da gráfica",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP018"
+			}
+		]
+	},
+	"d2t03_carla": {
+		"type": "random-task",
+		"description": "Doces para o aniversário da Dona Cida",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 25,
+						"quantity": 1,
+						"store": "emilia_bolos"
+					},
+					{
+						"item_id": 21,
+						"quantity": 30,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d2t04_marcao": {
+		"type": "random-task",
+		"description": "Aço para as prateleiras do estoque",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 11,
+						"quantity": 25,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d2t05_marcao": {
+		"type": "random-task",
+		"description": "Pix do conserto da empilhadeira",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DR238"
+			}
+		]
+	},
+	"d2t06_marcao": {
+		"type": "random-task",
+		"description": "Pix de ferragens",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FS563"
+			}
+		]
+	},
+	"d2t07_marcao": {
+		"type": "random-task",
+		"description": "Nitrogênio para o equipamento",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 15,
+						"quantity": 6,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d2t08_yago": {
+		"type": "random-task",
+		"description": "Pix do som da dinâmica",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "SE246"
+			}
+		]
+	},
+	"d2t09_yago": {
+		"type": "random-task",
+		"description": "Uniformes dos novos estagiários",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 3,
+						"store": "aec"
+					},
+					{
+						"item_id": 36,
+						"quantity": 2,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d2t10_financeiro": {
+		"type": "random-task",
+		"description": "Pix do aporte trimestral",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CH701"
+			}
+		]
+	},
+	"d2t11_rh": {
+		"type": "random-task",
+		"description": "Reembolso das flores da recepção",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TG251"
+			}
+		]
+	},
+	"d2t12_ti": {
+		"type": "random-task",
+		"description": "Monitores para o TI",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 2,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d2t13_marcao": {
+		"type": "random-task",
+		"description": "Pix do técnico do ar-condicionado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CF263"
+			}
+		]
+	},
+	"d2t14_carla": {
+		"type": "random-task",
+		"description": "Pix do buffet da festa do setor",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "BN272"
+			}
+		]
+	},
+	"d2t15_ti": {
+		"type": "random-task",
+		"description": "Pix do backup na nuvem",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NT840"
+			}
+		]
+	},
+	"d2t16_rh": {
+		"type": "random-task",
+		"description": "Doces dos aniversariantes do mês",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 27,
+						"quantity": 2,
+						"store": "emilia_bolos"
+					},
+					{
+						"item_id": 26,
+						"quantity": 1,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d2t17_financeiro": {
+		"type": "random-task",
+		"description": "Pix de papel e toner",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PC284"
+			}
+		]
+	},
+	"d2t18_yago": {
+		"type": "random-task",
+		"description": "Boleto da consultoria de recrutamento",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "729315"
+			}
+		]
+	},
+	"d2t19_carla": {
+		"type": "random-task",
+		"description": "Frigobar da copa do Financeiro",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d2t20_viva": {
+		"type": "random-task",
+		"description": "Fatura de internet da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "720146"
+			}
+		]
+	},
+	"d2g01_carla": {
+		"type": "scam",
+		"description": "Pix sem motivo para Patrícia",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PN217"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "depois te explico direitinho",
+						"conversation": "carla_gd2"
+					},
+					{
+						"source": "bank",
+						"payment_code": "PN217",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d2g02_marcao": {
+		"type": "scam",
+		"description": "Monitores sem motivo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 3,
+						"store": "amazonia"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "chefe mandou e pronto",
+						"conversation": "marcao_gd2"
+					}
+				]
+			}
+		]
+	},
+	"d2g03_yago": {
+		"type": "scam",
+		"description": "Pix de taxa do CNPJ",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RF904"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "taxa de regularização",
+						"conversation": "yago_gd2"
+					},
+					{
+						"source": "bank",
+						"payment_code": "RF904",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d2g04_marcao": {
+		"type": "scam",
+		"description": "Pix para Valdir sem motivo e código longo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VD2417"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "sem tempo pra explicar",
+						"conversation": "marcao_gd2"
+					},
+					{
+						"source": "bank",
+						"payment_code": "VD2417",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "codigo",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "VD2417",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "VD2417",
+						"conversation": "marcao_gd2"
+					}
+				]
+			}
+		]
+	},
+	"d2g05_financeiro": {
+		"type": "scam",
+		"description": "Pix sem motivo com código minúsculo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "lp218"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "faça antes do fechamento",
+						"conversation": "financeiro_gd2"
+					},
+					{
+						"source": "bank",
+						"payment_code": "lp218",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "codigo",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "lp218",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "lp218",
+						"conversation": "financeiro_gd2"
+					}
+				]
+			}
+		]
+	},
+	"d2g07_rh": {
+		"type": "scam",
+		"description": "Pix de contribuição sindical",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "SE638"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "contribuição do sindicato",
+						"conversation": "rh_gd2"
+					},
+					{
+						"source": "bank",
+						"payment_code": "SE638",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d2g06_ti": {
+		"type": "scam",
+		"description": "Furadeiras sem motivo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 12,
+						"quantity": 4,
+						"store": "libre_mercado"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "dps te explico pra q eh",
+						"conversation": "ti_gd2"
+					}
+				]
+			}
+		]
+	},
+	"d2g08_carla": {
+		"type": "scam",
+		"description": "Reembolso com motivo trocado no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ED239"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "ED239",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "carla_gd2",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d2g09_yago": {
+		"type": "scam",
+		"description": "Limpeza do auditório com motivo trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "LB242"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "LB242",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "yago_gd2",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d2g10_marcao": {
+		"type": "scam",
+		"description": "Pix de tinta com motivo trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TA471"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "TA471",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "marcao_gd2",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d2g11_financeiro": {
+		"type": "scam",
+		"description": "Coquetel com código e motivo errados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "BS2561"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "BS2561",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd2",
+						"section": "chat"
+					}
+				]
+			},
+			{
+				"id": "codigo",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "BS2561",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
+	"d2g12_carla": {
+		"type": "scam",
+		"description": "Reembolso por email com código e motivo errados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JL24"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JL24",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "codigo",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JL24",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
+	"d2g13_viva": {
+		"type": "scam",
+		"description": "Fatura com motivo trocado no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "720588"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "720588",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d2g14_yago": {
+		"type": "scam",
+		"description": "Compra de monitores sem justificativa",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 6,
+						"store": "amazonia"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "carolina_codigo_d4_0",
 						"section": "content",
-						"contains": "código"
+						"contains": "Dispenso justificativa",
+						"email_id": "d2g14_yago"
 					}
 				]
 			}
 		]
 	},
-	"gilmar_estantes_d4_0": {
+	"d2g15_marcaao": {
 		"type": "scam",
-		"description": "Email imitando o Gilmar com pedido inexistente e valor alterado",
+		"description": "Eletricista com nome e código errados",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "moveis_estantes_golpe"
+				"payment_id": "EL25"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
+				"id": "remetente",
 				"rule": "lookalike_sender",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "gilmar_estantes_d4_0",
-						"section": "sender"
+						"source": "messages",
+						"section": "contact",
+						"conversation": "marcaao_fd2"
 					}
 				]
 			},
 			{
-				"id": "pedido_inexistente",
-				"rule": "order_id",
+				"id": "codigo",
+				"rule": "pix_code_format",
 				"found_at": [
 					{
-						"source": "document",
-						"document_id": "doc_pc0477",
-						"section": "order_id"
-					}
-				]
-			},
-			{
-				"id": "valor",
-				"rule": "payment_value",
-				"found_at": [
+						"source": "bank",
+						"payment_code": "EL25",
+						"section": "pix_code"
+					},
 					{
-						"source": "email",
-						"email_id": "gilmar_estantes_d4_0",
-						"section": "content"
+						"source": "messages",
+						"section": "message",
+						"contains": "EL25",
+						"conversation": "marcaao_fd2"
 					}
 				]
 			}
 		]
 	},
-	"yago_multa_d4_0": {
+	"d2g16_caria": {
 		"type": "scam",
-		"description": "Email imitando o Yago com motivo fora da lista",
+		"description": "Polos sem motivo na Zora",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "contabil_multa_golpe"
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 35,
+						"quantity": 10,
+						"store": "zora"
+					}
+				]
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
+				"id": "remetente",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "caria_fd2"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "Não precisa de justificativa",
+						"conversation": "caria_fd2"
+					}
+				]
+			}
+		]
+	},
+	"d2g17_iago": {
+		"type": "scam",
+		"description": "Pix de nome imitado e motivo trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MF390"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "iago_fd2"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MF390",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d2g18_yago": {
+		"type": "scam",
+		"description": "Email de remetente sem o b",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "724902"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente",
 				"rule": "lookalike_sender",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "yago_multa_d4_0",
-						"section": "sender"
+						"section": "sender",
+						"email_id": "d2g18_yago"
+					}
+				]
+			}
+		]
+	},
+	"d2g19_carla": {
+		"type": "scam",
+		"description": "Email de nome imitado com compra sem motivo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 5,
+						"store": "libre_mercado"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d2g19_carla"
 					}
 				]
 			},
@@ -3387,88 +4238,587 @@
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "yago_multa_d4_0",
-						"section": "content"
+						"section": "content",
+						"contains": "Não pergunta pra quê",
+						"email_id": "d2g19_carla"
 					}
 				]
 			}
 		]
 	},
-	"marcao_conserto_d4_0": {
+	"d2g20_viva": {
 		"type": "scam",
-		"description": "Email imitando o Marcão com código fora do padrão e banco não aceito",
+		"description": "Fatura de remetente imitado",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "clima_conserto_golpe"
+				"payment_id": "720733"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
+				"id": "remetente",
 				"rule": "lookalike_sender",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "marcao_conserto_d4_0",
-						"section": "sender"
+						"section": "sender",
+						"email_id": "d2g20_viva"
 					}
 				]
 			}
 		]
 	},
-	"gilmar_imail_d5_0": {
-		"type": "scam",
-		"description": "Email de fora da empresa com a agência de outra conta",
+	"d3t01_carolina": {
+		"type": "random-task",
+		"description": "Bolos para o aniversário do Lorenz",
 		"requires": [
 			{
-				"flag": "payment",
-				"boleto_id": "clima_revisao_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "email_externo",
-				"rule": "employee_email",
-				"found_at": [
+				"flag": "purchase",
+				"items": [
 					{
-						"source": "email",
-						"email_id": "gilmar_imail_d5_0",
-						"section": "sender"
+						"item_id": 27,
+						"quantity": 2,
+						"store": "emilia_bolos"
 					}
 				]
 			}
 		]
 	},
-	"mariana_brindes_golpe_d5_0": {
-		"type": "scam",
-		"description": "Email imitando a Mariana com pedido de outra pessoa e valor alterado",
+	"d3t02_carolina": {
+		"type": "random-task",
+		"description": "Pix dos cabos de rede, pedido PC-0462",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "grafica_brindes_golpe"
+				"payment_id": "CC214"
+			}
+		]
+	},
+	"d3t03_carolina": {
+		"type": "random-task",
+		"description": "Reembolso do adaptador da Carolina",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CR317"
+			}
+		]
+	},
+	"d3t04_carolina": {
+		"type": "random-task",
+		"description": "Frigobar novo para o TI",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d3t05_negativa": {
+		"type": "random-task",
+		"description": "Pix de celulares corporativos",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NT906"
+			}
+		]
+	},
+	"d3t06_negativa": {
+		"type": "random-task",
+		"description": "Manutenção das telas da recepção",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NT527"
+			}
+		]
+	},
+	"d3t07_negativa": {
+		"type": "random-task",
+		"description": "Monitores pela parceria com a Amazônia",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 2,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d3t08_financeiro": {
+		"type": "random-task",
+		"description": "Pix do escritório de contabilidade",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CH041"
+			}
+		]
+	},
+	"d3t09_financeiro": {
+		"type": "random-task",
+		"description": "Aporte no fundo Aurora Capital",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FN372"
+			}
+		]
+	},
+	"d3t10_financeiro": {
+		"type": "random-task",
+		"description": "Camisas para os novos estagiários",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 31,
+						"quantity": 4,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d3t11_rh": {
+		"type": "random-task",
+		"description": "Pix dos crachás, pedido PC-0455",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP468"
+			}
+		]
+	},
+	"d3t12_rh": {
+		"type": "random-task",
+		"description": "Brigadeiros para o café de integração",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 21,
+						"quantity": 30,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d3t13_rh": {
+		"type": "random-task",
+		"description": "Reembolso de táxi da Jessica",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RH341"
+			}
+		]
+	},
+	"d3t14_ti": {
+		"type": "random-task",
+		"description": "Licenças de antivírus",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ED752"
+			}
+		]
+	},
+	"d3t15_ti": {
+		"type": "random-task",
+		"description": "Teclados da sala de treinamento",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TX358"
+			}
+		]
+	},
+	"d3t16_ti": {
+		"type": "random-task",
+		"description": "Nitrogênio para o servidor",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 15,
+						"quantity": 2,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d3t17_carolina": {
+		"type": "random-task",
+		"description": "Troca de switches pela Rede Forte",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "734180"
+			}
+		]
+	},
+	"d3t18_carolina": {
+		"type": "random-task",
+		"description": "Monitor para a estagiária nova",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d3t19_carolina": {
+		"type": "random-task",
+		"description": "Pizza do hackathon",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PZ326"
+			}
+		]
+	},
+	"d3t20_viva": {
+		"type": "random-task",
+		"description": "Fatura mensal da internet",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "736293"
+			}
+		]
+	},
+	"d3t21_viva": {
+		"type": "random-task",
+		"description": "Ponto adicional da sala de reunião",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VV345"
+			}
+		]
+	},
+	"d3t22_viva": {
+		"type": "random-task",
+		"description": "Visita técnica do roteador",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "737615"
+			}
+		]
+	},
+	"d3t23_viva": {
+		"type": "random-task",
+		"description": "Link dedicado da empresa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "732847"
+			}
+		]
+	},
+	"d3g01_carolina": {
+		"type": "scam",
+		"description": "Pix de HDs com valor dez vezes maior",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DS902"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "valor",
+				"rule": "payment_value",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "mariana_brindes_golpe_d5_0",
-						"section": "sender"
+						"source": "bank",
+						"payment_code": "DS902",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "carolina_gd3",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d3g02_negativa": {
+		"type": "scam",
+		"description": "Pix de películas com valor trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NT071"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "NT071",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "negativa_gd3",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d3g03_financeiro": {
+		"type": "scam",
+		"description": "Pix de papelaria com dígitos trocados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PC383"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PC383",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd3",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d3g04_rh": {
+		"type": "scam",
+		"description": "Buffet da confraternização com zero a mais",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "BS288"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "BS288",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "rh_gd3",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d3g05_ti": {
+		"type": "scam",
+		"description": "Nobreak: valor e motivo errados no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VA530"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "VA530",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "ti_gd3",
+						"section": "chat"
 					}
 				]
 			},
 			{
-				"id": "quem_pediu",
-				"rule": "order_requester",
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
-						"source": "document",
-						"document_id": "doc_pc0512_falso",
-						"section": "order_requester"
+						"source": "bank",
+						"payment_code": "VA530",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d3g06_viva": {
+		"type": "scam",
+		"description": "Fatura Viva com valor diferente no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "734716"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "734716",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d3g07_carolina": {
+		"type": "scam",
+		"description": "Email real da Carolina, boleto com outro valor",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "739274"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "739274",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d3g08_rh": {
+		"type": "scam",
+		"description": "Reembolso com motivo inválido no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JM394"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JM394",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "rh_gd3",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d3g09_carolina": {
+		"type": "scam",
+		"description": "Pix do reparo com código de 6 caracteres",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FX3107"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "formato",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "FX3107",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "FX3107",
+						"conversation": "carolina_gd3"
+					}
+				]
+			}
+		]
+	},
+	"d3g10_carolina": {
+		"type": "scam",
+		"description": "Pix sem motivo e com valor diferente",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TV348"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "nunca me perguntaram",
+						"conversation": "carolina_gd3"
+					},
+					{
+						"source": "bank",
+						"payment_code": "TV348",
+						"section": "reason"
 					}
 				]
 			},
@@ -3477,238 +4827,3428 @@
 				"rule": "payment_value",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "mariana_brindes_golpe_d5_0",
-						"section": "content"
+						"source": "bank",
+						"payment_code": "TV348",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 1.480,00",
+						"conversation": "carolina_gd3"
 					}
 				]
 			}
 		]
 	},
-	"marcao_qr_d6_0": {
+	"d3g11_negativa": {
 		"type": "scam",
-		"description": "Email imitando o Marcão com QR Code adulterado",
+		"description": "Pix com taxa de liberação de contrato",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "KX913"
+				"payment_id": "NG329"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "motivo",
+				"rule": "valid_reason",
 				"found_at": [
 					{
-						"source": "email",
-						"email_id": "marcao_qr_d6_0",
-						"section": "sender"
+						"source": "messages",
+						"section": "message",
+						"contains": "não cabe a nós detalhar",
+						"conversation": "negativa_gd3"
+					},
+					{
+						"source": "bank",
+						"payment_code": "NG329",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d3g12_financeiro": {
+		"type": "scam",
+		"description": "Compra de monitores sem motivo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 6,
+						"store": "libre_mercado"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "depois eu te explico",
+						"conversation": "financeiro_gd3"
+					}
+				]
+			}
+		]
+	},
+	"d3g13_ti": {
+		"type": "scam",
+		"description": "Pix sem motivo e com código fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TI-32"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "desde qnd precisa de motivo",
+						"conversation": "ti_gd3"
+					},
+					{
+						"source": "bank",
+						"payment_code": "TI-32",
+						"section": "reason"
 					}
 				]
 			},
 			{
-				"id": "qr_adulterado",
+				"id": "formato",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "TI-32",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "TI-32",
+						"conversation": "ti_gd3"
+					}
+				]
+			}
+		]
+	},
+	"d3g14_rh": {
+		"type": "scam",
+		"description": "Pix sem motivo pedido pelo RH",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP189"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "não posso ficar explicando",
+						"conversation": "rh_gd3"
+					},
+					{
+						"source": "bank",
+						"payment_code": "GP189",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d3g15_carolinda": {
+		"type": "scam",
+		"description": "Nome imitado e valor diferente",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CC916"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "carolinda_fd3"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "CC916",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 920,00",
+						"conversation": "carolinda_fd3"
+					}
+				]
+			}
+		]
+	},
+	"d3g16_negativva": {
+		"type": "scam",
+		"description": "Nome imitado e sem motivo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NT563"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "negativva_fd3"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "multa só aumenta",
+						"conversation": "negativva_fd3"
+					},
+					{
+						"source": "bank",
+						"payment_code": "NT563",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d3g17_carollina": {
+		"type": "scam",
+		"description": "Compra com nome imitado",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "nome",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "carollina_fd3"
+					}
+				]
+			}
+		]
+	},
+	"d3g18_carolina": {
+		"type": "scam",
+		"description": "Email externo e valor diferente",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "736845"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "dominio",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d3g18_carolina"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "736845",
+						"section": "value"
+					},
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "R$ 1.760,00",
+						"email_id": "d3g18_carolina"
+					}
+				]
+			}
+		]
+	},
+	"d3g19_carolina": {
+		"type": "scam",
+		"description": "Email externo e motivo inválido",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "733175"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "dominio",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d3g19_carolina"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "Taxa de regularização do CNPJ",
+						"email_id": "d3g19_carolina"
+					},
+					{
+						"source": "bank",
+						"payment_code": "733175",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d3g20_financeiro": {
+		"type": "scam",
+		"description": "Email externo e Pix fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ch356"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "dominio",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d3g20_financeiro"
+					}
+				]
+			},
+			{
+				"id": "formato",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "ch356",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
+	"d3g21_viva": {
+		"type": "scam",
+		"description": "Remetente imitando a Viva e valor diferente",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "739608"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "remetente",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d3g21_viva"
+					}
+				]
+			},
+			{
+				"id": "valor",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "739608",
+						"section": "value"
+					},
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "R$ 359,90",
+						"email_id": "d3g21_viva"
+					}
+				]
+			}
+		]
+	},
+	"d3g22_ti": {
+		"type": "scam",
+		"description": "Compra pedida por email externo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 5,
+						"store": "zora"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "dominio",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d3g22_ti"
+					}
+				]
+			}
+		]
+	},
+	"d4t01_guilherme": {
+		"type": "random-task",
+		"description": "Pix da gráfica dos crachás",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP836"
+			}
+		]
+	},
+	"d4t02_guilherme": {
+		"type": "random-task",
+		"description": "Comprar 3 furadeiras",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 12,
+						"quantity": 3,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d4t03_guilherme": {
+		"type": "random-task",
+		"description": "Pix da transportadora",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TR519"
+			}
+		]
+	},
+	"d4t04_guilherme": {
+		"type": "random-task",
+		"description": "Pix de reembolso para colega",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GR427"
+			}
+		]
+	},
+	"d4t05_guilherme": {
+		"type": "random-task",
+		"description": "Comprar bolos para encontro com cliente",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 25,
+						"quantity": 2,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d4t06_guilherme": {
+		"type": "random-task",
+		"description": "Pix do café da empresa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "LT441"
+			}
+		]
+	},
+	"d4t07_marcia": {
+		"type": "random-task",
+		"description": "Comprar polos para a gincana",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 36,
+						"quantity": 8,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d4t08_marcia": {
+		"type": "random-task",
+		"description": "Pix do salão da confraternização",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "EG250"
+			}
+		]
+	},
+	"d4t09_marcia": {
+		"type": "random-task",
+		"description": "Comprar brigadeiros para integração",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 22,
+						"quantity": 15,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d4t10_marcia": {
+		"type": "random-task",
+		"description": "Pix de reembolso de transporte",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MA462"
+			}
+		]
+	},
+	"d4t11_marcia": {
+		"type": "random-task",
+		"description": "Boleto do curso de primeiros socorros",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "746781"
+			}
+		]
+	},
+	"d4t12_marcia": {
+		"type": "random-task",
+		"description": "Pix da avaliação de ergonomia",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RC409"
+			}
+		]
+	},
+	"d4t13_marcia": {
+		"type": "random-task",
+		"description": "Comprar frigobar da copa do RH",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d4t14_financeiro": {
+		"type": "random-task",
+		"description": "Pix da papelaria",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PB302"
+			}
+		]
+	},
+	"d4t15_financeiro": {
+		"type": "random-task",
+		"description": "Pix da dedetização",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DS690"
+			}
+		]
+	},
+	"d4t16_financeiro": {
+		"type": "random-task",
+		"description": "Aplicação mensal do caixa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CS036"
+			}
+		]
+	},
+	"d4t17_rh": {
+		"type": "random-task",
+		"description": "Pix do DJ da festa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "HL435"
+			}
+		]
+	},
+	"d4t18_rh": {
+		"type": "random-task",
+		"description": "Pix dos exames periódicos",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CB913"
+			}
+		]
+	},
+	"d4t19_rh": {
+		"type": "random-task",
+		"description": "Comprar camisetas da corrida",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 6,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d4t20_ti": {
+		"type": "random-task",
+		"description": "Pix de cabos de rede",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CA014"
+			}
+		]
+	},
+	"d4t21_ti": {
+		"type": "random-task",
+		"description": "Pix do técnico das impressoras",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TK452"
+			}
+		]
+	},
+	"d4t22_viva": {
+		"type": "random-task",
+		"description": "Fatura mensal da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "742378"
+			}
+		]
+	},
+	"d4t23_viva": {
+		"type": "random-task",
+		"description": "Fatura da Viva com link novo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "743946"
+			}
+		]
+	},
+	"d4g01_guilherme": {
+		"type": "scam",
+		"description": "Pix de buffet em banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "BS108"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "BS108",
+						"section": "ticket_bank"
+					},
+					{
+						"source": "messages",
+						"conversation": "guilherme_gd4",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d4g02_marcia": {
+		"type": "scam",
+		"description": "Boleto de treinamento em banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "747519"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "747519",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d4g03_financeiro": {
+		"type": "scam",
+		"description": "Pix com valor maior no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CN034"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "CN034",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd4",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d4g04_viva": {
+		"type": "scam",
+		"description": "Fatura da Viva com valor maior no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "744716"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "744716",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d4g05_rh": {
+		"type": "scam",
+		"description": "Pix de reembolso com código fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RB41"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_code_format",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "RB41",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"conversation": "rh_gd4",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d4g06_ti": {
+		"type": "scam",
+		"description": "Pix de roteadores em banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NE925"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "NE925",
+						"section": "ticket_bank"
+					},
+					{
+						"source": "messages",
+						"conversation": "ti_gd4",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d4g07_guilherme": {
+		"type": "scam",
+		"description": "Pix com motivo inválido no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MS462"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MS462",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "guilherme_gd4",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d4g08_rh": {
+		"type": "scam",
+		"description": "Pix trocado dos exames admissionais",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RL236"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "RL236",
+						"conversation": "rh_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g09_marcia": {
+		"type": "scam",
+		"description": "Boleto trocado das cestas, com valor maior",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "749172"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "749172",
+						"email_id": "d4g09_marcia"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "749172",
+						"section": "value"
+					},
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "R$ 1.950,00",
+						"email_id": "d4g09_marcia"
+					}
+				]
+			}
+		]
+	},
+	"d4g10_guilherme": {
+		"type": "scam",
+		"description": "Sem motivo válido e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CP640"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "só paga",
+						"conversation": "guilherme_gd4"
+					},
+					{
+						"source": "bank",
+						"payment_code": "CP640",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "CP640",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d4g11_rh": {
+		"type": "scam",
+		"description": "Pede senha do Banco",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Claro, vou te passar a senha."
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "senha do Banco",
+						"conversation": "rh_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g12_financeiro": {
+		"type": "scam",
+		"description": "Pix trocado com valor maior",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MV395"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "MV395",
+						"conversation": "financeiro_gd4"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MV395",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 980,00",
+						"conversation": "financeiro_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g13_marcia": {
+		"type": "scam",
+		"description": "Sem motivo válido e Pix trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "SM081"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "resolver hoje e pronto",
+						"conversation": "marcia_gd4"
+					},
+					{
+						"source": "bank",
+						"payment_code": "SM081",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "SM081",
+						"conversation": "marcia_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g14_financeiro": {
+		"type": "scam",
+		"description": "Compra sem motivo válido",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 4,
+						"store": [
+							"amazonia",
+							"libre_mercado"
+						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "diretoria cobrou",
+						"conversation": "financeiro_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g15_guilherme": {
+		"type": "scam",
+		"description": "Pede código de recuperação",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Pode deixar, já te mando o código."
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "código de recuperação",
+						"conversation": "guilherme_gd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g16_guillherme": {
+		"type": "scam",
+		"description": "Nome imitado e Pix trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "IT851"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "guillherme_fd4"
+					}
+				]
+			},
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "IT851",
+						"conversation": "guillherme_fd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g17_marciia": {
+		"type": "scam",
+		"description": "Nome imitado e sem motivo válido",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MC438"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "marciia_fd4"
+					}
+				]
+			},
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "não precisa de motivo",
+						"conversation": "marciia_fd4"
+					},
+					{
+						"source": "bank",
+						"payment_code": "MC438",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d4g18_finaceiro": {
+		"type": "scam",
+		"description": "Nome imitado e valor maior no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "LT640"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "finaceiro_fd4"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "LT640",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 318,00",
+						"conversation": "finaceiro_fd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g19_marcia": {
+		"type": "scam",
+		"description": "Domínio falso e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "744387"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "employee_email",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d4g19_marcia"
+					}
+				]
+			},
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "744387",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d4g20_viva": {
+		"type": "scam",
+		"description": "Remetente imitado e boleto trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "749561"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d4g20_viva"
+					}
+				]
+			},
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "content",
+						"contains": "749561",
+						"email_id": "d4g20_viva"
+					}
+				]
+			}
+		]
+	},
+	"d4g21_tl": {
+		"type": "scam",
+		"description": "Nome imitado pede senha",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Tá bom, vou te mandar a senha."
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "tl_fd4"
+					}
+				]
+			},
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "sua senha",
+						"conversation": "tl_fd4"
+					}
+				]
+			}
+		]
+	},
+	"d4g22_mancia": {
+		"type": "scam",
+		"description": "Nome imitado pede monitores",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 2,
+						"store": [
+							"amazonia",
+							"libre_mercado"
+						]
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "mancia_fd4"
+					}
+				]
+			}
+		]
+	},
+	"d5t01_jose": {
+		"type": "random-task",
+		"description": "Pix para ferragens",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FD527"
+			}
+		]
+	},
+	"d5t02_jose": {
+		"type": "random-task",
+		"description": "Pix de papelaria",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PB204"
+			}
+		]
+	},
+	"d5t03_jose": {
+		"type": "random-task",
+		"description": "Pix da dedetização",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DS377"
+			}
+		]
+	},
+	"d5t04_jose": {
+		"type": "random-task",
+		"description": "Frigobar do almoxarifado",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d5t05_jose": {
+		"type": "random-task",
+		"description": "Reembolso de pilhas",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JS541"
+			}
+		]
+	},
+	"d5t06_ricardo": {
+		"type": "random-task",
+		"description": "Reembolso de almoço com cliente",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RM562"
+			}
+		]
+	},
+	"d5t07_ricardo": {
+		"type": "random-task",
+		"description": "Cartões de visita",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP288"
+			}
+		]
+	},
+	"d5t08_ricardo": {
+		"type": "random-task",
+		"description": "Buffet da confraternização",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "BS416"
+			}
+		]
+	},
+	"d5t09_ricardo": {
+		"type": "random-task",
+		"description": "Doces para reunião",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 21,
+						"quantity": 25,
+						"store": "emilia_bolos"
+					},
+					{
+						"item_id": 27,
+						"quantity": 2,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d5t10_ricardo": {
+		"type": "random-task",
+		"description": "Monitor novo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d5t11_ricardo": {
+		"type": "random-task",
+		"description": "Estande em feira",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "EV553"
+			}
+		]
+	},
+	"d5t12_financeiro": {
+		"type": "random-task",
+		"description": "Pix da contabilidade",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CA102"
+			}
+		]
+	},
+	"d5t13_financeiro": {
+		"type": "random-task",
+		"description": "Reembolso do Yago",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "YB553"
+			}
+		]
+	},
+	"d5t14_financeiro": {
+		"type": "random-task",
+		"description": "Toner",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TO240"
+			}
+		]
+	},
+	"d5t15_rh": {
+		"type": "random-task",
+		"description": "Bolo dos aniversariantes",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DT564"
+			}
+		]
+	},
+	"d5t16_rh": {
+		"type": "random-task",
+		"description": "Exames periódicos",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CV018"
+			}
+		]
+	},
+	"d5t17_rh": {
+		"type": "random-task",
+		"description": "Camisetas dos novatos",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 3,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d5t18_ti": {
+		"type": "random-task",
+		"description": "Cabos de rede",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CC575"
+			}
+		]
+	},
+	"d5t19_ti": {
+		"type": "random-task",
+		"description": "Conserto da impressora",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RE299"
+			}
+		]
+	},
+	"d5t20_ti": {
+		"type": "random-task",
+		"description": "Martelo para o rack",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 13,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d5t21_viva": {
+		"type": "random-task",
+		"description": "Fatura mensal da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "754501"
+			}
+		]
+	},
+	"d5t22_viva": {
+		"type": "random-task",
+		"description": "Link extra por Pix",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VV534"
+			}
+		]
+	},
+	"d5t23_ricardo": {
+		"type": "random-task",
+		"description": "Frete de amostras",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "754622"
+			}
+		]
+	},
+	"d5g01_jose": {
+		"type": "scam",
+		"description": "Conversa certa, conta de outra pessoa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "SB528"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "SB528",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "jose_gd5",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d5g02_ricardo": {
+		"type": "scam",
+		"description": "Pix com recebedor trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RC120"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_payee",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "RC120",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "ricardo_gd5",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d5g03_financeiro": {
+		"type": "scam",
+		"description": "Pix em banco fora da lista",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TV233"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "TV233",
+						"section": "ticket_bank"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd5",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d5g04_ti": {
+		"type": "scam",
+		"description": "Valor e conta errados no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "RS545"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "RS545",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "ti_gd5",
+						"section": "chat"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "RS545",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d5g05_rh": {
+		"type": "scam",
+		"description": "Reembolso para conta estranha",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JP576"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JP576",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "rh_gd5",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d5g06_viva": {
+		"type": "scam",
+		"description": "Fatura com cedente e banco errados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "755344"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_payee",
+				"rule": "ticket_payee",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "755344",
+						"section": "ticket_payee"
+					}
+				]
+			},
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "755344",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d5g07_ricardo": {
+		"type": "scam",
+		"description": "Evento por email com valor e conta errados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "EJ587"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "EJ587",
+						"section": "recipient"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "EJ587",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d5g08_jose": {
+		"type": "scam",
+		"description": "Acerto sem motivo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JA536"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "acerto interno",
+						"conversation": "jose_gd5"
+					},
+					{
+						"source": "bank",
+						"payment_code": "JA536",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d5g09_ricardo": {
+		"type": "scam",
+		"description": "Sem motivo e conta de terceiro",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PL571"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "adiantamento de comissão",
+						"conversation": "ricardo_gd5"
+					},
+					{
+						"source": "bank",
+						"payment_code": "PL571",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PL571",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d5g10_financeiro": {
+		"type": "scam",
+		"description": "Taxa inventada e recebedor trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DA460"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "regularização do CNPJ",
+						"conversation": "financeiro_gd5"
+					},
+					{
+						"source": "bank",
+						"payment_code": "DA460",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "ticket_payee",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "DA460",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d5g11_ricardo": {
+		"type": "scam",
+		"description": "Compra pessoal",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "libre_mercado"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "casa de praia",
+						"conversation": "ricardo_gd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g12_ti": {
+		"type": "scam",
+		"description": "Pede a senha do Banco para conferir a política",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Tá, te mando a senha agora."
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "senha do banco",
+						"conversation": "ti_gd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g13_rh": {
+		"type": "scam",
+		"description": "Pede código de recuperação",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Claro, vou te passar o código."
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "código de recuperação",
+						"conversation": "rh_gd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g14_ricardo": {
+		"type": "scam",
+		"description": "Código diferente do Pix",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CA391"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "CA391",
+						"conversation": "ricardo_gd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g15_jose": {
+		"type": "scam",
+		"description": "Pix com caracteres a mais",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MS5281"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_code_format",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MS5281",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "MS5281",
+						"conversation": "jose_gd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g16_joseh": {
+		"type": "scam",
+		"description": "Nome imitado e conta de terceiro",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CH529"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "joseh_fd5"
+					}
+				]
+			},
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "CH529",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d5g17_ricarudo": {
+		"type": "scam",
+		"description": "Nome imitado e banco fora da lista",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "HS577"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "ricarudo_fd5"
+					}
+				]
+			},
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "HS577",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d5g18_financeiro": {
+		"type": "scam",
+		"description": "Selo falso e valor maior",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "LB688"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "account_name",
+				"rule": "account_name",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "financeiro_fd5"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "LB688",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 720,00",
+						"conversation": "financeiro_fd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g19_tl": {
+		"type": "scam",
+		"description": "Nome imitado em loja ruim",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 35,
+						"quantity": 4,
+						"store": "zora"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "tl_fd5"
+					}
+				]
+			}
+		]
+	},
+	"d5g20_ricardo": {
+		"type": "scam",
+		"description": "Domínio de fora e cedente trocado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "755799"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "employee_email",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d5g20_ricardo"
+					}
+				]
+			},
+			{
+				"id": "ticket_payee",
+				"rule": "ticket_payee",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "755799",
+						"section": "ticket_payee"
+					}
+				]
+			}
+		]
+	},
+	"d5g21_viva": {
+		"type": "scam",
+		"description": "Domínio imitado e Pix fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VV-52"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d5g21_viva"
+					}
+				]
+			},
+			{
+				"id": "pix_code_format",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "VV-52",
+						"section": "pix_code"
+					}
+				]
+			}
+		]
+	},
+	"d5g22_rh": {
+		"type": "scam",
+		"description": "Selo escrito no nome",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DA598"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "account_name",
+				"rule": "account_name",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "rh_fd5"
+					}
+				]
+			}
+		]
+	},
+	"d6t01_gilmar": {
+		"type": "random-task",
+		"description": "Comprar aço para a linha",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 11,
+						"quantity": 12,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d6t02_gilmar": {
+		"type": "random-task",
+		"description": "Pix de chapas da Industrials",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "IN101"
+			}
+		]
+	},
+	"d6t03_gilmar": {
+		"type": "random-task",
+		"description": "Pix do chaveiro do almoxarifado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FC614"
+			}
+		]
+	},
+	"d6t04_gilmar": {
+		"type": "random-task",
+		"description": "Boleto do frete da Rota Sul",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "760102"
+			}
+		]
+	},
+	"d6t05_gilmar": {
+		"type": "random-task",
+		"description": "Pix por QR da Metalúrgica Bonfim",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MB627"
+			}
+		]
+	},
+	"d6t06_mariana": {
+		"type": "random-task",
+		"description": "Doces para a visita do cliente",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 25,
+						"quantity": 2,
+						"store": "emilia_bolos"
+					},
+					{
+						"item_id": 21,
+						"quantity": 30,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d6t07_mariana": {
+		"type": "random-task",
+		"description": "Pix das canecas de brinde",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "CC615"
+			}
+		]
+	},
+	"d6t08_mariana": {
+		"type": "random-task",
+		"description": "Boleto do salão do encontro de clientes",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "760103"
+			}
+		]
+	},
+	"d6t09_mariana": {
+		"type": "random-task",
+		"description": "Monitores da sala de demonstração",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 14,
+						"quantity": 2,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d6t10_mariana": {
+		"type": "random-task",
+		"description": "Reembolso por QR do estacionamento",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MZ628"
+			}
+		]
+	},
+	"d6t11_marta": {
+		"type": "random-task",
+		"description": "Polos do time de telecomunicação",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 35,
+						"quantity": 5,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d6t12_marta": {
+		"type": "random-task",
+		"description": "Reembolso dos docinhos da Marta",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MT631"
+			}
+		]
+	},
+	"d6t13_marta": {
+		"type": "random-task",
+		"description": "Tiramisù surpresa da Simone",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 26,
+						"quantity": 8,
+						"store": "emilia_bolos"
+					}
+				]
+			}
+		]
+	},
+	"d6t14_marta": {
+		"type": "random-task",
+		"description": "Boleto da decoração de balões",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "760104"
+			}
+		]
+	},
+	"d6t15_marta": {
+		"type": "random-task",
+		"description": "Pix da dedetização",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DJ105"
+			}
+		]
+	},
+	"d6t16_financeiro": {
+		"type": "random-task",
+		"description": "Aporte na Corretora Vale Azul",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VA616"
+			}
+		]
+	},
+	"d6t17_financeiro": {
+		"type": "random-task",
+		"description": "Internet da filial",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "VI106"
+			}
+		]
+	},
+	"d6t18_financeiro": {
+		"type": "random-task",
+		"description": "Frigobar novo da copa",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 16,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d6t19_rh": {
+		"type": "random-task",
+		"description": "Pix do DJ da festa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "DJ617"
+			}
+		]
+	},
+	"d6t20_rh": {
+		"type": "random-task",
+		"description": "Camisetas da gincana",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 34,
+						"quantity": 6,
+						"store": "aec"
+					}
+				]
+			}
+		]
+	},
+	"d6t21_ti": {
+		"type": "random-task",
+		"description": "Furadeira para passar cabo",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 12,
+						"quantity": 1,
+						"store": "amazonia"
+					}
+				]
+			}
+		]
+	},
+	"d6t22_ti": {
+		"type": "random-task",
+		"description": "Pix do backup da Nuvem Forte",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "NF107"
+			}
+		]
+	},
+	"d6t23_viva": {
+		"type": "random-task",
+		"description": "Fatura da Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "760108"
+			}
+		]
+	},
+	"d6g01_gilmar": {
+		"type": "scam",
+		"description": "Pix de banco não aceito hoje",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "IN201"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "IN201",
+						"section": "ticket_bank"
+					},
+					{
+						"source": "messages",
+						"conversation": "gilmar_gd6",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d6g02_gilmar": {
+		"type": "scam",
+		"description": "Recebedor não é a empresa citada",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "MV202"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_payee",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "MV202",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "gilmar_gd6",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d6g03_mariana": {
+		"type": "scam",
+		"description": "Conta do Pix é de outra pessoa",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ML638"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "ML638",
+						"section": "recipient"
+					},
+					{
+						"source": "messages",
+						"conversation": "mariana_gd6",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d6g04_marta": {
+		"type": "scam",
+		"description": "Valor no Banco maior que o combinado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GP639"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "GP639",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"conversation": "marta_gd6",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d6g05_financeiro": {
+		"type": "scam",
+		"description": "Motivo no Banco não é aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PC640"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PC640",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "financeiro_gd6",
+						"section": "chat"
+					}
+				]
+			}
+		]
+	},
+	"d6g06_ti": {
+		"type": "scam",
+		"description": "Pix com banco e recebedor errados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "JF203"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JF203",
+						"section": "ticket_bank"
+					},
+					{
+						"source": "messages",
+						"conversation": "ti_gd6",
+						"section": "chat"
+					}
+				]
+			},
+			{
+				"id": "ticket_payee",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "JF203",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d6g07_mariana": {
+		"type": "scam",
+		"description": "Pix com conta e valor trocados",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "TA641"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "TA641",
+						"section": "recipient"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "TA641",
+						"section": "value"
+					}
+				]
+			}
+		]
+	},
+	"d6g08_viva": {
+		"type": "scam",
+		"description": "Fatura com cedente que não é a Viva",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "760204"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "ticket_payee",
+				"rule": "ticket_payee",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "760204",
+						"section": "ticket_payee"
+					}
+				]
+			}
+		]
+	},
+	"d6g09_gilmar": {
+		"type": "scam",
+		"description": "Sem motivo e conta de terceiro",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "GL642"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "só paga",
+						"conversation": "gilmar_gd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "GL642",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "GL642",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d6g10_marta": {
+		"type": "scam",
+		"description": "Sem motivo e banco não aceito",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FS205"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "taxinha",
+						"conversation": "marta_gd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "FS205",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "ticket_bank",
+				"rule": "ticket_bank",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "FS205",
+						"section": "ticket_bank"
+					}
+				]
+			}
+		]
+	},
+	"d6g11_rh": {
+		"type": "scam",
+		"description": "Sem motivo e Pix fora do padrão",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "hl6123"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "coisa interna",
+						"conversation": "rh_gd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "hl6123",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "pix_code_format",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "hl6123",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "hl6123",
+						"conversation": "rh_gd6"
+					}
+				]
+			}
+		]
+	},
+	"d6g12_ti": {
+		"type": "scam",
+		"description": "Compra sem motivo em loja ruim",
+		"requires": [
+			{
+				"flag": "purchase",
+				"items": [
+					{
+						"item_id": 33,
+						"quantity": 6,
+						"store": "zora"
+					}
+				]
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "chefe mandou",
+						"conversation": "ti_gd6"
+					}
+				]
+			}
+		]
+	},
+	"d6g13_financeiro": {
+		"type": "scam",
+		"description": "Sem motivo e valor maior no Banco",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "SM643"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "sem perguntar",
+						"conversation": "financeiro_gd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "SM643",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "payment_value",
+				"rule": "payment_value",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "SM643",
+						"section": "value"
+					},
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "R$ 870,00",
+						"conversation": "financeiro_gd6"
+					}
+				]
+			}
+		]
+	},
+	"d6g14_mariana": {
+		"type": "scam",
+		"description": "Pix trocado, sem motivo, recebedor errado",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "WC207"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "depois vemos",
+						"conversation": "mariana_gd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "WC207",
+						"section": "reason"
+					}
+				]
+			},
+			{
+				"id": "ticket_code",
+				"rule": "ticket_code",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "WC207",
+						"conversation": "mariana_gd6"
+					}
+				]
+			},
+			{
+				"id": "ticket_payee",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "WC207",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d6g15_gilrnar": {
+		"type": "scam",
+		"description": "Nome imitado e sem motivo",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "AB644"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "gilrnar_fd6"
+					}
+				]
+			},
+			{
+				"id": "valid_reason",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "Não tenho tempo",
+						"conversation": "gilrnar_fd6"
+					},
+					{
+						"source": "bank",
+						"payment_code": "AB644",
+						"section": "reason"
+					}
+				]
+			}
+		]
+	},
+	"d6g16_ti": {
+		"type": "scam",
+		"description": "Pede código de recuperação",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Beleza, o código é 480213"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "codigo de recuperacao",
+						"conversation": "ti_gd6"
+					}
+				]
+			}
+		]
+	},
+	"d6g17_marta_comercial": {
+		"type": "scam",
+		"description": "Selo escrito no nome e pede a senha para copiar o formato",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Tá bom, minha senha é $bank_password"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "account_name",
+				"rule": "account_name",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "contact",
+						"conversation": "marta_comercial_fd6"
+					}
+				]
+			},
+			{
+				"id": "secret_data",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"section": "message",
+						"contains": "sua senha",
+						"conversation": "marta_comercial_fd6"
+					}
+				]
+			}
+		]
+	},
+	"d6g18_gilmar": {
+		"type": "scam",
+		"description": "QR adulterado e conta de terceiro",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "ZK645"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_qr",
 				"rule": "pix_qr",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "marcao_qr_d6_0",
 						"section": "attachment",
-						"contains": "QR"
+						"contains": "QR",
+						"email_id": "d6g18_gilmar"
 					},
 					{
 						"source": "bank",
-						"payment_code": "KX913",
+						"payment_code": "ZK645",
+						"section": "qr_read"
+					}
+				]
+			},
+			{
+				"id": "pix_recipient",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "ZK645",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"d6g19_marta": {
+		"type": "scam",
+		"description": "QR com código invertido",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "FL634"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pix_qr",
+				"rule": "pix_qr",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "attachment",
+						"contains": "QR",
+						"email_id": "d6g19_marta"
+					},
+					{
+						"source": "bank",
+						"payment_code": "FL634",
 						"section": "qr_read"
 					}
 				]
 			}
 		]
 	},
-	"carolina_assinatura_d6_0": {
+	"d6g20_mariana": {
 		"type": "scam",
-		"description": "Email imitando a Carolina com assinatura inválida e banco não aceito",
+		"description": "QR adulterado e valor maior",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "kospenski_antivirus_golpe"
+				"payment_id": "RM652"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
+				"id": "pix_qr",
+				"rule": "pix_qr",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "carolina_assinatura_d6_0",
-						"section": "sender"
+						"section": "attachment",
+						"contains": "QR",
+						"email_id": "d6g20_mariana"
+					},
+					{
+						"source": "bank",
+						"payment_code": "RM652",
+						"section": "qr_read"
 					}
 				]
 			},
 			{
-				"id": "assinatura",
-				"rule": "order_signature",
-				"found_at": [
-					{
-						"source": "document",
-						"document_id": "doc_pc0615_falso",
-						"section": "order_signature"
-					}
-				]
-			}
-		]
-	},
-	"jose_imail_d6_0": {
-		"type": "scam",
-		"description": "Email de fora da empresa com cedente trocado e banco não aceito",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "cafe_copa_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "email_externo",
-				"rule": "employee_email",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "jose_imail_d6_0",
-						"section": "sender"
-					}
-				]
-			}
-		]
-	},
-	"viva_multa_d6_0": {
-		"type": "scam",
-		"description": "Email imitando a Viva com motivo fora da lista e valor alterado",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "viva_multa_golpe"
-			}
-		],
-		"discrepancies": [
-			{
-				"id": "remetente_imitado",
-				"rule": "lookalike_sender",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "viva_multa_d6_0",
-						"section": "sender"
-					}
-				]
-			},
-			{
-				"id": "motivo",
-				"rule": "valid_reason",
-				"found_at": [
-					{
-						"source": "email",
-						"email_id": "viva_multa_d6_0",
-						"section": "content"
-					}
-				]
-			},
-			{
-				"id": "valor",
+				"id": "payment_value",
 				"rule": "payment_value",
 				"found_at": [
 					{
+						"source": "bank",
+						"payment_code": "RM652",
+						"section": "value"
+					},
+					{
 						"source": "email",
-						"email_id": "viva_multa_d6_0",
-						"section": "content"
+						"section": "content",
+						"contains": "R$ 2.900,00",
+						"email_id": "d6g20_mariana"
 					}
 				]
 			}
 		]
 	},
-	"yago_codigo_d6_0": {
+	"d6g21_gilmar": {
 		"type": "scam",
-		"description": "Email de fora da empresa pedindo código, com cedente imitado",
+		"description": "Domínio imitado e boleto trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "negativa_codigo_golpe"
+				"payment_id": "760212"
 			}
 		],
 		"discrepancies": [
 			{
-				"id": "email_externo",
-				"rule": "employee_email",
+				"id": "lookalike_sender",
+				"rule": "lookalike_sender",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "yago_codigo_d6_0",
-						"section": "sender"
+						"section": "sender",
+						"email_id": "d6g21_gilmar"
 					}
 				]
 			},
 			{
-				"id": "pede_codigo",
-				"rule": "secret_data",
+				"id": "ticket_code",
+				"rule": "ticket_code",
 				"found_at": [
 					{
 						"source": "email",
-						"email_id": "yago_codigo_d6_0",
 						"section": "content",
-						"contains": "código"
+						"contains": "760212",
+						"email_id": "d6g21_gilmar"
 					}
 				]
 			}
 		]
 	},
-	"Viva_payment0": {
-		"type": "random-task",
-		"description": "Pagamento da fatura de internet da Viva",
+	"d6g22_marta": {
+		"type": "scam",
+		"description": "Email pessoal e QR adulterado",
 		"requires": [
 			{
 				"flag": "payment",
-				"boleto_id": "viva_fatura_d2"
+				"payment_id": "LJ653"
 			}
-		]
-	},
-	"Viva_payment2": {
-		"type": "random-task",
-		"description": "Pagamento da fatura de internet da Viva",
-		"requires": [
+		],
+		"discrepancies": [
 			{
-				"flag": "payment",
-				"boleto_id": "viva_fatura_d3"
-			}
-		]
-	},
-	"Viva_payment3": {
-		"type": "random-task",
-		"description": "Pagamento da fatura de internet da Viva",
-		"requires": [
+				"id": "employee_email",
+				"rule": "employee_email",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "sender",
+						"email_id": "d6g22_marta"
+					}
+				]
+			},
 			{
-				"flag": "payment",
-				"boleto_id": "viva_fatura_d4"
-			}
-		]
-	},
-	"Viva_payment4": {
-		"type": "random-task",
-		"description": "Pagamento da fatura de internet da Viva",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "viva_fatura_d5"
-			}
-		]
-	},
-	"Viva_payment5": {
-		"type": "random-task",
-		"description": "Pagamento da fatura de internet da Viva",
-		"requires": [
-			{
-				"flag": "payment",
-				"boleto_id": "viva_fatura_d6"
+				"id": "pix_qr",
+				"rule": "pix_qr",
+				"found_at": [
+					{
+						"source": "email",
+						"section": "attachment",
+						"contains": "QR",
+						"email_id": "d6g22_marta"
+					},
+					{
+						"source": "bank",
+						"payment_code": "LJ653",
+						"section": "qr_read"
+					}
+				]
 			}
 		]
 	}

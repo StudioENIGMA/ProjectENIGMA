@@ -1,0 +1,126 @@
+{
+	"conversation_id": "yago_gd2",
+	"contact_name": "Yago",
+	"branches": {
+		"d2g03_yago": [
+			{
+				"id": "d2g03_yago_0",
+				"text": "Olá, estagiário. Preciso que realize o pagamento de um Pix no valor de R$ 4.780,00.",
+				"choices": [
+					{
+						"id": "d2g03_yago_1_0",
+						"player_text": "Olá, Yago. É referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_gentil",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g03_yago_1_1",
+						"player_text": "Pix sem motivo eu não pago, Yago",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_tom",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g03_yago_gentil": [
+			{
+				"id": "d2g03_yago_1",
+				"text": "Estagiário, sua dedicação é admirável, mas o Chefe autorizou. Isso deveria bastar."
+			},
+			{
+				"id": "d2g03_yago_2",
+				"text": "Refere-se à taxa de regularização do CNPJ. Código: RF904",
+				"choices": [
+					{
+						"id": "d2g03_yago_3_0",
+						"player_text": "Essa taxa não tá nos motivos das Notas",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g03_yago_3_1",
+						"player_text": "Posso confirmar com o Chefe?",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g03_yago_tom": [
+			{
+				"id": "d2g03_yago_3",
+				"text": "Recomendo rever esse tom. O Chefe autorizou, e isso deveria bastar."
+			},
+			{
+				"id": "d2g03_yago_4",
+				"text": "Refere-se à taxa de regularização do CNPJ. Código: RF904",
+				"choices": [
+					{
+						"id": "d2g03_yago_5_0",
+						"player_text": "Desculpa, mas essa taxa tá em que lista?",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g03_yago_5_1",
+						"player_text": "Chefe autorizou por escrito?",
+						"npc_reply": {
+							"goto_branch": "d2g03_yago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g03_yago_fim": [
+			{
+				"id": "d2g03_yago_5",
+				"text": "O Chefe encontra-se em viagem. Não recomendo incomodá-lo."
+			},
+			{
+				"id": "d2g03_yago_6",
+				"text": "Sua avaliação de estágio passa pela minha mesa. Fica o registro."
+			},
+			{
+				"id": "d2g03_yago_end",
+				"text": "Pagamento confirmado. Obrigado.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RF904"
+					}
+				]
+			}
+		],
+		"d2g09_yago": [
+			{
+				"id": "d2g09_yago_0",
+				"text": "Olá, estagiário. Favor realizar o Pix de R$ 1.890,00 para a Limpeza Brilho."
+			},
+			{
+				"id": "d2g09_yago_1",
+				"text": "Trata-se de serviço de fornecedor, referente à limpeza do auditório. Código: LB242"
+			},
+			{
+				"id": "d2g09_yago_end",
+				"text": "Obrigado.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "LB242"
+					}
+				]
+			}
+		]
+	}
+}

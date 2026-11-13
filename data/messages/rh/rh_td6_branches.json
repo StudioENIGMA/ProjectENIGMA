@@ -1,0 +1,253 @@
+{
+	"conversation_id": "rh_td6",
+	"contact_name": "RH",
+	"branches": {
+		"d6t19_rh": [
+			{
+				"id": "d6t19_rh_0",
+				"text": "Oi! Aqui é a Helena (^ _ ^)"
+			},
+			{
+				"id": "d6t19_rh_1",
+				"text": "Pode fazer um Pix pra mim? ( * ^ _ ^ * )",
+				"choices": [
+					{
+						"id": "d6t19_rh_2_0",
+						"player_text": "Faço! É pra lançar como o quê?",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t19_rh_2_1",
+						"player_text": "Oi, Helena! Falta o motivo, qual é?",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t19_rh_r": [
+			{
+				"id": "d6t19_rh_2",
+				"text": "ai, faltou o principal (> _ <) é Evento da empresa!"
+			},
+			{
+				"id": "d6t19_rh_3",
+				"text": "A festa de encerramento dos estagiários vai ter o DJ Tiãozinho ( ^ w ^ )"
+			},
+			{
+				"id": "d6t19_rh_4",
+				"text": "Qual música você pede pra ele?",
+				"choices": [
+					{
+						"id": "d6t19_rh_5_0",
+						"player_text": "Qualquer coisa, menos sertanejo",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_sertanejo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t19_rh_5_1",
+						"player_text": "Toca Raul!",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_raul",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t19_rh_5_2",
+						"player_text": "O que ele quiser, confio",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t19_rh_sertanejo": [
+			{
+				"id": "d6t19_rh_5",
+				"text": "(o _ o) ele só toca sertanejo"
+			},
+			{
+				"id": "d6t19_rh_6",
+				"text": "e a abertura da novela das seis",
+				"choices": [
+					{
+						"id": "d6t19_rh_7_0",
+						"player_text": "Retiro tudo, amo sertanejo",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t19_rh_7_1",
+						"player_text": "Vou levar protetor de ouvido",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t19_rh_raul": [
+			{
+				"id": "d6t19_rh_7",
+				"text": "\\(*^ o ^*)/ anotei!"
+			},
+			{
+				"id": "d6t19_rh_8",
+				"text": "ele disse que toca, mas em versão forró",
+				"choices": [
+					{
+						"id": "d6t19_rh_9_0",
+						"player_text": "Raul de forró? Isso eu quero ver",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t19_rh_9_1",
+						"player_text": "Essa festa vai entrar pra história",
+						"npc_reply": {
+							"goto_branch": "d6t19_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t19_rh_fim": [
+			{
+				"id": "d6t19_rh_9",
+				"text": "R$ 550,00 pro DJ, código DJ617 ( ^ _ ^ )"
+			},
+			{
+				"id": "d6t19_rh_end",
+				"text": "Oba, obrigada! \\(*^ o ^*)/",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DJ617"
+					}
+				]
+			}
+		],
+		"d6t20_rh": [
+			{
+				"id": "d6t20_rh_0",
+				"text": "Oi! Vai ter gincana na sexta \\(*^ o ^*)/"
+			},
+			{
+				"id": "d6t20_rh_1",
+				"text": "Você é do time que corre ou do time que torce? (^ _ ^)",
+				"choices": [
+					{
+						"id": "d6t20_rh_2_0",
+						"player_text": "Corro! Só não de responsabilidade",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_corre",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t20_rh_2_1",
+						"player_text": "Torço, e de bem longe",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_torce",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t20_rh_corre": [
+			{
+				"id": "d6t20_rh_2",
+				"text": "( ^ w ^ ) adorei! tem corrida de ovo na colher"
+			},
+			{
+				"id": "d6t20_rh_3",
+				"text": "a Simone é a juíza, e ela confere o ovo",
+				"choices": [
+					{
+						"id": "d6t20_rh_4_0",
+						"player_text": "Com nota fiscal do ovo?",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t20_rh_4_1",
+						"player_text": "Vou treinar com um ovo da copa",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t20_rh_torce": [
+			{
+				"id": "d6t20_rh_4",
+				"text": "(> _ <) torcer de longe não vale!"
+			},
+			{
+				"id": "d6t20_rh_5",
+				"text": "já te botei na corrida de saco",
+				"choices": [
+					{
+						"id": "d6t20_rh_6_0",
+						"player_text": "Fui promovido sem aumento",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t20_rh_6_1",
+						"player_text": "Tá, mas quero saco novo",
+						"npc_reply": {
+							"goto_branch": "d6t20_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t20_rh_fim": [
+			{
+				"id": "d6t20_rh_6",
+				"text": "É Evento da empresa. Compra 6 camisetas vermelhas na A&C pra equipe do RH? (^ - ^)",
+				"event_id": "d6t20_rh"
+			},
+			{
+				"id": "d6t20_rh_end",
+				"text": "Chegaram! Obrigada (^ w ^)",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 34,
+								"quantity": 6,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

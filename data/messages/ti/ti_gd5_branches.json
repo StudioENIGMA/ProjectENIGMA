@@ -1,0 +1,134 @@
+{
+	"conversation_id": "ti_gd5",
+	"contact_name": "TI",
+	"branches": {
+		"d5g04_ti": [
+			{
+				"id": "d5g04_ti_0",
+				"text": "fala estagio, os headsets do suporte chegaram mas falta pagar"
+			},
+			{
+				"id": "d5g04_ti_1",
+				"text": "o pessoal passa o dia ouvindo cliente gritar, agr vai ser em estereo kkkk",
+				"choices": [
+					{
+						"id": "d5g04_ti_2_0",
+						"player_text": "Kkkk testou o som?",
+						"npc_reply": {
+							"goto_branch": "d5g04_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g04_ti_2_1",
+						"player_text": "Melhora a vida deles pelo menos?",
+						"npc_reply": {
+							"goto_branch": "d5g04_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g04_ti_fim": [
+			{
+				"id": "d5g04_ti_2",
+				"text": "o microfone capta ate pensamento ruim"
+			},
+			{
+				"id": "d5g04_ti_3",
+				"text": "eh Compra de material, pix pra Rede Sul Cabos. R$ 288,00, codigo RS545"
+			},
+			{
+				"id": "d5g04_ti_end",
+				"text": "(b^_^)b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RS545"
+					}
+				]
+			}
+		],
+		"d5g12_ti": [
+			{
+				"id": "d5g12_ti_0",
+				"text": "fala estagio, to migrando as contas do Gerenciador de Senhas hj"
+			},
+			{
+				"id": "d5g12_ti_1",
+				"text": "a politica nova recusou a senha de mta gente, ta uma bagunca kkkk"
+			},
+			{
+				"id": "d5g12_ti_2",
+				"text": "me passa tua senha do banco q eu vejo se ela passa na politica de hj, rapidinho",
+				"choices": [
+					{
+						"id": "d5g12_ti_3_0",
+						"player_text": "Tá, te mando a senha agora.",
+						"npc_reply": {
+							"goto_branch": "d5g12_ti_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g12_ti_3_1",
+						"player_text": "Ninguém da empresa pede senha. Não vou passar.",
+						"npc_reply": {
+							"goto_branch": "d5g12_ti_n",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g12_ti_3_2",
+						"player_text": "Ué, tu não tem acesso a tudo aí?",
+						"npc_reply": {
+							"goto_branch": "d5g12_ti_insiste",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g12_ti_insiste": [
+			{
+				"id": "d5g12_ti_3",
+				"text": "tenho, mas a tua n migrou. so vendo ela eu sei se passa"
+			},
+			{
+				"id": "d5g12_ti_4",
+				"text": "se der ruim dps o banco fica travado pra ti, n vou nem conseguir ajudar",
+				"choices": [
+					{
+						"id": "d5g12_ti_5_0",
+						"player_text": "Tá, te mando a senha agora.",
+						"npc_reply": {
+							"goto_branch": "d5g12_ti_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g12_ti_5_1",
+						"player_text": "Trava então. Senha eu não passo.",
+						"npc_reply": {
+							"goto_branch": "d5g12_ti_n",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g12_ti_n": [
+			{
+				"id": "d5g12_ti_2",
+				"text": "blz entao, resolvo dps"
+			}
+		],
+		"d5g12_ti_r": [
+			{
+				"id": "d5g12_ti_6",
+				"text": "boa, manda no privado msm (b^_^)b"
+			}
+		]
+	}
+}

@@ -1,0 +1,210 @@
+{
+	"conversation_id": "marcao_gd1",
+	"contact_name": "Marcão",
+	"branches": {
+		"d1g03_marcao": [
+			{
+				"id": "d1g03_marcao_0",
+				"text": "Salve estagiário"
+			},
+			{
+				"id": "d1g03_marcao_1",
+				"text": "Marcão aqui"
+			},
+			{
+				"id": "d1g03_marcao_2",
+				"text": "as faixas do chão do galpão sumiram, tão parecendo fantasma kkkkk",
+				"choices": [
+					{
+						"id": "d1g03_marcao_3_0",
+						"player_text": "Como assim sumiram?",
+						"npc_reply": {
+							"goto_branch": "d1g03_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g03_marcao_3_1",
+						"player_text": "Fantasma de faixa é novidade",
+						"npc_reply": {
+							"goto_branch": "d1g03_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g03_marcao_fim": [
+			{
+				"id": "d1g03_marcao_3",
+				"text": "de tanto passar empilhadeira, só sobrou a lembrança"
+			},
+			{
+				"id": "d1g03_marcao_4",
+				"text": "ontem um rapaz parou o carrinho no meio do corredor jurando que tava certo kkkkk"
+			},
+			{
+				"id": "d1g03_marcao_5",
+				"text": "pedi a tinta na Casa das Tintas, Compra de material, R$ 735,20"
+			},
+			{
+				"id": "d1g03_marcao_6",
+				"text": "pix: TP13"
+			},
+			{
+				"id": "d1g03_marcao_end",
+				"text": "obrigado camarada, agora o rapaz não tem mais desculpa kkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TP13"
+					}
+				]
+			}
+		],
+		"d1g08_marcao": [
+			{
+				"id": "d1g08_marcao_0",
+				"text": "Preciso de um ajuda sua camarada"
+			},
+			{
+				"id": "d1g08_marcao_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "d1g08_marcao_2",
+				"text": "a empilhadeira voltou da revisão na MecaPlus, agora só anda pra frente kkkkkkk",
+				"choices": [
+					{
+						"id": "d1g08_marcao_3_0",
+						"player_text": "Só pra frente? E pra manobrar?",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_dados",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g08_marcao_3_1",
+						"player_text": "Isso não é revisão, é castigo",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_dados",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g08_marcao_dados": [
+			{
+				"id": "d1g08_marcao_3",
+				"text": "pois é, mas eles vão ver isso depois"
+			},
+			{
+				"id": "d1g08_marcao_4",
+				"text": "chefe deixou, Serviço de fornecedor, R$ 1.875,00"
+			},
+			{
+				"id": "d1g08_marcao_5",
+				"text": "pix ep142",
+				"choices": [
+					{
+						"id": "d1g08_marcao_6_0",
+						"player_text": "Pagar com ela quebrada desse jeito?",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_quebrada",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g08_marcao_6_1",
+						"player_text": "Esse pix em minúscula é assim mesmo?",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_minuscula",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g08_marcao_6_2",
+						"player_text": "Fechado, camarada",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g08_marcao_quebrada": [
+			{
+				"id": "d1g08_marcao_6",
+				"text": "chefe deixou, camarada"
+			},
+			{
+				"id": "d1g08_marcao_7",
+				"text": "se não pagar eles seguram ela lá, e aí sou eu carregando caixa nas costas. tu vem ajudar?",
+				"choices": [
+					{
+						"id": "d1g08_marcao_8_0",
+						"player_text": "Vou ver isso aqui",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g08_marcao_8_1",
+						"player_text": "Minhas costas não deixam",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g08_marcao_minuscula": [
+			{
+				"id": "d1g08_marcao_8",
+				"text": "pix é pix meu bom, a oficina que me passou"
+			},
+			{
+				"id": "d1g08_marcao_9",
+				"text": "tô sujo de graxa, faz esse favor pro teu camarada vai",
+				"choices": [
+					{
+						"id": "d1g08_marcao_10_0",
+						"player_text": "Deixa eu conferir",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g08_marcao_10_1",
+						"player_text": "Vou dar uma olhada",
+						"npc_reply": {
+							"goto_branch": "d1g08_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g08_marcao_fim": [
+			{
+				"id": "d1g08_marcao_10",
+				"text": "valeu, qualquer coisa tô na doca"
+			},
+			{
+				"id": "d1g08_marcao_end",
+				"text": "Salvou o projeto! valeu camarada",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ep142"
+					}
+				]
+			}
+		]
+	}
+}

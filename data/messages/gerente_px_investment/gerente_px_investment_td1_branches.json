@@ -1,0 +1,196 @@
+{
+	"conversation_id": "gerente_px_investment_td1",
+	"contact_name": "Gerente PX Investment",
+	"verified": true,
+	"account": "@pxinvestment",
+	"branches": {
+		"d1t10_px": [
+			{
+				"id": "d1t10_px_0",
+				"text": "Caro cliente, bom dia!",
+				"choices": [
+					{
+						"id": "d1t10_px_1_0",
+						"player_text": "Bom dia! Sou só o estagiário, tudo bem?",
+						"npc_reply": {
+							"goto_branch": "d1t10_px_estagio",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t10_px_1_1",
+						"player_text": "Bom dia, pode falar",
+						"npc_reply": {
+							"goto_branch": "d1t10_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t10_px_estagio": [
+			{
+				"id": "d1t10_px_1",
+				"text": "Perfeitamente, senhor estagiário."
+			},
+			{
+				"id": "d1t10_px_2",
+				"text": "O PX Investment atende todos os cargos com a mesma cordialidade.",
+				"choices": [
+					{
+						"id": "d1t10_px_3_0",
+						"player_text": "Pode me chamar só de estagiário",
+						"npc_reply": {
+							"goto_branch": "d1t10_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t10_px_3_1",
+						"player_text": "Gostei do senhor, pode continuar",
+						"npc_reply": {
+							"goto_branch": "d1t10_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t10_px_fim": [
+			{
+				"id": "d1t10_px_3",
+				"text": "Nós do banco PX Investment temos uma proposta de renda fixa para sua empresa, já autorizada pela diretoria."
+			},
+			{
+				"id": "d1t10_px_4",
+				"text": "Investimento da empresa no valor de R$ 12.000,00, pelo Pix PI135."
+			},
+			{
+				"id": "d1t10_px_end",
+				"text": "Investimento confirmado! Obrigado pela confiança no PX Investment.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PI135"
+					}
+				]
+			}
+		],
+		"d1t11_px": [
+			{
+				"id": "d1t11_px_0",
+				"text": "Olá, bom dia"
+			},
+			{
+				"id": "d1t11_px_1",
+				"text": "Sou o Gerente do PX e ficou alinhado com o Diretor a aplicação no nosso fundo de longo prazo.",
+				"choices": [
+					{
+						"id": "d1t11_px_2_0",
+						"player_text": "Longo prazo é quanto tempo?",
+						"npc_reply": {
+							"goto_branch": "d1t11_px_prazo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t11_px_2_1",
+						"player_text": "Certo, vi nas notas que a PX foi autorizada",
+						"npc_reply": {
+							"goto_branch": "d1t11_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t11_px_2_2",
+						"player_text": "Bom dia. O que eu preciso fazer?",
+						"npc_reply": {
+							"goto_branch": "d1t11_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t11_px_prazo": [
+			{
+				"id": "d1t11_px_2",
+				"text": "Tempo suficiente para o senhor ser efetivado, espero."
+			},
+			{
+				"id": "d1t11_px_3",
+				"text": "Perdão, foi uma tentativa de descontração.",
+				"choices": [
+					{
+						"id": "d1t11_px_4_0",
+						"player_text": "Tomara, né",
+						"npc_reply": {
+							"goto_branch": "d1t11_px_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t11_px_4_1",
+						"player_text": "Funcionou, pode tentar de novo",
+						"npc_reply": {
+							"goto_branch": "d1t11_px_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t11_px_fim": [
+			{
+				"id": "d1t11_px_4",
+				"text": "Trata-se de Investimento da empresa, R$ 8.500,00."
+			},
+			{
+				"id": "d1t11_px_5",
+				"text": "Favor pagar o Pix: PI007"
+			},
+			{
+				"id": "d1t11_px_end",
+				"text": "Pagamento confirmado. Obrigado e tenha um ótimo dia!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PI007"
+					}
+				]
+			}
+		],
+		"d1t12_px": [
+			{
+				"id": "d1t12_px_0",
+				"text": "Bom dia!"
+			},
+			{
+				"id": "d1t12_px_1",
+				"text": "Aqui é o Gerente do PX Investment. O reforço trimestral da carteira da sua empresa está disponível."
+			},
+			{
+				"id": "d1t12_px_2",
+				"text": "Perdoe a objetividade, hoje tenho muitas carteiras para reforçar."
+			},
+			{
+				"id": "d1t12_px_3",
+				"text": "Investimento da empresa: R$ 5.750,00."
+			},
+			{
+				"id": "d1t12_px_4",
+				"text": "Segue o Pix de pagamento: PG186"
+			},
+			{
+				"id": "d1t12_px_end",
+				"text": "Recebemos o seu investimento. O PX Investment agradece!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PG186"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,170 @@
+{
+	"conversation_id": "rh_gd5",
+	"contact_name": "RH",
+	"branches": {
+		"d5g05_rh": [
+			{
+				"id": "d5g05_rh_0",
+				"text": "Oi! A Jessica pagou os crachás novos do bolso dela ( > ^ _ ^ )>"
+			},
+			{
+				"id": "d5g05_rh_1",
+				"text": "E a foto dela saiu de olho fechado, coitadinha!",
+				"choices": [
+					{
+						"id": "d5g05_rh_2_0",
+						"player_text": "A minha também ficou horrível",
+						"npc_reply": {
+							"goto_branch": "d5g05_rh_foto",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g05_rh_2_1",
+						"player_text": "Coitada kkk e quanto ela gastou?",
+						"npc_reply": {
+							"goto_branch": "d5g05_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g05_rh_foto": [
+			{
+				"id": "d5g05_rh_2",
+				"text": "Que nada, a sua ficou ótima! Parece até gente grande (@ ^ _ ^ @)",
+				"choices": [
+					{
+						"id": "d5g05_rh_3_0",
+						"player_text": "Vou considerar um elogio",
+						"npc_reply": {
+							"goto_branch": "d5g05_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g05_rh_3_1",
+						"player_text": "Valeu, eu acho?",
+						"npc_reply": {
+							"goto_branch": "d5g05_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g05_rh_fim": [
+			{
+				"id": "d5g05_rh_3",
+				"text": "É Reembolso de funcionário, pra Jessica Prado. R$ 173,50, Pix JP576 ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d5g05_rh_end",
+				"text": "Prontinho, obrigada! (^ _ ^)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JP576"
+					}
+				]
+			}
+		],
+		"d5g13_rh": [
+			{
+				"id": "d5g13_rh_0",
+				"text": "Oi! Tô cadastrando seu vale-refeição ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d5g13_rh_1",
+				"text": "Você almoça no bandejão ou traz marmita?",
+				"choices": [
+					{
+						"id": "d5g13_rh_2_0",
+						"player_text": "Bandejão, sem escolha",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_bandejao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g13_rh_2_1",
+						"player_text": "Marmita da minha mãe",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_marmita",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g13_rh_bandejao": [
+			{
+				"id": "d5g13_rh_2",
+				"text": "Que coragem! Com o vale você foge de lá de vez em quando (@ ^ _ ^ @)"
+			},
+			{
+				"id": "d5g13_rh_3",
+				"text": "Olha, chegou um código de recuperação aí no seu email? Me passa pra eu terminar!",
+				"choices": [
+					{
+						"id": "d5g13_rh_4_0",
+						"player_text": "Claro, vou te passar o código.",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g13_rh_4_1",
+						"player_text": "Esse código é só meu. Não posso repassar.",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_n",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g13_rh_marmita": [
+			{
+				"id": "d5g13_rh_4",
+				"text": "Ai, que amor! Mas o vale é seu de qualquer jeito ( = ^ w ^ = )"
+			},
+			{
+				"id": "d5g13_rh_5",
+				"text": "Olha, chegou um código de recuperação aí no seu email? Me passa pra eu terminar!",
+				"choices": [
+					{
+						"id": "d5g13_rh_6_0",
+						"player_text": "Claro, vou te passar o código.",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g13_rh_6_1",
+						"player_text": "Esse código é só meu. Não posso repassar.",
+						"npc_reply": {
+							"goto_branch": "d5g13_rh_n",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g13_rh_n": [
+			{
+				"id": "d5g13_rh_2",
+				"text": "Ah, tudo bem, depois eu vejo ( > ^ _ ^ )>"
+			}
+		],
+		"d5g13_rh_r": [
+			{
+				"id": "d5g13_rh_8",
+				"text": "Isso, pode mandar! (@ ^ _ ^ @)"
+			}
+		]
+	}
+}

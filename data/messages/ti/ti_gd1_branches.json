@@ -1,0 +1,86 @@
+{
+	"conversation_id": "ti_gd1",
+	"contact_name": "TI",
+	"branches": {
+		"d1g07_ti": [
+			{
+				"id": "d1g07_ti_0",
+				"text": "opa estagio, eh o Lorenz"
+			},
+			{
+				"id": "d1g07_ti_1",
+				"text": "o nobreak do rack ta apitando igual alarme de carro"
+			},
+			{
+				"id": "d1g07_ti_2",
+				"text": "pedi outro na Voltz, Compra de material, R$ 1.120,00"
+			},
+			{
+				"id": "d1g07_ti_3",
+				"text": "manda esse pix: NB19",
+				"choices": [
+					{
+						"id": "d1g07_ti_4_0",
+						"player_text": "Suave",
+						"npc_reply": {
+							"goto_branch": "d1g07_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g07_ti_4_1",
+						"player_text": "Só 4 caracteres? Confere esse pix aí",
+						"npc_reply": {
+							"goto_branch": "d1g07_ti_confere",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g07_ti_confere": [
+			{
+				"id": "d1g07_ti_4",
+				"text": "eh oq ta aq na tela"
+			},
+			{
+				"id": "d1g07_ti_5",
+				"text": "to c o apito na orelha agora, n consigo nem pensar. ve ai dps",
+				"choices": [
+					{
+						"id": "d1g07_ti_6_0",
+						"player_text": "Vou olhar no Banco",
+						"npc_reply": {
+							"goto_branch": "d1g07_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g07_ti_6_1",
+						"player_text": "Melhoras pro seu ouvido",
+						"npc_reply": {
+							"goto_branch": "d1g07_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g07_ti_fim": [
+			{
+				"id": "d1g07_ti_6",
+				"text": "vlw, vou la desligar essa joça kkkk"
+			},
+			{
+				"id": "d1g07_ti_end",
+				"text": "suave, apito resolvido kkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NB19"
+					}
+				]
+			}
+		]
+	}
+}

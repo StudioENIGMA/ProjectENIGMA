@@ -1,0 +1,54 @@
+{
+	"conversation_id": "financeiro_fd5",
+	"contact_name": "Financeiro ✓",
+	"branches": {
+		"d5g18_financeiro": [
+			{
+				"id": "d5g18_financeiro_0",
+				"text": "Bom dia! Preciso que você pague a Limpeza Brilho Certo, por favor."
+			},
+			{
+				"id": "d5g18_financeiro_1",
+				"text": "É Serviço de fornecedor, a faxina do mês. Pix LB688, R$ 720,00.",
+				"choices": [
+					{
+						"id": "d5g18_financeiro_2_0",
+						"player_text": "Pix LB688, R$ 720,00, certo?",
+						"npc_reply": {
+							"goto_branch": "d5g18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g18_financeiro_2_1",
+						"player_text": "Limparam a sala do Financeiro também?",
+						"npc_reply": {
+							"goto_branch": "d5g18_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g18_financeiro_fim": [
+			{
+				"id": "d5g18_financeiro_2",
+				"text": "Sim. E acharam minha calculadora de 2011, debaixo de uma pilha de notas."
+			},
+			{
+				"id": "d5g18_financeiro_3",
+				"text": "Fiquei emocionada por uns dez segundos."
+			},
+			{
+				"id": "d5g18_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "LB688"
+					}
+				]
+			}
+		]
+	}
+}

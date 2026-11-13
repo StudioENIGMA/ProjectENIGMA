@@ -1,0 +1,37 @@
+[
+	{
+		"thread_id": "d6t04_gilmar",
+		"email_id": "d6t04_gilmar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d6t05_gilmar",
+		"email_id": "d6t05_gilmar",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d6t08_mariana",
+		"email_id": "d6t08_mariana",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d6t09_mariana",
+		"email_id": "d6t09_mariana",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "d6t10_mariana",
+		"email_id": "d6t10_mariana",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d6t14_marta",
+		"email_id": "d6t14_marta",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d6t23_viva",
+		"email_id": "d6t23_viva",
+		"required_app": "Bank"
+	}
+]

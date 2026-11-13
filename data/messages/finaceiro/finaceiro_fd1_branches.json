@@ -1,0 +1,82 @@
+{
+	"conversation_id": "finaceiro_fd1",
+	"contact_name": "Finaceiro",
+	"branches": {
+		"d1g13_finaceiro": [
+			{
+				"id": "d1g13_finaceiro_0",
+				"text": "Bom dia! Aqui é a Simone."
+			},
+			{
+				"id": "d1g13_finaceiro_1",
+				"text": "Ficou aberta a Fatura de internet do depósito, com a Viva. R$ 249,90."
+			},
+			{
+				"id": "d1g13_finaceiro_2",
+				"text": "Faça este Pix para mim: código VV-18",
+				"choices": [
+					{
+						"id": "d1g13_finaceiro_3_0",
+						"player_text": "Esse código tem traço, é assim mesmo?",
+						"npc_reply": {
+							"goto_branch": "d1g13_finaceiro_codigo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g13_finaceiro_3_1",
+						"player_text": "Combinado",
+						"npc_reply": {
+							"goto_branch": "d1g13_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g13_finaceiro_codigo": [
+			{
+				"id": "d1g13_finaceiro_3",
+				"text": "É o que está aqui na minha frente."
+			},
+			{
+				"id": "d1g13_finaceiro_4",
+				"text": "Não vou discutir formatação em dia de fechamento, estagiário.",
+				"choices": [
+					{
+						"id": "d1g13_finaceiro_5_0",
+						"player_text": "Entendido, vou conferir",
+						"npc_reply": {
+							"goto_branch": "d1g13_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g13_finaceiro_5_1",
+						"player_text": "Não é discussão, é só cuidado",
+						"npc_reply": {
+							"goto_branch": "d1g13_finaceiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g13_finaceiro_fim": [
+			{
+				"id": "d1g13_finaceiro_5",
+				"text": "Aguardo. Estou no fechamento."
+			},
+			{
+				"id": "d1g13_finaceiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "VV-18"
+					}
+				]
+			}
+		]
+	}
+}

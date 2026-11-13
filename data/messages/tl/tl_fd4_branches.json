@@ -1,0 +1,114 @@
+{
+	"conversation_id": "tl_fd4",
+	"contact_name": "Tl",
+	"branches": {
+		"d4g21_tl": [
+			{
+				"id": "d4g21_tl_0",
+				"text": "estagio, lorenz na area"
+			},
+			{
+				"id": "d4g21_tl_1",
+				"text": "to atualizando o bananaOS de todo mundo e preciso da sua senha pra terminar"
+			},
+			{
+				"id": "d4g21_tl_2",
+				"text": "me manda ai",
+				"choices": [
+					{
+						"id": "d4g21_tl_3_0",
+						"player_text": "Tá bom, vou te mandar a senha.",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g21_tl_3_1",
+						"player_text": "Ninguém da empresa pede senha, vou falar com o TI.",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g21_tl_3_2",
+						"player_text": "uai, não foi vc que disse pra nunca passar senha?",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_uai",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g21_tl_uai": [
+			{
+				"id": "d4g21_tl_3",
+				"text": "kkkk isso era pros outros mlk"
+			},
+			{
+				"id": "d4g21_tl_4",
+				"text": "cmg eh diferente, sou eu q cuido disso",
+				"choices": [
+					{
+						"id": "d4g21_tl_5_0",
+						"player_text": "Tá bom, vou te mandar a senha.",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g21_tl_5_1",
+						"player_text": "cuida sim, então atualiza sem ela",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_chantagem",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g21_tl_chantagem": [
+			{
+				"id": "d4g21_tl_5",
+				"text": "ai n da"
+			},
+			{
+				"id": "d4g21_tl_6",
+				"text": "se n atualizar seu bananaPhone trava e o chefinho vai querer saber pq",
+				"choices": [
+					{
+						"id": "d4g21_tl_7_0",
+						"player_text": "Tá bom, vou te mandar a senha.",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g21_tl_7_1",
+						"player_text": "deixa travar, vou lá na sala do TI",
+						"npc_reply": {
+							"goto_branch": "d4g21_tl_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g21_tl_deu": [
+			{
+				"id": "d4g21_tl_7",
+				"text": "voa mlk, valeu"
+			}
+		],
+		"d4g21_tl_fim": [
+			{
+				"id": "d4g21_tl_8",
+				"text": "blz entao"
+			}
+		]
+	}
+}

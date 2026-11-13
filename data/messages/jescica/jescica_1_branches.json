@@ -5,11 +5,11 @@
 		"scan0_jescica": [
 			{
 				"id": "jescica_payment0_0",
-				"text": "Oi, é a Jessica, mudei de número, paga esse boleto ai pra mim, o chefe que pediu"
+				"text": "Oi, é a Jessica, mudei de número, paga esse Pix ai pra mim, o chefe que pediu"
 			},
 			{
 				"id": "jescica_payment0_1",
-				"text": "Código boleto: 556382"
+				"text": "Código Pix: EN382"
 			},
 			{
 				"id": "jescica_payment0_2",
@@ -17,7 +17,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "556382"
+						"payment_id": "EN382"
 					}
 				]
 			}
@@ -25,7 +25,7 @@
 		"scan1_jescica": [
 			{
 				"id": "jescica_payment1_0",
-				"text": "Oi, tava precisando de um pix pra comprar uns doces pra galera aqui, me manda ai!pediu"
+				"text": "Oi, tava precisando de um pix pra comprar uns doces pra galera aqui, me manda ai!"
 			},
 			{
 				"id": "jescica_payment1_1",
@@ -45,7 +45,7 @@
 		"scan2_jescica": [
 			{
 				"id": "jescica_payment2_0",
-				"text": "Opa estagiário, é a jéssica, descobri um negócio legal aqui pra gente, me manda 500 reais nesse pix que jaja vai cair 1000 na sua conta, pode confiar, testei e deu certo.ra aqui, me manda ai!pediu"
+				"text": "Opa estagiário, é a jéssica, descobri um negócio legal aqui pra gente, me manda 500 reais nesse pix que jaja vai cair 1000 na sua conta, pode confiar, testei e deu certo."
 			},
 			{
 				"id": "jescica_payment2_1",

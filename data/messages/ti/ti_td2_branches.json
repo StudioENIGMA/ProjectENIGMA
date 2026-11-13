@@ -1,0 +1,97 @@
+{
+	"conversation_id": "ti_td2",
+	"contact_name": "TI",
+	"branches": {
+		"d2t12_ti": [
+			{
+				"id": "d2t12_ti_0",
+				"text": "fala estagio, eh o Lorenz"
+			},
+			{
+				"id": "d2t12_ti_1",
+				"text": "preciso de uma compra na amazonia, faz qnd der",
+				"choices": [
+					{
+						"id": "d2t12_ti_2_0",
+						"player_text": "Compra de quê? E pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2t12_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t12_ti_2_1",
+						"player_text": "Sem motivo não rola, Lorenz. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d2t12_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t12_ti_fim": [
+			{
+				"id": "d2t12_ti_2",
+				"text": "pera, o wifi do 3o andar caiu",
+				"event_id": "d2t12_ti"
+			},
+			{
+				"id": "d2t12_ti_3",
+				"text": "voltei kkkk alguem tirou o roteador da tomada pra carregar o celular"
+			},
+			{
+				"id": "d2t12_ti_4",
+				"text": "foi mal estagio"
+			},
+			{
+				"id": "d2t12_ti_5",
+				"text": "eh compra de material, o monitor do estagiario novo pifou e o outro ta piscando"
+			},
+			{
+				"id": "d2t12_ti_6",
+				"text": "compra 2 monitor 4k"
+			},
+			{
+				"id": "d2t12_ti_end",
+				"text": "voa mlk, chegaram (b^_^)b",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 2,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d2t15_ti": [
+			{
+				"id": "d2t15_ti_0",
+				"text": "ou estagio, venceu o backup dos servidor kkkk"
+			},
+			{
+				"id": "d2t15_ti_1",
+				"text": "paga esse Pix de R$ 1.249,90 da NuvemSul, eh serviço de fornecedor"
+			},
+			{
+				"id": "d2t15_ti_2",
+				"text": "codigo NT840"
+			},
+			{
+				"id": "d2t15_ti_end",
+				"text": "tamo junto, backup de volta",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NT840"
+					}
+				]
+			}
+		]
+	}
+}

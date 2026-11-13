@@ -1,0 +1,246 @@
+{
+	"conversation_id": "mariana_gd6",
+	"contact_name": "Mariana",
+	"branches": {
+		"d6g03_mariana": [
+			{
+				"id": "d6g03_mariana_0",
+				"text": "Estagiário, Mariana aqui, pelo celular"
+			},
+			{
+				"id": "d6g03_mariana_1",
+				"text": "Paguei o almoço do cliente no meu cartão :("
+			},
+			{
+				"id": "d6g03_mariana_2",
+				"text": "Ele pediu sobremesa duas vezes",
+				"choices": [
+					{
+						"id": "d6g03_mariana_3_0",
+						"player_text": "E ele fechou negócio?",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_fechou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g03_mariana_3_1",
+						"player_text": "A senhora pediu sobremesa também?",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_sobremesa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g03_mariana_fechou": [
+			{
+				"id": "d6g03_mariana_3",
+				"text": "Ainda não :("
+			},
+			{
+				"id": "d6g03_mariana_4",
+				"text": "Disse que precisa de outro almoço para pensar",
+				"choices": [
+					{
+						"id": "d6g03_mariana_5_0",
+						"player_text": "Esse cliente sabe negociar",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g03_mariana_5_1",
+						"player_text": "Manda ele pro bandejão na próxima",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g03_mariana_sobremesa": [
+			{
+				"id": "d6g03_mariana_5",
+				"text": "Não tive coragem, vi o preço :("
+			},
+			{
+				"id": "d6g03_mariana_6",
+				"text": "Fiquei olhando ele comer",
+				"choices": [
+					{
+						"id": "d6g03_mariana_7_0",
+						"player_text": "Que cena triste, Mariana",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g03_mariana_7_1",
+						"player_text": "Da próxima eu vou de acompanhante",
+						"npc_reply": {
+							"goto_branch": "d6g03_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g03_mariana_fim": [
+			{
+				"id": "d6g03_mariana_7",
+				"text": "É Reembolso de funcionário, R$ 212,30."
+			},
+			{
+				"id": "d6g03_mariana_8",
+				"text": "Pode fazer no Pix ML638?"
+			},
+			{
+				"id": "d6g03_mariana_end",
+				"text": "Recebi, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ML638"
+					}
+				]
+			}
+		],
+		"d6g14_mariana": [
+			{
+				"id": "d6g14_mariana_0",
+				"text": "Oi estagiário, Mariana pelo celular, desculpe o horário :("
+			},
+			{
+				"id": "d6g14_mariana_1",
+				"text": "Tem um Pix da Expresso Lima parado aqui, pode pagar pra mim? :(",
+				"choices": [
+					{
+						"id": "d6g14_mariana_2_0",
+						"player_text": "Posso, mas é para quê esse Pix?",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g14_mariana_2_1",
+						"player_text": "Parado por quê? Preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g14_mariana_r": [
+			{
+				"id": "d6g14_mariana_2",
+				"text": "o cliente está me ligando sem parar :( depois vemos isso"
+			},
+			{
+				"id": "d6g14_mariana_3",
+				"text": "É o Pix WC270, R$ 1.960,00."
+			},
+			{
+				"id": "d6g14_mariana_4",
+				"text": "No Banco use o código WC207.",
+				"choices": [
+					{
+						"id": "d6g14_mariana_5_0",
+						"player_text": "Por que dois números diferentes?",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_dois",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g14_mariana_5_1",
+						"player_text": "Termina a ligação, eu espero aqui",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_espera",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g14_mariana_dois": [
+			{
+				"id": "d6g14_mariana_5",
+				"text": "Inverteram na hora de imprimir :("
+			},
+			{
+				"id": "d6g14_mariana_6",
+				"text": "Dá no mesmo, é só o final trocado",
+				"choices": [
+					{
+						"id": "d6g14_mariana_7_0",
+						"player_text": "Final trocado não dá no mesmo, Mariana",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g14_mariana_7_1",
+						"player_text": "Isso é meio estranho, viu?",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g14_mariana_espera": [
+			{
+				"id": "d6g14_mariana_7",
+				"text": "Não precisa, ele já ligou de novo :("
+			},
+			{
+				"id": "d6g14_mariana_8",
+				"text": "Você não imagina a minha manhã",
+				"choices": [
+					{
+						"id": "d6g14_mariana_9_0",
+						"player_text": "Imagino sim, mas e o motivo?",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g14_mariana_9_1",
+						"player_text": "Mesmo assim, não é melhor conferir?",
+						"npc_reply": {
+							"goto_branch": "d6g14_mariana_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g14_mariana_fim": [
+			{
+				"id": "d6g14_mariana_9",
+				"text": "Tocou de novo, tenho que atender. Abrigada :("
+			},
+			{
+				"id": "d6g14_mariana_end",
+				"text": "Obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "WC207"
+					}
+				]
+			}
+		]
+	}
+}

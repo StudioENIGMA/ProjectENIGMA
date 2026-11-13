@@ -1,0 +1,421 @@
+{
+	"conversation_id": "jose_td5",
+	"contact_name": "José",
+	"branches": {
+		"d5t01_jose": [
+			{
+				"id": "d5t01_jose_0",
+				"text": "Boa tarde. Você já reparou no ruído da porta do almoxarifado?"
+			},
+			{
+				"id": "d5t01_jose_1",
+				"text": "Aquele que parece alguém chorando baixinho.",
+				"choices": [
+					{
+						"id": "d5t01_jose_2_0",
+						"player_text": "Achei que era o ar-condicionado",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_ar",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t01_jose_2_1",
+						"player_text": "Ouvi! Achei que o prédio era assombrado kkk",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_fantasma",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t01_jose_ar": [
+			{
+				"id": "d5t01_jose_2",
+				"text": "Não. O ar-condicionado é outro som. Esse eu também tenho catalogado.",
+				"choices": [
+					{
+						"id": "d5t01_jose_3_0",
+						"player_text": "O senhor cataloga barulho?",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_pedido",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t01_jose_3_1",
+						"player_text": "Então é o quê, seu José?",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_pedido",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t01_jose_fantasma": [
+			{
+				"id": "d5t01_jose_3",
+				"text": "Não é assombração, é dobradiça. Mas agradeço a imaginação.",
+				"choices": [
+					{
+						"id": "d5t01_jose_4_0",
+						"player_text": "Que pena, eu já ia chamar um padre",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_pedido",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t01_jose_4_1",
+						"player_text": "E dá pra consertar?",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_pedido",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t01_jose_pedido": [
+			{
+				"id": "d5t01_jose_4",
+				"text": "Pois bem. Eu precisaria de um Pix para a Ferragens Dois Irmãos, por favor."
+			},
+			{
+				"id": "d5t01_jose_5",
+				"text": "É Compra de material: 60 parafusos e umas dobradiças para o almoxarifado.",
+				"choices": [
+					{
+						"id": "d5t01_jose_6_0",
+						"player_text": "60 parafusos? Vai montar a porta do zero?",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t01_jose_6_1",
+						"player_text": "Beleza. Me passa o valor e o código?",
+						"npc_reply": {
+							"goto_branch": "d5t01_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t01_jose_fim": [
+			{
+				"id": "d5t01_jose_6",
+				"text": "Contei os que me restam: quatro, e dois estão tortos."
+			},
+			{
+				"id": "d5t01_jose_7",
+				"text": "Valor de R$ 386,40, código FD527."
+			},
+			{
+				"id": "d5t01_jose_end",
+				"text": "Obrigado (b^_^)b A porta agradece, em silêncio, pela primeira vez.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "FD527"
+					}
+				]
+			}
+		],
+		"d5t02_jose": [
+			{
+				"id": "d5t02_jose_0",
+				"text": "Boa tarde. Chegou aqui o Pix da Papelaria Bom Traço, pode pagar, por gentileza?"
+			},
+			{
+				"id": "d5t02_jose_1",
+				"text": "Compra de material, as resmas e as canetas do mês. Pix PB204, R$ 742,15.",
+				"choices": [
+					{
+						"id": "d5t02_jose_2_0",
+						"player_text": "Pode deixar, seu José.",
+						"npc_reply": {
+							"goto_branch": "d5t02_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t02_jose_2_1",
+						"player_text": "Sobra uma caneta azul pra mim?",
+						"npc_reply": {
+							"goto_branch": "d5t02_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t02_jose_fim": [
+			{
+				"id": "d5t02_jose_2",
+				"text": "Com requisição em duas vias, sobra o que for preciso."
+			},
+			{
+				"id": "d5t02_jose_3",
+				"text": "Eu conto as folhas de cada resma, sabia? Já achei uma com 497."
+			},
+			{
+				"id": "d5t02_jose_end",
+				"text": "Valeu! A caixa chegou. Vou contar.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PB204"
+					}
+				]
+			}
+		],
+		"d5t03_jose": [
+			{
+				"id": "d5t03_jose_0",
+				"text": "Boa tarde. Pergunta de ordem pessoal: você tem medo de rato?",
+				"choices": [
+					{
+						"id": "d5t03_jose_1_0",
+						"player_text": "Medo não, mas tenho respeito",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_coragem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t03_jose_1_1",
+						"player_text": "Tenho!! Por quê?? Onde ele tá??",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_medo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t03_jose_coragem": [
+			{
+				"id": "d5t03_jose_1",
+				"text": "Fico tranquilo em ouvir. Respeito é o que ele inspirava."
+			},
+			{
+				"id": "d5t03_jose_2",
+				"text": "Você poderia, por favor, pagar um Pix para mim?",
+				"choices": [
+					{
+						"id": "d5t03_jose_3_0",
+						"player_text": "Pix de quê? Sem o motivo eu não sigo",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t03_jose_3_1",
+						"player_text": "Tem relação com o rato? Qual é o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t03_jose_medo": [
+			{
+				"id": "d5t03_jose_3",
+				"text": "Calma. Ele foi retirado com dignidade, ontem à tarde."
+			},
+			{
+				"id": "d5t03_jose_4",
+				"text": "E, por falar nisso, poderia pagar um Pix para mim, por favor?",
+				"choices": [
+					{
+						"id": "d5t03_jose_5_0",
+						"player_text": "Pago, mas é pra quê? Me diz o motivo",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t03_jose_5_1",
+						"player_text": "Respirei. Agora, qual o motivo desse Pix?",
+						"npc_reply": {
+							"goto_branch": "d5t03_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t03_jose_fim": [
+			{
+				"id": "d5t03_jose_5",
+				"text": "Perdão, você tem razão, passei direto. É Serviço de fornecedor: a Dedetizadora Sem Bicho veio ontem ao almoxarifado."
+			},
+			{
+				"id": "d5t03_jose_6",
+				"text": "Encontraram o rato bem alimentado. Tinha comido as notas fiscais de 2019 inteiras."
+			},
+			{
+				"id": "d5t03_jose_7",
+				"text": "Pix DS377, no valor de R$ 618,00."
+			},
+			{
+				"id": "d5t03_jose_end",
+				"text": "Muito obrigado! Ele não deixou herdeiros, ao que tudo indica.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DS377"
+					}
+				]
+			}
+		],
+		"d5t04_jose": [
+			{
+				"id": "d5t04_jose_0",
+				"text": "Boa tarde. Em que temperatura você acha aceitável tomar água?"
+			},
+			{
+				"id": "d5t04_jose_1",
+				"text": "Pergunto por razões profissionais.",
+				"choices": [
+					{
+						"id": "d5t04_jose_2_0",
+						"player_text": "Geladinha, claro. Trincando",
+						"npc_reply": {
+							"goto_branch": "d5t04_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t04_jose_2_1",
+						"player_text": "Natural. Gelada me dá dor de garganta",
+						"npc_reply": {
+							"goto_branch": "d5t04_jose_natural",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t04_jose_natural": [
+			{
+				"id": "d5t04_jose_2",
+				"text": "Então você é a única pessoa satisfeita neste prédio."
+			},
+			{
+				"id": "d5t04_jose_3",
+				"text": "Lá embaixo o pessoal anda de mau humor. Morno, como a água.",
+				"choices": [
+					{
+						"id": "d5t04_jose_4_0",
+						"player_text": "Eita. Posso ajudar em alguma coisa?",
+						"npc_reply": {
+							"goto_branch": "d5t04_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t04_jose_4_1",
+						"player_text": "Água morna é triste mesmo",
+						"npc_reply": {
+							"goto_branch": "d5t04_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t04_jose_fim": [
+			{
+				"id": "d5t04_jose_4",
+				"text": "O frigobar do almoxarifado parou de gelar. Medi com termômetro: vinte e quatro graus.",
+				"event_id": "d5t04_jose"
+			},
+			{
+				"id": "d5t04_jose_5",
+				"text": "Você poderia, por favor, acessar o site Amazônia para encomendar 1 Frigobar?"
+			},
+			{
+				"id": "d5t04_jose_6",
+				"text": "É Compra de material."
+			},
+			{
+				"id": "d5t04_jose_end",
+				"text": "Obrigado! A água do almoxarifado voltará a ter temperatura digna.",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 16,
+								"quantity": 1,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d5t05_jose": [
+			{
+				"id": "d5t05_jose_0",
+				"text": "Boa tarde. Preciso que faça um Pix para mim, se não for incômodo.",
+				"choices": [
+					{
+						"id": "d5t05_jose_1_0",
+						"player_text": "Preciso do motivo pra lançar. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d5t05_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t05_jose_1_1",
+						"player_text": "Pra você? Virou agiota, seu José? Qual o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5t05_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t05_jose_fim": [
+			{
+				"id": "d5t05_jose_1",
+				"text": "Justo, pulei justamente a parte principal."
+			},
+			{
+				"id": "d5t05_jose_2",
+				"text": "É Reembolso de funcionário: comprei pilhas para os leitores de código de barras com o meu dinheiro."
+			},
+			{
+				"id": "d5t05_jose_3",
+				"text": "Guardei a nota. E as pilhas velhas, etiquetadas por data de óbito."
+			},
+			{
+				"id": "d5t05_jose_4",
+				"text": "São R$ 96,80, no Pix JS541, na minha conta mesmo."
+			},
+			{
+				"id": "d5t05_jose_end",
+				"text": "Mandou bem! Nota arquivada, pilhas velhas descartadas conforme a norma.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JS541"
+					}
+				]
+			}
+		]
+	}
+}

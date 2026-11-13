@@ -1,0 +1,77 @@
+[
+	{
+		"conversation_id": "arthur_gd1",
+		"branch": "d1g01_arthur",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "jessica_gd1",
+		"branch": "d1g02_jessica",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcao_gd1",
+		"branch": "d1g03_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "gerente_px_investment_gd1",
+		"branch": "d1g04_px",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "financeiro_gd1",
+		"branch": "d1g05_financeiro",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "rh_gd1",
+		"branch": "d1g06_rh",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "ti_gd1",
+		"branch": "d1g07_ti",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marcao_gd1",
+		"branch": "d1g08_marcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "arhtur_fd1",
+		"branch": "d1g09_arhtur",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "jescica_fd1",
+		"branch": "d1g10_jescica",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marrcao_fd1",
+		"branch": "d1g11_marrcao",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "gerente_px_investrnent_fd1",
+		"branch": "d1g12_px",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "finaceiro_fd1",
+		"branch": "d1g13_finaceiro",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "jessika_fd1",
+		"branch": "d1g14_jessika",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "arthvr_fd1",
+		"branch": "d1g15_arthvr",
+		"required_app": "Bank"
+	}
+]

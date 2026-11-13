@@ -5,8 +5,6 @@ extends Control
 ## the rule that needs it is released (see data/rules/rules.json), tagged as new on that day.
 
 const BOARD_PATH := "res://data/notes/board.json"
-## Holds the beneficiaries the company pays boletos to, see BoletosDirector
-const BOLETOS_PATH := "res://data/bank/boletos.json"
 const FONT_BOLD := preload("res://assets/fonts/IBMPlexSans-Bold.ttf")
 const FONT_SEMIBOLD := preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
 const FONT_REGULAR := preload("res://assets/fonts/IBMPlexSans-Regular.ttf")
@@ -15,6 +13,14 @@ const MUTED := Color(0.43137255, 0.44313726, 0.5019608)
 const TEAL := Color(0.13333334, 0.28235295, 0.38431373)
 const MINT := Color(0.30980393, 0.79607844, 0.68235296)
 const HAIRLINE := Color(0.85882354, 0.84705883, 0.8117647)
+## Character classes of a day's "password_policy" in data/notes/board.json: key, line for one and
+## line for more
+const PASSWORD_CLASSES := [
+	["digits", "Pelo menos %d número", "Pelo menos %d números"],
+	["lowercase", "Pelo menos %d letra minúscula", "Pelo menos %d letras minúsculas"],
+	["uppercase", "Pelo menos %d letra maiúscula", "Pelo menos %d letras maiúsculas"],
+	["symbols", "Pelo menos %d símbolo (como @, #, !)", "Pelo menos %d símbolos (como @, #, !)"],
+]
 
 @export var subtitle_label: Label
 @export var sections_list: VBoxContainer
@@ -31,10 +37,12 @@ func setup() -> void:
 	var today: Dictionary = board.get("days", {}).get(str(GameData.current_day), {})
 	subtitle_label.text = "Confira aqui antes de denunciar · Dia %d" % GameData.current_day
 
+	# What changes today (work hours, apps released), so the NPCs don't have to say it
+	_add_list_section("Hoje", GameData.current_day, today.get("agenda", []))
 	_add_trusted_contacts(board)
 	_add_list_section("Arquivos aceitos", 1, board.get("accepted_files", []))
 	_add_list_section("Padrões de pagamento", 1, board.get("payment_patterns", []))
-	_add_beneficiaries()
+	_add_password_policy(today.get("password_policy", {}))
 	_add_list_section("Lojas", 1, [
 		"Antes de comprar, veja a nota da loja no site de avaliações do Navegador.",
 		"Nota abaixo de 50: não compre e denuncie.",
@@ -42,7 +50,7 @@ func setup() -> void:
 	_add_list_section("Motivos aceitos", 2, board.get("accepted_reasons", []))
 	_add_orders(today.get("orders", []))
 	_add_list_section("Regras de segurança", 4, board.get("security_rules", []))
-	_add_list_section("Bancos aceitos hoje", 4, GameData.accepted_banks_today)
+	_add_list_section("Bancos aceitos hoje", 4, today.get("accepted_banks", []))
 	_add_approvers(board.get("approvers", []))
 
 	scroll.scroll_vertical = 0
@@ -188,26 +196,19 @@ func _add_orders(orders: Array) -> void:
 		], FONT_REGULAR, 12, MUTED)
 
 
-## Who the company pays boletos to and the account each one receives in, for a boleto to be checked
-## letter by letter against
-func _add_beneficiaries() -> void:
-	if GameData.current_day < 1:
+## What a password needs today, to check a colleague's from what they say it has. It changes every
+## day, so it is tagged as new every day
+func _add_password_policy(policy: Dictionary) -> void:
+	if policy.is_empty():
 		return
-	var boletos := _load_json(BOLETOS_PATH)
-	var banks: Dictionary = boletos.get("banks", {})
-
-	var body := _add_section("Beneficiários", 1)
-	_add_line(body, "Quem recebe os boletos da empresa. Confira nome, CNPJ, banco e agência no "
-		+ "boleto e no Banco.", MUTED)
-	for payee in boletos.get("payees", {}).values():
-		if not payee.get("listed", true):
-			continue
-		var bank: Dictionary = banks.get(str(payee.get("bank", "")), {})
-		var row := _add_row(body)
-		_add_label(row, str(payee.get("name", "")), FONT_SEMIBOLD, 14, INK)
-		_add_label(row, "CNPJ %s" % payee.get("cnpj", ""), FONT_REGULAR, 12, MUTED)
-		_add_label(row, "%s · agência %s" % [bank.get("name", ""), payee.get("agency", "")],
-			FONT_REGULAR, 12, MUTED)
+	var body := _add_section("Política de senha de hoje", GameData.current_day)
+	_add_line(body, "Muda todo dia. Para conferir a senha de alguém basta saber o formato: ninguém "
+		+ "precisa ver a senha.", MUTED)
+	_add_line(body, "• Pelo menos %d caracteres" % int(policy.get("length", 0)), INK)
+	for character_class in PASSWORD_CLASSES:
+		var count := int(policy.get(character_class[0], 0))
+		if count > 0:
+			_add_line(body, "• " + (character_class[1] if count == 1 else character_class[2]) % count, INK)
 
 
 ## Who signs the orders of each sector
@@ -305,17 +306,13 @@ func _new_tag() -> PanelContainer:
 
 
 func _load_board() -> Dictionary:
-	return _load_json(BOARD_PATH)
-
-
-func _load_json(path: String) -> Dictionary:
-	var file := FileAccess.open(path, FileAccess.READ)
+	var file := FileAccess.open(BOARD_PATH, FileAccess.READ)
 	if file == null:
-		push_error("Could not open file: %s" % path)
+		push_error("Could not open board file: %s" % BOARD_PATH)
 		return {}
 
-	var data = JSON.parse_string(file.get_as_text())
-	if not data is Dictionary:
-		push_error("File is not a JSON object: %s" % path)
+	var board = JSON.parse_string(file.get_as_text())
+	if not board is Dictionary:
+		push_error("Board file is not a JSON object: %s" % BOARD_PATH)
 		return {}
-	return data
+	return board

@@ -1,0 +1,110 @@
+{
+	"conversation_id": "rh_gd1",
+	"contact_name": "RH",
+	"branches": {
+		"d1g06_rh": [
+			{
+				"id": "d1g06_rh_0",
+				"text": "Oi! É a Helena (^ _ ^)"
+			},
+			{
+				"id": "d1g06_rh_1",
+				"text": "Já viu a sua foto do crachá?",
+				"choices": [
+					{
+						"id": "d1g06_rh_2_0",
+						"player_text": "Ainda não, ficou boa?",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_foto",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g06_rh_2_1",
+						"player_text": "Vi. Pareço foragido",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_foto",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g06_rh_foto": [
+			{
+				"id": "d1g06_rh_2",
+				"text": "Todo mundo saiu lindo, até quem saiu de olho fechado (@ ^ _ ^ @)"
+			},
+			{
+				"id": "d1g06_rh_3",
+				"text": "O fotógrafo cobrou hoje, é o Estúdio Foco ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d1g06_rh_4",
+				"text": "Serviço de fornecedor, R$ 690,00. Pix: fc185 (^ - ^)",
+				"choices": [
+					{
+						"id": "d1g06_rh_5_0",
+						"player_text": "Esse pix em minúscula tá certo?",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_duvida",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g06_rh_5_1",
+						"player_text": "Anotado, vou olhar no Banco",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g06_rh_duvida": [
+			{
+				"id": "d1g06_rh_5",
+				"text": "Foi assim que ele me mandou! ( ; ^ _ ^ )"
+			},
+			{
+				"id": "d1g06_rh_6",
+				"text": "Ele é artista, não leva jeito pra essas coisas (^ - ^)",
+				"choices": [
+					{
+						"id": "d1g06_rh_7_0",
+						"player_text": "Vou conferir mesmo assim",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g06_rh_7_1",
+						"player_text": "Tá bom, Helena",
+						"npc_reply": {
+							"goto_branch": "d1g06_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g06_rh_fim": [
+			{
+				"id": "d1g06_rh_7",
+				"text": "Obrigada! Me avisa quando resolver \\(*^ o ^*)/"
+			},
+			{
+				"id": "d1g06_rh_end",
+				"text": "Obrigada! Todo mundo saiu lindo \\(*^ o ^*)/",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "fc185"
+					}
+				]
+			}
+		]
+	}
+}

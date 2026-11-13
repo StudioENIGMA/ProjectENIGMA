@@ -1,11 +1,10 @@
 extends VBoxContainer
 
-## Emitted when the player taps an attachment that opens (an order document, a Pix QR Code or a
-## boleto)
+## Emitted when the player taps an attachment that opens (an order document or a Pix QR Code)
 signal attachment_opened(attachment: Dictionary)
 
 ## Attachment types that open when tapped
-const OPENABLE_ATTACHMENTS := ["order_document", "pix_qr", "boleto"]
+const OPENABLE_ATTACHMENTS := ["order_document", "pix_qr"]
 
 #region CHILDREN NODES REFERENCES
 @export var profile_picture:Control
@@ -42,7 +41,7 @@ func setup(email_data: Dictionary) -> void:
 ##
 ## email_id: The email the attachments belong to, for the section each chip reports
 ## attachments: The attachments of the email, as names or dictionaries with a "name" (and a
-## "type" for the ones that open: "order_document", "pix_qr" with its "printed_code" or "boleto")
+## "type" for the ones that open: "order_document" or "pix_qr" with its "printed_code")
 func _show_attachments(email_id: String, attachments: Array) -> void:
 	attachments_container.visible = not attachments.is_empty()
 

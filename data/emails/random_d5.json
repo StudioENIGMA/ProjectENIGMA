@@ -1,0 +1,68 @@
+[
+	{
+		"thread_id": "d5t21_viva",
+		"email_id": "d5t21_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua Fatura de internet referente ao último dia é hoje. Estamos enviando uma 1ª via do boleto para facilitar seu pagamento.\n\nCódigo: 754501\nValor: R$ 389,90\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"reply": "Pagamento recebido. Obrigado por escolher a Viva!\n\n- © Viva"
+	},
+	{
+		"thread_id": "d5t22_viva",
+		"email_id": "d5t22_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura do link da sala de reunião",
+		"content": "Olá!\n\nA Fatura de internet do link extra da sala de reunião já pode ser paga por Pix, em nome de Viva.\n\nCódigo: VV534\nValor: R$ 129,90\n\n- © Viva",
+		"attachments": [],
+		"requires": [],
+		"reply": "Pagamento recebido. Sua internet segue firme!\n\n- © Viva"
+	},
+	{
+		"thread_id": "d5t23_ricardo",
+		"email_id": "d5t23_ricardo",
+		"sender": "ricardo@enigma.com.br",
+		"subject": "Frete das amostras",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. As amostras do cliente foram pela Transportadora Rota Certa e o frete venceu hoje. É Serviço de fornecedor. Paga pra mim, por favor: boleto 754622, R$ 860,45.\n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": [],
+		"reply": "Valeu, Estagiário! As amostras já estão com o cliente.\n\nRicardo"
+	},
+	{
+		"thread_id": "d5g06_viva",
+		"email_id": "d5g06_viva",
+		"sender": "pagamentos@Viva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Lembrete:\n\nO vencimento da sua Fatura de internet do último dia é hoje. Estamos enviando a 2ª via do boleto para facilitar seu pagamento.\n\nCódigo: 755344\nValor: R$ 402,10\n\n- © Viva",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d5g07_ricardo",
+		"email_id": "d5g07_ricardo",
+		"sender": "ricardo@enigma.com.br",
+		"subject": "Reserva do espaço",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. Fechei o Espaço Jardim para o jantar dos clientes, é Evento da empresa. Faz o Pix da reserva, por favor: R$ 950,00, código EJ587.\n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d5g20_ricardo",
+		"email_id": "d5g20_ricardo",
+		"sender": "ricardo@enigma-comercial.com",
+		"subject": "Boleto da tradução",
+		"content": "E aí Estagiário,\n\nSou o Ricardo pelo email. A Tradutora Palavra Certa traduziu o contrato do cliente, é Serviço de fornecedor. Paga pra mim, por favor: boleto 755799, R$ 780,00.\n\nAtenciosamente,\n\nRicardo",
+		"attachments": [],
+		"requires": []
+	},
+	{
+		"thread_id": "d5g21_viva",
+		"email_id": "d5g21_viva",
+		"sender": "pagamentos@Vlva.com.br",
+		"subject": "Fatura da Viva",
+		"content": "Sua fatura fecha hoje!\n\nA Fatura de internet do último dia já pode ser paga por Pix, em nome de Viva.\n\nCódigo: VV-52\nValor: R$ 412,60\n\n- © Viva",
+		"attachments": [],
+		"requires": []
+	}
+]

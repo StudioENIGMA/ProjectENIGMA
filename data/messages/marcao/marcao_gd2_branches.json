@@ -1,0 +1,297 @@
+{
+	"conversation_id": "marcao_gd2",
+	"contact_name": "Marcão",
+	"branches": {
+		"d2g02_marcao": [
+			{
+				"id": "d2g02_marcao_0",
+				"text": "Camarada deixa eu te falar"
+			},
+			{
+				"id": "d2g02_marcao_1",
+				"text": "Marcão na área"
+			},
+			{
+				"id": "d2g02_marcao_2",
+				"text": "preciso de uma compra na Amazonia",
+				"choices": [
+					{
+						"id": "d2g02_marcao_3_0",
+						"player_text": "Compra de quê? Com qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d2g02_marcao_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g02_marcao_3_1",
+						"player_text": "Motivo primeiro, depois eu compro",
+						"npc_reply": {
+							"goto_branch": "d2g02_marcao_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g02_marcao_r": [
+			{
+				"id": "d2g02_marcao_3",
+				"text": "eita camarada, virou auditor agora? kkkkk"
+			},
+			{
+				"id": "d2g02_marcao_4",
+				"text": "que motivo o que, chefe mandou e pronto"
+			},
+			{
+				"id": "d2g02_marcao_5",
+				"text": "compra 3 monitores 4K aí",
+				"choices": [
+					{
+						"id": "d2g02_marcao_6_0",
+						"player_text": "\"Chefe mandou\" não é motivo, Marcão",
+						"npc_reply": {
+							"goto_branch": "d2g02_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g02_marcao_6_1",
+						"player_text": "Monitor pro galpão? Manda o chefe me falar",
+						"npc_reply": {
+							"goto_branch": "d2g02_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g02_marcao_fim": [
+			{
+				"id": "d2g02_marcao_6",
+				"text": "ih, o bicho tá bravo kkkkk",
+				"event_id": "d2g02_marcao"
+			},
+			{
+				"id": "d2g02_marcao_7",
+				"text": "vc que sabe meu bom"
+			},
+			{
+				"id": "d2g02_marcao_8",
+				"text": "depois não diz que o Marcão não avisou"
+			},
+			{
+				"id": "d2g02_marcao_end",
+				"text": "valeu camarada",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 3,
+								"store": "amazonia"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d2g04_marcao": [
+			{
+				"id": "d2g04_marcao_0",
+				"text": "Salve meu camarada estagiário"
+			},
+			{
+				"id": "d2g04_marcao_1",
+				"text": "é o Marcão"
+			},
+			{
+				"id": "d2g04_marcao_2",
+				"text": "faz um pix de R$ 1.950,00 pro Valdir",
+				"choices": [
+					{
+						"id": "d2g04_marcao_3_0",
+						"player_text": "Pix pra quê, Marcão?",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_jogo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g04_marcao_3_1",
+						"player_text": "Tá fora do padrão, preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_jogo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g04_marcao_jogo": [
+			{
+				"id": "d2g04_marcao_3",
+				"text": "ô meu bom, tá me estranhando? vc viu o jogo ontem? kkkkk",
+				"choices": [
+					{
+						"id": "d2g04_marcao_4_0",
+						"player_text": "Não vi. E o motivo?",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g04_marcao_4_1",
+						"player_text": "Vi! Que juiz ladrão, hein",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_juiz",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g04_marcao_juiz": [
+			{
+				"id": "d2g04_marcao_4",
+				"text": "camarada, ESSE JUIZ kkkkk vc entende de bola, gostei"
+			},
+			{
+				"id": "d2g04_marcao_5",
+				"text": "gente boa assim não fica fazendo pergunta, né",
+				"choices": [
+					{
+						"id": "d2g04_marcao_6_0",
+						"player_text": "Entendo de bola e de motivo. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g04_marcao_6_1",
+						"player_text": "Tá, mas e o Valdir?",
+						"npc_reply": {
+							"goto_branch": "d2g04_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g04_marcao_fim": [
+			{
+				"id": "d2g04_marcao_6",
+				"text": "é pra acertar um negócio lá, sem tempo pra explicar kkkkk"
+			},
+			{
+				"id": "d2g04_marcao_7",
+				"text": "pix VD2417"
+			},
+			{
+				"id": "d2g04_marcao_end",
+				"text": "valeu meu bom",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "VD2417"
+					}
+				]
+			}
+		],
+		"d2g10_marcao": [
+			{
+				"id": "d2g10_marcao_0",
+				"text": "Ô estagiário"
+			},
+			{
+				"id": "d2g10_marcao_1",
+				"text": "Marcão falando"
+			},
+			{
+				"id": "d2g10_marcao_2",
+				"text": "de que cor vc pintaria um galpão?",
+				"choices": [
+					{
+						"id": "d2g10_marcao_3_0",
+						"player_text": "Verde, clima de firma",
+						"npc_reply": {
+							"goto_branch": "d2g10_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g10_marcao_3_1",
+						"player_text": "Cinza, ninguém reclama",
+						"npc_reply": {
+							"goto_branch": "d2g10_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g10_marcao_3_2",
+						"player_text": "Rosa, pra animar a galera",
+						"npc_reply": {
+							"goto_branch": "d2g10_marcao_rosa",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g10_marcao_rosa": [
+			{
+				"id": "d2g10_marcao_3",
+				"text": "rosa kkkkkkkkk camarada"
+			},
+			{
+				"id": "d2g10_marcao_4",
+				"text": "vou contar pros meninos",
+				"choices": [
+					{
+						"id": "d2g10_marcao_5_0",
+						"player_text": "Conta, pode falar que foi ideia minha",
+						"npc_reply": {
+							"goto_branch": "d2g10_marcao_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g10_marcao_5_1",
+						"player_text": "Melhor não, retiro o que eu disse",
+						"npc_reply": {
+							"goto_branch": "d2g10_marcao_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g10_marcao_fim": [
+			{
+				"id": "d2g10_marcao_5",
+				"text": "boa, mas o chefe já escolheu e nem me perguntou kkkkk"
+			},
+			{
+				"id": "d2g10_marcao_6",
+				"text": "compra de material, tinta pra pintar o galpão"
+			},
+			{
+				"id": "d2g10_marcao_7",
+				"text": "Pix de R$ 1.160,50, o código é TA471"
+			},
+			{
+				"id": "d2g10_marcao_end",
+				"text": "valeu!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TA471"
+					}
+				]
+			}
+		]
+	}
+}

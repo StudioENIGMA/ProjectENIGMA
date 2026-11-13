@@ -1,0 +1,37 @@
+[
+	{
+		"thread_id": "d3t17_carolina",
+		"email_id": "d3t17_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3t18_carolina",
+		"email_id": "d3t18_carolina",
+		"required_app": "browser"
+	},
+	{
+		"thread_id": "d3t19_carolina",
+		"email_id": "d3t19_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3t20_viva",
+		"email_id": "d3t20_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3t21_viva",
+		"email_id": "d3t21_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3t22_viva",
+		"email_id": "d3t22_viva",
+		"required_app": "Bank"
+	},
+	{
+		"thread_id": "d3t23_viva",
+		"email_id": "d3t23_viva",
+		"required_app": "Bank"
+	}
+]

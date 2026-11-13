@@ -15,6 +15,20 @@
 				"id": "aurora1_payment0_2",
 				"text": "Pode pagar pelo Pix, código PXO82. Obrigado!"
 			}
+		],
+		"scam_d1_aurora": [
+			{
+				"id": "aurora1_payment1_0",
+				"text": "Bom dia! Distribuidora Aurora de novo, o fornecedor de papel da Enigma."
+			},
+			{
+				"id": "aurora1_payment1_1",
+				"text": "Ficaram em aberto as 20 resmas de papel A4 da última entrega: R$ 189,90."
+			},
+			{
+				"id": "aurora1_payment1_2",
+				"text": "Mudamos a chave de cobrança, pode pagar pelo Pix com o código AUR39. Obrigado!"
+			}
 		]
 	}
 }

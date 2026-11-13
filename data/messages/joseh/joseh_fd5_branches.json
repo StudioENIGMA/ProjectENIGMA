@@ -1,0 +1,78 @@
+{
+	"conversation_id": "joseh_fd5",
+	"contact_name": "Joseh",
+	"branches": {
+		"d5g16_joseh": [
+			{
+				"id": "d5g16_joseh_0",
+				"text": "Boa tarde. Poderia, por favor, fazer um Pix para o Chaveiro Central?"
+			},
+			{
+				"id": "d5g16_joseh_1",
+				"text": "É Serviço de fornecedor, as cópias das chaves do depósito. R$ 345,00, código CH529.",
+				"choices": [
+					{
+						"id": "d5g16_joseh_2_0",
+						"player_text": "Alguém perdeu a chave, seu José?",
+						"npc_reply": {
+							"goto_branch": "d5g16_joseh_perdeu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g16_joseh_2_1",
+						"player_text": "Quantas cópias o senhor pediu?",
+						"npc_reply": {
+							"goto_branch": "d5g16_joseh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g16_joseh_perdeu": [
+			{
+				"id": "d5g16_joseh_2",
+				"text": "Ninguém perde chave no meu depósito."
+			},
+			{
+				"id": "d5g16_joseh_3",
+				"text": "Alguém a guardou bem demais. Dentro de uma marmita, ao que parece.",
+				"choices": [
+					{
+						"id": "d5g16_joseh_4_0",
+						"player_text": "E a marmita, foi achada?",
+						"npc_reply": {
+							"goto_branch": "d5g16_joseh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g16_joseh_4_1",
+						"player_text": "Kkkk e o dono?",
+						"npc_reply": {
+							"goto_branch": "d5g16_joseh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g16_joseh_fim": [
+			{
+				"id": "d5g16_joseh_4",
+				"text": "Tudo devidamente registrado no meu caderno. Pode ficar sossegado."
+			},
+			{
+				"id": "d5g16_joseh_end",
+				"text": "Obrigado!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CH529"
+					}
+				]
+			}
+		]
+	}
+}

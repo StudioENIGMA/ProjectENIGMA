@@ -1,0 +1,343 @@
+{
+	"conversation_id": "ti_gd6",
+	"contact_name": "TI",
+	"branches": {
+		"d6g06_ti": [
+			{
+				"id": "d6g06_ti_0",
+				"text": "eai estagio, pergunta rapida"
+			},
+			{
+				"id": "d6g06_ti_1",
+				"text": "sabe qnts virus o Artur pegou esse mes?",
+				"choices": [
+					{
+						"id": "d6g06_ti_2_0",
+						"player_text": "Uns três?",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_tres",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g06_ti_2_1",
+						"player_text": "Prefiro não saber",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_nao",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g06_ti_tres": [
+			{
+				"id": "d6g06_ti_2",
+				"text": "onze kkkk"
+			},
+			{
+				"id": "d6g06_ti_3",
+				"text": "um trocou o papel de parede pra foto de um gato. nem ele sabe de quem",
+				"choices": [
+					{
+						"id": "d6g06_ti_4_0",
+						"player_text": "O gato é bonito, pelo menos?",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g06_ti_4_1",
+						"player_text": "Onze?! Ele clica em tudo?",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g06_ti_nao": [
+			{
+				"id": "d6g06_ti_4",
+				"text": "sabe sim kkkk, foi onze"
+			},
+			{
+				"id": "d6g06_ti_5",
+				"text": "um veio num link de receita de bolo",
+				"choices": [
+					{
+						"id": "d6g06_ti_6_0",
+						"player_text": "Era boa a receita?",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g06_ti_6_1",
+						"player_text": "Bloqueia a internet dele, Lorenz",
+						"npc_reply": {
+							"goto_branch": "d6g06_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g06_ti_fim": [
+			{
+				"id": "d6g06_ti_6",
+				"text": "renovacao do antivirus da Escudo Digital. Serviço de fornecedor, R$ 1.490,00"
+			},
+			{
+				"id": "d6g06_ti_7",
+				"text": "pix JF203, paga la"
+			},
+			{
+				"id": "d6g06_ti_end",
+				"text": "suave, valeu",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JF203"
+					}
+				]
+			}
+		],
+		"d6g12_ti": [
+			{
+				"id": "d6g12_ti_0",
+				"text": "coe estagio"
+			},
+			{
+				"id": "d6g12_ti_1",
+				"text": "preciso de umas camisetas pro time",
+				"choices": [
+					{
+						"id": "d6g12_ti_2_0",
+						"player_text": "Me passa o motivo, Lorenz?",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g12_ti_2_1",
+						"player_text": "Tá, mas qual motivo eu lanço?",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g12_ti_r": [
+			{
+				"id": "d6g12_ti_2",
+				"text": "relaxa mlk kkkk, chefe mandou e eh pra hj"
+			},
+			{
+				"id": "d6g12_ti_3",
+				"text": "6 camisetas azuis, pega na Zora q ta mais barato",
+				"choices": [
+					{
+						"id": "d6g12_ti_4_0",
+						"player_text": "Zora? Olhou a nota no Elogie Lá?",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_nota",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g12_ti_4_1",
+						"player_text": "Por que não na A&C?",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_ac",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g12_ti_4_2",
+						"player_text": "Chefe mandou não é motivo, né",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g12_ti_nota": [
+			{
+				"id": "d6g12_ti_4",
+				"text": "nota eh coisa de escola kkkk"
+			},
+			{
+				"id": "d6g12_ti_5",
+				"text": "camiseta nem vai pro Elogie La, vai pro corpo",
+				"choices": [
+					{
+						"id": "d6g12_ti_6_0",
+						"player_text": "A Helena ia ter um treco",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g12_ti_6_1",
+						"player_text": "Sei lá, loja ruim me dá medo",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g12_ti_ac": [
+			{
+				"id": "d6g12_ti_6",
+				"text": "pq na A&C o orcamento estoura"
+			},
+			{
+				"id": "d6g12_ti_7",
+				"text": "e ele pediu pra economizar, vai por mim",
+				"choices": [
+					{
+						"id": "d6g12_ti_8_0",
+						"player_text": "Engraçado, ele nunca fala disso",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g12_ti_8_1",
+						"player_text": "Economizar e comprar pra hoje?",
+						"npc_reply": {
+							"goto_branch": "d6g12_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g12_ti_fim": [
+			{
+				"id": "d6g12_ti_8",
+				"text": "qlqr coisa fala cmg, tmj",
+				"event_id": "d6g12_ti"
+			},
+			{
+				"id": "d6g12_ti_end",
+				"text": "chegou, valeu mlk",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 33,
+								"quantity": 6,
+								"store": "zora"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6g16_ti": [
+			{
+				"id": "d6g16_ti_0",
+				"text": "salve estagio, Lorenz aqui"
+			},
+			{
+				"id": "d6g16_ti_1",
+				"text": "to migrando os bananaPhone da galera, vai chegar um codigo de recuperacao no teu cel"
+			},
+			{
+				"id": "d6g16_ti_2",
+				"text": "me passa ele aqui rapidinho",
+				"choices": [
+					{
+						"id": "d6g16_ti_3_0",
+						"player_text": "Beleza, o código é 480213",
+						"npc_reply": {
+							"goto_branch": "d6g16_ti_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g16_ti_3_1",
+						"player_text": "Esse código é só meu, não passo.",
+						"npc_reply": {
+							"goto_branch": "d6g16_ti_nao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g16_ti_3_2",
+						"player_text": "Vc mesmo disse pra nunca passar isso",
+						"npc_reply": {
+							"goto_branch": "d6g16_ti_insiste",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g16_ti_insiste": [
+			{
+				"id": "d6g16_ti_3",
+				"text": "kkkk era teste, vc passou"
+			},
+			{
+				"id": "d6g16_ti_4",
+				"text": "mas agr eh de verdade, sem isso teu cel sai da rede hj",
+				"choices": [
+					{
+						"id": "d6g16_ti_5_0",
+						"player_text": "Beleza, o código é 480213",
+						"npc_reply": {
+							"goto_branch": "d6g16_ti_deu",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g16_ti_5_1",
+						"player_text": "Então eu desço aí na sala do TI",
+						"npc_reply": {
+							"goto_branch": "d6g16_ti_desco",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g16_ti_deu": [
+			{
+				"id": "d6g16_ti_5",
+				"text": "suave, ja resolvo aqui"
+			}
+		],
+		"d6g16_ti_nao": [
+			{
+				"id": "d6g16_ti_6",
+				"text": "blz, dps n reclama se teu cel travar"
+			}
+		],
+		"d6g16_ti_desco": [
+			{
+				"id": "d6g16_ti_7",
+				"text": "ih n precisa"
+			},
+			{
+				"id": "d6g16_ti_8",
+				"text": "to em home hj, dps vejo"
+			}
+		]
+	}
+}

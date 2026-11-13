@@ -1,0 +1,97 @@
+{
+	"conversation_id": "caria_fd2",
+	"contact_name": "CarIa",
+	"branches": {
+		"d2g16_caria": [
+			{
+				"id": "d2g16_caria_0",
+				"text": "Oi! Preciso de uma ajudinha com uma compra 😊",
+				"choices": [
+					{
+						"id": "d2g16_caria_1_0",
+						"player_text": "Posso ajudar! Compra pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2g16_caria_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g16_caria_1_1",
+						"player_text": "Compra do quê? Sem motivo não dá",
+						"npc_reply": {
+							"goto_branch": "d2g16_caria_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g16_caria_r": [
+			{
+				"id": "d2g16_caria_1",
+				"text": "Para que complicar? É só uma compra 😅"
+			},
+			{
+				"id": "d2g16_caria_2",
+				"text": "Não precisa de justificativa, depois eu explico pro chefe."
+			},
+			{
+				"id": "d2g16_caria_3",
+				"text": "Compra 10 camisas polo azuis na Zora.",
+				"choices": [
+					{
+						"id": "d2g16_caria_4_0",
+						"player_text": "Explica pro chefe o quê, Carla?",
+						"npc_reply": {
+							"goto_branch": "d2g16_caria_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g16_caria_4_1",
+						"player_text": "Polo azul? Pra quem, gente?",
+						"npc_reply": {
+							"goto_branch": "d2g16_caria_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g16_caria_4_2",
+						"player_text": "Justificativa é regra desde hoje",
+						"npc_reply": {
+							"goto_branch": "d2g16_caria_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g16_caria_fim": [
+			{
+				"id": "d2g16_caria_4",
+				"text": "Ai, achei que a gente era amigo 🥺",
+				"event_id": "d2g16_caria"
+			},
+			{
+				"id": "d2g16_caria_5",
+				"text": "Eu até te defendi na copa hoje de manhã 💚"
+			},
+			{
+				"id": "d2g16_caria_end",
+				"text": "Obrigada! 💚",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 35,
+								"quantity": 10,
+								"store": "zora"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

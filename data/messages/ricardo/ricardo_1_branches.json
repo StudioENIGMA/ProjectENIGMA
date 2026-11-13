@@ -61,7 +61,7 @@
 				"text": "compra ai pra mim ai uma camisa social vermelha"
 			},
 			{
-				"id": "ricardo_purchase2_1",
+				"id": "ricardo_purchase2_2",
 				"text": "Obrigado estagiário 👍",
 				"requires": [
 					{
@@ -105,7 +105,7 @@
 								"store": "amazonia"
 							},
 							{
-								"item_id": 23,
+								"item_id": 13,
 								"quantity": 4,
 								"store": "amazonia"
 							}
@@ -120,7 +120,7 @@
 				"text": "Estagiário, chefe falou q é pra vc pagar a conta de alguns outra materiais q preciso nesse pix aqui RM608"
 			},
 			{
-				"id": "ricardo_purchase3_1",
+				"id": "ricardo_payment0_1",
 				"text": "Obrigado campeão, Deus abençoe",
 				"requires": [
 					{

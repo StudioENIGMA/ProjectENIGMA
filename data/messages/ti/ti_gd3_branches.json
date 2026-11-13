@@ -1,0 +1,182 @@
+{
+	"conversation_id": "ti_gd3",
+	"contact_name": "TI",
+	"branches": {
+		"d3g05_ti": [
+			{
+				"id": "d3g05_ti_0",
+				"text": "fala estagio, o nobreak da sala do servidor apitou a noite toda kkkk",
+				"choices": [
+					{
+						"id": "d3g05_ti_1_0",
+						"player_text": "Alguém ficou lá ouvindo?",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_ouvindo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g05_ti_1_1",
+						"player_text": "Apitou em que nota?",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_nota",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g05_ti_ouvindo": [
+			{
+				"id": "d3g05_ti_1",
+				"text": "eu nao, mas o monitoramento me ligou a madrugada inteira"
+			},
+			{
+				"id": "d3g05_ti_2",
+				"text": "dormi c o celular na geladeira kkkk",
+				"choices": [
+					{
+						"id": "d3g05_ti_3_0",
+						"player_text": "Isso funciona?",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g05_ti_3_1",
+						"player_text": "Que vida, hein",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g05_ti_nota": [
+			{
+				"id": "d3g05_ti_3",
+				"text": "um si bemol bem triste kkkk"
+			},
+			{
+				"id": "d3g05_ti_4",
+				"text": "a carolina disse q parecia o chefe cantando parabens",
+				"choices": [
+					{
+						"id": "d3g05_ti_5_0",
+						"player_text": "Agora eu quero ouvir",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g05_ti_5_1",
+						"player_text": "Vou contar isso pra ele",
+						"npc_reply": {
+							"goto_branch": "d3g05_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g05_ti_fim": [
+			{
+				"id": "d3g05_ti_5",
+				"text": "a Volt Assistencia arrumou, Pix VA530, R$ 560,00. Serviço de fornecedor"
+			},
+			{
+				"id": "d3g05_ti_6",
+				"text": "paga pra mim?"
+			},
+			{
+				"id": "d3g05_ti_end",
+				"text": "valeu, tamo junto (b^_^)b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "VA530"
+					}
+				]
+			}
+		],
+		"d3g13_ti": [
+			{
+				"id": "d3g13_ti_0",
+				"text": "fala estagio, faz um pix pra mim qnd der?",
+				"choices": [
+					{
+						"id": "d3g13_ti_1_0",
+						"player_text": "Faço, mas qual é a boa? Preciso do motivo",
+						"npc_reply": {
+							"goto_branch": "d3g13_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g13_ti_1_1",
+						"player_text": "Me fala pra que é, que a Simone cobra",
+						"npc_reply": {
+							"goto_branch": "d3g13_ti_simone",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g13_ti_simone": [
+			{
+				"id": "d3g13_ti_1",
+				"text": "a simone nem vai olhar isso kkkk"
+			},
+			{
+				"id": "d3g13_ti_2",
+				"text": "aqui eh tudo amigo",
+				"choices": [
+					{
+						"id": "d3g13_ti_3_0",
+						"player_text": "Ela olha tudo, Lorenz",
+						"npc_reply": {
+							"goto_branch": "d3g13_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3g13_ti_3_1",
+						"player_text": "Mesmo assim preciso saber",
+						"npc_reply": {
+							"goto_branch": "d3g13_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3g13_ti_fim": [
+			{
+				"id": "d3g13_ti_3",
+				"text": "kkkk eh pix ue, desde qnd precisa de motivo"
+			},
+			{
+				"id": "d3g13_ti_4",
+				"text": "manda ai: TI-32, R$ 450,00"
+			},
+			{
+				"id": "d3g13_ti_5",
+				"text": "dps te pago uma coxinha"
+			},
+			{
+				"id": "d3g13_ti_end",
+				"text": "valeu kkkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TI-32"
+					}
+				]
+			}
+		]
+	}
+}

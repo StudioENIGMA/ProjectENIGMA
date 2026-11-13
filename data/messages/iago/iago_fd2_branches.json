@@ -1,0 +1,50 @@
+{
+	"conversation_id": "iago_fd2",
+	"contact_name": "Iago",
+	"branches": {
+		"d2g17_iago": [
+			{
+				"id": "d2g17_iago_0",
+				"text": "Olá, estagiário. Preciso que realize o pagamento de um Pix de R$ 3.050,00 da Metalúrgica Forte."
+			},
+			{
+				"id": "d2g17_iago_1",
+				"text": "É compra de material para a produção. Código: MF390",
+				"choices": [
+					{
+						"id": "d2g17_iago_2_0",
+						"player_text": "Certo. Para qual produção, Yago?",
+						"npc_reply": {
+							"goto_branch": "d2g17_iago_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2g17_iago_2_1",
+						"player_text": "Vou conferir no Banco antes, tá?",
+						"npc_reply": {
+							"goto_branch": "d2g17_iago_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2g17_iago_fim": [
+			{
+				"id": "d2g17_iago_2",
+				"text": "Chapas para a nova linha. Confira à vontade, é o procedimento."
+			},
+			{
+				"id": "d2g17_iago_end",
+				"text": "Pagamento confirmado. Obrigado.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MF390"
+					}
+				]
+			}
+		]
+	}
+}

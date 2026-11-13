@@ -1,0 +1,36 @@
+{
+	"conversation_id": "tl_fd5",
+	"contact_name": "Tl",
+	"branches": {
+		"d5g19_tl": [
+			{
+				"id": "d5g19_tl_0",
+				"text": "fala estagio, o pessoal do suporte quer polo igual kkkk"
+			},
+			{
+				"id": "d5g19_tl_1",
+				"text": "disseram q vai dar cara de time. de varzea, mas time"
+			},
+			{
+				"id": "d5g19_tl_2",
+				"text": "eh Compra de material, pega 4 polo azul na Zora q ta em promo"
+			},
+			{
+				"id": "d5g19_tl_end",
+				"text": "(b^_^)b",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 35,
+								"quantity": 4,
+								"store": "zora"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

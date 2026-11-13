@@ -1,7 +1,42 @@
 [
-    {
+	{
 		"conversation_id": "arhtur_1",
 		"branch": "scan0_arhtur",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "martha_1",
+		"branch": "scan0_martha",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "martha_1",
+		"branch": "scan1_martha",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "gilrnar_1",
+		"branch": "scan0_gilrnar",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "gilrnar_1",
+		"branch": "scan1_gilrnar",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "giumar_1",
+		"branch": "scan0_giumar",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "jilmar_1",
+		"branch": "scan0_jilmar",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "marrta_1",
+		"branch": "scan0_marrta",
+		"required_app": "Bank"
 	}
 ]

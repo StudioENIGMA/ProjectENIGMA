@@ -57,7 +57,7 @@
 				"text": "Olá, tudo bem? Você poderia encomendar 2 bolos, um com cobertura de morango e o outro de maracujá, pro próximo aniversário da empresa?"
 			},
 			{
-				"id": "marcia_purchase2_0",
+				"id": "marcia_purchase2_1",
 				"text": "Obrigadaa!",
 				"requires": [
 					{
@@ -81,10 +81,10 @@
 		"task3_marcia": [
 			{
 				"id": "marcia_purchase3_0",
-				"text": "Oi, como vai? Estamos precisando de mais camisetas de cada, você poderia encomendar 5, por favor?"
+				"text": "Oi, como vai? Estamos precisando de mais camisetas azuis e vermelhas, você poderia encomendar 5 de cada, por favor?"
 			},
 			{
-				"id": "marcia_purchase3_0",
+				"id": "marcia_purchase3_1",
 				"text": "Obrigada!",
 				"requires": [
 					{

@@ -1,0 +1,138 @@
+{
+	"conversation_id": "guillherme_fd4",
+	"contact_name": "Guillherme",
+	"branches": {
+		"d4g16_guillherme": [
+			{
+				"id": "d4g16_guillherme_0",
+				"text": "Olá, boa jornada, estagiário!"
+			},
+			{
+				"id": "d4g16_guillherme_1",
+				"text": "E o estágio, está gostando da Enigma?",
+				"choices": [
+					{
+						"id": "d4g16_guillherme_2_0",
+						"player_text": "Tô gostando, o pessoal é gente boa",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_gosta",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g16_guillherme_2_1",
+						"player_text": "Tô sim. Desculpa, é o Guilherme mesmo?",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_quem",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g16_guillherme_gosta": [
+			{
+				"id": "d4g16_guillherme_2",
+				"text": "Que bom, cara. Eu falo bem de você em Compras."
+			},
+			{
+				"id": "d4g16_guillherme_3",
+				"text": "A Serralheria Forte terminou o portão do estoque. É Serviço de fornecedor, R$ 2.640,00."
+			},
+			{
+				"id": "d4g16_guillherme_4",
+				"text": "Pix: IT815. No Banco, usa o código IT851.",
+				"choices": [
+					{
+						"id": "d4g16_guillherme_5_0",
+						"player_text": "Por que o código do Banco muda?",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_muda",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g16_guillherme_5_1",
+						"player_text": "Anotado, vou lá fazer",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g16_guillherme_quem": [
+			{
+				"id": "d4g16_guillherme_5",
+				"text": "Claro, cara. De Compras. Trocou o celular?"
+			},
+			{
+				"id": "d4g16_guillherme_6",
+				"text": "Enfim, a Serralheria Forte terminou o portão do estoque. É Serviço de fornecedor, R$ 2.640,00."
+			},
+			{
+				"id": "d4g16_guillherme_7",
+				"text": "Pix: IT815. No Banco, usa o código IT851.",
+				"choices": [
+					{
+						"id": "d4g16_guillherme_8_0",
+						"player_text": "Pix com um código e Banco com outro, é isso?",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_muda",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g16_guillherme_8_1",
+						"player_text": "Tá, depois vejo aqui",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g16_guillherme_muda": [
+			{
+				"id": "d4g16_guillherme_8",
+				"text": "Detalhe do sistema. Por favor, não se preocupe com isso.",
+				"choices": [
+					{
+						"id": "d4g16_guillherme_9_0",
+						"player_text": "Se você diz",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g16_guillherme_9_1",
+						"player_text": "Vou conferir com a Simone",
+						"npc_reply": {
+							"goto_branch": "d4g16_guillherme_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g16_guillherme_fim": [
+			{
+				"id": "d4g16_guillherme_9",
+				"text": "Agradeço a ajuda, boa jornada."
+			},
+			{
+				"id": "d4g16_guillherme_end",
+				"text": "Valeu cara",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "IT851"
+					}
+				]
+			}
+		]
+	}
+}

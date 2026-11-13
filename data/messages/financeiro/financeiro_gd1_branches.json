@@ -1,0 +1,82 @@
+{
+	"conversation_id": "financeiro_gd1",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d1g05_financeiro": [
+			{
+				"id": "d1g05_financeiro_0",
+				"text": "Bom dia! É a Simone, do Financeiro."
+			},
+			{
+				"id": "d1g05_financeiro_1",
+				"text": "Apareceu uma barata na copa e o andar inteiro parou.",
+				"choices": [
+					{
+						"id": "d1g05_financeiro_2_0",
+						"player_text": "Você chegou a ver a barata?",
+						"npc_reply": {
+							"goto_branch": "d1g05_financeiro_barata",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g05_financeiro_2_1",
+						"player_text": "Pegaram ela?",
+						"npc_reply": {
+							"goto_branch": "d1g05_financeiro_barata",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g05_financeiro_barata": [
+			{
+				"id": "d1g05_financeiro_2",
+				"text": "Vi. Do tamanho de um grampeador."
+			},
+			{
+				"id": "d1g05_financeiro_3",
+				"text": "O pessoal subiu nas cadeiras. Eu continuei o fechamento.",
+				"choices": [
+					{
+						"id": "d1g05_financeiro_4_0",
+						"player_text": "Você é corajosa, Simone",
+						"npc_reply": {
+							"goto_branch": "d1g05_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g05_financeiro_4_1",
+						"player_text": "Eu teria subido na cadeira também",
+						"npc_reply": {
+							"goto_branch": "d1g05_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g05_financeiro_fim": [
+			{
+				"id": "d1g05_financeiro_4",
+				"text": "A Dedetiza Já veio hoje cedo."
+			},
+			{
+				"id": "d1g05_financeiro_5",
+				"text": "Faça este Pix para mim: código DZ-163, R$ 580,00. Motivo: Serviço de fornecedor."
+			},
+			{
+				"id": "d1g05_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DZ-163"
+					}
+				]
+			}
+		]
+	}
+}

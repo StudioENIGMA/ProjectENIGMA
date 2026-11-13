@@ -1,0 +1,130 @@
+{
+	"conversation_id": "marcia_gd4",
+	"contact_name": "Marcia",
+	"branches": {
+		"d4g13_marcia": [
+			{
+				"id": "d4g13_marcia_0",
+				"text": "Oie, boa tarde! Tudo certinho?"
+			},
+			{
+				"id": "d4g13_marcia_1",
+				"text": "Você poderia pagar um Pix para mim, por favor?",
+				"choices": [
+					{
+						"id": "d4g13_marcia_2_0",
+						"player_text": "Oi, Marcia! Pago, é referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_helena",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g13_marcia_2_1",
+						"player_text": "Sem um motivo da lista não posso. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_helena",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g13_marcia_helena": [
+			{
+				"id": "d4g13_marcia_2",
+				"text": "Ai, a Helena pediu para resolver hoje e pronto."
+			},
+			{
+				"id": "d4g13_marcia_3",
+				"text": "Pix de R$ 870,00: SM018. No Banco, usa o SM081.",
+				"choices": [
+					{
+						"id": "d4g13_marcia_4_0",
+						"player_text": "Mas a Helena falou do que se trata?",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_falou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g13_marcia_4_1",
+						"player_text": "Dois números e nenhum motivo, Marcia?",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_drama",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g13_marcia_falou": [
+			{
+				"id": "d4g13_marcia_4",
+				"text": "Falou, mas eu estava no meio de um monte de currículos, não guardei.",
+				"choices": [
+					{
+						"id": "d4g13_marcia_5_0",
+						"player_text": "Pergunto pra ela, então",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g13_marcia_5_1",
+						"player_text": "Hmm, tá bom",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g13_marcia_drama": [
+			{
+				"id": "d4g13_marcia_5",
+				"text": "Ai, você está parecendo a Simone!"
+			},
+			{
+				"id": "d4g13_marcia_6",
+				"text": "Achei que a gente se entendia, viu.",
+				"choices": [
+					{
+						"id": "d4g13_marcia_7_0",
+						"player_text": "Não é nada pessoal",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g13_marcia_7_1",
+						"player_text": "Desculpa, mas preciso perguntar",
+						"npc_reply": {
+							"goto_branch": "d4g13_marcia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g13_marcia_fim": [
+			{
+				"id": "d4g13_marcia_7",
+				"text": "Obrigada, tá? Você é um amor de pessoa."
+			},
+			{
+				"id": "d4g13_marcia_end",
+				"text": "Obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SM081"
+					}
+				]
+			}
+		]
+	}
+}

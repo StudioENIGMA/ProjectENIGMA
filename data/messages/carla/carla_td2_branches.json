@@ -1,0 +1,426 @@
+{
+	"conversation_id": "carla_td2",
+	"contact_name": "Carla",
+	"branches": {
+		"d2t01_carla": [
+			{
+				"id": "d2t01_carla_0",
+				"text": "Oii! Pergunta de novata pra novato 😊"
+			},
+			{
+				"id": "d2t01_carla_1",
+				"text": "Você já descobriu onde tem café bom aqui? Eu só achei o da copa, que parece chá de meia",
+				"choices": [
+					{
+						"id": "d2t01_carla_2_0",
+						"player_text": "O bom é o do RH, mas tem que fazer amizade",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_rh",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t01_carla_2_1",
+						"player_text": "Nem sei, tô na água desde ontem kkk",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_agua",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t01_carla_rh": [
+			{
+				"id": "d2t01_carla_2",
+				"text": "Anotado! Vou levar bolacha pra negociar 😅"
+			},
+			{
+				"id": "d2t01_carla_3",
+				"text": "Já que somos colegas de sofrimento: me faz um Pix? R$ 186,40 pra Renata, da contabilidade",
+				"choices": [
+					{
+						"id": "d2t01_carla_4_0",
+						"player_text": "Faço! Só me diz o motivo, que agora é regra",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t01_carla_4_1",
+						"player_text": "Pra Renata? E é pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t01_carla_agua": [
+			{
+				"id": "d2t01_carla_4",
+				"text": "Ai, não! Você tá pior que eu 😅"
+			},
+			{
+				"id": "d2t01_carla_5",
+				"text": "Vou te distrair da sede: tem um Pix aqui, R$ 186,40 pra Renata, da contabilidade. Dá pra fazer?",
+				"choices": [
+					{
+						"id": "d2t01_carla_6_0",
+						"player_text": "Dou sim. Mas qual o motivo dele?",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t01_carla_6_1",
+						"player_text": "Só com motivo, Carla. Tá nas Notas de hoje",
+						"npc_reply": {
+							"goto_branch": "d2t01_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t01_carla_fim": [
+			{
+				"id": "d2t01_carla_6",
+				"text": "Ai, verdade, o motivo! Também tô aprendendo aqui 🙈"
+			},
+			{
+				"id": "d2t01_carla_7",
+				"text": "É reembolso de funcionário: ela pagou o táxi da visita ao cliente do próprio bolso."
+			},
+			{
+				"id": "d2t01_carla_8",
+				"text": "Código do Pix: RE214"
+			},
+			{
+				"id": "d2t01_carla_end",
+				"text": "Comprovante aqui, obrigada! A Renata já pode voltar a andar de táxi 💚",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RE214"
+					}
+				]
+			}
+		],
+		"d2t02_carla": [
+			{
+				"id": "d2t02_carla_0",
+				"text": "Ei, sobrou um Pix da Gráfica Ponto Certo aqui comigo 🙈"
+			},
+			{
+				"id": "d2t02_carla_1",
+				"text": "São R$ 742,00, consegue pa"
+			},
+			{
+				"id": "d2t02_carla_2",
+				"text": "ai, o Yago parou aqui do lado, já volto"
+			},
+			{
+				"id": "d2t02_carla_3",
+				"text": "Voltei! 😅 Veio perguntar se usei o grampeador dele. Tem etiqueta com o nome, gente.",
+				"choices": [
+					{
+						"id": "d2t02_carla_4_0",
+						"player_text": "Kkkk e você usou?",
+						"npc_reply": {
+							"goto_branch": "d2t02_carla_usou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t02_carla_4_1",
+						"player_text": "Consigo pagar! Referente a quê esse Pix?",
+						"npc_reply": {
+							"goto_branch": "d2t02_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t02_carla_usou": [
+			{
+				"id": "d2t02_carla_4",
+				"text": "Usei. Vou morrer com esse segredo 🤐"
+			},
+			{
+				"id": "d2t02_carla_5",
+				"text": "Mas e o Pix, consegue pagar?",
+				"choices": [
+					{
+						"id": "d2t02_carla_6_0",
+						"player_text": "Consigo, me fala do que ele é",
+						"npc_reply": {
+							"goto_branch": "d2t02_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t02_carla_6_1",
+						"player_text": "Sem motivo, não. Senão o Yago me etiqueta também",
+						"npc_reply": {
+							"goto_branch": "d2t02_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t02_carla_fim": [
+			{
+				"id": "d2t02_carla_6",
+				"text": "Verdade! Nesse fechamento eu esqueço até meu nome 😅"
+			},
+			{
+				"id": "d2t02_carla_7",
+				"text": "É serviço de fornecedor: eles imprimiram os relatórios do trimestre."
+			},
+			{
+				"id": "d2t02_carla_8",
+				"text": "Pix: GP018"
+			},
+			{
+				"id": "d2t02_carla_end",
+				"text": "Pago! Você é um anjo 💚 E o grampeador fica entre nós.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GP018"
+					}
+				]
+			}
+		],
+		"d2t03_carla": [
+			{
+				"id": "d2t03_carla_0",
+				"text": "Oi, oi! Você já conheceu a Dona Cida, da recepção? 😊",
+				"choices": [
+					{
+						"id": "d2t03_carla_1_0",
+						"player_text": "A que me deu bala no primeiro dia?",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_bala",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t03_carla_1_1",
+						"player_text": "Ainda não, tô preso aqui no celular",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_preso",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t03_carla_bala": [
+			{
+				"id": "d2t03_carla_1",
+				"text": "Ela mesma! Deu bala pra mim também, acho que é o cartão de visitas dela 😂"
+			},
+			{
+				"id": "d2t03_carla_2",
+				"text": "Preciso de uma ajudinha com uma compra na Emília Bolos",
+				"choices": [
+					{
+						"id": "d2t03_carla_3_0",
+						"player_text": "Ajudo! Mas é compra pra quê?",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t03_carla_3_1",
+						"player_text": "Sem motivo o Chefinho me mata. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t03_carla_preso": [
+			{
+				"id": "d2t03_carla_3",
+				"text": "Vai lá dar oi, ela é um amor. Melhor ainda, vai quando tiver bala 😄"
+			},
+			{
+				"id": "d2t03_carla_4",
+				"text": "Ah, e preciso de uma mãozinha com uma compra na Emília Bolos",
+				"choices": [
+					{
+						"id": "d2t03_carla_5_0",
+						"player_text": "Mão tenho, falta o motivo",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t03_carla_5_1",
+						"player_text": "Claro, Carla. Compra de quê e por quê?",
+						"npc_reply": {
+							"goto_branch": "d2t03_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t03_carla_fim": [
+			{
+				"id": "d2t03_carla_5",
+				"text": "Nossa, é mesmo, me empolguei 😅",
+				"event_id": "d2t03_carla"
+			},
+			{
+				"id": "d2t03_carla_6",
+				"text": "É evento da empresa: a Dona Cida faz 30 anos de casa!"
+			},
+			{
+				"id": "d2t03_carla_7",
+				"text": "Compra 1 bolo decorado e 30 brigadeiros, por favor 🎂"
+			},
+			{
+				"id": "d2t03_carla_8",
+				"text": "Um brigadeiro por ano de casa. Achei poético 🥹"
+			},
+			{
+				"id": "d2t03_carla_end",
+				"text": "Chegaram! Ela chorou de alegria 😭💚",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 25,
+								"quantity": 1,
+								"store": "emilia_bolos"
+							},
+							{
+								"item_id": 21,
+								"quantity": 30,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d2t14_carla": [
+			{
+				"id": "d2t14_carla_0",
+				"text": "Oi! Fechei os gastos da festa do setor 😊"
+			},
+			{
+				"id": "d2t14_carla_1",
+				"text": "Falta pagar o Buffet da Neide: Pix de R$ 430,00. É evento da empresa, os salgadinhos foram um sucesso."
+			},
+			{
+				"id": "d2t14_carla_2",
+				"text": "Falando nisso: você pegou coxinha?",
+				"choices": [
+					{
+						"id": "d2t14_carla_3_0",
+						"player_text": "Peguei uma. Tá, cinco",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_cinco",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t14_carla_3_1",
+						"player_text": "Nem fui convidado 😢",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_nao",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t14_carla_cinco": [
+			{
+				"id": "d2t14_carla_3",
+				"text": "Cinco é modesto, o Marcão levou um pratinho pra casa 😂"
+			},
+			{
+				"id": "d2t14_carla_4",
+				"text": "Agora vamos pagar a Neide, né?",
+				"choices": [
+					{
+						"id": "d2t14_carla_5_0",
+						"player_text": "Bora. Manda o código",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t14_carla_5_1",
+						"player_text": "Pago, em homenagem à coxinha",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t14_carla_nao": [
+			{
+				"id": "d2t14_carla_5",
+				"text": "Ai, que vacilo nosso! Da próxima você vai 💚"
+			},
+			{
+				"id": "d2t14_carla_6",
+				"text": "Me perdoa e paga a Neide? 🙏",
+				"choices": [
+					{
+						"id": "d2t14_carla_7_0",
+						"player_text": "Perdoo se tiver coxinha guardada",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d2t14_carla_7_1",
+						"player_text": "Pago sim, qual o código?",
+						"npc_reply": {
+							"goto_branch": "d2t14_carla_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2t14_carla_fim": [
+			{
+				"id": "d2t14_carla_7",
+				"text": "Fechado 😊 Código: BN272"
+			},
+			{
+				"id": "d2t14_carla_end",
+				"text": "Obrigada!! A Neide mandou um beijo 💚",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "BN272"
+					}
+				]
+			}
+		]
+	}
+}

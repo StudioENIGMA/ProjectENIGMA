@@ -1,0 +1,390 @@
+{
+	"conversation_id": "jessica_td1",
+	"contact_name": "Jessica",
+	"branches": {
+		"d1t04_jessica": [
+			{
+				"id": "d1t04_jessica_0",
+				"text": "Oi, tudo bem?"
+			},
+			{
+				"id": "d1t04_jessica_1",
+				"text": "Pergunta importante: você é de qual bolo?",
+				"choices": [
+					{
+						"id": "d1t04_jessica_2_0",
+						"player_text": "Prestígio, sem discussão",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_prestigio",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t04_jessica_2_1",
+						"player_text": "Cenoura com calda",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_cenoura",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t04_jessica_2_2",
+						"player_text": "Qualquer um que seja de graça kkk",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_gratis",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t04_jessica_prestigio": [
+			{
+				"id": "d1t04_jessica_2",
+				"text": "Boa! Igual à Simone, ela nem disfarça, leva dois pedaços kkk"
+			},
+			{
+				"id": "d1t04_jessica_3",
+				"text": "Posso te pedir um favor sobre bolo?",
+				"choices": [
+					{
+						"id": "d1t04_jessica_4_0",
+						"player_text": "Claro, fala",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t04_jessica_4_1",
+						"player_text": "Se tiver bolo na jogada, sim",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t04_jessica_cenoura": [
+			{
+				"id": "d1t04_jessica_4",
+				"text": "Ai, que saudade de cenoura com calda :)"
+			},
+			{
+				"id": "d1t04_jessica_5",
+				"text": "Vou anotar pro mês que vem! Posso te pedir um favor?",
+				"choices": [
+					{
+						"id": "d1t04_jessica_6_0",
+						"player_text": "Pode pedir",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t04_jessica_6_1",
+						"player_text": "Só se sobrar um pedaço",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t04_jessica_gratis": [
+			{
+				"id": "d1t04_jessica_6",
+				"text": "Kkk resposta de estagiário"
+			},
+			{
+				"id": "d1t04_jessica_7",
+				"text": "Então vai gostar disso. Posso te pedir um favor?",
+				"choices": [
+					{
+						"id": "d1t04_jessica_8_0",
+						"player_text": "Manda",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t04_jessica_8_1",
+						"player_text": "Sou barato, pode falar kkk",
+						"npc_reply": {
+							"goto_branch": "d1t04_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t04_jessica_fim": [
+			{
+				"id": "d1t04_jessica_8",
+				"text": "A Confeitaria Dona Nena fez o bolo dos aniversariantes do mês, é Evento da empresa. Deu R$ 215,00"
+			},
+			{
+				"id": "d1t04_jessica_9",
+				"text": "Não sou boa com essas coisas de banco kkk, você consegue fazer pra mim? O pix é DN128"
+			},
+			{
+				"id": "d1t04_jessica_end",
+				"text": "Deu certo, muito obrigada! Vou guardar um pedaço pra você kkk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DN128"
+					}
+				]
+			}
+		],
+		"d1t05_jessica": [
+			{
+				"id": "d1t05_jessica_0",
+				"text": "Oi! Posso te pedir uma ajudinha?",
+				"choices": [
+					{
+						"id": "d1t05_jessica_1_0",
+						"player_text": "Pode sim, o que houve?",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_valdir",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t05_jessica_1_1",
+						"player_text": "Claro, é pra isso que me pagam. Pouco kkk",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_valdir",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t05_jessica_valdir": [
+			{
+				"id": "d1t05_jessica_1",
+				"text": "O seu Valdir da portaria pagou o exame periódico dele e está me cobrando faz uma semana, coitado :("
+			},
+			{
+				"id": "d1t05_jessica_2",
+				"text": "Agora ele me dá bom dia com o recibo na mão",
+				"choices": [
+					{
+						"id": "d1t05_jessica_3_0",
+						"player_text": "Conheço, ele é gente boa demais",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_gente",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t05_jessica_3_1",
+						"player_text": "Coitado. Quanto foi?",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t05_jessica_gente": [
+			{
+				"id": "d1t05_jessica_3",
+				"text": "Ele é um amor. Semana passada trouxe cuscuz pra portaria inteira :)"
+			},
+			{
+				"id": "d1t05_jessica_4",
+				"text": "Merece receber logo o dinheiro dele",
+				"choices": [
+					{
+						"id": "d1t05_jessica_5_0",
+						"player_text": "Merece mesmo, me passa os dados",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t05_jessica_5_1",
+						"player_text": "E o cuscuz, sobrou?",
+						"npc_reply": {
+							"goto_branch": "d1t05_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t05_jessica_fim": [
+			{
+				"id": "d1t05_jessica_5",
+				"text": "É Reembolso de funcionário de R$ 92,30."
+			},
+			{
+				"id": "d1t05_jessica_6",
+				"text": "Código do pix: VG153"
+			},
+			{
+				"id": "d1t05_jessica_end",
+				"text": "Ele já veio me agradecer, muito obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "VG153"
+					}
+				]
+			}
+		],
+		"d1t06_jessica": [
+			{
+				"id": "d1t06_jessica_0",
+				"text": "Oi, bom dia"
+			},
+			{
+				"id": "d1t06_jessica_1",
+				"text": "Os crachás novos chegaram da Gráfica Ponto Certo!"
+			},
+			{
+				"id": "d1t06_jessica_2",
+				"text": "O meu veio escrito Jessisca kkk",
+				"choices": [
+					{
+						"id": "d1t06_jessica_3_0",
+						"player_text": "Jessisca é chique, mantém",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_chique",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t06_jessica_3_1",
+						"player_text": "Eles vão refazer, né?",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_refazer",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t06_jessica_3_2",
+						"player_text": "E o meu, veio certo?",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_meu",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t06_jessica_chique": [
+			{
+				"id": "d1t06_jessica_3",
+				"text": "Kkk já estão me chamando assim na copa"
+			},
+			{
+				"id": "d1t06_jessica_4",
+				"text": "Mas eles vão refazer de graça, ainda bem",
+				"choices": [
+					{
+						"id": "d1t06_jessica_5_0",
+						"player_text": "Aproveita enquanto dura",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t06_jessica_5_1",
+						"player_text": "Sentirei falta da Jessisca",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t06_jessica_refazer": [
+			{
+				"id": "d1t06_jessica_5",
+				"text": "Vão sim, de graça!"
+			},
+			{
+				"id": "d1t06_jessica_6",
+				"text": "Quase fui apresentada assim na integração kkk",
+				"choices": [
+					{
+						"id": "d1t06_jessica_7_0",
+						"player_text": "Escapou por pouco",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t06_jessica_7_1",
+						"player_text": "Perdeu a chance de mudar de nome",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t06_jessica_meu": [
+			{
+				"id": "d1t06_jessica_7",
+				"text": "O seu veio só \"Estagiário\" :)"
+			},
+			{
+				"id": "d1t06_jessica_8",
+				"text": "Ainda não colocaram seu nome no cadastro, mas eles vão refazer de graça kkk",
+				"choices": [
+					{
+						"id": "d1t06_jessica_9_0",
+						"player_text": "Justo, ainda não mereci",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t06_jessica_9_1",
+						"player_text": "Posso pedir pra ser Jessisco?",
+						"npc_reply": {
+							"goto_branch": "d1t06_jessica_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t06_jessica_fim": [
+			{
+				"id": "d1t06_jessica_9",
+				"text": "Bom, tirando os nomes, veio tudo certinho :)"
+			},
+			{
+				"id": "d1t06_jessica_10",
+				"text": "Você paga pra mim? Serviço de fornecedor, R$ 478,00, Pix GP830"
+			},
+			{
+				"id": "d1t06_jessica_end",
+				"text": "Confirmaram aqui, muito obrigada :)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GP830"
+					}
+				]
+			}
+		]
+	}
+}

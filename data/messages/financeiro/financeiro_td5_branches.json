@@ -1,0 +1,222 @@
+{
+	"conversation_id": "financeiro_td5",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d5t12_financeiro": [
+			{
+				"id": "d5t12_financeiro_0",
+				"text": "Bom dia! Preciso que você pague a Contábil Ampere para mim."
+			},
+			{
+				"id": "d5t12_financeiro_1",
+				"text": "É Serviço de fornecedor, o fechamento do trimestre. Pix CA102, R$ 1.875,30.",
+				"choices": [
+					{
+						"id": "d5t12_financeiro_2_0",
+						"player_text": "Trimestre fechado? Parabéns, Simone!",
+						"npc_reply": {
+							"goto_branch": "d5t12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t12_financeiro_2_1",
+						"player_text": "Sim, senhora. Já vou lá.",
+						"npc_reply": {
+							"goto_branch": "d5t12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t12_financeiro_fim": [
+			{
+				"id": "d5t12_financeiro_2",
+				"text": "Se fechou mesmo, eu descubro às seis da tarde."
+			},
+			{
+				"id": "d5t12_financeiro_3",
+				"text": "A soma já bateu duas vezes, com dois resultados diferentes."
+			},
+			{
+				"id": "d5t12_financeiro_end",
+				"text": "Pagamento recebido, obrigada! Uma soma a menos.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CA102"
+					}
+				]
+			}
+		],
+		"d5t13_financeiro": [
+			{
+				"id": "d5t13_financeiro_0",
+				"text": "Bom dia! Por favor, faça um Pix para mim assim que puder.",
+				"choices": [
+					{
+						"id": "d5t13_financeiro_1_0",
+						"player_text": "Preciso do motivo pra lançar. Qual é?",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_motivo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t13_financeiro_1_1",
+						"player_text": "Tá faltando o motivo aí. Pode me dizer?",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_motivo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t13_financeiro_motivo": [
+			{
+				"id": "d5t13_financeiro_1",
+				"text": "Perdão! Estou correndo com o fechamento e pulei essa parte."
+			},
+			{
+				"id": "d5t13_financeiro_2",
+				"text": "É Reembolso de funcionário, do táxi que o Yago pegou para ir ao banco.",
+				"choices": [
+					{
+						"id": "d5t13_financeiro_3_0",
+						"player_text": "Táxi? O banco não é logo ali?",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_taxi",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t13_financeiro_3_1",
+						"player_text": "Certo. Vai em qual conta?",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t13_financeiro_taxi": [
+			{
+				"id": "d5t13_financeiro_3",
+				"text": "Fica a duas quadras, mas ele levou o malote do trimestre."
+			},
+			{
+				"id": "d5t13_financeiro_4",
+				"text": "O recibo está correto, e recibo é o que me interessa.",
+				"choices": [
+					{
+						"id": "d5t13_financeiro_5_0",
+						"player_text": "Kkk justo",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t13_financeiro_5_1",
+						"player_text": "A senhora não deixa passar nada",
+						"npc_reply": {
+							"goto_branch": "d5t13_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t13_financeiro_fim": [
+			{
+				"id": "d5t13_financeiro_5",
+				"text": "Vai na conta Yago Bastos: R$ 158,25, Pix YB553."
+			},
+			{
+				"id": "d5t13_financeiro_end",
+				"text": "Recebido aqui, obrigada! Da próxima vez o malote vai de carrinho.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "YB553"
+					}
+				]
+			}
+		],
+		"d5t14_financeiro": [
+			{
+				"id": "d5t14_financeiro_0",
+				"text": "Boa tarde! A impressora do Financeiro está imprimindo tudo em cinza-clarinho."
+			},
+			{
+				"id": "d5t14_financeiro_1",
+				"text": "Meus relatórios parecem sussurros.",
+				"choices": [
+					{
+						"id": "d5t14_financeiro_2_0",
+						"player_text": "Nem o chefe reclamou?",
+						"npc_reply": {
+							"goto_branch": "d5t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t14_financeiro_2_1",
+						"player_text": "Cinza-clarinho é elegante, vai",
+						"npc_reply": {
+							"goto_branch": "d5t14_financeiro_elegante",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t14_financeiro_elegante": [
+			{
+				"id": "d5t14_financeiro_2",
+				"text": "Elegante seria se desse para ler.",
+				"choices": [
+					{
+						"id": "d5t14_financeiro_3_0",
+						"player_text": "Justo. Como eu ajudo?",
+						"npc_reply": {
+							"goto_branch": "d5t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5t14_financeiro_3_1",
+						"player_text": "Tá, retiro o que disse",
+						"npc_reply": {
+							"goto_branch": "d5t14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5t14_financeiro_fim": [
+			{
+				"id": "d5t14_financeiro_3",
+				"text": "O chefe assinou um deles achando que era papel em branco."
+			},
+			{
+				"id": "d5t14_financeiro_4",
+				"text": "Faça o pagamento da Toner & Cia, por favor. Compra de material, Pix TO240, R$ 469,90."
+			},
+			{
+				"id": "d5t14_financeiro_end",
+				"text": "Pagamento confirmado, obrigada! Os relatórios voltarão a falar alto.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "TO240"
+					}
+				]
+			}
+		]
+	}
+}

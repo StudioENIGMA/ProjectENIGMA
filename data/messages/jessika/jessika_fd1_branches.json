@@ -1,0 +1,146 @@
+{
+	"conversation_id": "jessika_fd1",
+	"contact_name": "Jessika",
+	"branches": {
+		"d1g14_jessika": [
+			{
+				"id": "d1g14_jessika_0",
+				"text": "Oi! Tudo bem?"
+			},
+			{
+				"id": "d1g14_jessika_1",
+				"text": "Vai ter sorteio de brindes no café de sexta, encomendei as canecas na Mimos & Cia kkk",
+				"choices": [
+					{
+						"id": "d1g14_jessika_2_0",
+						"player_text": "Que legal! Como são as canecas?",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_canecas",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g14_jessika_2_1",
+						"player_text": "Estagiário pode participar?",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_participar",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g14_jessika_2_2",
+						"player_text": "Jessica, seu nome tá com K aqui",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_nome",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g14_jessika_canecas": [
+			{
+				"id": "d1g14_jessika_2",
+				"text": "Brancas, com uma frase motivacional na lateral"
+			},
+			{
+				"id": "d1g14_jessika_3",
+				"text": "\"Hoje é dia de bater meta\" kkk, quase desisti",
+				"choices": [
+					{
+						"id": "d1g14_jessika_4_0",
+						"player_text": "Vou querer duas",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g14_jessika_4_1",
+						"player_text": "Bebo meu café triste nela",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g14_jessika_participar": [
+			{
+				"id": "d1g14_jessika_4",
+				"text": "Claro que pode :)"
+			},
+			{
+				"id": "d1g14_jessika_5",
+				"text": "Só não pode ganhar duas vezes, teve gente reclamando ano passado kkk",
+				"choices": [
+					{
+						"id": "d1g14_jessika_6_0",
+						"player_text": "Prometo ganhar só uma",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g14_jessika_6_1",
+						"player_text": "Quem ganhou duas? Conta",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g14_jessika_nome": [
+			{
+				"id": "d1g14_jessika_6",
+				"text": "Kkk meu sobrinho mexeu no meu celular, ele acha engraçado"
+			},
+			{
+				"id": "d1g14_jessika_7",
+				"text": "Não sou boa com essas coisas, nem sei arrumar",
+				"choices": [
+					{
+						"id": "d1g14_jessika_8_0",
+						"player_text": "Sei como é",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1g14_jessika_8_1",
+						"player_text": "Vou ter que confirmar isso",
+						"npc_reply": {
+							"goto_branch": "d1g14_jessika_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1g14_jessika_fim": [
+			{
+				"id": "d1g14_jessika_8",
+				"text": "Enfim, preciso acertar as canecas :)"
+			},
+			{
+				"id": "d1g14_jessika_9",
+				"text": "É Evento da empresa, R$ 380,00. O pix é MG1620"
+			},
+			{
+				"id": "d1g14_jessika_end",
+				"text": "Deu certo, muito obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MG1620"
+					}
+				]
+			}
+		]
+	}
+}

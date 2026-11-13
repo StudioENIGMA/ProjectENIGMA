@@ -24,19 +24,14 @@ var senders_today: Dictionary = {}
 var events_dict: Dictionary = {}
 ## rule id -> day the rule is released on
 var rule_days: Dictionary = {}
-## Events showing a bank not accepted today as true information, which are not sent today, see
-## BoletosDirector.get_events_with_unaccepted_banks()
-var unaccepted_bank_events: Array = []
+## DEBUG: senders send more than one random event a day, so every event of the day comes
+var debug_every_event: bool = false
 #endregion STATES
 
 
 #region SETUP
 func setup_from_json_roots(
-	random_tasks: Array,
-	random_scams: Array,
-	events: Dictionary,
-	rules: Array,
-	events_with_unaccepted_banks: Array = [],
+	random_tasks: Array, random_scams: Array, events: Dictionary, rules: Array
 ) -> void:
 	tasks_list.clear()
 	for root in random_tasks:
@@ -48,7 +43,6 @@ func setup_from_json_roots(
 	rule_days.clear()
 	for rule in rules:
 		rule_days[str(rule.get("id", ""))] = int(rule.get("day", 0))
-	unaccepted_bank_events = events_with_unaccepted_banks
 	senders_today.clear()
 #endregion SETUP
 
@@ -63,7 +57,7 @@ func schedule_next_event(current_minutes: int) -> void:
 
 	var available_events := (tasks_list + scams_list).filter(
 		func(event: Dictionary) -> bool:
-			return not senders_today.has(_get_sender_id(event)) and evaluate_requirements(event)
+			return (debug_every_event or not senders_today.has(_get_sender_id(event))) 				and evaluate_requirements(event)
 	)
 	if available_events.is_empty():
 		return
@@ -114,10 +108,6 @@ func evaluate_requirements(event: Dictionary) -> bool:
 		return false
 
 	if event.has("email_id") and not GameData.downloaded_apps.has(GameData.App.EMAIL):
-		return false
-
-	# Its boleto would show as true a bank the company does not accept today
-	if unaccepted_bank_events.has(event_id):
 		return false
 
 	return _has_released_discrepancy(event_id)

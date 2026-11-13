@@ -1,0 +1,58 @@
+{
+	"conversation_id": "ti_gd4",
+	"contact_name": "TI",
+	"branches": {
+		"d4g06_ti": [
+			{
+				"id": "d4g06_ti_0",
+				"text": "estagio, bom dia"
+			},
+			{
+				"id": "d4g06_ti_1",
+				"text": "os roteadores novos da NetPonto chegaram. eh Compra de material, R$ 1.430,00"
+			},
+			{
+				"id": "d4g06_ti_2",
+				"text": "paga esse pix pra mim, codigo NE925"
+			},
+			{
+				"id": "d4g06_ti_3",
+				"text": "a net hj ta mais lenta q o elevador kkkk",
+				"choices": [
+					{
+						"id": "d4g06_ti_4_0",
+						"player_text": "caiu pra mim tbm, achei que era o celular",
+						"npc_reply": {
+							"goto_branch": "d4g06_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g06_ti_4_1",
+						"player_text": "nem senti",
+						"npc_reply": {
+							"goto_branch": "d4g06_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g06_ti_fim": [
+			{
+				"id": "d4g06_ti_4",
+				"text": "com roteador novo isso acaba. ou nao kkkkk"
+			},
+			{
+				"id": "d4g06_ti_end",
+				"text": "voa mlk",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "NE925"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,82 @@
+[
+	{
+		"conversation_id": "carolina_td3",
+		"branch": "d3t01_carolina",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "carolina_td3",
+		"branch": "d3t02_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "carolina_td3",
+		"branch": "d3t03_carolina",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "carolina_td3",
+		"branch": "d3t04_carolina",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "negativa_td3",
+		"branch": "d3t05_negativa",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "negativa_td3",
+		"branch": "d3t06_negativa",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "negativa_td3",
+		"branch": "d3t07_negativa",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "financeiro_td3",
+		"branch": "d3t08_financeiro",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "financeiro_td3",
+		"branch": "d3t09_financeiro",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "financeiro_td3",
+		"branch": "d3t10_financeiro",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "rh_td3",
+		"branch": "d3t11_rh",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "rh_td3",
+		"branch": "d3t12_rh",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "rh_td3",
+		"branch": "d3t13_rh",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "ti_td3",
+		"branch": "d3t14_ti",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "ti_td3",
+		"branch": "d3t15_ti",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "ti_td3",
+		"branch": "d3t16_ti",
+		"required_app": "browser"
+	}
+]

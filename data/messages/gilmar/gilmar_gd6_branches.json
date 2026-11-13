@@ -1,0 +1,286 @@
+{
+	"conversation_id": "gilmar_gd6",
+	"contact_name": "Gilmar",
+	"branches": {
+		"d6g01_gilmar": [
+			{
+				"id": "d6g01_gilmar_0",
+				"text": "Bom dia."
+			},
+			{
+				"id": "d6g01_gilmar_1",
+				"text": "Pix das barras da Industrials. Compra de material, R$ 2.140,00."
+			},
+			{
+				"id": "d6g01_gilmar_2",
+				"text": "Código IN201.",
+				"choices": [
+					{
+						"id": "d6g01_gilmar_3_0",
+						"player_text": "Anotado, vou abrir no Banco",
+						"npc_reply": {
+							"goto_branch": "d6g01_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g01_gilmar_3_1",
+						"player_text": "Mais barras? A linha tá comendo aço",
+						"npc_reply": {
+							"goto_branch": "d6g01_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g01_gilmar_fim": [
+			{
+				"id": "d6g01_gilmar_3",
+				"text": "Sem barra, a linha é só um corredor comprido."
+			},
+			{
+				"id": "d6g01_gilmar_end",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "IN201"
+					}
+				]
+			}
+		],
+		"d6g02_gilmar": [
+			{
+				"id": "d6g02_gilmar_0",
+				"text": "Oi."
+			},
+			{
+				"id": "d6g02_gilmar_1",
+				"text": "A Solda Forte consertou a bancada.",
+				"choices": [
+					{
+						"id": "d6g02_gilmar_2_0",
+						"player_text": "Qual bancada?",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_qual",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g02_gilmar_2_1",
+						"player_text": "Agora ela para de balançar, então",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_balanca",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g02_gilmar_qual": [
+			{
+				"id": "d6g02_gilmar_2",
+				"text": "A que balançava."
+			},
+			{
+				"id": "d6g02_gilmar_3",
+				"text": "Há três anos.",
+				"choices": [
+					{
+						"id": "d6g02_gilmar_4_0",
+						"player_text": "Três anos e ninguém chamou?",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g02_gilmar_4_1",
+						"player_text": "Eu apoiava meu café nela",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g02_gilmar_balanca": [
+			{
+				"id": "d6g02_gilmar_4",
+				"text": "Não."
+			},
+			{
+				"id": "d6g02_gilmar_5",
+				"text": "Agora balança para o outro lado.",
+				"choices": [
+					{
+						"id": "d6g02_gilmar_6_0",
+						"player_text": "É um progresso, vai",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g02_gilmar_6_1",
+						"player_text": "Isso ainda se chama conserto?",
+						"npc_reply": {
+							"goto_branch": "d6g02_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g02_gilmar_fim": [
+			{
+				"id": "d6g02_gilmar_6",
+				"text": "Serviço de fornecedor, R$ 860,00."
+			},
+			{
+				"id": "d6g02_gilmar_7",
+				"text": "Código MV202."
+			},
+			{
+				"id": "d6g02_gilmar_8",
+				"text": "Obrigado."
+			},
+			{
+				"id": "d6g02_gilmar_end",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MV202"
+					}
+				]
+			}
+		],
+		"d6g09_gilmar": [
+			{
+				"id": "d6g09_gilmar_0",
+				"text": "Está aí?"
+			},
+			{
+				"id": "d6g09_gilmar_1",
+				"text": "Preciso que faça um Pix agora.",
+				"choices": [
+					{
+						"id": "d6g09_gilmar_2_0",
+						"player_text": "Isso tá fora do padrão, qual é o motivo?",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g09_gilmar_2_1",
+						"player_text": "Sem o motivo não consigo seguir, seu Gilmar",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g09_gilmar_r": [
+			{
+				"id": "d6g09_gilmar_2",
+				"text": "Não entendi. O chefe mandou, só paga.",
+				"choices": [
+					{
+						"id": "d6g09_gilmar_3_0",
+						"player_text": "Mandou como? Tem isso por escrito?",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_escrito",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g09_gilmar_3_1",
+						"player_text": "O senhor tá bem? Tá mais seco que o normal",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_seco",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g09_gilmar_escrito": [
+			{
+				"id": "d6g09_gilmar_3",
+				"text": "Está por escrito aqui."
+			},
+			{
+				"id": "d6g09_gilmar_4",
+				"text": "Acabei de escrever.",
+				"choices": [
+					{
+						"id": "d6g09_gilmar_5_0",
+						"player_text": "Isso não vale muito, né",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g09_gilmar_5_1",
+						"player_text": "Vou ter que perguntar pro chefe",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g09_gilmar_seco": [
+			{
+				"id": "d6g09_gilmar_5",
+				"text": "Sempre fui."
+			},
+			{
+				"id": "d6g09_gilmar_6",
+				"text": "Você é que anda perguntando demais.",
+				"choices": [
+					{
+						"id": "d6g09_gilmar_7_0",
+						"player_text": "Foi o senhor que mandou eu conferir tudo",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6g09_gilmar_7_1",
+						"player_text": "Não é do seu feitio insistir",
+						"npc_reply": {
+							"goto_branch": "d6g09_gilmar_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6g09_gilmar_fim": [
+			{
+				"id": "d6g09_gilmar_7",
+				"text": "R$ 730,00, código GL642."
+			},
+			{
+				"id": "d6g09_gilmar_end",
+				"text": "Recebido.",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GL642"
+					}
+				]
+			}
+		]
+	}
+}

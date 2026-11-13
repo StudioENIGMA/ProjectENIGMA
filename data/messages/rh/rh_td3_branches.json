@@ -1,0 +1,269 @@
+{
+	"conversation_id": "rh_td3",
+	"contact_name": "RH",
+	"branches": {
+		"d3t11_rh": [
+			{
+				"id": "d3t11_rh_0",
+				"text": "Oi! Os crachás novos do pedido PC-0455 ficaram prontos (^ _ ^)"
+			},
+			{
+				"id": "d3t11_rh_1",
+				"text": "A sua foto tá uma graça ( = ^ w ^ = )",
+				"choices": [
+					{
+						"id": "d3t11_rh_2_0",
+						"player_text": "Ai não. Saí de olho fechado?",
+						"npc_reply": {
+							"goto_branch": "d3t11_rh_foto",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t11_rh_2_1",
+						"player_text": "Que bom! O que precisa?",
+						"npc_reply": {
+							"goto_branch": "d3t11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t11_rh_foto": [
+			{
+				"id": "d3t11_rh_2",
+				"text": "Olho aberto! Bem aberto (o _ o)"
+			},
+			{
+				"id": "d3t11_rh_3",
+				"text": "Parece que viu um fantasma, mas é uma graça.",
+				"choices": [
+					{
+						"id": "d3t11_rh_4_0",
+						"player_text": "Dá pra tirar outra?",
+						"npc_reply": {
+							"goto_branch": "d3t11_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t11_rh_4_1",
+						"player_text": "Vou assumir esse visual",
+						"npc_reply": {
+							"goto_branch": "d3t11_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t11_rh_fim": [
+			{
+				"id": "d3t11_rh_4",
+				"text": "A Gráfica Pontual mandou o Pix GP468, de R$ 372,00. É Compra de material. Pode pagar, por favor? ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d3t11_rh_end",
+				"text": "Pago! A foto do seu crachá ficou ótima (@ ^ _ ^ @)",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "GP468"
+					}
+				]
+			}
+		],
+		"d3t12_rh": [
+			{
+				"id": "d3t12_rh_0",
+				"text": "Oi! Preciso de um favorzinho na Emilia Bolos (^ _ ^)"
+			},
+			{
+				"id": "d3t12_rh_1",
+				"text": "Mas antes: você gosta de brigadeiro?",
+				"choices": [
+					{
+						"id": "d3t12_rh_2_0",
+						"player_text": "Amo. Conta como benefício?",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_amo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t12_rh_2_1",
+						"player_text": "Prefiro beijinho, posso falar isso aqui?",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_beijinho",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t12_rh_amo": [
+			{
+				"id": "d3t12_rh_2",
+				"text": "Ainda não, mas vou levar pra reunião ( = ^ w ^ = )"
+			},
+			{
+				"id": "d3t12_rh_3",
+				"text": "Compra 30 brigadeiros pra mim? ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d3t12_rh_4_0",
+						"player_text": "Compro! Lanço como o quê?",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t12_rh_4_1",
+						"player_text": "Isso tá fora do padrão, qual a razão?",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t12_rh_beijinho": [
+			{
+				"id": "d3t12_rh_4",
+				"text": "(o _ o)"
+			},
+			{
+				"id": "d3t12_rh_5",
+				"text": "Vou fingir que não li."
+			},
+			{
+				"id": "d3t12_rh_6",
+				"text": "Compra 30 brigadeiros pra mim? Sem beijinho! ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d3t12_rh_7_0",
+						"player_text": "Justo. Só me fala pra que são",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t12_rh_7_1",
+						"player_text": "Preciso do motivo pra poder registrar",
+						"npc_reply": {
+							"goto_branch": "d3t12_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t12_rh_fim": [
+			{
+				"id": "d3t12_rh_7",
+				"text": "Ai, esqueci! (> _ <) É Evento da empresa, o café de integração da turma nova!",
+				"event_id": "d3t12_rh"
+			},
+			{
+				"id": "d3t12_rh_end",
+				"text": "Chegaram! Sobrou um pra você, viu? ( = ^ w ^ = )",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 21,
+								"quantity": 30,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d3t13_rh": [
+			{
+				"id": "d3t13_rh_0",
+				"text": "Oi! Faz um Pix pra uma pessoa da equipe? (^ _ ^)",
+				"choices": [
+					{
+						"id": "d3t13_rh_1_0",
+						"player_text": "Sem motivo não dá, Helena (^ _ ^)",
+						"npc_reply": {
+							"goto_branch": "d3t13_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t13_rh_1_1",
+						"player_text": "Pra quem? E é referente a quê?",
+						"npc_reply": {
+							"goto_branch": "d3t13_rh_volta",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t13_rh_volta": [
+			{
+				"id": "d3t13_rh_1",
+				"text": "Só um segundo, entrou um candidato aqui ( ; ^ _ ^ )"
+			},
+			{
+				"id": "d3t13_rh_2",
+				"text": "Voltei! Ele veio pra entrevista de terça. Hoje é quinta (> _ <)"
+			},
+			{
+				"id": "d3t13_rh_3",
+				"text": "Você tinha perguntado alguma coisa?",
+				"choices": [
+					{
+						"id": "d3t13_rh_4_0",
+						"player_text": "O motivo do Pix, Helena",
+						"npc_reply": {
+							"goto_branch": "d3t13_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d3t13_rh_4_1",
+						"player_text": "Coitado dele. Só me diz pra que é",
+						"npc_reply": {
+							"goto_branch": "d3t13_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3t13_rh_fim": [
+			{
+				"id": "d3t13_rh_4",
+				"text": "Ih, me distraí ( ^ _ ^ ; ) É Reembolso de funcionário: a Jessica Moura pegou táxi pra levar documentos no cartório."
+			},
+			{
+				"id": "d3t13_rh_5",
+				"text": "O taxista ainda tentou vender um terreno pra ela!"
+			},
+			{
+				"id": "d3t13_rh_6",
+				"text": "Código RH341, R$ 64,50 ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d3t13_rh_end",
+				"text": "Recebido, obrigada! \\(*^ o ^*)/",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "RH341"
+					}
+				]
+			}
+		]
+	}
+}

@@ -13,10 +13,10 @@
 		{ "name": "Chefinho", "department": "Diretoria" },
 		{ "name": "Financeiro", "department": "Financeiro" },
 		{ "name": "Gilmar", "department": "Compras", "email": "gilmar@enigma.com.br" },
-		{ "name": "Guilherme", "department": "Compras", "email": "guilherme@enigma.com.br" },
+		{ "name": "Guilherme", "department": "Compras" },
 		{ "name": "Jessica", "department": "RH", "email": "jessica@enigma.rh.com.br" },
-		{ "name": "José", "department": "Compras", "email": "jose@enigma.com.br" },
-		{ "name": "Marcão", "department": "Operações", "email": "marcao@enigma.com.br" },
+		{ "name": "José", "department": "Compras" },
+		{ "name": "Marcão", "department": "Operações" },
 		{ "name": "Marcia", "department": "RH", "email": "marcia@enigma.rh.com.br" },
 		{ "name": "Mariana", "department": "Comercial", "email": "mariana@enigma.com.br" },
 		{ "name": "Marta", "department": "Comercial", "email": "marta@enigma.com.br" },
@@ -25,11 +25,8 @@
 		{ "name": "TI", "department": "TI" },
 		{ "name": "Yago", "department": "Financeiro", "email": "yagob@enigma.fin.com.br" },
 		{ "name": "Gerente PX Investment", "department": "Parceiro", "account": "@pxinvestment", "verified": true },
-		{ "name": "Negativa", "department": "Parceiro", "verified": true, "email": "pagamentos@negativa.com" },
-		{ "name": "Viva", "department": "Fornecedor de internet", "email": "pagamentos@Viva.com.br" },
-		{ "name": "Clima Ar Refrigeração", "department": "Fornecedor", "email": "financeiro@climaar.com.br" },
-		{ "name": "Gráfica Ponto Certo", "department": "Fornecedor", "email": "cobranca@graficapontocerto.com.br" },
-		{ "name": "Pagamentos Kospenski", "department": "Fornecedor", "email": "cobranca@kospenski.com.br" }
+		{ "name": "Negativa", "department": "Parceiro", "verified": true },
+		{ "name": "Viva", "department": "Fornecedor de internet", "email": "pagamentos@Viva.com.br" }
 	],
 	"accepted_files": [
 		"Documentos: .pdf",
@@ -58,11 +55,31 @@
 		{ "department": "Compras", "name": "Gilmar" },
 		{ "department": "RH", "name": "Marcia" },
 		{ "department": "TI", "name": "Carolina" },
-		{ "department": "Financeiro", "name": "Yago" },
-		{ "department": "Comercial", "name": "Ricardo" }
+		{ "department": "Financeiro", "name": "Yago" }
 	],
 	"days": {
+		"0": {
+			"agenda": ["Sem tarefas hoje: explore o celular e leia as mensagens de apresentação."]
+		},
+		"1": {
+			"password_policy": { "length": 6, "digits": 1, "lowercase": 0, "uppercase": 0, "symbols": 0 },
+			"agenda": [
+				"Expediente até 14:00.",
+				"Novo na loja: Banco.",
+				"A PX Investment vai mandar propostas de investimento. Estão autorizadas pela diretoria."
+			]
+		},
+		"2": {
+			"password_policy": { "length": 8, "digits": 1, "lowercase": 1, "uppercase": 0, "symbols": 0 },
+			"agenda": [
+				"Expediente até 16:00.",
+				"Novo na loja: Email e Navegador.",
+				"Leia as notícias na parte de baixo do Navegador todos os dias."
+			]
+		},
 		"3": {
+			"password_policy": { "length": 8, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 0 },
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0455", "department": "RH", "requested_by": "Marcia", "items": "Crachás novos" },
 				{ "order_id": "PC-0462", "department": "TI", "requested_by": "Carolina", "items": "Cabos de rede" },
@@ -70,39 +87,31 @@
 			]
 		},
 		"4": {
+			"password_policy": { "length": 10, "digits": 1, "lowercase": 1, "uppercase": 1, "symbols": 1 },
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0471", "department": "Compras", "requested_by": "Guilherme", "items": "12 cadeiras para a sala de reunião" },
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" }
 			],
-			"accepted_banks": {
-				"easy": ["Banco Aurora"],
-				"normal": ["Banco Aurora", "Caixa Leste"],
-				"hard": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
-			}
+			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Central Sul"]
 		},
 		"5": {
+			"password_policy": { "length": 12, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 1 },
+			"agenda": ["Expediente até 18:00."],
 			"orders": [
 				{ "order_id": "PC-0480", "department": "TI", "requested_by": "Artur", "items": "Mouses e teclados" },
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" }
 			],
-			"accepted_banks": {
-				"easy": ["Banco Aurora"],
-				"normal": ["Banco Aurora", "Caixa Leste"],
-				"hard": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
-			}
+			"accepted_banks": ["Banco Aurora", "Caixa Leste", "Banco Norte"]
 		},
 		"6": {
+			"password_policy": { "length": 14, "digits": 2, "lowercase": 1, "uppercase": 1, "symbols": 2 },
+			"agenda": ["Expediente até 18:00.", "Último dia do estágio."],
 			"orders": [
 				{ "order_id": "PC-0512", "department": "Comercial", "requested_by": "Mariana", "items": "Brindes para clientes" },
-				{ "order_id": "PC-0602", "department": "RH", "requested_by": "Jessica", "items": "Buffet da festa do setor" },
-				{ "order_id": "PC-0615", "department": "TI", "requested_by": "Carolina", "items": "Renovação do antivírus" },
-				{ "order_id": "PC-0620", "department": "Compras", "requested_by": "José", "items": "Café e copos para a copa" }
+				{ "order_id": "PC-0602", "department": "RH", "requested_by": "Jessica", "items": "Buffet da festa do setor" }
 			],
-			"accepted_banks": {
-				"easy": ["Banco Aurora"],
-				"normal": ["Banco Aurora", "Caixa Leste"],
-				"hard": ["Banco Aurora", "Caixa Leste", "Banco Central Sul", "Banco Norte"]
-			}
+			"accepted_banks": ["Banco Aurora", "Caixa Leste"]
 		}
 	}
 }

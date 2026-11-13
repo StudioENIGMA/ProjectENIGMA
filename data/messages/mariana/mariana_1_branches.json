@@ -9,25 +9,39 @@
 			},
 			{
 				"id": "mariana_password0_1",
-				"text": "Me falaram que você pode me ajudar com meu problema em criar senhas seguras, costumo colocar senhas bem parecidas e o chefe já me deu bronca por isso :("
+				"text": "O sistema recusou minha senha nova :( o chefe já me deu bronca por senha fraca"
 			},
 			{
 				"id": "mariana_password0_2",
-				"text": "Qual é melhor? 89kj.fs2 ou 58lcws142",
+				"text": "Ela tem 14 caracteres: maiúsculas, minúsculas, 2 números e 1 símbolo. O que está faltando?",
+				"choices_requires": [
+					{
+						"flag": "seen",
+						"info": "screen:Notes"
+					}
+				],
 				"choices": [
 					{
 						"id": "mariana_password0_1a_0",
-						"player_text": "89kj.fs2",
+						"player_text": "Falta mais um símbolo nela",
+						"npc_reply": {
+							"goto_branch": "from_mariana_password0_3",
+							"delay_ticks": 29
+						}
+					},
+					{
+						"id": "mariana_password0_1a_1",
+						"player_text": "Falta mais um número nela",
 						"npc_reply": {
 							"goto_branch": "from_mariana_password0_4",
 							"delay_ticks": 29
 						}
 					},
 					{
-						"id": "mariana_password0_1a_1",
-						"player_text": "58lcws142q",
+						"id": "mariana_password0_1a_2",
+						"player_text": "Faltam caracteres ainda",
 						"npc_reply": {
-							"goto_branch": "from_mariana_password0_3",
+							"goto_branch": "from_mariana_password0_4",
 							"delay_ticks": 29
 						}
 					}
@@ -37,13 +51,13 @@
 		"from_mariana_password0_3": [
 			{
 				"id": "mariana_password0_3",
-				"text": "Ótima senha, abrigada"
+				"text": "Coloquei outro símbolo e passou! Obrigada :)"
 			}
 		],
 		"from_mariana_password0_4": [
 			{
 				"id": "mariana_password0_4",
-				"text": "Me foi sugerido pelo sistema uma senha melhor parecida com a primeira"
+				"text": "Tentei e foi recusada de novo :("
 			}
 		]
 	}

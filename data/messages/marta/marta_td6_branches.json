@@ -1,0 +1,488 @@
+{
+	"conversation_id": "marta_td6",
+	"contact_name": "Marta",
+	"branches": {
+		"d6t11_marta": [
+			{
+				"id": "d6t11_marta_0",
+				"text": "Olaaá, novo companheiro!"
+			},
+			{
+				"id": "d6t11_marta_1",
+				"text": "Já almoçou? Hoje tinha pudim na copa…",
+				"choices": [
+					{
+						"id": "d6t11_marta_2_0",
+						"player_text": "Comi dois, não conta pra ninguém",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_pudim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t11_marta_2_1",
+						"player_text": "Pudim? Ninguém me avisa nada",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_sem",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t11_marta_pudim": [
+			{
+				"id": "d6t11_marta_2",
+				"text": "Aaah, então foi você…"
+			},
+			{
+				"id": "d6t11_marta_3",
+				"text": "O Gilmar ficou meia hora procurando aquele pudim."
+			},
+			{
+				"id": "d6t11_marta_4",
+				"text": "Preciso de uma ajudinha sua com uma comprinha… Pooor favorr.",
+				"choices": [
+					{
+						"id": "d6t11_marta_5_0",
+						"player_text": "Ajudo! Mas é comprinha de quê?",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t11_marta_5_1",
+						"player_text": "Tem motivo pra essa comprinha?",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t11_marta_sem": [
+			{
+				"id": "d6t11_marta_5",
+				"text": "Aiii, coitadinho… da próxima eu guardo um pedacinho."
+			},
+			{
+				"id": "d6t11_marta_6",
+				"text": "Agora posso pedir um favorzinho? É uma comprinha… Por favorrrr.",
+				"choices": [
+					{
+						"id": "d6t11_marta_7_0",
+						"player_text": "Depois de me negar pudim? Qual o motivo?",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t11_marta_7_1",
+						"player_text": "Sem motivo não lanço, Marta",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t11_marta_7_2",
+						"player_text": "Só com motivo e pudim",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t11_marta_r": [
+			{
+				"id": "d6t11_marta_7",
+				"text": "ai, novo companheiro… é Compra de material!"
+			},
+			{
+				"id": "d6t11_marta_8",
+				"text": "5 camisas polos azuis na A&C, para o time de telecomunicação."
+			},
+			{
+				"id": "d6t11_marta_9",
+				"text": "Da última vez pedi vermelhas e disseram que pareciam extintores de incêndio…",
+				"choices": [
+					{
+						"id": "d6t11_marta_10_0",
+						"player_text": "Extintor salva vida, ué",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t11_marta_10_1",
+						"player_text": "Azul é mais seguro mesmo",
+						"npc_reply": {
+							"goto_branch": "d6t11_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t11_marta_fim": [
+			{
+				"id": "d6t11_marta_10",
+				"text": "Eu achei tão lindinhas… Pooor favorr, as azuis.",
+				"event_id": "d6t11_marta"
+			},
+			{
+				"id": "d6t11_marta_end",
+				"text": "Chegaram! Muuuito obrigada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 35,
+								"quantity": 5,
+								"store": "aec"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6t12_marta": [
+			{
+				"id": "d6t12_marta_0",
+				"text": "Olá, novo companheiro!"
+			},
+			{
+				"id": "d6t12_marta_1",
+				"text": "Comprei os docinhos da reunião com meu dinheirinho…"
+			},
+			{
+				"id": "d6t12_marta_2",
+				"text": "É Reembolso de funcionário, R$ 94,50, na minha conta, Marta mesmo."
+			},
+			{
+				"id": "d6t12_marta_3",
+				"text": "O código é MT631. Por favorrrr.",
+				"choices": [
+					{
+						"id": "d6t12_marta_4_0",
+						"player_text": "Sobrou algum docinho pra mim?",
+						"npc_reply": {
+							"goto_branch": "d6t12_marta_sobrou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t12_marta_4_1",
+						"player_text": "Beleza, é só esse código mesmo?",
+						"npc_reply": {
+							"goto_branch": "d6t12_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t12_marta_sobrou": [
+			{
+				"id": "d6t12_marta_4",
+				"text": "Sobrou nadinha…"
+			},
+			{
+				"id": "d6t12_marta_5",
+				"text": "O Chefinho disse que ia pegar um e saiu com a bandeja.",
+				"choices": [
+					{
+						"id": "d6t12_marta_6_0",
+						"player_text": "Chefinho tem imunidade, né",
+						"npc_reply": {
+							"goto_branch": "d6t12_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t12_marta_6_1",
+						"player_text": "Vou abrir uma investigação",
+						"npc_reply": {
+							"goto_branch": "d6t12_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t12_marta_fim": [
+			{
+				"id": "d6t12_marta_6",
+				"text": "Você é um amorzinho…"
+			},
+			{
+				"id": "d6t12_marta_end",
+				"text": "Obrigadaaaaaaa!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MT631"
+					}
+				]
+			}
+		],
+		"d6t13_marta": [
+			{
+				"id": "d6t13_marta_0",
+				"text": "Psiu… novo companheiro!"
+			},
+			{
+				"id": "d6t13_marta_1",
+				"text": "É segredo: amanhã é aniversário da Simone…",
+				"choices": [
+					{
+						"id": "d6t13_marta_2_0",
+						"player_text": "Sério? Ela faz quantos?",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_idade",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t13_marta_2_1",
+						"player_text": "Minha boca é um túmulo",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_tumulo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t13_marta_idade": [
+			{
+				"id": "d6t13_marta_2",
+				"text": "Aiii, isso nem sob tortura!"
+			},
+			{
+				"id": "d6t13_marta_3",
+				"text": "Da última vez que alguém perguntou, foi auditado…",
+				"choices": [
+					{
+						"id": "d6t13_marta_4_0",
+						"player_text": "Retiro a pergunta, então",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t13_marta_4_1",
+						"player_text": "Então ela faz 18, anotado",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t13_marta_tumulo": [
+			{
+				"id": "d6t13_marta_4",
+				"text": "Eu sabia que podia contar com você…"
+			},
+			{
+				"id": "d6t13_marta_5",
+				"text": "O Yago contou pra ela ano passado. Hoje ele manda email com três cópias.",
+				"choices": [
+					{
+						"id": "d6t13_marta_6_0",
+						"player_text": "Posso dar parabéns só amanhã?",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t13_marta_6_1",
+						"player_text": "E ela não vê isso no extrato?",
+						"npc_reply": {
+							"goto_branch": "d6t13_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t13_marta_fim": [
+			{
+				"id": "d6t13_marta_6",
+				"text": "Vai como Evento da empresa, tudo certinho!",
+				"event_id": "d6t13_marta"
+			},
+			{
+				"id": "d6t13_marta_7",
+				"text": "Você pode comprar 8 tiramisus na Emília Bolos, por favorrrr. Não conta pra ela!"
+			},
+			{
+				"id": "d6t13_marta_end",
+				"text": "Muuuito obrigada! Bico calado, hein!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 26,
+								"quantity": 8,
+								"store": "emilia_bolos"
+							}
+						]
+					}
+				]
+			}
+		],
+		"d6t15_marta": [
+			{
+				"id": "d6t15_marta_0",
+				"text": "Oiêêê, novo companheiro!"
+			},
+			{
+				"id": "d6t15_marta_1",
+				"text": "Poderia realizar um pagamento pra mim…"
+			},
+			{
+				"id": "d6t15_marta_2",
+				"text": "Por favorrrrr.",
+				"choices": [
+					{
+						"id": "d6t15_marta_3_0",
+						"player_text": "Claro! Pagamento de quê?",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t15_marta_3_1",
+						"player_text": "Só lanço com motivo, qual é?",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t15_marta_r": [
+			{
+				"id": "d6t15_marta_3",
+				"text": "ihh, esqueci! É Serviço de fornecedor…"
+			},
+			{
+				"id": "d6t15_marta_4",
+				"text": "Apareceu uma barata na sala de reunião bem na frente do cliente, chamamos a Dedetiza Já.",
+				"choices": [
+					{
+						"id": "d6t15_marta_5_0",
+						"player_text": "E o cliente, fez o quê?",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_cliente",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t15_marta_5_1",
+						"player_text": "Barata do tamanho de quê?",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_tamanho",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t15_marta_5_2",
+						"player_text": "Que nojo, nem quero saber",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t15_marta_cliente": [
+			{
+				"id": "d6t15_marta_5",
+				"text": "Subiu na cadeira…"
+			},
+			{
+				"id": "d6t15_marta_6",
+				"text": "E assinou o contrato de lá mesmo, disse que queria ir embora logo.",
+				"choices": [
+					{
+						"id": "d6t15_marta_7_0",
+						"player_text": "Negócio fechado, barata aprovada",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t15_marta_7_1",
+						"player_text": "Essa barata merece comissão",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t15_marta_tamanho": [
+			{
+				"id": "d6t15_marta_7",
+				"text": "Tamanho de estagiário…"
+			},
+			{
+				"id": "d6t15_marta_8",
+				"text": "Brincadeirinha! Mas tinha cara de quem ia pedir vale-refeição.",
+				"choices": [
+					{
+						"id": "d6t15_marta_9_0",
+						"player_text": "Ofendido, mas entendi",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d6t15_marta_9_1",
+						"player_text": "Ela já bateu o ponto?",
+						"npc_reply": {
+							"goto_branch": "d6t15_marta_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6t15_marta_fim": [
+			{
+				"id": "d6t15_marta_9",
+				"text": "R$ 640,00, código DJ105. Pooor favorr."
+			},
+			{
+				"id": "d6t15_marta_end",
+				"text": "Muuuito obrigada! A sala de reunião agradece…",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "DJ105"
+					}
+				]
+			}
+		]
+	}
+}

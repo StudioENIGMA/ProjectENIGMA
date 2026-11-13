@@ -1,7 +1,17 @@
 [
-    {
+	{
 		"conversation_id": "arhtur_1",
 		"branch": "scan0_arhtur",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "carolinda_1",
+		"branch": "scan1_carolinda",
+		"required_app": "Bank"
+	},
+	{
+		"conversation_id": "carolinda_1",
+		"branch": "scan2_carolinda",
+		"required_app": "Bank"
 	}
 ]

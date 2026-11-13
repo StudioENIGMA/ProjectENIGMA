@@ -5,13 +5,7 @@
 		"scan0_jouse": [
 			{
 				"id": "jouse_purchase0_0",
-				"text": "vc pode ir compra 10 barra de aco?",
-				"requires": [
-					{
-						"flag": "purchase",
-						"items": [{ "item_id": 11, "quantity": 10, "store": "amazonia" }]
-					}
-				]
+				"text": "vc pode ir compra 10 barra de aco?"
 			},
 			{
 				"id": "jouse_purchase0_1",
@@ -19,7 +13,7 @@
 				"requires": [
 					{
 						"flag": "purchase",
-						"items": [{ "item_id": 11, "quantity": 10, "store": "amazonia" }]
+						"items": [{ "item_id": 11, "quantity": 10, "store": ["amazonia", "libre_mercado"] }]
 					}
 				]
 			}
@@ -35,7 +29,7 @@
 				"requires": [
 					{
 						"flag": "purchase",
-						"items": [{ "item_id": 14, "quantity": 1, "store": "amazonia" }]
+						"items": [{ "item_id": 14, "quantity": 1, "store": "libre_mercado" }]
 					}
 				]
 			}
@@ -51,7 +45,7 @@
 				"requires": [
 					{
 						"flag": "purchase",
-						"items": [{ "item_id": 15, "quantity": 10, "store": "amazonia" }]
+						"items": [{ "item_id": 15, "quantity": 10, "store": "libre_mercado" }]
 					}
 				]
 			}

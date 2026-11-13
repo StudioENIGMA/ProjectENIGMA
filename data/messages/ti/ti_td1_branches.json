@@ -1,0 +1,118 @@
+{
+	"conversation_id": "ti_td1",
+	"contact_name": "TI",
+	"branches": {
+		"d1t15_ti": [
+			{
+				"id": "d1t15_ti_0",
+				"text": "fala estagio, eh o Lorenz do ti"
+			},
+			{
+				"id": "d1t15_ti_1",
+				"text": "derrubaram cafe na caixa de mouse. n vou dizer quem",
+				"choices": [
+					{
+						"id": "d1t15_ti_2_0",
+						"player_text": "Foi o Artur, né?",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t15_ti_2_1",
+						"player_text": "Não falo nada, mas quem foi?",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_quem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t15_ti_2_2",
+						"player_text": "Os mouses ainda funcionam?",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_funciona",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t15_ti_quem": [
+			{
+				"id": "d1t15_ti_2",
+				"text": "eh o Artur kkkk"
+			},
+			{
+				"id": "d1t15_ti_3",
+				"text": "vc n ouviu isso de mim",
+				"choices": [
+					{
+						"id": "d1t15_ti_4_0",
+						"player_text": "Nunca nem te vi",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t15_ti_4_1",
+						"player_text": "Vou contar pra ele",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t15_ti_funciona": [
+			{
+				"id": "d1t15_ti_4",
+				"text": "funciona. clica sozinho e cheira a cappuccino kkkk"
+			},
+			{
+				"id": "d1t15_ti_5",
+				"text": "joguei tudo fora",
+				"choices": [
+					{
+						"id": "d1t15_ti_6_0",
+						"player_text": "Podia ter me dado um",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t15_ti_6_1",
+						"player_text": "Respeito, descansem em paz",
+						"npc_reply": {
+							"goto_branch": "d1t15_ti_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t15_ti_fim": [
+			{
+				"id": "d1t15_ti_6",
+				"text": "comprei outros na InfoTec, Compra de material, R$ 418,00"
+			},
+			{
+				"id": "d1t15_ti_7",
+				"text": "pix ML158"
+			},
+			{
+				"id": "d1t15_ti_end",
+				"text": "voa mlk, caiu aqui (b^_^)b",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "ML158"
+					}
+				]
+			}
+		]
+	}
+}

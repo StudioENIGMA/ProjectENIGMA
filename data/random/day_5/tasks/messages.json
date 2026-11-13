@@ -16,6 +16,11 @@
 	},
 	{
 		"conversation_id": "ricardo_1",
+		"branch": "task3_ricardo",
+		"required_app": "browser"
+	},
+	{
+		"conversation_id": "ricardo_1",
 		"branch": "task4_ricardo",
 		"required_app": "Bank"
 	},
@@ -53,5 +58,10 @@
 		"conversation_id": "josé_1",
 		"branch": "task6_jose",
 		"required_app": "browser"
+	},
+	{
+		"conversation_id": "gilmar_1",
+		"branch": "task2_gilmar",
+		"required_app": "MessagesHome"
 	}
 ]

@@ -1,0 +1,246 @@
+{
+	"conversation_id": "jose_gd5",
+	"contact_name": "José",
+	"branches": {
+		"d5g01_jose": [
+			{
+				"id": "d5g01_jose_0",
+				"text": "Boa tarde. Sabia que empilhadeira não freia em piso molhado?"
+			},
+			{
+				"id": "d5g01_jose_1",
+				"text": "Eu também não sabia. Até terça-feira.",
+				"choices": [
+					{
+						"id": "d5g01_jose_2_0",
+						"player_text": "Nossa! Alguém se machucou?",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_ninguem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g01_jose_2_1",
+						"player_text": "Eita. O que ela atropelou?",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_grade",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g01_jose_ninguem": [
+			{
+				"id": "d5g01_jose_2",
+				"text": "Felizmente não. Só as grades do depósito, que estavam no caminho.",
+				"choices": [
+					{
+						"id": "d5g01_jose_3_0",
+						"player_text": "Ufa. Sobrou alguma?",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g01_jose_3_1",
+						"player_text": "Pobres grades",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g01_jose_grade": [
+			{
+				"id": "d5g01_jose_3",
+				"text": "As grades do depósito. Com convicção, inclusive.",
+				"choices": [
+					{
+						"id": "d5g01_jose_4_0",
+						"player_text": "Quem tava dirigindo, seu José?",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g01_jose_4_1",
+						"player_text": "Kkkk e agora?",
+						"npc_reply": {
+							"goto_branch": "d5g01_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g01_jose_fim": [
+			{
+				"id": "d5g01_jose_4",
+				"text": "O caso segue em apuração. Enquanto isso, você poderia fazer um Pix para a Serralheria Bom Ferro, por favor?"
+			},
+			{
+				"id": "d5g01_jose_5",
+				"text": "É Compra de material, as grades novas do depósito. Valor de R$ 512,30, código SB528."
+			},
+			{
+				"id": "d5g01_jose_end",
+				"text": "Muito obrigado!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "SB528"
+					}
+				]
+			}
+		],
+		"d5g08_jose": [
+			{
+				"id": "d5g08_jose_0",
+				"text": "Boa tarde, gostaria de pedir um Pix para mim, por favor.",
+				"choices": [
+					{
+						"id": "d5g08_jose_1_0",
+						"player_text": "Isso tá fora do padrão. Qual é o motivo?",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_r",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g08_jose_1_1",
+						"player_text": "Sem motivo eu não consigo seguir. É pra quê?",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_r",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g08_jose_r": [
+			{
+				"id": "d5g08_jose_1",
+				"text": "Com licença, mas por que tanta pergunta? É só um acerto interno, o chefe já sabe.",
+				"choices": [
+					{
+						"id": "d5g08_jose_2_0",
+						"player_text": "Acerto de quê? Isso não tá na lista de motivos",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_drama",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g08_jose_2_1",
+						"player_text": "Vou precisar confirmar com o chefe então",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g08_jose_drama": [
+			{
+				"id": "d5g08_jose_2",
+				"text": "Vinte e dois anos neste almoxarifado. Contei cada parafuso deste prédio."
+			},
+			{
+				"id": "d5g08_jose_3",
+				"text": "E nunca, em vinte e dois anos, um estagiário me pediu explicação.",
+				"choices": [
+					{
+						"id": "d5g08_jose_4_0",
+						"player_text": "Não é pessoal, seu José",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g08_jose_4_1",
+						"player_text": "Mas a regra é a regra, né",
+						"npc_reply": {
+							"goto_branch": "d5g08_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g08_jose_fim": [
+			{
+				"id": "d5g08_jose_4",
+				"text": "Faça como achar melhor. Da minha parte, o combinado está combinado."
+			},
+			{
+				"id": "d5g08_jose_5",
+				"text": "São R$ 450,00, no Pix JA536, por favor."
+			},
+			{
+				"id": "d5g08_jose_end",
+				"text": "Obrigado!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "JA536"
+					}
+				]
+			}
+		],
+		"d5g15_jose": [
+			{
+				"id": "d5g15_jose_0",
+				"text": "Boa tarde. Um Pix para a Madeireira Santa Rita, por favor, quando puder."
+			},
+			{
+				"id": "d5g15_jose_1",
+				"text": "É Compra de material, as prateleiras novas. R$ 2.105,00, código MS5281.",
+				"choices": [
+					{
+						"id": "d5g15_jose_2_0",
+						"player_text": "Anotado, seu José.",
+						"npc_reply": {
+							"goto_branch": "d5g15_jose_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d5g15_jose_2_1",
+						"player_text": "Ué, as antigas caíram?",
+						"npc_reply": {
+							"goto_branch": "d5g15_jose_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5g15_jose_fim": [
+			{
+				"id": "d5g15_jose_2",
+				"text": "As antigas cederam ao peso de arquivos que ninguém abre há décadas."
+			},
+			{
+				"id": "d5g15_jose_3",
+				"text": "Ninguém os lê, mas pesam."
+			},
+			{
+				"id": "d5g15_jose_end",
+				"text": "Valeu!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MS5281"
+					}
+				]
+			}
+		]
+	}
+}

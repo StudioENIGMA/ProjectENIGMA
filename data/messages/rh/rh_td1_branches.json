@@ -1,0 +1,114 @@
+{
+	"conversation_id": "rh_td1",
+	"contact_name": "RH",
+	"branches": {
+		"d1t14_rh": [
+			{
+				"id": "d1t14_rh_0",
+				"text": "Oi! É a Helena, do RH (^ _ ^)"
+			},
+			{
+				"id": "d1t14_rh_1",
+				"text": "Hoje tem integração da turma nova!"
+			},
+			{
+				"id": "d1t14_rh_2",
+				"text": "Me ajuda: pro café, pão de queijo ou bolo de fubá? ( > ^ _ ^ )>",
+				"choices": [
+					{
+						"id": "d1t14_rh_3_0",
+						"player_text": "Pão de queijo, sempre",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_queijo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t14_rh_3_1",
+						"player_text": "Bolo de fubá, com café passado",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_fuba",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t14_rh_queijo": [
+			{
+				"id": "d1t14_rh_3",
+				"text": "Acertou! Era o que eu já tinha pedido (@ ^ _ ^ @)"
+			},
+			{
+				"id": "d1t14_rh_4",
+				"text": "Era só um teste de integração, viu?",
+				"choices": [
+					{
+						"id": "d1t14_rh_5_0",
+						"player_text": "Passei no RH então",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t14_rh_5_1",
+						"player_text": "Sabia que era pegadinha",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t14_rh_fuba": [
+			{
+				"id": "d1t14_rh_5",
+				"text": "Ai, que pena! Já pedi pão de queijo ( ; ^ _ ^ )"
+			},
+			{
+				"id": "d1t14_rh_6",
+				"text": "Mas anotei aqui, viu? Na próxima eu lembro!",
+				"choices": [
+					{
+						"id": "d1t14_rh_7_0",
+						"player_text": "Perdi, mas com dignidade",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d1t14_rh_7_1",
+						"player_text": "Registra minha revolta no RH",
+						"npc_reply": {
+							"goto_branch": "d1t14_rh_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d1t14_rh_fim": [
+			{
+				"id": "d1t14_rh_7",
+				"text": "É a Padaria Bom Grão que vai mandar o café ( * ^ _ ^ * )"
+			},
+			{
+				"id": "d1t14_rh_8",
+				"text": "É Evento da empresa, R$ 330,00. O Pix é HB112 (^ - ^)"
+			},
+			{
+				"id": "d1t14_rh_end",
+				"text": "Oba, pão de queijo garantido! Obrigada \\(*^ o ^*)/",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "HB112"
+					}
+				]
+			}
+		]
+	}
+}

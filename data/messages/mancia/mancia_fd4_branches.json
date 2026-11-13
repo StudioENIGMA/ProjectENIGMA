@@ -1,0 +1,60 @@
+{
+	"conversation_id": "mancia_fd4",
+	"contact_name": "Mancia",
+	"branches": {
+		"d4g22_mancia": [
+			{
+				"id": "d4g22_mancia_0",
+				"text": "Oi, como vai? Estamos renovando as mesas do RH, é Compra de material."
+			},
+			{
+				"id": "d4g22_mancia_1",
+				"text": "Você poderia comprar 2 monitores, por favor?",
+				"choices": [
+					{
+						"id": "d4g22_mancia_2_0",
+						"player_text": "Compro! Tem modelo certo?",
+						"npc_reply": {
+							"goto_branch": "d4g22_mancia_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g22_mancia_2_1",
+						"player_text": "Tudo bem! Alguma loja preferida?",
+						"npc_reply": {
+							"goto_branch": "d4g22_mancia_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g22_mancia_fim": [
+			{
+				"id": "d4g22_mancia_2",
+				"text": "Pode ser o que você achar melhor, em qualquer loja do Navegador. Confio no seu gosto!",
+				"event_id": "d4g22_mancia"
+			},
+			{
+				"id": "d4g22_mancia_end",
+				"text": "Obrigada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 14,
+								"quantity": 2,
+								"store": [
+									"amazonia",
+									"libre_mercado"
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

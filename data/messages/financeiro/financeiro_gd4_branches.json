@@ -1,0 +1,388 @@
+{
+	"conversation_id": "financeiro_gd4",
+	"contact_name": "Financeiro",
+	"branches": {
+		"d4g03_financeiro": [
+			{
+				"id": "d4g03_financeiro_0",
+				"text": "Bom dia! A contabilidade terceirizada mandou o fechamento."
+			},
+			{
+				"id": "d4g03_financeiro_1",
+				"text": "Você já viu um fechamento de mês de perto?",
+				"choices": [
+					{
+						"id": "d4g03_financeiro_2_0",
+						"player_text": "Não. É bonito?",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_bonito",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g03_financeiro_2_1",
+						"player_text": "Já, na faculdade",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_facul",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g03_financeiro_bonito": [
+			{
+				"id": "d4g03_financeiro_2",
+				"text": "Não. É longo, e tem muito café."
+			},
+			{
+				"id": "d4g03_financeiro_3",
+				"text": "É Serviço de fornecedor, R$ 890,00, da Contábil Nova Era."
+			},
+			{
+				"id": "d4g03_financeiro_4",
+				"text": "Pague este Pix, por favor: código CN034.",
+				"choices": [
+					{
+						"id": "d4g03_financeiro_5_0",
+						"player_text": "Repetindo: R$ 890,00, código CN034",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g03_financeiro_5_1",
+						"player_text": "Deixa comigo, Simone",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g03_financeiro_facul": [
+			{
+				"id": "d4g03_financeiro_5",
+				"text": "Na faculdade os números fecham. Aqui eles negociam."
+			},
+			{
+				"id": "d4g03_financeiro_6",
+				"text": "O de hoje é Serviço de fornecedor, R$ 890,00, da Contábil Nova Era."
+			},
+			{
+				"id": "d4g03_financeiro_7",
+				"text": "Pague o Pix, por favor: código CN034.",
+				"choices": [
+					{
+						"id": "d4g03_financeiro_8_0",
+						"player_text": "Código CN034, R$ 890,00. É isso?",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g03_financeiro_8_1",
+						"player_text": "Pode deixar, negocio com ele",
+						"npc_reply": {
+							"goto_branch": "d4g03_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g03_financeiro_fim": [
+			{
+				"id": "d4g03_financeiro_8",
+				"text": "Obrigada. Volto para as minhas planilhas."
+			},
+			{
+				"id": "d4g03_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "CN034"
+					}
+				]
+			}
+		],
+		"d4g12_financeiro": [
+			{
+				"id": "d4g12_financeiro_0",
+				"text": "Simone aqui. Uma pergunta rápida."
+			},
+			{
+				"id": "d4g12_financeiro_1",
+				"text": "Já mexeu no sistema fiscal da empresa?",
+				"choices": [
+					{
+						"id": "d4g12_financeiro_2_0",
+						"player_text": "Não, nem sei o que é",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_nao",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_2_1",
+						"player_text": "Só de passagem",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_passagem",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_2_2",
+						"player_text": "É aquele que trava toda hora?",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_trava",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g12_financeiro_nao": [
+			{
+				"id": "d4g12_financeiro_2",
+				"text": "Continue assim. Preserva a saúde."
+			},
+			{
+				"id": "d4g12_financeiro_3",
+				"text": "Ele vai ser renovado, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Pix: MV359."
+			},
+			{
+				"id": "d4g12_financeiro_4",
+				"text": "No Banco, use o código MV395, por favor.",
+				"choices": [
+					{
+						"id": "d4g12_financeiro_5_0",
+						"player_text": "Código diferente do Pix? Por quê?",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_codigo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_5_1",
+						"player_text": "Certo, uso o MV395",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g12_financeiro_passagem": [
+			{
+				"id": "d4g12_financeiro_5",
+				"text": "De passagem é a melhor forma."
+			},
+			{
+				"id": "d4g12_financeiro_6",
+				"text": "Renovação dele, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Pix: MV359."
+			},
+			{
+				"id": "d4g12_financeiro_7",
+				"text": "No Banco, o código é MV395, por favor.",
+				"choices": [
+					{
+						"id": "d4g12_financeiro_8_0",
+						"player_text": "Mas não deveria ser o mesmo número?",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_codigo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_8_1",
+						"player_text": "Beleza, Simone",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g12_financeiro_trava": [
+			{
+				"id": "d4g12_financeiro_8",
+				"text": "Esse mesmo. E ainda pagamos por isso."
+			},
+			{
+				"id": "d4g12_financeiro_9",
+				"text": "Renovação com a Fiscal Prático: Serviço de fornecedor, R$ 980,00. Pix: MV359."
+			},
+			{
+				"id": "d4g12_financeiro_10",
+				"text": "Lá no Banco, digite o MV395, por favor.",
+				"choices": [
+					{
+						"id": "d4g12_financeiro_11_0",
+						"player_text": "Pix com um código e Banco com outro?",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_codigo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_11_1",
+						"player_text": "Ok, MV395 então",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g12_financeiro_codigo": [
+			{
+				"id": "d4g12_financeiro_11",
+				"text": "É assim nesta renovação. Já conferi."
+			},
+			{
+				"id": "d4g12_financeiro_12",
+				"text": "Não vamos transformar isso em uma reunião.",
+				"choices": [
+					{
+						"id": "d4g12_financeiro_13_0",
+						"player_text": "Tá bom, sem reunião",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g12_financeiro_13_1",
+						"player_text": "Vou olhar com calma antes de pagar",
+						"npc_reply": {
+							"goto_branch": "d4g12_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g12_financeiro_fim": [
+			{
+				"id": "d4g12_financeiro_13",
+				"text": "Agradecida."
+			},
+			{
+				"id": "d4g12_financeiro_end",
+				"text": "Pagamento recebido, obrigada!",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "MV395"
+					}
+				]
+			}
+		],
+		"d4g14_financeiro": [
+			{
+				"id": "d4g14_financeiro_0",
+				"text": "Bom dia! Preciso de 4 frigobares, compre numa loja do Navegador.",
+				"choices": [
+					{
+						"id": "d4g14_financeiro_1_0",
+						"player_text": "Bom dia, Simone! A compra é por qual motivo?",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_cobrou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g14_financeiro_1_1",
+						"player_text": "Falta um motivo da lista pra eu comprar.",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_cobrou",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g14_financeiro_cobrou": [
+			{
+				"id": "d4g14_financeiro_1",
+				"text": "Não entendi. A diretoria cobrou e eu só repassei, compre logo.",
+				"choices": [
+					{
+						"id": "d4g14_financeiro_2_0",
+						"player_text": "4 frigobares? Cada diretor vai ter o seu?",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_ironia",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g14_financeiro_2_1",
+						"player_text": "Mas o que eu coloco como justificativa?",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g14_financeiro_ironia": [
+			{
+				"id": "d4g14_financeiro_2",
+				"text": "Não me cabe perguntar. E a você também não.",
+				"choices": [
+					{
+						"id": "d4g14_financeiro_3_0",
+						"player_text": "Falei sem pensar",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "d4g14_financeiro_3_1",
+						"player_text": "Só achei curioso",
+						"npc_reply": {
+							"goto_branch": "d4g14_financeiro_fim",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4g14_financeiro_fim": [
+			{
+				"id": "d4g14_financeiro_3",
+				"text": "Coloque o que achar melhor. Eu tenho o fechamento para terminar.",
+				"event_id": "d4g14_financeiro"
+			},
+			{
+				"id": "d4g14_financeiro_end",
+				"text": "As compras chegaram, obrigada!",
+				"requires": [
+					{
+						"flag": "purchase",
+						"items": [
+							{
+								"item_id": 16,
+								"quantity": 4,
+								"store": [
+									"amazonia",
+									"libre_mercado"
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
