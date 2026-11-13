@@ -181,7 +181,7 @@
 			},
 			{
 				"id": "d1t08_marcao_7",
-				"text": "o boleto é 716214"
+				"text": "o pix é PE214"
 			},
 			{
 				"id": "d1t08_marcao_end",
@@ -189,7 +189,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "716214"
+						"payment_id": "PE214"
 					}
 				]
 			}

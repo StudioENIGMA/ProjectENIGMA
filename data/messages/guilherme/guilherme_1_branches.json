@@ -81,15 +81,15 @@
 			},
 			{
 				"id": "guilherme_payment0_2",
-				"text": "Segue o código do boleto: 769623."
-			}, 
+				"text": "Segue o código Pix: FI623."
+			},
 			{
 				"id": "guilherme_payment0_3",
 				"text": "Valeu cara",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "769623"
+						"payment_id": "FI623"
 					}
 				]
 			}
@@ -105,7 +105,7 @@
 			},
 			{
 				"id": "guilherme_payment1_2",
-				"text": "Por favor, faça esse pagamento pelo código 760623."
+				"text": "Por favor, faça esse pagamento pelo código FI624."
 			},
 			{
 				"id": "guilherme_payment1_3",
@@ -113,7 +113,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760623"
+						"payment_id": "FI624"
 					}
 				]
 			}

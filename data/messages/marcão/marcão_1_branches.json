@@ -179,11 +179,11 @@
 			},
 			{
 				"id": "marcao_payment0_2",
-				"text": "chefe pediu para solicitar a você o pagamento de um boleto de alguns materiais"
+				"text": "chefe pediu para solicitar a você o pagamento de um pix de alguns materiais"
 			},
 			{
 				"id": "marcao_payment0_3",
-				"text": "586098"
+				"text": "IN098"
 			},
 			{
 				"id": "marcao_payment0_4",
@@ -191,7 +191,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "586098"
+						"payment_id": "IN098"
 					}
 				]
 			}
@@ -211,11 +211,11 @@
 			},
 			{
 				"id": "marcao_payment1_3",
-				"text": "paga o boleto por favor"
+				"text": "paga o pix por favor"
 			},
 			{
 				"id": "marcao_payment1_4",
-				"text": "o boleto é 586092"
+				"text": "o pix é IN092"
 			},
 			{
 				"id": "marcao_payment1_5",
@@ -223,7 +223,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "586092"
+						"payment_id": "IN092"
 					}
 				]
 			}
@@ -243,7 +243,7 @@
 			},
 			{
 				"id": "marcao_payment2_3",
-				"text": "897340"
+				"text": "IN340"
 			},
 			{
 				"id": "marcao_payment2_4",
@@ -251,7 +251,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "897340"
+						"payment_id": "IN340"
 					}
 				]
 			}
@@ -275,18 +275,18 @@
 			},
 			{
 				"id": "marcao_payment3_4",
-				"text": "o boleto tem código 897341"
+				"text": "o pix tem código IN341"
 			},
 			{
 				"id": "marcao_payment3_5",
-				"text": "boleto pago, valeu meu bom",
+				"text": "pix pago, valeu meu bom",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "897341"
+						"payment_id": "IN341"
 					}
 				]
 			}
 		]
-	}                                        
+	}
 }

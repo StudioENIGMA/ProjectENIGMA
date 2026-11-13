@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "d5g03_financeiro_1",
-				"text": "É Serviço de fornecedor, o frete das cadeiras. Boleto 755233, R$ 934,75."
+				"text": "É Serviço de fornecedor, o frete das cadeiras. Pix TV233, R$ 934,75."
 			},
 			{
 				"id": "d5g03_financeiro_2",
@@ -21,7 +21,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755233"
+						"payment_id": "TV233"
 					}
 				]
 			}
@@ -29,7 +29,7 @@
 		"d5g10_financeiro": [
 			{
 				"id": "d5g10_financeiro_0",
-				"text": "Bom dia! Tenho um boleto para você pagar, por favor.",
+				"text": "Bom dia! Tenho um Pix para você pagar, por favor.",
 				"choices": [
 					{
 						"id": "d5g10_financeiro_1_0",
@@ -53,7 +53,7 @@
 		"d5g10_financeiro_r": [
 			{
 				"id": "d5g10_financeiro_1",
-				"text": "Não entendi a pergunta, o boleto já vem certinho do Cartório Central."
+				"text": "Não entendi a pergunta, o Pix já vem certinho do Cartório Central."
 			},
 			{
 				"id": "d5g10_financeiro_2",
@@ -133,7 +133,7 @@
 			},
 			{
 				"id": "d5g10_financeiro_6",
-				"text": "Boleto 755460, R$ 1.215,00."
+				"text": "Pix DA460, R$ 1.215,00."
 			},
 			{
 				"id": "d5g10_financeiro_end",
@@ -141,7 +141,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755460"
+						"payment_id": "DA460"
 					}
 				]
 			}

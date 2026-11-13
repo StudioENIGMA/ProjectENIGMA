@@ -113,7 +113,7 @@
 		"d2t02_carla": [
 			{
 				"id": "d2t02_carla_0",
-				"text": "Ei, sobrou um boleto da Gráfica Ponto Certo aqui comigo 🙈"
+				"text": "Ei, sobrou um Pix da Gráfica Ponto Certo aqui comigo 🙈"
 			},
 			{
 				"id": "d2t02_carla_1",
@@ -137,7 +137,7 @@
 					},
 					{
 						"id": "d2t02_carla_4_1",
-						"player_text": "Consigo pagar! Referente a quê esse boleto?",
+						"player_text": "Consigo pagar! Referente a quê esse Pix?",
 						"npc_reply": {
 							"goto_branch": "d2t02_carla_fim",
 							"delay_ticks": 3
@@ -153,7 +153,7 @@
 			},
 			{
 				"id": "d2t02_carla_5",
-				"text": "Mas e o boleto, consegue pagar?",
+				"text": "Mas e o Pix, consegue pagar?",
 				"choices": [
 					{
 						"id": "d2t02_carla_6_0",
@@ -185,7 +185,7 @@
 			},
 			{
 				"id": "d2t02_carla_8",
-				"text": "Boleto: 724018"
+				"text": "Pix: GP018"
 			},
 			{
 				"id": "d2t02_carla_end",
@@ -193,7 +193,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "724018"
+						"payment_id": "GP018"
 					}
 				]
 			}

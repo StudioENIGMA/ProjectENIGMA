@@ -149,7 +149,7 @@
 		"d4t18_rh": [
 			{
 				"id": "d4t18_rh_0",
-				"text": "Oi! Chegou o boleto dos exames periódicos da Clínica Bem Cuidar ( = ^ w ^ = )"
+				"text": "Oi! Chegou o Pix dos exames periódicos da Clínica Bem Cuidar ( = ^ w ^ = )"
 			},
 			{
 				"id": "d4t18_rh_1",
@@ -157,7 +157,7 @@
 			},
 			{
 				"id": "d4t18_rh_2",
-				"text": "Código do boleto: 745913 (@ ^ _ ^ @)"
+				"text": "Código Pix: CB913 (@ ^ _ ^ @)"
 			},
 			{
 				"id": "d4t18_rh_3",
@@ -169,7 +169,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "745913"
+						"payment_id": "CB913"
 					}
 				]
 			}

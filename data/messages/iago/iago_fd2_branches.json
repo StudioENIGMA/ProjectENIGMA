@@ -5,11 +5,11 @@
 		"d2g17_iago": [
 			{
 				"id": "d2g17_iago_0",
-				"text": "Olá, estagiário. Preciso que realize o pagamento de um boleto de R$ 3.050,00 da Metalúrgica Forte."
+				"text": "Olá, estagiário. Preciso que realize o pagamento de um Pix de R$ 3.050,00 da Metalúrgica Forte."
 			},
 			{
 				"id": "d2g17_iago_1",
-				"text": "É compra de material para a produção. Código: 723390",
+				"text": "É compra de material para a produção. Código: MF390",
 				"choices": [
 					{
 						"id": "d2g17_iago_2_0",
@@ -41,7 +41,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "723390"
+						"payment_id": "MF390"
 					}
 				]
 			}

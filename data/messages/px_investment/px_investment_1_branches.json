@@ -3,7 +3,6 @@
 	"contact_name": "Gerente PX Investment",
 	"account": "@pxinvestment",
 	"verified": true,
-
 	"branches": {
 		"task0_px_investment": [
 			{
@@ -16,7 +15,7 @@
 			},
 			{
 				"id": "px_investment_payment0_2",
-				"text": "Favor pagar o boleto: 673423"
+				"text": "Favor pagar o Pix: PI423"
 			},
 			{
 				"id": "px_investment_payment0_3",
@@ -24,7 +23,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "673423"
+						"payment_id": "PI423"
 					}
 				]
 			}
@@ -36,7 +35,7 @@
 			},
 			{
 				"id": "px_investment_payment01_1",
-				"text": "Nós do banco PX Investment temos uma ótima oferta de investimento para sua empresa! Invista R$20000,00 agora mesmo pelo Boleto 901254"
+				"text": "Nós do banco PX Investment temos uma ótima oferta de investimento para sua empresa! Invista R$20000,00 agora mesmo pelo Pix PI254"
 			},
 			{
 				"id": "px_investment_payment01_2",
@@ -44,7 +43,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "901254"
+						"payment_id": "PI254"
 					}
 				]
 			}
@@ -56,7 +55,7 @@
 			},
 			{
 				"id": "px_investment_payment02_1",
-				"text": "O banco PX Investment tem uma oferta de investimento muito satisfatória para sua empresa! Coloque R$25000,00 nesse fundo de investimento agora mesmo pelo Boleto 547925"
+				"text": "O banco PX Investment tem uma oferta de investimento muito satisfatória para sua empresa! Coloque R$25000,00 nesse fundo de investimento agora mesmo pelo Pix PI925"
 			},
 			{
 				"id": "px_investment_payment02_2",
@@ -64,7 +63,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "547925"
+						"payment_id": "PI925"
 					}
 				]
 			}
@@ -80,7 +79,7 @@
 			},
 			{
 				"id": "px_investment_payment03_2",
-				"text": "Segue o boleto de pagamento: 345127"
+				"text": "Segue o Pix de pagamento: PI127"
 			},
 			{
 				"id": "px_investment_payment03_3",
@@ -88,7 +87,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "345127"
+						"payment_id": "PI127"
 					}
 				]
 			}
@@ -104,7 +103,7 @@
 			},
 			{
 				"id": "px_investment_payment04_2",
-				"text": "Segue o boleto de pagamento: 393209"
+				"text": "Segue o Pix de pagamento: PI209"
 			},
 			{
 				"id": "px_investment_payment04_3",
@@ -112,7 +111,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "393209"
+						"payment_id": "PI209"
 					}
 				]
 			}

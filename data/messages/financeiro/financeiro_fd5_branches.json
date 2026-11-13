@@ -9,11 +9,11 @@
 			},
 			{
 				"id": "d5g18_financeiro_1",
-				"text": "É Serviço de fornecedor, a faxina do mês. Boleto 755688, R$ 720,00.",
+				"text": "É Serviço de fornecedor, a faxina do mês. Pix LB688, R$ 720,00.",
 				"choices": [
 					{
 						"id": "d5g18_financeiro_2_0",
-						"player_text": "Boleto 755688, R$ 720,00, certo?",
+						"player_text": "Pix LB688, R$ 720,00, certo?",
 						"npc_reply": {
 							"goto_branch": "d5g18_financeiro_fim",
 							"delay_ticks": 3
@@ -45,7 +45,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755688"
+						"payment_id": "LB688"
 					}
 				]
 			}

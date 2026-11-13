@@ -264,11 +264,11 @@
 			},
 			{
 				"id": "d2t06_marcao_2",
-				"text": "sobrou para você pagar um boleto de R$ 2.915,75 kkkkkk",
+				"text": "sobrou para você pagar um Pix de R$ 2.915,75 kkkkkk",
 				"choices": [
 					{
 						"id": "d2t06_marcao_3_0",
-						"player_text": "Sobrou por quê? Boleto de quê?",
+						"player_text": "Sobrou por quê? Pix de quê?",
 						"npc_reply": {
 							"goto_branch": "d2t06_marcao_fim",
 							"delay_ticks": 3
@@ -300,15 +300,15 @@
 			},
 			{
 				"id": "d2t06_marcao_6",
-				"text": "o boleto é 725563"
+				"text": "o pix é FS563"
 			},
 			{
 				"id": "d2t06_marcao_end",
-				"text": "boleto pago, valeu meu bom",
+				"text": "pix pago, valeu meu bom",
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "725563"
+						"payment_id": "FS563"
 					}
 				]
 			}

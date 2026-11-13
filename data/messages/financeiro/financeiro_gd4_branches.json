@@ -41,11 +41,11 @@
 			},
 			{
 				"id": "d4g03_financeiro_4",
-				"text": "Pague este boleto, por favor: código 746034.",
+				"text": "Pague este Pix, por favor: código CN034.",
 				"choices": [
 					{
 						"id": "d4g03_financeiro_5_0",
-						"player_text": "Repetindo: R$ 890,00, código 746034",
+						"player_text": "Repetindo: R$ 890,00, código CN034",
 						"npc_reply": {
 							"goto_branch": "d4g03_financeiro_fim",
 							"delay_ticks": 3
@@ -73,11 +73,11 @@
 			},
 			{
 				"id": "d4g03_financeiro_7",
-				"text": "Pague o boleto, por favor: código 746034.",
+				"text": "Pague o Pix, por favor: código CN034.",
 				"choices": [
 					{
 						"id": "d4g03_financeiro_8_0",
-						"player_text": "Código 746034, R$ 890,00. É isso?",
+						"player_text": "Código CN034, R$ 890,00. É isso?",
 						"npc_reply": {
 							"goto_branch": "d4g03_financeiro_fim",
 							"delay_ticks": 3
@@ -105,7 +105,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "746034"
+						"payment_id": "CN034"
 					}
 				]
 			}
@@ -153,15 +153,15 @@
 			},
 			{
 				"id": "d4g12_financeiro_3",
-				"text": "Ele vai ser renovado, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Boleto: 746359."
+				"text": "Ele vai ser renovado, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Pix: MV359."
 			},
 			{
 				"id": "d4g12_financeiro_4",
-				"text": "No Banco, use o código 746395, por favor.",
+				"text": "No Banco, use o código MV395, por favor.",
 				"choices": [
 					{
 						"id": "d4g12_financeiro_5_0",
-						"player_text": "Código diferente do boleto? Por quê?",
+						"player_text": "Código diferente do Pix? Por quê?",
 						"npc_reply": {
 							"goto_branch": "d4g12_financeiro_codigo",
 							"delay_ticks": 3
@@ -169,7 +169,7 @@
 					},
 					{
 						"id": "d4g12_financeiro_5_1",
-						"player_text": "Certo, uso o 746395",
+						"player_text": "Certo, uso o MV395",
 						"npc_reply": {
 							"goto_branch": "d4g12_financeiro_fim",
 							"delay_ticks": 3
@@ -185,11 +185,11 @@
 			},
 			{
 				"id": "d4g12_financeiro_6",
-				"text": "Renovação dele, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Boleto: 746359."
+				"text": "Renovação dele, da Fiscal Prático. É Serviço de fornecedor, R$ 980,00. Pix: MV359."
 			},
 			{
 				"id": "d4g12_financeiro_7",
-				"text": "No Banco, o código é 746395, por favor.",
+				"text": "No Banco, o código é MV395, por favor.",
 				"choices": [
 					{
 						"id": "d4g12_financeiro_8_0",
@@ -217,15 +217,15 @@
 			},
 			{
 				"id": "d4g12_financeiro_9",
-				"text": "Renovação com a Fiscal Prático: Serviço de fornecedor, R$ 980,00. Boleto: 746359."
+				"text": "Renovação com a Fiscal Prático: Serviço de fornecedor, R$ 980,00. Pix: MV359."
 			},
 			{
 				"id": "d4g12_financeiro_10",
-				"text": "Lá no Banco, digite o 746395, por favor.",
+				"text": "Lá no Banco, digite o MV395, por favor.",
 				"choices": [
 					{
 						"id": "d4g12_financeiro_11_0",
-						"player_text": "Boleto com um número e Banco com outro?",
+						"player_text": "Pix com um código e Banco com outro?",
 						"npc_reply": {
 							"goto_branch": "d4g12_financeiro_codigo",
 							"delay_ticks": 3
@@ -233,7 +233,7 @@
 					},
 					{
 						"id": "d4g12_financeiro_11_1",
-						"player_text": "Ok, 746395 então",
+						"player_text": "Ok, MV395 então",
 						"npc_reply": {
 							"goto_branch": "d4g12_financeiro_fim",
 							"delay_ticks": 3
@@ -281,7 +281,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "746395"
+						"payment_id": "MV395"
 					}
 				]
 			}

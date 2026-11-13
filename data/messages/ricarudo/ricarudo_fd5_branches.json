@@ -81,7 +81,7 @@
 		"d5g17_ricarudo_fim": [
 			{
 				"id": "d5g17_ricarudo_4",
-				"text": "É Evento da empresa, boleto 755577 de R$ 3.640,00"
+				"text": "É Evento da empresa, Pix HS577 de R$ 3.640,00"
 			},
 			{
 				"id": "d5g17_ricarudo_5",
@@ -93,7 +93,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755577"
+						"payment_id": "HS577"
 					}
 				]
 			}

@@ -85,7 +85,7 @@
 		"d3g05_ti_fim": [
 			{
 				"id": "d3g05_ti_5",
-				"text": "a Volt Assistencia arrumou, boleto 738530, R$ 560,00. Serviço de fornecedor"
+				"text": "a Volt Assistencia arrumou, Pix VA530, R$ 560,00. Serviço de fornecedor"
 			},
 			{
 				"id": "d3g05_ti_6",
@@ -97,7 +97,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "738530"
+						"payment_id": "VA530"
 					}
 				]
 			}

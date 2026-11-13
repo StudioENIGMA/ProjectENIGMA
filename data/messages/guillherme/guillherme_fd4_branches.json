@@ -41,7 +41,7 @@
 			},
 			{
 				"id": "d4g16_guillherme_4",
-				"text": "Boleto: 742815. No Banco, usa o código 742851.",
+				"text": "Pix: IT815. No Banco, usa o código IT851.",
 				"choices": [
 					{
 						"id": "d4g16_guillherme_5_0",
@@ -73,11 +73,11 @@
 			},
 			{
 				"id": "d4g16_guillherme_7",
-				"text": "Boleto: 742815. No Banco, usa o código 742851.",
+				"text": "Pix: IT815. No Banco, usa o código IT851.",
 				"choices": [
 					{
 						"id": "d4g16_guillherme_8_0",
-						"player_text": "Boleto com um código e Banco com outro, é isso?",
+						"player_text": "Pix com um código e Banco com outro, é isso?",
 						"npc_reply": {
 							"goto_branch": "d4g16_guillherme_muda",
 							"delay_ticks": 3
@@ -129,7 +129,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "742851"
+						"payment_id": "IT851"
 					}
 				]
 			}

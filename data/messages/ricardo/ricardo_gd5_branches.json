@@ -5,7 +5,7 @@
 		"d5g02_ricardo": [
 			{
 				"id": "d5g02_ricardo_0",
-				"text": "Estagiário, paga ai o boleto da Agência Click Norte q fez os banners da feira"
+				"text": "Estagiário, paga ai o Pix da Agência Click Norte q fez os banners da feira"
 			},
 			{
 				"id": "d5g02_ricardo_1",
@@ -37,7 +37,7 @@
 			},
 			{
 				"id": "d5g02_ricardo_3",
-				"text": "É Serviço de fornecedor, R$ 1.390,00. Boleto 755120"
+				"text": "É Serviço de fornecedor, R$ 1.390,00. Pix RC120"
 			},
 			{
 				"id": "d5g02_ricardo_end",
@@ -45,7 +45,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755120"
+						"payment_id": "RC120"
 					}
 				]
 			}
@@ -288,11 +288,11 @@
 		"d5g14_ricardo": [
 			{
 				"id": "d5g14_ricardo_0",
-				"text": "Estagiário, boleto 755310 da Copa Alimentos, é Compra de material pro café do Comercial. R$ 673,20"
+				"text": "Estagiário, Pix CA310 da Copa Alimentos, é Compra de material pro café do Comercial. R$ 673,20"
 			},
 			{
 				"id": "d5g14_ricardo_1",
-				"text": "no banco digita o 755391 q esse é o q ta valendo",
+				"text": "no banco digita o CA391 q esse é o q ta valendo",
 				"choices": [
 					{
 						"id": "d5g14_ricardo_2_0",
@@ -316,7 +316,7 @@
 		"d5g14_ricardo_numeros": [
 			{
 				"id": "d5g14_ricardo_2",
-				"text": "o 755310 é o q ta na folha, mas o cara da Copa falou q mudou"
+				"text": "o CA310 é o q ta na folha, mas o cara da Copa falou q mudou"
 			},
 			{
 				"id": "d5g14_ricardo_3",
@@ -348,7 +348,7 @@
 			},
 			{
 				"id": "d5g14_ricardo_5",
-				"text": "mas é o 755391 q vc digita hein, n o outro",
+				"text": "mas é o CA391 q vc digita hein, n o outro",
 				"choices": [
 					{
 						"id": "d5g14_ricardo_6_0",
@@ -384,7 +384,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "755391"
+						"payment_id": "CA391"
 					}
 				]
 			}

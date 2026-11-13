@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "d5t12_financeiro_1",
-				"text": "É Serviço de fornecedor, o fechamento do trimestre. Boleto 753102, R$ 1.875,30.",
+				"text": "É Serviço de fornecedor, o fechamento do trimestre. Pix CA102, R$ 1.875,30.",
 				"choices": [
 					{
 						"id": "d5t12_financeiro_2_0",
@@ -45,7 +45,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "753102"
+						"payment_id": "CA102"
 					}
 				]
 			}
@@ -205,7 +205,7 @@
 			},
 			{
 				"id": "d5t14_financeiro_4",
-				"text": "Faça o pagamento da Toner & Cia, por favor. Compra de material, boleto 753240, R$ 469,90."
+				"text": "Faça o pagamento da Toner & Cia, por favor. Compra de material, Pix TO240, R$ 469,90."
 			},
 			{
 				"id": "d5t14_financeiro_end",
@@ -213,7 +213,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "753240"
+						"payment_id": "TO240"
 					}
 				]
 			}

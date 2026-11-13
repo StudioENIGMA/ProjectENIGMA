@@ -13,11 +13,11 @@
 			},
 			{
 				"id": "d4t14_financeiro_2",
-				"text": "Boleto 747302, na área de boletos do Banco. Confira comigo, por favor.",
+				"text": "Pix PB302, na área Pix do Banco. Confira comigo, por favor.",
 				"choices": [
 					{
 						"id": "d4t14_financeiro_3_0",
-						"player_text": "R$ 538,20, código 747302. Confere?",
+						"player_text": "R$ 538,20, código PB302. Confere?",
 						"npc_reply": {
 							"goto_branch": "d4t14_financeiro_fim",
 							"delay_ticks": 3
@@ -65,7 +65,7 @@
 		"d4t14_financeiro_fim": [
 			{
 				"id": "d4t14_financeiro_5",
-				"text": "Pode seguir com o boleto, por favor."
+				"text": "Pode seguir com o Pix, por favor."
 			},
 			{
 				"id": "d4t14_financeiro_end",
@@ -73,7 +73,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "747302"
+						"payment_id": "PB302"
 					}
 				]
 			}
@@ -141,7 +141,7 @@
 			},
 			{
 				"id": "d4t15_financeiro_5",
-				"text": "O valor é R$ 720,00 e o código do boleto é 742690."
+				"text": "O valor é R$ 720,00 e o código Pix é DS690."
 			},
 			{
 				"id": "d4t15_financeiro_end",
@@ -149,7 +149,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "742690"
+						"payment_id": "DS690"
 					}
 				]
 			}
@@ -165,7 +165,7 @@
 			},
 			{
 				"id": "d4t16_financeiro_2",
-				"text": "Pague este boleto, por favor: código 749036."
+				"text": "Pague este Pix, por favor: código CS036."
 			},
 			{
 				"id": "d4t16_financeiro_3",
@@ -177,7 +177,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "749036"
+						"payment_id": "CS036"
 					}
 				]
 			}

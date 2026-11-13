@@ -5,7 +5,7 @@
 		"d2g03_yago": [
 			{
 				"id": "d2g03_yago_0",
-				"text": "Olá, estagiário. Preciso que realize o pagamento de um boleto no valor de R$ 4.780,00.",
+				"text": "Olá, estagiário. Preciso que realize o pagamento de um Pix no valor de R$ 4.780,00.",
 				"choices": [
 					{
 						"id": "d2g03_yago_1_0",
@@ -17,7 +17,7 @@
 					},
 					{
 						"id": "d2g03_yago_1_1",
-						"player_text": "Boleto sem motivo eu não pago, Yago",
+						"player_text": "Pix sem motivo eu não pago, Yago",
 						"npc_reply": {
 							"goto_branch": "d2g03_yago_tom",
 							"delay_ticks": 3
@@ -33,7 +33,7 @@
 			},
 			{
 				"id": "d2g03_yago_2",
-				"text": "Refere-se à taxa de regularização do CNPJ. Código: 721904",
+				"text": "Refere-se à taxa de regularização do CNPJ. Código: RF904",
 				"choices": [
 					{
 						"id": "d2g03_yago_3_0",
@@ -61,7 +61,7 @@
 			},
 			{
 				"id": "d2g03_yago_4",
-				"text": "Refere-se à taxa de regularização do CNPJ. Código: 721904",
+				"text": "Refere-se à taxa de regularização do CNPJ. Código: RF904",
 				"choices": [
 					{
 						"id": "d2g03_yago_5_0",
@@ -97,7 +97,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "721904"
+						"payment_id": "RF904"
 					}
 				]
 			}

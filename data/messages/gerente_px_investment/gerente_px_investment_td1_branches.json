@@ -147,7 +147,7 @@
 			},
 			{
 				"id": "d1t11_px_5",
-				"text": "Favor pagar o boleto: 719007"
+				"text": "Favor pagar o Pix: PI007"
 			},
 			{
 				"id": "d1t11_px_end",
@@ -155,7 +155,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "719007"
+						"payment_id": "PI007"
 					}
 				]
 			}

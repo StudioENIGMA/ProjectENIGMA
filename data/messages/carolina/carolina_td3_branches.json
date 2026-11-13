@@ -172,7 +172,7 @@
 		"d3t02_carolina_fim": [
 			{
 				"id": "d3t02_carolina_3",
-				"text": "a Conecta Cabos mandou o boleto 738214, é R$ 618,40. Compra de material"
+				"text": "a Conecta Cabos mandou o Pix CC214, é R$ 618,40. Compra de material"
 			},
 			{
 				"id": "d3t02_carolina_4",
@@ -184,7 +184,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "738214"
+						"payment_id": "CC214"
 					}
 				]
 			}

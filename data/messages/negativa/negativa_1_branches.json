@@ -2,7 +2,6 @@
 	"conversation_id": "negativa_1",
 	"contact_name": "Negativa",
 	"verified": true,
-
 	"branches": {
 		"task0_negativa": [
 			{
@@ -49,21 +48,13 @@
 			},
 			{
 				"id": "negativa_payment0_2",
-				"text": "Escolha uma forma de pagamento: Pix ou Boleto",
+				"text": "O pagamento é por Pix.",
 				"choices": [
 					{
 						"id": "negativa_payment0_2a_0",
-						"player_text": "Pix",
+						"player_text": "Pode mandar o código",
 						"npc_reply": {
 							"goto_branch": "from_negativa_payment0_3",
-							"delay_ticks": 0
-						}
-					},
-					{
-						"id": "negativa_payment0_2a_1",
-						"player_text": "Boleto",
-						"npc_reply": {
-							"goto_branch": "from_negativa_payment0_5",
 							"delay_ticks": 0
 						}
 					}
@@ -81,28 +72,20 @@
 			},
 			{
 				"id": "negativa_payment1_2",
-				"text": "Escolha uma forma de pagamento: Pix ou Boleto",
+				"text": "O pagamento é por Pix.",
 				"choices": [
 					{
 						"id": "negativa_payment1_2a_0",
-						"player_text": "Pix",
+						"player_text": "Pode mandar o código",
 						"npc_reply": {
 							"goto_branch": "from_negativa_payment1_3",
-							"delay_ticks": 0
-						}
-					},
-					{
-						"id": "negativa_payment1_2a_1",
-						"player_text": "Boleto",
-						"npc_reply": {
-							"goto_branch": "from_negativa_payment1_5",
 							"delay_ticks": 0
 						}
 					}
 				]
 			}
 		],
-		"from_negativa_payment0_3":[
+		"from_negativa_payment0_3": [
 			{
 				"id": "negativa_payment0_3",
 				"text": "Código pix: NG711"
@@ -118,23 +101,7 @@
 				]
 			}
 		],
-		"from_negativa_payment0_5":[
-			{
-				"id": "negativa_password0_5",
-				"text": "Código boleto: 274665"
-			},
-			{
-				"id": "negativa_password0_6",
-				"text": "Recebemos seu pagamento!",
-				"requires": [
-					{
-						"flag": "payment",
-						"payment_id": "274665"
-					}
-				]
-			}
-		],
-		"from_negativa_payment1_3":[
+		"from_negativa_payment1_3": [
 			{
 				"id": "negativa_payment1_3",
 				"text": "Código pix: NG665"
@@ -146,22 +113,6 @@
 					{
 						"flag": "payment",
 						"payment_id": "NG665"
-					}
-				]
-			}
-		],
-		"from_negativa_payment1_5":[
-			{
-				"id": "negativa_payment1_5",
-				"text": "Código boleto: 098471"
-			},
-			{
-				"id": "negativa_payment1_6",
-				"text": "Recebemos seu pagamento!",
-				"requires": [
-					{
-						"flag": "payment",
-						"payment_id": "098471"
 					}
 				]
 			}

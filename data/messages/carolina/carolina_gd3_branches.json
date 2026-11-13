@@ -57,7 +57,7 @@
 		"d3g01_carolina_fim": [
 			{
 				"id": "d3g01_carolina_3",
-				"text": "o boleto da Disco Sul é 733902, R$ 640,00. Compra de material, paga pra mim?"
+				"text": "o Pix da Disco Sul é DS902, R$ 640,00. Compra de material, paga pra mim?"
 			},
 			{
 				"id": "d3g01_carolina_end",
@@ -65,7 +65,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "733902"
+						"payment_id": "DS902"
 					}
 				]
 			}
@@ -161,7 +161,7 @@
 		"d3g10_carolina": [
 			{
 				"id": "d3g10_carolina_0",
-				"text": "Oi estagiário, paga um boleto pra mim? chefe falou pra eu pedir pra vc hahaha",
+				"text": "Oi estagiário, paga um Pix pra mim? chefe falou pra eu pedir pra vc hahaha",
 				"choices": [
 					{
 						"id": "d3g10_carolina_1_0",
@@ -217,7 +217,7 @@
 			},
 			{
 				"id": "d3g10_carolina_4",
-				"text": "só paga, é o 735348 da Tecno Vale, R$ 1.480,00"
+				"text": "só paga, é o TV348 da Tecno Vale, R$ 1.480,00"
 			},
 			{
 				"id": "d3g10_carolina_5",
@@ -229,7 +229,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "735348"
+						"payment_id": "TV348"
 					}
 				]
 			}

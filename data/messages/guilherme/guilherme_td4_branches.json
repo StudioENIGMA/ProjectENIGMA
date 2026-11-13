@@ -97,7 +97,7 @@
 			},
 			{
 				"id": "d4t01_guilherme_8",
-				"text": "É Serviço de fornecedor, R$ 1.284,50. Segue o código do boleto: 741836."
+				"text": "É Serviço de fornecedor, R$ 1.284,50. Segue o código Pix: GP836."
 			},
 			{
 				"id": "d4t01_guilherme_end",
@@ -105,7 +105,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "741836"
+						"payment_id": "GP836"
 					}
 				]
 			}
@@ -288,7 +288,7 @@
 			},
 			{
 				"id": "d4t03_guilherme_6",
-				"text": "São R$ 2.310,00, código do boleto: 743519."
+				"text": "São R$ 2.310,00, código Pix: TR519."
 			},
 			{
 				"id": "d4t03_guilherme_end",
@@ -296,7 +296,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "743519"
+						"payment_id": "TR519"
 					}
 				]
 			}

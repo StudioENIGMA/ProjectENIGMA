@@ -9,11 +9,11 @@
 			},
 			{
 				"id": "d6g01_gilmar_1",
-				"text": "Boleto das barras da Industrials. Compra de material, R$ 2.140,00."
+				"text": "Pix das barras da Industrials. Compra de material, R$ 2.140,00."
 			},
 			{
 				"id": "d6g01_gilmar_2",
-				"text": "Código 760201.",
+				"text": "Código IN201.",
 				"choices": [
 					{
 						"id": "d6g01_gilmar_3_0",
@@ -45,7 +45,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760201"
+						"payment_id": "IN201"
 					}
 				]
 			}
@@ -141,7 +141,7 @@
 			},
 			{
 				"id": "d6g02_gilmar_7",
-				"text": "Código 760202."
+				"text": "Código MV202."
 			},
 			{
 				"id": "d6g02_gilmar_8",
@@ -153,7 +153,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760202"
+						"payment_id": "MV202"
 					}
 				]
 			}

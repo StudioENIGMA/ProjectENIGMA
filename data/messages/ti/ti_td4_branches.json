@@ -41,7 +41,7 @@
 			},
 			{
 				"id": "d4t20_ti_4",
-				"text": "os bixo comeram uns cabos. preciso q vc pague um boleto pra mim",
+				"text": "os bixo comeram uns cabos. preciso q vc pague um pix pra mim",
 				"choices": [
 					{
 						"id": "d4t20_ti_5_0",
@@ -69,7 +69,7 @@
 			},
 			{
 				"id": "d4t20_ti_6",
-				"text": "os ratos almoçaram uns cabos do servidor. paga um boleto pra mim?",
+				"text": "os ratos almoçaram uns cabos do servidor. paga um pix pra mim?",
 				"choices": [
 					{
 						"id": "d4t20_ti_7_0",
@@ -97,7 +97,7 @@
 			},
 			{
 				"id": "d4t20_ti_8",
-				"text": "R$ 975,00, codigo do boleto 748014"
+				"text": "R$ 975,00, codigo pix CA014"
 			},
 			{
 				"id": "d4t20_ti_end",
@@ -105,7 +105,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "748014"
+						"payment_id": "CA014"
 					}
 				]
 			}

@@ -57,7 +57,7 @@
 		"d4g08_rh": [
 			{
 				"id": "d4g08_rh_0",
-				"text": "Oi! Boleto dos exames admissionais da Clínica Bem Viver: 748263 ( = ^ w ^ = )"
+				"text": "Oi! Pix dos exames admissionais da Clínica Bem Viver: RL263 ( = ^ w ^ = )"
 			},
 			{
 				"id": "d4g08_rh_1",
@@ -65,11 +65,11 @@
 			},
 			{
 				"id": "d4g08_rh_2",
-				"text": "Só que no Banco usa este código aqui: 748236 (^ _ ^)",
+				"text": "Só que no Banco usa este código aqui: RL236 (^ _ ^)",
 				"choices": [
 					{
 						"id": "d4g08_rh_3_0",
-						"player_text": "Por que dois códigos? Não é um boleto só?",
+						"player_text": "Por que dois códigos? Não é um Pix só?",
 						"npc_reply": {
 							"goto_branch": "d4g08_rh_dois",
 							"delay_ticks": 3
@@ -105,7 +105,7 @@
 					},
 					{
 						"id": "d4g08_rh_5_1",
-						"player_text": "Não seria melhor pedir um boleto novo pra clínica?",
+						"player_text": "Não seria melhor pedir um código novo pra clínica?",
 						"npc_reply": {
 							"goto_branch": "d4g08_rh_novo",
 							"delay_ticks": 3
@@ -121,7 +121,7 @@
 			},
 			{
 				"id": "d4g08_rh_6",
-				"text": "Usa o 748236 mesmo, já está certo aqui (^ _ ^)",
+				"text": "Usa o RL236 mesmo, já está certo aqui (^ _ ^)",
 				"choices": [
 					{
 						"id": "d4g08_rh_7_0",
@@ -153,7 +153,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "748236"
+						"payment_id": "RL236"
 					}
 				]
 			}

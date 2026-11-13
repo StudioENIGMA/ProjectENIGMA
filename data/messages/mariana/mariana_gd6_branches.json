@@ -117,11 +117,11 @@
 			},
 			{
 				"id": "d6g14_mariana_1",
-				"text": "Tem um boleto da Expresso Lima parado aqui, pode pagar pra mim? :(",
+				"text": "Tem um Pix da Expresso Lima parado aqui, pode pagar pra mim? :(",
 				"choices": [
 					{
 						"id": "d6g14_mariana_2_0",
-						"player_text": "Posso, mas é para quê esse boleto?",
+						"player_text": "Posso, mas é para quê esse Pix?",
 						"npc_reply": {
 							"goto_branch": "d6g14_mariana_r",
 							"delay_ticks": 3
@@ -145,11 +145,11 @@
 			},
 			{
 				"id": "d6g14_mariana_3",
-				"text": "É o boleto 760270, R$ 1.960,00."
+				"text": "É o Pix WC270, R$ 1.960,00."
 			},
 			{
 				"id": "d6g14_mariana_4",
-				"text": "No Banco use o código 760207.",
+				"text": "No Banco use o código WC207.",
 				"choices": [
 					{
 						"id": "d6g14_mariana_5_0",
@@ -237,7 +237,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760207"
+						"payment_id": "WC207"
 					}
 				]
 			}

@@ -85,7 +85,7 @@
 		"d3t14_ti_fim": [
 			{
 				"id": "d3t14_ti_5",
-				"text": "a Escudo Digital mandou o boleto 730752"
+				"text": "a Escudo Digital mandou o Pix ED752"
 			},
 			{
 				"id": "d3t14_ti_6",
@@ -97,7 +97,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "730752"
+						"payment_id": "ED752"
 					}
 				]
 			}

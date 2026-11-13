@@ -117,7 +117,7 @@
 			},
 			{
 				"id": "d6g10_marta_1",
-				"text": "Poderia pagar um boleto da Forte Serviços…"
+				"text": "Poderia pagar um Pix da Forte Serviços…"
 			},
 			{
 				"id": "d6g10_marta_2",
@@ -125,7 +125,7 @@
 				"choices": [
 					{
 						"id": "d6g10_marta_3_0",
-						"player_text": "Claro, mas qual o motivo do boleto?",
+						"player_text": "Claro, mas qual o motivo do Pix?",
 						"npc_reply": {
 							"goto_branch": "d6g10_marta_r",
 							"delay_ticks": 3
@@ -241,7 +241,7 @@
 		"d6g10_marta_fim": [
 			{
 				"id": "d6g10_marta_10",
-				"text": "R$ 1.085,00, código 760205. Por favorrrrr."
+				"text": "R$ 1.085,00, código FS205. Por favorrrrr."
 			},
 			{
 				"id": "d6g10_marta_end",
@@ -249,7 +249,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760205"
+						"payment_id": "FS205"
 					}
 				]
 			}

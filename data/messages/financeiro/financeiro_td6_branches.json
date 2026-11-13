@@ -85,11 +85,11 @@
 			},
 			{
 				"id": "d6t17_financeiro_1",
-				"text": "Preciso que você pague um boleto para mim.",
+				"text": "Preciso que você pague um Pix para mim.",
 				"choices": [
 					{
 						"id": "d6t17_financeiro_2_0",
-						"player_text": "Bom dia! Qual o motivo desse boleto?",
+						"player_text": "Bom dia! Qual o motivo desse Pix?",
 						"npc_reply": {
 							"goto_branch": "d6t17_financeiro_r",
 							"delay_ticks": 3
@@ -141,7 +141,7 @@
 			},
 			{
 				"id": "d6t17_financeiro_5",
-				"text": "R$ 389,90. Código 760106.",
+				"text": "R$ 389,90. Código VI106.",
 				"choices": [
 					{
 						"id": "d6t17_financeiro_6_0",
@@ -173,7 +173,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760106"
+						"payment_id": "VI106"
 					}
 				]
 			}

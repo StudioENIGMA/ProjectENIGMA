@@ -66,7 +66,7 @@
 			},
 			{
 				"id": "carolina_purchase0_2",
-				"text": "o boleto é 569721"
+				"text": "o pix é VI721"
 			},
 			{
 				"id": "carolina_payment0_3",
@@ -74,7 +74,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "569721"
+						"payment_id": "VI721"
 					}
 				]
 			}

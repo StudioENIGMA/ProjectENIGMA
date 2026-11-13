@@ -124,7 +124,7 @@
 			},
 			{
 				"id": "d4t08_marcia_1",
-				"text": "Você poderia pagar um boleto da confraternização para mim, por favor?",
+				"text": "Você poderia pagar um Pix da confraternização para mim, por favor?",
 				"choices": [
 					{
 						"id": "d4t08_marcia_2_0",
@@ -164,7 +164,7 @@
 				"choices": [
 					{
 						"id": "d4t08_marcia_4_0",
-						"player_text": "Perdi essa, que pena. E esse boleto, é de quê?",
+						"player_text": "Perdi essa, que pena. E esse Pix, é de quê?",
 						"npc_reply": {
 							"goto_branch": "d4t08_marcia_fim",
 							"delay_ticks": 3
@@ -172,7 +172,7 @@
 					},
 					{
 						"id": "d4t08_marcia_4_1",
-						"player_text": "Tô preparando a voz. Qual é o motivo do boleto?",
+						"player_text": "Tô preparando a voz. Qual é o motivo do Pix?",
 						"npc_reply": {
 							"goto_branch": "d4t08_marcia_fim",
 							"delay_ticks": 3
@@ -188,7 +188,7 @@
 			},
 			{
 				"id": "d4t08_marcia_5",
-				"text": "O valor é R$ 3.480,00 e o código do boleto é 744250."
+				"text": "O valor é R$ 3.480,00 e o código Pix é EG250."
 			},
 			{
 				"id": "d4t08_marcia_end",
@@ -196,7 +196,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "744250"
+						"payment_id": "EG250"
 					}
 				]
 			}

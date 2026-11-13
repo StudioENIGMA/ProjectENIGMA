@@ -65,7 +65,7 @@
 			},
 			{
 				"id": "d3g04_rh_5",
-				"text": "O boleto é 731288, de R$ 1.150,00. É Evento da empresa. Pode pagar, por favor? ( * ^ _ ^ * )"
+				"text": "O Pix é BS288, de R$ 1.150,00. É Evento da empresa. Pode pagar, por favor? ( * ^ _ ^ * )"
 			},
 			{
 				"id": "d3g04_rh_end",
@@ -73,7 +73,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "731288"
+						"payment_id": "BS288"
 					}
 				]
 			}
@@ -125,7 +125,7 @@
 		"d3g14_rh": [
 			{
 				"id": "d3g14_rh_0",
-				"text": "Oi! Tem um boleto pra pagar hoje, pode me ajudar? ( > ^ _ ^ )>",
+				"text": "Oi! Tem um Pix pra pagar hoje, pode me ajudar? ( > ^ _ ^ )>",
 				"choices": [
 					{
 						"id": "d3g14_rh_1_0",
@@ -181,7 +181,7 @@
 				"choices": [
 					{
 						"id": "d3g14_rh_4_0",
-						"player_text": "As carinhas não pagam boleto",
+						"player_text": "As carinhas não pagam Pix",
 						"npc_reply": {
 							"goto_branch": "d3g14_rh_fim",
 							"delay_ticks": 3
@@ -205,7 +205,7 @@
 			},
 			{
 				"id": "d3g14_rh_5",
-				"text": "É o 737189 da Gráfica Pontual, R$ 690,00"
+				"text": "É o GP189 da Gráfica Pontual, R$ 690,00"
 			},
 			{
 				"id": "d3g14_rh_end",
@@ -213,7 +213,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "737189"
+						"payment_id": "GP189"
 					}
 				]
 			}

@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "d3t08_financeiro_1",
-				"text": "A Contábil Horizonte fechou o mês. Pague o boleto 739041, por favor: R$ 2.300,00, Serviço de fornecedor."
+				"text": "A Contábil Horizonte fechou o mês. Pague o Pix CH041, por favor: R$ 2.300,00, Serviço de fornecedor."
 			},
 			{
 				"id": "d3t08_financeiro_end",
@@ -17,7 +17,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "739041"
+						"payment_id": "CH041"
 					}
 				]
 			}

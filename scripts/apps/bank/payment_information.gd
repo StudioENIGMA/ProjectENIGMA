@@ -59,6 +59,9 @@ func setup(code:GameData.PaymentCode) -> void:
 		_add_field("Nome", code_informations["name"], "recipient")
 		_add_field("CPF/CNPJ", code_informations["cpf"], "recipient")
 		_add_field("Email", code_informations["email"], "recipient")
+		# The bank of the account the Pix goes to, checked against the banks accepted today
+		if code_informations.has("bank"):
+			_add_field("Banco", str(code_informations["bank"]), "ticket_bank")
 		_add_field("Motivo", reason, "reason")
 		_add_field("Valor", value, "value")
 

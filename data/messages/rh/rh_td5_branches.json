@@ -77,7 +77,7 @@
 		"d5t16_rh": [
 			{
 				"id": "d5t16_rh_0",
-				"text": "Oi! Pode pagar um boleto pra mim? ( > ^ _ ^ )>",
+				"text": "Oi! Pode pagar um Pix pra mim? ( > ^ _ ^ )>",
 				"choices": [
 					{
 						"id": "d5t16_rh_1_0",
@@ -181,7 +181,7 @@
 		"d5t16_rh_fim": [
 			{
 				"id": "d5t16_rh_6",
-				"text": "Depois eu te conto tudo! Agora o boleto: é o 754018, R$ 1.340,00 \\(*^ o ^*)/"
+				"text": "Depois eu te conto tudo! Agora o Pix: é o CV018, R$ 1.340,00 \\(*^ o ^*)/"
 			},
 			{
 				"id": "d5t16_rh_end",
@@ -189,7 +189,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "754018"
+						"payment_id": "CV018"
 					}
 				]
 			}

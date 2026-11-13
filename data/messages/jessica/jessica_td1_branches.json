@@ -373,7 +373,7 @@
 			},
 			{
 				"id": "d1t06_jessica_10",
-				"text": "Você paga pra mim? Serviço de fornecedor, R$ 478,00, boleto 718830"
+				"text": "Você paga pra mim? Serviço de fornecedor, R$ 478,00, Pix GP830"
 			},
 			{
 				"id": "d1t06_jessica_end",
@@ -381,7 +381,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "718830"
+						"payment_id": "GP830"
 					}
 				]
 			}

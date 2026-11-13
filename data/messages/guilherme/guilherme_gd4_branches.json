@@ -13,7 +13,7 @@
 			},
 			{
 				"id": "d4g01_guilherme_2",
-				"text": "Segue o código do boleto: 745108."
+				"text": "Segue o código Pix: BS108."
 			},
 			{
 				"id": "d4g01_guilherme_3",
@@ -49,7 +49,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "745108"
+						"payment_id": "BS108"
 					}
 				]
 			}
@@ -125,7 +125,7 @@
 			},
 			{
 				"id": "d4g07_guilherme_7",
-				"text": "Por favor, faça esse pagamento pelo código 741462."
+				"text": "Por favor, faça esse pagamento pelo código MS462."
 			},
 			{
 				"id": "d4g07_guilherme_end",
@@ -133,7 +133,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "741462"
+						"payment_id": "MS462"
 					}
 				]
 			}
@@ -173,7 +173,7 @@
 			},
 			{
 				"id": "d4g10_guilherme_3",
-				"text": "São R$ 1.095,00, código do boleto: 745640.",
+				"text": "São R$ 1.095,00, código Pix: CP640.",
 				"choices": [
 					{
 						"id": "d4g10_guilherme_4_0",
@@ -261,7 +261,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "745640"
+						"payment_id": "CP640"
 					}
 				]
 			}

@@ -9,11 +9,11 @@
 			},
 			{
 				"id": "d2t10_financeiro_1",
-				"text": "Preciso que você pague um boleto de R$ 9.600,00 da Corretora Horizonte.",
+				"text": "Preciso que você pague um Pix de R$ 9.600,00 da Corretora Horizonte.",
 				"choices": [
 					{
 						"id": "d2t10_financeiro_2_0",
-						"player_text": "Bom dia, Simone. Boleto de quê?",
+						"player_text": "Bom dia, Simone. Pix de quê?",
 						"npc_reply": {
 							"goto_branch": "d2t10_financeiro_dados",
 							"delay_ticks": 3
@@ -41,7 +41,7 @@
 			},
 			{
 				"id": "d2t10_financeiro_4",
-				"text": "Código do boleto: 727701"
+				"text": "Código Pix: CH701"
 			},
 			{
 				"id": "d2t10_financeiro_5",
@@ -101,7 +101,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "727701"
+						"payment_id": "CH701"
 					}
 				]
 			}

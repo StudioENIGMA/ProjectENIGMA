@@ -9,7 +9,7 @@
 			},
 			{
 				"id": "d4g13_marcia_1",
-				"text": "Você poderia pagar um boleto para mim, por favor?",
+				"text": "Você poderia pagar um Pix para mim, por favor?",
 				"choices": [
 					{
 						"id": "d4g13_marcia_2_0",
@@ -37,7 +37,7 @@
 			},
 			{
 				"id": "d4g13_marcia_3",
-				"text": "Boleto de R$ 870,00: 743018. No Banco, usa o 743081.",
+				"text": "Pix de R$ 870,00: SM018. No Banco, usa o SM081.",
 				"choices": [
 					{
 						"id": "d4g13_marcia_4_0",
@@ -121,7 +121,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "743081"
+						"payment_id": "SM081"
 					}
 				]
 			}

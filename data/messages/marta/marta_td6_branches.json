@@ -471,7 +471,7 @@
 		"d6t15_marta_fim": [
 			{
 				"id": "d6t15_marta_9",
-				"text": "R$ 640,00, código 760105. Pooor favorr."
+				"text": "R$ 640,00, código DJ105. Pooor favorr."
 			},
 			{
 				"id": "d6t15_marta_end",
@@ -479,7 +479,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760105"
+						"payment_id": "DJ105"
 					}
 				]
 			}

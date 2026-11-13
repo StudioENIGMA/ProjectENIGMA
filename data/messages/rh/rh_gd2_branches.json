@@ -5,11 +5,11 @@
 		"d2g07_rh": [
 			{
 				"id": "d2g07_rh_0",
-				"text": "Oi! (^ _ ^) Consegue pagar um boleto de R$ 1.475,00 para mim?",
+				"text": "Oi! (^ _ ^) Consegue pagar um Pix de R$ 1.475,00 para mim?",
 				"choices": [
 					{
 						"id": "d2g07_rh_1_0",
-						"player_text": "Oi, Helena! É boleto de quê?",
+						"player_text": "Oi, Helena! É Pix de quê?",
 						"npc_reply": {
 							"goto_branch": "d2g07_rh_triste",
 							"delay_ticks": 3
@@ -37,7 +37,7 @@
 			},
 			{
 				"id": "d2g07_rh_3",
-				"text": "Código: 726638",
+				"text": "Código: SE638",
 				"choices": [
 					{
 						"id": "d2g07_rh_4_0",
@@ -69,7 +69,7 @@
 			},
 			{
 				"id": "d2g07_rh_6",
-				"text": "Código: 726638",
+				"text": "Código: SE638",
 				"choices": [
 					{
 						"id": "d2g07_rh_7_0",
@@ -105,7 +105,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "726638"
+						"payment_id": "SE638"
 					}
 				]
 			}

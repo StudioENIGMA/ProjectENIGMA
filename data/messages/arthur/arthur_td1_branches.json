@@ -273,11 +273,11 @@
 			},
 			{
 				"id": "d1t03_arthur_3",
-				"text": "boleto 714402",
+				"text": "pix VT402",
 				"choices": [
 					{
 						"id": "d1t03_arthur_4_0",
-						"player_text": "714402, anotado. Já vou olhar",
+						"player_text": "VT402, anotado. Já vou olhar",
 						"npc_reply": {
 							"goto_branch": "d1t03_arthur_fim",
 							"delay_ticks": 3
@@ -305,7 +305,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "714402"
+						"payment_id": "VT402"
 					}
 				]
 			}

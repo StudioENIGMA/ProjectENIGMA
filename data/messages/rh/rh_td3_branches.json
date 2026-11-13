@@ -61,7 +61,7 @@
 		"d3t11_rh_fim": [
 			{
 				"id": "d3t11_rh_4",
-				"text": "A Gráfica Pontual mandou o boleto 733468, de R$ 372,00. É Compra de material. Pode pagar, por favor? ( * ^ _ ^ * )"
+				"text": "A Gráfica Pontual mandou o Pix GP468, de R$ 372,00. É Compra de material. Pode pagar, por favor? ( * ^ _ ^ * )"
 			},
 			{
 				"id": "d3t11_rh_end",
@@ -69,7 +69,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "733468"
+						"payment_id": "GP468"
 					}
 				]
 			}

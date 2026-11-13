@@ -66,7 +66,7 @@
 			},
 			{
 				"id": "d3t05_negativa_5",
-				"text": "Boleto 731906 emitido pela Negativa Telas, no valor de R$ 4.250,00. Motivo: Compra de material."
+				"text": "Pix NT906 da Negativa Telas, no valor de R$ 4.250,00. Motivo: Compra de material."
 			},
 			{
 				"id": "d3t05_negativa_end",
@@ -74,7 +74,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "731906"
+						"payment_id": "NT906"
 					}
 				]
 			}
@@ -154,7 +154,7 @@
 			},
 			{
 				"id": "d3t06_negativa_6",
-				"text": "Código boleto: 735527, no valor de R$ 1.320,00."
+				"text": "Código Pix: NT527, no valor de R$ 1.320,00."
 			},
 			{
 				"id": "d3t06_negativa_end",
@@ -162,7 +162,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "735527"
+						"payment_id": "NT527"
 					}
 				]
 			}

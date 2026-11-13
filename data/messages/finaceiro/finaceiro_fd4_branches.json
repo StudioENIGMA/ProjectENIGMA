@@ -29,7 +29,7 @@
 		"d4g18_finaceiro_hotel": [
 			{
 				"id": "d4g18_finaceiro_1",
-				"text": "Um hotel com boletos, sim."
+				"text": "Um hotel com Pix, sim."
 			},
 			{
 				"id": "d4g18_finaceiro_2",
@@ -61,7 +61,7 @@
 			},
 			{
 				"id": "d4g18_finaceiro_4",
-				"text": "Antes disso, um boleto para você.",
+				"text": "Antes disso, um Pix para você.",
 				"choices": [
 					{
 						"id": "d4g18_finaceiro_5_0",
@@ -89,7 +89,7 @@
 			},
 			{
 				"id": "d4g18_finaceiro_6",
-				"text": "Pode quitar o boleto, por favor: código 747640."
+				"text": "Pode pagar o Pix, por favor: código LT640."
 			},
 			{
 				"id": "d4g18_finaceiro_end",
@@ -97,7 +97,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "747640"
+						"payment_id": "LT640"
 					}
 				]
 			}

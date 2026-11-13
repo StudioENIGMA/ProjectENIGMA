@@ -5,7 +5,7 @@
 		"d3g15_carolinda": [
 			{
 				"id": "d3g15_carolinda_0",
-				"text": "Oii, a Conecta Cabos mandou mais um boleto, das canaletas hahaha",
+				"text": "Oii, a Conecta Cabos mandou mais um Pix, das canaletas hahaha",
 				"choices": [
 					{
 						"id": "d3g15_carolinda_1_0",
@@ -53,7 +53,7 @@
 		"d3g15_carolinda_fim": [
 			{
 				"id": "d3g15_carolinda_2",
-				"text": "é o 730916, R$ 920,00. Compra de material, paga pra mim?"
+				"text": "é o CC916, R$ 920,00. Compra de material, paga pra mim?"
 			},
 			{
 				"id": "d3g15_carolinda_end",
@@ -61,7 +61,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "730916"
+						"payment_id": "CC916"
 					}
 				]
 			}

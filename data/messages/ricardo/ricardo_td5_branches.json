@@ -125,11 +125,11 @@
 		"d5t07_ricardo_fim": [
 			{
 				"id": "d5t07_ricardo_4",
-				"text": "paga ai o boleto da Gráfica Ponto Certo pra mim faz o favor"
+				"text": "paga ai o Pix da Gráfica Ponto Certo pra mim faz o favor"
 			},
 			{
 				"id": "d5t07_ricardo_5",
-				"text": "é Serviço de fornecedor. R$ 1.120,00, boleto 752288"
+				"text": "é Serviço de fornecedor. R$ 1.120,00, Pix GP288"
 			},
 			{
 				"id": "d5t07_ricardo_end",
@@ -137,7 +137,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "752288"
+						"payment_id": "GP288"
 					}
 				]
 			}
@@ -145,7 +145,7 @@
 		"d5t08_ricardo": [
 			{
 				"id": "d5t08_ricardo_0",
-				"text": "Estagiário, tem um boleto meu pra vc pagar faz o favor",
+				"text": "Estagiário, tem um Pix meu pra vc pagar faz o favor",
 				"choices": [
 					{
 						"id": "d5t08_ricardo_1_0",
@@ -233,7 +233,7 @@
 			},
 			{
 				"id": "d5t08_ricardo_7",
-				"text": "o boleto é 752416, de R$ 2.480,00"
+				"text": "o Pix é BS416, de R$ 2.480,00"
 			},
 			{
 				"id": "d5t08_ricardo_end",
@@ -241,7 +241,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "752416"
+						"payment_id": "BS416"
 					}
 				]
 			}

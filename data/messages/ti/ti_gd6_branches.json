@@ -93,7 +93,7 @@
 			},
 			{
 				"id": "d6g06_ti_7",
-				"text": "boleto 760203, paga la"
+				"text": "pix JF203, paga la"
 			},
 			{
 				"id": "d6g06_ti_end",
@@ -101,7 +101,7 @@
 				"requires": [
 					{
 						"flag": "payment",
-						"payment_id": "760203"
+						"payment_id": "JF203"
 					}
 				]
 			}

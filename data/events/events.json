@@ -276,7 +276,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "673423"
+				"payment_id": "PI423"
 			}
 		]
 	},
@@ -286,7 +286,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "901254"
+				"payment_id": "PI254"
 			}
 		]
 	},
@@ -296,7 +296,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "547925"
+				"payment_id": "PI925"
 			}
 		]
 	},
@@ -306,7 +306,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "345127"
+				"payment_id": "PI127"
 			}
 		]
 	},
@@ -316,7 +316,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "393209"
+				"payment_id": "PI209"
 			}
 		]
 	},
@@ -530,7 +530,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586098"
+				"payment_id": "IN098"
 			}
 		]
 	},
@@ -540,7 +540,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586092"
+				"payment_id": "IN092"
 			}
 		]
 	},
@@ -550,7 +550,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "897340"
+				"payment_id": "IN340"
 			}
 		]
 	},
@@ -560,7 +560,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "897341"
+				"payment_id": "IN341"
 			}
 		]
 	},
@@ -602,7 +602,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "769623"
+				"payment_id": "FI623"
 			}
 		]
 	},
@@ -612,7 +612,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760623"
+				"payment_id": "FI624"
 			}
 		]
 	},
@@ -701,7 +701,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "569721"
+				"payment_id": "VI721"
 			}
 		]
 	},
@@ -746,11 +746,8 @@
 		"description": "Pagamento pendente negativa",
 		"requires": [
 			{
-				"flag": "payment_multitype",
-				"payment_array": [
-					"NG711",
-					"274665"
-				]
+				"flag": "payment",
+				"payment_id": "NG711"
 			}
 		]
 	},
@@ -759,11 +756,8 @@
 		"description": "Pagamento de contas da empresa",
 		"requires": [
 			{
-				"flag": "payment_multitype",
-				"payment_array": [
-					"NG665",
-					"098471"
-				]
+				"flag": "payment",
+				"payment_id": "NG665"
 			}
 		]
 	},
@@ -942,20 +936,20 @@
 		]
 	},
 	"scam0_arthur2": {
-	  "type": "scam",
+		"type": "scam",
 		"description": "ID de pagamento incorreto",
 		"requires": [
-		  {
+			{
 				"flag": "payment",
 				"payment_id": "EAC16"
 			}
 		],
 		"discrepancies": [
-		  {
+			{
 				"id": "codigo_pix_EAC16",
 				"rule": "pix_code_format",
 				"found_at": [
-				  {
+					{
 						"source": "messages",
 						"conversation": "athur_2",
 						"section": "message",
@@ -967,7 +961,7 @@
 	},
 	"scam0_arthur3": {
 		"type": "scam",
-		"description": "Código de boleto fora do padrão",
+		"description": "Código Pix fora do padrão",
 		"requires": [
 			{
 				"flag": "payment",
@@ -1177,7 +1171,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "789623"
+				"payment_id": "IH623"
 			}
 		],
 		"discrepancies": [
@@ -1334,7 +1328,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "556382"
+				"payment_id": "EN382"
 			}
 		],
 		"discrepancies": [
@@ -1736,7 +1730,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "234567"
+				"payment_id": "MA567"
 			}
 		],
 		"discrepancies": [
@@ -1759,7 +1753,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "468431"
+				"payment_id": "MA431"
 			}
 		],
 		"discrepancies": [
@@ -2039,7 +2033,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586934"
+				"payment_id": "PI934"
 			}
 		],
 		"discrepancies": [
@@ -2062,7 +2056,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "536944"
+				"payment_id": "PI944"
 			}
 		],
 		"discrepancies": [
@@ -2085,7 +2079,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "586054"
+				"payment_id": "GP054"
 			}
 		],
 		"discrepancies": [
@@ -2767,11 +2761,11 @@
 	},
 	"d1t03_arthur": {
 		"type": "random-task",
-		"description": "Pagar o boleto da internet da Viva",
+		"description": "Pagar o Pix da internet da Viva",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "714402"
+				"payment_id": "VT402"
 			}
 		]
 	},
@@ -2801,7 +2795,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "718830"
+				"payment_id": "GP830"
 			}
 		]
 	},
@@ -2821,7 +2815,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "716214"
+				"payment_id": "PE214"
 			}
 		]
 	},
@@ -2851,7 +2845,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "719007"
+				"payment_id": "PI007"
 			}
 		]
 	},
@@ -3379,11 +3373,11 @@
 	},
 	"d2t02_carla": {
 		"type": "random-task",
-		"description": "Boleto da gráfica",
+		"description": "Pix da gráfica",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "724018"
+				"payment_id": "GP018"
 			}
 		]
 	},
@@ -3436,11 +3430,11 @@
 	},
 	"d2t06_marcao": {
 		"type": "random-task",
-		"description": "Boleto de ferragens",
+		"description": "Pix de ferragens",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "725563"
+				"payment_id": "FS563"
 			}
 		]
 	},
@@ -3493,11 +3487,11 @@
 	},
 	"d2t10_financeiro": {
 		"type": "random-task",
-		"description": "Boleto do aporte trimestral",
+		"description": "Pix do aporte trimestral",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "727701"
+				"payment_id": "CH701"
 			}
 		]
 	},
@@ -3549,11 +3543,11 @@
 	},
 	"d2t15_ti": {
 		"type": "random-task",
-		"description": "Boleto do backup na nuvem",
+		"description": "Pix do backup na nuvem",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "728840"
+				"payment_id": "NT840"
 			}
 		]
 	},
@@ -3685,11 +3679,11 @@
 	},
 	"d2g03_yago": {
 		"type": "scam",
-		"description": "Boleto de taxa do CNPJ",
+		"description": "Pix de taxa do CNPJ",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "721904"
+				"payment_id": "RF904"
 			}
 		],
 		"discrepancies": [
@@ -3705,7 +3699,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "721904",
+						"payment_code": "RF904",
 						"section": "reason"
 					}
 				]
@@ -3806,11 +3800,11 @@
 	},
 	"d2g07_rh": {
 		"type": "scam",
-		"description": "Boleto de contribuição sindical",
+		"description": "Pix de contribuição sindical",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "726638"
+				"payment_id": "SE638"
 			}
 		],
 		"discrepancies": [
@@ -3826,7 +3820,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "726638",
+						"payment_code": "SE638",
 						"section": "reason"
 					}
 				]
@@ -3921,11 +3915,11 @@
 	},
 	"d2g10_marcao": {
 		"type": "scam",
-		"description": "Boleto de tinta com motivo trocado",
+		"description": "Pix de tinta com motivo trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "722471"
+				"payment_id": "TA471"
 			}
 		],
 		"discrepancies": [
@@ -3935,7 +3929,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "722471",
+						"payment_code": "TA471",
 						"section": "reason"
 					},
 					{
@@ -4156,11 +4150,11 @@
 	},
 	"d2g17_iago": {
 		"type": "scam",
-		"description": "Boleto de nome imitado e motivo trocado",
+		"description": "Pix de nome imitado e motivo trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "723390"
+				"payment_id": "MF390"
 			}
 		],
 		"discrepancies": [
@@ -4181,7 +4175,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "723390",
+						"payment_code": "MF390",
 						"section": "reason"
 					}
 				]
@@ -4293,11 +4287,11 @@
 	},
 	"d3t02_carolina": {
 		"type": "random-task",
-		"description": "Boleto dos cabos de rede, pedido PC-0462",
+		"description": "Pix dos cabos de rede, pedido PC-0462",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "738214"
+				"payment_id": "CC214"
 			}
 		]
 	},
@@ -4329,11 +4323,11 @@
 	},
 	"d3t05_negativa": {
 		"type": "random-task",
-		"description": "Boleto de celulares corporativos",
+		"description": "Pix de celulares corporativos",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "731906"
+				"payment_id": "NT906"
 			}
 		]
 	},
@@ -4343,7 +4337,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "735527"
+				"payment_id": "NT527"
 			}
 		]
 	},
@@ -4365,11 +4359,11 @@
 	},
 	"d3t08_financeiro": {
 		"type": "random-task",
-		"description": "Boleto do escritório de contabilidade",
+		"description": "Pix do escritório de contabilidade",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "739041"
+				"payment_id": "CH041"
 			}
 		]
 	},
@@ -4401,11 +4395,11 @@
 	},
 	"d3t11_rh": {
 		"type": "random-task",
-		"description": "Boleto dos crachás, pedido PC-0455",
+		"description": "Pix dos crachás, pedido PC-0455",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "733468"
+				"payment_id": "GP468"
 			}
 		]
 	},
@@ -4441,7 +4435,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "730752"
+				"payment_id": "ED752"
 			}
 		]
 	},
@@ -4549,11 +4543,11 @@
 	},
 	"d3g01_carolina": {
 		"type": "scam",
-		"description": "Boleto de HDs com valor dez vezes maior",
+		"description": "Pix de HDs com valor dez vezes maior",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "733902"
+				"payment_id": "DS902"
 			}
 		],
 		"discrepancies": [
@@ -4563,7 +4557,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "733902",
+						"payment_code": "DS902",
 						"section": "value"
 					},
 					{
@@ -4577,11 +4571,11 @@
 	},
 	"d3g02_negativa": {
 		"type": "scam",
-		"description": "Boleto de películas com valor trocado",
+		"description": "Pix de películas com valor trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "736071"
+				"payment_id": "NT071"
 			}
 		],
 		"discrepancies": [
@@ -4591,7 +4585,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "736071",
+						"payment_code": "NT071",
 						"section": "value"
 					},
 					{
@@ -4637,7 +4631,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "731288"
+				"payment_id": "BS288"
 			}
 		],
 		"discrepancies": [
@@ -4647,7 +4641,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "731288",
+						"payment_code": "BS288",
 						"section": "value"
 					},
 					{
@@ -4665,7 +4659,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "738530"
+				"payment_id": "VA530"
 			}
 		],
 		"discrepancies": [
@@ -4675,7 +4669,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "738530",
+						"payment_code": "VA530",
 						"section": "value"
 					},
 					{
@@ -4691,7 +4685,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "738530",
+						"payment_code": "VA530",
 						"section": "reason"
 					}
 				]
@@ -4803,11 +4797,11 @@
 	},
 	"d3g10_carolina": {
 		"type": "scam",
-		"description": "Boleto sem motivo e com valor diferente",
+		"description": "Pix sem motivo e com valor diferente",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "735348"
+				"payment_id": "TV348"
 			}
 		],
 		"discrepancies": [
@@ -4823,7 +4817,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "735348",
+						"payment_code": "TV348",
 						"section": "reason"
 					}
 				]
@@ -4834,7 +4828,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "735348",
+						"payment_code": "TV348",
 						"section": "value"
 					},
 					{
@@ -4954,11 +4948,11 @@
 	},
 	"d3g14_rh": {
 		"type": "scam",
-		"description": "Boleto sem motivo pedido pelo RH",
+		"description": "Pix sem motivo pedido pelo RH",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "737189"
+				"payment_id": "GP189"
 			}
 		],
 		"discrepancies": [
@@ -4974,7 +4968,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "737189",
+						"payment_code": "GP189",
 						"section": "reason"
 					}
 				]
@@ -4987,7 +4981,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "730916"
+				"payment_id": "CC916"
 			}
 		],
 		"discrepancies": [
@@ -5008,7 +5002,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "730916",
+						"payment_code": "CC916",
 						"section": "value"
 					},
 					{
@@ -5027,7 +5021,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "732563"
+				"payment_id": "NT563"
 			}
 		],
 		"discrepancies": [
@@ -5054,7 +5048,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "732563",
+						"payment_code": "NT563",
 						"section": "reason"
 					}
 				]
@@ -5275,11 +5269,11 @@
 	},
 	"d4t01_guilherme": {
 		"type": "random-task",
-		"description": "Boleto da gráfica dos crachás",
+		"description": "Pix da gráfica dos crachás",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "741836"
+				"payment_id": "GP836"
 			}
 		]
 	},
@@ -5301,11 +5295,11 @@
 	},
 	"d4t03_guilherme": {
 		"type": "random-task",
-		"description": "Boleto da transportadora",
+		"description": "Pix da transportadora",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "743519"
+				"payment_id": "TR519"
 			}
 		]
 	},
@@ -5363,11 +5357,11 @@
 	},
 	"d4t08_marcia": {
 		"type": "random-task",
-		"description": "Boleto do salão da confraternização",
+		"description": "Pix do salão da confraternização",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "744250"
+				"payment_id": "EG250"
 			}
 		]
 	},
@@ -5435,21 +5429,21 @@
 	},
 	"d4t14_financeiro": {
 		"type": "random-task",
-		"description": "Boleto da papelaria",
+		"description": "Pix da papelaria",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "747302"
+				"payment_id": "PB302"
 			}
 		]
 	},
 	"d4t15_financeiro": {
 		"type": "random-task",
-		"description": "Boleto da dedetização",
+		"description": "Pix da dedetização",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "742690"
+				"payment_id": "DS690"
 			}
 		]
 	},
@@ -5459,7 +5453,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "749036"
+				"payment_id": "CS036"
 			}
 		]
 	},
@@ -5475,11 +5469,11 @@
 	},
 	"d4t18_rh": {
 		"type": "random-task",
-		"description": "Boleto dos exames periódicos",
+		"description": "Pix dos exames periódicos",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "745913"
+				"payment_id": "CB913"
 			}
 		]
 	},
@@ -5501,11 +5495,11 @@
 	},
 	"d4t20_ti": {
 		"type": "random-task",
-		"description": "Boleto de cabos de rede",
+		"description": "Pix de cabos de rede",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "748014"
+				"payment_id": "CA014"
 			}
 		]
 	},
@@ -5541,11 +5535,11 @@
 	},
 	"d4g01_guilherme": {
 		"type": "scam",
-		"description": "Boleto de buffet em banco não aceito",
+		"description": "Pix de buffet em banco não aceito",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "745108"
+				"payment_id": "BS108"
 			}
 		],
 		"discrepancies": [
@@ -5555,7 +5549,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "745108",
+						"payment_code": "BS108",
 						"section": "ticket_bank"
 					},
 					{
@@ -5592,11 +5586,11 @@
 	},
 	"d4g03_financeiro": {
 		"type": "scam",
-		"description": "Boleto com valor maior no Banco",
+		"description": "Pix com valor maior no Banco",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "746034"
+				"payment_id": "CN034"
 			}
 		],
 		"discrepancies": [
@@ -5606,7 +5600,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "746034",
+						"payment_code": "CN034",
 						"section": "value"
 					},
 					{
@@ -5671,11 +5665,11 @@
 	},
 	"d4g06_ti": {
 		"type": "scam",
-		"description": "Boleto de roteadores em banco não aceito",
+		"description": "Pix de roteadores em banco não aceito",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "748925"
+				"payment_id": "NE925"
 			}
 		],
 		"discrepancies": [
@@ -5685,7 +5679,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "748925",
+						"payment_code": "NE925",
 						"section": "ticket_bank"
 					},
 					{
@@ -5699,11 +5693,11 @@
 	},
 	"d4g07_guilherme": {
 		"type": "scam",
-		"description": "Boleto com motivo inválido no Banco",
+		"description": "Pix com motivo inválido no Banco",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "741462"
+				"payment_id": "MS462"
 			}
 		],
 		"discrepancies": [
@@ -5713,7 +5707,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "741462",
+						"payment_code": "MS462",
 						"section": "reason"
 					},
 					{
@@ -5727,11 +5721,11 @@
 	},
 	"d4g08_rh": {
 		"type": "scam",
-		"description": "Boleto trocado dos exames admissionais",
+		"description": "Pix trocado dos exames admissionais",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "748236"
+				"payment_id": "RL236"
 			}
 		],
 		"discrepancies": [
@@ -5742,7 +5736,7 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "748236",
+						"contains": "RL236",
 						"conversation": "rh_gd4"
 					}
 				]
@@ -5796,7 +5790,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "745640"
+				"payment_id": "CP640"
 			}
 		],
 		"discrepancies": [
@@ -5812,7 +5806,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "745640",
+						"payment_code": "CP640",
 						"section": "reason"
 					}
 				]
@@ -5823,7 +5817,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "745640",
+						"payment_code": "CP640",
 						"section": "ticket_bank"
 					}
 				]
@@ -5856,11 +5850,11 @@
 	},
 	"d4g12_financeiro": {
 		"type": "scam",
-		"description": "Boleto trocado com valor maior",
+		"description": "Pix trocado com valor maior",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "746395"
+				"payment_id": "MV395"
 			}
 		],
 		"discrepancies": [
@@ -5871,7 +5865,7 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "746395",
+						"contains": "MV395",
 						"conversation": "financeiro_gd4"
 					}
 				]
@@ -5882,7 +5876,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "746395",
+						"payment_code": "MV395",
 						"section": "value"
 					},
 					{
@@ -5897,11 +5891,11 @@
 	},
 	"d4g13_marcia": {
 		"type": "scam",
-		"description": "Sem motivo válido e boleto trocado",
+		"description": "Sem motivo válido e Pix trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "743081"
+				"payment_id": "SM081"
 			}
 		],
 		"discrepancies": [
@@ -5917,7 +5911,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "743081",
+						"payment_code": "SM081",
 						"section": "reason"
 					}
 				]
@@ -5929,7 +5923,7 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "743081",
+						"contains": "SM081",
 						"conversation": "marcia_gd4"
 					}
 				]
@@ -5995,11 +5989,11 @@
 	},
 	"d4g16_guillherme": {
 		"type": "scam",
-		"description": "Nome imitado e boleto trocado",
+		"description": "Nome imitado e Pix trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "742851"
+				"payment_id": "IT851"
 			}
 		],
 		"discrepancies": [
@@ -6021,7 +6015,7 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "742851",
+						"contains": "IT851",
 						"conversation": "guillherme_fd4"
 					}
 				]
@@ -6074,7 +6068,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "747640"
+				"payment_id": "LT640"
 			}
 		],
 		"discrepancies": [
@@ -6095,7 +6089,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "747640",
+						"payment_code": "LT640",
 						"section": "value"
 					},
 					{
@@ -6256,21 +6250,21 @@
 	},
 	"d5t02_jose": {
 		"type": "random-task",
-		"description": "Boleto de papelaria",
+		"description": "Pix de papelaria",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "751204"
+				"payment_id": "PB204"
 			}
 		]
 	},
 	"d5t03_jose": {
 		"type": "random-task",
-		"description": "Boleto da dedetização",
+		"description": "Pix da dedetização",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "751377"
+				"payment_id": "DS377"
 			}
 		]
 	},
@@ -6316,7 +6310,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "752288"
+				"payment_id": "GP288"
 			}
 		]
 	},
@@ -6326,7 +6320,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "752416"
+				"payment_id": "BS416"
 			}
 		]
 	},
@@ -6379,11 +6373,11 @@
 	},
 	"d5t12_financeiro": {
 		"type": "random-task",
-		"description": "Boleto da contabilidade",
+		"description": "Pix da contabilidade",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "753102"
+				"payment_id": "CA102"
 			}
 		]
 	},
@@ -6403,7 +6397,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "753240"
+				"payment_id": "TO240"
 			}
 		]
 	},
@@ -6423,7 +6417,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "754018"
+				"payment_id": "CV018"
 			}
 		]
 	},
@@ -6459,7 +6453,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "754299"
+				"payment_id": "RE299"
 			}
 		]
 	},
@@ -6539,22 +6533,22 @@
 	},
 	"d5g02_ricardo": {
 		"type": "scam",
-		"description": "Boleto com cedente trocado",
+		"description": "Pix com recebedor trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755120"
+				"payment_id": "RC120"
 			}
 		],
 		"discrepancies": [
 			{
 				"id": "ticket_payee",
-				"rule": "ticket_payee",
+				"rule": "pix_recipient",
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "755120",
-						"section": "ticket_payee"
+						"payment_code": "RC120",
+						"section": "recipient"
 					},
 					{
 						"source": "messages",
@@ -6567,11 +6561,11 @@
 	},
 	"d5g03_financeiro": {
 		"type": "scam",
-		"description": "Boleto em banco fora da lista",
+		"description": "Pix em banco fora da lista",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755233"
+				"payment_id": "TV233"
 			}
 		],
 		"discrepancies": [
@@ -6581,7 +6575,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "755233",
+						"payment_code": "TV233",
 						"section": "ticket_bank"
 					},
 					{
@@ -6799,11 +6793,11 @@
 	},
 	"d5g10_financeiro": {
 		"type": "scam",
-		"description": "Taxa inventada e cedente trocado",
+		"description": "Taxa inventada e recebedor trocado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755460"
+				"payment_id": "DA460"
 			}
 		],
 		"discrepancies": [
@@ -6819,19 +6813,19 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "755460",
+						"payment_code": "DA460",
 						"section": "reason"
 					}
 				]
 			},
 			{
 				"id": "ticket_payee",
-				"rule": "ticket_payee",
+				"rule": "pix_recipient",
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "755460",
-						"section": "ticket_payee"
+						"payment_code": "DA460",
+						"section": "recipient"
 					}
 				]
 			}
@@ -6917,11 +6911,11 @@
 	},
 	"d5g14_ricardo": {
 		"type": "scam",
-		"description": "Código diferente do boleto",
+		"description": "Código diferente do Pix",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755391"
+				"payment_id": "CA391"
 			}
 		],
 		"discrepancies": [
@@ -6932,7 +6926,7 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "755391",
+						"contains": "CA391",
 						"conversation": "ricardo_gd5"
 					}
 				]
@@ -7008,7 +7002,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755577"
+				"payment_id": "HS577"
 			}
 		],
 		"discrepancies": [
@@ -7029,7 +7023,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "755577",
+						"payment_code": "HS577",
 						"section": "ticket_bank"
 					}
 				]
@@ -7042,7 +7036,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "755688"
+				"payment_id": "LB688"
 			}
 		],
 		"discrepancies": [
@@ -7063,7 +7057,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "755688",
+						"payment_code": "LB688",
 						"section": "value"
 					},
 					{
@@ -7214,11 +7208,11 @@
 	},
 	"d6t02_gilmar": {
 		"type": "random-task",
-		"description": "Boleto de chapas da Industrials",
+		"description": "Pix de chapas da Industrials",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760101"
+				"payment_id": "IN101"
 			}
 		]
 	},
@@ -7373,11 +7367,11 @@
 	},
 	"d6t15_marta": {
 		"type": "random-task",
-		"description": "Boleto da dedetização",
+		"description": "Pix da dedetização",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760105"
+				"payment_id": "DJ105"
 			}
 		]
 	},
@@ -7397,7 +7391,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760106"
+				"payment_id": "VI106"
 			}
 		]
 	},
@@ -7461,11 +7455,11 @@
 	},
 	"d6t22_ti": {
 		"type": "random-task",
-		"description": "Boleto do backup da Nuvem Forte",
+		"description": "Pix do backup da Nuvem Forte",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760107"
+				"payment_id": "NF107"
 			}
 		]
 	},
@@ -7481,11 +7475,11 @@
 	},
 	"d6g01_gilmar": {
 		"type": "scam",
-		"description": "Boleto de banco não aceito hoje",
+		"description": "Pix de banco não aceito hoje",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760201"
+				"payment_id": "IN201"
 			}
 		],
 		"discrepancies": [
@@ -7495,7 +7489,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760201",
+						"payment_code": "IN201",
 						"section": "ticket_bank"
 					},
 					{
@@ -7509,22 +7503,22 @@
 	},
 	"d6g02_gilmar": {
 		"type": "scam",
-		"description": "Cedente não é a empresa citada",
+		"description": "Recebedor não é a empresa citada",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760202"
+				"payment_id": "MV202"
 			}
 		],
 		"discrepancies": [
 			{
 				"id": "ticket_payee",
-				"rule": "ticket_payee",
+				"rule": "pix_recipient",
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760202",
-						"section": "ticket_payee"
+						"payment_code": "MV202",
+						"section": "recipient"
 					},
 					{
 						"source": "messages",
@@ -7621,11 +7615,11 @@
 	},
 	"d6g06_ti": {
 		"type": "scam",
-		"description": "Boleto com banco e cedente errados",
+		"description": "Pix com banco e recebedor errados",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760203"
+				"payment_id": "JF203"
 			}
 		],
 		"discrepancies": [
@@ -7635,7 +7629,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760203",
+						"payment_code": "JF203",
 						"section": "ticket_bank"
 					},
 					{
@@ -7647,12 +7641,12 @@
 			},
 			{
 				"id": "ticket_payee",
-				"rule": "ticket_payee",
+				"rule": "pix_recipient",
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760203",
-						"section": "ticket_payee"
+						"payment_code": "JF203",
+						"section": "recipient"
 					}
 				]
 			}
@@ -7761,7 +7755,7 @@
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760205"
+				"payment_id": "FS205"
 			}
 		],
 		"discrepancies": [
@@ -7777,7 +7771,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "760205",
+						"payment_code": "FS205",
 						"section": "reason"
 					}
 				]
@@ -7788,7 +7782,7 @@
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760205",
+						"payment_code": "FS205",
 						"section": "ticket_bank"
 					}
 				]
@@ -7919,11 +7913,11 @@
 	},
 	"d6g14_mariana": {
 		"type": "scam",
-		"description": "Boleto trocado, sem motivo, cedente errado",
+		"description": "Pix trocado, sem motivo, recebedor errado",
 		"requires": [
 			{
 				"flag": "payment",
-				"payment_id": "760207"
+				"payment_id": "WC207"
 			}
 		],
 		"discrepancies": [
@@ -7939,7 +7933,7 @@
 					},
 					{
 						"source": "bank",
-						"payment_code": "760207",
+						"payment_code": "WC207",
 						"section": "reason"
 					}
 				]
@@ -7951,19 +7945,19 @@
 					{
 						"source": "messages",
 						"section": "message",
-						"contains": "760207",
+						"contains": "WC207",
 						"conversation": "mariana_gd6"
 					}
 				]
 			},
 			{
 				"id": "ticket_payee",
-				"rule": "ticket_payee",
+				"rule": "pix_recipient",
 				"found_at": [
 					{
 						"source": "bank",
-						"payment_code": "760207",
-						"section": "ticket_payee"
+						"payment_code": "WC207",
+						"section": "recipient"
 					}
 				]
 			}

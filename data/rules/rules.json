@@ -68,7 +68,7 @@
 		"day": 4,
 		"apps": ["Bank"],
 		"title": "Banco não aceito",
-		"description": "O boleto é de um banco que não está na lista de bancos aceitos hoje.",
+		"description": "O boleto ou o Pix é de um banco que não está na lista de bancos aceitos hoje.",
 		"reference": "Notas › Bancos aceitos hoje"
 	},
 	{
@@ -107,8 +107,8 @@
 		"id": "ticket_code",
 		"day": 4,
 		"apps": ["MessagesHome", "Email", "Bank"],
-		"title": "Boleto trocado",
-		"description": "O código para pagar no Banco não é o mesmo código do boleto enviado.",
+		"title": "Código trocado",
+		"description": "O código para pagar no Banco não é o mesmo código do boleto ou do Pix enviado.",
 		"reference": "Compare o pedido com o código digitado no Banco"
 	},
 	{
