@@ -44,9 +44,6 @@ const STORE_FIND_RP := 5
 const WRONG_REPORT_RP := -2
 ## Points of a report on something that is not a scam
 const FALSE_REPORT_RP := -5
-## Points of a random task or scam lost, its contact gone offline before it was done, on every
-## difficulty
-const LOST_RP := -5
 #endregion CONSTANTS
 
 #region STATES
@@ -137,7 +134,8 @@ func on_installer_opened(email_id: String) -> void:
 	hack_requested.emit()
 
 ## Loses a random task or scam whose contact went offline before it was done: it can no longer be
-## done, fallen for or reported, its payments are refused, and it costs LOST_RP
+## done, fallen for or reported and its payments are refused. It costs no points, it only shows up
+## in the day summary
 ##
 ## pieces: What it was on besides its payments, as a report points at it: {"source": "messages",
 ## "conversation"} for a chat, {"source": "email", "email_id"} for each email of a thread
@@ -153,11 +151,10 @@ func lose_event(event_id: String, pieces: Array) -> void:
 		_lost_pieces.append({"source": "bank", "payment_code": code})
 		GameData.lost_payment_codes.append(code)
 
-	GameData.daily_reputation_points += LOST_RP
 	GameData.events_log.append({
 		"type": "lost",
 		"description": "Contato perdido: %s" % event.get("description", ""),
-		"reputation_points": LOST_RP,
+		"reputation_points": 0,
 	})
 
 ## Payment codes an event waits on or points its discrepancies at
