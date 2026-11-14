@@ -63,6 +63,8 @@ enum App {
 	SCAM,
 	# Boleto, opened from an email attachment (Email app), after the others for the same reason
 	BOLETO,
+	# One section of the company board (Notes app), after the others for the same reason
+	NOTESSECTION,
 }
 
 enum HackMinigame {
@@ -270,6 +272,7 @@ var apps_name: Dictionary = {
 	"PauseMenu": App.PAUSEMENU,
 	# Notes
 	"Notes": App.NOTES,
+	"NotesSection": App.NOTESSECTION,
 	# Email app (order documents and boletos open from attachments)
 	"OrderDocument": App.ORDERDOCUMENT,
 	"Boleto": App.BOLETO,

@@ -74,12 +74,12 @@ size_x = 4
 [node name="Margin" type="MarginContainer" parent="Screen/ListArea/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 20
 
 [node name="Sections" type="VBoxContainer" parent="Screen/ListArea/ScrollContainer/Margin" unique_id=414857710]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 18
+theme_override_constants/separation = 0

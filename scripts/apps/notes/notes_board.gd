@@ -1,0 +1,332 @@
+class_name NotesBoard
+extends RefCounted
+## The company board the Notes app shows: what the player checks a message, email or payment
+## against
+##
+## Read from data/notes/board.json when built. Every section shows up on the day the rule that
+## needs it is released (see data/rules/rules.json), tagged as new on that day. get_sections()
+## lists the sections of today, build_section() fills the screen of one of them.
+
+const BOARD_PATH := "res://data/notes/board.json"
+## Holds the beneficiaries the company pays boletos to, see BoletosDirector
+const BOLETOS_PATH := "res://data/bank/boletos.json"
+const FONT_BOLD := preload("res://assets/fonts/IBMPlexSans-Bold.ttf")
+const FONT_SEMIBOLD := preload("res://assets/fonts/IBMPlexSans-SemiBold.ttf")
+const FONT_REGULAR := preload("res://assets/fonts/IBMPlexSans-Regular.ttf")
+const INK := Color(0.09019608, 0.10980392, 0.18039216)
+const MUTED := Color(0.43137255, 0.44313726, 0.5019608)
+const TEAL := Color(0.13333334, 0.28235295, 0.38431373)
+## Character classes of a day's "password_policy" in data/notes/board.json: key, line for one and
+## line for more
+const PASSWORD_CLASSES := [
+	["digits", "Pelo menos %d número", "Pelo menos %d números"],
+	["lowercase", "Pelo menos %d letra minúscula", "Pelo menos %d letras minúsculas"],
+	["uppercase", "Pelo menos %d letra maiúscula", "Pelo menos %d letras maiúsculas"],
+	["symbols", "Pelo menos %d símbolo (como @, #, !)", "Pelo menos %d símbolos (como @, #, !)"],
+]
+## How the stores are checked, the same every day
+const STORE_RULES := [
+	"Antes de comprar, veja a nota da loja no site de avaliações do Navegador.",
+	"Nota abaixo de 50: não compre e denuncie.",
+]
+
+var _board: Dictionary
+var _today: Dictionary
+
+
+func _init() -> void:
+	_board = _load_json(BOARD_PATH)
+	_today = _board.get("days", {}).get(str(GameData.current_day), {})
+
+
+## The sections of today, in the order the board shows them: each one is {"id", "title",
+## "summary", "day"}, day being the one it showed up on
+func get_sections() -> Array[Dictionary]:
+	var day := GameData.current_day
+	var sections: Array[Dictionary] = []
+	# What changes today (work hours, apps released), so the NPCs don't have to say it
+	_add_section_entry(sections, "agenda", "Hoje", "O que muda no trabalho hoje", day)
+	_add_section_entry(sections, "contacts", "Contatos confiáveis de hoje",
+		"Quem pode pedir algo a você hoje", 0)
+	_add_section_entry(sections, "files", "Arquivos aceitos", "Que anexos a empresa manda", 1)
+	_add_section_entry(sections, "payments", "Padrões de pagamento",
+		"Como são os códigos Pix e de boleto", 1)
+	# It changes every day, so it is tagged as new every day
+	if day >= 1 and not _today.get("password_policy", {}).is_empty():
+		_add_section_entry(sections, "password", "Política de senha de hoje",
+			"O que uma senha precisa ter hoje", day)
+	_add_section_entry(sections, "beneficiaries", "Beneficiários",
+		"Quem recebe os boletos da empresa", 1)
+	_add_section_entry(sections, "stores", "Lojas", "Como conferir uma loja antes de comprar", 1)
+	_add_section_entry(sections, "reasons", "Motivos aceitos",
+		"Por que a empresa paga ou compra algo", 2)
+	_add_section_entry(sections, "orders", "Pedidos do dia", "O que os setores pediram hoje", 3)
+	_add_section_entry(sections, "security", "Regras de segurança",
+		"O que ninguém pode pedir a você", 4)
+	_add_section_entry(sections, "banks", "Bancos aceitos hoje",
+		"Os bancos que a empresa aceita hoje", 4)
+	_add_section_entry(sections, "approvers", "Quem aprova pedidos",
+		"Quem assina os pedidos de cada setor", 6)
+	return sections
+
+
+## Fills body with what a section of get_sections() says
+##
+## section_id: The "id" of the section
+func build_section(section_id: String, body: VBoxContainer) -> void:
+	match section_id:
+		"agenda":
+			_add_list(body, _today.get("agenda", []))
+		"contacts":
+			_add_trusted_contacts(body)
+		"files":
+			_add_list(body, _board.get("accepted_files", []))
+		"payments":
+			_add_list(body, _board.get("payment_patterns", []))
+		"password":
+			_add_password_policy(body, _today.get("password_policy", {}))
+		"beneficiaries":
+			_add_beneficiaries(body)
+		"stores":
+			_add_list(body, STORE_RULES)
+		"reasons":
+			_add_list(body, _board.get("accepted_reasons", []))
+		"orders":
+			_add_orders(body, _today.get("orders", []))
+		"security":
+			_add_list(body, _board.get("security_rules", []))
+		"banks":
+			_add_list(body, GameData.accepted_banks_today)
+		"approvers":
+			_add_approvers(body, _board.get("approvers", []))
+
+
+## Lists a section from the given day on
+func _add_section_entry(
+	sections: Array[Dictionary], id: String, title: String, summary: String, day: int
+) -> void:
+	if GameData.current_day < day:
+		return
+	sections.append({"id": id, "title": title, "summary": summary, "day": day})
+
+
+## Who can ask the player for something today: the bosses and suppliers of every day, and the
+## people the random tasks of today come from (see story_director._publish_trusted_senders()).
+## Anyone else is a scam. Emails are only listed once the Email app is released.
+func _add_trusted_contacts(body: VBoxContainer) -> void:
+	var directory: Array = _board.get("contacts", [])
+	var shows_email := (
+		GameData.apps_in_store.has(GameData.App.EMAIL)
+		or GameData.downloaded_apps.has(GameData.App.EMAIL)
+	)
+
+	_add_line(body, "Só eles pedem algo a você hoje. Qualquer outro contato é golpe: confira nome, "
+		+ "conta e email letra por letra.", MUTED)
+
+	_add_caption(body, "CHEFIAS E FORNECEDORES")
+	var fixed_people: Array[Dictionary] = []
+	for trusted in _board.get("trusted_every_day", []):
+		var contact := _find_contact(directory, "name", str(trusted.get("name", "")))
+		var person := _person(str(trusted.get("name", "")), directory)
+		if trusted.get("channel", "messages") == "messages":
+			person["account"] = str(contact.get("account", GameData.account_from_name(person["name"])))
+			person["verified"] = contact.get("verified", false)
+		else:
+			person["email"] = str(contact.get("email", ""))
+		fixed_people.append(person)
+		_add_trusted_row(body, person, shows_email)
+
+	_add_caption(body, "PEDIDOS DE HOJE")
+	var people: Array[Dictionary] = []
+	for sender in GameData.trusted_senders_today:
+		# The bosses and suppliers of every day are already listed above
+		if fixed_people.any(func(fixed: Dictionary) -> bool: return _is_same_sender(fixed, sender)):
+			continue
+		if sender.has("email"):
+			if not shows_email:
+				continue
+			var owner := _find_contact(directory, "email", str(sender["email"]))
+			var person := _find_person(people, str(owner.get("name", sender["email"])))
+			if person.is_empty():
+				person = _person(str(owner.get("name", sender["email"])), directory)
+				people.append(person)
+			person["email"] = str(sender["email"])
+		else:
+			var person := _find_person(people, str(sender["name"]))
+			if person.is_empty():
+				person = _person(str(sender["name"]), directory)
+				people.append(person)
+			person["account"] = str(sender["account"])
+			person["verified"] = sender.get("verified", false)
+
+	if people.is_empty():
+		_add_line(body, "Ninguém além das chefias hoje.", MUTED)
+	for person in people:
+		_add_trusted_row(body, person, shows_email)
+
+
+## Whether a sender of today is a person of the trusted contacts, by account or by address
+func _is_same_sender(person: Dictionary, sender: Dictionary) -> bool:
+	var email := str(sender.get("email", ""))
+	var account := str(sender.get("account", ""))
+	return (
+		(not email.is_empty() and email == person["email"])
+		or (not account.is_empty() and account == person["account"])
+	)
+
+
+## A person of the trusted contacts, with the sector the company directory gives it
+func _person(person_name: String, directory: Array) -> Dictionary:
+	var contact := _find_contact(directory, "name", person_name)
+	return {
+		"name": person_name,
+		"account": "",
+		"verified": false,
+		"email": "",
+		"department": str(contact.get("department", "")),
+	}
+
+
+func _find_person(people: Array[Dictionary], person_name: String) -> Dictionary:
+	for person in people:
+		if person["name"] == person_name:
+			return person
+	return {}
+
+
+## The contact of the company directory whose field matches, empty when there is none
+func _find_contact(directory: Array, field: String, value: String) -> Dictionary:
+	for contact in directory:
+		if str(contact.get(field, "")).to_lower() == value.to_lower():
+			return contact
+	return {}
+
+
+## One trusted contact: its name, how it reaches the player (account, email) and its sector.
+## A contact only reached by email is left out until the Email app is released
+func _add_trusted_row(body: VBoxContainer, person: Dictionary, shows_email: bool) -> void:
+	var has_account: bool = not str(person["account"]).is_empty()
+	var has_email: bool = shows_email and not str(person["email"]).is_empty()
+	if not has_account and not has_email:
+		return
+
+	var row := _add_row(body)
+	_add_label(row, person["name"], FONT_SEMIBOLD, 14, INK)
+	if has_account:
+		var account: String = person["account"]
+		if person["verified"]:
+			account += " ✓"
+		_add_label(row, account, FONT_REGULAR, 12, TEAL)
+	# A sender known only by its address is already named by it
+	if has_email and person["email"] != person["name"]:
+		_add_label(row, person["email"], FONT_REGULAR, 12, TEAL)
+	if not str(person["department"]).is_empty():
+		_add_label(row, person["department"], FONT_REGULAR, 12, MUTED)
+
+
+## Small title of a group of lines inside a section, set apart from the group above it
+func _add_caption(body: VBoxContainer, text: String) -> void:
+	if body.get_child_count() > 1:
+		var gap := Control.new()
+		gap.custom_minimum_size.y = 6
+		body.add_child(gap)
+	_add_label(body, text, FONT_BOLD, 10, MUTED)
+
+
+## The orders of the sectors for today
+func _add_orders(body: VBoxContainer, orders: Array) -> void:
+	if orders.is_empty():
+		_add_line(body, "Nenhum pedido hoje.", MUTED)
+	for order in orders:
+		var row := _add_row(body)
+		_add_label(row, str(order.get("order_id", "")), FONT_SEMIBOLD, 14, INK)
+		_add_label(row, str(order.get("items", "")), FONT_REGULAR, 13, INK)
+		_add_label(row, "Pedido por %s · %s" % [
+			order.get("requested_by", ""), order.get("department", "")
+		], FONT_REGULAR, 12, MUTED)
+
+
+## Who the company pays boletos to and the account each one receives in, for a boleto to be checked
+## letter by letter against
+func _add_beneficiaries(body: VBoxContainer) -> void:
+	var boletos := _load_json(BOLETOS_PATH)
+	var banks: Dictionary = boletos.get("banks", {})
+
+	_add_line(body, "Quem recebe os boletos da empresa. Confira nome, CNPJ, banco e agência no "
+		+ "boleto e no Banco.", MUTED)
+	for payee in boletos.get("payees", {}).values():
+		if not payee.get("listed", true):
+			continue
+		var bank: Dictionary = banks.get(str(payee.get("bank", "")), {})
+		var row := _add_row(body)
+		_add_label(row, str(payee.get("name", "")), FONT_SEMIBOLD, 14, INK)
+		_add_label(row, "CNPJ %s" % payee.get("cnpj", ""), FONT_REGULAR, 12, MUTED)
+		_add_label(row, "%s · agência %s" % [bank.get("name", ""), payee.get("agency", "")],
+			FONT_REGULAR, 12, MUTED)
+
+
+## What a password needs today, the same the password change asks for, to check a colleague's
+## from what they say it has
+func _add_password_policy(body: VBoxContainer, policy: Dictionary) -> void:
+	_add_line(body, "Muda todo dia. Para conferir a senha de alguém basta saber o formato: ninguém "
+		+ "precisa ver a senha.", MUTED)
+	_add_line(body, "• Pelo menos %d caracteres" % int(policy.get("length", 0)), INK)
+	for character_class in PASSWORD_CLASSES:
+		var count := int(policy.get(character_class[0], 0))
+		if count > 0:
+			_add_line(body, "• " + (character_class[1] if count == 1 else character_class[2]) % count, INK)
+
+
+## Who signs the orders of each sector
+func _add_approvers(body: VBoxContainer, approvers: Array) -> void:
+	_add_line(body, "Um pedido só vale com a assinatura de quem aprova no setor.", MUTED)
+	for approver in approvers:
+		_add_line(body, "%s: %s" % [approver.get("department", ""), approver.get("name", "")], INK)
+
+
+## One line per item
+func _add_list(body: VBoxContainer, items: Array) -> void:
+	if items.is_empty():
+		_add_line(body, "Nada por hoje.", MUTED)
+	for item in items:
+		_add_line(body, "• " + str(item), INK)
+
+
+## A group of lines kept together, for one contact or one order
+func _add_row(body: VBoxContainer) -> VBoxContainer:
+	var row := VBoxContainer.new()
+	row.add_theme_constant_override("separation", 0)
+	body.add_child(row)
+	return row
+
+
+func _add_line(body: Container, text: String, color: Color) -> void:
+	_add_label(body, text, FONT_REGULAR, 13, color)
+
+
+func _add_label(parent: Container, text: String, font: Font, size: int, color: Color) -> Label:
+	var label := Label.new()
+	label.text = text
+	# Lines of a column wrap to its width, a title in a row keeps its own width
+	if parent is VBoxContainer:
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		label.custom_minimum_size.x = 1
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.add_theme_font_override("font", font)
+	label.add_theme_font_size_override("font_size", size)
+	label.add_theme_color_override("font_color", color)
+	parent.add_child(label)
+	return label
+
+
+func _load_json(path: String) -> Dictionary:
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Could not open file: %s" % path)
+		return {}
+
+	var data = JSON.parse_string(file.get_as_text())
+	if not data is Dictionary:
+		push_error("File is not a JSON object: %s" % path)
+		return {}
+	return data

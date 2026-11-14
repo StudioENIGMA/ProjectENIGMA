@@ -140,6 +140,9 @@ var update_os_screen = preload(
 var notes_app = preload(
 	"res://scenes/apps/notes/notes_app.tscn"
 ).instantiate()
+var notes_section = preload(
+	"res://scenes/apps/notes/notes_section.tscn"
+).instantiate()
 var order_document = preload(
 	"res://scenes/apps/email/order_document.tscn"
 ).instantiate()
@@ -419,7 +422,10 @@ func _ready() -> void:
 	
 	# Notes
 	notes_app.visible = false
+	notes_app.subscreen_open_requested.connect(_on_app_opened)
 	app_specific_screen.add_child(notes_app)
+	notes_section.visible = false
+	app_specific_screen.add_child(notes_section)
 
 ## Handles the app opened event from the desktop UI
 func _on_app_opened(app:GameData.App, optional_data = null) -> void:
@@ -1023,7 +1029,8 @@ func _get_app_by_enum(app_enum:GameData.App) -> Control:
 		GameData.App.LINECONNECT: line_connect,
 		GameData.App.MAZE: maze,
 		# Notes
-		GameData.App.NOTES: notes_app
+		GameData.App.NOTES: notes_app,
+		GameData.App.NOTESSECTION: notes_section,
 	}
 	return app_map.get(app_enum, null)
 
@@ -1080,6 +1087,7 @@ func _get_main_app_enum(subscreen_enum:GameData.App) -> GameData.App:
 		GameData.App.PAUSEMENU: GameData.App.PAUSEMENU,
 		
 		GameData.App.NOTES: GameData.App.NOTES,
+		GameData.App.NOTESSECTION: GameData.App.NOTES,
 	}
 	return main_app_map.get(subscreen_enum, null)
 
