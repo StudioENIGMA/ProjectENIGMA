@@ -427,6 +427,10 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 		pause_game()
 		return
 
+	# A double tap asks again for the screen it just opened, which would cover itself and hide
+	if not open_apps.is_empty() and open_apps.back()["SubScreen"] == app:
+		return
+
 	# The screen being inspected is about to be covered
 	_set_inspecting(false)
 
