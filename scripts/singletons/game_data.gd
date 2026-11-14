@@ -164,7 +164,7 @@ var random_events_history = []
 ## same day again makes the same boletos
 var run_seed: int = randi()
 
-var clock_tick_interval: float = 1.5 # Time between clock ticks in seconds
+var clock_tick_interval: float = 2.0 # Time between clock ticks in seconds, easy by default
 var start_date_dict: Dictionary # {year, month, day, weekday}
 var starting_hours_minutes:int = 480	# Start at 08:00
 var hours_minutes:int = 480 # This one will increase with time
@@ -385,12 +385,15 @@ var potential_apps_in_store: Array[App] = [App.MESSAGESHOME, App.NOTES, App.BROW
 var apps_in_store: Array[App] = [App.MESSAGESHOME, App.NOTES]
 var downloaded_apps: Array[App] = [App.MESSAGESHOME, App.NOTES]
 
-func _ready() -> void:
+# Built in _init(), not _ready(): reset_to_defaults() copies it from a fresh instance, which never
+# enters the tree, and an empty map named every screen "screen:NOTES" instead of "screen:Notes"
+func _init() -> void:
 	# Create reverse mapping for apps_name
 	for app_name in apps_name.keys():
 		var app_enum = apps_name[app_name]
 		apps_name_reverse[app_enum] = app_name
 
+func _ready() -> void:
 	# Export game data for tools (like the app icons)
 	export_game_data_for_tools()
 

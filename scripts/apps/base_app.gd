@@ -456,9 +456,7 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 	# Add app to open apps list
 	open_apps.append({"MainApp": main_app, "SubScreen": app})
 	main_app_opened.emit(main_app)
-	# The story may wait for the player to look at a screen, see GameData.seen_info
-	var screen_name: String = GameData.apps_name_reverse.get(app, GameData.App.find_key(app))
-	GameData.mark_seen("screen:%s" % screen_name)
+	_mark_screen_seen(app)
 
 	# Get specific app that should be opened
 	var specific_app = _get_app_by_enum(app)
@@ -560,6 +558,8 @@ func _on_back_button_pressed() -> void:
 		var previous_app_enum:GameData.App = previous_app_dict["SubScreen"]
 		previous_app = _get_app_by_enum(previous_app_enum)
 		previous_app.visible = true
+		# Going back to a screen counts as looking at it again, for a task waiting on that look
+		_mark_screen_seen(previous_app_enum)
 
 	# Put the current app away. If it was the last one, the whole window shrinks back into its icon,
 	# otherwise it slides out to the right and lets the screen it had covered back in
@@ -573,6 +573,11 @@ func _on_back_button_pressed() -> void:
 	# Hack minigames hide notification UI while active. Restore it when minigame closes.
 	if was_hack_minigame:
 		notification_ui.visible = true
+
+## The story may wait for the player to look at a screen, see GameData.seen_info
+func _mark_screen_seen(app: GameData.App) -> void:
+	var screen_name: String = GameData.apps_name_reverse.get(app, GameData.App.find_key(app))
+	GameData.mark_seen("screen:%s" % screen_name)
 
 ## Handles the close app button press event
 func _on_close_app_button_pressed() -> void:
