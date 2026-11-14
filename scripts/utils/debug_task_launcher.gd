@@ -164,7 +164,7 @@ func _fire(entry: Dictionary) -> void:
 	var chat_id := str(payload.get("thread_id", payload.get("conversation_id", "")))
 	if entry["random"]:
 		# As RandomnessDirector.schedule_next_event() does, so it is not picked again today
-		story.randomness_director.senders_today[chat_id] = true
+		story.randomness_director.mark_sender(payload)
 		if not GameData.random_events_history.has(event_id):
 			GameData.random_events_history.append(event_id)
 

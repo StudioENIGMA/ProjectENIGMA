@@ -130,6 +130,25 @@ func _queue_today_entry_points() -> void:
 				"requires": _combine_requires(entry_requires, first_node_requires),
 				"event_id": event_id,
 			})
+
+## Name shown for each conversation: conversation_id -> contact_name. Conversations sharing it
+## are the same person on the phone
+func get_contact_names() -> Dictionary:
+	var contact_names: Dictionary = {}
+	for conversation_id in conversations_by_id:
+		contact_names[conversation_id] = _get_contact(conversation_id)["name"]
+	return contact_names
+
+## Names of the contacts the story itself writes as today, see _queue_today_entry_points()
+func get_contact_names_of_today() -> Array:
+	var contact_names: Array = []
+	for conversation_id in conversations_by_id:
+		for entry in conversations_by_id[conversation_id].get("entry_points", []):
+			if typeof(entry) == TYPE_DICTIONARY \
+					and int(entry.get("day", -999)) == int(GameData.current_day):
+				contact_names.append(_get_contact(conversation_id)["name"])
+				break
+	return contact_names
 #endregion SCHEDULING TODAY
 
 #region DELIVERY (CALLED DOWN BY STORYDIRECTOR)

@@ -170,7 +170,9 @@ func reload_and_setup_today() -> void:
 		_drop_missing_random_events(scams_roots),
 		events_dictionary,
 		rules_array,
-		held_back_events
+		held_back_events,
+		messages_director.get_contact_names(),
+		messages_director.get_contact_names_of_today()
 	)
 	# A task held back by its bank never comes today, its sender asks for nothing
 	var tasks_coming: Array = []
